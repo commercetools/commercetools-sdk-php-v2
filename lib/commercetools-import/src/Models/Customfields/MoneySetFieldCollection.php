@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<MoneySetField>
+ * @extends CustomFieldCollection<MoneySetField>
  * @method MoneySetField current()
  * @method MoneySetField at($offset)
  */
-class MoneySetFieldCollection extends MapperSequence
+class MoneySetFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert MoneySetField $value
@@ -44,6 +44,7 @@ class MoneySetFieldCollection extends MapperSequence
         return function (int $index): ?MoneySetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MoneySetField $data */
                 $data = MoneySetFieldModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Store\StoreUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StoreSetLanguagesAction>
+ * @extends StoreUpdateActionCollection<StoreSetLanguagesAction>
  * @method StoreSetLanguagesAction current()
  * @method StoreSetLanguagesAction at($offset)
  */
-class StoreSetLanguagesActionCollection extends MapperSequence
+class StoreSetLanguagesActionCollection extends StoreUpdateActionCollection
 {
     /**
      * @psalm-assert StoreSetLanguagesAction $value
@@ -44,6 +44,7 @@ class StoreSetLanguagesActionCollection extends MapperSequence
         return function (int $index): ?StoreSetLanguagesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StoreSetLanguagesAction $data */
                 $data = StoreSetLanguagesActionModel::of($data);
                 $this->set($data, $index);
             }

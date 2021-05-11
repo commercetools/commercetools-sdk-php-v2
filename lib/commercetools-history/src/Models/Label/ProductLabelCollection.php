@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Label;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Label\LabelCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductLabel>
+ * @extends LabelCollection<ProductLabel>
  * @method ProductLabel current()
  * @method ProductLabel at($offset)
  */
-class ProductLabelCollection extends MapperSequence
+class ProductLabelCollection extends LabelCollection
 {
     /**
      * @psalm-assert ProductLabel $value
@@ -44,6 +44,7 @@ class ProductLabelCollection extends MapperSequence
         return function (int $index): ?ProductLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductLabel $data */
                 $data = ProductLabelModel::of($data);
                 $this->set($data, $index);
             }

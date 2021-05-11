@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypeResourceIdentifier>
+ * @extends ResourceIdentifierCollection<TypeResourceIdentifier>
  * @method TypeResourceIdentifier current()
  * @method TypeResourceIdentifier at($offset)
  */
-class TypeResourceIdentifierCollection extends MapperSequence
+class TypeResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert TypeResourceIdentifier $value
@@ -44,6 +44,7 @@ class TypeResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?TypeResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeResourceIdentifier $data */
                 $data = TypeResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

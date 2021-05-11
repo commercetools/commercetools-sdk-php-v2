@@ -44,6 +44,7 @@ class ExternalTaxAmountDraftCollection extends MapperSequence
         return function (int $index): ?ExternalTaxAmountDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExternalTaxAmountDraft $data */
                 $data = ExternalTaxAmountDraftModel::of($data);
                 $this->set($data, $index);
             }

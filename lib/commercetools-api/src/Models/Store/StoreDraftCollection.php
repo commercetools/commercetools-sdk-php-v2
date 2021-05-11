@@ -44,6 +44,7 @@ class StoreDraftCollection extends MapperSequence
         return function (int $index): ?StoreDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StoreDraft $data */
                 $data = StoreDraftModel::of($data);
                 $this->set($data, $index);
             }

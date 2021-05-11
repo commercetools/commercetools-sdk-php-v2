@@ -44,6 +44,7 @@ class MoneyCollection extends MapperSequence
         return function (int $index): ?Money {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Money $data */
                 $data = MoneyModel::of($data);
                 $this->set($data, $index);
             }

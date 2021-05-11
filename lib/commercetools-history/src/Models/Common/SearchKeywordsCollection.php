@@ -44,6 +44,7 @@ class SearchKeywordsCollection extends MapperSequence
         return function (int $index): ?SearchKeywords {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SearchKeywords $data */
                 $data = SearchKeywordsModel::of($data);
                 $this->set($data, $index);
             }

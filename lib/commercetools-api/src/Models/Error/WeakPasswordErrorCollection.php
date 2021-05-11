@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<WeakPasswordError>
+ * @extends ErrorObjectCollection<WeakPasswordError>
  * @method WeakPasswordError current()
  * @method WeakPasswordError at($offset)
  */
-class WeakPasswordErrorCollection extends MapperSequence
+class WeakPasswordErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert WeakPasswordError $value
@@ -44,6 +44,7 @@ class WeakPasswordErrorCollection extends MapperSequence
         return function (int $index): ?WeakPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var WeakPasswordError $data */
                 $data = WeakPasswordErrorModel::of($data);
                 $this->set($data, $index);
             }

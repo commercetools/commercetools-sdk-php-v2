@@ -44,6 +44,7 @@ class VariantValuesCollection extends MapperSequence
         return function (int $index): ?VariantValues {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var VariantValues $data */
                 $data = VariantValuesModel::of($data);
                 $this->set($data, $index);
             }

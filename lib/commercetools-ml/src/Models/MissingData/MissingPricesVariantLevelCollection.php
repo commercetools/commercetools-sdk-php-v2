@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Ml\Models\MissingData;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Ml\Models\MissingData\MissingPricesProductCountCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<MissingPricesVariantLevel>
+ * @extends MissingPricesProductCountCollection<MissingPricesVariantLevel>
  * @method MissingPricesVariantLevel current()
  * @method MissingPricesVariantLevel at($offset)
  */
-class MissingPricesVariantLevelCollection extends MapperSequence
+class MissingPricesVariantLevelCollection extends MissingPricesProductCountCollection
 {
     /**
      * @psalm-assert MissingPricesVariantLevel $value
@@ -44,6 +44,7 @@ class MissingPricesVariantLevelCollection extends MapperSequence
         return function (int $index): ?MissingPricesVariantLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingPricesVariantLevel $data */
                 $data = MissingPricesVariantLevelModel::of($data);
                 $this->set($data, $index);
             }

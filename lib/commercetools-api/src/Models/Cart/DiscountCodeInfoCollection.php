@@ -44,6 +44,7 @@ class DiscountCodeInfoCollection extends MapperSequence
         return function (int $index): ?DiscountCodeInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCodeInfo $data */
                 $data = DiscountCodeInfoModel::of($data);
                 $this->set($data, $index);
             }

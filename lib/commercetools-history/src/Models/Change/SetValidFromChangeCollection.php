@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetValidFromChange>
+ * @extends ChangeCollection<SetValidFromChange>
  * @method SetValidFromChange current()
  * @method SetValidFromChange at($offset)
  */
-class SetValidFromChangeCollection extends MapperSequence
+class SetValidFromChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetValidFromChange $value
@@ -44,6 +44,7 @@ class SetValidFromChangeCollection extends MapperSequence
         return function (int $index): ?SetValidFromChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetValidFromChange $data */
                 $data = SetValidFromChangeModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<QueryComplexityLimitExceededError>
+ * @extends ErrorObjectCollection<QueryComplexityLimitExceededError>
  * @method QueryComplexityLimitExceededError current()
  * @method QueryComplexityLimitExceededError at($offset)
  */
-class QueryComplexityLimitExceededErrorCollection extends MapperSequence
+class QueryComplexityLimitExceededErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert QueryComplexityLimitExceededError $value
@@ -44,6 +44,7 @@ class QueryComplexityLimitExceededErrorCollection extends MapperSequence
         return function (int $index): ?QueryComplexityLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var QueryComplexityLimitExceededError $data */
                 $data = QueryComplexityLimitExceededErrorModel::of($data);
                 $this->set($data, $index);
             }

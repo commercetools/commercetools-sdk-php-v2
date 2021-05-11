@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderEditResourceIdentifier>
+ * @extends ResourceIdentifierCollection<OrderEditResourceIdentifier>
  * @method OrderEditResourceIdentifier current()
  * @method OrderEditResourceIdentifier at($offset)
  */
-class OrderEditResourceIdentifierCollection extends MapperSequence
+class OrderEditResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert OrderEditResourceIdentifier $value
@@ -44,6 +44,7 @@ class OrderEditResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?OrderEditResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderEditResourceIdentifier $data */
                 $data = OrderEditResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

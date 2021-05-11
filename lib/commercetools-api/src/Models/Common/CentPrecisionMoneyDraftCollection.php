@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\TypedMoneyDraftCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CentPrecisionMoneyDraft>
+ * @extends TypedMoneyDraftCollection<CentPrecisionMoneyDraft>
  * @method CentPrecisionMoneyDraft current()
  * @method CentPrecisionMoneyDraft at($offset)
  */
-class CentPrecisionMoneyDraftCollection extends MapperSequence
+class CentPrecisionMoneyDraftCollection extends TypedMoneyDraftCollection
 {
     /**
      * @psalm-assert CentPrecisionMoneyDraft $value
@@ -44,6 +44,7 @@ class CentPrecisionMoneyDraftCollection extends MapperSequence
         return function (int $index): ?CentPrecisionMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CentPrecisionMoneyDraft $data */
                 $data = CentPrecisionMoneyDraftModel::of($data);
                 $this->set($data, $index);
             }

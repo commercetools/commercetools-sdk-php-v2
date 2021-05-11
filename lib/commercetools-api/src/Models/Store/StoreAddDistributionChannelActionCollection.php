@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Store\StoreUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StoreAddDistributionChannelAction>
+ * @extends StoreUpdateActionCollection<StoreAddDistributionChannelAction>
  * @method StoreAddDistributionChannelAction current()
  * @method StoreAddDistributionChannelAction at($offset)
  */
-class StoreAddDistributionChannelActionCollection extends MapperSequence
+class StoreAddDistributionChannelActionCollection extends StoreUpdateActionCollection
 {
     /**
      * @psalm-assert StoreAddDistributionChannelAction $value
@@ -44,6 +44,7 @@ class StoreAddDistributionChannelActionCollection extends MapperSequence
         return function (int $index): ?StoreAddDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StoreAddDistributionChannelAction $data */
                 $data = StoreAddDistributionChannelActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TaxCategoryReference>
+ * @extends ReferenceCollection<TaxCategoryReference>
  * @method TaxCategoryReference current()
  * @method TaxCategoryReference at($offset)
  */
-class TaxCategoryReferenceCollection extends MapperSequence
+class TaxCategoryReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert TaxCategoryReference $value
@@ -44,6 +44,7 @@ class TaxCategoryReferenceCollection extends MapperSequence
         return function (int $index): ?TaxCategoryReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxCategoryReference $data */
                 $data = TaxCategoryReferenceModel::of($data);
                 $this->set($data, $index);
             }

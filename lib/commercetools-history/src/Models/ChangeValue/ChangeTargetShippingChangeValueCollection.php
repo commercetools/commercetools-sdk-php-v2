@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\ChangeValue;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\ChangeValue\ChangeTargetChangeValueCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeTargetShippingChangeValue>
+ * @extends ChangeTargetChangeValueCollection<ChangeTargetShippingChangeValue>
  * @method ChangeTargetShippingChangeValue current()
  * @method ChangeTargetShippingChangeValue at($offset)
  */
-class ChangeTargetShippingChangeValueCollection extends MapperSequence
+class ChangeTargetShippingChangeValueCollection extends ChangeTargetChangeValueCollection
 {
     /**
      * @psalm-assert ChangeTargetShippingChangeValue $value
@@ -44,6 +44,7 @@ class ChangeTargetShippingChangeValueCollection extends MapperSequence
         return function (int $index): ?ChangeTargetShippingChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeTargetShippingChangeValue $data */
                 $data = ChangeTargetShippingChangeValueModel::of($data);
                 $this->set($data, $index);
             }

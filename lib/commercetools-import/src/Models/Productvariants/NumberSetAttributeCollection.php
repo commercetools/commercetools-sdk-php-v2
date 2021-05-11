@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<NumberSetAttribute>
+ * @extends AttributeCollection<NumberSetAttribute>
  * @method NumberSetAttribute current()
  * @method NumberSetAttribute at($offset)
  */
-class NumberSetAttributeCollection extends MapperSequence
+class NumberSetAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert NumberSetAttribute $value
@@ -44,6 +44,7 @@ class NumberSetAttributeCollection extends MapperSequence
         return function (int $index): ?NumberSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var NumberSetAttribute $data */
                 $data = NumberSetAttributeModel::of($data);
                 $this->set($data, $index);
             }

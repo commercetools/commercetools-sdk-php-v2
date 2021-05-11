@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\TaxCategory\TaxCategoryUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TaxCategoryChangeNameAction>
+ * @extends TaxCategoryUpdateActionCollection<TaxCategoryChangeNameAction>
  * @method TaxCategoryChangeNameAction current()
  * @method TaxCategoryChangeNameAction at($offset)
  */
-class TaxCategoryChangeNameActionCollection extends MapperSequence
+class TaxCategoryChangeNameActionCollection extends TaxCategoryUpdateActionCollection
 {
     /**
      * @psalm-assert TaxCategoryChangeNameAction $value
@@ -44,6 +44,7 @@ class TaxCategoryChangeNameActionCollection extends MapperSequence
         return function (int $index): ?TaxCategoryChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxCategoryChangeNameAction $data */
                 $data = TaxCategoryChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }

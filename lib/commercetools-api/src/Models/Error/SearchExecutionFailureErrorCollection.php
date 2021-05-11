@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SearchExecutionFailureError>
+ * @extends ErrorObjectCollection<SearchExecutionFailureError>
  * @method SearchExecutionFailureError current()
  * @method SearchExecutionFailureError at($offset)
  */
-class SearchExecutionFailureErrorCollection extends MapperSequence
+class SearchExecutionFailureErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert SearchExecutionFailureError $value
@@ -44,6 +44,7 @@ class SearchExecutionFailureErrorCollection extends MapperSequence
         return function (int $index): ?SearchExecutionFailureError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SearchExecutionFailureError $data */
                 $data = SearchExecutionFailureErrorModel::of($data);
                 $this->set($data, $index);
             }

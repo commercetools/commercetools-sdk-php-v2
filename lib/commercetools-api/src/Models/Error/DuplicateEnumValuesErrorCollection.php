@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DuplicateEnumValuesError>
+ * @extends ErrorObjectCollection<DuplicateEnumValuesError>
  * @method DuplicateEnumValuesError current()
  * @method DuplicateEnumValuesError at($offset)
  */
-class DuplicateEnumValuesErrorCollection extends MapperSequence
+class DuplicateEnumValuesErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert DuplicateEnumValuesError $value
@@ -44,6 +44,7 @@ class DuplicateEnumValuesErrorCollection extends MapperSequence
         return function (int $index): ?DuplicateEnumValuesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DuplicateEnumValuesError $data */
                 $data = DuplicateEnumValuesErrorModel::of($data);
                 $this->set($data, $index);
             }

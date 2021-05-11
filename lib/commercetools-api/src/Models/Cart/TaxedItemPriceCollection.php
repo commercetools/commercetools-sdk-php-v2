@@ -44,6 +44,7 @@ class TaxedItemPriceCollection extends MapperSequence
         return function (int $index): ?TaxedItemPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaxedItemPrice $data */
                 $data = TaxedItemPriceModel::of($data);
                 $this->set($data, $index);
             }

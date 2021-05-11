@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AnonymousIdAlreadyInUseError>
+ * @extends ErrorObjectCollection<AnonymousIdAlreadyInUseError>
  * @method AnonymousIdAlreadyInUseError current()
  * @method AnonymousIdAlreadyInUseError at($offset)
  */
-class AnonymousIdAlreadyInUseErrorCollection extends MapperSequence
+class AnonymousIdAlreadyInUseErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert AnonymousIdAlreadyInUseError $value
@@ -44,6 +44,7 @@ class AnonymousIdAlreadyInUseErrorCollection extends MapperSequence
         return function (int $index): ?AnonymousIdAlreadyInUseError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AnonymousIdAlreadyInUseError $data */
                 $data = AnonymousIdAlreadyInUseErrorModel::of($data);
                 $this->set($data, $index);
             }

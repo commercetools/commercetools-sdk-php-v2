@@ -44,6 +44,7 @@ class CustomerSignInResultCollection extends MapperSequence
         return function (int $index): ?CustomerSignInResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerSignInResult $data */
                 $data = CustomerSignInResultModel::of($data);
                 $this->set($data, $index);
             }

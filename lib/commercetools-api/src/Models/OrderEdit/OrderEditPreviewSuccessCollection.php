@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\OrderEdit\OrderEditResultCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderEditPreviewSuccess>
+ * @extends OrderEditResultCollection<OrderEditPreviewSuccess>
  * @method OrderEditPreviewSuccess current()
  * @method OrderEditPreviewSuccess at($offset)
  */
-class OrderEditPreviewSuccessCollection extends MapperSequence
+class OrderEditPreviewSuccessCollection extends OrderEditResultCollection
 {
     /**
      * @psalm-assert OrderEditPreviewSuccess $value
@@ -44,6 +44,7 @@ class OrderEditPreviewSuccessCollection extends MapperSequence
         return function (int $index): ?OrderEditPreviewSuccess {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderEditPreviewSuccess $data */
                 $data = OrderEditPreviewSuccessModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class MissingAttributesPagedQueryResultCollection extends MapperSequence
         return function (int $index): ?MissingAttributesPagedQueryResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingAttributesPagedQueryResult $data */
                 $data = MissingAttributesPagedQueryResultModel::of($data);
                 $this->set($data, $index);
             }

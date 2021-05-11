@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductDiscount\ProductDiscountValueDraftCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductDiscountValueExternalDraft>
+ * @extends ProductDiscountValueDraftCollection<ProductDiscountValueExternalDraft>
  * @method ProductDiscountValueExternalDraft current()
  * @method ProductDiscountValueExternalDraft at($offset)
  */
-class ProductDiscountValueExternalDraftCollection extends MapperSequence
+class ProductDiscountValueExternalDraftCollection extends ProductDiscountValueDraftCollection
 {
     /**
      * @psalm-assert ProductDiscountValueExternalDraft $value
@@ -44,6 +44,7 @@ class ProductDiscountValueExternalDraftCollection extends MapperSequence
         return function (int $index): ?ProductDiscountValueExternalDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductDiscountValueExternalDraft $data */
                 $data = ProductDiscountValueExternalDraftModel::of($data);
                 $this->set($data, $index);
             }

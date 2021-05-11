@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShoppingListReference>
+ * @extends ReferenceCollection<ShoppingListReference>
  * @method ShoppingListReference current()
  * @method ShoppingListReference at($offset)
  */
-class ShoppingListReferenceCollection extends MapperSequence
+class ShoppingListReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert ShoppingListReference $value
@@ -44,6 +44,7 @@ class ShoppingListReferenceCollection extends MapperSequence
         return function (int $index): ?ShoppingListReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShoppingListReference $data */
                 $data = ShoppingListReferenceModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeSortOrderChange>
+ * @extends ChangeCollection<ChangeSortOrderChange>
  * @method ChangeSortOrderChange current()
  * @method ChangeSortOrderChange at($offset)
  */
-class ChangeSortOrderChangeCollection extends MapperSequence
+class ChangeSortOrderChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert ChangeSortOrderChange $value
@@ -44,6 +44,7 @@ class ChangeSortOrderChangeCollection extends MapperSequence
         return function (int $index): ?ChangeSortOrderChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeSortOrderChange $data */
                 $data = ChangeSortOrderChangeModel::of($data);
                 $this->set($data, $index);
             }

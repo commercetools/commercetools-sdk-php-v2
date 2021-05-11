@@ -44,6 +44,7 @@ class SubscriptionPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?SubscriptionPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SubscriptionPagedQueryResponse $data */
                 $data = SubscriptionPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

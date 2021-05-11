@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<HighPrecisionMoney>
+ * @extends TypedMoneyCollection<HighPrecisionMoney>
  * @method HighPrecisionMoney current()
  * @method HighPrecisionMoney at($offset)
  */
-class HighPrecisionMoneyCollection extends MapperSequence
+class HighPrecisionMoneyCollection extends TypedMoneyCollection
 {
     /**
      * @psalm-assert HighPrecisionMoney $value
@@ -44,6 +44,7 @@ class HighPrecisionMoneyCollection extends MapperSequence
         return function (int $index): ?HighPrecisionMoney {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var HighPrecisionMoney $data */
                 $data = HighPrecisionMoneyModel::of($data);
                 $this->set($data, $index);
             }

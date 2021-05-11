@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderReference>
+ * @extends ReferenceCollection<OrderReference>
  * @method OrderReference current()
  * @method OrderReference at($offset)
  */
-class OrderReferenceCollection extends MapperSequence
+class OrderReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert OrderReference $value
@@ -44,6 +44,7 @@ class OrderReferenceCollection extends MapperSequence
         return function (int $index): ?OrderReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderReference $data */
                 $data = OrderReferenceModel::of($data);
                 $this->set($data, $index);
             }

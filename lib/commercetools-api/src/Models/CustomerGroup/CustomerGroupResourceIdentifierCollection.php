@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomerGroupResourceIdentifier>
+ * @extends ResourceIdentifierCollection<CustomerGroupResourceIdentifier>
  * @method CustomerGroupResourceIdentifier current()
  * @method CustomerGroupResourceIdentifier at($offset)
  */
-class CustomerGroupResourceIdentifierCollection extends MapperSequence
+class CustomerGroupResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert CustomerGroupResourceIdentifier $value
@@ -44,6 +44,7 @@ class CustomerGroupResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?CustomerGroupResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerGroupResourceIdentifier $data */
                 $data = CustomerGroupResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class PayloadNotIncludedCollection extends MapperSequence
         return function (int $index): ?PayloadNotIncluded {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PayloadNotIncluded $data */
                 $data = PayloadNotIncludedModel::of($data);
                 $this->set($data, $index);
             }

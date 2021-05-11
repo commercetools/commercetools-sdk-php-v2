@@ -44,6 +44,7 @@ class DeliveryChangeValueCollection extends MapperSequence
         return function (int $index): ?DeliveryChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DeliveryChangeValue $data */
                 $data = DeliveryChangeValueModel::of($data);
                 $this->set($data, $index);
             }

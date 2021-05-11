@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<TimeSetAttribute>
+ * @extends AttributeCollection<TimeSetAttribute>
  * @method TimeSetAttribute current()
  * @method TimeSetAttribute at($offset)
  */
-class TimeSetAttributeCollection extends MapperSequence
+class TimeSetAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert TimeSetAttribute $value
@@ -44,6 +44,7 @@ class TimeSetAttributeCollection extends MapperSequence
         return function (int $index): ?TimeSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TimeSetAttribute $data */
                 $data = TimeSetAttributeModel::of($data);
                 $this->set($data, $index);
             }

@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<KeyReference>
+ * @template T of KeyReference
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method KeyReference current()
  * @method KeyReference at($offset)
  */
 class KeyReferenceCollection extends MapperSequence
 {
     /**
-     * @psalm-assert KeyReference $value
-     * @psalm-param KeyReference|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return KeyReferenceCollection
@@ -37,13 +40,14 @@ class KeyReferenceCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?KeyReference
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?KeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = KeyReferenceModel::of($data);
                 $this->set($data, $index);
             }

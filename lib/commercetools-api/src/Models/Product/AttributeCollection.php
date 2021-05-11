@@ -44,6 +44,7 @@ class AttributeCollection extends MapperSequence
         return function (int $index): ?Attribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Attribute $data */
                 $data = AttributeModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ParcelCollection extends MapperSequence
         return function (int $index): ?Parcel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Parcel $data */
                 $data = ParcelModel::of($data);
                 $this->set($data, $index);
             }

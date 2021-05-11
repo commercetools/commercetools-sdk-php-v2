@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Channel\ChannelUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChannelSetGeoLocationAction>
+ * @extends ChannelUpdateActionCollection<ChannelSetGeoLocationAction>
  * @method ChannelSetGeoLocationAction current()
  * @method ChannelSetGeoLocationAction at($offset)
  */
-class ChannelSetGeoLocationActionCollection extends MapperSequence
+class ChannelSetGeoLocationActionCollection extends ChannelUpdateActionCollection
 {
     /**
      * @psalm-assert ChannelSetGeoLocationAction $value
@@ -44,6 +44,7 @@ class ChannelSetGeoLocationActionCollection extends MapperSequence
         return function (int $index): ?ChannelSetGeoLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelSetGeoLocationAction $data */
                 $data = ChannelSetGeoLocationActionModel::of($data);
                 $this->set($data, $index);
             }

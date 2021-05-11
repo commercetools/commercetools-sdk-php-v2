@@ -44,6 +44,7 @@ class TaskTokenCollection extends MapperSequence
         return function (int $index): ?TaskToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TaskToken $data */
                 $data = TaskTokenModel::of($data);
                 $this->set($data, $index);
             }

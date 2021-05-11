@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SyntaxErrorError>
+ * @extends ErrorObjectCollection<SyntaxErrorError>
  * @method SyntaxErrorError current()
  * @method SyntaxErrorError at($offset)
  */
-class SyntaxErrorErrorCollection extends MapperSequence
+class SyntaxErrorErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert SyntaxErrorError $value
@@ -44,6 +44,7 @@ class SyntaxErrorErrorCollection extends MapperSequence
         return function (int $index): ?SyntaxErrorError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SyntaxErrorError $data */
                 $data = SyntaxErrorErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ExternalLineItemTotalPriceCollection extends MapperSequence
         return function (int $index): ?ExternalLineItemTotalPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExternalLineItemTotalPrice $data */
                 $data = ExternalLineItemTotalPriceModel::of($data);
                 $this->set($data, $index);
             }

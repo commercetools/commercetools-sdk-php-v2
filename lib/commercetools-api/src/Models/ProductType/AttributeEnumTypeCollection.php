@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\AttributeTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeEnumType>
+ * @extends AttributeTypeCollection<AttributeEnumType>
  * @method AttributeEnumType current()
  * @method AttributeEnumType at($offset)
  */
-class AttributeEnumTypeCollection extends MapperSequence
+class AttributeEnumTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeEnumType $value
@@ -44,6 +44,7 @@ class AttributeEnumTypeCollection extends MapperSequence
         return function (int $index): ?AttributeEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeEnumType $data */
                 $data = AttributeEnumTypeModel::of($data);
                 $this->set($data, $index);
             }

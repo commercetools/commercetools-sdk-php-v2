@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ResourceIdentifierCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShoppingListResourceIdentifier>
+ * @extends ResourceIdentifierCollection<ShoppingListResourceIdentifier>
  * @method ShoppingListResourceIdentifier current()
  * @method ShoppingListResourceIdentifier at($offset)
  */
-class ShoppingListResourceIdentifierCollection extends MapperSequence
+class ShoppingListResourceIdentifierCollection extends ResourceIdentifierCollection
 {
     /**
      * @psalm-assert ShoppingListResourceIdentifier $value
@@ -44,6 +44,7 @@ class ShoppingListResourceIdentifierCollection extends MapperSequence
         return function (int $index): ?ShoppingListResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShoppingListResourceIdentifier $data */
                 $data = ShoppingListResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }

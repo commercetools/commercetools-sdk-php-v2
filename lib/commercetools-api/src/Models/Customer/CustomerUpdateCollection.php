@@ -44,6 +44,7 @@ class CustomerUpdateCollection extends MapperSequence
         return function (int $index): ?CustomerUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerUpdate $data */
                 $data = CustomerUpdateModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeDefinitionTypeConflictError>
+ * @extends ErrorObjectCollection<AttributeDefinitionTypeConflictError>
  * @method AttributeDefinitionTypeConflictError current()
  * @method AttributeDefinitionTypeConflictError at($offset)
  */
-class AttributeDefinitionTypeConflictErrorCollection extends MapperSequence
+class AttributeDefinitionTypeConflictErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert AttributeDefinitionTypeConflictError $value
@@ -44,6 +44,7 @@ class AttributeDefinitionTypeConflictErrorCollection extends MapperSequence
         return function (int $index): ?AttributeDefinitionTypeConflictError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeDefinitionTypeConflictError $data */
                 $data = AttributeDefinitionTypeConflictErrorModel::of($data);
                 $this->set($data, $index);
             }

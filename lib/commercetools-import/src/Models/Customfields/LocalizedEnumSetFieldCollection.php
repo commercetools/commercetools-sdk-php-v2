@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<LocalizedEnumSetField>
+ * @extends CustomFieldCollection<LocalizedEnumSetField>
  * @method LocalizedEnumSetField current()
  * @method LocalizedEnumSetField at($offset)
  */
-class LocalizedEnumSetFieldCollection extends MapperSequence
+class LocalizedEnumSetFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert LocalizedEnumSetField $value
@@ -44,6 +44,7 @@ class LocalizedEnumSetFieldCollection extends MapperSequence
         return function (int $index): ?LocalizedEnumSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizedEnumSetField $data */
                 $data = LocalizedEnumSetFieldModel::of($data);
                 $this->set($data, $index);
             }

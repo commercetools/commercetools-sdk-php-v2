@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<EnumSetAttribute>
+ * @extends AttributeCollection<EnumSetAttribute>
  * @method EnumSetAttribute current()
  * @method EnumSetAttribute at($offset)
  */
-class EnumSetAttributeCollection extends MapperSequence
+class EnumSetAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert EnumSetAttribute $value
@@ -44,6 +44,7 @@ class EnumSetAttributeCollection extends MapperSequence
         return function (int $index): ?EnumSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EnumSetAttribute $data */
                 $data = EnumSetAttributeModel::of($data);
                 $this->set($data, $index);
             }

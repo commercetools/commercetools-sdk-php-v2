@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\ProductTypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductTypeChangeAttributeConstraintAction>
+ * @extends ProductTypeUpdateActionCollection<ProductTypeChangeAttributeConstraintAction>
  * @method ProductTypeChangeAttributeConstraintAction current()
  * @method ProductTypeChangeAttributeConstraintAction at($offset)
  */
-class ProductTypeChangeAttributeConstraintActionCollection extends MapperSequence
+class ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUpdateActionCollection
 {
     /**
      * @psalm-assert ProductTypeChangeAttributeConstraintAction $value
@@ -44,6 +44,7 @@ class ProductTypeChangeAttributeConstraintActionCollection extends MapperSequenc
         return function (int $index): ?ProductTypeChangeAttributeConstraintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductTypeChangeAttributeConstraintAction $data */
                 $data = ProductTypeChangeAttributeConstraintActionModel::of($data);
                 $this->set($data, $index);
             }

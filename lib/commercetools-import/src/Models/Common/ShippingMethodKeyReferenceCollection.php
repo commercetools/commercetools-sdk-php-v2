@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShippingMethodKeyReference>
+ * @extends KeyReferenceCollection<ShippingMethodKeyReference>
  * @method ShippingMethodKeyReference current()
  * @method ShippingMethodKeyReference at($offset)
  */
-class ShippingMethodKeyReferenceCollection extends MapperSequence
+class ShippingMethodKeyReferenceCollection extends KeyReferenceCollection
 {
     /**
      * @psalm-assert ShippingMethodKeyReference $value
@@ -44,6 +44,7 @@ class ShippingMethodKeyReferenceCollection extends MapperSequence
         return function (int $index): ?ShippingMethodKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingMethodKeyReference $data */
                 $data = ShippingMethodKeyReferenceModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MaxResourceLimitExceededError>
+ * @extends ErrorObjectCollection<MaxResourceLimitExceededError>
  * @method MaxResourceLimitExceededError current()
  * @method MaxResourceLimitExceededError at($offset)
  */
-class MaxResourceLimitExceededErrorCollection extends MapperSequence
+class MaxResourceLimitExceededErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert MaxResourceLimitExceededError $value
@@ -44,6 +44,7 @@ class MaxResourceLimitExceededErrorCollection extends MapperSequence
         return function (int $index): ?MaxResourceLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MaxResourceLimitExceededError $data */
                 $data = MaxResourceLimitExceededErrorModel::of($data);
                 $this->set($data, $index);
             }

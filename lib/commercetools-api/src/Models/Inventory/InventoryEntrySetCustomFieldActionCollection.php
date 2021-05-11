@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Inventory\InventoryEntryUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InventoryEntrySetCustomFieldAction>
+ * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetCustomFieldAction>
  * @method InventoryEntrySetCustomFieldAction current()
  * @method InventoryEntrySetCustomFieldAction at($offset)
  */
-class InventoryEntrySetCustomFieldActionCollection extends MapperSequence
+class InventoryEntrySetCustomFieldActionCollection extends InventoryEntryUpdateActionCollection
 {
     /**
      * @psalm-assert InventoryEntrySetCustomFieldAction $value
@@ -44,6 +44,7 @@ class InventoryEntrySetCustomFieldActionCollection extends MapperSequence
         return function (int $index): ?InventoryEntrySetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InventoryEntrySetCustomFieldAction $data */
                 $data = InventoryEntrySetCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

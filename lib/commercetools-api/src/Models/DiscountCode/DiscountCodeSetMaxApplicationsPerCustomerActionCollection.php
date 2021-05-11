@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DiscountCodeSetMaxApplicationsPerCustomerAction>
+ * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetMaxApplicationsPerCustomerAction>
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction current()
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction at($offset)
  */
-class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends MapperSequence
+class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends DiscountCodeUpdateActionCollection
 {
     /**
      * @psalm-assert DiscountCodeSetMaxApplicationsPerCustomerAction $value
@@ -44,6 +44,7 @@ class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends MapperSe
         return function (int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCodeSetMaxApplicationsPerCustomerAction $data */
                 $data = DiscountCodeSetMaxApplicationsPerCustomerActionModel::of($data);
                 $this->set($data, $index);
             }

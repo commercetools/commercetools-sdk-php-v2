@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeType>
+ * @template T of AttributeType
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method AttributeType current()
  * @method AttributeType at($offset)
  */
 class AttributeTypeCollection extends MapperSequence
 {
     /**
-     * @psalm-assert AttributeType $value
-     * @psalm-param AttributeType|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return AttributeTypeCollection
@@ -37,13 +40,14 @@ class AttributeTypeCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?AttributeType
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?AttributeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = AttributeTypeModel::of($data);
                 $this->set($data, $index);
             }

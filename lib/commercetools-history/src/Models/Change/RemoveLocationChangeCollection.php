@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<RemoveLocationChange>
+ * @extends ChangeCollection<RemoveLocationChange>
  * @method RemoveLocationChange current()
  * @method RemoveLocationChange at($offset)
  */
-class RemoveLocationChangeCollection extends MapperSequence
+class RemoveLocationChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert RemoveLocationChange $value
@@ -44,6 +44,7 @@ class RemoveLocationChangeCollection extends MapperSequence
         return function (int $index): ?RemoveLocationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var RemoveLocationChange $data */
                 $data = RemoveLocationChangeModel::of($data);
                 $this->set($data, $index);
             }

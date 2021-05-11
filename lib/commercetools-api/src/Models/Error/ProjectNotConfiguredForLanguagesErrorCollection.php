@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectNotConfiguredForLanguagesError>
+ * @extends ErrorObjectCollection<ProjectNotConfiguredForLanguagesError>
  * @method ProjectNotConfiguredForLanguagesError current()
  * @method ProjectNotConfiguredForLanguagesError at($offset)
  */
-class ProjectNotConfiguredForLanguagesErrorCollection extends MapperSequence
+class ProjectNotConfiguredForLanguagesErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ProjectNotConfiguredForLanguagesError $value
@@ -44,6 +44,7 @@ class ProjectNotConfiguredForLanguagesErrorCollection extends MapperSequence
         return function (int $index): ?ProjectNotConfiguredForLanguagesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectNotConfiguredForLanguagesError $data */
                 $data = ProjectNotConfiguredForLanguagesErrorModel::of($data);
                 $this->set($data, $index);
             }

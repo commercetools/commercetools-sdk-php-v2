@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<EditPreviewFailedError>
+ * @extends ErrorObjectCollection<EditPreviewFailedError>
  * @method EditPreviewFailedError current()
  * @method EditPreviewFailedError at($offset)
  */
-class EditPreviewFailedErrorCollection extends MapperSequence
+class EditPreviewFailedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert EditPreviewFailedError $value
@@ -44,6 +44,7 @@ class EditPreviewFailedErrorCollection extends MapperSequence
         return function (int $index): ?EditPreviewFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EditPreviewFailedError $data */
                 $data = EditPreviewFailedErrorModel::of($data);
                 $this->set($data, $index);
             }

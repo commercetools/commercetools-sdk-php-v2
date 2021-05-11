@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StagedOrderSetOrderNumberAction>
+ * @extends StagedOrderUpdateActionCollection<StagedOrderSetOrderNumberAction>
  * @method StagedOrderSetOrderNumberAction current()
  * @method StagedOrderSetOrderNumberAction at($offset)
  */
-class StagedOrderSetOrderNumberActionCollection extends MapperSequence
+class StagedOrderSetOrderNumberActionCollection extends StagedOrderUpdateActionCollection
 {
     /**
      * @psalm-assert StagedOrderSetOrderNumberAction $value
@@ -44,6 +44,7 @@ class StagedOrderSetOrderNumberActionCollection extends MapperSequence
         return function (int $index): ?StagedOrderSetOrderNumberAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StagedOrderSetOrderNumberAction $data */
                 $data = StagedOrderSetOrderNumberActionModel::of($data);
                 $this->set($data, $index);
             }

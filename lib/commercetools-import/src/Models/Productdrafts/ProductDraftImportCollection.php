@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productdrafts;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\ImportResourceCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductDraftImport>
+ * @extends ImportResourceCollection<ProductDraftImport>
  * @method ProductDraftImport current()
  * @method ProductDraftImport at($offset)
  */
-class ProductDraftImportCollection extends MapperSequence
+class ProductDraftImportCollection extends ImportResourceCollection
 {
     /**
      * @psalm-assert ProductDraftImport $value
@@ -44,6 +44,7 @@ class ProductDraftImportCollection extends MapperSequence
         return function (int $index): ?ProductDraftImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductDraftImport $data */
                 $data = ProductDraftImportModel::of($data);
                 $this->set($data, $index);
             }

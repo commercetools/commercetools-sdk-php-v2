@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<FeatureRemovedError>
+ * @extends ErrorObjectCollection<FeatureRemovedError>
  * @method FeatureRemovedError current()
  * @method FeatureRemovedError at($offset)
  */
-class FeatureRemovedErrorCollection extends MapperSequence
+class FeatureRemovedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert FeatureRemovedError $value
@@ -44,6 +44,7 @@ class FeatureRemovedErrorCollection extends MapperSequence
         return function (int $index): ?FeatureRemovedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var FeatureRemovedError $data */
                 $data = FeatureRemovedErrorModel::of($data);
                 $this->set($data, $index);
             }

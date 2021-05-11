@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Extension\ExtensionUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionChangeTriggersAction>
+ * @extends ExtensionUpdateActionCollection<ExtensionChangeTriggersAction>
  * @method ExtensionChangeTriggersAction current()
  * @method ExtensionChangeTriggersAction at($offset)
  */
-class ExtensionChangeTriggersActionCollection extends MapperSequence
+class ExtensionChangeTriggersActionCollection extends ExtensionUpdateActionCollection
 {
     /**
      * @psalm-assert ExtensionChangeTriggersAction $value
@@ -44,6 +44,7 @@ class ExtensionChangeTriggersActionCollection extends MapperSequence
         return function (int $index): ?ExtensionChangeTriggersAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionChangeTriggersAction $data */
                 $data = ExtensionChangeTriggersActionModel::of($data);
                 $this->set($data, $index);
             }

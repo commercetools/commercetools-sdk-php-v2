@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\FieldTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomFieldMoneyType>
+ * @extends FieldTypeCollection<CustomFieldMoneyType>
  * @method CustomFieldMoneyType current()
  * @method CustomFieldMoneyType at($offset)
  */
-class CustomFieldMoneyTypeCollection extends MapperSequence
+class CustomFieldMoneyTypeCollection extends FieldTypeCollection
 {
     /**
      * @psalm-assert CustomFieldMoneyType $value
@@ -44,6 +44,7 @@ class CustomFieldMoneyTypeCollection extends MapperSequence
         return function (int $index): ?CustomFieldMoneyType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldMoneyType $data */
                 $data = CustomFieldMoneyTypeModel::of($data);
                 $this->set($data, $index);
             }

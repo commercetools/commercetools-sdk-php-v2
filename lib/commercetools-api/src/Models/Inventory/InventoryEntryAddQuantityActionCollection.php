@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Inventory\InventoryEntryUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InventoryEntryAddQuantityAction>
+ * @extends InventoryEntryUpdateActionCollection<InventoryEntryAddQuantityAction>
  * @method InventoryEntryAddQuantityAction current()
  * @method InventoryEntryAddQuantityAction at($offset)
  */
-class InventoryEntryAddQuantityActionCollection extends MapperSequence
+class InventoryEntryAddQuantityActionCollection extends InventoryEntryUpdateActionCollection
 {
     /**
      * @psalm-assert InventoryEntryAddQuantityAction $value
@@ -44,6 +44,7 @@ class InventoryEntryAddQuantityActionCollection extends MapperSequence
         return function (int $index): ?InventoryEntryAddQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InventoryEntryAddQuantityAction $data */
                 $data = InventoryEntryAddQuantityActionModel::of($data);
                 $this->set($data, $index);
             }

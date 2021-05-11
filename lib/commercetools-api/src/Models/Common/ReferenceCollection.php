@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Reference>
+ * @template T of Reference
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method Reference current()
  * @method Reference at($offset)
  */
 class ReferenceCollection extends MapperSequence
 {
     /**
-     * @psalm-assert Reference $value
-     * @psalm-param Reference|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ReferenceCollection
@@ -37,13 +40,14 @@ class ReferenceCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?Reference
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?Reference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ReferenceModel::of($data);
                 $this->set($data, $index);
             }

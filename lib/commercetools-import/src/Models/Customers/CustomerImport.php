@@ -10,7 +10,6 @@ namespace Commercetools\Import\Models\Customers;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\StoreKeyReferenceCollection;
@@ -156,7 +155,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.addresses</code>.</p>
      *
-     * @return null|AddressCollection
+     * @return null|CustomerAddressCollection
      */
     public function getAddresses();
 
@@ -278,9 +277,9 @@ interface CustomerImport extends ImportResource
     public function setCustomerGroup(?CustomerGroupKeyReference $customerGroup): void;
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?CustomerAddressCollection $addresses
      */
-    public function setAddresses(?AddressCollection $addresses): void;
+    public function setAddresses(?CustomerAddressCollection $addresses): void;
 
     /**
      * @param ?int $defaultBillingAddress

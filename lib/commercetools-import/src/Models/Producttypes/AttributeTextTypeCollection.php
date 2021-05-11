@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Producttypes\AttributeTypeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeTextType>
+ * @extends AttributeTypeCollection<AttributeTextType>
  * @method AttributeTextType current()
  * @method AttributeTextType at($offset)
  */
-class AttributeTextTypeCollection extends MapperSequence
+class AttributeTextTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeTextType $value
@@ -44,6 +44,7 @@ class AttributeTextTypeCollection extends MapperSequence
         return function (int $index): ?AttributeTextType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeTextType $data */
                 $data = AttributeTextTypeModel::of($data);
                 $this->set($data, $index);
             }

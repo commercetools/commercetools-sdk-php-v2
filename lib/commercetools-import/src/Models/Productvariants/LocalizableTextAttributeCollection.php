@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<LocalizableTextAttribute>
+ * @extends AttributeCollection<LocalizableTextAttribute>
  * @method LocalizableTextAttribute current()
  * @method LocalizableTextAttribute at($offset)
  */
-class LocalizableTextAttributeCollection extends MapperSequence
+class LocalizableTextAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert LocalizableTextAttribute $value
@@ -44,6 +44,7 @@ class LocalizableTextAttributeCollection extends MapperSequence
         return function (int $index): ?LocalizableTextAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizableTextAttribute $data */
                 $data = LocalizableTextAttributeModel::of($data);
                 $this->set($data, $index);
             }

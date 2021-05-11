@@ -44,6 +44,7 @@ class FieldDefinitionOrderValueCollection extends MapperSequence
         return function (int $index): ?FieldDefinitionOrderValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var FieldDefinitionOrderValue $data */
                 $data = FieldDefinitionOrderValueModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<RemoveAttributeDefinitionChange>
+ * @extends ChangeCollection<RemoveAttributeDefinitionChange>
  * @method RemoveAttributeDefinitionChange current()
  * @method RemoveAttributeDefinitionChange at($offset)
  */
-class RemoveAttributeDefinitionChangeCollection extends MapperSequence
+class RemoveAttributeDefinitionChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert RemoveAttributeDefinitionChange $value
@@ -44,6 +44,7 @@ class RemoveAttributeDefinitionChangeCollection extends MapperSequence
         return function (int $index): ?RemoveAttributeDefinitionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var RemoveAttributeDefinitionChange $data */
                 $data = RemoveAttributeDefinitionChangeModel::of($data);
                 $this->set($data, $index);
             }

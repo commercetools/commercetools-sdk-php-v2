@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeIsSearchableChange>
+ * @extends ChangeCollection<ChangeIsSearchableChange>
  * @method ChangeIsSearchableChange current()
  * @method ChangeIsSearchableChange at($offset)
  */
-class ChangeIsSearchableChangeCollection extends MapperSequence
+class ChangeIsSearchableChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert ChangeIsSearchableChange $value
@@ -44,6 +44,7 @@ class ChangeIsSearchableChangeCollection extends MapperSequence
         return function (int $index): ?ChangeIsSearchableChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeIsSearchableChange $data */
                 $data = ChangeIsSearchableChangeModel::of($data);
                 $this->set($data, $index);
             }

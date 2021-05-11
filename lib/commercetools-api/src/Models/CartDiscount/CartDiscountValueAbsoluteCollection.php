@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountValueAbsolute>
+ * @extends CartDiscountValueCollection<CartDiscountValueAbsolute>
  * @method CartDiscountValueAbsolute current()
  * @method CartDiscountValueAbsolute at($offset)
  */
-class CartDiscountValueAbsoluteCollection extends MapperSequence
+class CartDiscountValueAbsoluteCollection extends CartDiscountValueCollection
 {
     /**
      * @psalm-assert CartDiscountValueAbsolute $value
@@ -44,6 +44,7 @@ class CartDiscountValueAbsoluteCollection extends MapperSequence
         return function (int $index): ?CartDiscountValueAbsolute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountValueAbsolute $data */
                 $data = CartDiscountValueAbsoluteModel::of($data);
                 $this->set($data, $index);
             }

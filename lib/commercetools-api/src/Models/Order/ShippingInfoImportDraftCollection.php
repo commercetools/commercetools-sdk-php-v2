@@ -44,6 +44,7 @@ class ShippingInfoImportDraftCollection extends MapperSequence
         return function (int $index): ?ShippingInfoImportDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingInfoImportDraft $data */
                 $data = ShippingInfoImportDraftModel::of($data);
                 $this->set($data, $index);
             }

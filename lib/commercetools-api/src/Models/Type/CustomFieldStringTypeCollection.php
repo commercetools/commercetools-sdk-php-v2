@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\FieldTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomFieldStringType>
+ * @extends FieldTypeCollection<CustomFieldStringType>
  * @method CustomFieldStringType current()
  * @method CustomFieldStringType at($offset)
  */
-class CustomFieldStringTypeCollection extends MapperSequence
+class CustomFieldStringTypeCollection extends FieldTypeCollection
 {
     /**
      * @psalm-assert CustomFieldStringType $value
@@ -44,6 +44,7 @@ class CustomFieldStringTypeCollection extends MapperSequence
         return function (int $index): ?CustomFieldStringType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldStringType $data */
                 $data = CustomFieldStringTypeModel::of($data);
                 $this->set($data, $index);
             }

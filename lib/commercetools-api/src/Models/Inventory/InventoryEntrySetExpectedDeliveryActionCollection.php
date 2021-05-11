@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Inventory\InventoryEntryUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InventoryEntrySetExpectedDeliveryAction>
+ * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetExpectedDeliveryAction>
  * @method InventoryEntrySetExpectedDeliveryAction current()
  * @method InventoryEntrySetExpectedDeliveryAction at($offset)
  */
-class InventoryEntrySetExpectedDeliveryActionCollection extends MapperSequence
+class InventoryEntrySetExpectedDeliveryActionCollection extends InventoryEntryUpdateActionCollection
 {
     /**
      * @psalm-assert InventoryEntrySetExpectedDeliveryAction $value
@@ -44,6 +44,7 @@ class InventoryEntrySetExpectedDeliveryActionCollection extends MapperSequence
         return function (int $index): ?InventoryEntrySetExpectedDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InventoryEntrySetExpectedDeliveryAction $data */
                 $data = InventoryEntrySetExpectedDeliveryActionModel::of($data);
                 $this->set($data, $index);
             }

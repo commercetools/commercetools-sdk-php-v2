@@ -44,6 +44,7 @@ class MyPaymentPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?MyPaymentPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyPaymentPagedQueryResponse $data */
                 $data = MyPaymentPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

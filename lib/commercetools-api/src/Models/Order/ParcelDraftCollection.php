@@ -44,6 +44,7 @@ class ParcelDraftCollection extends MapperSequence
         return function (int $index): ?ParcelDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ParcelDraft $data */
                 $data = ParcelDraftModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Message\MessageCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReviewStateTransitionMessage>
+ * @extends MessageCollection<ReviewStateTransitionMessage>
  * @method ReviewStateTransitionMessage current()
  * @method ReviewStateTransitionMessage at($offset)
  */
-class ReviewStateTransitionMessageCollection extends MapperSequence
+class ReviewStateTransitionMessageCollection extends MessageCollection
 {
     /**
      * @psalm-assert ReviewStateTransitionMessage $value
@@ -44,6 +44,7 @@ class ReviewStateTransitionMessageCollection extends MapperSequence
         return function (int $index): ?ReviewStateTransitionMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReviewStateTransitionMessage $data */
                 $data = ReviewStateTransitionMessageModel::of($data);
                 $this->set($data, $index);
             }

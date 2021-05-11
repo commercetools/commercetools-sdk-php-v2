@@ -44,6 +44,7 @@ class SuggestionCollection extends MapperSequence
         return function (int $index): ?Suggestion {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Suggestion $data */
                 $data = SuggestionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\TypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypeChangeInputHintAction>
+ * @extends TypeUpdateActionCollection<TypeChangeInputHintAction>
  * @method TypeChangeInputHintAction current()
  * @method TypeChangeInputHintAction at($offset)
  */
-class TypeChangeInputHintActionCollection extends MapperSequence
+class TypeChangeInputHintActionCollection extends TypeUpdateActionCollection
 {
     /**
      * @psalm-assert TypeChangeInputHintAction $value
@@ -44,6 +44,7 @@ class TypeChangeInputHintActionCollection extends MapperSequence
         return function (int $index): ?TypeChangeInputHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeChangeInputHintAction $data */
                 $data = TypeChangeInputHintActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Channel\ChannelUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChannelRemoveRolesAction>
+ * @extends ChannelUpdateActionCollection<ChannelRemoveRolesAction>
  * @method ChannelRemoveRolesAction current()
  * @method ChannelRemoveRolesAction at($offset)
  */
-class ChannelRemoveRolesActionCollection extends MapperSequence
+class ChannelRemoveRolesActionCollection extends ChannelUpdateActionCollection
 {
     /**
      * @psalm-assert ChannelRemoveRolesAction $value
@@ -44,6 +44,7 @@ class ChannelRemoveRolesActionCollection extends MapperSequence
         return function (int $index): ?ChannelRemoveRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChannelRemoveRolesAction $data */
                 $data = ChannelRemoveRolesActionModel::of($data);
                 $this->set($data, $index);
             }

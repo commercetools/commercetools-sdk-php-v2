@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Extension>
+ * @extends BaseResourceCollection<Extension>
  * @method Extension current()
  * @method Extension at($offset)
  */
-class ExtensionCollection extends MapperSequence
+class ExtensionCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert Extension $value
@@ -44,6 +44,7 @@ class ExtensionCollection extends MapperSequence
         return function (int $index): ?Extension {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Extension $data */
                 $data = ExtensionModel::of($data);
                 $this->set($data, $index);
             }

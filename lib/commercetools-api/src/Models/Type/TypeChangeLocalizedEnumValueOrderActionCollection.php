@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\TypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypeChangeLocalizedEnumValueOrderAction>
+ * @extends TypeUpdateActionCollection<TypeChangeLocalizedEnumValueOrderAction>
  * @method TypeChangeLocalizedEnumValueOrderAction current()
  * @method TypeChangeLocalizedEnumValueOrderAction at($offset)
  */
-class TypeChangeLocalizedEnumValueOrderActionCollection extends MapperSequence
+class TypeChangeLocalizedEnumValueOrderActionCollection extends TypeUpdateActionCollection
 {
     /**
      * @psalm-assert TypeChangeLocalizedEnumValueOrderAction $value
@@ -44,6 +44,7 @@ class TypeChangeLocalizedEnumValueOrderActionCollection extends MapperSequence
         return function (int $index): ?TypeChangeLocalizedEnumValueOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TypeChangeLocalizedEnumValueOrderAction $data */
                 $data = TypeChangeLocalizedEnumValueOrderActionModel::of($data);
                 $this->set($data, $index);
             }

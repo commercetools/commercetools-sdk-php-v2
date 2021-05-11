@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartReference>
+ * @extends ReferenceCollection<CartReference>
  * @method CartReference current()
  * @method CartReference at($offset)
  */
-class CartReferenceCollection extends MapperSequence
+class CartReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert CartReference $value
@@ -44,6 +44,7 @@ class CartReferenceCollection extends MapperSequence
         return function (int $index): ?CartReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartReference $data */
                 $data = CartReferenceModel::of($data);
                 $this->set($data, $index);
             }

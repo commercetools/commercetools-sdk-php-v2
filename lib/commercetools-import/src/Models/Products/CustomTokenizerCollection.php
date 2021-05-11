@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Products\SuggestTokenizerCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomTokenizer>
+ * @extends SuggestTokenizerCollection<CustomTokenizer>
  * @method CustomTokenizer current()
  * @method CustomTokenizer at($offset)
  */
-class CustomTokenizerCollection extends MapperSequence
+class CustomTokenizerCollection extends SuggestTokenizerCollection
 {
     /**
      * @psalm-assert CustomTokenizer $value
@@ -44,6 +44,7 @@ class CustomTokenizerCollection extends MapperSequence
         return function (int $index): ?CustomTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomTokenizer $data */
                 $data = CustomTokenizerModel::of($data);
                 $this->set($data, $index);
             }

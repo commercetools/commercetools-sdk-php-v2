@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ConcurrentModificationError>
+ * @extends ErrorObjectCollection<ConcurrentModificationError>
  * @method ConcurrentModificationError current()
  * @method ConcurrentModificationError at($offset)
  */
-class ConcurrentModificationErrorCollection extends MapperSequence
+class ConcurrentModificationErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ConcurrentModificationError $value
@@ -44,6 +44,7 @@ class ConcurrentModificationErrorCollection extends MapperSequence
         return function (int $index): ?ConcurrentModificationError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ConcurrentModificationError $data */
                 $data = ConcurrentModificationErrorModel::of($data);
                 $this->set($data, $index);
             }

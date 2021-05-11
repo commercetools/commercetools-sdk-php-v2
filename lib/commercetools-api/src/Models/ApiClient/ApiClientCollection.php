@@ -44,6 +44,7 @@ class ApiClientCollection extends MapperSequence
         return function (int $index): ?ApiClient {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ApiClient $data */
                 $data = ApiClientModel::of($data);
                 $this->set($data, $index);
             }

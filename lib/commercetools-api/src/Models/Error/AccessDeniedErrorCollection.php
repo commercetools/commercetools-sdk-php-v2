@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AccessDeniedError>
+ * @extends ErrorObjectCollection<AccessDeniedError>
  * @method AccessDeniedError current()
  * @method AccessDeniedError at($offset)
  */
-class AccessDeniedErrorCollection extends MapperSequence
+class AccessDeniedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert AccessDeniedError $value
@@ -44,6 +44,7 @@ class AccessDeniedErrorCollection extends MapperSequence
         return function (int $index): ?AccessDeniedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AccessDeniedError $data */
                 $data = AccessDeniedErrorModel::of($data);
                 $this->set($data, $index);
             }

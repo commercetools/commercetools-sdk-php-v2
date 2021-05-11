@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Extension\ExtensionHttpDestinationAuthenticationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionAzureFunctionsAuthentication>
+ * @extends ExtensionHttpDestinationAuthenticationCollection<ExtensionAzureFunctionsAuthentication>
  * @method ExtensionAzureFunctionsAuthentication current()
  * @method ExtensionAzureFunctionsAuthentication at($offset)
  */
-class ExtensionAzureFunctionsAuthenticationCollection extends MapperSequence
+class ExtensionAzureFunctionsAuthenticationCollection extends ExtensionHttpDestinationAuthenticationCollection
 {
     /**
      * @psalm-assert ExtensionAzureFunctionsAuthentication $value
@@ -44,6 +44,7 @@ class ExtensionAzureFunctionsAuthenticationCollection extends MapperSequence
         return function (int $index): ?ExtensionAzureFunctionsAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionAzureFunctionsAuthentication $data */
                 $data = ExtensionAzureFunctionsAuthenticationModel::of($data);
                 $this->set($data, $index);
             }

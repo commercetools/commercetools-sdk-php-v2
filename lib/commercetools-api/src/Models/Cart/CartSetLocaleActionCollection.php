@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Cart\CartUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartSetLocaleAction>
+ * @extends CartUpdateActionCollection<CartSetLocaleAction>
  * @method CartSetLocaleAction current()
  * @method CartSetLocaleAction at($offset)
  */
-class CartSetLocaleActionCollection extends MapperSequence
+class CartSetLocaleActionCollection extends CartUpdateActionCollection
 {
     /**
      * @psalm-assert CartSetLocaleAction $value
@@ -44,6 +44,7 @@ class CartSetLocaleActionCollection extends MapperSequence
         return function (int $index): ?CartSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartSetLocaleAction $data */
                 $data = CartSetLocaleActionModel::of($data);
                 $this->set($data, $index);
             }

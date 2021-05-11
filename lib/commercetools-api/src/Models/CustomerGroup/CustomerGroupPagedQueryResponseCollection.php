@@ -44,6 +44,7 @@ class CustomerGroupPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?CustomerGroupPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerGroupPagedQueryResponse $data */
                 $data = CustomerGroupPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

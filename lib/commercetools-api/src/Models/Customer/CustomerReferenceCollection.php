@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomerReference>
+ * @extends ReferenceCollection<CustomerReference>
  * @method CustomerReference current()
  * @method CustomerReference at($offset)
  */
-class CustomerReferenceCollection extends MapperSequence
+class CustomerReferenceCollection extends ReferenceCollection
 {
     /**
      * @psalm-assert CustomerReference $value
@@ -44,6 +44,7 @@ class CustomerReferenceCollection extends MapperSequence
         return function (int $index): ?CustomerReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerReference $data */
                 $data = CustomerReferenceModel::of($data);
                 $this->set($data, $index);
             }

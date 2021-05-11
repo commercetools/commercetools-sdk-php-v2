@@ -44,6 +44,7 @@ class ImportOperationStatusCollection extends MapperSequence
         return function (int $index): ?ImportOperationStatus {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImportOperationStatus $data */
                 $data = ImportOperationStatusModel::of($data);
                 $this->set($data, $index);
             }

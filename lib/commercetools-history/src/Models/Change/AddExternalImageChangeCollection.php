@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AddExternalImageChange>
+ * @extends ChangeCollection<AddExternalImageChange>
  * @method AddExternalImageChange current()
  * @method AddExternalImageChange at($offset)
  */
-class AddExternalImageChangeCollection extends MapperSequence
+class AddExternalImageChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert AddExternalImageChange $value
@@ -44,6 +44,7 @@ class AddExternalImageChangeCollection extends MapperSequence
         return function (int $index): ?AddExternalImageChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AddExternalImageChange $data */
                 $data = AddExternalImageChangeModel::of($data);
                 $this->set($data, $index);
             }

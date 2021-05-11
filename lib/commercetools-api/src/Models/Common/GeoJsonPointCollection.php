@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\GeoJsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<GeoJsonPoint>
+ * @extends GeoJsonCollection<GeoJsonPoint>
  * @method GeoJsonPoint current()
  * @method GeoJsonPoint at($offset)
  */
-class GeoJsonPointCollection extends MapperSequence
+class GeoJsonPointCollection extends GeoJsonCollection
 {
     /**
      * @psalm-assert GeoJsonPoint $value
@@ -44,6 +44,7 @@ class GeoJsonPointCollection extends MapperSequence
         return function (int $index): ?GeoJsonPoint {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var GeoJsonPoint $data */
                 $data = GeoJsonPointModel::of($data);
                 $this->set($data, $index);
             }

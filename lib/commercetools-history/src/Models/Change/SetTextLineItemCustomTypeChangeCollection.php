@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetTextLineItemCustomTypeChange>
+ * @extends ChangeCollection<SetTextLineItemCustomTypeChange>
  * @method SetTextLineItemCustomTypeChange current()
  * @method SetTextLineItemCustomTypeChange at($offset)
  */
-class SetTextLineItemCustomTypeChangeCollection extends MapperSequence
+class SetTextLineItemCustomTypeChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetTextLineItemCustomTypeChange $value
@@ -44,6 +44,7 @@ class SetTextLineItemCustomTypeChangeCollection extends MapperSequence
         return function (int $index): ?SetTextLineItemCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetTextLineItemCustomTypeChange $data */
                 $data = SetTextLineItemCustomTypeChangeModel::of($data);
                 $this->set($data, $index);
             }

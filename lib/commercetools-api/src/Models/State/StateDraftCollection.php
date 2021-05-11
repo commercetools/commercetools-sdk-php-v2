@@ -44,6 +44,7 @@ class StateDraftCollection extends MapperSequence
         return function (int $index): ?StateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StateDraft $data */
                 $data = StateDraftModel::of($data);
                 $this->set($data, $index);
             }

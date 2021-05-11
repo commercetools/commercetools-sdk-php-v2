@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetLocaleChange>
+ * @extends ChangeCollection<SetLocaleChange>
  * @method SetLocaleChange current()
  * @method SetLocaleChange at($offset)
  */
-class SetLocaleChangeCollection extends MapperSequence
+class SetLocaleChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetLocaleChange $value
@@ -44,6 +44,7 @@ class SetLocaleChangeCollection extends MapperSequence
         return function (int $index): ?SetLocaleChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetLocaleChange $data */
                 $data = SetLocaleChangeModel::of($data);
                 $this->set($data, $index);
             }

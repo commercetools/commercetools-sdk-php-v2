@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DestinationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AzureServiceBusDestination>
+ * @extends DestinationCollection<AzureServiceBusDestination>
  * @method AzureServiceBusDestination current()
  * @method AzureServiceBusDestination at($offset)
  */
-class AzureServiceBusDestinationCollection extends MapperSequence
+class AzureServiceBusDestinationCollection extends DestinationCollection
 {
     /**
      * @psalm-assert AzureServiceBusDestination $value
@@ -44,6 +44,7 @@ class AzureServiceBusDestinationCollection extends MapperSequence
         return function (int $index): ?AzureServiceBusDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AzureServiceBusDestination $data */
                 $data = AzureServiceBusDestinationModel::of($data);
                 $this->set($data, $index);
             }

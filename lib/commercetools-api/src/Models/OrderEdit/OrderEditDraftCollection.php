@@ -44,6 +44,7 @@ class OrderEditDraftCollection extends MapperSequence
         return function (int $index): ?OrderEditDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderEditDraft $data */
                 $data = OrderEditDraftModel::of($data);
                 $this->set($data, $index);
             }

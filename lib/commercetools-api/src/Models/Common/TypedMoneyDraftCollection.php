@@ -8,20 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\MoneyCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<TypedMoneyDraft>
+ * @template T of TypedMoneyDraft
+ * @extends MoneyCollection<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method TypedMoneyDraft current()
  * @method TypedMoneyDraft at($offset)
  */
-class TypedMoneyDraftCollection extends MapperSequence
+class TypedMoneyDraftCollection extends MoneyCollection
 {
     /**
-     * @psalm-assert TypedMoneyDraft $value
-     * @psalm-param TypedMoneyDraft|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return TypedMoneyDraftCollection
@@ -37,13 +40,14 @@ class TypedMoneyDraftCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?TypedMoneyDraft
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?TypedMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = TypedMoneyDraftModel::of($data);
                 $this->set($data, $index);
             }

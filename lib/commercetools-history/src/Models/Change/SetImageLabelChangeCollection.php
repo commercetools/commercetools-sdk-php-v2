@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetImageLabelChange>
+ * @extends ChangeCollection<SetImageLabelChange>
  * @method SetImageLabelChange current()
  * @method SetImageLabelChange at($offset)
  */
-class SetImageLabelChangeCollection extends MapperSequence
+class SetImageLabelChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetImageLabelChange $value
@@ -44,6 +44,7 @@ class SetImageLabelChangeCollection extends MapperSequence
         return function (int $index): ?SetImageLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetImageLabelChange $data */
                 $data = SetImageLabelChangeModel::of($data);
                 $this->set($data, $index);
             }

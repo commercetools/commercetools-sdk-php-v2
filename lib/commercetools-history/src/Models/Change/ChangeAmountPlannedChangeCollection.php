@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeAmountPlannedChange>
+ * @extends ChangeCollection<ChangeAmountPlannedChange>
  * @method ChangeAmountPlannedChange current()
  * @method ChangeAmountPlannedChange at($offset)
  */
-class ChangeAmountPlannedChangeCollection extends MapperSequence
+class ChangeAmountPlannedChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert ChangeAmountPlannedChange $value
@@ -44,6 +44,7 @@ class ChangeAmountPlannedChangeCollection extends MapperSequence
         return function (int $index): ?ChangeAmountPlannedChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeAmountPlannedChange $data */
                 $data = ChangeAmountPlannedChangeModel::of($data);
                 $this->set($data, $index);
             }

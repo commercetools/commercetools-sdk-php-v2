@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DuplicateFieldError>
+ * @extends ErrorObjectCollection<DuplicateFieldError>
  * @method DuplicateFieldError current()
  * @method DuplicateFieldError at($offset)
  */
-class DuplicateFieldErrorCollection extends MapperSequence
+class DuplicateFieldErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert DuplicateFieldError $value
@@ -44,6 +44,7 @@ class DuplicateFieldErrorCollection extends MapperSequence
         return function (int $index): ?DuplicateFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DuplicateFieldError $data */
                 $data = DuplicateFieldErrorModel::of($data);
                 $this->set($data, $index);
             }

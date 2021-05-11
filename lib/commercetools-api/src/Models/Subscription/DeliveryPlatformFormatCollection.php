@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DeliveryFormatCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DeliveryPlatformFormat>
+ * @extends DeliveryFormatCollection<DeliveryPlatformFormat>
  * @method DeliveryPlatformFormat current()
  * @method DeliveryPlatformFormat at($offset)
  */
-class DeliveryPlatformFormatCollection extends MapperSequence
+class DeliveryPlatformFormatCollection extends DeliveryFormatCollection
 {
     /**
      * @psalm-assert DeliveryPlatformFormat $value
@@ -44,6 +44,7 @@ class DeliveryPlatformFormatCollection extends MapperSequence
         return function (int $index): ?DeliveryPlatformFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DeliveryPlatformFormat $data */
                 $data = DeliveryPlatformFormatModel::of($data);
                 $this->set($data, $index);
             }

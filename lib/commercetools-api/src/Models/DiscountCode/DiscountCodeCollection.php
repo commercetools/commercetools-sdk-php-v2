@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DiscountCode>
+ * @extends BaseResourceCollection<DiscountCode>
  * @method DiscountCode current()
  * @method DiscountCode at($offset)
  */
-class DiscountCodeCollection extends MapperSequence
+class DiscountCodeCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert DiscountCode $value
@@ -44,6 +44,7 @@ class DiscountCodeCollection extends MapperSequence
         return function (int $index): ?DiscountCode {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCode $data */
                 $data = DiscountCodeModel::of($data);
                 $this->set($data, $index);
             }

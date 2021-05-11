@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Importrequests;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Importrequests\ImportRequestCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<OrderImportRequest>
+ * @extends ImportRequestCollection<OrderImportRequest>
  * @method OrderImportRequest current()
  * @method OrderImportRequest at($offset)
  */
-class OrderImportRequestCollection extends MapperSequence
+class OrderImportRequestCollection extends ImportRequestCollection
 {
     /**
      * @psalm-assert OrderImportRequest $value
@@ -44,6 +44,7 @@ class OrderImportRequestCollection extends MapperSequence
         return function (int $index): ?OrderImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderImportRequest $data */
                 $data = OrderImportRequestModel::of($data);
                 $this->set($data, $index);
             }

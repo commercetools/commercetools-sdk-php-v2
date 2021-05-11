@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\AttributeTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeBooleanType>
+ * @extends AttributeTypeCollection<AttributeBooleanType>
  * @method AttributeBooleanType current()
  * @method AttributeBooleanType at($offset)
  */
-class AttributeBooleanTypeCollection extends MapperSequence
+class AttributeBooleanTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeBooleanType $value
@@ -44,6 +44,7 @@ class AttributeBooleanTypeCollection extends MapperSequence
         return function (int $index): ?AttributeBooleanType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeBooleanType $data */
                 $data = AttributeBooleanTypeModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Type>
+ * @extends BaseResourceCollection<Type>
  * @method Type current()
  * @method Type at($offset)
  */
-class TypeCollection extends MapperSequence
+class TypeCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert Type $value
@@ -44,6 +44,7 @@ class TypeCollection extends MapperSequence
         return function (int $index): ?Type {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Type $data */
                 $data = TypeModel::of($data);
                 $this->set($data, $index);
             }

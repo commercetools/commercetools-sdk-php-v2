@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectChangeMessagesConfigurationAction>
+ * @extends ProjectUpdateActionCollection<ProjectChangeMessagesConfigurationAction>
  * @method ProjectChangeMessagesConfigurationAction current()
  * @method ProjectChangeMessagesConfigurationAction at($offset)
  */
-class ProjectChangeMessagesConfigurationActionCollection extends MapperSequence
+class ProjectChangeMessagesConfigurationActionCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectChangeMessagesConfigurationAction $value
@@ -44,6 +44,7 @@ class ProjectChangeMessagesConfigurationActionCollection extends MapperSequence
         return function (int $index): ?ProjectChangeMessagesConfigurationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectChangeMessagesConfigurationAction $data */
                 $data = ProjectChangeMessagesConfigurationActionModel::of($data);
                 $this->set($data, $index);
             }

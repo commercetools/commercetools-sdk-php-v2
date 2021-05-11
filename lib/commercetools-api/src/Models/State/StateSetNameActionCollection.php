@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\State\StateUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StateSetNameAction>
+ * @extends StateUpdateActionCollection<StateSetNameAction>
  * @method StateSetNameAction current()
  * @method StateSetNameAction at($offset)
  */
-class StateSetNameActionCollection extends MapperSequence
+class StateSetNameActionCollection extends StateUpdateActionCollection
 {
     /**
      * @psalm-assert StateSetNameAction $value
@@ -44,6 +44,7 @@ class StateSetNameActionCollection extends MapperSequence
         return function (int $index): ?StateSetNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StateSetNameAction $data */
                 $data = StateSetNameActionModel::of($data);
                 $this->set($data, $index);
             }

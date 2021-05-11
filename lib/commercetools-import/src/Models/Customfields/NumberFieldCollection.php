@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<NumberField>
+ * @extends CustomFieldCollection<NumberField>
  * @method NumberField current()
  * @method NumberField at($offset)
  */
-class NumberFieldCollection extends MapperSequence
+class NumberFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert NumberField $value
@@ -44,6 +44,7 @@ class NumberFieldCollection extends MapperSequence
         return function (int $index): ?NumberField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var NumberField $data */
                 $data = NumberFieldModel::of($data);
                 $this->set($data, $index);
             }

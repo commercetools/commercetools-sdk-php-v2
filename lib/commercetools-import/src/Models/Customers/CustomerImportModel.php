@@ -12,7 +12,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
@@ -109,7 +108,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     protected $customerGroup;
 
     /**
-     * @var ?AddressCollection
+     * @var ?CustomerAddressCollection
      */
     protected $addresses;
 
@@ -164,7 +163,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
         ?string $vatId = null,
         ?bool $isEmailVerified = null,
         ?CustomerGroupKeyReference $customerGroup = null,
-        ?AddressCollection $addresses = null,
+        ?CustomerAddressCollection $addresses = null,
         ?int $defaultBillingAddress = null,
         ?array $billingAddresses = null,
         ?int $defaultShippingAddress = null,
@@ -513,7 +512,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.addresses</code>.</p>
      *
-     * @return null|AddressCollection
+     * @return null|CustomerAddressCollection
      */
     public function getAddresses()
     {
@@ -523,7 +522,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
             if (is_null($data)) {
                 return null;
             }
-            $this->addresses = AddressCollection::fromArray($data);
+            $this->addresses = CustomerAddressCollection::fromArray($data);
         }
 
         return $this->addresses;
@@ -774,9 +773,9 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?CustomerAddressCollection $addresses
      */
-    public function setAddresses(?AddressCollection $addresses): void
+    public function setAddresses(?CustomerAddressCollection $addresses): void
     {
         $this->addresses = $addresses;
     }

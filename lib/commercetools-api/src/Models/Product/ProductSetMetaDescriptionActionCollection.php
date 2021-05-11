@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductSetMetaDescriptionAction>
+ * @extends ProductUpdateActionCollection<ProductSetMetaDescriptionAction>
  * @method ProductSetMetaDescriptionAction current()
  * @method ProductSetMetaDescriptionAction at($offset)
  */
-class ProductSetMetaDescriptionActionCollection extends MapperSequence
+class ProductSetMetaDescriptionActionCollection extends ProductUpdateActionCollection
 {
     /**
      * @psalm-assert ProductSetMetaDescriptionAction $value
@@ -44,6 +44,7 @@ class ProductSetMetaDescriptionActionCollection extends MapperSequence
         return function (int $index): ?ProductSetMetaDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductSetMetaDescriptionAction $data */
                 $data = ProductSetMetaDescriptionActionModel::of($data);
                 $this->set($data, $index);
             }

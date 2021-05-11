@@ -44,6 +44,7 @@ class InventoryEntryDraftCollection extends MapperSequence
         return function (int $index): ?InventoryEntryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InventoryEntryDraft $data */
                 $data = InventoryEntryDraftModel::of($data);
                 $this->set($data, $index);
             }

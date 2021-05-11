@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<BaseAddress>
+ * @template T of BaseAddress
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method BaseAddress current()
  * @method BaseAddress at($offset)
  */
 class BaseAddressCollection extends MapperSequence
 {
     /**
-     * @psalm-assert BaseAddress $value
-     * @psalm-param BaseAddress|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return BaseAddressCollection
@@ -37,13 +40,14 @@ class BaseAddressCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?BaseAddress
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?BaseAddress {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = BaseAddressModel::of($data);
                 $this->set($data, $index);
             }

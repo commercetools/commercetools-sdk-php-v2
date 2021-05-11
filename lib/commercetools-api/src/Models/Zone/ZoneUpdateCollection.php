@@ -44,6 +44,7 @@ class ZoneUpdateCollection extends MapperSequence
         return function (int $index): ?ZoneUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ZoneUpdate $data */
                 $data = ZoneUpdateModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ImageCollection extends MapperSequence
         return function (int $index): ?Image {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Image $data */
                 $data = ImageModel::of($data);
                 $this->set($data, $index);
             }

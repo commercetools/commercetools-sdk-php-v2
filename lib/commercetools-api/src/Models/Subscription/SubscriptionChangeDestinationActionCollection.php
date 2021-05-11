@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\SubscriptionUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SubscriptionChangeDestinationAction>
+ * @extends SubscriptionUpdateActionCollection<SubscriptionChangeDestinationAction>
  * @method SubscriptionChangeDestinationAction current()
  * @method SubscriptionChangeDestinationAction at($offset)
  */
-class SubscriptionChangeDestinationActionCollection extends MapperSequence
+class SubscriptionChangeDestinationActionCollection extends SubscriptionUpdateActionCollection
 {
     /**
      * @psalm-assert SubscriptionChangeDestinationAction $value
@@ -44,6 +44,7 @@ class SubscriptionChangeDestinationActionCollection extends MapperSequence
         return function (int $index): ?SubscriptionChangeDestinationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SubscriptionChangeDestinationAction $data */
                 $data = SubscriptionChangeDestinationActionModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class MessageSubscriptionCollection extends MapperSequence
         return function (int $index): ?MessageSubscription {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MessageSubscription $data */
                 $data = MessageSubscriptionModel::of($data);
                 $this->set($data, $index);
             }

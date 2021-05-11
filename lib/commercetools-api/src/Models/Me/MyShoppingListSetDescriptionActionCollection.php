@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Me\MyShoppingListUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MyShoppingListSetDescriptionAction>
+ * @extends MyShoppingListUpdateActionCollection<MyShoppingListSetDescriptionAction>
  * @method MyShoppingListSetDescriptionAction current()
  * @method MyShoppingListSetDescriptionAction at($offset)
  */
-class MyShoppingListSetDescriptionActionCollection extends MapperSequence
+class MyShoppingListSetDescriptionActionCollection extends MyShoppingListUpdateActionCollection
 {
     /**
      * @psalm-assert MyShoppingListSetDescriptionAction $value
@@ -44,6 +44,7 @@ class MyShoppingListSetDescriptionActionCollection extends MapperSequence
         return function (int $index): ?MyShoppingListSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyShoppingListSetDescriptionAction $data */
                 $data = MyShoppingListSetDescriptionActionModel::of($data);
                 $this->set($data, $index);
             }

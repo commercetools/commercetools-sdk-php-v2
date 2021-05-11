@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SuggestTokenizer>
+ * @template T of SuggestTokenizer
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method SuggestTokenizer current()
  * @method SuggestTokenizer at($offset)
  */
 class SuggestTokenizerCollection extends MapperSequence
 {
     /**
-     * @psalm-assert SuggestTokenizer $value
-     * @psalm-param SuggestTokenizer|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return SuggestTokenizerCollection
@@ -37,13 +40,14 @@ class SuggestTokenizerCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?SuggestTokenizer
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?SuggestTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = SuggestTokenizerModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExternalOAuthFailedError>
+ * @extends ErrorObjectCollection<ExternalOAuthFailedError>
  * @method ExternalOAuthFailedError current()
  * @method ExternalOAuthFailedError at($offset)
  */
-class ExternalOAuthFailedErrorCollection extends MapperSequence
+class ExternalOAuthFailedErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ExternalOAuthFailedError $value
@@ -44,6 +44,7 @@ class ExternalOAuthFailedErrorCollection extends MapperSequence
         return function (int $index): ?ExternalOAuthFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExternalOAuthFailedError $data */
                 $data = ExternalOAuthFailedErrorModel::of($data);
                 $this->set($data, $index);
             }

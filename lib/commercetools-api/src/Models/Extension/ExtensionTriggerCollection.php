@@ -44,6 +44,7 @@ class ExtensionTriggerCollection extends MapperSequence
         return function (int $index): ?ExtensionTrigger {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionTrigger $data */
                 $data = ExtensionTriggerModel::of($data);
                 $this->set($data, $index);
             }

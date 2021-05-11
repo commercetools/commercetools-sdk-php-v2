@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\AttributeTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeTimeType>
+ * @extends AttributeTypeCollection<AttributeTimeType>
  * @method AttributeTimeType current()
  * @method AttributeTimeType at($offset)
  */
-class AttributeTimeTypeCollection extends MapperSequence
+class AttributeTimeTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeTimeType $value
@@ -44,6 +44,7 @@ class AttributeTimeTypeCollection extends MapperSequence
         return function (int $index): ?AttributeTimeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeTimeType $data */
                 $data = AttributeTimeTypeModel::of($data);
                 $this->set($data, $index);
             }

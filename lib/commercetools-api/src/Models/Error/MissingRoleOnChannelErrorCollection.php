@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MissingRoleOnChannelError>
+ * @extends ErrorObjectCollection<MissingRoleOnChannelError>
  * @method MissingRoleOnChannelError current()
  * @method MissingRoleOnChannelError at($offset)
  */
-class MissingRoleOnChannelErrorCollection extends MapperSequence
+class MissingRoleOnChannelErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert MissingRoleOnChannelError $value
@@ -44,6 +44,7 @@ class MissingRoleOnChannelErrorCollection extends MapperSequence
         return function (int $index): ?MissingRoleOnChannelError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingRoleOnChannelError $data */
                 $data = MissingRoleOnChannelErrorModel::of($data);
                 $this->set($data, $index);
             }

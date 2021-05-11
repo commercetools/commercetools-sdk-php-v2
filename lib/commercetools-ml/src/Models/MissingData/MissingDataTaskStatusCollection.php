@@ -44,6 +44,7 @@ class MissingDataTaskStatusCollection extends MapperSequence
         return function (int $index): ?MissingDataTaskStatus {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingDataTaskStatus $data */
                 $data = MissingDataTaskStatusModel::of($data);
                 $this->set($data, $index);
             }

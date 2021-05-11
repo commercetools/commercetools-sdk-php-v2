@@ -44,6 +44,7 @@ class ReservationCollection extends MapperSequence
         return function (int $index): ?Reservation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Reservation $data */
                 $data = ReservationModel::of($data);
                 $this->set($data, $index);
             }

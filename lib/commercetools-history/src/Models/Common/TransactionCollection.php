@@ -44,6 +44,7 @@ class TransactionCollection extends MapperSequence
         return function (int $index): ?Transaction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Transaction $data */
                 $data = TransactionModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeNameDoesNotExistError>
+ * @extends ErrorObjectCollection<AttributeNameDoesNotExistError>
  * @method AttributeNameDoesNotExistError current()
  * @method AttributeNameDoesNotExistError at($offset)
  */
-class AttributeNameDoesNotExistErrorCollection extends MapperSequence
+class AttributeNameDoesNotExistErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert AttributeNameDoesNotExistError $value
@@ -44,6 +44,7 @@ class AttributeNameDoesNotExistErrorCollection extends MapperSequence
         return function (int $index): ?AttributeNameDoesNotExistError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeNameDoesNotExistError $data */
                 $data = AttributeNameDoesNotExistErrorModel::of($data);
                 $this->set($data, $index);
             }

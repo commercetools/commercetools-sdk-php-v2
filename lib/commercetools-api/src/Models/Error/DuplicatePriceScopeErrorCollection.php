@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DuplicatePriceScopeError>
+ * @extends ErrorObjectCollection<DuplicatePriceScopeError>
  * @method DuplicatePriceScopeError current()
  * @method DuplicatePriceScopeError at($offset)
  */
-class DuplicatePriceScopeErrorCollection extends MapperSequence
+class DuplicatePriceScopeErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert DuplicatePriceScopeError $value
@@ -44,6 +44,7 @@ class DuplicatePriceScopeErrorCollection extends MapperSequence
         return function (int $index): ?DuplicatePriceScopeError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DuplicatePriceScopeError $data */
                 $data = DuplicatePriceScopeErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<EnumField>
+ * @extends CustomFieldCollection<EnumField>
  * @method EnumField current()
  * @method EnumField at($offset)
  */
-class EnumFieldCollection extends MapperSequence
+class EnumFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert EnumField $value
@@ -44,6 +44,7 @@ class EnumFieldCollection extends MapperSequence
         return function (int $index): ?EnumField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EnumField $data */
                 $data = EnumFieldModel::of($data);
                 $this->set($data, $index);
             }

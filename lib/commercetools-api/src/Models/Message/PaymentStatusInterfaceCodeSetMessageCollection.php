@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Message\MessageCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<PaymentStatusInterfaceCodeSetMessage>
+ * @extends MessageCollection<PaymentStatusInterfaceCodeSetMessage>
  * @method PaymentStatusInterfaceCodeSetMessage current()
  * @method PaymentStatusInterfaceCodeSetMessage at($offset)
  */
-class PaymentStatusInterfaceCodeSetMessageCollection extends MapperSequence
+class PaymentStatusInterfaceCodeSetMessageCollection extends MessageCollection
 {
     /**
      * @psalm-assert PaymentStatusInterfaceCodeSetMessage $value
@@ -44,6 +44,7 @@ class PaymentStatusInterfaceCodeSetMessageCollection extends MapperSequence
         return function (int $index): ?PaymentStatusInterfaceCodeSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PaymentStatusInterfaceCodeSetMessage $data */
                 $data = PaymentStatusInterfaceCodeSetMessageModel::of($data);
                 $this->set($data, $index);
             }

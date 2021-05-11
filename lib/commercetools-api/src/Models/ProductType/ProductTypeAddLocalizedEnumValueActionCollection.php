@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\ProductTypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductTypeAddLocalizedEnumValueAction>
+ * @extends ProductTypeUpdateActionCollection<ProductTypeAddLocalizedEnumValueAction>
  * @method ProductTypeAddLocalizedEnumValueAction current()
  * @method ProductTypeAddLocalizedEnumValueAction at($offset)
  */
-class ProductTypeAddLocalizedEnumValueActionCollection extends MapperSequence
+class ProductTypeAddLocalizedEnumValueActionCollection extends ProductTypeUpdateActionCollection
 {
     /**
      * @psalm-assert ProductTypeAddLocalizedEnumValueAction $value
@@ -44,6 +44,7 @@ class ProductTypeAddLocalizedEnumValueActionCollection extends MapperSequence
         return function (int $index): ?ProductTypeAddLocalizedEnumValueAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductTypeAddLocalizedEnumValueAction $data */
                 $data = ProductTypeAddLocalizedEnumValueActionModel::of($data);
                 $this->set($data, $index);
             }

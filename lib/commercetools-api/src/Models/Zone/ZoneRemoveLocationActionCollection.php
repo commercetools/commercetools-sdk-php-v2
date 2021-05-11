@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Zone\ZoneUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ZoneRemoveLocationAction>
+ * @extends ZoneUpdateActionCollection<ZoneRemoveLocationAction>
  * @method ZoneRemoveLocationAction current()
  * @method ZoneRemoveLocationAction at($offset)
  */
-class ZoneRemoveLocationActionCollection extends MapperSequence
+class ZoneRemoveLocationActionCollection extends ZoneUpdateActionCollection
 {
     /**
      * @psalm-assert ZoneRemoveLocationAction $value
@@ -44,6 +44,7 @@ class ZoneRemoveLocationActionCollection extends MapperSequence
         return function (int $index): ?ZoneRemoveLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ZoneRemoveLocationAction $data */
                 $data = ZoneRemoveLocationActionModel::of($data);
                 $this->set($data, $index);
             }

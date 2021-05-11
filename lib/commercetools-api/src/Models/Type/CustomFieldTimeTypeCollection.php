@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\FieldTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomFieldTimeType>
+ * @extends FieldTypeCollection<CustomFieldTimeType>
  * @method CustomFieldTimeType current()
  * @method CustomFieldTimeType at($offset)
  */
-class CustomFieldTimeTypeCollection extends MapperSequence
+class CustomFieldTimeTypeCollection extends FieldTypeCollection
 {
     /**
      * @psalm-assert CustomFieldTimeType $value
@@ -44,6 +44,7 @@ class CustomFieldTimeTypeCollection extends MapperSequence
         return function (int $index): ?CustomFieldTimeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldTimeType $data */
                 $data = CustomFieldTimeTypeModel::of($data);
                 $this->set($data, $index);
             }

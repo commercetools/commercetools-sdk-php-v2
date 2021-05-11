@@ -8,20 +8,23 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Message>
+ * @template T of Message
+ * @extends BaseResourceCollection<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method Message current()
  * @method Message at($offset)
  */
-class MessageCollection extends MapperSequence
+class MessageCollection extends BaseResourceCollection
 {
     /**
-     * @psalm-assert Message $value
-     * @psalm-param Message|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return MessageCollection
@@ -37,13 +40,14 @@ class MessageCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?Message
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?Message {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = MessageModel::of($data);
                 $this->set($data, $index);
             }

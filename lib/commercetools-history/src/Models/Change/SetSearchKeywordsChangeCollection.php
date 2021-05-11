@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetSearchKeywordsChange>
+ * @extends ChangeCollection<SetSearchKeywordsChange>
  * @method SetSearchKeywordsChange current()
  * @method SetSearchKeywordsChange at($offset)
  */
-class SetSearchKeywordsChangeCollection extends MapperSequence
+class SetSearchKeywordsChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetSearchKeywordsChange $value
@@ -44,6 +44,7 @@ class SetSearchKeywordsChangeCollection extends MapperSequence
         return function (int $index): ?SetSearchKeywordsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetSearchKeywordsChange $data */
                 $data = SetSearchKeywordsChangeModel::of($data);
                 $this->set($data, $index);
             }

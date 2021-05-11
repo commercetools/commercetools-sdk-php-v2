@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionDestination>
+ * @template T of ExtensionDestination
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method ExtensionDestination current()
  * @method ExtensionDestination at($offset)
  */
 class ExtensionDestinationCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ExtensionDestination $value
-     * @psalm-param ExtensionDestination|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ExtensionDestinationCollection
@@ -37,13 +40,14 @@ class ExtensionDestinationCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ExtensionDestination
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?ExtensionDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = ExtensionDestinationModel::of($data);
                 $this->set($data, $index);
             }

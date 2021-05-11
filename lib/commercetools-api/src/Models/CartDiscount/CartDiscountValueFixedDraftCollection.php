@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueDraftCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountValueFixedDraft>
+ * @extends CartDiscountValueDraftCollection<CartDiscountValueFixedDraft>
  * @method CartDiscountValueFixedDraft current()
  * @method CartDiscountValueFixedDraft at($offset)
  */
-class CartDiscountValueFixedDraftCollection extends MapperSequence
+class CartDiscountValueFixedDraftCollection extends CartDiscountValueDraftCollection
 {
     /**
      * @psalm-assert CartDiscountValueFixedDraft $value
@@ -44,6 +44,7 @@ class CartDiscountValueFixedDraftCollection extends MapperSequence
         return function (int $index): ?CartDiscountValueFixedDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountValueFixedDraft $data */
                 $data = CartDiscountValueFixedDraftModel::of($data);
                 $this->set($data, $index);
             }

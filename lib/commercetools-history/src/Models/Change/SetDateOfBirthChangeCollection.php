@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetDateOfBirthChange>
+ * @extends ChangeCollection<SetDateOfBirthChange>
  * @method SetDateOfBirthChange current()
  * @method SetDateOfBirthChange at($offset)
  */
-class SetDateOfBirthChangeCollection extends MapperSequence
+class SetDateOfBirthChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetDateOfBirthChange $value
@@ -44,6 +44,7 @@ class SetDateOfBirthChangeCollection extends MapperSequence
         return function (int $index): ?SetDateOfBirthChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetDateOfBirthChange $data */
                 $data = SetDateOfBirthChangeModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ProjectCategoryRecommendationPagedQueryResponseCollection extends MapperSe
         return function (int $index): ?ProjectCategoryRecommendationPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectCategoryRecommendationPagedQueryResponse $data */
                 $data = ProjectCategoryRecommendationPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

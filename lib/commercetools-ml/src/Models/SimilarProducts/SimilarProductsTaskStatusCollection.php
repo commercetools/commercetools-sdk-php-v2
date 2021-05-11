@@ -44,6 +44,7 @@ class SimilarProductsTaskStatusCollection extends MapperSequence
         return function (int $index): ?SimilarProductsTaskStatus {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SimilarProductsTaskStatus $data */
                 $data = SimilarProductsTaskStatusModel::of($data);
                 $this->set($data, $index);
             }

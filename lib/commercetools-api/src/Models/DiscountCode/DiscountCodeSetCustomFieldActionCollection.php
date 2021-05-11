@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\DiscountCode\DiscountCodeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DiscountCodeSetCustomFieldAction>
+ * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetCustomFieldAction>
  * @method DiscountCodeSetCustomFieldAction current()
  * @method DiscountCodeSetCustomFieldAction at($offset)
  */
-class DiscountCodeSetCustomFieldActionCollection extends MapperSequence
+class DiscountCodeSetCustomFieldActionCollection extends DiscountCodeUpdateActionCollection
 {
     /**
      * @psalm-assert DiscountCodeSetCustomFieldAction $value
@@ -44,6 +44,7 @@ class DiscountCodeSetCustomFieldActionCollection extends MapperSequence
         return function (int $index): ?DiscountCodeSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCodeSetCustomFieldAction $data */
                 $data = DiscountCodeSetCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

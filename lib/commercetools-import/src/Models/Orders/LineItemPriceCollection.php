@@ -44,6 +44,7 @@ class LineItemPriceCollection extends MapperSequence
         return function (int $index): ?LineItemPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LineItemPrice $data */
                 $data = LineItemPriceModel::of($data);
                 $this->set($data, $index);
             }

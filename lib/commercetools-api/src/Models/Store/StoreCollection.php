@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\BaseResourceCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Store>
+ * @extends BaseResourceCollection<Store>
  * @method Store current()
  * @method Store at($offset)
  */
-class StoreCollection extends MapperSequence
+class StoreCollection extends BaseResourceCollection
 {
     /**
      * @psalm-assert Store $value
@@ -44,6 +44,7 @@ class StoreCollection extends MapperSequence
         return function (int $index): ?Store {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Store $data */
                 $data = StoreModel::of($data);
                 $this->set($data, $index);
             }

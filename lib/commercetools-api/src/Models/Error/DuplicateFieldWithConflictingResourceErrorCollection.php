@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DuplicateFieldWithConflictingResourceError>
+ * @extends ErrorObjectCollection<DuplicateFieldWithConflictingResourceError>
  * @method DuplicateFieldWithConflictingResourceError current()
  * @method DuplicateFieldWithConflictingResourceError at($offset)
  */
-class DuplicateFieldWithConflictingResourceErrorCollection extends MapperSequence
+class DuplicateFieldWithConflictingResourceErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert DuplicateFieldWithConflictingResourceError $value
@@ -44,6 +44,7 @@ class DuplicateFieldWithConflictingResourceErrorCollection extends MapperSequenc
         return function (int $index): ?DuplicateFieldWithConflictingResourceError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DuplicateFieldWithConflictingResourceError $data */
                 $data = DuplicateFieldWithConflictingResourceErrorModel::of($data);
                 $this->set($data, $index);
             }

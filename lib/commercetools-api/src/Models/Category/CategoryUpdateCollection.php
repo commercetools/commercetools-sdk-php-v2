@@ -44,6 +44,7 @@ class CategoryUpdateCollection extends MapperSequence
         return function (int $index): ?CategoryUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CategoryUpdate $data */
                 $data = CategoryUpdateModel::of($data);
                 $this->set($data, $index);
             }

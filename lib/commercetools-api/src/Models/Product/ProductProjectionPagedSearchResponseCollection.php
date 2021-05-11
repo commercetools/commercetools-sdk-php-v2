@@ -44,6 +44,7 @@ class ProductProjectionPagedSearchResponseCollection extends MapperSequence
         return function (int $index): ?ProductProjectionPagedSearchResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductProjectionPagedSearchResponse $data */
                 $data = ProductProjectionPagedSearchResponseModel::of($data);
                 $this->set($data, $index);
             }

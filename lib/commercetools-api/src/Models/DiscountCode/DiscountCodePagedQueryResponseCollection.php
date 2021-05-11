@@ -44,6 +44,7 @@ class DiscountCodePagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?DiscountCodePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountCodePagedQueryResponse $data */
                 $data = DiscountCodePagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

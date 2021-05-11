@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<GeoJson>
+ * @template T of GeoJson
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method GeoJson current()
  * @method GeoJson at($offset)
  */
 class GeoJsonCollection extends MapperSequence
 {
     /**
-     * @psalm-assert GeoJson $value
-     * @psalm-param GeoJson|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return GeoJsonCollection
@@ -37,13 +40,14 @@ class GeoJsonCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?GeoJson
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?GeoJson {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = GeoJsonModel::of($data);
                 $this->set($data, $index);
             }

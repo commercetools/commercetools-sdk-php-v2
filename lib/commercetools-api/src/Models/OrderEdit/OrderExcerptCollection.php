@@ -44,6 +44,7 @@ class OrderExcerptCollection extends MapperSequence
         return function (int $index): ?OrderExcerpt {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderExcerpt $data */
                 $data = OrderExcerptModel::of($data);
                 $this->set($data, $index);
             }

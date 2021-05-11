@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DeliveryFormat>
+ * @template T of DeliveryFormat
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method DeliveryFormat current()
  * @method DeliveryFormat at($offset)
  */
 class DeliveryFormatCollection extends MapperSequence
 {
     /**
-     * @psalm-assert DeliveryFormat $value
-     * @psalm-param DeliveryFormat|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return DeliveryFormatCollection
@@ -37,13 +40,14 @@ class DeliveryFormatCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?DeliveryFormat
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?DeliveryFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = DeliveryFormatModel::of($data);
                 $this->set($data, $index);
             }

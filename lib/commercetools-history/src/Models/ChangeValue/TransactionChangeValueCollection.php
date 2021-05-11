@@ -44,6 +44,7 @@ class TransactionChangeValueCollection extends MapperSequence
         return function (int $index): ?TransactionChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TransactionChangeValue $data */
                 $data = TransactionChangeValueModel::of($data);
                 $this->set($data, $index);
             }

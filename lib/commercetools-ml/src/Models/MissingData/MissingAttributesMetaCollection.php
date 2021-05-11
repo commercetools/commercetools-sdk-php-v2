@@ -44,6 +44,7 @@ class MissingAttributesMetaCollection extends MapperSequence
         return function (int $index): ?MissingAttributesMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MissingAttributesMeta $data */
                 $data = MissingAttributesMetaModel::of($data);
                 $this->set($data, $index);
             }

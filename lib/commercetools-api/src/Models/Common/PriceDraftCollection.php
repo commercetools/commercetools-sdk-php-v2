@@ -44,6 +44,7 @@ class PriceDraftCollection extends MapperSequence
         return function (int $index): ?PriceDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var PriceDraft $data */
                 $data = PriceDraftModel::of($data);
                 $this->set($data, $index);
             }

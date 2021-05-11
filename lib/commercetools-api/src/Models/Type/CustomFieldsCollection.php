@@ -44,6 +44,7 @@ class CustomFieldsCollection extends MapperSequence
         return function (int $index): ?CustomFields {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFields $data */
                 $data = CustomFieldsModel::of($data);
                 $this->set($data, $index);
             }

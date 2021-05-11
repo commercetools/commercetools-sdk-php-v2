@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ContentionError>
+ * @extends ErrorObjectCollection<ContentionError>
  * @method ContentionError current()
  * @method ContentionError at($offset)
  */
-class ContentionErrorCollection extends MapperSequence
+class ContentionErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ContentionError $value
@@ -44,6 +44,7 @@ class ContentionErrorCollection extends MapperSequence
         return function (int $index): ?ContentionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ContentionError $data */
                 $data = ContentionErrorModel::of($data);
                 $this->set($data, $index);
             }

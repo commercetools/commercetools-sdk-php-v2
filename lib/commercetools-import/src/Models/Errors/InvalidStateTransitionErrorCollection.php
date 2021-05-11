@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Errors;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<InvalidStateTransitionError>
+ * @extends ErrorObjectCollection<InvalidStateTransitionError>
  * @method InvalidStateTransitionError current()
  * @method InvalidStateTransitionError at($offset)
  */
-class InvalidStateTransitionErrorCollection extends MapperSequence
+class InvalidStateTransitionErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InvalidStateTransitionError $value
@@ -44,6 +44,7 @@ class InvalidStateTransitionErrorCollection extends MapperSequence
         return function (int $index): ?InvalidStateTransitionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InvalidStateTransitionError $data */
                 $data = InvalidStateTransitionErrorModel::of($data);
                 $this->set($data, $index);
             }

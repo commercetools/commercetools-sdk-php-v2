@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetChannelRolesChange>
+ * @extends ChangeCollection<SetChannelRolesChange>
  * @method SetChannelRolesChange current()
  * @method SetChannelRolesChange at($offset)
  */
-class SetChannelRolesChangeCollection extends MapperSequence
+class SetChannelRolesChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetChannelRolesChange $value
@@ -44,6 +44,7 @@ class SetChannelRolesChangeCollection extends MapperSequence
         return function (int $index): ?SetChannelRolesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetChannelRolesChange $data */
                 $data = SetChannelRolesChangeModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Categories;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\ImportResourceCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<CategoryImport>
+ * @extends ImportResourceCollection<CategoryImport>
  * @method CategoryImport current()
  * @method CategoryImport at($offset)
  */
-class CategoryImportCollection extends MapperSequence
+class CategoryImportCollection extends ImportResourceCollection
 {
     /**
      * @psalm-assert CategoryImport $value
@@ -44,6 +44,7 @@ class CategoryImportCollection extends MapperSequence
         return function (int $index): ?CategoryImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CategoryImport $data */
                 $data = CategoryImportModel::of($data);
                 $this->set($data, $index);
             }

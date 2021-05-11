@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountValue>
+ * @template T of CartDiscountValue
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method CartDiscountValue current()
  * @method CartDiscountValue at($offset)
  */
 class CartDiscountValueCollection extends MapperSequence
 {
     /**
-     * @psalm-assert CartDiscountValue $value
-     * @psalm-param CartDiscountValue|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return CartDiscountValueCollection
@@ -37,13 +40,14 @@ class CartDiscountValueCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?CartDiscountValue
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?CartDiscountValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = CartDiscountValueModel::of($data);
                 $this->set($data, $index);
             }

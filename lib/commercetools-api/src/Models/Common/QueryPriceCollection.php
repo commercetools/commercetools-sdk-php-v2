@@ -44,6 +44,7 @@ class QueryPriceCollection extends MapperSequence
         return function (int $index): ?QueryPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var QueryPrice $data */
                 $data = QueryPriceModel::of($data);
                 $this->set($data, $index);
             }

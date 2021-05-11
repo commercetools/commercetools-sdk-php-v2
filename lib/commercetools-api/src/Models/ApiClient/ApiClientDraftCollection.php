@@ -44,6 +44,7 @@ class ApiClientDraftCollection extends MapperSequence
         return function (int $index): ?ApiClientDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ApiClientDraft $data */
                 $data = ApiClientDraftModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class InventoryQuantityValueCollection extends MapperSequence
         return function (int $index): ?InventoryQuantityValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InventoryQuantityValue $data */
                 $data = InventoryQuantityValueModel::of($data);
                 $this->set($data, $index);
             }

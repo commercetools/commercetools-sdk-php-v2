@@ -44,6 +44,7 @@ class OrderImportCollection extends MapperSequence
         return function (int $index): ?OrderImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderImport $data */
                 $data = OrderImportModel::of($data);
                 $this->set($data, $index);
             }

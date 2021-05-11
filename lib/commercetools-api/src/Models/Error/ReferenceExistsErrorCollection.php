@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReferenceExistsError>
+ * @extends ErrorObjectCollection<ReferenceExistsError>
  * @method ReferenceExistsError current()
  * @method ReferenceExistsError at($offset)
  */
-class ReferenceExistsErrorCollection extends MapperSequence
+class ReferenceExistsErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert ReferenceExistsError $value
@@ -44,6 +44,7 @@ class ReferenceExistsErrorCollection extends MapperSequence
         return function (int $index): ?ReferenceExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReferenceExistsError $data */
                 $data = ReferenceExistsErrorModel::of($data);
                 $this->set($data, $index);
             }

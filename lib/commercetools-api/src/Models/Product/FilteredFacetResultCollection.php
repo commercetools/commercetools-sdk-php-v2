@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\FacetResultCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<FilteredFacetResult>
+ * @extends FacetResultCollection<FilteredFacetResult>
  * @method FilteredFacetResult current()
  * @method FilteredFacetResult at($offset)
  */
-class FilteredFacetResultCollection extends MapperSequence
+class FilteredFacetResultCollection extends FacetResultCollection
 {
     /**
      * @psalm-assert FilteredFacetResult $value
@@ -44,6 +44,7 @@ class FilteredFacetResultCollection extends MapperSequence
         return function (int $index): ?FilteredFacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var FilteredFacetResult $data */
                 $data = FilteredFacetResultModel::of($data);
                 $this->set($data, $index);
             }

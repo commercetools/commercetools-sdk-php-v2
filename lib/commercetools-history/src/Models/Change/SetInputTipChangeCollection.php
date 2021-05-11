@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SetInputTipChange>
+ * @extends ChangeCollection<SetInputTipChange>
  * @method SetInputTipChange current()
  * @method SetInputTipChange at($offset)
  */
-class SetInputTipChangeCollection extends MapperSequence
+class SetInputTipChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert SetInputTipChange $value
@@ -44,6 +44,7 @@ class SetInputTipChangeCollection extends MapperSequence
         return function (int $index): ?SetInputTipChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SetInputTipChange $data */
                 $data = SetInputTipChangeModel::of($data);
                 $this->set($data, $index);
             }

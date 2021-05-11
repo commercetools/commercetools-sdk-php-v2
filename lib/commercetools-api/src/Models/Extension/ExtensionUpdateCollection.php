@@ -44,6 +44,7 @@ class ExtensionUpdateCollection extends MapperSequence
         return function (int $index): ?ExtensionUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionUpdate $data */
                 $data = ExtensionUpdateModel::of($data);
                 $this->set($data, $index);
             }

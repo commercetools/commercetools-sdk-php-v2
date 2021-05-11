@@ -44,6 +44,7 @@ class DeliveryItemCollection extends MapperSequence
         return function (int $index): ?DeliveryItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DeliveryItem $data */
                 $data = DeliveryItemModel::of($data);
                 $this->set($data, $index);
             }

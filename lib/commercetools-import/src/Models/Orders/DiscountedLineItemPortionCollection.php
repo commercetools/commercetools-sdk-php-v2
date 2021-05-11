@@ -44,6 +44,7 @@ class DiscountedLineItemPortionCollection extends MapperSequence
         return function (int $index): ?DiscountedLineItemPortion {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DiscountedLineItemPortion $data */
                 $data = DiscountedLineItemPortionModel::of($data);
                 $this->set($data, $index);
             }

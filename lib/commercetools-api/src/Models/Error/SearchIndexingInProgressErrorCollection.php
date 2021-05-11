@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<SearchIndexingInProgressError>
+ * @extends ErrorObjectCollection<SearchIndexingInProgressError>
  * @method SearchIndexingInProgressError current()
  * @method SearchIndexingInProgressError at($offset)
  */
-class SearchIndexingInProgressErrorCollection extends MapperSequence
+class SearchIndexingInProgressErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert SearchIndexingInProgressError $value
@@ -44,6 +44,7 @@ class SearchIndexingInProgressErrorCollection extends MapperSequence
         return function (int $index): ?SearchIndexingInProgressError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SearchIndexingInProgressError $data */
                 $data = SearchIndexingInProgressErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ErrorByExtensionCollection extends MapperSequence
         return function (int $index): ?ErrorByExtension {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ErrorByExtension $data */
                 $data = ErrorByExtensionModel::of($data);
                 $this->set($data, $index);
             }

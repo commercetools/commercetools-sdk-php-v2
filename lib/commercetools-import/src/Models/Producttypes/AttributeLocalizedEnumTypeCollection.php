@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Producttypes;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Producttypes\AttributeTypeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeLocalizedEnumType>
+ * @extends AttributeTypeCollection<AttributeLocalizedEnumType>
  * @method AttributeLocalizedEnumType current()
  * @method AttributeLocalizedEnumType at($offset)
  */
-class AttributeLocalizedEnumTypeCollection extends MapperSequence
+class AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection
 {
     /**
      * @psalm-assert AttributeLocalizedEnumType $value
@@ -44,6 +44,7 @@ class AttributeLocalizedEnumTypeCollection extends MapperSequence
         return function (int $index): ?AttributeLocalizedEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeLocalizedEnumType $data */
                 $data = AttributeLocalizedEnumTypeModel::of($data);
                 $this->set($data, $index);
             }

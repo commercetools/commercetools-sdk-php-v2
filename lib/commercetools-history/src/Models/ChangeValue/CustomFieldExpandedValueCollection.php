@@ -44,6 +44,7 @@ class CustomFieldExpandedValueCollection extends MapperSequence
         return function (int $index): ?CustomFieldExpandedValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldExpandedValue $data */
                 $data = CustomFieldExpandedValueModel::of($data);
                 $this->set($data, $index);
             }

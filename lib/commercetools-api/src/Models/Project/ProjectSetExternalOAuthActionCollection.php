@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectSetExternalOAuthAction>
+ * @extends ProjectUpdateActionCollection<ProjectSetExternalOAuthAction>
  * @method ProjectSetExternalOAuthAction current()
  * @method ProjectSetExternalOAuthAction at($offset)
  */
-class ProjectSetExternalOAuthActionCollection extends MapperSequence
+class ProjectSetExternalOAuthActionCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectSetExternalOAuthAction $value
@@ -44,6 +44,7 @@ class ProjectSetExternalOAuthActionCollection extends MapperSequence
         return function (int $index): ?ProjectSetExternalOAuthAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectSetExternalOAuthAction $data */
                 $data = ProjectSetExternalOAuthActionModel::of($data);
                 $this->set($data, $index);
             }

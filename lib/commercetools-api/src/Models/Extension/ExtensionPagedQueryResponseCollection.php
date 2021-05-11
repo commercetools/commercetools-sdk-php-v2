@@ -44,6 +44,7 @@ class ExtensionPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ExtensionPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionPagedQueryResponse $data */
                 $data = ExtensionPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

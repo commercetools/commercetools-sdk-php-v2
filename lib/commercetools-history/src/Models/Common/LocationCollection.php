@@ -44,6 +44,7 @@ class LocationCollection extends MapperSequence
         return function (int $index): ?Location {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Location $data */
                 $data = LocationModel::of($data);
                 $this->set($data, $index);
             }

@@ -44,6 +44,7 @@ class ShoppingListLineItemDraftCollection extends MapperSequence
         return function (int $index): ?ShoppingListLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShoppingListLineItemDraft $data */
                 $data = ShoppingListLineItemDraftModel::of($data);
                 $this->set($data, $index);
             }

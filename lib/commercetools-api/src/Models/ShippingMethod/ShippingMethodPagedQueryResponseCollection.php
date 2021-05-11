@@ -44,6 +44,7 @@ class ShippingMethodPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?ShippingMethodPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShippingMethodPagedQueryResponse $data */
                 $data = ShippingMethodPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

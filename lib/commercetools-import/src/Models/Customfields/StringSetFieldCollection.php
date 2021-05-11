@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<StringSetField>
+ * @extends CustomFieldCollection<StringSetField>
  * @method StringSetField current()
  * @method StringSetField at($offset)
  */
-class StringSetFieldCollection extends MapperSequence
+class StringSetFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert StringSetField $value
@@ -44,6 +44,7 @@ class StringSetFieldCollection extends MapperSequence
         return function (int $index): ?StringSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StringSetField $data */
                 $data = StringSetFieldModel::of($data);
                 $this->set($data, $index);
             }

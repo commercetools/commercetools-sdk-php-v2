@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectChangeCartsConfiguration>
+ * @extends ProjectUpdateActionCollection<ProjectChangeCartsConfiguration>
  * @method ProjectChangeCartsConfiguration current()
  * @method ProjectChangeCartsConfiguration at($offset)
  */
-class ProjectChangeCartsConfigurationCollection extends MapperSequence
+class ProjectChangeCartsConfigurationCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectChangeCartsConfiguration $value
@@ -44,6 +44,7 @@ class ProjectChangeCartsConfigurationCollection extends MapperSequence
         return function (int $index): ?ProjectChangeCartsConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectChangeCartsConfiguration $data */
                 $data = ProjectChangeCartsConfigurationModel::of($data);
                 $this->set($data, $index);
             }

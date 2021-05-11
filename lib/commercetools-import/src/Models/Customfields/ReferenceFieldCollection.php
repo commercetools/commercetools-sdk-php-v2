@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<ReferenceField>
+ * @extends CustomFieldCollection<ReferenceField>
  * @method ReferenceField current()
  * @method ReferenceField at($offset)
  */
-class ReferenceFieldCollection extends MapperSequence
+class ReferenceFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert ReferenceField $value
@@ -44,6 +44,7 @@ class ReferenceFieldCollection extends MapperSequence
         return function (int $index): ?ReferenceField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ReferenceField $data */
                 $data = ReferenceFieldModel::of($data);
                 $this->set($data, $index);
             }

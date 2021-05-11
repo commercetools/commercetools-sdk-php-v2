@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ProjectUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProjectSetShippingRateInputTypeAction>
+ * @extends ProjectUpdateActionCollection<ProjectSetShippingRateInputTypeAction>
  * @method ProjectSetShippingRateInputTypeAction current()
  * @method ProjectSetShippingRateInputTypeAction at($offset)
  */
-class ProjectSetShippingRateInputTypeActionCollection extends MapperSequence
+class ProjectSetShippingRateInputTypeActionCollection extends ProjectUpdateActionCollection
 {
     /**
      * @psalm-assert ProjectSetShippingRateInputTypeAction $value
@@ -44,6 +44,7 @@ class ProjectSetShippingRateInputTypeActionCollection extends MapperSequence
         return function (int $index): ?ProjectSetShippingRateInputTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectSetShippingRateInputTypeAction $data */
                 $data = ProjectSetShippingRateInputTypeActionModel::of($data);
                 $this->set($data, $index);
             }

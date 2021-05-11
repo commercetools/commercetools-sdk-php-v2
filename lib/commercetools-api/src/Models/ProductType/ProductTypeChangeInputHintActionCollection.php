@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ProductType\ProductTypeUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductTypeChangeInputHintAction>
+ * @extends ProductTypeUpdateActionCollection<ProductTypeChangeInputHintAction>
  * @method ProductTypeChangeInputHintAction current()
  * @method ProductTypeChangeInputHintAction at($offset)
  */
-class ProductTypeChangeInputHintActionCollection extends MapperSequence
+class ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateActionCollection
 {
     /**
      * @psalm-assert ProductTypeChangeInputHintAction $value
@@ -44,6 +44,7 @@ class ProductTypeChangeInputHintActionCollection extends MapperSequence
         return function (int $index): ?ProductTypeChangeInputHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductTypeChangeInputHintAction $data */
                 $data = ProductTypeChangeInputHintActionModel::of($data);
                 $this->set($data, $index);
             }

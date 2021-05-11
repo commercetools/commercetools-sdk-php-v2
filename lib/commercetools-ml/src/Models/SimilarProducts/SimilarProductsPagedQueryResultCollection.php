@@ -44,6 +44,7 @@ class SimilarProductsPagedQueryResultCollection extends MapperSequence
         return function (int $index): ?SimilarProductsPagedQueryResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SimilarProductsPagedQueryResult $data */
                 $data = SimilarProductsPagedQueryResultModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<NoMatchingProductDiscountFoundError>
+ * @extends ErrorObjectCollection<NoMatchingProductDiscountFoundError>
  * @method NoMatchingProductDiscountFoundError current()
  * @method NoMatchingProductDiscountFoundError at($offset)
  */
-class NoMatchingProductDiscountFoundErrorCollection extends MapperSequence
+class NoMatchingProductDiscountFoundErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert NoMatchingProductDiscountFoundError $value
@@ -44,6 +44,7 @@ class NoMatchingProductDiscountFoundErrorCollection extends MapperSequence
         return function (int $index): ?NoMatchingProductDiscountFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var NoMatchingProductDiscountFoundError $data */
                 $data = NoMatchingProductDiscountFoundErrorModel::of($data);
                 $this->set($data, $index);
             }

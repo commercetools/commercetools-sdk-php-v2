@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Customer\CustomerUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomerAddShippingAddressIdAction>
+ * @extends CustomerUpdateActionCollection<CustomerAddShippingAddressIdAction>
  * @method CustomerAddShippingAddressIdAction current()
  * @method CustomerAddShippingAddressIdAction at($offset)
  */
-class CustomerAddShippingAddressIdActionCollection extends MapperSequence
+class CustomerAddShippingAddressIdActionCollection extends CustomerUpdateActionCollection
 {
     /**
      * @psalm-assert CustomerAddShippingAddressIdAction $value
@@ -44,6 +44,7 @@ class CustomerAddShippingAddressIdActionCollection extends MapperSequence
         return function (int $index): ?CustomerAddShippingAddressIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomerAddShippingAddressIdAction $data */
                 $data = CustomerAddShippingAddressIdActionModel::of($data);
                 $this->set($data, $index);
             }

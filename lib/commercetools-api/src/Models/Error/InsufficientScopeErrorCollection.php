@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InsufficientScopeError>
+ * @extends ErrorObjectCollection<InsufficientScopeError>
  * @method InsufficientScopeError current()
  * @method InsufficientScopeError at($offset)
  */
-class InsufficientScopeErrorCollection extends MapperSequence
+class InsufficientScopeErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InsufficientScopeError $value
@@ -44,6 +44,7 @@ class InsufficientScopeErrorCollection extends MapperSequence
         return function (int $index): ?InsufficientScopeError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InsufficientScopeError $data */
                 $data = InsufficientScopeErrorModel::of($data);
                 $this->set($data, $index);
             }

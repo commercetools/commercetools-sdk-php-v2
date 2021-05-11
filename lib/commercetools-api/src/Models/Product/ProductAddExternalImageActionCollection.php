@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Product\ProductUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductAddExternalImageAction>
+ * @extends ProductUpdateActionCollection<ProductAddExternalImageAction>
  * @method ProductAddExternalImageAction current()
  * @method ProductAddExternalImageAction at($offset)
  */
-class ProductAddExternalImageActionCollection extends MapperSequence
+class ProductAddExternalImageActionCollection extends ProductUpdateActionCollection
 {
     /**
      * @psalm-assert ProductAddExternalImageAction $value
@@ -44,6 +44,7 @@ class ProductAddExternalImageActionCollection extends MapperSequence
         return function (int $index): ?ProductAddExternalImageAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProductAddExternalImageAction $data */
                 $data = ProductAddExternalImageActionModel::of($data);
                 $this->set($data, $index);
             }

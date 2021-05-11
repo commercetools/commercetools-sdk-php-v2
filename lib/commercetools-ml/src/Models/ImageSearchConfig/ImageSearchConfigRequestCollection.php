@@ -44,6 +44,7 @@ class ImageSearchConfigRequestCollection extends MapperSequence
         return function (int $index): ?ImageSearchConfigRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImageSearchConfigRequest $data */
                 $data = ImageSearchConfigRequestModel::of($data);
                 $this->set($data, $index);
             }

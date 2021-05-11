@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Change;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Change\ChangeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ChangeLocalizedEnumValueLabelChange>
+ * @extends ChangeCollection<ChangeLocalizedEnumValueLabelChange>
  * @method ChangeLocalizedEnumValueLabelChange current()
  * @method ChangeLocalizedEnumValueLabelChange at($offset)
  */
-class ChangeLocalizedEnumValueLabelChangeCollection extends MapperSequence
+class ChangeLocalizedEnumValueLabelChangeCollection extends ChangeCollection
 {
     /**
      * @psalm-assert ChangeLocalizedEnumValueLabelChange $value
@@ -44,6 +44,7 @@ class ChangeLocalizedEnumValueLabelChangeCollection extends MapperSequence
         return function (int $index): ?ChangeLocalizedEnumValueLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ChangeLocalizedEnumValueLabelChange $data */
                 $data = ChangeLocalizedEnumValueLabelChangeModel::of($data);
                 $this->set($data, $index);
             }

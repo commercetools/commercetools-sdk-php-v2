@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountChangeNameAction>
+ * @extends CartDiscountUpdateActionCollection<CartDiscountChangeNameAction>
  * @method CartDiscountChangeNameAction current()
  * @method CartDiscountChangeNameAction at($offset)
  */
-class CartDiscountChangeNameActionCollection extends MapperSequence
+class CartDiscountChangeNameActionCollection extends CartDiscountUpdateActionCollection
 {
     /**
      * @psalm-assert CartDiscountChangeNameAction $value
@@ -44,6 +44,7 @@ class CartDiscountChangeNameActionCollection extends MapperSequence
         return function (int $index): ?CartDiscountChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountChangeNameAction $data */
                 $data = CartDiscountChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }

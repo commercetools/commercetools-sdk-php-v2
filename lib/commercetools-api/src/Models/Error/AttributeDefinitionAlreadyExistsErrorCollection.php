@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<AttributeDefinitionAlreadyExistsError>
+ * @extends ErrorObjectCollection<AttributeDefinitionAlreadyExistsError>
  * @method AttributeDefinitionAlreadyExistsError current()
  * @method AttributeDefinitionAlreadyExistsError at($offset)
  */
-class AttributeDefinitionAlreadyExistsErrorCollection extends MapperSequence
+class AttributeDefinitionAlreadyExistsErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert AttributeDefinitionAlreadyExistsError $value
@@ -44,6 +44,7 @@ class AttributeDefinitionAlreadyExistsErrorCollection extends MapperSequence
         return function (int $index): ?AttributeDefinitionAlreadyExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AttributeDefinitionAlreadyExistsError $data */
                 $data = AttributeDefinitionAlreadyExistsErrorModel::of($data);
                 $this->set($data, $index);
             }

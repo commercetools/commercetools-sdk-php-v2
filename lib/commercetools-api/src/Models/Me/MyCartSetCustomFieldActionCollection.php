@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Me\MyCartUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MyCartSetCustomFieldAction>
+ * @extends MyCartUpdateActionCollection<MyCartSetCustomFieldAction>
  * @method MyCartSetCustomFieldAction current()
  * @method MyCartSetCustomFieldAction at($offset)
  */
-class MyCartSetCustomFieldActionCollection extends MapperSequence
+class MyCartSetCustomFieldActionCollection extends MyCartUpdateActionCollection
 {
     /**
      * @psalm-assert MyCartSetCustomFieldAction $value
@@ -44,6 +44,7 @@ class MyCartSetCustomFieldActionCollection extends MapperSequence
         return function (int $index): ?MyCartSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MyCartSetCustomFieldAction $data */
                 $data = MyCartSetCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

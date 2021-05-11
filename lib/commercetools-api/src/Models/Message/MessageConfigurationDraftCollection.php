@@ -44,6 +44,7 @@ class MessageConfigurationDraftCollection extends MapperSequence
         return function (int $index): ?MessageConfigurationDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var MessageConfigurationDraft $data */
                 $data = MessageConfigurationDraftModel::of($data);
                 $this->set($data, $index);
             }

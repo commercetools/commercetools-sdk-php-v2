@@ -44,6 +44,7 @@ class OrderEditPagedQueryResponseCollection extends MapperSequence
         return function (int $index): ?OrderEditPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var OrderEditPagedQueryResponse $data */
                 $data = OrderEditPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }

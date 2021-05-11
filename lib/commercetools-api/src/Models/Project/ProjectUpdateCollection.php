@@ -44,6 +44,7 @@ class ProjectUpdateCollection extends MapperSequence
         return function (int $index): ?ProjectUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ProjectUpdate $data */
                 $data = ProjectUpdateModel::of($data);
                 $this->set($data, $index);
             }

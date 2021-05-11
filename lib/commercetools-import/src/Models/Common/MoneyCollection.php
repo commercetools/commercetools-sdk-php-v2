@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Common;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Common\TypedMoneyCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<Money>
+ * @extends TypedMoneyCollection<Money>
  * @method Money current()
  * @method Money at($offset)
  */
-class MoneyCollection extends MapperSequence
+class MoneyCollection extends TypedMoneyCollection
 {
     /**
      * @psalm-assert Money $value
@@ -44,6 +44,7 @@ class MoneyCollection extends MapperSequence
         return function (int $index): ?Money {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var Money $data */
                 $data = MoneyModel::of($data);
                 $this->set($data, $index);
             }

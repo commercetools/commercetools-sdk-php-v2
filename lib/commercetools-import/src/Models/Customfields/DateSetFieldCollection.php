@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<DateSetField>
+ * @extends CustomFieldCollection<DateSetField>
  * @method DateSetField current()
  * @method DateSetField at($offset)
  */
-class DateSetFieldCollection extends MapperSequence
+class DateSetFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert DateSetField $value
@@ -44,6 +44,7 @@ class DateSetFieldCollection extends MapperSequence
         return function (int $index): ?DateSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DateSetField $data */
                 $data = DateSetFieldModel::of($data);
                 $this->set($data, $index);
             }

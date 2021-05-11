@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Subscription\DestinationCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<GoogleCloudPubSubDestination>
+ * @extends DestinationCollection<GoogleCloudPubSubDestination>
  * @method GoogleCloudPubSubDestination current()
  * @method GoogleCloudPubSubDestination at($offset)
  */
-class GoogleCloudPubSubDestinationCollection extends MapperSequence
+class GoogleCloudPubSubDestinationCollection extends DestinationCollection
 {
     /**
      * @psalm-assert GoogleCloudPubSubDestination $value
@@ -44,6 +44,7 @@ class GoogleCloudPubSubDestinationCollection extends MapperSequence
         return function (int $index): ?GoogleCloudPubSubDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var GoogleCloudPubSubDestination $data */
                 $data = GoogleCloudPubSubDestinationModel::of($data);
                 $this->set($data, $index);
             }

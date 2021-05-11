@@ -13,7 +13,6 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\ImportResource;
@@ -110,7 +109,7 @@ final class CustomerImportBuilder implements Builder
     private $customerGroup;
 
     /**
-     * @var ?AddressCollection
+     * @var ?CustomerAddressCollection
      */
     private $addresses;
 
@@ -311,7 +310,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.addresses</code>.</p>
      *
-     * @return null|AddressCollection
+     * @return null|CustomerAddressCollection
      */
     public function getAddresses()
     {
@@ -555,10 +554,10 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * @param ?AddressCollection $addresses
+     * @param ?CustomerAddressCollection $addresses
      * @return $this
      */
-    public function withAddresses(?AddressCollection $addresses)
+    public function withAddresses(?CustomerAddressCollection $addresses)
     {
         $this->addresses = $addresses;
 

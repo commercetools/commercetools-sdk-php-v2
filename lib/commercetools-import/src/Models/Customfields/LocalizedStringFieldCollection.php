@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<LocalizedStringField>
+ * @extends CustomFieldCollection<LocalizedStringField>
  * @method LocalizedStringField current()
  * @method LocalizedStringField at($offset)
  */
-class LocalizedStringFieldCollection extends MapperSequence
+class LocalizedStringFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert LocalizedStringField $value
@@ -44,6 +44,7 @@ class LocalizedStringFieldCollection extends MapperSequence
         return function (int $index): ?LocalizedStringField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var LocalizedStringField $data */
                 $data = LocalizedStringFieldModel::of($data);
                 $this->set($data, $index);
             }

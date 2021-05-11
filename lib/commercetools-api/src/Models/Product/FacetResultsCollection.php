@@ -44,6 +44,7 @@ class FacetResultsCollection extends MapperSequence
         return function (int $index): ?FacetResults {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var FacetResults $data */
                 $data = FacetResultsModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<TextSetAttribute>
+ * @extends AttributeCollection<TextSetAttribute>
  * @method TextSetAttribute current()
  * @method TextSetAttribute at($offset)
  */
-class TextSetAttributeCollection extends MapperSequence
+class TextSetAttributeCollection extends AttributeCollection
 {
     /**
      * @psalm-assert TextSetAttribute $value
@@ -44,6 +44,7 @@ class TextSetAttributeCollection extends MapperSequence
         return function (int $index): ?TextSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var TextSetAttribute $data */
                 $data = TextSetAttributeModel::of($data);
                 $this->set($data, $index);
             }

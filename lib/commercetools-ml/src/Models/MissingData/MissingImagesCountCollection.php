@@ -13,15 +13,18 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<MissingImagesCount>
+ * @template T of MissingImagesCount
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T at($offset)
  * @method MissingImagesCount current()
  * @method MissingImagesCount at($offset)
  */
 class MissingImagesCountCollection extends MapperSequence
 {
     /**
-     * @psalm-assert MissingImagesCount $value
-     * @psalm-param MissingImagesCount|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return MissingImagesCountCollection
@@ -37,13 +40,14 @@ class MissingImagesCountCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?MissingImagesCount
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (int $index): ?MissingImagesCount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var T $data */
                 $data = MissingImagesCountModel::of($data);
                 $this->set($data, $index);
             }

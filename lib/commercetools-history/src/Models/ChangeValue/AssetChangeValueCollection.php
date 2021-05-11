@@ -44,6 +44,7 @@ class AssetChangeValueCollection extends MapperSequence
         return function (int $index): ?AssetChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var AssetChangeValue $data */
                 $data = AssetChangeValueModel::of($data);
                 $this->set($data, $index);
             }

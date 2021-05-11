@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\CartDiscount\CartDiscountValueCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartDiscountValueRelative>
+ * @extends CartDiscountValueCollection<CartDiscountValueRelative>
  * @method CartDiscountValueRelative current()
  * @method CartDiscountValueRelative at($offset)
  */
-class CartDiscountValueRelativeCollection extends MapperSequence
+class CartDiscountValueRelativeCollection extends CartDiscountValueCollection
 {
     /**
      * @psalm-assert CartDiscountValueRelative $value
@@ -44,6 +44,7 @@ class CartDiscountValueRelativeCollection extends MapperSequence
         return function (int $index): ?CartDiscountValueRelative {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartDiscountValueRelative $data */
                 $data = CartDiscountValueRelativeModel::of($data);
                 $this->set($data, $index);
             }

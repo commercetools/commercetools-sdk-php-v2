@@ -44,6 +44,7 @@ class ImageDimensionsCollection extends MapperSequence
         return function (int $index): ?ImageDimensions {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ImageDimensions $data */
                 $data = ImageDimensionsModel::of($data);
                 $this->set($data, $index);
             }

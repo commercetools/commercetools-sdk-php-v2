@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<EnumKeyAlreadyExistsError>
+ * @extends ErrorObjectCollection<EnumKeyAlreadyExistsError>
  * @method EnumKeyAlreadyExistsError current()
  * @method EnumKeyAlreadyExistsError at($offset)
  */
-class EnumKeyAlreadyExistsErrorCollection extends MapperSequence
+class EnumKeyAlreadyExistsErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert EnumKeyAlreadyExistsError $value
@@ -44,6 +44,7 @@ class EnumKeyAlreadyExistsErrorCollection extends MapperSequence
         return function (int $index): ?EnumKeyAlreadyExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var EnumKeyAlreadyExistsError $data */
                 $data = EnumKeyAlreadyExistsErrorModel::of($data);
                 $this->set($data, $index);
             }

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Project\ShippingRateInputTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CartScoreType>
+ * @extends ShippingRateInputTypeCollection<CartScoreType>
  * @method CartScoreType current()
  * @method CartScoreType at($offset)
  */
-class CartScoreTypeCollection extends MapperSequence
+class CartScoreTypeCollection extends ShippingRateInputTypeCollection
 {
     /**
      * @psalm-assert CartScoreType $value
@@ -44,6 +44,7 @@ class CartScoreTypeCollection extends MapperSequence
         return function (int $index): ?CartScoreType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CartScoreType $data */
                 $data = CartScoreTypeModel::of($data);
                 $this->set($data, $index);
             }

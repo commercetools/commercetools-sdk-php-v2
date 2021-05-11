@@ -44,6 +44,7 @@ class SyncInfoCollection extends MapperSequence
         return function (int $index): ?SyncInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var SyncInfo $data */
                 $data = SyncInfoModel::of($data);
                 $this->set($data, $index);
             }

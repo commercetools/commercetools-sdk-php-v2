@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\ShoppingList\ShoppingListUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ShoppingListRemoveTextLineItemAction>
+ * @extends ShoppingListUpdateActionCollection<ShoppingListRemoveTextLineItemAction>
  * @method ShoppingListRemoveTextLineItemAction current()
  * @method ShoppingListRemoveTextLineItemAction at($offset)
  */
-class ShoppingListRemoveTextLineItemActionCollection extends MapperSequence
+class ShoppingListRemoveTextLineItemActionCollection extends ShoppingListUpdateActionCollection
 {
     /**
      * @psalm-assert ShoppingListRemoveTextLineItemAction $value
@@ -44,6 +44,7 @@ class ShoppingListRemoveTextLineItemActionCollection extends MapperSequence
         return function (int $index): ?ShoppingListRemoveTextLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ShoppingListRemoveTextLineItemAction $data */
                 $data = ShoppingListRemoveTextLineItemActionModel::of($data);
                 $this->set($data, $index);
             }

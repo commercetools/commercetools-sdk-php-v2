@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Customfields;
 
-use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Customfields\CustomFieldCollection;
 use stdClass;
 
 /**
- * @extends MapperSequence<BooleanField>
+ * @extends CustomFieldCollection<BooleanField>
  * @method BooleanField current()
  * @method BooleanField at($offset)
  */
-class BooleanFieldCollection extends MapperSequence
+class BooleanFieldCollection extends CustomFieldCollection
 {
     /**
      * @psalm-assert BooleanField $value
@@ -44,6 +44,7 @@ class BooleanFieldCollection extends MapperSequence
         return function (int $index): ?BooleanField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var BooleanField $data */
                 $data = BooleanFieldModel::of($data);
                 $this->set($data, $index);
             }

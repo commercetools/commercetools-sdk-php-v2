@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Type\FieldTypeCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<CustomFieldBooleanType>
+ * @extends FieldTypeCollection<CustomFieldBooleanType>
  * @method CustomFieldBooleanType current()
  * @method CustomFieldBooleanType at($offset)
  */
-class CustomFieldBooleanTypeCollection extends MapperSequence
+class CustomFieldBooleanTypeCollection extends FieldTypeCollection
 {
     /**
      * @psalm-assert CustomFieldBooleanType $value
@@ -44,6 +44,7 @@ class CustomFieldBooleanTypeCollection extends MapperSequence
         return function (int $index): ?CustomFieldBooleanType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var CustomFieldBooleanType $data */
                 $data = CustomFieldBooleanTypeModel::of($data);
                 $this->set($data, $index);
             }

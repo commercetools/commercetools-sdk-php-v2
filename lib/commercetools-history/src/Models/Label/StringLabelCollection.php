@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\History\Models\Label;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\History\Models\Label\LabelCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StringLabel>
+ * @extends LabelCollection<StringLabel>
  * @method StringLabel current()
  * @method StringLabel at($offset)
  */
-class StringLabelCollection extends MapperSequence
+class StringLabelCollection extends LabelCollection
 {
     /**
      * @psalm-assert StringLabel $value
@@ -44,6 +44,7 @@ class StringLabelCollection extends MapperSequence
         return function (int $index): ?StringLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StringLabel $data */
                 $data = StringLabelModel::of($data);
                 $this->set($data, $index);
             }

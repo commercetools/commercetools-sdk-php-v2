@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<DuplicateAttributeValuesError>
+ * @extends ErrorObjectCollection<DuplicateAttributeValuesError>
  * @method DuplicateAttributeValuesError current()
  * @method DuplicateAttributeValuesError at($offset)
  */
-class DuplicateAttributeValuesErrorCollection extends MapperSequence
+class DuplicateAttributeValuesErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert DuplicateAttributeValuesError $value
@@ -44,6 +44,7 @@ class DuplicateAttributeValuesErrorCollection extends MapperSequence
         return function (int $index): ?DuplicateAttributeValuesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var DuplicateAttributeValuesError $data */
                 $data = DuplicateAttributeValuesErrorModel::of($data);
                 $this->set($data, $index);
             }

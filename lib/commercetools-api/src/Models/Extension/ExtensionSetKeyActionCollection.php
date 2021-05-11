@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Extension\ExtensionUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ExtensionSetKeyAction>
+ * @extends ExtensionUpdateActionCollection<ExtensionSetKeyAction>
  * @method ExtensionSetKeyAction current()
  * @method ExtensionSetKeyAction at($offset)
  */
-class ExtensionSetKeyActionCollection extends MapperSequence
+class ExtensionSetKeyActionCollection extends ExtensionUpdateActionCollection
 {
     /**
      * @psalm-assert ExtensionSetKeyAction $value
@@ -44,6 +44,7 @@ class ExtensionSetKeyActionCollection extends MapperSequence
         return function (int $index): ?ExtensionSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var ExtensionSetKeyAction $data */
                 $data = ExtensionSetKeyActionModel::of($data);
                 $this->set($data, $index);
             }

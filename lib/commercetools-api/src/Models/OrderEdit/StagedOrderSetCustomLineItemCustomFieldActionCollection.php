@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<StagedOrderSetCustomLineItemCustomFieldAction>
+ * @extends StagedOrderUpdateActionCollection<StagedOrderSetCustomLineItemCustomFieldAction>
  * @method StagedOrderSetCustomLineItemCustomFieldAction current()
  * @method StagedOrderSetCustomLineItemCustomFieldAction at($offset)
  */
-class StagedOrderSetCustomLineItemCustomFieldActionCollection extends MapperSequence
+class StagedOrderSetCustomLineItemCustomFieldActionCollection extends StagedOrderUpdateActionCollection
 {
     /**
      * @psalm-assert StagedOrderSetCustomLineItemCustomFieldAction $value
@@ -44,6 +44,7 @@ class StagedOrderSetCustomLineItemCustomFieldActionCollection extends MapperSequ
         return function (int $index): ?StagedOrderSetCustomLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var StagedOrderSetCustomLineItemCustomFieldAction $data */
                 $data = StagedOrderSetCustomLineItemCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }

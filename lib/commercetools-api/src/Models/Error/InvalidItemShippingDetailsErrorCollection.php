@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Error\ErrorObjectCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<InvalidItemShippingDetailsError>
+ * @extends ErrorObjectCollection<InvalidItemShippingDetailsError>
  * @method InvalidItemShippingDetailsError current()
  * @method InvalidItemShippingDetailsError at($offset)
  */
-class InvalidItemShippingDetailsErrorCollection extends MapperSequence
+class InvalidItemShippingDetailsErrorCollection extends ErrorObjectCollection
 {
     /**
      * @psalm-assert InvalidItemShippingDetailsError $value
@@ -44,6 +44,7 @@ class InvalidItemShippingDetailsErrorCollection extends MapperSequence
         return function (int $index): ?InvalidItemShippingDetailsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
+                /** @var InvalidItemShippingDetailsError $data */
                 $data = InvalidItemShippingDetailsErrorModel::of($data);
                 $this->set($data, $index);
             }
