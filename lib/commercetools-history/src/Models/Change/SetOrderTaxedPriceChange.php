@@ -15,6 +15,7 @@ use Commercetools\History\Models\Common\TaxedItemPrice;
 interface SetOrderTaxedPriceChange extends Change
 {
 
+    public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
@@ -31,6 +32,11 @@ interface SetOrderTaxedPriceChange extends Change
     public function getChange();
 
     /**
+     * @return null|string
+     */
+    public function getTaxMode();
+
+    /**
      * @return null|TaxedItemPrice
      */
     public function getNextValue();
@@ -44,6 +50,11 @@ interface SetOrderTaxedPriceChange extends Change
      * @param ?string $change
      */
     public function setChange(?string $change): void;
+
+    /**
+     * @param ?string $taxMode
+     */
+    public function setTaxMode(?string $taxMode): void;
 
     /**
      * @param ?TaxedItemPrice $nextValue

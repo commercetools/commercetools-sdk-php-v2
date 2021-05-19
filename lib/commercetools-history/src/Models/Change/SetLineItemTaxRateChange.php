@@ -17,6 +17,8 @@ interface SetLineItemTaxRateChange extends Change
 {
 
     public const FIELD_LINE_ITEM = 'lineItem';
+    public const FIELD_VARIANT = 'variant';
+    public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
@@ -36,6 +38,16 @@ interface SetLineItemTaxRateChange extends Change
      * @return null|LocalizedString
      */
     public function getLineItem();
+
+    /**
+     * @return null|string
+     */
+    public function getVariant();
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode();
 
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
@@ -60,6 +72,16 @@ interface SetLineItemTaxRateChange extends Change
      * @param ?LocalizedString $lineItem
      */
     public function setLineItem(?LocalizedString $lineItem): void;
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void;
+
+    /**
+     * @param ?string $taxMode
+     */
+    public function setTaxMode(?string $taxMode): void;
 
     /**
      * @param ?TaxRate $nextValue

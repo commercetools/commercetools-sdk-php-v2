@@ -35,6 +35,16 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
     private $lineItem;
 
     /**
+     * @var ?string
+     */
+    private $variant;
+
+    /**
+     * @var ?string
+     */
+    private $taxMode;
+
+    /**
      * @var null|TaxRate|TaxRateBuilder
      */
     private $nextValue;
@@ -60,6 +70,22 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
     public function getLineItem()
     {
         return $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        return $this->taxMode;
     }
 
     /**
@@ -100,6 +126,28 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
     public function withLineItem(?LocalizedString $lineItem)
     {
         $this->lineItem = $lineItem;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $variant
+     * @return $this
+     */
+    public function withVariant(?string $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $taxMode
+     * @return $this
+     */
+    public function withTaxMode(?string $taxMode)
+    {
+        $this->taxMode = $taxMode;
 
         return $this;
     }
@@ -164,6 +212,8 @@ final class SetLineItemTaxRateChangeBuilder implements Builder
         return new SetLineItemTaxRateChangeModel(
             $this->change,
             $this->lineItem instanceof LocalizedStringBuilder ? $this->lineItem->build() : $this->lineItem,
+            $this->variant,
+            $this->taxMode,
             $this->nextValue instanceof TaxRateBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue
         );

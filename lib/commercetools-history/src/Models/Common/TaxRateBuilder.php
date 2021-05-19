@@ -51,7 +51,7 @@ final class TaxRateBuilder implements Builder
     private $state;
 
     /**
-     * @var null|SubRate|SubRateBuilder
+     * @var ?SubRateCollection
      */
     private $subRates;
 
@@ -112,11 +112,11 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * @return null|SubRate
+     * @return null|SubRateCollection
      */
     public function getSubRates()
     {
-        return $this->subRates instanceof SubRateBuilder ? $this->subRates->build() : $this->subRates;
+        return $this->subRates;
     }
 
     /**
@@ -186,26 +186,16 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * @param ?SubRate $subRates
+     * @param ?SubRateCollection $subRates
      * @return $this
      */
-    public function withSubRates(?SubRate $subRates)
+    public function withSubRates(?SubRateCollection $subRates)
     {
         $this->subRates = $subRates;
 
         return $this;
     }
 
-    /**
-     * @deprecated use withSubRates() instead
-     * @return $this
-     */
-    public function withSubRatesBuilder(?SubRateBuilder $subRates)
-    {
-        $this->subRates = $subRates;
-
-        return $this;
-    }
 
     public function build(): TaxRate
     {
@@ -216,7 +206,7 @@ final class TaxRateBuilder implements Builder
             $this->includedInPrice,
             $this->country,
             $this->state,
-            $this->subRates instanceof SubRateBuilder ? $this->subRates->build() : $this->subRates
+            $this->subRates
         );
     }
 

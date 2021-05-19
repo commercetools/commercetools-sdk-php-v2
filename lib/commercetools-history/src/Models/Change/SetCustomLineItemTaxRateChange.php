@@ -18,6 +18,7 @@ interface SetCustomLineItemTaxRateChange extends Change
 
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
@@ -42,6 +43,11 @@ interface SetCustomLineItemTaxRateChange extends Change
      * @return null|string
      */
     public function getCustomLineItemId();
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode();
 
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
@@ -71,6 +77,11 @@ interface SetCustomLineItemTaxRateChange extends Change
      * @param ?string $customLineItemId
      */
     public function setCustomLineItemId(?string $customLineItemId): void;
+
+    /**
+     * @param ?string $taxMode
+     */
+    public function setTaxMode(?string $taxMode): void;
 
     /**
      * @param ?TaxRate $nextValue

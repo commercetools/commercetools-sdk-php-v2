@@ -46,6 +46,11 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     protected $customLineItemId;
 
     /**
+     * @var ?string
+     */
+    protected $taxMode;
+
+    /**
      * @var ?TaxRate
      */
     protected $nextValue;
@@ -63,12 +68,14 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
         ?string $change = null,
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
+        ?string $taxMode = null,
         ?TaxRate $nextValue = null,
         ?TaxRate $previousValue = null
     ) {
         $this->change = $change;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
+        $this->taxMode = $taxMode;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -146,6 +153,23 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxMode =  (string) $data;
+        }
+
+        return $this->taxMode;
+    }
+
+    /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
      * @return null|TaxRate
@@ -208,6 +232,14 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
+    }
+
+    /**
+     * @param ?string $taxMode
+     */
+    public function setTaxMode(?string $taxMode): void
+    {
+        $this->taxMode = $taxMode;
     }
 
     /**

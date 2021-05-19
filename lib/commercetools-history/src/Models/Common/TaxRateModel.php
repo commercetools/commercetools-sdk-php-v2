@@ -52,7 +52,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     protected $state;
 
     /**
-     * @var ?SubRate
+     * @var ?SubRateCollection
      */
     protected $subRates;
 
@@ -67,7 +67,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
         ?bool $includedInPrice = null,
         ?string $country = null,
         ?string $state = null,
-        ?SubRate $subRates = null
+        ?SubRateCollection $subRates = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -190,18 +190,17 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * @return null|SubRate
+     * @return null|SubRateCollection
      */
     public function getSubRates()
     {
         if (is_null($this->subRates)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SUB_RATES);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->subRates =  SubRateModel::of($data);
+            $this->subRates =  SubRateCollection::fromArray($data);
         }
 
         return $this->subRates;
@@ -257,9 +256,9 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-     * @param ?SubRate $subRates
+     * @param ?SubRateCollection $subRates
      */
-    public function setSubRates(?SubRate $subRates): void
+    public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
     }
