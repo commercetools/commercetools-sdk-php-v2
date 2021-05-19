@@ -90,6 +90,11 @@ final class OrderStateTransitionMessageModel extends JsonObjectModel implements 
     protected $state;
 
     /**
+     * @var ?StateReference
+     */
+    protected $oldState;
+
+    /**
      * @var ?bool
      */
     protected $force;
@@ -110,6 +115,7 @@ final class OrderStateTransitionMessageModel extends JsonObjectModel implements 
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?StateReference $state = null,
+        ?StateReference $oldState = null,
         ?bool $force = null
     ) {
         $this->id = $id;
@@ -123,6 +129,7 @@ final class OrderStateTransitionMessageModel extends JsonObjectModel implements 
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->state = $state;
+        $this->oldState = $oldState;
         $this->force = $force;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -345,6 +352,24 @@ final class OrderStateTransitionMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * @return null|StateReference
+     */
+    public function getOldState()
+    {
+        if (is_null($this->oldState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldState = StateReferenceModel::of($data);
+        }
+
+        return $this->oldState;
+    }
+
+    /**
      * @return null|bool
      */
     public function getForce()
@@ -448,6 +473,14 @@ final class OrderStateTransitionMessageModel extends JsonObjectModel implements 
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?StateReference $oldState
+     */
+    public function setOldState(?StateReference $oldState): void
+    {
+        $this->oldState = $oldState;
     }
 
     /**

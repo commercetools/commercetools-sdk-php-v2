@@ -15,12 +15,18 @@ use Commercetools\Base\JsonObject;
 interface OrderStateTransitionMessage extends Message
 {
     public const FIELD_STATE = 'state';
+    public const FIELD_OLD_STATE = 'oldState';
     public const FIELD_FORCE = 'force';
 
     /**
      * @return null|StateReference
      */
     public function getState();
+
+    /**
+     * @return null|StateReference
+     */
+    public function getOldState();
 
     /**
      * @return null|bool
@@ -31,6 +37,11 @@ interface OrderStateTransitionMessage extends Message
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?StateReference $oldState
+     */
+    public function setOldState(?StateReference $oldState): void;
 
     /**
      * @param ?bool $force
