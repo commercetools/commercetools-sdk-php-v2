@@ -85,6 +85,11 @@ final class OrderStateTransitionMessageBuilder implements Builder
     private $state;
 
     /**
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $oldState;
+
+    /**
      * @var ?bool
      */
     private $force;
@@ -175,6 +180,14 @@ final class OrderStateTransitionMessageBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getOldState()
+    {
+        return $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState;
     }
 
     /**
@@ -307,6 +320,17 @@ final class OrderStateTransitionMessageBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $oldState
+     * @return $this
+     */
+    public function withOldState(?StateReference $oldState)
+    {
+        $this->oldState = $oldState;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $force
      * @return $this
      */
@@ -372,6 +396,17 @@ final class OrderStateTransitionMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withOldState() instead
+     * @return $this
+     */
+    public function withOldStateBuilder(?StateReferenceBuilder $oldState)
+    {
+        $this->oldState = $oldState;
+
+        return $this;
+    }
+
     public function build(): OrderStateTransitionMessage
     {
         return new OrderStateTransitionMessageModel(
@@ -386,6 +421,7 @@ final class OrderStateTransitionMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState,
             $this->force
         );
     }

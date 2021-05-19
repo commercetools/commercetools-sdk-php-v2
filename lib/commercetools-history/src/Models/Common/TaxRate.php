@@ -61,7 +61,7 @@ interface TaxRate extends JsonObject
     public function getState();
 
     /**
-     * @return null|SubRate
+     * @return null|SubRateCollection
      */
     public function getSubRates();
 
@@ -96,7 +96,7 @@ interface TaxRate extends JsonObject
     public function setState(?string $state): void;
 
     /**
-     * @param ?SubRate $subRates
+     * @param ?SubRateCollection $subRates
      */
-    public function setSubRates(?SubRate $subRates): void;
+    public function setSubRates(?SubRateCollection $subRates): void;
 }

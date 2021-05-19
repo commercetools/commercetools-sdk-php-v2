@@ -40,6 +40,11 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     private $customLineItemId;
 
     /**
+     * @var ?string
+     */
+    private $taxMode;
+
+    /**
      * @var null|TaxRate|TaxRateBuilder
      */
     private $nextValue;
@@ -73,6 +78,14 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        return $this->taxMode;
     }
 
     /**
@@ -124,6 +137,17 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $taxMode
+     * @return $this
+     */
+    public function withTaxMode(?string $taxMode)
+    {
+        $this->taxMode = $taxMode;
 
         return $this;
     }
@@ -189,6 +213,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
             $this->change,
             $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
             $this->customLineItemId,
+            $this->taxMode,
             $this->nextValue instanceof TaxRateBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->previousValue instanceof TaxRateBuilder ? $this->previousValue->build() : $this->previousValue
         );

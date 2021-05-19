@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
+use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -73,7 +73,7 @@ interface InventoryEntry extends BaseResource
     /**
      * <p>Optional connection to a particular supplier.</p>
      *
-     * @return null|ChannelResourceIdentifier
+     * @return null|ChannelReference
      */
     public function getSupplyChannel();
 
@@ -148,9 +148,9 @@ interface InventoryEntry extends BaseResource
     public function setSku(?string $sku): void;
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
+     * @param ?ChannelReference $supplyChannel
      */
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
+    public function setSupplyChannel(?ChannelReference $supplyChannel): void;
 
     /**
      * @param ?int $quantityOnStock

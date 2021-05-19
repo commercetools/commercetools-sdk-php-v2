@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
-use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -67,7 +67,7 @@ final class InventoryEntryBuilder implements Builder
     private $sku;
 
     /**
-     * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
+     * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
@@ -161,11 +161,11 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Optional connection to a particular supplier.</p>
      *
-     * @return null|ChannelResourceIdentifier
+     * @return null|ChannelReference
      */
     public function getSupplyChannel()
     {
-        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -296,10 +296,10 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $supplyChannel
+     * @param ?ChannelReference $supplyChannel
      * @return $this
      */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
 
@@ -387,7 +387,7 @@ final class InventoryEntryBuilder implements Builder
      * @deprecated use withSupplyChannel() instead
      * @return $this
      */
-    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
 
@@ -415,7 +415,7 @@ final class InventoryEntryBuilder implements Builder
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->sku,
-            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
+            $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,
             $this->availableQuantity,
             $this->restockableInDays,

@@ -41,6 +41,16 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     protected $lineItem;
 
     /**
+     * @var ?string
+     */
+    protected $variant;
+
+    /**
+     * @var ?string
+     */
+    protected $taxMode;
+
+    /**
      * @var ?TaxRate
      */
     protected $nextValue;
@@ -57,11 +67,15 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     public function __construct(
         ?string $change = null,
         ?LocalizedString $lineItem = null,
+        ?string $variant = null,
+        ?string $taxMode = null,
         ?TaxRate $nextValue = null,
         ?TaxRate $previousValue = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
+        $this->variant = $variant;
+        $this->taxMode = $taxMode;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -122,6 +136,40 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     * @return null|string
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variant =  (string) $data;
+        }
+
+        return $this->variant;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxMode =  (string) $data;
+        }
+
+        return $this->taxMode;
+    }
+
+    /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
      * @return null|TaxRate
@@ -176,6 +224,22 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     public function setLineItem(?LocalizedString $lineItem): void
     {
         $this->lineItem = $lineItem;
+    }
+
+    /**
+     * @param ?string $variant
+     */
+    public function setVariant(?string $variant): void
+    {
+        $this->variant = $variant;
+    }
+
+    /**
+     * @param ?string $taxMode
+     */
+    public function setTaxMode(?string $taxMode): void
+    {
+        $this->taxMode = $taxMode;
     }
 
     /**

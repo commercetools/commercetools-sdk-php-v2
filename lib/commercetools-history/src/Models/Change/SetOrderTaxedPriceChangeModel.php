@@ -34,6 +34,11 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     protected $change;
 
     /**
+     * @var ?string
+     */
+    protected $taxMode;
+
+    /**
      * @var ?TaxedItemPrice
      */
     protected $nextValue;
@@ -49,10 +54,12 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
      */
     public function __construct(
         ?string $change = null,
+        ?string $taxMode = null,
         ?TaxedItemPrice $nextValue = null,
         ?TaxedItemPrice $previousValue = null
     ) {
         $this->change = $change;
+        $this->taxMode = $taxMode;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -92,6 +99,23 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
         }
 
         return $this->change;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxMode =  (string) $data;
+        }
+
+        return $this->taxMode;
     }
 
     /**
@@ -137,6 +161,14 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     public function setChange(?string $change): void
     {
         $this->change = $change;
+    }
+
+    /**
+     * @param ?string $taxMode
+     */
+    public function setTaxMode(?string $taxMode): void
+    {
+        $this->taxMode = $taxMode;
     }
 
     /**
