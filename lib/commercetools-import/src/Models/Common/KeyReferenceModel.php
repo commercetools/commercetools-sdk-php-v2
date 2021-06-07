@@ -35,11 +35,15 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      *
      */
     private static $discriminatorClasses = [
+       'cart' => CartKeyReferenceModel::class,
        'cart-discount' => CartDiscountKeyReferenceModel::class,
        'category' => CategoryKeyReferenceModel::class,
        'channel' => ChannelKeyReferenceModel::class,
        'customer' => CustomerKeyReferenceModel::class,
        'customer-group' => CustomerGroupKeyReferenceModel::class,
+       'discount-code' => DiscountCodeKeyReferenceModel::class,
+       'order' => OrderKeyReferenceModel::class,
+       'payment' => PaymentKeyReferenceModel::class,
        'price' => PriceKeyReferenceModel::class,
        'product' => ProductKeyReferenceModel::class,
        'product-discount' => ProductDiscountKeyReferenceModel::class,
