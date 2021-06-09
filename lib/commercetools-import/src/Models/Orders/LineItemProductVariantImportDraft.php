@@ -11,12 +11,12 @@ namespace Commercetools\Import\Models\Orders;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Common\ProductVariantKeyReference;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 
 interface LineItemProductVariantImportDraft extends JsonObject
 {
-    public const FIELD_PRODUCT = 'product';
+    public const FIELD_PRODUCT_VARIANT = 'productVariant';
     public const FIELD_SKU = 'sku';
     public const FIELD_PRICES = 'prices';
     public const FIELD_ATTRIBUTES = 'attributes';
@@ -25,9 +25,9 @@ interface LineItemProductVariantImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariant.product</code>.</p>
      *
-     * @return null|ProductKeyReference
+     * @return null|ProductVariantKeyReference
      */
-    public function getProduct();
+    public function getProductVariant();
 
     /**
      * <p>Maps to <code>ProductVariantImportDraft.sku</code>.</p>
@@ -58,9 +58,9 @@ interface LineItemProductVariantImportDraft extends JsonObject
     public function getImages();
 
     /**
-     * @param ?ProductKeyReference $product
+     * @param ?ProductVariantKeyReference $productVariant
      */
-    public function setProduct(?ProductKeyReference $product): void;
+    public function setProductVariant(?ProductVariantKeyReference $productVariant): void;
 
     /**
      * @param ?string $sku
