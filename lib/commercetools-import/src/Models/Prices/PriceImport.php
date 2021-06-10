@@ -38,7 +38,6 @@ interface PriceImport extends ImportResource
 
     /**
      * <p>Maps to <code>Price.value</code>.</p>
-     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>
      *
      * @return null|TypedMoney
      */
