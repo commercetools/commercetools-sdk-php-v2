@@ -430,16 +430,6 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyOrdersEditsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->orders()
-                        ->edits()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyOrdersEditsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

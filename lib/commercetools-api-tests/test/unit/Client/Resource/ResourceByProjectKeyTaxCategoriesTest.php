@@ -401,15 +401,6 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyTaxCategoriesPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->taxCategories()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyTaxCategoriesPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

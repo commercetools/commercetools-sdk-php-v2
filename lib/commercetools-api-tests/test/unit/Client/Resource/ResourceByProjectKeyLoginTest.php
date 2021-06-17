@@ -189,15 +189,6 @@ class ResourceByProjectKeyLoginTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyLoginPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->login()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyLoginPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

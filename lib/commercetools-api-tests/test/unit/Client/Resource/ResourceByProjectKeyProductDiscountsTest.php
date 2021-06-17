@@ -413,15 +413,6 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyProductDiscountsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->productDiscounts()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyProductDiscountsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

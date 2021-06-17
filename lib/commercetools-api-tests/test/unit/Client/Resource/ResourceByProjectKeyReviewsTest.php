@@ -401,15 +401,6 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyReviewsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->reviews()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyReviewsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

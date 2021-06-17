@@ -449,16 +449,6 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyProductProjectionsSearchPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->productProjections()
-                        ->search()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyProductProjectionsSearchPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

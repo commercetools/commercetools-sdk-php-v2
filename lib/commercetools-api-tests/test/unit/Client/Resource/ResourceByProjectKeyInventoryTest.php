@@ -389,15 +389,6 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyInventoryPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inventory()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyInventoryPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -430,16 +430,6 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyMePaymentsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->me()
-                        ->payments()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyMePaymentsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -204,18 +204,6 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyOrdersEditsByIDApplyPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->orders()
-                        ->edits()
-                        ->withId("ID")
-                        ->apply()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyOrdersEditsByIDApplyPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

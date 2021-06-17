@@ -198,16 +198,6 @@ class ResourceByProjectKeyOrdersImportTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyOrdersImportPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->orders()
-                        ->importOrder()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyOrdersImportPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

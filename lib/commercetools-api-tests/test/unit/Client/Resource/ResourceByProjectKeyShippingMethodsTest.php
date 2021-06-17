@@ -437,15 +437,6 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyShippingMethodsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->shippingMethods()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyShippingMethodsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

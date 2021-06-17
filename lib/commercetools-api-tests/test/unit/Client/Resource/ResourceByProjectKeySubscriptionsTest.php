@@ -401,15 +401,6 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeySubscriptionsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->subscriptions()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeySubscriptionsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
