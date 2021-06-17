@@ -14,8 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
@@ -25,9 +25,9 @@ use stdClass;
 final class LineItemProductVariantImportDraftBuilder implements Builder
 {
     /**
-     * @var null|ProductKeyReference|ProductKeyReferenceBuilder
+     * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
      */
-    private $product;
+    private $productVariant;
 
     /**
      * @var ?string
@@ -52,11 +52,11 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariant.product</code>.</p>
      *
-     * @return null|ProductKeyReference
+     * @return null|ProductVariantKeyReference
      */
-    public function getProduct()
+    public function getProductVariant()
     {
-        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
+        return $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
     }
 
     /**
@@ -100,12 +100,12 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?ProductKeyReference $product
+     * @param ?ProductVariantKeyReference $productVariant
      * @return $this
      */
-    public function withProduct(?ProductKeyReference $product)
+    public function withProductVariant(?ProductVariantKeyReference $productVariant)
     {
-        $this->product = $product;
+        $this->productVariant = $productVariant;
 
         return $this;
     }
@@ -155,12 +155,12 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withProduct() instead
+     * @deprecated use withProductVariant() instead
      * @return $this
      */
-    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
+    public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
     {
-        $this->product = $product;
+        $this->productVariant = $productVariant;
 
         return $this;
     }
@@ -168,7 +168,7 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     public function build(): LineItemProductVariantImportDraft
     {
         return new LineItemProductVariantImportDraftModel(
-            $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product,
+            $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant,
             $this->sku,
             $this->prices,
             $this->attributes,

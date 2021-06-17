@@ -85,6 +85,12 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyOrders($args, $this->getClient());
     }
+    public function orderPatches(): ResourceByProjectKeyOrderPatches
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyOrderPatches($args, $this->getClient());
+    }
     public function customers(): ResourceByProjectKeyCustomers
     {
         $args = $this->getArgs();

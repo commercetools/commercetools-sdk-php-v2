@@ -13,8 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ProductKeyReference;
-use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
+use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use Commercetools\Import\Models\Productvariants\AttributeCollection;
 use stdClass;
 
@@ -24,9 +24,9 @@ use stdClass;
 final class LineItemProductVariantImportDraftModel extends JsonObjectModel implements LineItemProductVariantImportDraft
 {
     /**
-     * @var ?ProductKeyReference
+     * @var ?ProductVariantKeyReference
      */
-    protected $product;
+    protected $productVariant;
 
     /**
      * @var ?string
@@ -53,13 +53,13 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductKeyReference $product = null,
+        ?ProductVariantKeyReference $productVariant = null,
         ?string $sku = null,
         ?LineItemPriceCollection $prices = null,
         ?AttributeCollection $attributes = null,
         ?ImageCollection $images = null
     ) {
-        $this->product = $product;
+        $this->productVariant = $productVariant;
         $this->sku = $sku;
         $this->prices = $prices;
         $this->attributes = $attributes;
@@ -69,21 +69,21 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
     /**
      * <p>Maps to <code>ProductVariant.product</code>.</p>
      *
-     * @return null|ProductKeyReference
+     * @return null|ProductVariantKeyReference
      */
-    public function getProduct()
+    public function getProductVariant()
     {
-        if (is_null($this->product)) {
+        if (is_null($this->productVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT);
+            $data = $this->raw(self::FIELD_PRODUCT_VARIANT);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->product = ProductKeyReferenceModel::of($data);
+            $this->productVariant = ProductVariantKeyReferenceModel::of($data);
         }
 
-        return $this->product;
+        return $this->productVariant;
     }
 
     /**
@@ -164,11 +164,11 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
 
 
     /**
-     * @param ?ProductKeyReference $product
+     * @param ?ProductVariantKeyReference $productVariant
      */
-    public function setProduct(?ProductKeyReference $product): void
+    public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
-        $this->product = $product;
+        $this->productVariant = $productVariant;
     }
 
     /**

@@ -16,6 +16,7 @@ interface ImportSinkPagedResponse extends JsonObject
     public const FIELD_LIMIT = 'limit';
     public const FIELD_OFFSET = 'offset';
     public const FIELD_COUNT = 'count';
+    public const FIELD_TOTAL = 'total';
     public const FIELD_RESULTS = 'results';
 
     /**
@@ -40,6 +41,13 @@ interface ImportSinkPagedResponse extends JsonObject
     public function getCount();
 
     /**
+     * <p>The total number of results matching the query.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal();
+
+    /**
      * <p>The results for this paged response.</p>
      *
      * @return null|ImportSinkCollection
@@ -60,6 +68,11 @@ interface ImportSinkPagedResponse extends JsonObject
      * @param ?int $count
      */
     public function setCount(?int $count): void;
+
+    /**
+     * @param ?int $total
+     */
+    public function setTotal(?int $total): void;
 
     /**
      * @param ?ImportSinkCollection $results

@@ -35,6 +35,11 @@ final class ImportSinkPagedResponseModel extends JsonObjectModel implements Impo
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $total;
+
+    /**
      * @var ?ImportSinkCollection
      */
     protected $results;
@@ -47,11 +52,13 @@ final class ImportSinkPagedResponseModel extends JsonObjectModel implements Impo
         ?int $limit = null,
         ?int $offset = null,
         ?int $count = null,
+        ?int $total = null,
         ?ImportSinkCollection $results = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
         $this->count = $count;
+        $this->total = $total;
         $this->results = $results;
     }
 
@@ -113,6 +120,25 @@ final class ImportSinkPagedResponseModel extends JsonObjectModel implements Impo
     }
 
     /**
+     * <p>The total number of results matching the query.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        if (is_null($this->total)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_TOTAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->total = (int) $data;
+        }
+
+        return $this->total;
+    }
+
+    /**
      * <p>The results for this paged response.</p>
      *
      * @return null|ImportSinkCollection
@@ -154,6 +180,14 @@ final class ImportSinkPagedResponseModel extends JsonObjectModel implements Impo
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    /**
+     * @param ?int $total
+     */
+    public function setTotal(?int $total): void
+    {
+        $this->total = $total;
     }
 
     /**
