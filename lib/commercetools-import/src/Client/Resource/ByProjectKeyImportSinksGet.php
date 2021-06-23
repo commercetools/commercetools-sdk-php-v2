@@ -129,4 +129,13 @@ class ByProjectKeyImportSinksGet extends ApiRequest
     {
         return $this->withQueryParam('offset', $offset);
     }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyImportSinksGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
 }
