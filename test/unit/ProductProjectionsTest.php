@@ -14,7 +14,8 @@ use PHPUnit\Framework\TestCase;
 
 class ProductProjectionsTest extends TestCase
 {
-    public function testAttributeMapping() {
+    public function testAttributeMapping()
+    {
         $productsJson = json_decode(file_get_contents(__DIR__ . "/products.json"));
         $products = ProductProjectionPagedQueryResponseModel::fromStdClass($productsJson)->getResults();
 
