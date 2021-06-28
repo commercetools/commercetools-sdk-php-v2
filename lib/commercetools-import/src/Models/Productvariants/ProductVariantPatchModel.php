@@ -31,16 +31,23 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
      */
     protected $attributes;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?ProductVariantKeyReference $productVariant = null,
-        ?Attributes $attributes = null
+        ?Attributes $attributes = null,
+        ?bool $staged = null
     ) {
         $this->productVariant = $productVariant;
         $this->attributes = $attributes;
+        $this->staged = $staged;
     }
 
     /**
@@ -89,6 +96,25 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
         return $this->attributes;
     }
 
+    /**
+     * <p>If <code>false</code>, the attribute changes are applied to both <a href="/../api/projects/productProjections#current--staged">current and staged projected representations</a> of the <a href="/../api/projects/products#product">Product</a>.</p>
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?ProductVariantKeyReference $productVariant
@@ -104,5 +130,13 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     public function setAttributes(?Attributes $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }
