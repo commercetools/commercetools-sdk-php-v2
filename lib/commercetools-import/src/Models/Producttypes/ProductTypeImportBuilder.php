@@ -71,7 +71,7 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
-     * <p>The product type's attributes.</p>
+     * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
      *
      * @return null|AttributeDefinitionCollection
      */

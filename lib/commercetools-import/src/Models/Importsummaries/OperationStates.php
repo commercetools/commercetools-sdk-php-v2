@@ -20,35 +20,35 @@ interface OperationStates extends JsonObject
     public const FIELD_REJECTED = 'Rejected';
 
     /**
-     * <p>The number of import operations that are in the state <code>ValidationFailed</code>.</p>
+     * <p>The number of resources in the <code>ValidationFailed</code> state.</p>
      *
      * @return null|int
      */
     public function getValidationFailed();
 
     /**
-     * <p>The number of import operations that are in the state <code>Unresolved</code>.</p>
+     * <p>The number of resources in the <code>Unresolved</code> state.</p>
      *
      * @return null|int
      */
     public function getUnresolved();
 
     /**
-     * <p>The number of import operations that are in the state <code>WaitForMasterVariant</code>.</p>
+     * <p>The number of resources in the <code>WaitForMasterVariant</code> state.</p>
      *
      * @return null|int
      */
     public function getWaitForMasterVariant();
 
     /**
-     * <p>The number of import operations that are in the state <code>Imported</code>.</p>
+     * <p>The number of resources in the <code>Imported</code> state.</p>
      *
      * @return null|int
      */
     public function getImported();
 
     /**
-     * <p>The number of import operations that are in the state <code>Rejected</code>.</p>
+     * <p>The number of resources in the <code>Rejected</code> state.</p>
      *
      * @return null|int
      */

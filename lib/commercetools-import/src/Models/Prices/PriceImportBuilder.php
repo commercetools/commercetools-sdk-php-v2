@@ -112,7 +112,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Price.value</code>.</p>
+     * <p>Maps to <code>Price.value</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
      *
      * @return null|TypedMoney
      */
@@ -152,10 +152,8 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>References a customer group by its key.</p>
-     * <p>The customer group referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the Price is associated.
+     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary CustomerGroup is created.</p>
      *
      * @return null|CustomerGroupKeyReference
      */
@@ -165,10 +163,8 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>References a channel by its key.</p>
-     * <p>The channel referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the Price is associated.
+     * If referenced Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Channel is created.</p>
      *
      * @return null|ChannelKeyReference
      */
@@ -218,10 +214,9 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>The product variant in which this price is contained.</p>
-     * <p>The product variant referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The ProductVariant in which this Price is contained.
+     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the Price is associated.
+     * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary ProductVariant is created.</p>
      *
      * @return null|ProductVariantKeyReference
      */
@@ -231,10 +226,9 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Product in which the Product Variant containing this Price is contained. Maps to <code>ProductVariant.product</code>.
+     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the Price is associated.
+     * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Product is created.</p>
      *
      * @return null|ProductKeyReference
      */

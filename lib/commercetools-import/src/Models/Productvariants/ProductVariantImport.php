@@ -40,10 +40,8 @@ interface ProductVariantImport extends ImportResource
     public function getIsMasterVariant();
 
     /**
-     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
-     * <p>Each attribute referenced must be defined
-     * in an already existing product type in the commercetools project, or the import
-     * operation state is set to <code>Unresolved</code>.</p>
+     * <p>Maps to <code>ProductVariant.attributes</code>.
+     * The referenced attribute must be defined in an already existing ProductType in the commercetools project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>Unresolved</code>.</p>
      *
      * @return null|AttributeCollection
      */
@@ -71,10 +69,9 @@ interface ProductVariantImport extends ImportResource
     public function getPublish();
 
     /**
-     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The <a href="/../api/projects/products#productvariant">Product</a> to which this Product Variant belongs. Maps to <code>ProductVariant.product</code>.
+     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the ProductVariant is associated.
+     * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Product is created.</p>
      *
      * @return null|ProductKeyReference
      */

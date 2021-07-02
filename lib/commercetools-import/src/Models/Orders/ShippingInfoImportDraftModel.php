@@ -116,6 +116,8 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getPrice()

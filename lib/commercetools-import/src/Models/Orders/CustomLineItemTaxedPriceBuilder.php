@@ -33,6 +33,8 @@ final class CustomLineItemTaxedPriceBuilder implements Builder
     private $totalGross;
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -41,6 +43,8 @@ final class CustomLineItemTaxedPriceBuilder implements Builder
     }
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getTotalGross()

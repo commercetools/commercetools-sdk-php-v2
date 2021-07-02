@@ -43,6 +43,8 @@ interface CustomLineItemDraft extends JsonObject
     public function getName();
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getMoney();
@@ -53,6 +55,8 @@ interface CustomLineItemDraft extends JsonObject
     public function getTaxedPrice();
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice();

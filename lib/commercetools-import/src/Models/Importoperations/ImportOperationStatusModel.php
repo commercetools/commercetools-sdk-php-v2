@@ -50,7 +50,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     }
 
     /**
-     * <p>Id of the import operation.</p>
+     * <p>The ID of the <a href="#importoperation">ImportOperation</a>.</p>
      *
      * @return null|string
      */
@@ -69,7 +69,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     }
 
     /**
-     * <p>Validation state of the import operation.</p>
+     * <p>The validation state of the <a href="#importoperation">ImportOperation</a>.</p>
      *
      * @return null|string
      */
@@ -88,7 +88,8 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     }
 
     /**
-     * <p>Validation errors for the import operation.</p>
+     * <p>The validation errors for the <a href="#importoperation">ImportOperation</a>.
+     * See <a href="/error">Errors</a>.</p>
      *
      * @return null|ErrorObjectCollection
      */

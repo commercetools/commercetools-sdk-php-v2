@@ -51,8 +51,6 @@ interface OrderImport extends JsonObject
     public function getOrderNumber();
 
     /**
-     * <p>References a customer by its key.</p>
-     *
      * @return null|CustomerKeyReference
      */
     public function getCustomer();
@@ -79,7 +77,7 @@ interface OrderImport extends JsonObject
     public function getCustomLineItems();
 
     /**
-     * <p>Maps to <code>Order.totalPrice</code>.</p>
+     * <p>Maps to <code>Order.totalPrice</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
      *
      * @return null|TypedMoney
      */

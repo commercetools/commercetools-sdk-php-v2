@@ -54,9 +54,8 @@ interface CategoryImport extends ImportResource
 
     /**
      * <p>Maps to <code>Category.parent</code>.
-     * The parent category referenced must already exist
-     * in the commercetools project, or the import operation
-     * will have an <code>Unresolved</code> state.</p>
+     * The Reference to the parent <a href="/../api/projects/categories#category">Category</a> with which the Category is associated.
+     * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Category is created.</p>
      *
      * @return null|CategoryKeyReference
      */
@@ -103,7 +102,7 @@ interface CategoryImport extends ImportResource
     public function getAssets();
 
     /**
-     * <p>The custom fields for this category.</p>
+     * <p>The custom fields for this Category.</p>
      *
      * @return null|Custom
      */

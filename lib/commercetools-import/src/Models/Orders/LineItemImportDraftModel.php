@@ -222,10 +222,9 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>References a supply channel. Maps to <code>LineItem.supplyChannel</code>.</p>
-     * <p>The supply channel referenced must already exist
-     * in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>Maps to <code>LineItem.supplyChannel</code>.
+     * The Reference to the Supply <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
+     * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Supply Channel is created.</p>
      *
      * @return null|ChannelKeyReference
      */
@@ -245,10 +244,9 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>References a distribution channel. Maps to <code>LineItem.distributionChannel</code>.</p>
-     * <p>The distribution channel referenced must already exist
-     * in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>Maps to <code>LineItem.distributionChannel</code>.
+     * The Reference to the Distribution <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
+     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Distribution Channel is created.</p>
      *
      * @return null|ChannelKeyReference
      */
