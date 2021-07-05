@@ -36,6 +36,11 @@ final class ImportOperationPagedResponseBuilder implements Builder
     private $count;
 
     /**
+     * @var ?int
+     */
+    private $total;
+
+    /**
      * @var ?ImportOperationCollection
      */
     private $results;
@@ -69,6 +74,16 @@ final class ImportOperationPagedResponseBuilder implements Builder
     public function getCount()
     {
         return $this->count;
+    }
+
+    /**
+     * <p>The total number of import operations matching the query.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 
     /**
@@ -115,6 +130,17 @@ final class ImportOperationPagedResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $total
+     * @return $this
+     */
+    public function withTotal(?int $total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
      * @param ?ImportOperationCollection $results
      * @return $this
      */
@@ -132,6 +158,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
             $this->limit,
             $this->offset,
             $this->count,
+            $this->total,
             $this->results
         );
     }
