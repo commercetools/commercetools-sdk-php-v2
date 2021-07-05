@@ -64,8 +64,8 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The unique key of the import sink.</p>
-     * <p>Valid characters are: alphabetic characters (A-Z, a-z), numeric characters (0-9), underscores (_) and hyphens (-).</p>
+     * <p>User-defined unique identifier for the ImportSink.
+     * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
      *
      * @return null|string
      */
@@ -84,8 +84,9 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The type of import resource sent to this import sink.
-     * You can only send one resource type per import sink.</p>
+     * <p>The <a href="#importresourcetype">resource type</a> to be imported.
+     * Only the resources of this type can be imported through this ImportSink.
+     * See <a href="#importresourcetype">ImportResourceType</a>.</p>
      *
      * @return null|string
      */
@@ -104,7 +105,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The version of this resource.</p>
+     * <p>The version of the ImportSink.</p>
      *
      * @return null|int
      */
@@ -123,7 +124,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>When the import sink was created.</p>
+     * <p>The time when the ImportSink was created.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -146,7 +147,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>When the import sink was modified.</p>
+     * <p>The last time when the ImportSink was modified.</p>
      *
      * @return null|DateTimeImmutable
      */

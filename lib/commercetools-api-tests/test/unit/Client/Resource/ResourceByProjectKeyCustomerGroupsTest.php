@@ -401,15 +401,6 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyCustomerGroupsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->customerGroups()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyCustomerGroupsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

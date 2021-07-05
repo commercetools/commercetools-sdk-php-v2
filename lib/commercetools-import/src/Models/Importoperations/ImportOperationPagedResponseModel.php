@@ -56,7 +56,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The maximum number of import operations returned for a page.</p>
+     * <p>The number of results requested in the query request.</p>
      *
      * @return null|int
      */
@@ -75,7 +75,8 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>
+     * <p>The number of elements skipped, not a page number.
+     * Supplied by the client or the server default.</p>
      *
      * @return null|int
      */
@@ -94,7 +95,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The actual number of results returned by this response.</p>
+     * <p>The actual number of results returned.</p>
      *
      * @return null|int
      */
@@ -113,7 +114,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>The results for this paged response.</p>
+     * <p>The array of Import Operations matching the query.</p>
      *
      * @return null|ImportOperationCollection
      */

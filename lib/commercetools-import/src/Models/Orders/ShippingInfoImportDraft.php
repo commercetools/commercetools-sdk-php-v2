@@ -33,6 +33,8 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getShippingMethodName();
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getPrice();
@@ -62,6 +64,8 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getShippingMethod();
 
     /**
+     * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referencable by an <code>id</code>.</p>
+     *
      * @return null|DeliveryCollection
      */
     public function getDeliveries();

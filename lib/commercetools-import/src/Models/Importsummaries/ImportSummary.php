@@ -17,14 +17,14 @@ interface ImportSummary extends JsonObject
     public const FIELD_TOTAL = 'total';
 
     /**
-     * <p>The states summary for this import summary.</p>
+     * <p>The import status of an <a href="/import-sink#importsink">ImportSink</a> given by the number of resources in each <a href="/processing-state#the-list-of-processing-states">Processing State</a>.</p>
      *
      * @return null|OperationStates
      */
     public function getStates();
 
     /**
-     * <p>The total number of import operations received for this import group.</p>
+     * <p>The total number of <a href="/import-operation#importoperation">ImportOperations</a> received for this Import Summary.</p>
      *
      * @return null|int
      */

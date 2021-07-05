@@ -36,10 +36,10 @@ interface ProductDraftImport extends ImportResource
     public const FIELD_PUBLISH = 'publish';
 
     /**
-     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
-     * <p>The product type referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The <code>productType</code> of a <a href="/../api/projects/products#product">Product</a>.
+     * Maps to <code>Product.productType</code>.
+     * The Reference to the <a href="/../api/projects/productTypes#producttype">ProductType</a> with which the ProductDraft is associated.
+     * If referenced ProductType does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary ProductType is created.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -66,10 +66,8 @@ interface ProductDraftImport extends ImportResource
     public function getDescription();
 
     /**
-     * <p>An array of references to categories by their keys. Maps to <code>Product.categories</code>.</p>
-     * <p>The categories referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Reference to the <a href="/../api/projects/categories#category">Categories</a> with which the ProductDraft is associated.
+     * If referenced Categories do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Categories are created.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -112,25 +110,23 @@ interface ProductDraftImport extends ImportResource
     public function getMetaKeywords();
 
     /**
-     * <p>The master product variant.
-     * Required if the <code>variants</code> array has product variants.</p>
+     * <p>The master Product variant.
+     * Required if the <code>variants</code> array contains a Product Variant.</p>
      *
      * @return null|ProductVariantDraftImport
      */
     public function getMasterVariant();
 
     /**
-     * <p>An array of related product variants.</p>
+     * <p>An array of related Product Variants.</p>
      *
      * @return null|ProductVariantDraftImportCollection
      */
     public function getVariants();
 
     /**
-     * <p>References a tax category by its key.</p>
-     * <p>The tax category referenced must already exist
-     * in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Reference to the <a href="/../api/projects/taxCategories#taxcategory">TaxCategory</a> with which the ProductDraft is associated.
+     * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary TaxCategory is created.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -160,10 +156,8 @@ interface ProductDraftImport extends ImportResource
     public function getSearchKeywords();
 
     /**
-     * <p>References a state by its key.</p>
-     * <p>The tax category referenced must already exist
-     * in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Reference to the <a href="/../api/projects/states#state">State</a> with which the ProductDraft is associated.
+     * If referenced State does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary State is created.</p>
      *
      * @return null|StateKeyReference
      */

@@ -468,16 +468,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyInStoreKeyByStoreKeyCartsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->inStoreKeyWithStoreKeyValue("storeKey")
-                        ->carts()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

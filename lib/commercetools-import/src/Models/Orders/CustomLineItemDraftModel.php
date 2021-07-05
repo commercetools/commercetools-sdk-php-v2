@@ -145,6 +145,8 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getMoney()
@@ -181,6 +183,8 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice()

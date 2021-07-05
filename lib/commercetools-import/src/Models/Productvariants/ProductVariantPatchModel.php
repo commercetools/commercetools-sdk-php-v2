@@ -31,23 +31,29 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
      */
     protected $attributes;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?ProductVariantKeyReference $productVariant = null,
-        ?Attributes $attributes = null
+        ?Attributes $attributes = null,
+        ?bool $staged = null
     ) {
         $this->productVariant = $productVariant;
         $this->attributes = $attributes;
+        $this->staged = $staged;
     }
 
     /**
-     * <p>The product variant to which this patch is applied.</p>
-     * <p>The product variant referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The <a href="/../api/projects/products#productvariant">ProductVariant</a> to which this patch is applied.
+     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the ProductVariantPatch is associated.
+     * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary ProductVariant is created.</p>
      *
      * @return null|ProductVariantKeyReference
      */
@@ -67,10 +73,8 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     }
 
     /**
-     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
-     * <p>Each attribute referenced must be defined
-     * in an already existing product type in the commercetools project, or the import
-     * operation state is set to <code>ValidationFailed</code>.</p>
+     * <p>Maps to <code>ProductVariant.attributes</code>.
+     * The referenced attribute must be defined in an already existing <a href="/../api/projects/productTypes#producttype">ProductType</a> in the commercetools Project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>Unresolved</code>.</p>
      *
      * @return null|Attributes
      */
@@ -89,6 +93,25 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
         return $this->attributes;
     }
 
+    /**
+     * <p>If <code>false</code>, the attribute changes are applied to both <a href="/../api/projects/productProjections#current--staged">current and staged projected representations</a> of the <a href="/../api/projects/products#product">Product</a>.</p>
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?ProductVariantKeyReference $productVariant
@@ -104,5 +127,13 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     public function setAttributes(?Attributes $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

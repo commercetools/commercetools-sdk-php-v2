@@ -401,15 +401,6 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyShoppingListsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->shoppingLists()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyShoppingListsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

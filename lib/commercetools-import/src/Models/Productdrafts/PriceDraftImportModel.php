@@ -110,6 +110,8 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
+     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue()

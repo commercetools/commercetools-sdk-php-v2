@@ -73,7 +73,7 @@ final class ImportOperationBuilder implements Builder
     private $expiresAt;
 
     /**
-     * <p>The import operation version.</p>
+     * <p>The version of the ImportOperation.</p>
      *
      * @return null|int
      */
@@ -83,7 +83,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The key of the import sink.</p>
+     * <p>The key of the <a href="/import-sink#importsink">ImportSink</a>.</p>
      *
      * @return null|string
      */
@@ -93,7 +93,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The key of the import resource.</p>
+     * <p>The key of the resource.</p>
      *
      * @return null|string
      */
@@ -103,7 +103,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The identifier of the operaton that is to be commited</p>
+     * <p>The ID of the ImportOperation.</p>
      *
      * @return null|string
      */
@@ -113,7 +113,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The status of the import resource.</p>
+     * <p>The import status of the resource. Set to <code>Rejected</code> or <code>ValidationFailed</code> if the import of the resource was not successful.</p>
      *
      * @return null|string
      */
@@ -123,7 +123,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>When the resource is successfully imported, this represents the imported resource version</p>
+     * <p>The version of the impmorted resource when the import was successful.</p>
      *
      * @return null|int
      */
@@ -133,8 +133,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
-     * and this property contains the errors.</p>
+     * <p>Contains an error if the import of the resource was not successful. See <a href="/error">Errors</a>.</p>
      *
      * @return null|ErrorObjectCollection
      */
@@ -144,7 +143,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>When the import operation was created.</p>
+     * <p>The time when the ImportOperation was created.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -154,7 +153,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>When the import operation was modified.</p>
+     * <p>The last time When the ImportOperation was modified.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -164,7 +163,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>When the import operation expires.</p>
+     * <p>The expiration time of the ImportOperation.</p>
      *
      * @return null|DateTimeImmutable
      */

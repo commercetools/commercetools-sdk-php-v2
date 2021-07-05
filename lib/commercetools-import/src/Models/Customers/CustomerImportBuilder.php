@@ -182,10 +182,7 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>References stores by its keys.</p>
-     * <p>The stores referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Stores are created.</p>
      *
      * @return null|StoreKeyReferenceCollection
      */
@@ -295,10 +292,8 @@ final class CustomerImportBuilder implements Builder
     }
 
     /**
-     * <p>References a customer group by its key.</p>
-     * <p>The customer group referenced
-     * must already exist in the commercetools project, or the
-     * import operation state is set to <code>Unresolved</code>.</p>
+     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the Customer is associated.
+     * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary CustomerGroup is created.</p>
      *
      * @return null|CustomerGroupKeyReference
      */

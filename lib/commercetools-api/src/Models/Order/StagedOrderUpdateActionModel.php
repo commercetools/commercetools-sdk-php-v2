@@ -64,6 +64,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderRemovePaymentAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderRemovePaymentActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetBillingAddressCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCountryActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomerEmailAction;
@@ -90,8 +94,16 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetLineItemCustomTypeAction;
@@ -130,6 +142,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAndCustomShi
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAndCustomShippingMethodActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAndShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAndShippingMethodActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxAmountAction;
@@ -198,6 +214,8 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'removeParcelFromDelivery' => StagedOrderRemoveParcelFromDeliveryActionModel::class,
        'removePayment' => StagedOrderRemovePaymentActionModel::class,
        'setBillingAddress' => StagedOrderSetBillingAddressActionModel::class,
+       'setBillingAddressCustomField' => StagedOrderSetBillingAddressCustomFieldActionModel::class,
+       'setBillingAddressCustomType' => StagedOrderSetBillingAddressCustomTypeActionModel::class,
        'setCountry' => StagedOrderSetCountryActionModel::class,
        'setCustomField' => StagedOrderSetCustomFieldActionModel::class,
        'setCustomLineItemCustomField' => StagedOrderSetCustomLineItemCustomFieldActionModel::class,
@@ -211,7 +229,11 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setCustomerGroup' => StagedOrderSetCustomerGroupActionModel::class,
        'setCustomerId' => StagedOrderSetCustomerIdActionModel::class,
        'setDeliveryAddress' => StagedOrderSetDeliveryAddressActionModel::class,
+       'setDeliveryAddressCustomField' => StagedOrderSetDeliveryAddressCustomFieldActionModel::class,
+       'setDeliveryAddressCustomType' => StagedOrderSetDeliveryAddressCustomTypeActionModel::class,
        'setDeliveryItems' => StagedOrderSetDeliveryItemsActionModel::class,
+       'setItemShippingAddressCustomField' => StagedOrderSetItemShippingAddressCustomFieldActionModel::class,
+       'setItemShippingAddressCustomType' => StagedOrderSetItemShippingAddressCustomTypeActionModel::class,
        'setLineItemCustomField' => StagedOrderSetLineItemCustomFieldActionModel::class,
        'setLineItemCustomType' => StagedOrderSetLineItemCustomTypeActionModel::class,
        'setLineItemDistributionChannel' => StagedOrderSetLineItemDistributionChannelActionModel::class,
@@ -231,6 +253,8 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setShippingAddress' => StagedOrderSetShippingAddressActionModel::class,
        'setShippingAddressAndCustomShippingMethod' => StagedOrderSetShippingAddressAndCustomShippingMethodActionModel::class,
        'setShippingAddressAndShippingMethod' => StagedOrderSetShippingAddressAndShippingMethodActionModel::class,
+       'setShippingAddressCustomField' => StagedOrderSetShippingAddressCustomFieldActionModel::class,
+       'setShippingAddressCustomType' => StagedOrderSetShippingAddressCustomTypeActionModel::class,
        'setShippingMethod' => StagedOrderSetShippingMethodActionModel::class,
        'setShippingMethodTaxAmount' => StagedOrderSetShippingMethodTaxAmountActionModel::class,
        'setShippingMethodTaxRate' => StagedOrderSetShippingMethodTaxRateActionModel::class,

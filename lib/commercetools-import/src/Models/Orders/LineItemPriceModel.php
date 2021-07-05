@@ -103,7 +103,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     }
 
     /**
-     * <p>Maps to <code>Price.value</code>.</p>
+     * <p>Maps to <code>Price.value</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
      *
      * @return null|TypedMoney
      */

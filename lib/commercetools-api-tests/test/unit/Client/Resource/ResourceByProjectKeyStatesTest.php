@@ -401,15 +401,6 @@ class ResourceByProjectKeyStatesTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyStatesPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->states()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyStatesPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

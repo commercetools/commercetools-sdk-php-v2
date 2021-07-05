@@ -133,6 +133,17 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
                 'get',
                 'test_projectKey/import-sinks?offset=offset',
             ],
+            'ByProjectKeyImportSinksGet_withSort' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->importSinks()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                'test_projectKey/import-sinks?sort=sort',
+            ],
             'ByProjectKeyImportSinksGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder

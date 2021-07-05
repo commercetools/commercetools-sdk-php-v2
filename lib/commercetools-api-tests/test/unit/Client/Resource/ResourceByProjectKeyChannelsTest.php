@@ -389,15 +389,6 @@ class ResourceByProjectKeyChannelsTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyChannelsPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->channels()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyChannelsPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

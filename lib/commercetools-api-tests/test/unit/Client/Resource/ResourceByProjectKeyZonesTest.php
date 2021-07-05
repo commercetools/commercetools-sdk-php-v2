@@ -401,15 +401,6 @@ class ResourceByProjectKeyZonesTest extends TestCase
                 },
                 503
             ],
-            'ByProjectKeyZonesPost_200' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->zones()
-                        ->post(null);
-                },
-                200
-            ],
             'ByProjectKeyZonesPost_599' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

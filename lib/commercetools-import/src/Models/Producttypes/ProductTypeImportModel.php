@@ -113,7 +113,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-     * <p>The product type's attributes.</p>
+     * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
      *
      * @return null|AttributeDefinitionCollection
      */
