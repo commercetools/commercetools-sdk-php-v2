@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -31,14 +35,14 @@ final class CartSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel 
     protected $deliveryId;
 
     /**
-     * @var ?string
+     * @var ?TypeResourceIdentifier
      */
-    protected $name;
+    protected $type;
 
     /**
-     * @var ?mixed
+     * @var ?FieldContainer
      */
-    protected $value;
+    protected $fields;
 
 
     /**
@@ -46,12 +50,12 @@ final class CartSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $deliveryId = null,
-        ?string $name = null,
-        $value = null
+        ?TypeResourceIdentifier $type = null,
+        ?FieldContainer $fields = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->name = $name;
-        $this->value = $value;
+        $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -90,37 +94,39 @@ final class CartSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|string
+     * @return null|TypeResourceIdentifier
      */
-    public function getName()
+    public function getType()
     {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
+        if (is_null($this->type)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
-            $this->name = (string) $data;
+
+            $this->type = TypeResourceIdentifierModel::of($data);
         }
 
-        return $this->name;
+        return $this->type;
     }
 
     /**
-     * @return null|mixed
+     * @return null|FieldContainer
      */
-    public function getValue()
+    public function getFields()
     {
-        if (is_null($this->value)) {
-            /** @psalm-var mixed $data */
-            $data = $this->raw(self::FIELD_VALUE);
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = $data;
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
-        return $this->value;
+        return $this->fields;
     }
 
 
@@ -133,18 +139,18 @@ final class CartSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * @param ?string $name
+     * @param ?TypeResourceIdentifier $type
      */
-    public function setName(?string $name): void
+    public function setType(?TypeResourceIdentifier $type): void
     {
-        $this->name = $name;
+        $this->type = $type;
     }
 
     /**
-     * @param mixed $value
+     * @param ?FieldContainer $fields
      */
-    public function setValue($value): void
+    public function setFields(?FieldContainer $fields): void
     {
-        $this->value = $value;
+        $this->fields = $fields;
     }
 }
