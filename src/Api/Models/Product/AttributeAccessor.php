@@ -48,6 +48,14 @@ class AttributeAccessor
     }
 
     /**
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->attribute->getName();
+    }
+
+    /**
      * @psalm-return callable(Attribute): self
      */
     public static function of()
