@@ -16,12 +16,14 @@ use Psr\Http\Message\ResponseInterface;
 
 class ApiClientException extends ClientException
 {
+    use ExceptionToStringTrait;
+
     /**
      * @var ?JsonObject
      * @readonly
      */
     private $result;
-    
+
     /**
      * @param string $message
      * @param ?JsonObject $result
@@ -31,7 +33,7 @@ class ApiClientException extends ClientException
         $this->result = $result;
         parent::__construct($message, $request, $response, $previous, $handlerContext);
     }
-    
+
     /**
      * @return ?JsonObject
      */

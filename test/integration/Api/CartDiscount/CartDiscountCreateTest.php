@@ -8,6 +8,9 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountDraftBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountValueGiftLineItemDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\Product\ProductResourceIdentifierBuilder;
+use Commercetools\Exception\BadRequestException;
+use Commercetools\Exception\NotFoundException;
 use Commercetools\Import\Models\Importsinks\ImportSinkDraftBuilder;
 use Commercetools\IntegrationTest\ApiTestCase;
 
@@ -32,6 +35,7 @@ class CartDiscountCreateTest extends ApiTestCase
 
     public function testCreateGiftLineItem()
     {
+        $this->markTestIncomplete("product fixture missing");
         $builder = $this->getApiBuilder();
 
         CartDiscountFixture::withDraftCartDiscount(
@@ -46,12 +50,13 @@ class CartDiscountCreateTest extends ApiTestCase
                     ->withSortOrder('0.9' . trim((string)mt_rand(1, CartDiscountFixture::RAND_MAX), '0'))
                     ->withValue(
                         CartDiscountValueGiftLineItemDraftBuilder::of()
-                            ->withProductBuilder(ProductReferenceBuilder::of()->withId("7be81688-0863-4f73-8ec6-1b249febc294"))
+                            ->withProduct(ProductResourceIdentifierBuilder::of()->withId("7be81688-0863-4f73-8ec6-1b249febc294")->build())
                             ->withVariantId(1)
                             ->build()
                     )
                 ;
                 $draft = $builder->build();
+                return $draft;
             },
             function (CartDiscount $cartDiscount) use ($builder) {
                 $apiRequestBuilder = $builder;
@@ -64,7 +69,7 @@ class CartDiscountCreateTest extends ApiTestCase
                     ->withSortOrder('0.9' . trim((string)mt_rand(1, CartDiscountFixture::RAND_MAX), '0'))
                     ->withValue(
                         CartDiscountValueGiftLineItemDraftBuilder::of()
-                            ->withProductBuilder(ProductReferenceBuilder::of()->withId("7be81688-0863-4f73-8ec6-1b249febc294"))
+                            ->withProduct(ProductResourceIdentifierBuilder::of()->withId("7be81688-0863-4f73-8ec6-1b249febc294")->build())
                             ->withVariantId(1)
                             ->build()
                     )
