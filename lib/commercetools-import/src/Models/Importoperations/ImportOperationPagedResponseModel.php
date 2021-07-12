@@ -35,6 +35,11 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $total;
+
+    /**
      * @var ?ImportOperationCollection
      */
     protected $results;
@@ -47,11 +52,13 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
         ?int $limit = null,
         ?int $offset = null,
         ?int $count = null,
+        ?int $total = null,
         ?ImportOperationCollection $results = null
     ) {
         $this->limit = $limit;
         $this->offset = $offset;
         $this->count = $count;
+        $this->total = $total;
         $this->results = $results;
     }
 
@@ -114,6 +121,25 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The total number of import operations matching the query.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        if (is_null($this->total)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_TOTAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->total = (int) $data;
+        }
+
+        return $this->total;
+    }
+
+    /**
      * <p>The array of Import Operations matching the query.</p>
      *
      * @return null|ImportOperationCollection
@@ -155,6 +181,14 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    /**
+     * @param ?int $total
+     */
+    public function setTotal(?int $total): void
+    {
+        $this->total = $total;
     }
 
     /**

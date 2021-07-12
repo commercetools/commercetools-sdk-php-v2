@@ -10,10 +10,6 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
-use Commercetools\Api\Models\Type\FieldContainer;
-use Commercetools\Api\Models\Type\FieldContainerModel;
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
-use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -37,14 +33,14 @@ final class StagedOrderSetDeliveryAddressCustomFieldActionModel extends JsonObje
     protected $deliveryId;
 
     /**
-     * @var ?TypeResourceIdentifier
+     * @var ?string
      */
-    protected $type;
+    protected $name;
 
     /**
-     * @var ?FieldContainer
+     * @var ?mixed
      */
-    protected $fields;
+    protected $value;
 
 
     /**
@@ -52,12 +48,12 @@ final class StagedOrderSetDeliveryAddressCustomFieldActionModel extends JsonObje
      */
     public function __construct(
         ?string $deliveryId = null,
-        ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?string $name = null,
+        $value = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->type = $type;
-        $this->fields = $fields;
+        $this->name = $name;
+        $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -96,39 +92,37 @@ final class StagedOrderSetDeliveryAddressCustomFieldActionModel extends JsonObje
     }
 
     /**
-     * @return null|TypeResourceIdentifier
+     * @return null|string
      */
-    public function getType()
+    public function getName()
     {
-        if (is_null($this->type)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TYPE);
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->type = TypeResourceIdentifierModel::of($data);
+            $this->name = (string) $data;
         }
 
-        return $this->type;
+        return $this->name;
     }
 
     /**
-     * @return null|FieldContainer
+     * @return null|mixed
      */
-    public function getFields()
+    public function getValue()
     {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_FIELDS);
+        if (is_null($this->value)) {
+            /** @psalm-var mixed $data */
+            $data = $this->raw(self::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->fields = FieldContainerModel::of($data);
+            $this->value = $data;
         }
 
-        return $this->fields;
+        return $this->value;
     }
 
 
@@ -141,18 +135,18 @@ final class StagedOrderSetDeliveryAddressCustomFieldActionModel extends JsonObje
     }
 
     /**
-     * @param ?TypeResourceIdentifier $type
+     * @param ?string $name
      */
-    public function setType(?TypeResourceIdentifier $type): void
+    public function setName(?string $name): void
     {
-        $this->type = $type;
+        $this->name = $name;
     }
 
     /**
-     * @param ?FieldContainer $fields
+     * @param mixed $value
      */
-    public function setFields(?FieldContainer $fields): void
+    public function setValue($value): void
     {
-        $this->fields = $fields;
+        $this->value = $value;
     }
 }

@@ -8,16 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Type\FieldContainer;
-use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface CartSetDeliveryAddressCustomFieldAction extends CartUpdateAction
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
-    public const FIELD_TYPE = 'type';
-    public const FIELD_FIELDS = 'fields';
+    public const FIELD_NAME = 'name';
+    public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string
@@ -25,14 +23,14 @@ interface CartSetDeliveryAddressCustomFieldAction extends CartUpdateAction
     public function getDeliveryId();
 
     /**
-     * @return null|TypeResourceIdentifier
+     * @return null|string
      */
-    public function getType();
+    public function getName();
 
     /**
-     * @return null|FieldContainer
+     * @return null|mixed
      */
-    public function getFields();
+    public function getValue();
 
     /**
      * @param ?string $deliveryId
@@ -40,12 +38,12 @@ interface CartSetDeliveryAddressCustomFieldAction extends CartUpdateAction
     public function setDeliveryId(?string $deliveryId): void;
 
     /**
-     * @param ?TypeResourceIdentifier $type
+     * @param ?string $name
      */
-    public function setType(?TypeResourceIdentifier $type): void;
+    public function setName(?string $name): void;
 
     /**
-     * @param ?FieldContainer $fields
+     * @param mixed $value
      */
-    public function setFields(?FieldContainer $fields): void;
+    public function setValue($value): void;
 }

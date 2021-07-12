@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerBuilder;
+use Commercetools\Api\Models\Type\TypeResourceIdentifier;
+use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -26,14 +30,14 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
     private $deliveryId;
 
     /**
-     * @var ?string
+     * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
-    private $name;
+    private $type;
 
     /**
-     * @var null|mixed|mixed
+     * @var null|FieldContainer|FieldContainerBuilder
      */
-    private $value;
+    private $fields;
 
     /**
      * @return null|string
@@ -44,19 +48,19 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|TypeResourceIdentifier
      */
-    public function getName()
+    public function getType()
     {
-        return $this->name;
+        return $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type;
     }
 
     /**
-     * @return null|mixed
+     * @return null|FieldContainer
      */
-    public function getValue()
+    public function getFields()
     {
-        return $this->value;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -71,34 +75,55 @@ final class OrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $name
+     * @param ?TypeResourceIdentifier $type
      * @return $this
      */
-    public function withName(?string $name)
+    public function withType(?TypeResourceIdentifier $type)
     {
-        $this->name = $name;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param ?FieldContainer $fields
      * @return $this
      */
-    public function withValue($value)
+    public function withFields(?FieldContainer $fields)
     {
-        $this->value = $value;
+        $this->fields = $fields;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withType() instead
+     * @return $this
+     */
+    public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withFields() instead
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
 
     public function build(): OrderSetDeliveryAddressCustomTypeAction
     {
         return new OrderSetDeliveryAddressCustomTypeActionModel(
             $this->deliveryId,
-            $this->name,
-            $this->value
+            $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 
