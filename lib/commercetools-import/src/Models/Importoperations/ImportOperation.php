@@ -10,6 +10,7 @@ namespace Commercetools\Import\Models\Importoperations;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 
@@ -22,6 +23,7 @@ interface ImportOperation extends JsonObject
     public const FIELD_STATE = 'state';
     public const FIELD_RESOURCE_VERSION = 'resourceVersion';
     public const FIELD_ERRORS = 'errors';
+    public const FIELD_UNRESOLVED_REFERENCES = 'unresolvedReferences';
     public const FIELD_CREATED_AT = 'createdAt';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
     public const FIELD_EXPIRES_AT = 'expiresAt';
@@ -74,6 +76,13 @@ interface ImportOperation extends JsonObject
      * @return null|ErrorObjectCollection
      */
     public function getErrors();
+
+    /**
+     * <p>In case of unresolved status this array will show the unresolved references</p>
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences();
 
     /**
      * <p>The time when the ImportOperation was created.</p>
@@ -130,6 +139,11 @@ interface ImportOperation extends JsonObject
      * @param ?ErrorObjectCollection $errors
      */
     public function setErrors(?ErrorObjectCollection $errors): void;
+
+    /**
+     * @param ?KeyReferenceCollection $unresolvedReferences
+     */
+    public function setUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

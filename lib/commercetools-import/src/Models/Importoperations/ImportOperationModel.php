@@ -12,6 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 use stdClass;
@@ -57,6 +58,11 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     protected $errors;
 
     /**
+     * @var ?KeyReferenceCollection
+     */
+    protected $unresolvedReferences;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -83,6 +89,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         ?string $state = null,
         ?int $resourceVersion = null,
         ?ErrorObjectCollection $errors = null,
+        ?KeyReferenceCollection $unresolvedReferences = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
         ?DateTimeImmutable $expiresAt = null
@@ -94,6 +101,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
         $this->state = $state;
         $this->resourceVersion = $resourceVersion;
         $this->errors = $errors;
+        $this->unresolvedReferences = $unresolvedReferences;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->expiresAt = $expiresAt;
@@ -233,6 +241,25 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
+     * <p>In case of unresolved status this array will show the unresolved references</p>
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences()
+    {
+        if (is_null($this->unresolvedReferences)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_UNRESOLVED_REFERENCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->unresolvedReferences = KeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->unresolvedReferences;
+    }
+
+    /**
      * <p>The time when the ImportOperation was created.</p>
      *
      * @return null|DateTimeImmutable
@@ -356,6 +383,14 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     public function setErrors(?ErrorObjectCollection $errors): void
     {
         $this->errors = $errors;
+    }
+
+    /**
+     * @param ?KeyReferenceCollection $unresolvedReferences
+     */
+    public function setUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences): void
+    {
+        $this->unresolvedReferences = $unresolvedReferences;
     }
 
     /**
