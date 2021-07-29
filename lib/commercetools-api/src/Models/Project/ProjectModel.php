@@ -87,6 +87,11 @@ final class ProjectModel extends JsonObjectModel implements Project
      */
     protected $searchIndexing;
 
+    /**
+     * @var ?ShoppingListsConfiguration
+     */
+    protected $shoppingLists;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -104,7 +109,8 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?ShippingRateInputType $shippingRateInputType = null,
         ?ExternalOAuth $externalOAuth = null,
         ?CartsConfiguration $carts = null,
-        ?SearchIndexingConfiguration $searchIndexing = null
+        ?SearchIndexingConfiguration $searchIndexing = null,
+        ?ShoppingListsConfiguration $shoppingLists = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -119,6 +125,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->externalOAuth = $externalOAuth;
         $this->carts = $carts;
         $this->searchIndexing = $searchIndexing;
+        $this->shoppingLists = $shoppingLists;
     }
 
     /**
@@ -363,6 +370,24 @@ final class ProjectModel extends JsonObjectModel implements Project
         return $this->searchIndexing;
     }
 
+    /**
+     * @return null|ShoppingListsConfiguration
+     */
+    public function getShoppingLists()
+    {
+        if (is_null($this->shoppingLists)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHOPPING_LISTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shoppingLists = ShoppingListsConfigurationModel::of($data);
+        }
+
+        return $this->shoppingLists;
+    }
+
 
     /**
      * @param ?int $version
@@ -466,6 +491,14 @@ final class ProjectModel extends JsonObjectModel implements Project
     public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void
     {
         $this->searchIndexing = $searchIndexing;
+    }
+
+    /**
+     * @param ?ShoppingListsConfiguration $shoppingLists
+     */
+    public function setShoppingLists(?ShoppingListsConfiguration $shoppingLists): void
+    {
+        $this->shoppingLists = $shoppingLists;
     }
 
 

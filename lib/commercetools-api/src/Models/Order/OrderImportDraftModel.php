@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
+use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\BaseAddress;
@@ -55,7 +55,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $lineItems;
 
     /**
-     * @var ?CustomLineItemDraftCollection
+     * @var ?CustomLineItemImportDraftCollection
      */
     protected $customLineItems;
 
@@ -153,7 +153,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         ?string $customerId = null,
         ?string $customerEmail = null,
         ?LineItemImportDraftCollection $lineItems = null,
-        ?CustomLineItemDraftCollection $customLineItems = null,
+        ?CustomLineItemImportDraftCollection $customLineItems = null,
         ?Money $totalPrice = null,
         ?TaxedPriceDraft $taxedPrice = null,
         ?BaseAddress $shippingAddress = null,
@@ -277,7 +277,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
-     * @return null|CustomLineItemDraftCollection
+     * @return null|CustomLineItemImportDraftCollection
      */
     public function getCustomLineItems()
     {
@@ -287,7 +287,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
             if (is_null($data)) {
                 return null;
             }
-            $this->customLineItems = CustomLineItemDraftCollection::fromArray($data);
+            $this->customLineItems = CustomLineItemImportDraftCollection::fromArray($data);
         }
 
         return $this->customLineItems;
@@ -651,9 +651,9 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @param ?CustomLineItemDraftCollection $customLineItems
+     * @param ?CustomLineItemImportDraftCollection $customLineItems
      */
-    public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void
+    public function setCustomLineItems(?CustomLineItemImportDraftCollection $customLineItems): void
     {
         $this->customLineItems = $customLineItems;
     }

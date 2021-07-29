@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
+use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftBuilder;
 use Commercetools\Api\Models\Common\BaseAddress;
@@ -56,7 +56,7 @@ final class OrderImportDraftBuilder implements Builder
     private $lineItems;
 
     /**
-     * @var ?CustomLineItemDraftCollection
+     * @var ?CustomLineItemImportDraftCollection
      */
     private $customLineItems;
 
@@ -190,7 +190,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
-     * @return null|CustomLineItemDraftCollection
+     * @return null|CustomLineItemImportDraftCollection
      */
     public function getCustomLineItems()
     {
@@ -401,10 +401,10 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomLineItemDraftCollection $customLineItems
+     * @param ?CustomLineItemImportDraftCollection $customLineItems
      * @return $this
      */
-    public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
+    public function withCustomLineItems(?CustomLineItemImportDraftCollection $customLineItems)
     {
         $this->customLineItems = $customLineItems;
 
