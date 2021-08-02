@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
+use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
@@ -78,7 +78,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
-     * @return null|CustomLineItemDraftCollection
+     * @return null|CustomLineItemImportDraftCollection
      */
     public function getCustomLineItems();
 
@@ -211,9 +211,9 @@ interface OrderImportDraft extends JsonObject
     public function setLineItems(?LineItemImportDraftCollection $lineItems): void;
 
     /**
-     * @param ?CustomLineItemDraftCollection $customLineItems
+     * @param ?CustomLineItemImportDraftCollection $customLineItems
      */
-    public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void;
+    public function setCustomLineItems(?CustomLineItemImportDraftCollection $customLineItems): void;
 
     /**
      * @param ?Money $totalPrice

@@ -165,6 +165,19 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
                 'get',
                 'test_projectKey/categories/importSinkKey=test_importSinkKey/import-operations?state=state',
             ],
+            'ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet_withDebug' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->categories()
+                        ->importSinkKeyWithImportSinkKeyValue('test_importSinkKey')
+                        ->importOperations()
+                        ->get()
+                        ->withDebug('debug');
+                },
+                'get',
+                'test_projectKey/categories/importSinkKey=test_importSinkKey/import-operations?debug=debug',
+            ],
             'ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder

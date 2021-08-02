@@ -156,4 +156,13 @@ class ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet exte
     {
         return $this->withQueryParam('state', $state);
     }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $debug
+     */
+    public function withDebug($debug): ByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsGet
+    {
+        return $this->withQueryParam('debug', $debug);
+    }
 }

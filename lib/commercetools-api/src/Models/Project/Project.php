@@ -28,6 +28,7 @@ interface Project extends JsonObject
     public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
     public const FIELD_CARTS = 'carts';
     public const FIELD_SEARCH_INDEXING = 'searchIndexing';
+    public const FIELD_SHOPPING_LISTS = 'shoppingLists';
 
     /**
      * <p>The current version of the project.</p>
@@ -107,6 +108,11 @@ interface Project extends JsonObject
     public function getSearchIndexing();
 
     /**
+     * @return null|ShoppingListsConfiguration
+     */
+    public function getShoppingLists();
+
+    /**
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
@@ -170,4 +176,9 @@ interface Project extends JsonObject
      * @param ?SearchIndexingConfiguration $searchIndexing
      */
     public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void;
+
+    /**
+     * @param ?ShoppingListsConfiguration $shoppingLists
+     */
+    public function setShoppingLists(?ShoppingListsConfiguration $shoppingLists): void;
 }

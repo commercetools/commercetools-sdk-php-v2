@@ -13,6 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 use stdClass;
@@ -56,6 +57,11 @@ final class ImportOperationBuilder implements Builder
      * @var ?ErrorObjectCollection
      */
     private $errors;
+
+    /**
+     * @var ?KeyReferenceCollection
+     */
+    private $unresolvedReferences;
 
     /**
      * @var ?DateTimeImmutable
@@ -140,6 +146,16 @@ final class ImportOperationBuilder implements Builder
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    /**
+     * <p>In case of unresolved status this array will show the unresolved references</p>
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences()
+    {
+        return $this->unresolvedReferences;
     }
 
     /**
@@ -250,6 +266,17 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReferenceCollection $unresolvedReferences
+     * @return $this
+     */
+    public function withUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences)
+    {
+        $this->unresolvedReferences = $unresolvedReferences;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
@@ -293,6 +320,7 @@ final class ImportOperationBuilder implements Builder
             $this->state,
             $this->resourceVersion,
             $this->errors,
+            $this->unresolvedReferences,
             $this->createdAt,
             $this->lastModifiedAt,
             $this->expiresAt
