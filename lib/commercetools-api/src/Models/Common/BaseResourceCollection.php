@@ -16,8 +16,10 @@ use stdClass;
  * @template T of BaseResource
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method BaseResource current()
+ * @method BaseResource end()
  * @method BaseResource at($offset)
  */
 class BaseResourceCollection extends MapperSequence
