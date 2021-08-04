@@ -14,6 +14,7 @@ use Commercetools\Exception\InvalidArgumentException;
 /**
  * @extends MapperArraySequence<NestedAttribute, array<int, \stdClass>>
  * @method NestedAttribute current()
+ * @method NestedAttribute end()
  * @method NestedAttribute at($offset)
  */
 class NestedAttributeCollection extends MapperArraySequence
