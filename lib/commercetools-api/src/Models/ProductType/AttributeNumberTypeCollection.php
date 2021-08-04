@@ -41,7 +41,7 @@ class AttributeNumberTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeNumberType {
+        return function (?int $index): ?AttributeNumberType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeNumberType $data */

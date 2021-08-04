@@ -41,7 +41,7 @@ class ExtensionAzureFunctionsAuthenticationCollection extends ExtensionHttpDesti
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionAzureFunctionsAuthentication {
+        return function (?int $index): ?ExtensionAzureFunctionsAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionAzureFunctionsAuthentication $data */

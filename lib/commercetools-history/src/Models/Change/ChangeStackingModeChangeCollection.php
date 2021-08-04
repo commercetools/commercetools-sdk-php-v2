@@ -41,7 +41,7 @@ class ChangeStackingModeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeStackingModeChange {
+        return function (?int $index): ?ChangeStackingModeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeStackingModeChange $data */

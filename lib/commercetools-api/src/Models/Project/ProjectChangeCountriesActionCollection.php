@@ -41,7 +41,7 @@ class ProjectChangeCountriesActionCollection extends ProjectUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeCountriesAction {
+        return function (?int $index): ?ProjectChangeCountriesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeCountriesAction $data */

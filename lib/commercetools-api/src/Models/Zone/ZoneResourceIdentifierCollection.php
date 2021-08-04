@@ -41,7 +41,7 @@ class ZoneResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneResourceIdentifier {
+        return function (?int $index): ?ZoneResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneResourceIdentifier $data */

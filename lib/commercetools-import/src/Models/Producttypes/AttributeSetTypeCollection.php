@@ -41,7 +41,7 @@ class AttributeSetTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeSetType {
+        return function (?int $index): ?AttributeSetType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeSetType $data */

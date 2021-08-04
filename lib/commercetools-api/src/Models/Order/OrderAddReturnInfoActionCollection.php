@@ -41,7 +41,7 @@ class OrderAddReturnInfoActionCollection extends OrderUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderAddReturnInfoAction {
+        return function (?int $index): ?OrderAddReturnInfoAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderAddReturnInfoAction $data */

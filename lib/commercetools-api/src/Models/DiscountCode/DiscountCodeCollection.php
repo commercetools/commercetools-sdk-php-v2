@@ -41,7 +41,7 @@ class DiscountCodeCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCode {
+        return function (?int $index): ?DiscountCode {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCode $data */

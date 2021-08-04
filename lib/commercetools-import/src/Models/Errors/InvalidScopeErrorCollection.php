@@ -41,7 +41,7 @@ class InvalidScopeErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidScopeError {
+        return function (?int $index): ?InvalidScopeError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidScopeError $data */

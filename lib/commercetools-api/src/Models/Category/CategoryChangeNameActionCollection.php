@@ -41,7 +41,7 @@ class CategoryChangeNameActionCollection extends CategoryUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryChangeNameAction {
+        return function (?int $index): ?CategoryChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryChangeNameAction $data */

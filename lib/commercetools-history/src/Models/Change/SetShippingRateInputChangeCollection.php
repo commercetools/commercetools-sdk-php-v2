@@ -41,7 +41,7 @@ class SetShippingRateInputChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetShippingRateInputChange {
+        return function (?int $index): ?SetShippingRateInputChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetShippingRateInputChange $data */

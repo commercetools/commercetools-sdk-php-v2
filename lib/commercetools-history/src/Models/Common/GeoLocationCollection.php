@@ -41,7 +41,7 @@ class GeoLocationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GeoLocation {
+        return function (?int $index): ?GeoLocation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GeoLocation $data */

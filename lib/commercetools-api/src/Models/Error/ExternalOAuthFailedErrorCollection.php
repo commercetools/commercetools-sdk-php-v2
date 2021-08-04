@@ -41,7 +41,7 @@ class ExternalOAuthFailedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExternalOAuthFailedError {
+        return function (?int $index): ?ExternalOAuthFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExternalOAuthFailedError $data */

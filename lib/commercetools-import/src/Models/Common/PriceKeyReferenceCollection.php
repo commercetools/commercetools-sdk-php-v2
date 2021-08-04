@@ -41,7 +41,7 @@ class PriceKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PriceKeyReference {
+        return function (?int $index): ?PriceKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PriceKeyReference $data */

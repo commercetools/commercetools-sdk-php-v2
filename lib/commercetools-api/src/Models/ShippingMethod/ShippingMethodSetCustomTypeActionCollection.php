@@ -41,7 +41,7 @@ class ShippingMethodSetCustomTypeActionCollection extends ShippingMethodUpdateAc
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodSetCustomTypeAction {
+        return function (?int $index): ?ShippingMethodSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodSetCustomTypeAction $data */

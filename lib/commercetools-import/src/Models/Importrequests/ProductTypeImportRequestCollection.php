@@ -41,7 +41,7 @@ class ProductTypeImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeImportRequest {
+        return function (?int $index): ?ProductTypeImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeImportRequest $data */

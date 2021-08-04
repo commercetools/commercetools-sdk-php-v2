@@ -41,7 +41,7 @@ class ChannelChangeNameActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelChangeNameAction {
+        return function (?int $index): ?ChannelChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelChangeNameAction $data */

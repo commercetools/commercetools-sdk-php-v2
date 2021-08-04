@@ -41,7 +41,7 @@ class StagedOrderSetParcelTrackingDataActionCollection extends StagedOrderUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetParcelTrackingDataAction {
+        return function (?int $index): ?StagedOrderSetParcelTrackingDataAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetParcelTrackingDataAction $data */

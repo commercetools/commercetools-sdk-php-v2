@@ -41,7 +41,7 @@ class CartSetCustomLineItemShippingDetailsActionCollection extends CartUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetCustomLineItemShippingDetailsAction {
+        return function (?int $index): ?CartSetCustomLineItemShippingDetailsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetCustomLineItemShippingDetailsAction $data */

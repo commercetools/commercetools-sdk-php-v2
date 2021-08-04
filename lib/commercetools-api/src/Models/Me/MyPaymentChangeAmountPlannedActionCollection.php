@@ -41,7 +41,7 @@ class MyPaymentChangeAmountPlannedActionCollection extends MyPaymentUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?MyPaymentChangeAmountPlannedAction {
+        return function (?int $index): ?MyPaymentChangeAmountPlannedAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyPaymentChangeAmountPlannedAction $data */

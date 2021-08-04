@@ -41,7 +41,7 @@ class ProductVariantDeletedMessagePayloadCollection extends MessagePayloadCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariantDeletedMessagePayload {
+        return function (?int $index): ?ProductVariantDeletedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariantDeletedMessagePayload $data */

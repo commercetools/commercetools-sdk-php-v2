@@ -41,7 +41,7 @@ class ShippingMethodChangeNameActionCollection extends ShippingMethodUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodChangeNameAction {
+        return function (?int $index): ?ShippingMethodChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodChangeNameAction $data */

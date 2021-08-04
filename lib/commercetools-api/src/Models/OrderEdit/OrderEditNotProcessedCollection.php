@@ -41,7 +41,7 @@ class OrderEditNotProcessedCollection extends OrderEditResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditNotProcessed {
+        return function (?int $index): ?OrderEditNotProcessed {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditNotProcessed $data */

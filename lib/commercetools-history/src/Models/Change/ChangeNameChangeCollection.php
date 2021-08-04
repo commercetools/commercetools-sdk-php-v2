@@ -41,7 +41,7 @@ class ChangeNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeNameChange {
+        return function (?int $index): ?ChangeNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeNameChange $data */

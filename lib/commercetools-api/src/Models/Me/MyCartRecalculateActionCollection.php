@@ -41,7 +41,7 @@ class MyCartRecalculateActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartRecalculateAction {
+        return function (?int $index): ?MyCartRecalculateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartRecalculateAction $data */

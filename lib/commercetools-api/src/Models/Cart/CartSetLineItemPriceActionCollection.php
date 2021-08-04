@@ -41,7 +41,7 @@ class CartSetLineItemPriceActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetLineItemPriceAction {
+        return function (?int $index): ?CartSetLineItemPriceAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetLineItemPriceAction $data */

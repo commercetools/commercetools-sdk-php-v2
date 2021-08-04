@@ -41,7 +41,7 @@ class TypeChangeLabelActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeLabelAction {
+        return function (?int $index): ?TypeChangeLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeLabelAction $data */

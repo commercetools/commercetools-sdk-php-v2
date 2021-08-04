@@ -41,7 +41,7 @@ class CustomerRemoveStoreActionCollection extends CustomerUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerRemoveStoreAction {
+        return function (?int $index): ?CustomerRemoveStoreAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerRemoveStoreAction $data */

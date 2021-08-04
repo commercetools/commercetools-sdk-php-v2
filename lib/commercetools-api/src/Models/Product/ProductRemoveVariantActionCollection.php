@@ -41,7 +41,7 @@ class ProductRemoveVariantActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductRemoveVariantAction {
+        return function (?int $index): ?ProductRemoveVariantAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductRemoveVariantAction $data */

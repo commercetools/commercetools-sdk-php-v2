@@ -41,7 +41,7 @@ class RemoveEnumValuesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveEnumValuesChange {
+        return function (?int $index): ?RemoveEnumValuesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveEnumValuesChange $data */

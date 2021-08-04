@@ -41,7 +41,7 @@ class SetRestockableInDaysChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetRestockableInDaysChange {
+        return function (?int $index): ?SetRestockableInDaysChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetRestockableInDaysChange $data */

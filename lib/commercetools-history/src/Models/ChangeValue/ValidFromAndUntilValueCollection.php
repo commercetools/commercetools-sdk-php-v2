@@ -41,7 +41,7 @@ class ValidFromAndUntilValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ValidFromAndUntilValue {
+        return function (?int $index): ?ValidFromAndUntilValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ValidFromAndUntilValue $data */

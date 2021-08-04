@@ -44,7 +44,7 @@ class DeliveryFormatCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryFormat {
+        return function (?int $index): ?DeliveryFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

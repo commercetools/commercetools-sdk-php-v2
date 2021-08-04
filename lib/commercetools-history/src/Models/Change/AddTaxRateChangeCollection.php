@@ -41,7 +41,7 @@ class AddTaxRateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddTaxRateChange {
+        return function (?int $index): ?AddTaxRateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddTaxRateChange $data */

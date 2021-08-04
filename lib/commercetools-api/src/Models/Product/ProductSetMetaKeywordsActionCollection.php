@@ -41,7 +41,7 @@ class ProductSetMetaKeywordsActionCollection extends ProductUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetMetaKeywordsAction {
+        return function (?int $index): ?ProductSetMetaKeywordsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetMetaKeywordsAction $data */

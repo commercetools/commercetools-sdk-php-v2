@@ -41,7 +41,7 @@ class TextSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TextSetAttribute {
+        return function (?int $index): ?TextSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TextSetAttribute $data */

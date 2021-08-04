@@ -41,7 +41,7 @@ class StagedOrderImportLineItemStateActionCollection extends StagedOrderUpdateAc
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderImportLineItemStateAction {
+        return function (?int $index): ?StagedOrderImportLineItemStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderImportLineItemStateAction $data */

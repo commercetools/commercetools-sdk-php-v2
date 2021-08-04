@@ -41,7 +41,7 @@ class OrderSetReturnShipmentStateActionCollection extends OrderUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetReturnShipmentStateAction {
+        return function (?int $index): ?OrderSetReturnShipmentStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetReturnShipmentStateAction $data */

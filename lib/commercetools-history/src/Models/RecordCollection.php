@@ -41,7 +41,7 @@ class RecordCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Record {
+        return function (?int $index): ?Record {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Record $data */

@@ -41,7 +41,7 @@ class TypeUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeUpdate {
+        return function (?int $index): ?TypeUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeUpdate $data */

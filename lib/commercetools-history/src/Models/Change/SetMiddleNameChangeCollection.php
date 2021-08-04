@@ -41,7 +41,7 @@ class SetMiddleNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMiddleNameChange {
+        return function (?int $index): ?SetMiddleNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMiddleNameChange $data */

@@ -41,7 +41,7 @@ class AnonymousIdAlreadyInUseErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AnonymousIdAlreadyInUseError {
+        return function (?int $index): ?AnonymousIdAlreadyInUseError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AnonymousIdAlreadyInUseError $data */

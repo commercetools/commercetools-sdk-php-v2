@@ -41,7 +41,7 @@ class UnpublishChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?UnpublishChange {
+        return function (?int $index): ?UnpublishChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var UnpublishChange $data */

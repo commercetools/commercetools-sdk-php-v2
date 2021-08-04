@@ -41,7 +41,7 @@ class AddDiscountCodeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddDiscountCodeChange {
+        return function (?int $index): ?AddDiscountCodeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddDiscountCodeChange $data */

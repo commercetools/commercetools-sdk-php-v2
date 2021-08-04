@@ -41,7 +41,7 @@ class CustomerLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerLabel {
+        return function (?int $index): ?CustomerLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerLabel $data */

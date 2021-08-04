@@ -44,7 +44,7 @@ class ImportResourceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportResource {
+        return function (?int $index): ?ImportResource {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

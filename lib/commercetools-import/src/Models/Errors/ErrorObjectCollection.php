@@ -44,7 +44,7 @@ class ErrorObjectCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ErrorObject {
+        return function (?int $index): ?ErrorObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

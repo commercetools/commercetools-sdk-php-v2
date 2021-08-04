@@ -41,7 +41,7 @@ class MissingTaxRateForCountryErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingTaxRateForCountryError {
+        return function (?int $index): ?MissingTaxRateForCountryError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingTaxRateForCountryError $data */

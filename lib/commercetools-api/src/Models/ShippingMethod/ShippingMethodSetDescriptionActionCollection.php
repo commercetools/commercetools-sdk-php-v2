@@ -41,7 +41,7 @@ class ShippingMethodSetDescriptionActionCollection extends ShippingMethodUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodSetDescriptionAction {
+        return function (?int $index): ?ShippingMethodSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodSetDescriptionAction $data */

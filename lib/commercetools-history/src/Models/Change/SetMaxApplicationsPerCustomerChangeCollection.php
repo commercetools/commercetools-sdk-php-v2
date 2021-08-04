@@ -41,7 +41,7 @@ class SetMaxApplicationsPerCustomerChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMaxApplicationsPerCustomerChange {
+        return function (?int $index): ?SetMaxApplicationsPerCustomerChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMaxApplicationsPerCustomerChange $data */

@@ -41,7 +41,7 @@ class OrderCustomerEmailSetMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderCustomerEmailSetMessage {
+        return function (?int $index): ?OrderCustomerEmailSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderCustomerEmailSetMessage $data */

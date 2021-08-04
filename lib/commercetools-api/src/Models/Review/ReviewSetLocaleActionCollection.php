@@ -41,7 +41,7 @@ class ReviewSetLocaleActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetLocaleAction {
+        return function (?int $index): ?ReviewSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetLocaleAction $data */

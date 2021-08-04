@@ -41,7 +41,7 @@ class ProjectChangeCartsConfigurationCollection extends ProjectUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeCartsConfiguration {
+        return function (?int $index): ?ProjectChangeCartsConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeCartsConfiguration $data */

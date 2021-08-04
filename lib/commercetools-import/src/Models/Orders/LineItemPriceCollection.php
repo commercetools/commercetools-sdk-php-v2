@@ -41,7 +41,7 @@ class LineItemPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemPrice {
+        return function (?int $index): ?LineItemPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemPrice $data */

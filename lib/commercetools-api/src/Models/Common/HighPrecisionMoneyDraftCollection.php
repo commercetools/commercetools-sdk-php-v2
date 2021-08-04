@@ -41,7 +41,7 @@ class HighPrecisionMoneyDraftCollection extends TypedMoneyDraftCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?HighPrecisionMoneyDraft {
+        return function (?int $index): ?HighPrecisionMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var HighPrecisionMoneyDraft $data */

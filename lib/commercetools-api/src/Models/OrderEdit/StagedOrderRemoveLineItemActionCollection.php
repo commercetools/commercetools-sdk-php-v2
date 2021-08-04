@@ -41,7 +41,7 @@ class StagedOrderRemoveLineItemActionCollection extends StagedOrderUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderRemoveLineItemAction {
+        return function (?int $index): ?StagedOrderRemoveLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderRemoveLineItemAction $data */

@@ -41,7 +41,7 @@ class PagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?PagedQueryResponse {
+        return function (?int $index): ?PagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PagedQueryResponse $data */

@@ -41,7 +41,7 @@ class CartDiscountChangeNameActionCollection extends CartDiscountUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountChangeNameAction {
+        return function (?int $index): ?CartDiscountChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountChangeNameAction $data */

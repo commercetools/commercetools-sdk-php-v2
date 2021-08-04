@@ -41,7 +41,7 @@ class ProductAddToCategoryActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductAddToCategoryAction {
+        return function (?int $index): ?ProductAddToCategoryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductAddToCategoryAction $data */

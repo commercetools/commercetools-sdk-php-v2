@@ -41,7 +41,7 @@ class TaxCategoryDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryDraft {
+        return function (?int $index): ?TaxCategoryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryDraft $data */

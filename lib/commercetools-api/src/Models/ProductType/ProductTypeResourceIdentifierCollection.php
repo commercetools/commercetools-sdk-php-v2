@@ -41,7 +41,7 @@ class ProductTypeResourceIdentifierCollection extends ResourceIdentifierCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeResourceIdentifier {
+        return function (?int $index): ?ProductTypeResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeResourceIdentifier $data */

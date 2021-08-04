@@ -41,7 +41,7 @@ class PaymentSetStatusInterfaceTextActionCollection extends PaymentUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentSetStatusInterfaceTextAction {
+        return function (?int $index): ?PaymentSetStatusInterfaceTextAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentSetStatusInterfaceTextAction $data */

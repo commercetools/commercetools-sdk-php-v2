@@ -41,7 +41,7 @@ class PaymentSetExternalIdActionCollection extends PaymentUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentSetExternalIdAction {
+        return function (?int $index): ?PaymentSetExternalIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentSetExternalIdAction $data */

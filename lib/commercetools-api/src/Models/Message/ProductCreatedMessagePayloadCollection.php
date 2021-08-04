@@ -41,7 +41,7 @@ class ProductCreatedMessagePayloadCollection extends MessagePayloadCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductCreatedMessagePayload {
+        return function (?int $index): ?ProductCreatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductCreatedMessagePayload $data */

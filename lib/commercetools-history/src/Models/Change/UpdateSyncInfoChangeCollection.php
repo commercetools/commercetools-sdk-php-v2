@@ -41,7 +41,7 @@ class UpdateSyncInfoChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?UpdateSyncInfoChange {
+        return function (?int $index): ?UpdateSyncInfoChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var UpdateSyncInfoChange $data */

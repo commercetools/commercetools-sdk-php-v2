@@ -41,7 +41,7 @@ class OrderEditResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditResourceIdentifier {
+        return function (?int $index): ?OrderEditResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditResourceIdentifier $data */

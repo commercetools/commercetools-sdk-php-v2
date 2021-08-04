@@ -41,7 +41,7 @@ class CartSetDeleteDaysAfterLastModificationActionCollection extends CartUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetDeleteDaysAfterLastModificationAction {
+        return function (?int $index): ?CartSetDeleteDaysAfterLastModificationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetDeleteDaysAfterLastModificationAction $data */

@@ -41,7 +41,7 @@ class AssetDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AssetDraft {
+        return function (?int $index): ?AssetDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AssetDraft $data */

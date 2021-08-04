@@ -41,7 +41,7 @@ class CreatedByCollection extends ClientLoggingCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CreatedBy {
+        return function (?int $index): ?CreatedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CreatedBy $data */

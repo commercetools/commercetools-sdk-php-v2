@@ -44,7 +44,7 @@ class ShippingMethodUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodUpdateAction {
+        return function (?int $index): ?ShippingMethodUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

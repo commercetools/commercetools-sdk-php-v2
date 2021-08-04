@@ -41,7 +41,7 @@ class CustomerTokenCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerToken {
+        return function (?int $index): ?CustomerToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerToken $data */

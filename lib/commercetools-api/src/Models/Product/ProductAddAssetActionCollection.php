@@ -41,7 +41,7 @@ class ProductAddAssetActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductAddAssetAction {
+        return function (?int $index): ?ProductAddAssetAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductAddAssetAction $data */

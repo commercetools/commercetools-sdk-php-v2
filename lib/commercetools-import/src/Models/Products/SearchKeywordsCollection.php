@@ -41,7 +41,7 @@ class SearchKeywordsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchKeywords {
+        return function (?int $index): ?SearchKeywords {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchKeywords $data */

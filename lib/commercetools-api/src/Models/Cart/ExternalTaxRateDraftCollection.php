@@ -41,7 +41,7 @@ class ExternalTaxRateDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExternalTaxRateDraft {
+        return function (?int $index): ?ExternalTaxRateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExternalTaxRateDraft $data */

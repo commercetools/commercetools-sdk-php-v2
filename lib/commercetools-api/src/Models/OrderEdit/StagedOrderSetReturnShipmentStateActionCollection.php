@@ -41,7 +41,7 @@ class StagedOrderSetReturnShipmentStateActionCollection extends StagedOrderUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetReturnShipmentStateAction {
+        return function (?int $index): ?StagedOrderSetReturnShipmentStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetReturnShipmentStateAction $data */

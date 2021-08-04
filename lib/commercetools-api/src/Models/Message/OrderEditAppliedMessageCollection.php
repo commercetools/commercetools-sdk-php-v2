@@ -41,7 +41,7 @@ class OrderEditAppliedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditAppliedMessage {
+        return function (?int $index): ?OrderEditAppliedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditAppliedMessage $data */

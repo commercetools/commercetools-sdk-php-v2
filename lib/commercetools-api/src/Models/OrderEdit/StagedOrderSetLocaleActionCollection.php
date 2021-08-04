@@ -41,7 +41,7 @@ class StagedOrderSetLocaleActionCollection extends StagedOrderUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLocaleAction {
+        return function (?int $index): ?StagedOrderSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLocaleAction $data */

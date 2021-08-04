@@ -41,7 +41,7 @@ class OrderEditUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditUpdate {
+        return function (?int $index): ?OrderEditUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditUpdate $data */

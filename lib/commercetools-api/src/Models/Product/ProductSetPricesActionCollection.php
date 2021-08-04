@@ -41,7 +41,7 @@ class ProductSetPricesActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetPricesAction {
+        return function (?int $index): ?ProductSetPricesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetPricesAction $data */

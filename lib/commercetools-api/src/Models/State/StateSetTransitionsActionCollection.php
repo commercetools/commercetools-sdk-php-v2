@@ -41,7 +41,7 @@ class StateSetTransitionsActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateSetTransitionsAction {
+        return function (?int $index): ?StateSetTransitionsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateSetTransitionsAction $data */

@@ -41,7 +41,7 @@ class MyCartSetCustomerEmailActionCollection extends MyCartUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartSetCustomerEmailAction {
+        return function (?int $index): ?MyCartSetCustomerEmailAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartSetCustomerEmailAction $data */

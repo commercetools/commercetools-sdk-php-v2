@@ -41,7 +41,7 @@ class ChannelResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelResourceIdentifier {
+        return function (?int $index): ?ChannelResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelResourceIdentifier $data */

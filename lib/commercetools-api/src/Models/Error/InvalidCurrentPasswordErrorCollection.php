@@ -41,7 +41,7 @@ class InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidCurrentPasswordError {
+        return function (?int $index): ?InvalidCurrentPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidCurrentPasswordError $data */

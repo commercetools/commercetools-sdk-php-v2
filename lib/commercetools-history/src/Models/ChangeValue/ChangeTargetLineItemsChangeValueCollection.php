@@ -41,7 +41,7 @@ class ChangeTargetLineItemsChangeValueCollection extends ChangeTargetChangeValue
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTargetLineItemsChangeValue {
+        return function (?int $index): ?ChangeTargetLineItemsChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTargetLineItemsChangeValue $data */

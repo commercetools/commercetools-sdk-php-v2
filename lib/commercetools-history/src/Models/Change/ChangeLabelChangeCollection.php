@@ -41,7 +41,7 @@ class ChangeLabelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeLabelChange {
+        return function (?int $index): ?ChangeLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeLabelChange $data */

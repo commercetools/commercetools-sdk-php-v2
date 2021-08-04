@@ -41,7 +41,7 @@ class RemoveStateRolesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveStateRolesChange {
+        return function (?int $index): ?RemoveStateRolesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveStateRolesChange $data */

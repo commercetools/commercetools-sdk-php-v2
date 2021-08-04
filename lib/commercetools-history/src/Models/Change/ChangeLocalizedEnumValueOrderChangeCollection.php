@@ -41,7 +41,7 @@ class ChangeLocalizedEnumValueOrderChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeLocalizedEnumValueOrderChange {
+        return function (?int $index): ?ChangeLocalizedEnumValueOrderChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeLocalizedEnumValueOrderChange $data */

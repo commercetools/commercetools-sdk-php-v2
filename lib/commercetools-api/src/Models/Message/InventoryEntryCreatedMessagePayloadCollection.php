@@ -41,7 +41,7 @@ class InventoryEntryCreatedMessagePayloadCollection extends MessagePayloadCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryCreatedMessagePayload {
+        return function (?int $index): ?InventoryEntryCreatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryCreatedMessagePayload $data */

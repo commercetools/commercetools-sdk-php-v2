@@ -41,7 +41,7 @@ class ProductSetCategoryOrderHintActionCollection extends ProductUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetCategoryOrderHintAction {
+        return function (?int $index): ?ProductSetCategoryOrderHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetCategoryOrderHintAction $data */

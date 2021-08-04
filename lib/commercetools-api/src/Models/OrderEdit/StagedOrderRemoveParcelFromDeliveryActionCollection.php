@@ -41,7 +41,7 @@ class StagedOrderRemoveParcelFromDeliveryActionCollection extends StagedOrderUpd
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderRemoveParcelFromDeliveryAction {
+        return function (?int $index): ?StagedOrderRemoveParcelFromDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderRemoveParcelFromDeliveryAction $data */

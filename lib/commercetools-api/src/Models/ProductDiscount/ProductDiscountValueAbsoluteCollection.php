@@ -41,7 +41,7 @@ class ProductDiscountValueAbsoluteCollection extends ProductDiscountValueCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountValueAbsolute {
+        return function (?int $index): ?ProductDiscountValueAbsolute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountValueAbsolute $data */

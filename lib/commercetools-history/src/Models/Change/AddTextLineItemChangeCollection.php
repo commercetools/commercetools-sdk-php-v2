@@ -41,7 +41,7 @@ class AddTextLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddTextLineItemChange {
+        return function (?int $index): ?AddTextLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddTextLineItemChange $data */

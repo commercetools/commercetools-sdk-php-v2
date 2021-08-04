@@ -41,7 +41,7 @@ class ChangeLocalizedEnumValueLabelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeLocalizedEnumValueLabelChange {
+        return function (?int $index): ?ChangeLocalizedEnumValueLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeLocalizedEnumValueLabelChange $data */

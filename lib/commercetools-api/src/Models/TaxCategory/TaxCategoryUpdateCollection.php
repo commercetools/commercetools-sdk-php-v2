@@ -41,7 +41,7 @@ class TaxCategoryUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryUpdate {
+        return function (?int $index): ?TaxCategoryUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryUpdate $data */

@@ -41,7 +41,7 @@ class ReviewSetAuthorNameActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetAuthorNameAction {
+        return function (?int $index): ?ReviewSetAuthorNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetAuthorNameAction $data */

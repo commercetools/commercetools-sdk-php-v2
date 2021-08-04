@@ -41,7 +41,7 @@ class EnumValueIsUsedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumValueIsUsedError {
+        return function (?int $index): ?EnumValueIsUsedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumValueIsUsedError $data */

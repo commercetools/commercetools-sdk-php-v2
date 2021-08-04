@@ -41,7 +41,7 @@ class CartDiscountSetCustomFieldActionCollection extends CartDiscountUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountSetCustomFieldAction {
+        return function (?int $index): ?CartDiscountSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountSetCustomFieldAction $data */

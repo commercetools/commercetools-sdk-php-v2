@@ -41,7 +41,7 @@ class SetProductPriceCustomTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetProductPriceCustomTypeChange {
+        return function (?int $index): ?SetProductPriceCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetProductPriceCustomTypeChange $data */

@@ -41,7 +41,7 @@ class ExtensionChangeTriggersActionCollection extends ExtensionUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionChangeTriggersAction {
+        return function (?int $index): ?ExtensionChangeTriggersAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionChangeTriggersAction $data */

@@ -41,7 +41,7 @@ class ImportSinkDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportSinkDraft {
+        return function (?int $index): ?ImportSinkDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImportSinkDraft $data */

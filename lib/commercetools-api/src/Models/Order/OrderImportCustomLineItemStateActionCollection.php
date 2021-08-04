@@ -41,7 +41,7 @@ class OrderImportCustomLineItemStateActionCollection extends OrderUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderImportCustomLineItemStateAction {
+        return function (?int $index): ?OrderImportCustomLineItemStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderImportCustomLineItemStateAction $data */

@@ -41,7 +41,7 @@ class CustomerSetExternalIdActionCollection extends CustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetExternalIdAction {
+        return function (?int $index): ?CustomerSetExternalIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetExternalIdAction $data */

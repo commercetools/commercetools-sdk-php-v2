@@ -41,7 +41,7 @@ class SetAssetDescriptionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAssetDescriptionChange {
+        return function (?int $index): ?SetAssetDescriptionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAssetDescriptionChange $data */

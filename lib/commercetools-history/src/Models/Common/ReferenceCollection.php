@@ -41,7 +41,7 @@ class ReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Reference {
+        return function (?int $index): ?Reference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Reference $data */

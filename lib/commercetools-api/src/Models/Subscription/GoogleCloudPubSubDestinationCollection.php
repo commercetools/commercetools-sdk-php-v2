@@ -41,7 +41,7 @@ class GoogleCloudPubSubDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?GoogleCloudPubSubDestination {
+        return function (?int $index): ?GoogleCloudPubSubDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GoogleCloudPubSubDestination $data */

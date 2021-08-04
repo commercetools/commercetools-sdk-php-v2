@@ -41,7 +41,7 @@ class SetShippingMethodChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetShippingMethodChange {
+        return function (?int $index): ?SetShippingMethodChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetShippingMethodChange $data */

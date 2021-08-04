@@ -41,7 +41,7 @@ class SearchIndexingConfigurationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchIndexingConfiguration {
+        return function (?int $index): ?SearchIndexingConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchIndexingConfiguration $data */

@@ -41,7 +41,7 @@ class StateCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?State {
+        return function (?int $index): ?State {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var State $data */

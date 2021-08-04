@@ -41,7 +41,7 @@ class MyShoppingListChangeTextLineItemsOrderActionCollection extends MyShoppingL
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListChangeTextLineItemsOrderAction {
+        return function (?int $index): ?MyShoppingListChangeTextLineItemsOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListChangeTextLineItemsOrderAction $data */

@@ -41,7 +41,7 @@ class CustomerChangeAddressActionCollection extends CustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerChangeAddressAction {
+        return function (?int $index): ?CustomerChangeAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerChangeAddressAction $data */

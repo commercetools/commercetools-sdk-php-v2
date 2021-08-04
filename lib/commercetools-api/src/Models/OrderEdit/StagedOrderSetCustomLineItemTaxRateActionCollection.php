@@ -41,7 +41,7 @@ class StagedOrderSetCustomLineItemTaxRateActionCollection extends StagedOrderUpd
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetCustomLineItemTaxRateAction {
+        return function (?int $index): ?StagedOrderSetCustomLineItemTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetCustomLineItemTaxRateAction $data */

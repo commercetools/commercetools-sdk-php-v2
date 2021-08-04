@@ -41,7 +41,7 @@ class LineItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItem {
+        return function (?int $index): ?LineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItem $data */

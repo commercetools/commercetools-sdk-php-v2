@@ -41,7 +41,7 @@ class GraphQLErrorLocationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GraphQLErrorLocation {
+        return function (?int $index): ?GraphQLErrorLocation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GraphQLErrorLocation $data */

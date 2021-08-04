@@ -41,7 +41,7 @@ class SetAssetSourcesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAssetSourcesChange {
+        return function (?int $index): ?SetAssetSourcesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAssetSourcesChange $data */

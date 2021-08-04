@@ -41,7 +41,7 @@ class AddPaymentChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddPaymentChange {
+        return function (?int $index): ?AddPaymentChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddPaymentChange $data */

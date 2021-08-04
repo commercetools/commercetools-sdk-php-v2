@@ -41,7 +41,7 @@ class TypeAddLocalizedEnumValueActionCollection extends TypeUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeAddLocalizedEnumValueAction {
+        return function (?int $index): ?TypeAddLocalizedEnumValueAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeAddLocalizedEnumValueAction $data */

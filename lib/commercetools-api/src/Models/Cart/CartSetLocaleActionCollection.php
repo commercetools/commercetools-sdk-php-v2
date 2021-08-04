@@ -41,7 +41,7 @@ class CartSetLocaleActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetLocaleAction {
+        return function (?int $index): ?CartSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetLocaleAction $data */

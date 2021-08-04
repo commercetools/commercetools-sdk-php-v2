@@ -44,7 +44,7 @@ class ChangeTargetChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTargetChangeValue {
+        return function (?int $index): ?ChangeTargetChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

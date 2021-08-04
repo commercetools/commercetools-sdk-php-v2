@@ -41,7 +41,7 @@ class StringLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StringLabel {
+        return function (?int $index): ?StringLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StringLabel $data */

@@ -41,7 +41,7 @@ class CentPrecisionMoneyDraftCollection extends TypedMoneyDraftCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CentPrecisionMoneyDraft {
+        return function (?int $index): ?CentPrecisionMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CentPrecisionMoneyDraft $data */

@@ -41,7 +41,7 @@ class ChangeTransactionStateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTransactionStateChange {
+        return function (?int $index): ?ChangeTransactionStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTransactionStateChange $data */

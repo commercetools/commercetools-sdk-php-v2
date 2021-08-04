@@ -41,7 +41,7 @@ class ProductTypeChangeLabelActionCollection extends ProductTypeUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeLabelAction {
+        return function (?int $index): ?ProductTypeChangeLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeLabelAction $data */

@@ -41,7 +41,7 @@ class ResultItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ResultItem {
+        return function (?int $index): ?ResultItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResultItem $data */

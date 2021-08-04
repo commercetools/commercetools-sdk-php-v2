@@ -41,7 +41,7 @@ class SetStatusInterfaceCodeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetStatusInterfaceCodeChange {
+        return function (?int $index): ?SetStatusInterfaceCodeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetStatusInterfaceCodeChange $data */

@@ -41,7 +41,7 @@ class AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeLocalizedEnumType {
+        return function (?int $index): ?AttributeLocalizedEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeLocalizedEnumType $data */

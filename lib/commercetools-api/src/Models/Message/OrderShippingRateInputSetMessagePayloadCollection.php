@@ -41,7 +41,7 @@ class OrderShippingRateInputSetMessagePayloadCollection extends MessagePayloadCo
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderShippingRateInputSetMessagePayload {
+        return function (?int $index): ?OrderShippingRateInputSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderShippingRateInputSetMessagePayload $data */

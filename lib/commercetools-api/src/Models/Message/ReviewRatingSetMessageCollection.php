@@ -41,7 +41,7 @@ class ReviewRatingSetMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewRatingSetMessage {
+        return function (?int $index): ?ReviewRatingSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewRatingSetMessage $data */

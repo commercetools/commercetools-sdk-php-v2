@@ -41,7 +41,7 @@ class OrderEditSetKeyActionCollection extends OrderEditUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditSetKeyAction {
+        return function (?int $index): ?OrderEditSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditSetKeyAction $data */

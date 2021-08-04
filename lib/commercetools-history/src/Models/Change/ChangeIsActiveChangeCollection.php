@@ -41,7 +41,7 @@ class ChangeIsActiveChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeIsActiveChange {
+        return function (?int $index): ?ChangeIsActiveChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeIsActiveChange $data */

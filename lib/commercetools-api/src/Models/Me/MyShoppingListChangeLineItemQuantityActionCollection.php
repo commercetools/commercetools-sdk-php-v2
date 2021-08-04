@@ -41,7 +41,7 @@ class MyShoppingListChangeLineItemQuantityActionCollection extends MyShoppingLis
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListChangeLineItemQuantityAction {
+        return function (?int $index): ?MyShoppingListChangeLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListChangeLineItemQuantityAction $data */

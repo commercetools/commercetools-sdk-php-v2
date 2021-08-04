@@ -41,7 +41,7 @@ class OrderSetCustomLineItemCustomFieldActionCollection extends OrderUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetCustomLineItemCustomFieldAction {
+        return function (?int $index): ?OrderSetCustomLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetCustomLineItemCustomFieldAction $data */

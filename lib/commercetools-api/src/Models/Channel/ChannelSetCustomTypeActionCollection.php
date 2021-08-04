@@ -41,7 +41,7 @@ class ChannelSetCustomTypeActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetCustomTypeAction {
+        return function (?int $index): ?ChannelSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetCustomTypeAction $data */

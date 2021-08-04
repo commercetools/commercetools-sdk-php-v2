@@ -41,7 +41,7 @@ class StateAddRolesActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateAddRolesAction {
+        return function (?int $index): ?StateAddRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateAddRolesAction $data */

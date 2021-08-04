@@ -41,7 +41,7 @@ class CartDiscountCustomLineItemsTargetCollection extends CartDiscountTargetColl
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountCustomLineItemsTarget {
+        return function (?int $index): ?CartDiscountCustomLineItemsTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountCustomLineItemsTarget $data */

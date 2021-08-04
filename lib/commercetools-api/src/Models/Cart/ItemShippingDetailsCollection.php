@@ -41,7 +41,7 @@ class ItemShippingDetailsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ItemShippingDetails {
+        return function (?int $index): ?ItemShippingDetails {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ItemShippingDetails $data */

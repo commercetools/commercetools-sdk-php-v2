@@ -41,7 +41,7 @@ class SyntaxErrorErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SyntaxErrorError {
+        return function (?int $index): ?SyntaxErrorError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SyntaxErrorError $data */

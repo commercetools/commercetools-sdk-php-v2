@@ -41,7 +41,7 @@ class RemoveDeliveryItemsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveDeliveryItemsChange {
+        return function (?int $index): ?RemoveDeliveryItemsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveDeliveryItemsChange $data */

@@ -41,7 +41,7 @@ class ReviewLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewLabel {
+        return function (?int $index): ?ReviewLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewLabel $data */

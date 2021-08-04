@@ -41,7 +41,7 @@ class SetSupplyChannelsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSupplyChannelsChange {
+        return function (?int $index): ?SetSupplyChannelsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSupplyChannelsChange $data */

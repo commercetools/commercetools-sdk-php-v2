@@ -41,7 +41,7 @@ class CartSetBillingAddressCustomTypeActionCollection extends CartUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetBillingAddressCustomTypeAction {
+        return function (?int $index): ?CartSetBillingAddressCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetBillingAddressCustomTypeAction $data */

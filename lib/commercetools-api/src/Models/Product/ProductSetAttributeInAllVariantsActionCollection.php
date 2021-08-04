@@ -41,7 +41,7 @@ class ProductSetAttributeInAllVariantsActionCollection extends ProductUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetAttributeInAllVariantsAction {
+        return function (?int $index): ?ProductSetAttributeInAllVariantsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetAttributeInAllVariantsAction $data */

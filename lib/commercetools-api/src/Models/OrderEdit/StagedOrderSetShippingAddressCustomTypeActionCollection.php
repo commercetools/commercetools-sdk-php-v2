@@ -41,7 +41,7 @@ class StagedOrderSetShippingAddressCustomTypeActionCollection extends StagedOrde
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetShippingAddressCustomTypeAction {
+        return function (?int $index): ?StagedOrderSetShippingAddressCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetShippingAddressCustomTypeAction $data */

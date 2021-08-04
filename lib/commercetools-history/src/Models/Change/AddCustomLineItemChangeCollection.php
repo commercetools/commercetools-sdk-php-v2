@@ -41,7 +41,7 @@ class AddCustomLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddCustomLineItemChange {
+        return function (?int $index): ?AddCustomLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddCustomLineItemChange $data */

@@ -41,7 +41,7 @@ class StagedOrderSetShippingAddressAndShippingMethodActionCollection extends Sta
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetShippingAddressAndShippingMethodAction {
+        return function (?int $index): ?StagedOrderSetShippingAddressAndShippingMethodAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetShippingAddressAndShippingMethodAction $data */

@@ -41,7 +41,7 @@ class MissingRoleOnChannelErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingRoleOnChannelError {
+        return function (?int $index): ?MissingRoleOnChannelError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingRoleOnChannelError $data */

@@ -41,7 +41,7 @@ class SetLineItemDistributionChannelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLineItemDistributionChannelChange {
+        return function (?int $index): ?SetLineItemDistributionChannelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLineItemDistributionChannelChange $data */

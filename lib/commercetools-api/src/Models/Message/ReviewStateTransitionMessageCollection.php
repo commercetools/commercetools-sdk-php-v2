@@ -41,7 +41,7 @@ class ReviewStateTransitionMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewStateTransitionMessage {
+        return function (?int $index): ?ReviewStateTransitionMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewStateTransitionMessage $data */

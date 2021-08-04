@@ -41,7 +41,7 @@ class ShoppingListStoreSetMessagePayloadCollection extends MessagePayloadCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListStoreSetMessagePayload {
+        return function (?int $index): ?ShoppingListStoreSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListStoreSetMessagePayload $data */

@@ -41,7 +41,7 @@ class ProductCreatedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductCreatedMessage {
+        return function (?int $index): ?ProductCreatedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductCreatedMessage $data */

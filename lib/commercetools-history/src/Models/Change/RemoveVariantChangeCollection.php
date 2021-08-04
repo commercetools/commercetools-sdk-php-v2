@@ -41,7 +41,7 @@ class RemoveVariantChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveVariantChange {
+        return function (?int $index): ?RemoveVariantChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveVariantChange $data */

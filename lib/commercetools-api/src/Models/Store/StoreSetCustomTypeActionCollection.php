@@ -41,7 +41,7 @@ class StoreSetCustomTypeActionCollection extends StoreUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreSetCustomTypeAction {
+        return function (?int $index): ?StoreSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreSetCustomTypeAction $data */

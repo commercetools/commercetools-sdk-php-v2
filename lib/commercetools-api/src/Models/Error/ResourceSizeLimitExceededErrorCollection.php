@@ -41,7 +41,7 @@ class ResourceSizeLimitExceededErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceSizeLimitExceededError {
+        return function (?int $index): ?ResourceSizeLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceSizeLimitExceededError $data */

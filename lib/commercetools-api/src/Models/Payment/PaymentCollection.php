@@ -41,7 +41,7 @@ class PaymentCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Payment {
+        return function (?int $index): ?Payment {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Payment $data */

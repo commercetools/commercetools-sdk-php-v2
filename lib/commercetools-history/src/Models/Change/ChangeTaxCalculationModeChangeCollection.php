@@ -41,7 +41,7 @@ class ChangeTaxCalculationModeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTaxCalculationModeChange {
+        return function (?int $index): ?ChangeTaxCalculationModeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTaxCalculationModeChange $data */

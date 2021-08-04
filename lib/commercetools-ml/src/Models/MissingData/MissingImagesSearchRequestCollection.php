@@ -41,7 +41,7 @@ class MissingImagesSearchRequestCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesSearchRequest {
+        return function (?int $index): ?MissingImagesSearchRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingImagesSearchRequest $data */

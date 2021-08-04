@@ -41,7 +41,7 @@ class RemoveTextLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveTextLineItemChange {
+        return function (?int $index): ?RemoveTextLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveTextLineItemChange $data */

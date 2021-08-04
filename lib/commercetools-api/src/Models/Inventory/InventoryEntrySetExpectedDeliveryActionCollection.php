@@ -41,7 +41,7 @@ class InventoryEntrySetExpectedDeliveryActionCollection extends InventoryEntryUp
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntrySetExpectedDeliveryAction {
+        return function (?int $index): ?InventoryEntrySetExpectedDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntrySetExpectedDeliveryAction $data */

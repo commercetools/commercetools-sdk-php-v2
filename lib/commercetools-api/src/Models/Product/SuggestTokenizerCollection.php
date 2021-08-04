@@ -44,7 +44,7 @@ class SuggestTokenizerCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SuggestTokenizer {
+        return function (?int $index): ?SuggestTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

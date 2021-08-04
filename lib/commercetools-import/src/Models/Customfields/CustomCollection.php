@@ -41,7 +41,7 @@ class CustomCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Custom {
+        return function (?int $index): ?Custom {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Custom $data */

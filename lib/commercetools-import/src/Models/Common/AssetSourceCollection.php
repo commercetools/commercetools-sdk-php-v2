@@ -41,7 +41,7 @@ class AssetSourceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AssetSource {
+        return function (?int $index): ?AssetSource {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AssetSource $data */

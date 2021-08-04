@@ -41,7 +41,7 @@ class RemoveShoppingListLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveShoppingListLineItemChange {
+        return function (?int $index): ?RemoveShoppingListLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveShoppingListLineItemChange $data */

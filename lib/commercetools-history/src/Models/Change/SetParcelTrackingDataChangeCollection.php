@@ -41,7 +41,7 @@ class SetParcelTrackingDataChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetParcelTrackingDataChange {
+        return function (?int $index): ?SetParcelTrackingDataChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetParcelTrackingDataChange $data */

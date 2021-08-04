@@ -41,7 +41,7 @@ class ProductCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Product {
+        return function (?int $index): ?Product {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Product $data */

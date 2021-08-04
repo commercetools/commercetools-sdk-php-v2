@@ -41,7 +41,7 @@ class FieldDefinitionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FieldDefinition {
+        return function (?int $index): ?FieldDefinition {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FieldDefinition $data */

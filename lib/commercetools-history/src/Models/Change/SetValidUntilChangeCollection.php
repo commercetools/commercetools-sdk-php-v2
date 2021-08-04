@@ -41,7 +41,7 @@ class SetValidUntilChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetValidUntilChange {
+        return function (?int $index): ?SetValidUntilChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetValidUntilChange $data */

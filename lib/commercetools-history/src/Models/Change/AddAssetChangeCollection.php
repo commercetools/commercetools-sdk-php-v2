@@ -41,7 +41,7 @@ class AddAssetChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddAssetChange {
+        return function (?int $index): ?AddAssetChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddAssetChange $data */

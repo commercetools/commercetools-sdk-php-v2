@@ -41,7 +41,7 @@ class OrderDiscountCodeStateSetMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderDiscountCodeStateSetMessage {
+        return function (?int $index): ?OrderDiscountCodeStateSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderDiscountCodeStateSetMessage $data */

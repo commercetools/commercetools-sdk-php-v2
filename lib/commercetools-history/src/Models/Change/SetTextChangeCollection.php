@@ -41,7 +41,7 @@ class SetTextChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTextChange {
+        return function (?int $index): ?SetTextChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTextChange $data */

@@ -41,7 +41,7 @@ class ProjectChangeMessagesEnabledActionCollection extends ProjectUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeMessagesEnabledAction {
+        return function (?int $index): ?ProjectChangeMessagesEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeMessagesEnabledAction $data */

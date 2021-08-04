@@ -41,7 +41,7 @@ class StagedOrderSetDeliveryItemsActionCollection extends StagedOrderUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetDeliveryItemsAction {
+        return function (?int $index): ?StagedOrderSetDeliveryItemsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetDeliveryItemsAction $data */

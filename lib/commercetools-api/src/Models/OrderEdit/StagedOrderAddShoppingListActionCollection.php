@@ -41,7 +41,7 @@ class StagedOrderAddShoppingListActionCollection extends StagedOrderUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderAddShoppingListAction {
+        return function (?int $index): ?StagedOrderAddShoppingListAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderAddShoppingListAction $data */

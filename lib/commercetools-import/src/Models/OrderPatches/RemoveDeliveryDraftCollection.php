@@ -41,7 +41,7 @@ class RemoveDeliveryDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveDeliveryDraft {
+        return function (?int $index): ?RemoveDeliveryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveDeliveryDraft $data */

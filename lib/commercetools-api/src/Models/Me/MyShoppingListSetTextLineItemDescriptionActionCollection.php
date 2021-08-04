@@ -41,7 +41,7 @@ class MyShoppingListSetTextLineItemDescriptionActionCollection extends MyShoppin
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListSetTextLineItemDescriptionAction {
+        return function (?int $index): ?MyShoppingListSetTextLineItemDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListSetTextLineItemDescriptionAction $data */

@@ -41,7 +41,7 @@ class TrackingDataCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TrackingData {
+        return function (?int $index): ?TrackingData {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TrackingData $data */

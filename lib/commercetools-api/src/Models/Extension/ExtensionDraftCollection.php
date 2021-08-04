@@ -41,7 +41,7 @@ class ExtensionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionDraft {
+        return function (?int $index): ?ExtensionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionDraft $data */

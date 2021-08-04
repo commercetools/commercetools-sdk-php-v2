@@ -41,7 +41,7 @@ class MissingPricesCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingPrices {
+        return function (?int $index): ?MissingPrices {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingPrices $data */

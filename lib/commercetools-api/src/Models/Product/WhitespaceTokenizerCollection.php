@@ -41,7 +41,7 @@ class WhitespaceTokenizerCollection extends SuggestTokenizerCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?WhitespaceTokenizer {
+        return function (?int $index): ?WhitespaceTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var WhitespaceTokenizer $data */

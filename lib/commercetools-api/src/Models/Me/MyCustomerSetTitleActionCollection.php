@@ -41,7 +41,7 @@ class MyCustomerSetTitleActionCollection extends MyCustomerUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetTitleAction {
+        return function (?int $index): ?MyCustomerSetTitleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetTitleAction $data */

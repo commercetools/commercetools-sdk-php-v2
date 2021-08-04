@@ -41,7 +41,7 @@ class CustomLineItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomLineItem {
+        return function (?int $index): ?CustomLineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomLineItem $data */

@@ -41,7 +41,7 @@ class EnumKeyDoesNotExistErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumKeyDoesNotExistError {
+        return function (?int $index): ?EnumKeyDoesNotExistError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumKeyDoesNotExistError $data */

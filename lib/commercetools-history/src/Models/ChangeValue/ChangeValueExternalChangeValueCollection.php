@@ -41,7 +41,7 @@ class ChangeValueExternalChangeValueCollection extends ChangeValueChangeValueCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeValueExternalChangeValue {
+        return function (?int $index): ?ChangeValueExternalChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeValueExternalChangeValue $data */

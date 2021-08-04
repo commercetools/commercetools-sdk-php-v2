@@ -41,7 +41,7 @@ class StoreRemoveDistributionChannelActionCollection extends StoreUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreRemoveDistributionChannelAction {
+        return function (?int $index): ?StoreRemoveDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreRemoveDistributionChannelAction $data */

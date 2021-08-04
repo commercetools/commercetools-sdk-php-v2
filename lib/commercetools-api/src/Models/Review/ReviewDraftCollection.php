@@ -41,7 +41,7 @@ class ReviewDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewDraft {
+        return function (?int $index): ?ReviewDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewDraft $data */

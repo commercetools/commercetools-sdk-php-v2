@@ -41,7 +41,7 @@ class StateChangeInitialActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateChangeInitialAction {
+        return function (?int $index): ?StateChangeInitialAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateChangeInitialAction $data */

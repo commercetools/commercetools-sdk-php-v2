@@ -41,7 +41,7 @@ class ChannelCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Channel {
+        return function (?int $index): ?Channel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Channel $data */

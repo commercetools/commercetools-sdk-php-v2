@@ -41,7 +41,7 @@ class MoneyAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MoneyAttribute {
+        return function (?int $index): ?MoneyAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MoneyAttribute $data */

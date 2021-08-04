@@ -41,7 +41,7 @@ class SetShippingMethodTaxAmountChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetShippingMethodTaxAmountChange {
+        return function (?int $index): ?SetShippingMethodTaxAmountChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetShippingMethodTaxAmountChange $data */

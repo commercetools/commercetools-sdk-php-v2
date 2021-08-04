@@ -41,7 +41,7 @@ class SetCustomerEmailChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomerEmailChange {
+        return function (?int $index): ?SetCustomerEmailChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomerEmailChange $data */

@@ -41,7 +41,7 @@ class ExternalOAuthCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExternalOAuth {
+        return function (?int $index): ?ExternalOAuth {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExternalOAuth $data */

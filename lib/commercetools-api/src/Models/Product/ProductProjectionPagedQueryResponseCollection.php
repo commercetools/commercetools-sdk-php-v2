@@ -41,7 +41,7 @@ class ProductProjectionPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductProjectionPagedQueryResponse {
+        return function (?int $index): ?ProductProjectionPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductProjectionPagedQueryResponse $data */

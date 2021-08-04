@@ -41,7 +41,7 @@ class ExtensionNoResponseErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionNoResponseError {
+        return function (?int $index): ?ExtensionNoResponseError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionNoResponseError $data */

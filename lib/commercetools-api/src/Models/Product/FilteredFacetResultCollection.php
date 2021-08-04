@@ -41,7 +41,7 @@ class FilteredFacetResultCollection extends FacetResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?FilteredFacetResult {
+        return function (?int $index): ?FilteredFacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FilteredFacetResult $data */

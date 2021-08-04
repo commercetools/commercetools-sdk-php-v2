@@ -44,7 +44,7 @@ class CartDiscountTargetCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountTarget {
+        return function (?int $index): ?CartDiscountTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

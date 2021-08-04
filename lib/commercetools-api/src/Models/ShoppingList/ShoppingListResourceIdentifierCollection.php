@@ -41,7 +41,7 @@ class ShoppingListResourceIdentifierCollection extends ResourceIdentifierCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListResourceIdentifier {
+        return function (?int $index): ?ShoppingListResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListResourceIdentifier $data */

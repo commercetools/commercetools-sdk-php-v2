@@ -41,7 +41,7 @@ class ChannelSetAddressActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetAddressAction {
+        return function (?int $index): ?ChannelSetAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetAddressAction $data */

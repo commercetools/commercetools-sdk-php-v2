@@ -41,7 +41,7 @@ class OrderDeletedMessagePayloadCollection extends MessagePayloadCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderDeletedMessagePayload {
+        return function (?int $index): ?OrderDeletedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderDeletedMessagePayload $data */

@@ -41,7 +41,7 @@ class TypeChangeFieldDefinitionOrderActionCollection extends TypeUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeFieldDefinitionOrderAction {
+        return function (?int $index): ?TypeChangeFieldDefinitionOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeFieldDefinitionOrderAction $data */

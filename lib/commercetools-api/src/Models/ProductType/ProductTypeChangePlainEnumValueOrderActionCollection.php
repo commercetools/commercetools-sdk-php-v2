@@ -41,7 +41,7 @@ class ProductTypeChangePlainEnumValueOrderActionCollection extends ProductTypeUp
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangePlainEnumValueOrderAction {
+        return function (?int $index): ?ProductTypeChangePlainEnumValueOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangePlainEnumValueOrderAction $data */

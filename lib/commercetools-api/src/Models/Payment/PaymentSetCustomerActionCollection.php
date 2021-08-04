@@ -41,7 +41,7 @@ class PaymentSetCustomerActionCollection extends PaymentUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentSetCustomerAction {
+        return function (?int $index): ?PaymentSetCustomerAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentSetCustomerAction $data */

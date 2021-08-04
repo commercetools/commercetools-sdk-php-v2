@@ -44,7 +44,7 @@ class GeoJsonCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GeoJson {
+        return function (?int $index): ?GeoJson {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

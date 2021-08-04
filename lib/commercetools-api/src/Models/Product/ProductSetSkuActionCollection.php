@@ -41,7 +41,7 @@ class ProductSetSkuActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetSkuAction {
+        return function (?int $index): ?ProductSetSkuAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetSkuAction $data */

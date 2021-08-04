@@ -41,7 +41,7 @@ class PriceFunctionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?PriceFunction {
+        return function (?int $index): ?PriceFunction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PriceFunction $data */

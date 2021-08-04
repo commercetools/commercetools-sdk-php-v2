@@ -41,7 +41,7 @@ class MissingImagesProductLevelCollection extends MissingImagesCountCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesProductLevel {
+        return function (?int $index): ?MissingImagesProductLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingImagesProductLevel $data */

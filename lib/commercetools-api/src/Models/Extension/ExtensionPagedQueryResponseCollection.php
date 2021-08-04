@@ -41,7 +41,7 @@ class ExtensionPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionPagedQueryResponse {
+        return function (?int $index): ?ExtensionPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionPagedQueryResponse $data */

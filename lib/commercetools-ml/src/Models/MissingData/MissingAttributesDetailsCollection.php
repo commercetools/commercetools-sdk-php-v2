@@ -41,7 +41,7 @@ class MissingAttributesDetailsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingAttributesDetails {
+        return function (?int $index): ?MissingAttributesDetails {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingAttributesDetails $data */

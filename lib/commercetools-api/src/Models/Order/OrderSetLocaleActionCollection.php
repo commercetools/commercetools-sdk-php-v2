@@ -41,7 +41,7 @@ class OrderSetLocaleActionCollection extends OrderUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetLocaleAction {
+        return function (?int $index): ?OrderSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetLocaleAction $data */

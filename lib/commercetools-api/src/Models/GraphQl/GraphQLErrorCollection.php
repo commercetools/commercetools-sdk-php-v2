@@ -41,7 +41,7 @@ class GraphQLErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GraphQLError {
+        return function (?int $index): ?GraphQLError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GraphQLError $data */

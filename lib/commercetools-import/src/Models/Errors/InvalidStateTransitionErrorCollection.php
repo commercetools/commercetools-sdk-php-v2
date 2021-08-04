@@ -41,7 +41,7 @@ class InvalidStateTransitionErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidStateTransitionError {
+        return function (?int $index): ?InvalidStateTransitionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidStateTransitionError $data */

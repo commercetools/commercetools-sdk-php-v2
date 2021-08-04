@@ -41,7 +41,7 @@ class CustomerSetSalutationActionCollection extends CustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetSalutationAction {
+        return function (?int $index): ?CustomerSetSalutationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetSalutationAction $data */

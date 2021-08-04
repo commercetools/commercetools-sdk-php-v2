@@ -41,7 +41,7 @@ class CartReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartReference {
+        return function (?int $index): ?CartReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartReference $data */

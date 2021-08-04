@@ -41,7 +41,7 @@ class ShoppingListAddLineItemActionCollection extends ShoppingListUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListAddLineItemAction {
+        return function (?int $index): ?ShoppingListAddLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListAddLineItemAction $data */

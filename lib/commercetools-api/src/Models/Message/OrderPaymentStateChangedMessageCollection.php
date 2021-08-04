@@ -41,7 +41,7 @@ class OrderPaymentStateChangedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderPaymentStateChangedMessage {
+        return function (?int $index): ?OrderPaymentStateChangedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderPaymentStateChangedMessage $data */

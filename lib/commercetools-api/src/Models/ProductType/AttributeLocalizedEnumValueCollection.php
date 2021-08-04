@@ -41,7 +41,7 @@ class AttributeLocalizedEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeLocalizedEnumValue {
+        return function (?int $index): ?AttributeLocalizedEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeLocalizedEnumValue $data */

@@ -41,7 +41,7 @@ class AttributeDefinitionTypeConflictErrorCollection extends ErrorObjectCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeDefinitionTypeConflictError {
+        return function (?int $index): ?AttributeDefinitionTypeConflictError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeDefinitionTypeConflictError $data */

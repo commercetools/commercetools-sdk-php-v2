@@ -41,7 +41,7 @@ class ReturnItemDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReturnItemDraft {
+        return function (?int $index): ?ReturnItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReturnItemDraft $data */

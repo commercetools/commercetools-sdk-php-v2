@@ -41,7 +41,7 @@ class DeliveryCloudEventsFormatCollection extends DeliveryFormatCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryCloudEventsFormat {
+        return function (?int $index): ?DeliveryCloudEventsFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryCloudEventsFormat $data */

@@ -41,7 +41,7 @@ class SetMaxApplicationsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMaxApplicationsChange {
+        return function (?int $index): ?SetMaxApplicationsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMaxApplicationsChange $data */

@@ -41,7 +41,7 @@ class AddLocationChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddLocationChange {
+        return function (?int $index): ?AddLocationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddLocationChange $data */

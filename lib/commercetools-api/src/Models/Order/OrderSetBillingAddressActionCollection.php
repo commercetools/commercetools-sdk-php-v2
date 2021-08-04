@@ -41,7 +41,7 @@ class OrderSetBillingAddressActionCollection extends OrderUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetBillingAddressAction {
+        return function (?int $index): ?OrderSetBillingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetBillingAddressAction $data */

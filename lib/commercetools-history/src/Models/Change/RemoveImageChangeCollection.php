@@ -41,7 +41,7 @@ class RemoveImageChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveImageChange {
+        return function (?int $index): ?RemoveImageChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveImageChange $data */

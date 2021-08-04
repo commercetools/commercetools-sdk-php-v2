@@ -41,7 +41,7 @@ class ReferenceSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReferenceSetField {
+        return function (?int $index): ?ReferenceSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReferenceSetField $data */

@@ -41,7 +41,7 @@ class RangeFacetResultCollection extends FacetResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RangeFacetResult {
+        return function (?int $index): ?RangeFacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RangeFacetResult $data */

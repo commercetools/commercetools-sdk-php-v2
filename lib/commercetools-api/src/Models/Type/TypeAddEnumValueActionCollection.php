@@ -41,7 +41,7 @@ class TypeAddEnumValueActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeAddEnumValueAction {
+        return function (?int $index): ?TypeAddEnumValueAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeAddEnumValueAction $data */

@@ -41,7 +41,7 @@ class OrderSetParcelMeasurementsActionCollection extends OrderUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetParcelMeasurementsAction {
+        return function (?int $index): ?OrderSetParcelMeasurementsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetParcelMeasurementsAction $data */

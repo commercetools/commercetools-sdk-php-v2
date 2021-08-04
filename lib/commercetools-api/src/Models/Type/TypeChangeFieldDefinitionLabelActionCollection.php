@@ -41,7 +41,7 @@ class TypeChangeFieldDefinitionLabelActionCollection extends TypeUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeFieldDefinitionLabelAction {
+        return function (?int $index): ?TypeChangeFieldDefinitionLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeFieldDefinitionLabelAction $data */

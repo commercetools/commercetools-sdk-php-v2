@@ -41,7 +41,7 @@ class CategoryChangeAssetOrderActionCollection extends CategoryUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryChangeAssetOrderAction {
+        return function (?int $index): ?CategoryChangeAssetOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryChangeAssetOrderAction $data */

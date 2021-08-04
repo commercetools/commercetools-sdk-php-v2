@@ -41,7 +41,7 @@ class SetAddressChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAddressChange {
+        return function (?int $index): ?SetAddressChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAddressChange $data */

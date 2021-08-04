@@ -41,7 +41,7 @@ class ClassificationShippingRateInputDraftCollection extends ShippingRateInputDr
      */
     protected function mapper()
     {
-        return function (int $index): ?ClassificationShippingRateInputDraft {
+        return function (?int $index): ?ClassificationShippingRateInputDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ClassificationShippingRateInputDraft $data */

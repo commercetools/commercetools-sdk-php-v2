@@ -41,7 +41,7 @@ class OrderPatchImportCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderPatchImport {
+        return function (?int $index): ?OrderPatchImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderPatchImport $data */

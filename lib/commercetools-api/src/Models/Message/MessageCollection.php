@@ -44,7 +44,7 @@ class MessageCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Message {
+        return function (?int $index): ?Message {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

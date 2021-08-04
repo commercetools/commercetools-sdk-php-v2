@@ -41,7 +41,7 @@ class ChannelSetAddressCustomFieldActionCollection extends ChannelUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetAddressCustomFieldAction {
+        return function (?int $index): ?ChannelSetAddressCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetAddressCustomFieldAction $data */

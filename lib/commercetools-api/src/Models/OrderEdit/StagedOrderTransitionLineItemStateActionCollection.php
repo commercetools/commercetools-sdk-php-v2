@@ -41,7 +41,7 @@ class StagedOrderTransitionLineItemStateActionCollection extends StagedOrderUpda
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderTransitionLineItemStateAction {
+        return function (?int $index): ?StagedOrderTransitionLineItemStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderTransitionLineItemStateAction $data */

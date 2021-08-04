@@ -41,7 +41,7 @@ class CustomFieldDateTimeTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldDateTimeType {
+        return function (?int $index): ?CustomFieldDateTimeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldDateTimeType $data */

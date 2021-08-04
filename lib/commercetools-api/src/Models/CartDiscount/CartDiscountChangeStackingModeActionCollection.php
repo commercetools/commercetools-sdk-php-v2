@@ -41,7 +41,7 @@ class CartDiscountChangeStackingModeActionCollection extends CartDiscountUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountChangeStackingModeAction {
+        return function (?int $index): ?CartDiscountChangeStackingModeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountChangeStackingModeAction $data */

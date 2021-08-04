@@ -41,7 +41,7 @@ class StagedOrderSetOrderNumberActionCollection extends StagedOrderUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetOrderNumberAction {
+        return function (?int $index): ?StagedOrderSetOrderNumberAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetOrderNumberAction $data */

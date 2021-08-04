@@ -41,7 +41,7 @@ class InvalidCredentialsErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidCredentialsError {
+        return function (?int $index): ?InvalidCredentialsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidCredentialsError $data */

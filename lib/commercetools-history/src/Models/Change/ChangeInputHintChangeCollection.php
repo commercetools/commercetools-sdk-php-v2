@@ -41,7 +41,7 @@ class ChangeInputHintChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeInputHintChange {
+        return function (?int $index): ?ChangeInputHintChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeInputHintChange $data */

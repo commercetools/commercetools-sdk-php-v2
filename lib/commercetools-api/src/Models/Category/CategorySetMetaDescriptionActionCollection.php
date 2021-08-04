@@ -41,7 +41,7 @@ class CategorySetMetaDescriptionActionCollection extends CategoryUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetMetaDescriptionAction {
+        return function (?int $index): ?CategorySetMetaDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetMetaDescriptionAction $data */

@@ -41,7 +41,7 @@ class MyCartSetCountryActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartSetCountryAction {
+        return function (?int $index): ?MyCartSetCountryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartSetCountryAction $data */

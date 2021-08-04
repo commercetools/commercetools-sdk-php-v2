@@ -41,7 +41,7 @@ class VariantCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Variant {
+        return function (?int $index): ?Variant {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Variant $data */

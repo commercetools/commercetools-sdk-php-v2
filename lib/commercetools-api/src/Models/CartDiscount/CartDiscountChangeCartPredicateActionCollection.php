@@ -41,7 +41,7 @@ class CartDiscountChangeCartPredicateActionCollection extends CartDiscountUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountChangeCartPredicateAction {
+        return function (?int $index): ?CartDiscountChangeCartPredicateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountChangeCartPredicateAction $data */

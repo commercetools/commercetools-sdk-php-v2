@@ -41,7 +41,7 @@ class OrderShippingInfoSetMessagePayloadCollection extends MessagePayloadCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderShippingInfoSetMessagePayload {
+        return function (?int $index): ?OrderShippingInfoSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderShippingInfoSetMessagePayload $data */

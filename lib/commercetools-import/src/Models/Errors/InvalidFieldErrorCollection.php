@@ -41,7 +41,7 @@ class InvalidFieldErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidFieldError {
+        return function (?int $index): ?InvalidFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidFieldError $data */

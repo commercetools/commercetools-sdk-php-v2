@@ -41,7 +41,7 @@ class ProductAddExternalImageActionCollection extends ProductUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductAddExternalImageAction {
+        return function (?int $index): ?ProductAddExternalImageAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductAddExternalImageAction $data */

@@ -41,7 +41,7 @@ class SetStoreChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetStoreChange {
+        return function (?int $index): ?SetStoreChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetStoreChange $data */

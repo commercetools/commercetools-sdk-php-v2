@@ -41,7 +41,7 @@ class MyShoppingListSetTextLineItemCustomFieldActionCollection extends MyShoppin
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListSetTextLineItemCustomFieldAction {
+        return function (?int $index): ?MyShoppingListSetTextLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListSetTextLineItemCustomFieldAction $data */

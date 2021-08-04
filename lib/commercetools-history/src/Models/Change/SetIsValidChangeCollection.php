@@ -41,7 +41,7 @@ class SetIsValidChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetIsValidChange {
+        return function (?int $index): ?SetIsValidChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetIsValidChange $data */

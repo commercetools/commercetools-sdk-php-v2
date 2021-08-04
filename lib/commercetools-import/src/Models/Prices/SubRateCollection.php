@@ -41,7 +41,7 @@ class SubRateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SubRate {
+        return function (?int $index): ?SubRate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SubRate $data */

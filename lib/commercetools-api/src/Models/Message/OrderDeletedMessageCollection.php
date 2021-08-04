@@ -41,7 +41,7 @@ class OrderDeletedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderDeletedMessage {
+        return function (?int $index): ?OrderDeletedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderDeletedMessage $data */

@@ -41,7 +41,7 @@ class ProductSetAssetTagsActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetAssetTagsAction {
+        return function (?int $index): ?ProductSetAssetTagsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetAssetTagsAction $data */

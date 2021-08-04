@@ -41,7 +41,7 @@ class DiscountCodeChangeGroupsActionCollection extends DiscountCodeUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeChangeGroupsAction {
+        return function (?int $index): ?DiscountCodeChangeGroupsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeChangeGroupsAction $data */

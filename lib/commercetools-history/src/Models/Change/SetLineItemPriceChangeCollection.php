@@ -41,7 +41,7 @@ class SetLineItemPriceChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLineItemPriceChange {
+        return function (?int $index): ?SetLineItemPriceChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLineItemPriceChange $data */

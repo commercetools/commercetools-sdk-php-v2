@@ -41,7 +41,7 @@ class CartDiscountPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountPagedQueryResponse {
+        return function (?int $index): ?CartDiscountPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountPagedQueryResponse $data */

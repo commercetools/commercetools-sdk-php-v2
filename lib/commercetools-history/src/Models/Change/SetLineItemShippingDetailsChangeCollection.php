@@ -41,7 +41,7 @@ class SetLineItemShippingDetailsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLineItemShippingDetailsChange {
+        return function (?int $index): ?SetLineItemShippingDetailsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLineItemShippingDetailsChange $data */

@@ -41,7 +41,7 @@ class SetApplicationVersionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetApplicationVersionChange {
+        return function (?int $index): ?SetApplicationVersionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetApplicationVersionChange $data */

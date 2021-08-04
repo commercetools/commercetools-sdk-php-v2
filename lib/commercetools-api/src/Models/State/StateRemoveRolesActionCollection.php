@@ -41,7 +41,7 @@ class StateRemoveRolesActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateRemoveRolesAction {
+        return function (?int $index): ?StateRemoveRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateRemoveRolesAction $data */

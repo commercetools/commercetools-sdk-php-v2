@@ -41,7 +41,7 @@ class MaxResourceLimitExceededErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MaxResourceLimitExceededError {
+        return function (?int $index): ?MaxResourceLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MaxResourceLimitExceededError $data */

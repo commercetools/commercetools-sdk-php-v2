@@ -41,7 +41,7 @@ class CustomerCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Customer {
+        return function (?int $index): ?Customer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Customer $data */

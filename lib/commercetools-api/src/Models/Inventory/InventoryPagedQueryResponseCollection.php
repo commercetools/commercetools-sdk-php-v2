@@ -41,7 +41,7 @@ class InventoryPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryPagedQueryResponse {
+        return function (?int $index): ?InventoryPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryPagedQueryResponse $data */

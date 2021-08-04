@@ -41,7 +41,7 @@ class ChannelUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelUpdate {
+        return function (?int $index): ?ChannelUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelUpdate $data */

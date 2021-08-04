@@ -41,7 +41,7 @@ class OrderEditPreviewFailureCollection extends OrderEditResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditPreviewFailure {
+        return function (?int $index): ?OrderEditPreviewFailure {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditPreviewFailure $data */

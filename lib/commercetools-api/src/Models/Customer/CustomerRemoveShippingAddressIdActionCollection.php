@@ -41,7 +41,7 @@ class CustomerRemoveShippingAddressIdActionCollection extends CustomerUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerRemoveShippingAddressIdAction {
+        return function (?int $index): ?CustomerRemoveShippingAddressIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerRemoveShippingAddressIdAction $data */

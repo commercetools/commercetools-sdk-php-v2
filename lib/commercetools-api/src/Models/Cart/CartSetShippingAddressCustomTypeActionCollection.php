@@ -41,7 +41,7 @@ class CartSetShippingAddressCustomTypeActionCollection extends CartUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetShippingAddressCustomTypeAction {
+        return function (?int $index): ?CartSetShippingAddressCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetShippingAddressCustomTypeAction $data */

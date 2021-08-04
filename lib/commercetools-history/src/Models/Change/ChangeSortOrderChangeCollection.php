@@ -41,7 +41,7 @@ class ChangeSortOrderChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeSortOrderChange {
+        return function (?int $index): ?ChangeSortOrderChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeSortOrderChange $data */

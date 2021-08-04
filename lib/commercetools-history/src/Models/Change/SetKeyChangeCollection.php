@@ -41,7 +41,7 @@ class SetKeyChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetKeyChange {
+        return function (?int $index): ?SetKeyChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetKeyChange $data */

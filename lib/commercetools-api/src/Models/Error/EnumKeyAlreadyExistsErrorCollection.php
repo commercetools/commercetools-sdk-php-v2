@@ -41,7 +41,7 @@ class EnumKeyAlreadyExistsErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumKeyAlreadyExistsError {
+        return function (?int $index): ?EnumKeyAlreadyExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumKeyAlreadyExistsError $data */

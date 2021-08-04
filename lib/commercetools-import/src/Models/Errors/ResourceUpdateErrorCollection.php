@@ -41,7 +41,7 @@ class ResourceUpdateErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceUpdateError {
+        return function (?int $index): ?ResourceUpdateError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceUpdateError $data */

@@ -41,7 +41,7 @@ class PriceDraftImportCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?PriceDraftImport {
+        return function (?int $index): ?PriceDraftImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PriceDraftImport $data */

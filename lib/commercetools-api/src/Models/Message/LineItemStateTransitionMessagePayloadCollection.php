@@ -41,7 +41,7 @@ class LineItemStateTransitionMessagePayloadCollection extends MessagePayloadColl
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemStateTransitionMessagePayload {
+        return function (?int $index): ?LineItemStateTransitionMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemStateTransitionMessagePayload $data */

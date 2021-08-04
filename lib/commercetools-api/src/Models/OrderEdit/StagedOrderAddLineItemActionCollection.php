@@ -41,7 +41,7 @@ class StagedOrderAddLineItemActionCollection extends StagedOrderUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderAddLineItemAction {
+        return function (?int $index): ?StagedOrderAddLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderAddLineItemAction $data */

@@ -41,7 +41,7 @@ class SetDefaultShippingAddressChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetDefaultShippingAddressChange {
+        return function (?int $index): ?SetDefaultShippingAddressChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetDefaultShippingAddressChange $data */

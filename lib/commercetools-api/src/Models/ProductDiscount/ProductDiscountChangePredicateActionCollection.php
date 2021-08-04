@@ -41,7 +41,7 @@ class ProductDiscountChangePredicateActionCollection extends ProductDiscountUpda
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountChangePredicateAction {
+        return function (?int $index): ?ProductDiscountChangePredicateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountChangePredicateAction $data */

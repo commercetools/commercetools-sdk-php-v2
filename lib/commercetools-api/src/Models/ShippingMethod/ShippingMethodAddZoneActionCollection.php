@@ -41,7 +41,7 @@ class ShippingMethodAddZoneActionCollection extends ShippingMethodUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodAddZoneAction {
+        return function (?int $index): ?ShippingMethodAddZoneAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodAddZoneAction $data */

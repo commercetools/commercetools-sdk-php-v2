@@ -41,7 +41,7 @@ class MissingImagesVariantLevelCollection extends MissingImagesCountCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesVariantLevel {
+        return function (?int $index): ?MissingImagesVariantLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingImagesVariantLevel $data */

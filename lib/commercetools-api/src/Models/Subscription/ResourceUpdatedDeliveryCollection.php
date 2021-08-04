@@ -41,7 +41,7 @@ class ResourceUpdatedDeliveryCollection extends SubscriptionDeliveryCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceUpdatedDelivery {
+        return function (?int $index): ?ResourceUpdatedDelivery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceUpdatedDelivery $data */

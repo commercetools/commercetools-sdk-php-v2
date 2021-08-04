@@ -41,7 +41,7 @@ class DeliveryItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryItem {
+        return function (?int $index): ?DeliveryItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryItem $data */

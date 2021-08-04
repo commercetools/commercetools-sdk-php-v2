@@ -41,7 +41,7 @@ class ReviewSetKeyActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetKeyAction {
+        return function (?int $index): ?ReviewSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetKeyAction $data */

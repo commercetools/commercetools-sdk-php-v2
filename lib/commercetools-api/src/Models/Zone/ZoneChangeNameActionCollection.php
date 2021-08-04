@@ -41,7 +41,7 @@ class ZoneChangeNameActionCollection extends ZoneUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneChangeNameAction {
+        return function (?int $index): ?ZoneChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneChangeNameAction $data */

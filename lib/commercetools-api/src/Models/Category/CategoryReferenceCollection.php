@@ -41,7 +41,7 @@ class CategoryReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryReference {
+        return function (?int $index): ?CategoryReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryReference $data */

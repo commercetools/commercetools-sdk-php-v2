@@ -44,7 +44,7 @@ class FieldTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FieldType {
+        return function (?int $index): ?FieldType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

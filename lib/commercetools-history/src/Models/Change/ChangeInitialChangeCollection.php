@@ -41,7 +41,7 @@ class ChangeInitialChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeInitialChange {
+        return function (?int $index): ?ChangeInitialChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeInitialChange $data */

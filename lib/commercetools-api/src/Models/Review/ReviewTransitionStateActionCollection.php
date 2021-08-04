@@ -41,7 +41,7 @@ class ReviewTransitionStateActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewTransitionStateAction {
+        return function (?int $index): ?ReviewTransitionStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewTransitionStateAction $data */

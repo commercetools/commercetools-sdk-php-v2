@@ -41,7 +41,7 @@ class SetGeoLocationChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetGeoLocationChange {
+        return function (?int $index): ?SetGeoLocationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetGeoLocationChange $data */

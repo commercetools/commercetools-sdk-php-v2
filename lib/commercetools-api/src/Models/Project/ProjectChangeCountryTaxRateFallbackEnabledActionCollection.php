@@ -41,7 +41,7 @@ class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends Project
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeCountryTaxRateFallbackEnabledAction {
+        return function (?int $index): ?ProjectChangeCountryTaxRateFallbackEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeCountryTaxRateFallbackEnabledAction $data */

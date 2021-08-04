@@ -41,7 +41,7 @@ class ProjectNotConfiguredForLanguagesErrorCollection extends ErrorObjectCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectNotConfiguredForLanguagesError {
+        return function (?int $index): ?ProjectNotConfiguredForLanguagesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectNotConfiguredForLanguagesError $data */

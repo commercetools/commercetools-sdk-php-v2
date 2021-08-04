@@ -41,7 +41,7 @@ class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends Discount
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
+        return function (?int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetMaxApplicationsPerCustomerAction $data */

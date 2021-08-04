@@ -41,7 +41,7 @@ class SetProductVariantKeyChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetProductVariantKeyChange {
+        return function (?int $index): ?SetProductVariantKeyChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetProductVariantKeyChange $data */

@@ -41,7 +41,7 @@ class OrderLineItemAddedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderLineItemAddedMessage {
+        return function (?int $index): ?OrderLineItemAddedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderLineItemAddedMessage $data */

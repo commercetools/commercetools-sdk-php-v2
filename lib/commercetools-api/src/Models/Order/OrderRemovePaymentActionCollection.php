@@ -41,7 +41,7 @@ class OrderRemovePaymentActionCollection extends OrderUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderRemovePaymentAction {
+        return function (?int $index): ?OrderRemovePaymentAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderRemovePaymentAction $data */

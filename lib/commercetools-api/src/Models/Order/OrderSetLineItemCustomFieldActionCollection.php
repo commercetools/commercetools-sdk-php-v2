@@ -41,7 +41,7 @@ class OrderSetLineItemCustomFieldActionCollection extends OrderUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetLineItemCustomFieldAction {
+        return function (?int $index): ?OrderSetLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetLineItemCustomFieldAction $data */

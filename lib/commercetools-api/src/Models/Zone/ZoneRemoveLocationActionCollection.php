@@ -41,7 +41,7 @@ class ZoneRemoveLocationActionCollection extends ZoneUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneRemoveLocationAction {
+        return function (?int $index): ?ZoneRemoveLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneRemoveLocationAction $data */

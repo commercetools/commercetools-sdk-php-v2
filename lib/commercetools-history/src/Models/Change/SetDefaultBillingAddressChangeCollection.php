@@ -41,7 +41,7 @@ class SetDefaultBillingAddressChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetDefaultBillingAddressChange {
+        return function (?int $index): ?SetDefaultBillingAddressChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetDefaultBillingAddressChange $data */

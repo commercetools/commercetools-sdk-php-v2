@@ -41,7 +41,7 @@ class ProductImageAddedMessagePayloadCollection extends MessagePayloadCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductImageAddedMessagePayload {
+        return function (?int $index): ?ProductImageAddedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductImageAddedMessagePayload $data */

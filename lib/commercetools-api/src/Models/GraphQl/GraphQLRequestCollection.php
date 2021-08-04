@@ -41,7 +41,7 @@ class GraphQLRequestCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GraphQLRequest {
+        return function (?int $index): ?GraphQLRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GraphQLRequest $data */

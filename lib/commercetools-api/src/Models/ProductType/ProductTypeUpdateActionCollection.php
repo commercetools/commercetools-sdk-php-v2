@@ -44,7 +44,7 @@ class ProductTypeUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeUpdateAction {
+        return function (?int $index): ?ProductTypeUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -41,7 +41,7 @@ class ConcurrentModificationErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ConcurrentModificationError {
+        return function (?int $index): ?ConcurrentModificationError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ConcurrentModificationError $data */

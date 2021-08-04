@@ -41,7 +41,7 @@ class CustomFieldBooleanTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldBooleanType {
+        return function (?int $index): ?CustomFieldBooleanType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldBooleanType $data */

@@ -41,7 +41,7 @@ class SetTransitionsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTransitionsChange {
+        return function (?int $index): ?SetTransitionsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTransitionsChange $data */

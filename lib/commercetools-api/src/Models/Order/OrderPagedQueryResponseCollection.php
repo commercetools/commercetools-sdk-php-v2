@@ -41,7 +41,7 @@ class OrderPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderPagedQueryResponse {
+        return function (?int $index): ?OrderPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderPagedQueryResponse $data */

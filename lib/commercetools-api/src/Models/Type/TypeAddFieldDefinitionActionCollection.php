@@ -41,7 +41,7 @@ class TypeAddFieldDefinitionActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeAddFieldDefinitionAction {
+        return function (?int $index): ?TypeAddFieldDefinitionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeAddFieldDefinitionAction $data */

@@ -41,7 +41,7 @@ class MissingImagesPagedQueryResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesPagedQueryResult {
+        return function (?int $index): ?MissingImagesPagedQueryResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingImagesPagedQueryResult $data */

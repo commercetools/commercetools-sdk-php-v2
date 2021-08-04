@@ -41,7 +41,7 @@ class DateFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DateField {
+        return function (?int $index): ?DateField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DateField $data */

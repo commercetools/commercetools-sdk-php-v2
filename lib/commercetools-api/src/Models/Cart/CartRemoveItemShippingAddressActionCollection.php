@@ -41,7 +41,7 @@ class CartRemoveItemShippingAddressActionCollection extends CartUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?CartRemoveItemShippingAddressAction {
+        return function (?int $index): ?CartRemoveItemShippingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartRemoveItemShippingAddressAction $data */

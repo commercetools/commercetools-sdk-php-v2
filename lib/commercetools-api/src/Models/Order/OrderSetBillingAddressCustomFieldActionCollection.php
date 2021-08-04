@@ -41,7 +41,7 @@ class OrderSetBillingAddressCustomFieldActionCollection extends OrderUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetBillingAddressCustomFieldAction {
+        return function (?int $index): ?OrderSetBillingAddressCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetBillingAddressCustomFieldAction $data */

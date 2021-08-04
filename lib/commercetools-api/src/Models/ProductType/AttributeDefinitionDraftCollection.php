@@ -41,7 +41,7 @@ class AttributeDefinitionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeDefinitionDraft {
+        return function (?int $index): ?AttributeDefinitionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeDefinitionDraft $data */

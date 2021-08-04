@@ -41,7 +41,7 @@ class CartDiscountSetValidFromActionCollection extends CartDiscountUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountSetValidFromAction {
+        return function (?int $index): ?CartDiscountSetValidFromAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountSetValidFromAction $data */

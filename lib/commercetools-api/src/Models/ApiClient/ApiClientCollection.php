@@ -41,7 +41,7 @@ class ApiClientCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ApiClient {
+        return function (?int $index): ?ApiClient {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ApiClient $data */

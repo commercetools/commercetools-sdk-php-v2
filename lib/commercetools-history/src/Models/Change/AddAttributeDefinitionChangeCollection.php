@@ -41,7 +41,7 @@ class AddAttributeDefinitionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddAttributeDefinitionChange {
+        return function (?int $index): ?AddAttributeDefinitionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddAttributeDefinitionChange $data */

@@ -41,7 +41,7 @@ class LocationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Location {
+        return function (?int $index): ?Location {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Location $data */

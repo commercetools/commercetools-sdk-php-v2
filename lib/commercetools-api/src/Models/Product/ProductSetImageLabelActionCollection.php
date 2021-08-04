@@ -41,7 +41,7 @@ class ProductSetImageLabelActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetImageLabelAction {
+        return function (?int $index): ?ProductSetImageLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetImageLabelAction $data */

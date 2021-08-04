@@ -41,7 +41,7 @@ class CartAddShoppingListActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartAddShoppingListAction {
+        return function (?int $index): ?CartAddShoppingListAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartAddShoppingListAction $data */

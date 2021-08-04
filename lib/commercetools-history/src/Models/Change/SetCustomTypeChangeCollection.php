@@ -41,7 +41,7 @@ class SetCustomTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomTypeChange {
+        return function (?int $index): ?SetCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomTypeChange $data */

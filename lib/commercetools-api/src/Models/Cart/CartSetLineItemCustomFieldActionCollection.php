@@ -41,7 +41,7 @@ class CartSetLineItemCustomFieldActionCollection extends CartUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetLineItemCustomFieldAction {
+        return function (?int $index): ?CartSetLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetLineItemCustomFieldAction $data */

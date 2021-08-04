@@ -41,7 +41,7 @@ class ReviewRatingSetMessagePayloadCollection extends MessagePayloadCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewRatingSetMessagePayload {
+        return function (?int $index): ?ReviewRatingSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewRatingSetMessagePayload $data */

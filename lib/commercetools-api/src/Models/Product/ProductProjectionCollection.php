@@ -41,7 +41,7 @@ class ProductProjectionCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductProjection {
+        return function (?int $index): ?ProductProjection {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductProjection $data */

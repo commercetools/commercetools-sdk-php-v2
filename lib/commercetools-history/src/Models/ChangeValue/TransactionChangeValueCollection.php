@@ -41,7 +41,7 @@ class TransactionChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TransactionChangeValue {
+        return function (?int $index): ?TransactionChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TransactionChangeValue $data */

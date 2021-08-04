@@ -41,7 +41,7 @@ class SetInterfaceIdChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetInterfaceIdChange {
+        return function (?int $index): ?SetInterfaceIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetInterfaceIdChange $data */

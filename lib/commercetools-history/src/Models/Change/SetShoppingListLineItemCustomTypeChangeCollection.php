@@ -41,7 +41,7 @@ class SetShoppingListLineItemCustomTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetShoppingListLineItemCustomTypeChange {
+        return function (?int $index): ?SetShoppingListLineItemCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetShoppingListLineItemCustomTypeChange $data */

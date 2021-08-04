@@ -41,7 +41,7 @@ class CustomerGroupUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupUpdate {
+        return function (?int $index): ?CustomerGroupUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupUpdate $data */

@@ -41,7 +41,7 @@ class ShippingMethodSetKeyActionCollection extends ShippingMethodUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodSetKeyAction {
+        return function (?int $index): ?ShippingMethodSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodSetKeyAction $data */

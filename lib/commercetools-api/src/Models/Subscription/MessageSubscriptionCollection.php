@@ -41,7 +41,7 @@ class MessageSubscriptionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MessageSubscription {
+        return function (?int $index): ?MessageSubscription {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MessageSubscription $data */

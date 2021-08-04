@@ -44,7 +44,7 @@ class KeyReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?KeyReference {
+        return function (?int $index): ?KeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

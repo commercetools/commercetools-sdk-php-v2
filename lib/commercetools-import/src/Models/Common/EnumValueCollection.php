@@ -41,7 +41,7 @@ class EnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumValue {
+        return function (?int $index): ?EnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumValue $data */

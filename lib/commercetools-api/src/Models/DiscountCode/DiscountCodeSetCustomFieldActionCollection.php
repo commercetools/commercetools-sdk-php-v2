@@ -41,7 +41,7 @@ class DiscountCodeSetCustomFieldActionCollection extends DiscountCodeUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetCustomFieldAction {
+        return function (?int $index): ?DiscountCodeSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetCustomFieldAction $data */

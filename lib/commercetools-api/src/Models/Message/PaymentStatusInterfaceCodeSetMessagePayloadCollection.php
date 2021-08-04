@@ -41,7 +41,7 @@ class PaymentStatusInterfaceCodeSetMessagePayloadCollection extends MessagePaylo
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentStatusInterfaceCodeSetMessagePayload {
+        return function (?int $index): ?PaymentStatusInterfaceCodeSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentStatusInterfaceCodeSetMessagePayload $data */

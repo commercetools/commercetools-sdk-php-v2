@@ -41,7 +41,7 @@ class QueryPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?QueryPrice {
+        return function (?int $index): ?QueryPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var QueryPrice $data */

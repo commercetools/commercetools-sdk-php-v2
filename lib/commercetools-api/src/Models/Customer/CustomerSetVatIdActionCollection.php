@@ -41,7 +41,7 @@ class CustomerSetVatIdActionCollection extends CustomerUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetVatIdAction {
+        return function (?int $index): ?CustomerSetVatIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetVatIdAction $data */

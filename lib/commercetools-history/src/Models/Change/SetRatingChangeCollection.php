@@ -41,7 +41,7 @@ class SetRatingChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetRatingChange {
+        return function (?int $index): ?SetRatingChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetRatingChange $data */

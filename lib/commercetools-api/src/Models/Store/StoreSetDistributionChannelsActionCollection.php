@@ -41,7 +41,7 @@ class StoreSetDistributionChannelsActionCollection extends StoreUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreSetDistributionChannelsAction {
+        return function (?int $index): ?StoreSetDistributionChannelsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreSetDistributionChannelsAction $data */

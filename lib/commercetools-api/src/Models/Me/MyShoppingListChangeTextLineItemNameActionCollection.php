@@ -41,7 +41,7 @@ class MyShoppingListChangeTextLineItemNameActionCollection extends MyShoppingLis
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListChangeTextLineItemNameAction {
+        return function (?int $index): ?MyShoppingListChangeTextLineItemNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListChangeTextLineItemNameAction $data */

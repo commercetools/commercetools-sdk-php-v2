@@ -41,7 +41,7 @@ class ProductDiscountValueRelativeDraftCollection extends ProductDiscountValueDr
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountValueRelativeDraft {
+        return function (?int $index): ?ProductDiscountValueRelativeDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountValueRelativeDraft $data */

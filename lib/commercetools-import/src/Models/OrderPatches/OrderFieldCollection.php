@@ -41,7 +41,7 @@ class OrderFieldCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderField {
+        return function (?int $index): ?OrderField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderField $data */

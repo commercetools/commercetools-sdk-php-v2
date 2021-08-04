@@ -41,7 +41,7 @@ class StagedOrderChangeTaxModeActionCollection extends StagedOrderUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderChangeTaxModeAction {
+        return function (?int $index): ?StagedOrderChangeTaxModeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderChangeTaxModeAction $data */

@@ -41,7 +41,7 @@ class ProductTypeAddAttributeDefinitionActionCollection extends ProductTypeUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeAddAttributeDefinitionAction {
+        return function (?int $index): ?ProductTypeAddAttributeDefinitionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeAddAttributeDefinitionAction $data */

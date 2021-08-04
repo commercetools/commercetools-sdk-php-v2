@@ -41,7 +41,7 @@ class FieldDefinitionOrderValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FieldDefinitionOrderValue {
+        return function (?int $index): ?FieldDefinitionOrderValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FieldDefinitionOrderValue $data */

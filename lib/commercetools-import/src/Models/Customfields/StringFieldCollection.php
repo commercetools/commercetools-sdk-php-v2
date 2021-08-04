@@ -41,7 +41,7 @@ class StringFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StringField {
+        return function (?int $index): ?StringField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StringField $data */

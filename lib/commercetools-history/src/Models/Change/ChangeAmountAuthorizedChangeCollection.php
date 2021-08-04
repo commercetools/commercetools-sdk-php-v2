@@ -41,7 +41,7 @@ class ChangeAmountAuthorizedChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeAmountAuthorizedChange {
+        return function (?int $index): ?ChangeAmountAuthorizedChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeAmountAuthorizedChange $data */

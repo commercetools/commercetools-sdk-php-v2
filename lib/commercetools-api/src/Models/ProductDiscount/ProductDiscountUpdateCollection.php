@@ -41,7 +41,7 @@ class ProductDiscountUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountUpdate {
+        return function (?int $index): ?ProductDiscountUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountUpdate $data */

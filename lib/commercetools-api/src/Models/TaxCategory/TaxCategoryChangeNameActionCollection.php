@@ -41,7 +41,7 @@ class TaxCategoryChangeNameActionCollection extends TaxCategoryUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryChangeNameAction {
+        return function (?int $index): ?TaxCategoryChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryChangeNameAction $data */

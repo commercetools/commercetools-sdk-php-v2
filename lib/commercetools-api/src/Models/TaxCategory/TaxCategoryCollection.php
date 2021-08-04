@@ -41,7 +41,7 @@ class TaxCategoryCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategory {
+        return function (?int $index): ?TaxCategory {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategory $data */

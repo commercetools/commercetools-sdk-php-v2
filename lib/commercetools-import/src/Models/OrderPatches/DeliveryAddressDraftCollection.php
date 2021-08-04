@@ -41,7 +41,7 @@ class DeliveryAddressDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryAddressDraft {
+        return function (?int $index): ?DeliveryAddressDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryAddressDraft $data */

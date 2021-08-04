@@ -41,7 +41,7 @@ class InventoryEntryDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryDraft {
+        return function (?int $index): ?InventoryEntryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryDraft $data */

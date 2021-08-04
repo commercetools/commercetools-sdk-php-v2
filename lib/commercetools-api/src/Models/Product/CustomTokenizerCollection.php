@@ -41,7 +41,7 @@ class CustomTokenizerCollection extends SuggestTokenizerCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomTokenizer {
+        return function (?int $index): ?CustomTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomTokenizer $data */

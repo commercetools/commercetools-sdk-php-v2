@@ -41,7 +41,7 @@ class DateTimeSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DateTimeSetField {
+        return function (?int $index): ?DateTimeSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DateTimeSetField $data */

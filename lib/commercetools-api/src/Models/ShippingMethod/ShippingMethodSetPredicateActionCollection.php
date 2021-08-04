@@ -41,7 +41,7 @@ class ShippingMethodSetPredicateActionCollection extends ShippingMethodUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodSetPredicateAction {
+        return function (?int $index): ?ShippingMethodSetPredicateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodSetPredicateAction $data */

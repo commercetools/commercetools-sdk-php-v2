@@ -41,7 +41,7 @@ class ProductVariantCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariant {
+        return function (?int $index): ?ProductVariant {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariant $data */

@@ -41,7 +41,7 @@ class ProductPriceDiscountsSetMessagePayloadCollection extends MessagePayloadCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductPriceDiscountsSetMessagePayload {
+        return function (?int $index): ?ProductPriceDiscountsSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductPriceDiscountsSetMessagePayload $data */

@@ -44,7 +44,7 @@ class TypedMoneyCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TypedMoney {
+        return function (?int $index): ?TypedMoney {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

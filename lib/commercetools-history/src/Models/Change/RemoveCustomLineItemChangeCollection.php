@@ -41,7 +41,7 @@ class RemoveCustomLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveCustomLineItemChange {
+        return function (?int $index): ?RemoveCustomLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveCustomLineItemChange $data */

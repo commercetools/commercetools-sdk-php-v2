@@ -41,7 +41,7 @@ class StagedOrderAddReturnInfoActionCollection extends StagedOrderUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderAddReturnInfoAction {
+        return function (?int $index): ?StagedOrderAddReturnInfoAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderAddReturnInfoAction $data */

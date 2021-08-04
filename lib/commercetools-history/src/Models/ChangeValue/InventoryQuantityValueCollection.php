@@ -41,7 +41,7 @@ class InventoryQuantityValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryQuantityValue {
+        return function (?int $index): ?InventoryQuantityValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryQuantityValue $data */

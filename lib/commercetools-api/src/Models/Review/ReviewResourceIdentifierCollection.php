@@ -41,7 +41,7 @@ class ReviewResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewResourceIdentifier {
+        return function (?int $index): ?ReviewResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewResourceIdentifier $data */

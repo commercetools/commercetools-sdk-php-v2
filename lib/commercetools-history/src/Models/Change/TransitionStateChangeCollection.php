@@ -41,7 +41,7 @@ class TransitionStateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TransitionStateChange {
+        return function (?int $index): ?TransitionStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TransitionStateChange $data */

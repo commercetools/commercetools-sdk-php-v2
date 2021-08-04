@@ -41,7 +41,7 @@ class ResourceDeletedDeliveryCollection extends SubscriptionDeliveryCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceDeletedDelivery {
+        return function (?int $index): ?ResourceDeletedDelivery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceDeletedDelivery $data */

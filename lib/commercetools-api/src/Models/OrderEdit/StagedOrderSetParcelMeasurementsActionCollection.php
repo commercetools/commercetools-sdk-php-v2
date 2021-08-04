@@ -41,7 +41,7 @@ class StagedOrderSetParcelMeasurementsActionCollection extends StagedOrderUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetParcelMeasurementsAction {
+        return function (?int $index): ?StagedOrderSetParcelMeasurementsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetParcelMeasurementsAction $data */

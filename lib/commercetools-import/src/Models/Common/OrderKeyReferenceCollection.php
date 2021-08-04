@@ -41,7 +41,7 @@ class OrderKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderKeyReference {
+        return function (?int $index): ?OrderKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderKeyReference $data */

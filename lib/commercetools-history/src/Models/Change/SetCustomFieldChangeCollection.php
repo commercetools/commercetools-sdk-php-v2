@@ -41,7 +41,7 @@ class SetCustomFieldChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomFieldChange {
+        return function (?int $index): ?SetCustomFieldChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomFieldChange $data */

@@ -41,7 +41,7 @@ class LineItemDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemDraft {
+        return function (?int $index): ?LineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemDraft $data */

@@ -41,7 +41,7 @@ class ShippingRateDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingRateDraft {
+        return function (?int $index): ?ShippingRateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingRateDraft $data */

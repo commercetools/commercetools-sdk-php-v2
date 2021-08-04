@@ -41,7 +41,7 @@ class EditPreviewFailedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EditPreviewFailedError {
+        return function (?int $index): ?EditPreviewFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EditPreviewFailedError $data */

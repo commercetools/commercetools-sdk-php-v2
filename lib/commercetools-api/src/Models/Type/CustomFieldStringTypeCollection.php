@@ -41,7 +41,7 @@ class CustomFieldStringTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldStringType {
+        return function (?int $index): ?CustomFieldStringType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldStringType $data */

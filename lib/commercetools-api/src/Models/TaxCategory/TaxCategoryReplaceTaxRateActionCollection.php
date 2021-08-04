@@ -41,7 +41,7 @@ class TaxCategoryReplaceTaxRateActionCollection extends TaxCategoryUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryReplaceTaxRateAction {
+        return function (?int $index): ?TaxCategoryReplaceTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryReplaceTaxRateAction $data */

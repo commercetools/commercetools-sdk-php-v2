@@ -41,7 +41,7 @@ class ProductSetTaxCategoryActionCollection extends ProductUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetTaxCategoryAction {
+        return function (?int $index): ?ProductSetTaxCategoryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetTaxCategoryAction $data */

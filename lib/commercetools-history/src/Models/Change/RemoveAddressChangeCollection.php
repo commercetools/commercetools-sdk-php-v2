@@ -41,7 +41,7 @@ class RemoveAddressChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveAddressChange {
+        return function (?int $index): ?RemoveAddressChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveAddressChange $data */

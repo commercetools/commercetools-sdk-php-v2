@@ -41,7 +41,7 @@ class MyPaymentSetMethodInfoMethodActionCollection extends MyPaymentUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?MyPaymentSetMethodInfoMethodAction {
+        return function (?int $index): ?MyPaymentSetMethodInfoMethodAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyPaymentSetMethodInfoMethodAction $data */

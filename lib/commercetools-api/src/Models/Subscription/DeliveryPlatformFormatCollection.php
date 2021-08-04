@@ -41,7 +41,7 @@ class DeliveryPlatformFormatCollection extends DeliveryFormatCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryPlatformFormat {
+        return function (?int $index): ?DeliveryPlatformFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryPlatformFormat $data */

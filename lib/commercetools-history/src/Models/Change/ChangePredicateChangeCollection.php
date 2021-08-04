@@ -41,7 +41,7 @@ class ChangePredicateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangePredicateChange {
+        return function (?int $index): ?ChangePredicateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangePredicateChange $data */

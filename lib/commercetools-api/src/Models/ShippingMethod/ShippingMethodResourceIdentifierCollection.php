@@ -41,7 +41,7 @@ class ShippingMethodResourceIdentifierCollection extends ResourceIdentifierColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodResourceIdentifier {
+        return function (?int $index): ?ShippingMethodResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodResourceIdentifier $data */

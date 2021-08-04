@@ -41,7 +41,7 @@ class ExtensionSetKeyActionCollection extends ExtensionUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionSetKeyAction {
+        return function (?int $index): ?ExtensionSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionSetKeyAction $data */

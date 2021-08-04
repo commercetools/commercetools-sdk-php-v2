@@ -41,7 +41,7 @@ class CartValueTierCollection extends ShippingRatePriceTierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartValueTier {
+        return function (?int $index): ?CartValueTier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartValueTier $data */

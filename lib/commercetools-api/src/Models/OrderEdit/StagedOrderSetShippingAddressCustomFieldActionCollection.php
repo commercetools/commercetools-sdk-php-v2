@@ -41,7 +41,7 @@ class StagedOrderSetShippingAddressCustomFieldActionCollection extends StagedOrd
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetShippingAddressCustomFieldAction {
+        return function (?int $index): ?StagedOrderSetShippingAddressCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetShippingAddressCustomFieldAction $data */

@@ -41,7 +41,7 @@ class SetDeleteDaysAfterLastModificationChangeCollection extends ChangeCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?SetDeleteDaysAfterLastModificationChange {
+        return function (?int $index): ?SetDeleteDaysAfterLastModificationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetDeleteDaysAfterLastModificationChange $data */

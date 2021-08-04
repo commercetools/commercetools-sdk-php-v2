@@ -41,7 +41,7 @@ class FeatureRemovedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?FeatureRemovedError {
+        return function (?int $index): ?FeatureRemovedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FeatureRemovedError $data */

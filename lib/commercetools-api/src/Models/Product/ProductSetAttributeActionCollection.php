@@ -41,7 +41,7 @@ class ProductSetAttributeActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetAttributeAction {
+        return function (?int $index): ?ProductSetAttributeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetAttributeAction $data */

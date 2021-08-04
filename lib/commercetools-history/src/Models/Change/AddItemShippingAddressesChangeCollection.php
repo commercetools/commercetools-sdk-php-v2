@@ -41,7 +41,7 @@ class AddItemShippingAddressesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddItemShippingAddressesChange {
+        return function (?int $index): ?AddItemShippingAddressesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddItemShippingAddressesChange $data */

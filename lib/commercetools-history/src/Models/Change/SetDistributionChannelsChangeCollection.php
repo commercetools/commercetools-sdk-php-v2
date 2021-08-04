@@ -41,7 +41,7 @@ class SetDistributionChannelsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetDistributionChannelsChange {
+        return function (?int $index): ?SetDistributionChannelsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetDistributionChannelsChange $data */

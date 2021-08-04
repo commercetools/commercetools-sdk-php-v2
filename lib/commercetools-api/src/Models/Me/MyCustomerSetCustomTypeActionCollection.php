@@ -41,7 +41,7 @@ class MyCustomerSetCustomTypeActionCollection extends MyCustomerUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetCustomTypeAction {
+        return function (?int $index): ?MyCustomerSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetCustomTypeAction $data */

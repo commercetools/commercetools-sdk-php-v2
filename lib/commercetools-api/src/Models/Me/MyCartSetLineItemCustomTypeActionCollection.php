@@ -41,7 +41,7 @@ class MyCartSetLineItemCustomTypeActionCollection extends MyCartUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartSetLineItemCustomTypeAction {
+        return function (?int $index): ?MyCartSetLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartSetLineItemCustomTypeAction $data */

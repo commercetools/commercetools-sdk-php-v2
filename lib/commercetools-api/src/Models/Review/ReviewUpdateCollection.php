@@ -41,7 +41,7 @@ class ReviewUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewUpdate {
+        return function (?int $index): ?ReviewUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewUpdate $data */

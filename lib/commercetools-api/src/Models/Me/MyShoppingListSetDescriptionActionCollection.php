@@ -41,7 +41,7 @@ class MyShoppingListSetDescriptionActionCollection extends MyShoppingListUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListSetDescriptionAction {
+        return function (?int $index): ?MyShoppingListSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListSetDescriptionAction $data */

@@ -41,7 +41,7 @@ class ProductPriceExternalDiscountSetMessagePayloadCollection extends MessagePay
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductPriceExternalDiscountSetMessagePayload {
+        return function (?int $index): ?ProductPriceExternalDiscountSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductPriceExternalDiscountSetMessagePayload $data */

@@ -44,7 +44,7 @@ class OrderCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Order {
+        return function (?int $index): ?Order {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -41,7 +41,7 @@ class CartDiscountValueGiftLineItemDraftCollection extends CartDiscountValueDraf
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountValueGiftLineItemDraft {
+        return function (?int $index): ?CartDiscountValueGiftLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountValueGiftLineItemDraft $data */

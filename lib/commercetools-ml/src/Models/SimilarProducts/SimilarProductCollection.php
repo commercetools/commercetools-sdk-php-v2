@@ -41,7 +41,7 @@ class SimilarProductCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SimilarProduct {
+        return function (?int $index): ?SimilarProduct {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SimilarProduct $data */

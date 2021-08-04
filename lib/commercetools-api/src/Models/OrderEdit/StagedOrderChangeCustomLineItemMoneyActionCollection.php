@@ -41,7 +41,7 @@ class StagedOrderChangeCustomLineItemMoneyActionCollection extends StagedOrderUp
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderChangeCustomLineItemMoneyAction {
+        return function (?int $index): ?StagedOrderChangeCustomLineItemMoneyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderChangeCustomLineItemMoneyAction $data */

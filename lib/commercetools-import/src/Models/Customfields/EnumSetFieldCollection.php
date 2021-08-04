@@ -41,7 +41,7 @@ class EnumSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumSetField {
+        return function (?int $index): ?EnumSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumSetField $data */

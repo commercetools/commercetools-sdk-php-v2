@@ -41,7 +41,7 @@ class PaymentTransactionStateChangedMessagePayloadCollection extends MessagePayl
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentTransactionStateChangedMessagePayload {
+        return function (?int $index): ?PaymentTransactionStateChangedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentTransactionStateChangedMessagePayload $data */

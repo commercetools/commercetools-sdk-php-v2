@@ -41,7 +41,7 @@ class ProductTypeSetKeyActionCollection extends ProductTypeUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeSetKeyAction {
+        return function (?int $index): ?ProductTypeSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeSetKeyAction $data */

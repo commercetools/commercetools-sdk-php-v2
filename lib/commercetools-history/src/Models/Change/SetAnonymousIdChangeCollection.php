@@ -41,7 +41,7 @@ class SetAnonymousIdChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAnonymousIdChange {
+        return function (?int $index): ?SetAnonymousIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAnonymousIdChange $data */

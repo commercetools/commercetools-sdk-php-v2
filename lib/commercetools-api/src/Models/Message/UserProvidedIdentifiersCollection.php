@@ -41,7 +41,7 @@ class UserProvidedIdentifiersCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?UserProvidedIdentifiers {
+        return function (?int $index): ?UserProvidedIdentifiers {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var UserProvidedIdentifiers $data */

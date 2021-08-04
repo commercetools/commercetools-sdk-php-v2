@@ -41,7 +41,7 @@ class CustomerDateOfBirthSetMessagePayloadCollection extends MessagePayloadColle
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerDateOfBirthSetMessagePayload {
+        return function (?int $index): ?CustomerDateOfBirthSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerDateOfBirthSetMessagePayload $data */

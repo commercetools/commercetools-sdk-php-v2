@@ -41,7 +41,7 @@ class LanguageUsedInStoresErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LanguageUsedInStoresError {
+        return function (?int $index): ?LanguageUsedInStoresError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LanguageUsedInStoresError $data */

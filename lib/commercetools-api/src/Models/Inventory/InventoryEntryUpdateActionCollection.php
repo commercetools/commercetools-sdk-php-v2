@@ -44,7 +44,7 @@ class InventoryEntryUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryUpdateAction {
+        return function (?int $index): ?InventoryEntryUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

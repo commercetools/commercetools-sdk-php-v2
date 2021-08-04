@@ -44,7 +44,7 @@ class ExtensionHttpDestinationAuthenticationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionHttpDestinationAuthentication {
+        return function (?int $index): ?ExtensionHttpDestinationAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

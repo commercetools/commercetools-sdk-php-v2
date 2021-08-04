@@ -41,7 +41,7 @@ class ProductImportCollection extends ImportResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductImport {
+        return function (?int $index): ?ProductImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductImport $data */

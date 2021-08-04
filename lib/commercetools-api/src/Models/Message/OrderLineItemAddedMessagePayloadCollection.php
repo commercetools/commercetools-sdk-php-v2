@@ -41,7 +41,7 @@ class OrderLineItemAddedMessagePayloadCollection extends MessagePayloadCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderLineItemAddedMessagePayload {
+        return function (?int $index): ?OrderLineItemAddedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderLineItemAddedMessagePayload $data */

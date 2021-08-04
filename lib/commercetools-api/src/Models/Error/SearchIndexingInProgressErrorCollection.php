@@ -41,7 +41,7 @@ class SearchIndexingInProgressErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchIndexingInProgressError {
+        return function (?int $index): ?SearchIndexingInProgressError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchIndexingInProgressError $data */

@@ -41,7 +41,7 @@ class ProductTypeChangeIsSearchableActionCollection extends ProductTypeUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeIsSearchableAction {
+        return function (?int $index): ?ProductTypeChangeIsSearchableAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeIsSearchableAction $data */

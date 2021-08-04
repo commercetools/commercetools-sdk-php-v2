@@ -41,7 +41,7 @@ class ImageDimensionsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImageDimensions {
+        return function (?int $index): ?ImageDimensions {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImageDimensions $data */

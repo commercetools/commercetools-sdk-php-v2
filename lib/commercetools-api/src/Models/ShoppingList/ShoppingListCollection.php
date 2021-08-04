@@ -41,7 +41,7 @@ class ShoppingListCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingList {
+        return function (?int $index): ?ShoppingList {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingList $data */

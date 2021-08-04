@@ -41,7 +41,7 @@ class ChannelPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelPagedQueryResponse {
+        return function (?int $index): ?ChannelPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelPagedQueryResponse $data */

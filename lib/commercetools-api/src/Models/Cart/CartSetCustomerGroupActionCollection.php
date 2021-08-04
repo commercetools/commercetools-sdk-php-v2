@@ -41,7 +41,7 @@ class CartSetCustomerGroupActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetCustomerGroupAction {
+        return function (?int $index): ?CartSetCustomerGroupAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetCustomerGroupAction $data */

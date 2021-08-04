@@ -41,7 +41,7 @@ class CustomerAddressCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerAddress {
+        return function (?int $index): ?CustomerAddress {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerAddress $data */

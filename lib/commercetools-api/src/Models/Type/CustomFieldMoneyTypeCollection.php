@@ -41,7 +41,7 @@ class CustomFieldMoneyTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldMoneyType {
+        return function (?int $index): ?CustomFieldMoneyType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldMoneyType $data */

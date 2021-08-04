@@ -41,7 +41,7 @@ class ExtensionHttpDestinationCollection extends ExtensionDestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionHttpDestination {
+        return function (?int $index): ?ExtensionHttpDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionHttpDestination $data */

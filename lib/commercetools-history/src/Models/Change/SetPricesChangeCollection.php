@@ -41,7 +41,7 @@ class SetPricesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetPricesChange {
+        return function (?int $index): ?SetPricesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetPricesChange $data */

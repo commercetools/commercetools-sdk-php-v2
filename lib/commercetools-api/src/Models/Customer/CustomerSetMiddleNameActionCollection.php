@@ -41,7 +41,7 @@ class CustomerSetMiddleNameActionCollection extends CustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetMiddleNameAction {
+        return function (?int $index): ?CustomerSetMiddleNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetMiddleNameAction $data */

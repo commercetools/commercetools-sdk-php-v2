@@ -41,7 +41,7 @@ class CategorySetExternalIdActionCollection extends CategoryUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetExternalIdAction {
+        return function (?int $index): ?CategorySetExternalIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetExternalIdAction $data */

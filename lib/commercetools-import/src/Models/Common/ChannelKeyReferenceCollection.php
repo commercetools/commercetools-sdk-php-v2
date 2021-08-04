@@ -41,7 +41,7 @@ class ChannelKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelKeyReference {
+        return function (?int $index): ?ChannelKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelKeyReference $data */

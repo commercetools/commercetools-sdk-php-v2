@@ -41,7 +41,7 @@ class AttributeNameDoesNotExistErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeNameDoesNotExistError {
+        return function (?int $index): ?AttributeNameDoesNotExistError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeNameDoesNotExistError $data */

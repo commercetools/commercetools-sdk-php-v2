@@ -41,7 +41,7 @@ class EnumValuesMustMatchErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumValuesMustMatchError {
+        return function (?int $index): ?EnumValuesMustMatchError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumValuesMustMatchError $data */

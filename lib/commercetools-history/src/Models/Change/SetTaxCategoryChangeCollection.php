@@ -41,7 +41,7 @@ class SetTaxCategoryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTaxCategoryChange {
+        return function (?int $index): ?SetTaxCategoryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTaxCategoryChange $data */

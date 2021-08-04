@@ -41,7 +41,7 @@ class StagedOrderSetLineItemDistributionChannelActionCollection extends StagedOr
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLineItemDistributionChannelAction {
+        return function (?int $index): ?StagedOrderSetLineItemDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLineItemDistributionChannelAction $data */

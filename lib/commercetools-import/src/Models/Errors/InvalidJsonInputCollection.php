@@ -41,7 +41,7 @@ class InvalidJsonInputCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidJsonInput {
+        return function (?int $index): ?InvalidJsonInput {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidJsonInput $data */

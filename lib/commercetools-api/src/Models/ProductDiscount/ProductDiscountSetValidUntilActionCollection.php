@@ -41,7 +41,7 @@ class ProductDiscountSetValidUntilActionCollection extends ProductDiscountUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountSetValidUntilAction {
+        return function (?int $index): ?ProductDiscountSetValidUntilAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountSetValidUntilAction $data */

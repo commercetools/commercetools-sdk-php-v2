@@ -41,7 +41,7 @@ class ProductTypeReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeReference {
+        return function (?int $index): ?ProductTypeReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeReference $data */

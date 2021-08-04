@@ -41,7 +41,7 @@ class ProductTransitionStateActionCollection extends ProductUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTransitionStateAction {
+        return function (?int $index): ?ProductTransitionStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTransitionStateAction $data */

@@ -41,7 +41,7 @@ class ReviewRatingStatisticsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewRatingStatistics {
+        return function (?int $index): ?ReviewRatingStatistics {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewRatingStatistics $data */

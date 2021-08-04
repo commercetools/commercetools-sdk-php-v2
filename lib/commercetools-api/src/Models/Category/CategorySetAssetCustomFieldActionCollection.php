@@ -41,7 +41,7 @@ class CategorySetAssetCustomFieldActionCollection extends CategoryUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetAssetCustomFieldAction {
+        return function (?int $index): ?CategorySetAssetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetAssetCustomFieldAction $data */

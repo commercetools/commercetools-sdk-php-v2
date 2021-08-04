@@ -41,7 +41,7 @@ class StagedOrderSetCustomFieldActionCollection extends StagedOrderUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetCustomFieldAction {
+        return function (?int $index): ?StagedOrderSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetCustomFieldAction $data */

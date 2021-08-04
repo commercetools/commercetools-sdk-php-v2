@@ -41,7 +41,7 @@ class ChangeValueGiftLineItemChangeValueCollection extends ChangeValueChangeValu
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeValueGiftLineItemChangeValue {
+        return function (?int $index): ?ChangeValueGiftLineItemChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeValueGiftLineItemChangeValue $data */

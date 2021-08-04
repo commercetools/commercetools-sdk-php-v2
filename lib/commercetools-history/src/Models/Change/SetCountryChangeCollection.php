@@ -41,7 +41,7 @@ class SetCountryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCountryChange {
+        return function (?int $index): ?SetCountryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCountryChange $data */

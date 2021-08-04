@@ -41,7 +41,7 @@ class ChangePlainEnumValueLabelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangePlainEnumValueLabelChange {
+        return function (?int $index): ?ChangePlainEnumValueLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangePlainEnumValueLabelChange $data */

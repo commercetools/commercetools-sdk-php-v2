@@ -41,7 +41,7 @@ class ProductChangeSlugActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductChangeSlugAction {
+        return function (?int $index): ?ProductChangeSlugAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductChangeSlugAction $data */

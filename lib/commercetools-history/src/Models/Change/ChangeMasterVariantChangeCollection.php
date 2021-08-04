@@ -41,7 +41,7 @@ class ChangeMasterVariantChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeMasterVariantChange {
+        return function (?int $index): ?ChangeMasterVariantChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeMasterVariantChange $data */

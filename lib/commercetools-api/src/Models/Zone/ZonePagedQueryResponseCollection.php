@@ -41,7 +41,7 @@ class ZonePagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZonePagedQueryResponse {
+        return function (?int $index): ?ZonePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZonePagedQueryResponse $data */

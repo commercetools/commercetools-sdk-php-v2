@@ -44,7 +44,7 @@ class ExtensionDestinationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionDestination {
+        return function (?int $index): ?ExtensionDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -41,7 +41,7 @@ class SetShoppingListLineItemCustomFieldChangeCollection extends ChangeCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?SetShoppingListLineItemCustomFieldChange {
+        return function (?int $index): ?SetShoppingListLineItemCustomFieldChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetShoppingListLineItemCustomFieldChange $data */

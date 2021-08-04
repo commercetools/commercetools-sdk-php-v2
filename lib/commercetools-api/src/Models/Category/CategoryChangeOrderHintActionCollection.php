@@ -41,7 +41,7 @@ class CategoryChangeOrderHintActionCollection extends CategoryUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryChangeOrderHintAction {
+        return function (?int $index): ?CategoryChangeOrderHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryChangeOrderHintAction $data */

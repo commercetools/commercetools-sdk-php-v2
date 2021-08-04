@@ -41,7 +41,7 @@ class ReviewReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewReference {
+        return function (?int $index): ?ReviewReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewReference $data */

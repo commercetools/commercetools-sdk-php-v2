@@ -41,7 +41,7 @@ class TypeChangeLocalizedEnumValueOrderActionCollection extends TypeUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeLocalizedEnumValueOrderAction {
+        return function (?int $index): ?TypeChangeLocalizedEnumValueOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeLocalizedEnumValueOrderAction $data */

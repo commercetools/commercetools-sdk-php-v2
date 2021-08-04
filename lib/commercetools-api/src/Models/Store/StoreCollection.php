@@ -41,7 +41,7 @@ class StoreCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Store {
+        return function (?int $index): ?Store {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Store $data */

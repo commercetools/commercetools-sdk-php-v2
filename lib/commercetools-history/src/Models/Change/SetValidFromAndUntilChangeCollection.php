@@ -41,7 +41,7 @@ class SetValidFromAndUntilChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetValidFromAndUntilChange {
+        return function (?int $index): ?SetValidFromAndUntilChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetValidFromAndUntilChange $data */

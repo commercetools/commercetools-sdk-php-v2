@@ -41,7 +41,7 @@ class OrderEditSetCommentActionCollection extends OrderEditUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditSetCommentAction {
+        return function (?int $index): ?OrderEditSetCommentAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditSetCommentAction $data */

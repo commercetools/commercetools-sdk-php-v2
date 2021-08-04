@@ -41,7 +41,7 @@ class ItemStateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ItemState {
+        return function (?int $index): ?ItemState {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ItemState $data */

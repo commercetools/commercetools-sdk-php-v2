@@ -41,7 +41,7 @@ class ExtensionCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Extension {
+        return function (?int $index): ?Extension {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Extension $data */

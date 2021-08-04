@@ -41,7 +41,7 @@ class SubscriptionSetChangesActionCollection extends SubscriptionUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?SubscriptionSetChangesAction {
+        return function (?int $index): ?SubscriptionSetChangesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SubscriptionSetChangesAction $data */

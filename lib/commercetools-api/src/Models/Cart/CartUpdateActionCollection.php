@@ -44,7 +44,7 @@ class CartUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CartUpdateAction {
+        return function (?int $index): ?CartUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

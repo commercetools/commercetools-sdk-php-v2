@@ -41,7 +41,7 @@ class GeoJsonPointCollection extends GeoJsonCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?GeoJsonPoint {
+        return function (?int $index): ?GeoJsonPoint {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GeoJsonPoint $data */

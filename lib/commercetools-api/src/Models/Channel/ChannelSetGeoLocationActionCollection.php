@@ -41,7 +41,7 @@ class ChannelSetGeoLocationActionCollection extends ChannelUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetGeoLocationAction {
+        return function (?int $index): ?ChannelSetGeoLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetGeoLocationAction $data */

@@ -41,7 +41,7 @@ class MyShoppingListChangeNameActionCollection extends MyShoppingListUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListChangeNameAction {
+        return function (?int $index): ?MyShoppingListChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListChangeNameAction $data */

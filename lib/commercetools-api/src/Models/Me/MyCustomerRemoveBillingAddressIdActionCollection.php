@@ -41,7 +41,7 @@ class MyCustomerRemoveBillingAddressIdActionCollection extends MyCustomerUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerRemoveBillingAddressIdAction {
+        return function (?int $index): ?MyCustomerRemoveBillingAddressIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerRemoveBillingAddressIdAction $data */

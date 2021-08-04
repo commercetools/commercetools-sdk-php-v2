@@ -41,7 +41,7 @@ class ProductTypeChangeLocalizedEnumValueOrderActionCollection extends ProductTy
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeLocalizedEnumValueOrderAction {
+        return function (?int $index): ?ProductTypeChangeLocalizedEnumValueOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeLocalizedEnumValueOrderAction $data */

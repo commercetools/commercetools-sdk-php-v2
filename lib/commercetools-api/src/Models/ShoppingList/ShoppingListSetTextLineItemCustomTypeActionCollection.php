@@ -41,7 +41,7 @@ class ShoppingListSetTextLineItemCustomTypeActionCollection extends ShoppingList
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListSetTextLineItemCustomTypeAction {
+        return function (?int $index): ?ShoppingListSetTextLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListSetTextLineItemCustomTypeAction $data */

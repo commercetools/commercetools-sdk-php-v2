@@ -41,7 +41,7 @@ class ChannelChangeKeyActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelChangeKeyAction {
+        return function (?int $index): ?ChannelChangeKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelChangeKeyAction $data */

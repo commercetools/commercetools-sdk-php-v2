@@ -41,7 +41,7 @@ class RemoveTaxRateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveTaxRateChange {
+        return function (?int $index): ?RemoveTaxRateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveTaxRateChange $data */

@@ -44,7 +44,7 @@ class ZoneUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneUpdateAction {
+        return function (?int $index): ?ZoneUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

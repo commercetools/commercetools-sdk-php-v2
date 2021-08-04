@@ -41,7 +41,7 @@ class StagedOrderSetShippingMethodTaxRateActionCollection extends StagedOrderUpd
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetShippingMethodTaxRateAction {
+        return function (?int $index): ?StagedOrderSetShippingMethodTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetShippingMethodTaxRateAction $data */

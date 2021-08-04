@@ -41,7 +41,7 @@ class CartDiscountChangeRequiresDiscountCodeActionCollection extends CartDiscoun
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountChangeRequiresDiscountCodeAction {
+        return function (?int $index): ?CartDiscountChangeRequiresDiscountCodeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountChangeRequiresDiscountCodeAction $data */

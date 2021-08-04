@@ -41,7 +41,7 @@ class ChannelChangeDescriptionActionCollection extends ChannelUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelChangeDescriptionAction {
+        return function (?int $index): ?ChannelChangeDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelChangeDescriptionAction $data */

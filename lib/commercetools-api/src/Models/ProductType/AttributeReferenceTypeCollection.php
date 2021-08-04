@@ -41,7 +41,7 @@ class AttributeReferenceTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeReferenceType {
+        return function (?int $index): ?AttributeReferenceType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeReferenceType $data */

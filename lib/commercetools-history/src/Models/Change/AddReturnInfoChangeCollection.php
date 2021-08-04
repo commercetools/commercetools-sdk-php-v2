@@ -41,7 +41,7 @@ class AddReturnInfoChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddReturnInfoChange {
+        return function (?int $index): ?AddReturnInfoChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddReturnInfoChange $data */

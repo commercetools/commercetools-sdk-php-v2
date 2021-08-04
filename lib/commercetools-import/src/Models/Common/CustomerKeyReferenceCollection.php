@@ -41,7 +41,7 @@ class CustomerKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerKeyReference {
+        return function (?int $index): ?CustomerKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerKeyReference $data */

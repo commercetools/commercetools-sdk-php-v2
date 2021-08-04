@@ -41,7 +41,7 @@ class MyCustomerChangeEmailActionCollection extends MyCustomerUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerChangeEmailAction {
+        return function (?int $index): ?MyCustomerChangeEmailAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerChangeEmailAction $data */

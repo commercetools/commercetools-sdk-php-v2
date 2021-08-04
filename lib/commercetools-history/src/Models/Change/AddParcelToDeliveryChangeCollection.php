@@ -41,7 +41,7 @@ class AddParcelToDeliveryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddParcelToDeliveryChange {
+        return function (?int $index): ?AddParcelToDeliveryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddParcelToDeliveryChange $data */

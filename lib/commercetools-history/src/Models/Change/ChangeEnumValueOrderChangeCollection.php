@@ -41,7 +41,7 @@ class ChangeEnumValueOrderChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeEnumValueOrderChange {
+        return function (?int $index): ?ChangeEnumValueOrderChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeEnumValueOrderChange $data */

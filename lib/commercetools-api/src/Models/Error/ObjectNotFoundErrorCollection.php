@@ -41,7 +41,7 @@ class ObjectNotFoundErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ObjectNotFoundError {
+        return function (?int $index): ?ObjectNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ObjectNotFoundError $data */

@@ -41,7 +41,7 @@ class ModifiedByCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ModifiedBy {
+        return function (?int $index): ?ModifiedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ModifiedBy $data */

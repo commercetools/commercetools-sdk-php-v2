@@ -41,7 +41,7 @@ class AttributePlainEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributePlainEnumValue {
+        return function (?int $index): ?AttributePlainEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributePlainEnumValue $data */

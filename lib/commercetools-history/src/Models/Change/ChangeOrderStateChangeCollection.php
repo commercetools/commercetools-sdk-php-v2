@@ -41,7 +41,7 @@ class ChangeOrderStateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeOrderStateChange {
+        return function (?int $index): ?ChangeOrderStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeOrderStateChange $data */

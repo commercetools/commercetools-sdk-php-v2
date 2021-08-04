@@ -41,7 +41,7 @@ class CartSetShippingMethodTaxAmountActionCollection extends CartUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetShippingMethodTaxAmountAction {
+        return function (?int $index): ?CartSetShippingMethodTaxAmountAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetShippingMethodTaxAmountAction $data */

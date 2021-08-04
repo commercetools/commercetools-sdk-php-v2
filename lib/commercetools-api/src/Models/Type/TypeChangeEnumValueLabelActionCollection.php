@@ -41,7 +41,7 @@ class TypeChangeEnumValueLabelActionCollection extends TypeUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeEnumValueLabelAction {
+        return function (?int $index): ?TypeChangeEnumValueLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeEnumValueLabelAction $data */

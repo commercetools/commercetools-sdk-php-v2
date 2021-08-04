@@ -41,7 +41,7 @@ class ExtensionUpdateActionsFailedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionUpdateActionsFailedError {
+        return function (?int $index): ?ExtensionUpdateActionsFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionUpdateActionsFailedError $data */

@@ -41,7 +41,7 @@ class RemoveAttributeDefinitionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveAttributeDefinitionChange {
+        return function (?int $index): ?RemoveAttributeDefinitionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveAttributeDefinitionChange $data */

@@ -44,7 +44,7 @@ class TypedMoneyDraftCollection extends MoneyCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypedMoneyDraft {
+        return function (?int $index): ?TypedMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

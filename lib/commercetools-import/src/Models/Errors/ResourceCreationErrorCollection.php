@@ -41,7 +41,7 @@ class ResourceCreationErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceCreationError {
+        return function (?int $index): ?ResourceCreationError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceCreationError $data */

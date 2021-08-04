@@ -41,7 +41,7 @@ class StagedOrderSetLineItemPriceActionCollection extends StagedOrderUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLineItemPriceAction {
+        return function (?int $index): ?StagedOrderSetLineItemPriceAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLineItemPriceAction $data */

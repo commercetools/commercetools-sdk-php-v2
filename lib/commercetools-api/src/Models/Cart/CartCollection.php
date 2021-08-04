@@ -41,7 +41,7 @@ class CartCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Cart {
+        return function (?int $index): ?Cart {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Cart $data */

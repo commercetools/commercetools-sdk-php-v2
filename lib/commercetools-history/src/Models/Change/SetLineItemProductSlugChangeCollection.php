@@ -41,7 +41,7 @@ class SetLineItemProductSlugChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLineItemProductSlugChange {
+        return function (?int $index): ?SetLineItemProductSlugChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLineItemProductSlugChange $data */

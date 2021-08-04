@@ -41,7 +41,7 @@ class DuplicateAttributeValueErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicateAttributeValueError {
+        return function (?int $index): ?DuplicateAttributeValueError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicateAttributeValueError $data */

@@ -41,7 +41,7 @@ class CartChangeCustomLineItemMoneyActionCollection extends CartUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?CartChangeCustomLineItemMoneyAction {
+        return function (?int $index): ?CartChangeCustomLineItemMoneyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartChangeCustomLineItemMoneyAction $data */

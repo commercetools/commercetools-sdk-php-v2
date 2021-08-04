@@ -41,7 +41,7 @@ class StagedOrderSetCountryActionCollection extends StagedOrderUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetCountryAction {
+        return function (?int $index): ?StagedOrderSetCountryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetCountryAction $data */

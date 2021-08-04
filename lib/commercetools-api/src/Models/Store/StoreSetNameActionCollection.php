@@ -41,7 +41,7 @@ class StoreSetNameActionCollection extends StoreUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreSetNameAction {
+        return function (?int $index): ?StoreSetNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreSetNameAction $data */

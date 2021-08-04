@@ -41,7 +41,7 @@ class ShippingMethodChangeTaxCategoryActionCollection extends ShippingMethodUpda
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodChangeTaxCategoryAction {
+        return function (?int $index): ?ShippingMethodChangeTaxCategoryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodChangeTaxCategoryAction $data */

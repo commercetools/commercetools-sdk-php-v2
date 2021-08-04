@@ -41,7 +41,7 @@ class BooleanAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?BooleanAttribute {
+        return function (?int $index): ?BooleanAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var BooleanAttribute $data */

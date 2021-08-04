@@ -41,7 +41,7 @@ class ChangeAttributeOrderByNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeAttributeOrderByNameChange {
+        return function (?int $index): ?ChangeAttributeOrderByNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeAttributeOrderByNameChange $data */

@@ -41,7 +41,7 @@ class ZoneRateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneRate {
+        return function (?int $index): ?ZoneRate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneRate $data */

@@ -41,7 +41,7 @@ class TimeAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TimeAttribute {
+        return function (?int $index): ?TimeAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TimeAttribute $data */

@@ -41,7 +41,7 @@ class DuplicatePriceScopeErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicatePriceScopeError {
+        return function (?int $index): ?DuplicatePriceScopeError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicatePriceScopeError $data */

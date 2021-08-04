@@ -44,7 +44,7 @@ class ImageSearchConfigUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImageSearchConfigUpdateAction {
+        return function (?int $index): ?ImageSearchConfigUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

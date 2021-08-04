@@ -41,7 +41,7 @@ class MultiBuyLineItemsTargetCollection extends CartDiscountTargetCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MultiBuyLineItemsTarget {
+        return function (?int $index): ?MultiBuyLineItemsTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MultiBuyLineItemsTarget $data */

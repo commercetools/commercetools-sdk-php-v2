@@ -41,7 +41,7 @@ class ProductPublishActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductPublishAction {
+        return function (?int $index): ?ProductPublishAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductPublishAction $data */

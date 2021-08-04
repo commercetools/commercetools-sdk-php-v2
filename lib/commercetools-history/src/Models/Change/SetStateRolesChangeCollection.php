@@ -41,7 +41,7 @@ class SetStateRolesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetStateRolesChange {
+        return function (?int $index): ?SetStateRolesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetStateRolesChange $data */

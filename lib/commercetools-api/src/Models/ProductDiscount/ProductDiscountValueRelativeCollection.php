@@ -41,7 +41,7 @@ class ProductDiscountValueRelativeCollection extends ProductDiscountValueCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountValueRelative {
+        return function (?int $index): ?ProductDiscountValueRelative {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountValueRelative $data */

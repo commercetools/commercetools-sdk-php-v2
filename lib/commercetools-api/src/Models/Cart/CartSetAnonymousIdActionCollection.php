@@ -41,7 +41,7 @@ class CartSetAnonymousIdActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetAnonymousIdAction {
+        return function (?int $index): ?CartSetAnonymousIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetAnonymousIdAction $data */

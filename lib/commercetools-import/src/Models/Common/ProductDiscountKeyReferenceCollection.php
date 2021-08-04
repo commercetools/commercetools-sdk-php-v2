@@ -41,7 +41,7 @@ class ProductDiscountKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountKeyReference {
+        return function (?int $index): ?ProductDiscountKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountKeyReference $data */

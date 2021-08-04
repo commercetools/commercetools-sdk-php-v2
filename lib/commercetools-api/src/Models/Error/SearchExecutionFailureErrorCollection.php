@@ -41,7 +41,7 @@ class SearchExecutionFailureErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchExecutionFailureError {
+        return function (?int $index): ?SearchExecutionFailureError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchExecutionFailureError $data */

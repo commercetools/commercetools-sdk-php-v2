@@ -41,7 +41,7 @@ class RemovePriceChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemovePriceChange {
+        return function (?int $index): ?RemovePriceChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemovePriceChange $data */

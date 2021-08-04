@@ -41,7 +41,7 @@ class MyCustomerSetDefaultBillingAddressActionCollection extends MyCustomerUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetDefaultBillingAddressAction {
+        return function (?int $index): ?MyCustomerSetDefaultBillingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetDefaultBillingAddressAction $data */

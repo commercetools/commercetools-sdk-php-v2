@@ -41,7 +41,7 @@ class ShoppingListSetStoreActionCollection extends ShoppingListUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListSetStoreAction {
+        return function (?int $index): ?ShoppingListSetStoreAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListSetStoreAction $data */

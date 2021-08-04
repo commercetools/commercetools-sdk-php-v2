@@ -41,7 +41,7 @@ class PriceImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PriceImportRequest {
+        return function (?int $index): ?PriceImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PriceImportRequest $data */

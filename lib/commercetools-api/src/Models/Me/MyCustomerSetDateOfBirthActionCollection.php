@@ -41,7 +41,7 @@ class MyCustomerSetDateOfBirthActionCollection extends MyCustomerUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetDateOfBirthAction {
+        return function (?int $index): ?MyCustomerSetDateOfBirthAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetDateOfBirthAction $data */

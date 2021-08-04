@@ -41,7 +41,7 @@ class ProductChangeAssetOrderActionCollection extends ProductUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductChangeAssetOrderAction {
+        return function (?int $index): ?ProductChangeAssetOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductChangeAssetOrderAction $data */

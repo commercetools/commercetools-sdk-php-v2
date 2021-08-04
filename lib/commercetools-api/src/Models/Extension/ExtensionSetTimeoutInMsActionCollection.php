@@ -41,7 +41,7 @@ class ExtensionSetTimeoutInMsActionCollection extends ExtensionUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionSetTimeoutInMsAction {
+        return function (?int $index): ?ExtensionSetTimeoutInMsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionSetTimeoutInMsAction $data */

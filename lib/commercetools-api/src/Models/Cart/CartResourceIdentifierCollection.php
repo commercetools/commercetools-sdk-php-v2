@@ -41,7 +41,7 @@ class CartResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartResourceIdentifier {
+        return function (?int $index): ?CartResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartResourceIdentifier $data */

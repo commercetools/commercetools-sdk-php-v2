@@ -41,7 +41,7 @@ class SetDateOfBirthChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetDateOfBirthChange {
+        return function (?int $index): ?SetDateOfBirthChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetDateOfBirthChange $data */

@@ -41,7 +41,7 @@ class ParcelRemovedFromDeliveryMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ParcelRemovedFromDeliveryMessage {
+        return function (?int $index): ?ParcelRemovedFromDeliveryMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ParcelRemovedFromDeliveryMessage $data */

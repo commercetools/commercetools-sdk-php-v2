@@ -41,7 +41,7 @@ class ReturnItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReturnItem {
+        return function (?int $index): ?ReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReturnItem $data */

@@ -41,7 +41,7 @@ class SetReturnPaymentStateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetReturnPaymentStateChange {
+        return function (?int $index): ?SetReturnPaymentStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetReturnPaymentStateChange $data */

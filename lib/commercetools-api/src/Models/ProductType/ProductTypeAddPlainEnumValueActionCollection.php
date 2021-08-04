@@ -41,7 +41,7 @@ class ProductTypeAddPlainEnumValueActionCollection extends ProductTypeUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeAddPlainEnumValueAction {
+        return function (?int $index): ?ProductTypeAddPlainEnumValueAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeAddPlainEnumValueAction $data */

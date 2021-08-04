@@ -41,7 +41,7 @@ class MyPaymentSetCustomFieldActionCollection extends MyPaymentUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?MyPaymentSetCustomFieldAction {
+        return function (?int $index): ?MyPaymentSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyPaymentSetCustomFieldAction $data */

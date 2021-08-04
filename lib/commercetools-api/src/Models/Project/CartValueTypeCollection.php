@@ -41,7 +41,7 @@ class CartValueTypeCollection extends ShippingRateInputTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartValueType {
+        return function (?int $index): ?CartValueType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartValueType $data */

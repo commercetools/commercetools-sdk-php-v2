@@ -41,7 +41,7 @@ class ContentionErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ContentionError {
+        return function (?int $index): ?ContentionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ContentionError $data */

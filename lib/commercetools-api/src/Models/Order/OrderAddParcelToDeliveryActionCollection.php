@@ -41,7 +41,7 @@ class OrderAddParcelToDeliveryActionCollection extends OrderUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderAddParcelToDeliveryAction {
+        return function (?int $index): ?OrderAddParcelToDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderAddParcelToDeliveryAction $data */

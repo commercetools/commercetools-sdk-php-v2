@@ -41,7 +41,7 @@ class ProductPublishedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductPublishedMessage {
+        return function (?int $index): ?ProductPublishedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductPublishedMessage $data */

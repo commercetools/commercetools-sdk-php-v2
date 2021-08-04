@@ -41,7 +41,7 @@ class StoreKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreKeyReference {
+        return function (?int $index): ?StoreKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreKeyReference $data */

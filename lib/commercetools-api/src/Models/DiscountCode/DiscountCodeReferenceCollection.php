@@ -41,7 +41,7 @@ class DiscountCodeReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeReference {
+        return function (?int $index): ?DiscountCodeReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeReference $data */

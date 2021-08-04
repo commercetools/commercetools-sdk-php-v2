@@ -41,7 +41,7 @@ class ShoppingListChangeLineItemsOrderActionCollection extends ShoppingListUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListChangeLineItemsOrderAction {
+        return function (?int $index): ?ShoppingListChangeLineItemsOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListChangeLineItemsOrderAction $data */

@@ -44,7 +44,7 @@ class ReviewUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewUpdateAction {
+        return function (?int $index): ?ReviewUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

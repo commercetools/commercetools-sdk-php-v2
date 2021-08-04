@@ -41,7 +41,7 @@ class EnumSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumSetAttribute {
+        return function (?int $index): ?EnumSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumSetAttribute $data */

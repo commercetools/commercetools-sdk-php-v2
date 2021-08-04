@@ -41,7 +41,7 @@ class NumberSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?NumberSetAttribute {
+        return function (?int $index): ?NumberSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NumberSetAttribute $data */

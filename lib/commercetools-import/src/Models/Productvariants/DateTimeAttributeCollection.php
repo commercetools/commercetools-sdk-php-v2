@@ -41,7 +41,7 @@ class DateTimeAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DateTimeAttribute {
+        return function (?int $index): ?DateTimeAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DateTimeAttribute $data */

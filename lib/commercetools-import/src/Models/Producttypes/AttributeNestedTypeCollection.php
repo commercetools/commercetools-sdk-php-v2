@@ -41,7 +41,7 @@ class AttributeNestedTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeNestedType {
+        return function (?int $index): ?AttributeNestedType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeNestedType $data */

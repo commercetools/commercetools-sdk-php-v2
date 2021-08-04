@@ -41,7 +41,7 @@ class ProductSetAssetSourcesActionCollection extends ProductUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetAssetSourcesAction {
+        return function (?int $index): ?ProductSetAssetSourcesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetAssetSourcesAction $data */

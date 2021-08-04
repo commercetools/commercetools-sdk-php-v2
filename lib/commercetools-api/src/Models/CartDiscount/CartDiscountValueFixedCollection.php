@@ -41,7 +41,7 @@ class CartDiscountValueFixedCollection extends CartDiscountValueCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountValueFixed {
+        return function (?int $index): ?CartDiscountValueFixed {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountValueFixed $data */

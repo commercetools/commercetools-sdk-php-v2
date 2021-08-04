@@ -41,7 +41,7 @@ class ChannelSetRolesActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetRolesAction {
+        return function (?int $index): ?ChannelSetRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetRolesAction $data */

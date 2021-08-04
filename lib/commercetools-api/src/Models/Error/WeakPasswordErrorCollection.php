@@ -41,7 +41,7 @@ class WeakPasswordErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?WeakPasswordError {
+        return function (?int $index): ?WeakPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var WeakPasswordError $data */

@@ -41,7 +41,7 @@ class TaxCategoryReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryReference {
+        return function (?int $index): ?TaxCategoryReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryReference $data */

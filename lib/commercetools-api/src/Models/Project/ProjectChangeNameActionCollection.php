@@ -41,7 +41,7 @@ class ProjectChangeNameActionCollection extends ProjectUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeNameAction {
+        return function (?int $index): ?ProjectChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeNameAction $data */

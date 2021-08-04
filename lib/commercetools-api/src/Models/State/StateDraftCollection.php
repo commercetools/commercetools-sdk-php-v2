@@ -41,7 +41,7 @@ class StateDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?StateDraft {
+        return function (?int $index): ?StateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateDraft $data */

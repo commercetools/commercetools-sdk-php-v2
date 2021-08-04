@@ -41,7 +41,7 @@ class DateTimeSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DateTimeSetAttribute {
+        return function (?int $index): ?DateTimeSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DateTimeSetAttribute $data */

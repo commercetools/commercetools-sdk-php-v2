@@ -41,7 +41,7 @@ class OrderRemoveParcelFromDeliveryActionCollection extends OrderUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderRemoveParcelFromDeliveryAction {
+        return function (?int $index): ?OrderRemoveParcelFromDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderRemoveParcelFromDeliveryAction $data */

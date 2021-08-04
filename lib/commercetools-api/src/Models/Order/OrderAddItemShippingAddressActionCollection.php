@@ -41,7 +41,7 @@ class OrderAddItemShippingAddressActionCollection extends OrderUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderAddItemShippingAddressAction {
+        return function (?int $index): ?OrderAddItemShippingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderAddItemShippingAddressAction $data */

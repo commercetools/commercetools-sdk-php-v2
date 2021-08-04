@@ -41,7 +41,7 @@ class SetMetaKeywordsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMetaKeywordsChange {
+        return function (?int $index): ?SetMetaKeywordsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMetaKeywordsChange $data */

@@ -41,7 +41,7 @@ class CustomerGroupSetKeyActionCollection extends CustomerGroupUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupSetKeyAction {
+        return function (?int $index): ?CustomerGroupSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupSetKeyAction $data */

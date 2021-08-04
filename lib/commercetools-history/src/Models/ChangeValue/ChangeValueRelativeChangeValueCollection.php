@@ -41,7 +41,7 @@ class ChangeValueRelativeChangeValueCollection extends ChangeValueChangeValueCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeValueRelativeChangeValue {
+        return function (?int $index): ?ChangeValueRelativeChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeValueRelativeChangeValue $data */

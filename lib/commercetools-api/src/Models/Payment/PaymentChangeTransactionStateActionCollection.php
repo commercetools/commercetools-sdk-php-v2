@@ -41,7 +41,7 @@ class PaymentChangeTransactionStateActionCollection extends PaymentUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentChangeTransactionStateAction {
+        return function (?int $index): ?PaymentChangeTransactionStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentChangeTransactionStateAction $data */

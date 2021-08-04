@@ -41,7 +41,7 @@ class ProjectUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectUpdate {
+        return function (?int $index): ?ProjectUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectUpdate $data */

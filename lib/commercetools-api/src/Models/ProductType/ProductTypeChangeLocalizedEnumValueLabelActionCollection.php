@@ -41,7 +41,7 @@ class ProductTypeChangeLocalizedEnumValueLabelActionCollection extends ProductTy
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeLocalizedEnumValueLabelAction {
+        return function (?int $index): ?ProductTypeChangeLocalizedEnumValueLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeLocalizedEnumValueLabelAction $data */

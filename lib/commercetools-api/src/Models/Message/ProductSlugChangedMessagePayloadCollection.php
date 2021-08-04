@@ -41,7 +41,7 @@ class ProductSlugChangedMessagePayloadCollection extends MessagePayloadCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSlugChangedMessagePayload {
+        return function (?int $index): ?ProductSlugChangedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSlugChangedMessagePayload $data */

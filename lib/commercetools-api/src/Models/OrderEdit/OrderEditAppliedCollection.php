@@ -41,7 +41,7 @@ class OrderEditAppliedCollection extends OrderEditResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditApplied {
+        return function (?int $index): ?OrderEditApplied {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditApplied $data */

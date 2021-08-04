@@ -41,7 +41,7 @@ class CategorySetKeyActionCollection extends CategoryUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetKeyAction {
+        return function (?int $index): ?CategorySetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetKeyAction $data */

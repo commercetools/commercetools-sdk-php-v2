@@ -41,7 +41,7 @@ class CategoryOrderHintsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryOrderHints {
+        return function (?int $index): ?CategoryOrderHints {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryOrderHints $data */

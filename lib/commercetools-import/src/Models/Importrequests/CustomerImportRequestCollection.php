@@ -41,7 +41,7 @@ class CustomerImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerImportRequest {
+        return function (?int $index): ?CustomerImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerImportRequest $data */

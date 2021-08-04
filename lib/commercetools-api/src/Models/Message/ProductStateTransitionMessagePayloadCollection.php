@@ -41,7 +41,7 @@ class ProductStateTransitionMessagePayloadCollection extends MessagePayloadColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductStateTransitionMessagePayload {
+        return function (?int $index): ?ProductStateTransitionMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductStateTransitionMessagePayload $data */

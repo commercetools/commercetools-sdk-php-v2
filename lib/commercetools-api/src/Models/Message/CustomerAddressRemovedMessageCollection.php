@@ -41,7 +41,7 @@ class CustomerAddressRemovedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerAddressRemovedMessage {
+        return function (?int $index): ?CustomerAddressRemovedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerAddressRemovedMessage $data */

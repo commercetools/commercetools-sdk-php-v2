@@ -41,7 +41,7 @@ class SetMethodInfoNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMethodInfoNameChange {
+        return function (?int $index): ?SetMethodInfoNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMethodInfoNameChange $data */

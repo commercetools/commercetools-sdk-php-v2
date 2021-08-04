@@ -41,7 +41,7 @@ class TypeResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeResourceIdentifier {
+        return function (?int $index): ?TypeResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeResourceIdentifier $data */

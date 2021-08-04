@@ -41,7 +41,7 @@ class CustomerPasswordUpdatedMessagePayloadCollection extends MessagePayloadColl
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerPasswordUpdatedMessagePayload {
+        return function (?int $index): ?CustomerPasswordUpdatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerPasswordUpdatedMessagePayload $data */

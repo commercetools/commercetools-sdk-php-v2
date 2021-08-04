@@ -41,7 +41,7 @@ class InventoryEntryChangeQuantityActionCollection extends InventoryEntryUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryChangeQuantityAction {
+        return function (?int $index): ?InventoryEntryChangeQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryChangeQuantityAction $data */

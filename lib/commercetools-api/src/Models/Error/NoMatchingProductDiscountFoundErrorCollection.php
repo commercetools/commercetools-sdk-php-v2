@@ -41,7 +41,7 @@ class NoMatchingProductDiscountFoundErrorCollection extends ErrorObjectCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?NoMatchingProductDiscountFoundError {
+        return function (?int $index): ?NoMatchingProductDiscountFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NoMatchingProductDiscountFoundError $data */

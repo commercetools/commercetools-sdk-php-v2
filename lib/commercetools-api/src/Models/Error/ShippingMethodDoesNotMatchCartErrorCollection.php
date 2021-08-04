@@ -41,7 +41,7 @@ class ShippingMethodDoesNotMatchCartErrorCollection extends ErrorObjectCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodDoesNotMatchCartError {
+        return function (?int $index): ?ShippingMethodDoesNotMatchCartError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodDoesNotMatchCartError $data */

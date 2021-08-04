@@ -41,7 +41,7 @@ class AttributeDateTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeDateType {
+        return function (?int $index): ?AttributeDateType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeDateType $data */

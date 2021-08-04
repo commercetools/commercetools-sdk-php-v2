@@ -44,7 +44,7 @@ class ResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceIdentifier {
+        return function (?int $index): ?ResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

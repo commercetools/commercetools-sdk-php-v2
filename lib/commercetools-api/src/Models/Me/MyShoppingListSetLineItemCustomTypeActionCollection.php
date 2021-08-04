@@ -41,7 +41,7 @@ class MyShoppingListSetLineItemCustomTypeActionCollection extends MyShoppingList
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListSetLineItemCustomTypeAction {
+        return function (?int $index): ?MyShoppingListSetLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListSetLineItemCustomTypeAction $data */

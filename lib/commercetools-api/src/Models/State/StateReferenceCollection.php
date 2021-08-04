@@ -41,7 +41,7 @@ class StateReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateReference {
+        return function (?int $index): ?StateReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateReference $data */

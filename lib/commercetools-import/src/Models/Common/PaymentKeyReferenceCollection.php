@@ -41,7 +41,7 @@ class PaymentKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentKeyReference {
+        return function (?int $index): ?PaymentKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentKeyReference $data */

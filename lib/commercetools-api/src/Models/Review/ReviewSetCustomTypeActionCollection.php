@@ -41,7 +41,7 @@ class ReviewSetCustomTypeActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetCustomTypeAction {
+        return function (?int $index): ?ReviewSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetCustomTypeAction $data */

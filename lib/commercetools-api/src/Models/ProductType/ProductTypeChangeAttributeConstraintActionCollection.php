@@ -41,7 +41,7 @@ class ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUp
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeAttributeConstraintAction {
+        return function (?int $index): ?ProductTypeChangeAttributeConstraintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeAttributeConstraintAction $data */

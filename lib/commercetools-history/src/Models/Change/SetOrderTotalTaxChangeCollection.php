@@ -41,7 +41,7 @@ class SetOrderTotalTaxChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetOrderTotalTaxChange {
+        return function (?int $index): ?SetOrderTotalTaxChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetOrderTotalTaxChange $data */

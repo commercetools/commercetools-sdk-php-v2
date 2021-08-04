@@ -41,7 +41,7 @@ class ChangeIsSearchableChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeIsSearchableChange {
+        return function (?int $index): ?ChangeIsSearchableChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeIsSearchableChange $data */

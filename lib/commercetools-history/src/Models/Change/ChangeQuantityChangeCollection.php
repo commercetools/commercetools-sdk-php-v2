@@ -41,7 +41,7 @@ class ChangeQuantityChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeQuantityChange {
+        return function (?int $index): ?ChangeQuantityChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeQuantityChange $data */

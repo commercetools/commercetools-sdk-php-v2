@@ -41,7 +41,7 @@ class DiscountCodeChangeIsActiveActionCollection extends DiscountCodeUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeChangeIsActiveAction {
+        return function (?int $index): ?DiscountCodeChangeIsActiveAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeChangeIsActiveAction $data */

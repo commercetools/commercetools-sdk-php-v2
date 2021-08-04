@@ -41,7 +41,7 @@ class ChangeTargetChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTargetChange {
+        return function (?int $index): ?ChangeTargetChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTargetChange $data */

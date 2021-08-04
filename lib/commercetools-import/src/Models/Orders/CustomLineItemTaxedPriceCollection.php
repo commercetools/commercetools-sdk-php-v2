@@ -41,7 +41,7 @@ class CustomLineItemTaxedPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomLineItemTaxedPrice {
+        return function (?int $index): ?CustomLineItemTaxedPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomLineItemTaxedPrice $data */

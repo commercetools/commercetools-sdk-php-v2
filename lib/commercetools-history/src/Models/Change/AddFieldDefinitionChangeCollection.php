@@ -41,7 +41,7 @@ class AddFieldDefinitionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddFieldDefinitionChange {
+        return function (?int $index): ?AddFieldDefinitionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddFieldDefinitionChange $data */

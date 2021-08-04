@@ -44,7 +44,7 @@ class FacetResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FacetResult {
+        return function (?int $index): ?FacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -41,7 +41,7 @@ class InvalidOperationCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidOperation {
+        return function (?int $index): ?InvalidOperation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidOperation $data */

@@ -41,7 +41,7 @@ class CustomFieldEnumTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldEnumType {
+        return function (?int $index): ?CustomFieldEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldEnumType $data */

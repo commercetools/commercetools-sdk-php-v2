@@ -41,7 +41,7 @@ class CustomerGroupResourceIdentifierCollection extends ResourceIdentifierCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupResourceIdentifier {
+        return function (?int $index): ?CustomerGroupResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupResourceIdentifier $data */

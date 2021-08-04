@@ -41,7 +41,7 @@ class DiscountCodeResourceIdentifierCollection extends ResourceIdentifierCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeResourceIdentifier {
+        return function (?int $index): ?DiscountCodeResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeResourceIdentifier $data */

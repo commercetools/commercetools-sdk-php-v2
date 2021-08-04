@@ -41,7 +41,7 @@ class StagedOrderCollection extends OrderCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrder {
+        return function (?int $index): ?StagedOrder {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrder $data */

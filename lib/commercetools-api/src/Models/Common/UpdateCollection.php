@@ -41,7 +41,7 @@ class UpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Update {
+        return function (?int $index): ?Update {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Update $data */

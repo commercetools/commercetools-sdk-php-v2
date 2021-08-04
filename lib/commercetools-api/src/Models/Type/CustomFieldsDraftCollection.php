@@ -41,7 +41,7 @@ class CustomFieldsDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldsDraft {
+        return function (?int $index): ?CustomFieldsDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldsDraft $data */

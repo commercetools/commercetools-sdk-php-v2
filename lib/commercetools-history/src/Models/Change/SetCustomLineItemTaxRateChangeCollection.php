@@ -41,7 +41,7 @@ class SetCustomLineItemTaxRateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomLineItemTaxRateChange {
+        return function (?int $index): ?SetCustomLineItemTaxRateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomLineItemTaxRateChange $data */

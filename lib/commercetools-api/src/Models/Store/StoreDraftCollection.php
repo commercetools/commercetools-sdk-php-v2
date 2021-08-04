@@ -41,7 +41,7 @@ class StoreDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreDraft {
+        return function (?int $index): ?StoreDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreDraft $data */

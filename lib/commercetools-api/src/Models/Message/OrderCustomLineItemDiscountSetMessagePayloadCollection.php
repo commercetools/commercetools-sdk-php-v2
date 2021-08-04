@@ -41,7 +41,7 @@ class OrderCustomLineItemDiscountSetMessagePayloadCollection extends MessagePayl
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderCustomLineItemDiscountSetMessagePayload {
+        return function (?int $index): ?OrderCustomLineItemDiscountSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderCustomLineItemDiscountSetMessagePayload $data */

@@ -41,7 +41,7 @@ class CustomShippingMethodChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomShippingMethodChangeValue {
+        return function (?int $index): ?CustomShippingMethodChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomShippingMethodChangeValue $data */

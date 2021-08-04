@@ -41,7 +41,7 @@ class CustomerGroupChangeNameActionCollection extends CustomerGroupUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupChangeNameAction {
+        return function (?int $index): ?CustomerGroupChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupChangeNameAction $data */

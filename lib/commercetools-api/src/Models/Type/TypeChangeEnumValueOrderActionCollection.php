@@ -41,7 +41,7 @@ class TypeChangeEnumValueOrderActionCollection extends TypeUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeEnumValueOrderAction {
+        return function (?int $index): ?TypeChangeEnumValueOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeEnumValueOrderAction $data */

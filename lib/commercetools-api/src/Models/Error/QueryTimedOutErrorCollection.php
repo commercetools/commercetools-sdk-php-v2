@@ -41,7 +41,7 @@ class QueryTimedOutErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?QueryTimedOutError {
+        return function (?int $index): ?QueryTimedOutError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var QueryTimedOutError $data */

@@ -41,7 +41,7 @@ class TaxPortionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxPortion {
+        return function (?int $index): ?TaxPortion {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxPortion $data */

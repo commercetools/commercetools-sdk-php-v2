@@ -41,7 +41,7 @@ class StagedOrderSetOrderTotalTaxActionCollection extends StagedOrderUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetOrderTotalTaxAction {
+        return function (?int $index): ?StagedOrderSetOrderTotalTaxAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetOrderTotalTaxAction $data */

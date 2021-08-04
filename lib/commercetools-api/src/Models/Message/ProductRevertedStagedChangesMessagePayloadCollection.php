@@ -41,7 +41,7 @@ class ProductRevertedStagedChangesMessagePayloadCollection extends MessagePayloa
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductRevertedStagedChangesMessagePayload {
+        return function (?int $index): ?ProductRevertedStagedChangesMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductRevertedStagedChangesMessagePayload $data */

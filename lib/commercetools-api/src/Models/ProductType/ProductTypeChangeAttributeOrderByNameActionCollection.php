@@ -41,7 +41,7 @@ class ProductTypeChangeAttributeOrderByNameActionCollection extends ProductTypeU
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeAttributeOrderByNameAction {
+        return function (?int $index): ?ProductTypeChangeAttributeOrderByNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeAttributeOrderByNameAction $data */

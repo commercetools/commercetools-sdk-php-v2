@@ -41,7 +41,7 @@ class TypeChangeNameActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeNameAction {
+        return function (?int $index): ?TypeChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeNameAction $data */

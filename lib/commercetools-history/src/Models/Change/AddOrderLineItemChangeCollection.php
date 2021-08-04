@@ -41,7 +41,7 @@ class AddOrderLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddOrderLineItemChange {
+        return function (?int $index): ?AddOrderLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddOrderLineItemChange $data */

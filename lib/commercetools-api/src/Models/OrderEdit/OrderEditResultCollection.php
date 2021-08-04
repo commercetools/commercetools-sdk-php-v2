@@ -44,7 +44,7 @@ class OrderEditResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditResult {
+        return function (?int $index): ?OrderEditResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

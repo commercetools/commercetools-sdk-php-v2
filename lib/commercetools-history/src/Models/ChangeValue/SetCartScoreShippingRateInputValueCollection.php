@@ -41,7 +41,7 @@ class SetCartScoreShippingRateInputValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCartScoreShippingRateInputValue {
+        return function (?int $index): ?SetCartScoreShippingRateInputValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCartScoreShippingRateInputValue $data */

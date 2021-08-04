@@ -41,7 +41,7 @@ class ProductTypeRemoveAttributeDefinitionActionCollection extends ProductTypeUp
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeRemoveAttributeDefinitionAction {
+        return function (?int $index): ?ProductTypeRemoveAttributeDefinitionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeRemoveAttributeDefinitionAction $data */

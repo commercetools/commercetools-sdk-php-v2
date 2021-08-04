@@ -41,7 +41,7 @@ class OrderEditCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEdit {
+        return function (?int $index): ?OrderEdit {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEdit $data */

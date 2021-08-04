@@ -41,7 +41,7 @@ class RemoveFromCategoryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveFromCategoryChange {
+        return function (?int $index): ?RemoveFromCategoryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveFromCategoryChange $data */

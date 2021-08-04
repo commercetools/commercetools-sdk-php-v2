@@ -41,7 +41,7 @@ class CategorySetAssetSourcesActionCollection extends CategoryUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetAssetSourcesAction {
+        return function (?int $index): ?CategorySetAssetSourcesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetAssetSourcesAction $data */

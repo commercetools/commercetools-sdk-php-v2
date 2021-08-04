@@ -41,7 +41,7 @@ class DuplicateEnumValuesErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicateEnumValuesError {
+        return function (?int $index): ?DuplicateEnumValuesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicateEnumValuesError $data */

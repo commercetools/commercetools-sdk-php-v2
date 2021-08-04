@@ -41,7 +41,7 @@ class ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeInputHintAction {
+        return function (?int $index): ?ProductTypeChangeInputHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeInputHintAction $data */

@@ -41,7 +41,7 @@ class CategorySetCustomFieldActionCollection extends CategoryUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetCustomFieldAction {
+        return function (?int $index): ?CategorySetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetCustomFieldAction $data */

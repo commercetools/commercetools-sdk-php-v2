@@ -41,7 +41,7 @@ class MissingPricesVariantLevelCollection extends MissingPricesProductCountColle
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingPricesVariantLevel {
+        return function (?int $index): ?MissingPricesVariantLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingPricesVariantLevel $data */

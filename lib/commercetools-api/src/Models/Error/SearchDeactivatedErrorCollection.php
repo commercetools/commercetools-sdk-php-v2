@@ -41,7 +41,7 @@ class SearchDeactivatedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchDeactivatedError {
+        return function (?int $index): ?SearchDeactivatedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchDeactivatedError $data */

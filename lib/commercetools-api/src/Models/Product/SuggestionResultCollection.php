@@ -41,7 +41,7 @@ class SuggestionResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SuggestionResult {
+        return function (?int $index): ?SuggestionResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SuggestionResult $data */

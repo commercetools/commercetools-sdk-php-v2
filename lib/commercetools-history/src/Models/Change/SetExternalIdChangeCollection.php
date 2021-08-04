@@ -41,7 +41,7 @@ class SetExternalIdChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetExternalIdChange {
+        return function (?int $index): ?SetExternalIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetExternalIdChange $data */

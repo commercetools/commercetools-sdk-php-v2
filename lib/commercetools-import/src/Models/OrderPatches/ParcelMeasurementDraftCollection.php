@@ -41,7 +41,7 @@ class ParcelMeasurementDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ParcelMeasurementDraft {
+        return function (?int $index): ?ParcelMeasurementDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ParcelMeasurementDraft $data */

@@ -41,7 +41,7 @@ class CategorySetAssetDescriptionActionCollection extends CategoryUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetAssetDescriptionAction {
+        return function (?int $index): ?CategorySetAssetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetAssetDescriptionAction $data */

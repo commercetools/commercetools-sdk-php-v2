@@ -41,7 +41,7 @@ class CartDiscountSetValidFromAndUntilActionCollection extends CartDiscountUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountSetValidFromAndUntilAction {
+        return function (?int $index): ?CartDiscountSetValidFromAndUntilAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountSetValidFromAndUntilAction $data */

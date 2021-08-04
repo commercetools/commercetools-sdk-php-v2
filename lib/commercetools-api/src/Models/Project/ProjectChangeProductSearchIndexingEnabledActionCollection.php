@@ -41,7 +41,7 @@ class ProjectChangeProductSearchIndexingEnabledActionCollection extends ProjectU
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeProductSearchIndexingEnabledAction {
+        return function (?int $index): ?ProjectChangeProductSearchIndexingEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeProductSearchIndexingEnabledAction $data */

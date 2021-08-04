@@ -41,7 +41,7 @@ class AddVariantChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddVariantChange {
+        return function (?int $index): ?AddVariantChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddVariantChange $data */

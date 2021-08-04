@@ -41,7 +41,7 @@ class ReviewSetCustomFieldActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetCustomFieldAction {
+        return function (?int $index): ?ReviewSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetCustomFieldAction $data */

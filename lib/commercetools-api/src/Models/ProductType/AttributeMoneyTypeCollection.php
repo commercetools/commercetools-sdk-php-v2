@@ -41,7 +41,7 @@ class AttributeMoneyTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeMoneyType {
+        return function (?int $index): ?AttributeMoneyType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeMoneyType $data */

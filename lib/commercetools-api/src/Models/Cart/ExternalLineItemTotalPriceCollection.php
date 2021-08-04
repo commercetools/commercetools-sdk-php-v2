@@ -41,7 +41,7 @@ class ExternalLineItemTotalPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExternalLineItemTotalPrice {
+        return function (?int $index): ?ExternalLineItemTotalPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExternalLineItemTotalPrice $data */

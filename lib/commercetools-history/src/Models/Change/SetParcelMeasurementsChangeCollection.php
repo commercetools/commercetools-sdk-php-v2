@@ -41,7 +41,7 @@ class SetParcelMeasurementsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetParcelMeasurementsChange {
+        return function (?int $index): ?SetParcelMeasurementsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetParcelMeasurementsChange $data */

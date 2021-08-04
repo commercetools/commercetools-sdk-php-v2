@@ -41,7 +41,7 @@ class InvalidTokenErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidTokenError {
+        return function (?int $index): ?InvalidTokenError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidTokenError $data */

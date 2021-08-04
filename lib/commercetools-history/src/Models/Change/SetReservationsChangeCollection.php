@@ -41,7 +41,7 @@ class SetReservationsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetReservationsChange {
+        return function (?int $index): ?SetReservationsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetReservationsChange $data */

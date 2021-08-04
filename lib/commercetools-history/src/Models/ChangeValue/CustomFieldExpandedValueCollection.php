@@ -41,7 +41,7 @@ class CustomFieldExpandedValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldExpandedValue {
+        return function (?int $index): ?CustomFieldExpandedValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldExpandedValue $data */

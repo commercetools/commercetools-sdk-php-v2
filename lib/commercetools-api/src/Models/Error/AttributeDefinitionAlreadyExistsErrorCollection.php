@@ -41,7 +41,7 @@ class AttributeDefinitionAlreadyExistsErrorCollection extends ErrorObjectCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeDefinitionAlreadyExistsError {
+        return function (?int $index): ?AttributeDefinitionAlreadyExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeDefinitionAlreadyExistsError $data */

@@ -41,7 +41,7 @@ class SetSalutationChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSalutationChange {
+        return function (?int $index): ?SetSalutationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSalutationChange $data */

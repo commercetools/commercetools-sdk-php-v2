@@ -41,7 +41,7 @@ class DiscountCodeSetCustomTypeActionCollection extends DiscountCodeUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetCustomTypeAction {
+        return function (?int $index): ?DiscountCodeSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetCustomTypeAction $data */

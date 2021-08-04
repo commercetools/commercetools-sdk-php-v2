@@ -41,7 +41,7 @@ class PaymentSetKeyActionCollection extends PaymentUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentSetKeyAction {
+        return function (?int $index): ?PaymentSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentSetKeyAction $data */

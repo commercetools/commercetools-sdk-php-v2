@@ -41,7 +41,7 @@ class MyCartRemovePaymentActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartRemovePaymentAction {
+        return function (?int $index): ?MyCartRemovePaymentAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartRemovePaymentAction $data */

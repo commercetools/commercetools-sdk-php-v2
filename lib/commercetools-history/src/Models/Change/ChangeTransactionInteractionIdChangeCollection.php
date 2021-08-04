@@ -41,7 +41,7 @@ class ChangeTransactionInteractionIdChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTransactionInteractionIdChange {
+        return function (?int $index): ?ChangeTransactionInteractionIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTransactionInteractionIdChange $data */

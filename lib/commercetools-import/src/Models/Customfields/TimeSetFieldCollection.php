@@ -41,7 +41,7 @@ class TimeSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TimeSetField {
+        return function (?int $index): ?TimeSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TimeSetField $data */

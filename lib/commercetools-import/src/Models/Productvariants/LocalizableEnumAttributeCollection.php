@@ -41,7 +41,7 @@ class LocalizableEnumAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizableEnumAttribute {
+        return function (?int $index): ?LocalizableEnumAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizableEnumAttribute $data */

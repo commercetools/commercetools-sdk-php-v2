@@ -41,7 +41,7 @@ class CategoryImportCollection extends ImportResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryImport {
+        return function (?int $index): ?CategoryImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryImport $data */

@@ -41,7 +41,7 @@ class OrderShippingRateInputSetMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderShippingRateInputSetMessage {
+        return function (?int $index): ?OrderShippingRateInputSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderShippingRateInputSetMessage $data */

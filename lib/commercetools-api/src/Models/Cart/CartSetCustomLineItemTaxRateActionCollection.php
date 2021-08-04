@@ -41,7 +41,7 @@ class CartSetCustomLineItemTaxRateActionCollection extends CartUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetCustomLineItemTaxRateAction {
+        return function (?int $index): ?CartSetCustomLineItemTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetCustomLineItemTaxRateAction $data */

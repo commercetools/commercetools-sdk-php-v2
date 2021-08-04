@@ -41,7 +41,7 @@ class ParcelMeasurementsUpdatedMessagePayloadCollection extends MessagePayloadCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ParcelMeasurementsUpdatedMessagePayload {
+        return function (?int $index): ?ParcelMeasurementsUpdatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ParcelMeasurementsUpdatedMessagePayload $data */

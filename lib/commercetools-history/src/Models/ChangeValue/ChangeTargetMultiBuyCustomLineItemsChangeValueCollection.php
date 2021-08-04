@@ -41,7 +41,7 @@ class ChangeTargetMultiBuyCustomLineItemsChangeValueCollection extends ChangeTar
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTargetMultiBuyCustomLineItemsChangeValue {
+        return function (?int $index): ?ChangeTargetMultiBuyCustomLineItemsChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTargetMultiBuyCustomLineItemsChangeValue $data */

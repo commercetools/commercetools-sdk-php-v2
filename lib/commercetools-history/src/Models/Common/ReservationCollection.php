@@ -41,7 +41,7 @@ class ReservationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Reservation {
+        return function (?int $index): ?Reservation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Reservation $data */

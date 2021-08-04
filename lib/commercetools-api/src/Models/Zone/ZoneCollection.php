@@ -41,7 +41,7 @@ class ZoneCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Zone {
+        return function (?int $index): ?Zone {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Zone $data */

@@ -41,7 +41,7 @@ class ProductChangeNameActionCollection extends ProductUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductChangeNameAction {
+        return function (?int $index): ?ProductChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductChangeNameAction $data */

@@ -41,7 +41,7 @@ class GeneralCategoryRecommendationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GeneralCategoryRecommendation {
+        return function (?int $index): ?GeneralCategoryRecommendation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GeneralCategoryRecommendation $data */

@@ -41,7 +41,7 @@ class ChangeShoppingListLineItemQuantityChangeCollection extends ChangeCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeShoppingListLineItemQuantityChange {
+        return function (?int $index): ?ChangeShoppingListLineItemQuantityChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeShoppingListLineItemQuantityChange $data */

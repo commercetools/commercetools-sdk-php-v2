@@ -41,7 +41,7 @@ class PaymentAddInterfaceInteractionActionCollection extends PaymentUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentAddInterfaceInteractionAction {
+        return function (?int $index): ?PaymentAddInterfaceInteractionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentAddInterfaceInteractionAction $data */

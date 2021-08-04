@@ -41,7 +41,7 @@ class ShoppingListReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListReference {
+        return function (?int $index): ?ShoppingListReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListReference $data */

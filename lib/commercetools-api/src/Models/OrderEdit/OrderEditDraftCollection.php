@@ -41,7 +41,7 @@ class OrderEditDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditDraft {
+        return function (?int $index): ?OrderEditDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditDraft $data */

@@ -41,7 +41,7 @@ class SimilarProductSearchRequestMetaCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SimilarProductSearchRequestMeta {
+        return function (?int $index): ?SimilarProductSearchRequestMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SimilarProductSearchRequestMeta $data */

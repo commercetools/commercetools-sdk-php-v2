@@ -41,7 +41,7 @@ class MyCustomerSetLocaleActionCollection extends MyCustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetLocaleAction {
+        return function (?int $index): ?MyCustomerSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetLocaleAction $data */

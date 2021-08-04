@@ -41,7 +41,7 @@ class ZoneSetKeyActionCollection extends ZoneUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneSetKeyAction {
+        return function (?int $index): ?ZoneSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneSetKeyAction $data */

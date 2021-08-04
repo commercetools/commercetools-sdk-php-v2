@@ -41,7 +41,7 @@ class DiscountCodeSetMaxApplicationsActionCollection extends DiscountCodeUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetMaxApplicationsAction {
+        return function (?int $index): ?DiscountCodeSetMaxApplicationsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetMaxApplicationsAction $data */

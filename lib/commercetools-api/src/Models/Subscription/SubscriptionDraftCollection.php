@@ -41,7 +41,7 @@ class SubscriptionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SubscriptionDraft {
+        return function (?int $index): ?SubscriptionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SubscriptionDraft $data */

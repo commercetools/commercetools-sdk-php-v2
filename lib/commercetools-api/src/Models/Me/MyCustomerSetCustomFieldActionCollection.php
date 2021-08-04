@@ -41,7 +41,7 @@ class MyCustomerSetCustomFieldActionCollection extends MyCustomerUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetCustomFieldAction {
+        return function (?int $index): ?MyCustomerSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetCustomFieldAction $data */

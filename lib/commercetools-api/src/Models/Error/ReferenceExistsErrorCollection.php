@@ -41,7 +41,7 @@ class ReferenceExistsErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReferenceExistsError {
+        return function (?int $index): ?ReferenceExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReferenceExistsError $data */

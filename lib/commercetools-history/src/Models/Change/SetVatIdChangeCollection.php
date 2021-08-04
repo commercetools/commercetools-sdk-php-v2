@@ -41,7 +41,7 @@ class SetVatIdChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetVatIdChange {
+        return function (?int $index): ?SetVatIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetVatIdChange $data */

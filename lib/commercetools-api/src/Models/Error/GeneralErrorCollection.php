@@ -41,7 +41,7 @@ class GeneralErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?GeneralError {
+        return function (?int $index): ?GeneralError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GeneralError $data */

@@ -41,7 +41,7 @@ class CustomerEmailVerifiedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerEmailVerifiedMessage {
+        return function (?int $index): ?CustomerEmailVerifiedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerEmailVerifiedMessage $data */

@@ -44,7 +44,7 @@ class CustomFieldCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomField {
+        return function (?int $index): ?CustomField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

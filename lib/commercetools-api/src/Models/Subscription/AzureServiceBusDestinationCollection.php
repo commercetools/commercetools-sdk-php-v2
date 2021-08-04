@@ -41,7 +41,7 @@ class AzureServiceBusDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AzureServiceBusDestination {
+        return function (?int $index): ?AzureServiceBusDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AzureServiceBusDestination $data */

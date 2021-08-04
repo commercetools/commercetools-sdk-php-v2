@@ -41,7 +41,7 @@ class CartSetLineItemDistributionChannelActionCollection extends CartUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetLineItemDistributionChannelAction {
+        return function (?int $index): ?CartSetLineItemDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetLineItemDistributionChannelAction $data */

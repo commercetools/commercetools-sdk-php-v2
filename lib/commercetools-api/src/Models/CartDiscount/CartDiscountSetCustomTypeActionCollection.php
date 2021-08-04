@@ -41,7 +41,7 @@ class CartDiscountSetCustomTypeActionCollection extends CartDiscountUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountSetCustomTypeAction {
+        return function (?int $index): ?CartDiscountSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountSetCustomTypeAction $data */

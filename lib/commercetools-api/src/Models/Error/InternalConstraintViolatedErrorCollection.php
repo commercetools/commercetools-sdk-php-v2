@@ -41,7 +41,7 @@ class InternalConstraintViolatedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InternalConstraintViolatedError {
+        return function (?int $index): ?InternalConstraintViolatedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InternalConstraintViolatedError $data */

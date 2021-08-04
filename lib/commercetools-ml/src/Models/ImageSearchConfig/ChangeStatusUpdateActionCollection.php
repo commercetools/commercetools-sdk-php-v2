@@ -41,7 +41,7 @@ class ChangeStatusUpdateActionCollection extends ImageSearchConfigUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeStatusUpdateAction {
+        return function (?int $index): ?ChangeStatusUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeStatusUpdateAction $data */

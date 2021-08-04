@@ -44,7 +44,7 @@ class BaseAddressCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?BaseAddress {
+        return function (?int $index): ?BaseAddress {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -41,7 +41,7 @@ class SetLanguagesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLanguagesChange {
+        return function (?int $index): ?SetLanguagesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLanguagesChange $data */

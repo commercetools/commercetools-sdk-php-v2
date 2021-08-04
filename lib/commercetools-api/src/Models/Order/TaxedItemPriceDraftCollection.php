@@ -41,7 +41,7 @@ class TaxedItemPriceDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxedItemPriceDraft {
+        return function (?int $index): ?TaxedItemPriceDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxedItemPriceDraft $data */

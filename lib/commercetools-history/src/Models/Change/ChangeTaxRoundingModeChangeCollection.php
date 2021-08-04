@@ -41,7 +41,7 @@ class ChangeTaxRoundingModeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTaxRoundingModeChange {
+        return function (?int $index): ?ChangeTaxRoundingModeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTaxRoundingModeChange $data */

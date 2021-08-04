@@ -41,7 +41,7 @@ class AddChannelRolesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddChannelRolesChange {
+        return function (?int $index): ?AddChannelRolesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddChannelRolesChange $data */

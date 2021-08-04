@@ -41,7 +41,7 @@ class ProductDiscountCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscount {
+        return function (?int $index): ?ProductDiscount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscount $data */

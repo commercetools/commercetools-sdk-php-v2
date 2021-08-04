@@ -41,7 +41,7 @@ class InvalidInputErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidInputError {
+        return function (?int $index): ?InvalidInputError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidInputError $data */

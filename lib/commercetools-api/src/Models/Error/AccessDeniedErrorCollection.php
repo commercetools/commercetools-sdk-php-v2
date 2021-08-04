@@ -41,7 +41,7 @@ class AccessDeniedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AccessDeniedError {
+        return function (?int $index): ?AccessDeniedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AccessDeniedError $data */

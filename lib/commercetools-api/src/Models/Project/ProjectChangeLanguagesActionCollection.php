@@ -41,7 +41,7 @@ class ProjectChangeLanguagesActionCollection extends ProjectUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeLanguagesAction {
+        return function (?int $index): ?ProjectChangeLanguagesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeLanguagesAction $data */

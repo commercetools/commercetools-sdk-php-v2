@@ -41,7 +41,7 @@ class QueryComplexityLimitExceededErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?QueryComplexityLimitExceededError {
+        return function (?int $index): ?QueryComplexityLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var QueryComplexityLimitExceededError $data */

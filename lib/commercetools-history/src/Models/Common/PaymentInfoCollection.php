@@ -41,7 +41,7 @@ class PaymentInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentInfo {
+        return function (?int $index): ?PaymentInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentInfo $data */

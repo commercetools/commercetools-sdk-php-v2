@@ -41,7 +41,7 @@ class ProductDiscountSetKeyActionCollection extends ProductDiscountUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountSetKeyAction {
+        return function (?int $index): ?ProductDiscountSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountSetKeyAction $data */

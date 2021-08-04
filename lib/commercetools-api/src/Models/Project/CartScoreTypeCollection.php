@@ -41,7 +41,7 @@ class CartScoreTypeCollection extends ShippingRateInputTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartScoreType {
+        return function (?int $index): ?CartScoreType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartScoreType $data */

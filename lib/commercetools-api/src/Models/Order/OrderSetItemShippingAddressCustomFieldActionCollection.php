@@ -41,7 +41,7 @@ class OrderSetItemShippingAddressCustomFieldActionCollection extends OrderUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetItemShippingAddressCustomFieldAction {
+        return function (?int $index): ?OrderSetItemShippingAddressCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetItemShippingAddressCustomFieldAction $data */

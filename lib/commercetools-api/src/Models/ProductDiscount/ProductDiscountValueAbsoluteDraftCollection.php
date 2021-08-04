@@ -41,7 +41,7 @@ class ProductDiscountValueAbsoluteDraftCollection extends ProductDiscountValueDr
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountValueAbsoluteDraft {
+        return function (?int $index): ?ProductDiscountValueAbsoluteDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountValueAbsoluteDraft $data */

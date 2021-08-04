@@ -41,7 +41,7 @@ class UnknownChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?UnknownChange {
+        return function (?int $index): ?UnknownChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var UnknownChange $data */

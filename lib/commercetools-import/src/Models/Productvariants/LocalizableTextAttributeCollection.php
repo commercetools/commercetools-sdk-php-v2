@@ -41,7 +41,7 @@ class LocalizableTextAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizableTextAttribute {
+        return function (?int $index): ?LocalizableTextAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizableTextAttribute $data */

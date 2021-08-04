@@ -41,7 +41,7 @@ class CustomerGroupReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupReference {
+        return function (?int $index): ?CustomerGroupReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupReference $data */

@@ -41,7 +41,7 @@ class TextAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TextAttribute {
+        return function (?int $index): ?TextAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TextAttribute $data */

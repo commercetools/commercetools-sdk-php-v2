@@ -41,7 +41,7 @@ class NumberFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?NumberField {
+        return function (?int $index): ?NumberField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NumberField $data */

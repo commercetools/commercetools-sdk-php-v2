@@ -41,7 +41,7 @@ class CartRemoveDiscountCodeActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartRemoveDiscountCodeAction {
+        return function (?int $index): ?CartRemoveDiscountCodeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartRemoveDiscountCodeAction $data */

@@ -41,7 +41,7 @@ class AzureEventGridDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AzureEventGridDestination {
+        return function (?int $index): ?AzureEventGridDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AzureEventGridDestination $data */

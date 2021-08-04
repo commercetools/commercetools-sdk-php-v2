@@ -41,7 +41,7 @@ class StagedOrderChangeLineItemQuantityActionCollection extends StagedOrderUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderChangeLineItemQuantityAction {
+        return function (?int $index): ?StagedOrderChangeLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderChangeLineItemQuantityAction $data */

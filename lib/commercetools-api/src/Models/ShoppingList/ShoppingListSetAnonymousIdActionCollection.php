@@ -41,7 +41,7 @@ class ShoppingListSetAnonymousIdActionCollection extends ShoppingListUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListSetAnonymousIdAction {
+        return function (?int $index): ?ShoppingListSetAnonymousIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListSetAnonymousIdAction $data */

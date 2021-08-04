@@ -41,7 +41,7 @@ class MyCartChangeTaxModeActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartChangeTaxModeAction {
+        return function (?int $index): ?MyCartChangeTaxModeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartChangeTaxModeAction $data */

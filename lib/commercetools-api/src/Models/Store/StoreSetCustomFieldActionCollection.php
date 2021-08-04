@@ -41,7 +41,7 @@ class StoreSetCustomFieldActionCollection extends StoreUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreSetCustomFieldAction {
+        return function (?int $index): ?StoreSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreSetCustomFieldAction $data */

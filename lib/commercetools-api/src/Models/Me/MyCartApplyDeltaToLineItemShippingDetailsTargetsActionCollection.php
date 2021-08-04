@@ -41,7 +41,7 @@ class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionCollection extends M
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartApplyDeltaToLineItemShippingDetailsTargetsAction {
+        return function (?int $index): ?MyCartApplyDeltaToLineItemShippingDetailsTargetsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartApplyDeltaToLineItemShippingDetailsTargetsAction $data */

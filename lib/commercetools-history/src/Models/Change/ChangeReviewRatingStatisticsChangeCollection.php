@@ -41,7 +41,7 @@ class ChangeReviewRatingStatisticsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeReviewRatingStatisticsChange {
+        return function (?int $index): ?ChangeReviewRatingStatisticsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeReviewRatingStatisticsChange $data */

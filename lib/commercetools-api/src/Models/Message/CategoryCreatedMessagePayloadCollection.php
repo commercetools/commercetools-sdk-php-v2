@@ -41,7 +41,7 @@ class CategoryCreatedMessagePayloadCollection extends MessagePayloadCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryCreatedMessagePayload {
+        return function (?int $index): ?CategoryCreatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryCreatedMessagePayload $data */

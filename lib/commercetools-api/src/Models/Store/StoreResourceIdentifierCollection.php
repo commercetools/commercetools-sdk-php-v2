@@ -41,7 +41,7 @@ class StoreResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreResourceIdentifier {
+        return function (?int $index): ?StoreResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreResourceIdentifier $data */

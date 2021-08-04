@@ -41,7 +41,7 @@ class CategoryChangeSlugActionCollection extends CategoryUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryChangeSlugAction {
+        return function (?int $index): ?CategoryChangeSlugAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryChangeSlugAction $data */

@@ -41,7 +41,7 @@ class InventoryImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryImportRequest {
+        return function (?int $index): ?InventoryImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryImportRequest $data */

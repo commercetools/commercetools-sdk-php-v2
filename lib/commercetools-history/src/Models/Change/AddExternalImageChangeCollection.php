@@ -41,7 +41,7 @@ class AddExternalImageChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddExternalImageChange {
+        return function (?int $index): ?AddExternalImageChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddExternalImageChange $data */

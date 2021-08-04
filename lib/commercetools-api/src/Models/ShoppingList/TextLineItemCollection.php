@@ -41,7 +41,7 @@ class TextLineItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TextLineItem {
+        return function (?int $index): ?TextLineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TextLineItem $data */

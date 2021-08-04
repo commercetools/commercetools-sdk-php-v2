@@ -41,7 +41,7 @@ class InventoryEntrySetCustomTypeActionCollection extends InventoryEntryUpdateAc
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntrySetCustomTypeAction {
+        return function (?int $index): ?InventoryEntrySetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntrySetCustomTypeAction $data */

@@ -41,7 +41,7 @@ class SearchFacetPathNotFoundErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchFacetPathNotFoundError {
+        return function (?int $index): ?SearchFacetPathNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchFacetPathNotFoundError $data */

@@ -41,7 +41,7 @@ class CartChangeCustomLineItemQuantityActionCollection extends CartUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?CartChangeCustomLineItemQuantityAction {
+        return function (?int $index): ?CartChangeCustomLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartChangeCustomLineItemQuantityAction $data */

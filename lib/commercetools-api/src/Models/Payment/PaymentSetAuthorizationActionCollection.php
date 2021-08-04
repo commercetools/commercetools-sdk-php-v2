@@ -41,7 +41,7 @@ class PaymentSetAuthorizationActionCollection extends PaymentUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentSetAuthorizationAction {
+        return function (?int $index): ?PaymentSetAuthorizationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentSetAuthorizationAction $data */

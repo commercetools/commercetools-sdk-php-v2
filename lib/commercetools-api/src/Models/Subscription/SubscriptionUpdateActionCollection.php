@@ -44,7 +44,7 @@ class SubscriptionUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SubscriptionUpdateAction {
+        return function (?int $index): ?SubscriptionUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

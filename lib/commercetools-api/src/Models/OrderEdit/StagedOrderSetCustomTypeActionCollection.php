@@ -41,7 +41,7 @@ class StagedOrderSetCustomTypeActionCollection extends StagedOrderUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetCustomTypeAction {
+        return function (?int $index): ?StagedOrderSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetCustomTypeAction $data */

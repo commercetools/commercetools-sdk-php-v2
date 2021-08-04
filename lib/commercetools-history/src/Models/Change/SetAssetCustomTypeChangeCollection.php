@@ -41,7 +41,7 @@ class SetAssetCustomTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAssetCustomTypeChange {
+        return function (?int $index): ?SetAssetCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAssetCustomTypeChange $data */

@@ -41,7 +41,7 @@ class ProductMoveImageToPositionActionCollection extends ProductUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductMoveImageToPositionAction {
+        return function (?int $index): ?ProductMoveImageToPositionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductMoveImageToPositionAction $data */

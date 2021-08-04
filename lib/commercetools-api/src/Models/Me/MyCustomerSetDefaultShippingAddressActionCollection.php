@@ -41,7 +41,7 @@ class MyCustomerSetDefaultShippingAddressActionCollection extends MyCustomerUpda
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetDefaultShippingAddressAction {
+        return function (?int $index): ?MyCustomerSetDefaultShippingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetDefaultShippingAddressAction $data */

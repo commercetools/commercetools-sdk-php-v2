@@ -41,7 +41,7 @@ class ProductDiscountChangeSortOrderActionCollection extends ProductDiscountUpda
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountChangeSortOrderAction {
+        return function (?int $index): ?ProductDiscountChangeSortOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountChangeSortOrderAction $data */

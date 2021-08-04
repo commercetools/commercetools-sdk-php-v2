@@ -41,7 +41,7 @@ class CustomerGroupSetCustomFieldActionCollection extends CustomerGroupUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupSetCustomFieldAction {
+        return function (?int $index): ?CustomerGroupSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupSetCustomFieldAction $data */

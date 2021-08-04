@@ -41,7 +41,7 @@ class RemoveFieldDefinitionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveFieldDefinitionChange {
+        return function (?int $index): ?RemoveFieldDefinitionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveFieldDefinitionChange $data */

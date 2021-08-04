@@ -41,7 +41,7 @@ class SetReturnShipmentStateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetReturnShipmentStateChange {
+        return function (?int $index): ?SetReturnShipmentStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetReturnShipmentStateChange $data */

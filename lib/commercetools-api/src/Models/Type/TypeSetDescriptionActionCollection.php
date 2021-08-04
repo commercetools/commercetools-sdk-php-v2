@@ -41,7 +41,7 @@ class TypeSetDescriptionActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeSetDescriptionAction {
+        return function (?int $index): ?TypeSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeSetDescriptionAction $data */

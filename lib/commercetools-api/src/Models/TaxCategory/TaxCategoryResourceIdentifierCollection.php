@@ -41,7 +41,7 @@ class TaxCategoryResourceIdentifierCollection extends ResourceIdentifierCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryResourceIdentifier {
+        return function (?int $index): ?TaxCategoryResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryResourceIdentifier $data */

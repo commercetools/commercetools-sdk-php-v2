@@ -41,7 +41,7 @@ class CustomerSetAddressCustomFieldActionCollection extends CustomerUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetAddressCustomFieldAction {
+        return function (?int $index): ?CustomerSetAddressCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetAddressCustomFieldAction $data */

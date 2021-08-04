@@ -41,7 +41,7 @@ class ProjectChangeShoppingListsConfigurationCollection extends ProjectUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeShoppingListsConfiguration {
+        return function (?int $index): ?ProjectChangeShoppingListsConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeShoppingListsConfiguration $data */

@@ -41,7 +41,7 @@ class ChangeFieldDefinitionOrderChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeFieldDefinitionOrderChange {
+        return function (?int $index): ?ChangeFieldDefinitionOrderChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeFieldDefinitionOrderChange $data */

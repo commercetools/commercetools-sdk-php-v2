@@ -41,7 +41,7 @@ class OrderTransitionLineItemStateActionCollection extends OrderUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderTransitionLineItemStateAction {
+        return function (?int $index): ?OrderTransitionLineItemStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderTransitionLineItemStateAction $data */

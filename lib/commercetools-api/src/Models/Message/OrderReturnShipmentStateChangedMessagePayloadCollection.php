@@ -41,7 +41,7 @@ class OrderReturnShipmentStateChangedMessagePayloadCollection extends MessagePay
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderReturnShipmentStateChangedMessagePayload {
+        return function (?int $index): ?OrderReturnShipmentStateChangedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderReturnShipmentStateChangedMessagePayload $data */

@@ -41,7 +41,7 @@ class LocalizedLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizedLabel {
+        return function (?int $index): ?LocalizedLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizedLabel $data */

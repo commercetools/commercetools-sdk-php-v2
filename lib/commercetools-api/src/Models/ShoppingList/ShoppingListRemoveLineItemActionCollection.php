@@ -41,7 +41,7 @@ class ShoppingListRemoveLineItemActionCollection extends ShoppingListUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListRemoveLineItemAction {
+        return function (?int $index): ?ShoppingListRemoveLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListRemoveLineItemAction $data */

@@ -41,7 +41,7 @@ class SetTitleChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTitleChange {
+        return function (?int $index): ?SetTitleChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTitleChange $data */

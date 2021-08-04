@@ -41,7 +41,7 @@ class StagedOrderSetShippingMethodActionCollection extends StagedOrderUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetShippingMethodAction {
+        return function (?int $index): ?StagedOrderSetShippingMethodAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetShippingMethodAction $data */

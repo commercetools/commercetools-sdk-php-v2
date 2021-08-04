@@ -41,7 +41,7 @@ class OrderCustomLineItemDiscountSetMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderCustomLineItemDiscountSetMessage {
+        return function (?int $index): ?OrderCustomLineItemDiscountSetMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderCustomLineItemDiscountSetMessage $data */

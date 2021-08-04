@@ -41,7 +41,7 @@ class LineItemReturnItemCollection extends ReturnItemCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemReturnItem {
+        return function (?int $index): ?LineItemReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemReturnItem $data */

@@ -41,7 +41,7 @@ class ParcelItemsUpdatedMessagePayloadCollection extends MessagePayloadCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ParcelItemsUpdatedMessagePayload {
+        return function (?int $index): ?ParcelItemsUpdatedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ParcelItemsUpdatedMessagePayload $data */

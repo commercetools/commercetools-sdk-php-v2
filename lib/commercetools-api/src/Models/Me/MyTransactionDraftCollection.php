@@ -41,7 +41,7 @@ class MyTransactionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MyTransactionDraft {
+        return function (?int $index): ?MyTransactionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyTransactionDraft $data */

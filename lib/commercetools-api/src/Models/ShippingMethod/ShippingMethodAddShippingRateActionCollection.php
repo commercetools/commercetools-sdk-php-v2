@@ -41,7 +41,7 @@ class ShippingMethodAddShippingRateActionCollection extends ShippingMethodUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodAddShippingRateAction {
+        return function (?int $index): ?ShippingMethodAddShippingRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodAddShippingRateAction $data */

@@ -41,7 +41,7 @@ class SetVariantAvailabilityChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetVariantAvailabilityChange {
+        return function (?int $index): ?SetVariantAvailabilityChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetVariantAvailabilityChange $data */

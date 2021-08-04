@@ -41,7 +41,7 @@ class BooleanFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?BooleanField {
+        return function (?int $index): ?BooleanField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var BooleanField $data */

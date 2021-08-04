@@ -41,7 +41,7 @@ class CustomerEmailVerifiedMessagePayloadCollection extends MessagePayloadCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerEmailVerifiedMessagePayload {
+        return function (?int $index): ?CustomerEmailVerifiedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerEmailVerifiedMessagePayload $data */

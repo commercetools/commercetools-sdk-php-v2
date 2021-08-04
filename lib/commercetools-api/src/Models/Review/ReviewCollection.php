@@ -41,7 +41,7 @@ class ReviewCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Review {
+        return function (?int $index): ?Review {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Review $data */

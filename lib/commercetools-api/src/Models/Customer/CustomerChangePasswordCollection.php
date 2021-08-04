@@ -41,7 +41,7 @@ class CustomerChangePasswordCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerChangePassword {
+        return function (?int $index): ?CustomerChangePassword {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerChangePassword $data */

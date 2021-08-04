@@ -41,7 +41,7 @@ class ProductTypeSetInputTipActionCollection extends ProductTypeUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeSetInputTipAction {
+        return function (?int $index): ?ProductTypeSetInputTipAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeSetInputTipAction $data */

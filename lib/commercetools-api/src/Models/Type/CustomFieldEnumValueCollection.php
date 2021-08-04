@@ -41,7 +41,7 @@ class CustomFieldEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldEnumValue {
+        return function (?int $index): ?CustomFieldEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldEnumValue $data */

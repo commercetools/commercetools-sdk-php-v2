@@ -41,7 +41,7 @@ class DiscountCodePagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodePagedQueryResponse {
+        return function (?int $index): ?DiscountCodePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodePagedQueryResponse $data */

@@ -41,7 +41,7 @@ class LineItemProductVariantImportDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemProductVariantImportDraft {
+        return function (?int $index): ?LineItemProductVariantImportDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemProductVariantImportDraft $data */

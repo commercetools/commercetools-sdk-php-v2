@@ -41,7 +41,7 @@ class SetLineItemDiscountedPricePerQuantityChangeCollection extends ChangeCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLineItemDiscountedPricePerQuantityChange {
+        return function (?int $index): ?SetLineItemDiscountedPricePerQuantityChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLineItemDiscountedPricePerQuantityChange $data */

@@ -44,7 +44,7 @@ class ImportRequestCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportRequest {
+        return function (?int $index): ?ImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

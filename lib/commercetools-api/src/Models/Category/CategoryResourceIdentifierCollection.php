@@ -41,7 +41,7 @@ class CategoryResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryResourceIdentifier {
+        return function (?int $index): ?CategoryResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryResourceIdentifier $data */

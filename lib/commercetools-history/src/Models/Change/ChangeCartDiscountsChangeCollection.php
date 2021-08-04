@@ -41,7 +41,7 @@ class ChangeCartDiscountsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeCartDiscountsChange {
+        return function (?int $index): ?ChangeCartDiscountsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeCartDiscountsChange $data */

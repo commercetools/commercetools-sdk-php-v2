@@ -41,7 +41,7 @@ class CategorySetMetaTitleActionCollection extends CategoryUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetMetaTitleAction {
+        return function (?int $index): ?CategorySetMetaTitleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetMetaTitleAction $data */

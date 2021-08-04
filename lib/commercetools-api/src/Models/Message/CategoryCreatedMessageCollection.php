@@ -41,7 +41,7 @@ class CategoryCreatedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryCreatedMessage {
+        return function (?int $index): ?CategoryCreatedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryCreatedMessage $data */

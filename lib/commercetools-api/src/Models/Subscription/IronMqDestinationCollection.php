@@ -41,7 +41,7 @@ class IronMqDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?IronMqDestination {
+        return function (?int $index): ?IronMqDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var IronMqDestination $data */

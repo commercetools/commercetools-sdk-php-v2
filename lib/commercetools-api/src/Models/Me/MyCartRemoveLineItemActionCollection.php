@@ -41,7 +41,7 @@ class MyCartRemoveLineItemActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartRemoveLineItemAction {
+        return function (?int $index): ?MyCartRemoveLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartRemoveLineItemAction $data */

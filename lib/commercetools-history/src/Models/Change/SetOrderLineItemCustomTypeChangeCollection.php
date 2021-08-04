@@ -41,7 +41,7 @@ class SetOrderLineItemCustomTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetOrderLineItemCustomTypeChange {
+        return function (?int $index): ?SetOrderLineItemCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetOrderLineItemCustomTypeChange $data */

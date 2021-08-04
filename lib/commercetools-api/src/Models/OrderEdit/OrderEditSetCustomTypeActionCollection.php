@@ -41,7 +41,7 @@ class OrderEditSetCustomTypeActionCollection extends OrderEditUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditSetCustomTypeAction {
+        return function (?int $index): ?OrderEditSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditSetCustomTypeAction $data */

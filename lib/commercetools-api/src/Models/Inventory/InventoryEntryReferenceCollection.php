@@ -41,7 +41,7 @@ class InventoryEntryReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryReference {
+        return function (?int $index): ?InventoryEntryReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryReference $data */

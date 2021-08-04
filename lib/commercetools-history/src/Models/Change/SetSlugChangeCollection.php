@@ -41,7 +41,7 @@ class SetSlugChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSlugChange {
+        return function (?int $index): ?SetSlugChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSlugChange $data */

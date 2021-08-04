@@ -41,7 +41,7 @@ class ResourceDeletionErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceDeletionError {
+        return function (?int $index): ?ResourceDeletionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceDeletionError $data */

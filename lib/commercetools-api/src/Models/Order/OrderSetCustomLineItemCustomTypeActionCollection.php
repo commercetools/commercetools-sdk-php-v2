@@ -41,7 +41,7 @@ class OrderSetCustomLineItemCustomTypeActionCollection extends OrderUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetCustomLineItemCustomTypeAction {
+        return function (?int $index): ?OrderSetCustomLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetCustomLineItemCustomTypeAction $data */

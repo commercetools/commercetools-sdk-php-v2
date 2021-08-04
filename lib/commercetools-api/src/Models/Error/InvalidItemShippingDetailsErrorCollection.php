@@ -41,7 +41,7 @@ class InvalidItemShippingDetailsErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidItemShippingDetailsError {
+        return function (?int $index): ?InvalidItemShippingDetailsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidItemShippingDetailsError $data */

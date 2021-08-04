@@ -41,7 +41,7 @@ class MyCartAddDiscountCodeActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartAddDiscountCodeAction {
+        return function (?int $index): ?MyCartAddDiscountCodeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartAddDiscountCodeAction $data */

@@ -41,7 +41,7 @@ class AttributeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Attribute {
+        return function (?int $index): ?Attribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Attribute $data */

@@ -41,7 +41,7 @@ class SetImageLabelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetImageLabelChange {
+        return function (?int $index): ?SetImageLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetImageLabelChange $data */

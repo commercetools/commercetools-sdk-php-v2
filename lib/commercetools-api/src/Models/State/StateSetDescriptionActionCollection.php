@@ -41,7 +41,7 @@ class StateSetDescriptionActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateSetDescriptionAction {
+        return function (?int $index): ?StateSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateSetDescriptionAction $data */

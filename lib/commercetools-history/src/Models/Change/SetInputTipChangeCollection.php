@@ -41,7 +41,7 @@ class SetInputTipChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetInputTipChange {
+        return function (?int $index): ?SetInputTipChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetInputTipChange $data */

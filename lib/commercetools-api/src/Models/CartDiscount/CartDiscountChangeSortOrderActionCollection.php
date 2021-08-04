@@ -41,7 +41,7 @@ class CartDiscountChangeSortOrderActionCollection extends CartDiscountUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountChangeSortOrderAction {
+        return function (?int $index): ?CartDiscountChangeSortOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountChangeSortOrderAction $data */

@@ -41,7 +41,7 @@ class ShippingMethodReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodReference {
+        return function (?int $index): ?ShippingMethodReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodReference $data */

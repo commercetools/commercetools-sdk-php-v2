@@ -41,7 +41,7 @@ class OrderSetCustomerEmailActionCollection extends OrderUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetCustomerEmailAction {
+        return function (?int $index): ?OrderSetCustomerEmailAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetCustomerEmailAction $data */

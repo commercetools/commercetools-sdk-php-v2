@@ -41,7 +41,7 @@ class ExtensionChangeDestinationActionCollection extends ExtensionUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionChangeDestinationAction {
+        return function (?int $index): ?ExtensionChangeDestinationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionChangeDestinationAction $data */

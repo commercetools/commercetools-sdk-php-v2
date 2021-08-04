@@ -41,7 +41,7 @@ class ExtensionAuthorizationHeaderAuthenticationCollection extends ExtensionHttp
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionAuthorizationHeaderAuthentication {
+        return function (?int $index): ?ExtensionAuthorizationHeaderAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionAuthorizationHeaderAuthentication $data */

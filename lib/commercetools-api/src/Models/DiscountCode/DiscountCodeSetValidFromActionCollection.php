@@ -41,7 +41,7 @@ class DiscountCodeSetValidFromActionCollection extends DiscountCodeUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetValidFromAction {
+        return function (?int $index): ?DiscountCodeSetValidFromAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetValidFromAction $data */

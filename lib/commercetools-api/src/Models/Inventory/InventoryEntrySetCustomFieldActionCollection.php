@@ -41,7 +41,7 @@ class InventoryEntrySetCustomFieldActionCollection extends InventoryEntryUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntrySetCustomFieldAction {
+        return function (?int $index): ?InventoryEntrySetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntrySetCustomFieldAction $data */

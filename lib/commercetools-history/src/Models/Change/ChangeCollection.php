@@ -44,7 +44,7 @@ class ChangeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Change {
+        return function (?int $index): ?Change {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

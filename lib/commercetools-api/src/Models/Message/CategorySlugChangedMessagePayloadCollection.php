@@ -41,7 +41,7 @@ class CategorySlugChangedMessagePayloadCollection extends MessagePayloadCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySlugChangedMessagePayload {
+        return function (?int $index): ?CategorySlugChangedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySlugChangedMessagePayload $data */

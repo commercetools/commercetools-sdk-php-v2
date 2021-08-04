@@ -41,7 +41,7 @@ class SetTextLineItemDescriptionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTextLineItemDescriptionChange {
+        return function (?int $index): ?SetTextLineItemDescriptionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTextLineItemDescriptionChange $data */

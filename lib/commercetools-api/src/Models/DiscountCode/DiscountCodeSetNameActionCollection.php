@@ -41,7 +41,7 @@ class DiscountCodeSetNameActionCollection extends DiscountCodeUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetNameAction {
+        return function (?int $index): ?DiscountCodeSetNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetNameAction $data */

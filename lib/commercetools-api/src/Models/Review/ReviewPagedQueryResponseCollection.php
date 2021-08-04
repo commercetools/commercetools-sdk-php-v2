@@ -41,7 +41,7 @@ class ReviewPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewPagedQueryResponse {
+        return function (?int $index): ?ReviewPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewPagedQueryResponse $data */

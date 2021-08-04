@@ -41,7 +41,7 @@ class DiscountedLineItemPriceDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountedLineItemPriceDraft {
+        return function (?int $index): ?DiscountedLineItemPriceDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountedLineItemPriceDraft $data */

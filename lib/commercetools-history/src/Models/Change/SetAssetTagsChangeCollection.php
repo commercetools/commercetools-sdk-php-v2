@@ -41,7 +41,7 @@ class SetAssetTagsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAssetTagsChange {
+        return function (?int $index): ?SetAssetTagsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAssetTagsChange $data */

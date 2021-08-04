@@ -41,7 +41,7 @@ class ProductVariantKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariantKeyReference {
+        return function (?int $index): ?ProductVariantKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariantKeyReference $data */

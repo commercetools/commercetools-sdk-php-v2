@@ -41,7 +41,7 @@ class OrderSetCustomLineItemShippingDetailsActionCollection extends OrderUpdateA
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetCustomLineItemShippingDetailsAction {
+        return function (?int $index): ?OrderSetCustomLineItemShippingDetailsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetCustomLineItemShippingDetailsAction $data */

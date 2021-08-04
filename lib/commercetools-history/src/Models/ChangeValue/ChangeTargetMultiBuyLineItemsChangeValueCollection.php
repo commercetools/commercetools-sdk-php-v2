@@ -41,7 +41,7 @@ class ChangeTargetMultiBuyLineItemsChangeValueCollection extends ChangeTargetCha
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTargetMultiBuyLineItemsChangeValue {
+        return function (?int $index): ?ChangeTargetMultiBuyLineItemsChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTargetMultiBuyLineItemsChangeValue $data */

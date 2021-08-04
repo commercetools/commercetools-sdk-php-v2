@@ -41,7 +41,7 @@ class ShoppingListSetTextLineItemDescriptionActionCollection extends ShoppingLis
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListSetTextLineItemDescriptionAction {
+        return function (?int $index): ?ShoppingListSetTextLineItemDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListSetTextLineItemDescriptionAction $data */

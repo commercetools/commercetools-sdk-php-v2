@@ -41,7 +41,7 @@ class ShippingMethodSetLocalizedDescriptionActionCollection extends ShippingMeth
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodSetLocalizedDescriptionAction {
+        return function (?int $index): ?ShippingMethodSetLocalizedDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodSetLocalizedDescriptionAction $data */

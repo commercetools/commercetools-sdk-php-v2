@@ -41,7 +41,7 @@ class ChangeParentChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeParentChange {
+        return function (?int $index): ?ChangeParentChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeParentChange $data */

@@ -41,7 +41,7 @@ class ProductDiscountValueExternalCollection extends ProductDiscountValueCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountValueExternal {
+        return function (?int $index): ?ProductDiscountValueExternal {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountValueExternal $data */

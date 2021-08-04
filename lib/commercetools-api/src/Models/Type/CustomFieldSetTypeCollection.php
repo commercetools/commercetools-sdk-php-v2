@@ -41,7 +41,7 @@ class CustomFieldSetTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldSetType {
+        return function (?int $index): ?CustomFieldSetType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldSetType $data */

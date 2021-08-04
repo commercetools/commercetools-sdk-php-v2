@@ -41,7 +41,7 @@ class DiscountCodeNonApplicableErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeNonApplicableError {
+        return function (?int $index): ?DiscountCodeNonApplicableError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeNonApplicableError $data */

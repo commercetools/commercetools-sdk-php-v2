@@ -41,7 +41,7 @@ class MoneySetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MoneySetField {
+        return function (?int $index): ?MoneySetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MoneySetField $data */

@@ -41,7 +41,7 @@ class ApiClientDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ApiClientDraft {
+        return function (?int $index): ?ApiClientDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ApiClientDraft $data */

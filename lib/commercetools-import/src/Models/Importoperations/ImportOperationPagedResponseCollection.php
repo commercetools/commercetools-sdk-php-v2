@@ -41,7 +41,7 @@ class ImportOperationPagedResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportOperationPagedResponse {
+        return function (?int $index): ?ImportOperationPagedResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImportOperationPagedResponse $data */

@@ -41,7 +41,7 @@ class CategoryChangeParentActionCollection extends CategoryUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryChangeParentAction {
+        return function (?int $index): ?CategoryChangeParentAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryChangeParentAction $data */

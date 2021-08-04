@@ -41,7 +41,7 @@ class StagedOrderImportCustomLineItemStateActionCollection extends StagedOrderUp
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderImportCustomLineItemStateAction {
+        return function (?int $index): ?StagedOrderImportCustomLineItemStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderImportCustomLineItemStateAction $data */

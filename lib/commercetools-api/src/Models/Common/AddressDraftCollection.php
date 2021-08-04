@@ -41,7 +41,7 @@ class AddressDraftCollection extends BaseAddressCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddressDraft {
+        return function (?int $index): ?AddressDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddressDraft $data */

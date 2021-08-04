@@ -41,7 +41,7 @@ class StagedOrderAddDiscountCodeActionCollection extends StagedOrderUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderAddDiscountCodeAction {
+        return function (?int $index): ?StagedOrderAddDiscountCodeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderAddDiscountCodeAction $data */

@@ -41,7 +41,7 @@ class MyShoppingListSetDeleteDaysAfterLastModificationActionCollection extends M
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListSetDeleteDaysAfterLastModificationAction {
+        return function (?int $index): ?MyShoppingListSetDeleteDaysAfterLastModificationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListSetDeleteDaysAfterLastModificationAction $data */

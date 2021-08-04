@@ -41,7 +41,7 @@ class PaymentChangeTransactionInteractionIdActionCollection extends PaymentUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentChangeTransactionInteractionIdAction {
+        return function (?int $index): ?PaymentChangeTransactionInteractionIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentChangeTransactionInteractionIdAction $data */

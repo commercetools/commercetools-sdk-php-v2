@@ -41,7 +41,7 @@ class MyCartAddLineItemActionCollection extends MyCartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCartAddLineItemAction {
+        return function (?int $index): ?MyCartAddLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCartAddLineItemAction $data */

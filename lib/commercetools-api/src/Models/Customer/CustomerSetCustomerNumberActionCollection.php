@@ -41,7 +41,7 @@ class CustomerSetCustomerNumberActionCollection extends CustomerUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetCustomerNumberAction {
+        return function (?int $index): ?CustomerSetCustomerNumberAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetCustomerNumberAction $data */

@@ -41,7 +41,7 @@ class OrderStateTransitionMessagePayloadCollection extends MessagePayloadCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderStateTransitionMessagePayload {
+        return function (?int $index): ?OrderStateTransitionMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderStateTransitionMessagePayload $data */

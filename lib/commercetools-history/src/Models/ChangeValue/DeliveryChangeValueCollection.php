@@ -41,7 +41,7 @@ class DeliveryChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryChangeValue {
+        return function (?int $index): ?DeliveryChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryChangeValue $data */

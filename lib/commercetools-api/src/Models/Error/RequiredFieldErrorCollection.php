@@ -41,7 +41,7 @@ class RequiredFieldErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RequiredFieldError {
+        return function (?int $index): ?RequiredFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RequiredFieldError $data */

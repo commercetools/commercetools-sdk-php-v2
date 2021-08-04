@@ -41,7 +41,7 @@ class CustomerSetLastNameActionCollection extends CustomerUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetLastNameAction {
+        return function (?int $index): ?CustomerSetLastNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetLastNameAction $data */

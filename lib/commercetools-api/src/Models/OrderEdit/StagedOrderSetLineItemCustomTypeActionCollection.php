@@ -41,7 +41,7 @@ class StagedOrderSetLineItemCustomTypeActionCollection extends StagedOrderUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLineItemCustomTypeAction {
+        return function (?int $index): ?StagedOrderSetLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLineItemCustomTypeAction $data */

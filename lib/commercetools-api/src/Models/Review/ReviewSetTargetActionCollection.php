@@ -41,7 +41,7 @@ class ReviewSetTargetActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetTargetAction {
+        return function (?int $index): ?ReviewSetTargetAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetTargetAction $data */

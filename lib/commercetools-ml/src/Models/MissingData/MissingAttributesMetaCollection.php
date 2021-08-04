@@ -41,7 +41,7 @@ class MissingAttributesMetaCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingAttributesMeta {
+        return function (?int $index): ?MissingAttributesMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingAttributesMeta $data */

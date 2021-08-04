@@ -41,7 +41,7 @@ class LocalizedStringCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizedString {
+        return function (?int $index): ?LocalizedString {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizedString $data */

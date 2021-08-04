@@ -41,7 +41,7 @@ class SetCustomLineItemTotalPriceChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomLineItemTotalPriceChange {
+        return function (?int $index): ?SetCustomLineItemTotalPriceChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomLineItemTotalPriceChange $data */

@@ -41,7 +41,7 @@ class ZoneDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneDraft {
+        return function (?int $index): ?ZoneDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneDraft $data */

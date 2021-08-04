@@ -41,7 +41,7 @@ class OrderTransitionCustomLineItemStateActionCollection extends OrderUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderTransitionCustomLineItemStateAction {
+        return function (?int $index): ?OrderTransitionCustomLineItemStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderTransitionCustomLineItemStateAction $data */

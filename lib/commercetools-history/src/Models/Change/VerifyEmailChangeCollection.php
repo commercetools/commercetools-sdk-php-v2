@@ -41,7 +41,7 @@ class VerifyEmailChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?VerifyEmailChange {
+        return function (?int $index): ?VerifyEmailChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var VerifyEmailChange $data */

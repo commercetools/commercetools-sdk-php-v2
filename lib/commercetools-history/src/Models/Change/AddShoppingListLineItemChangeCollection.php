@@ -41,7 +41,7 @@ class AddShoppingListLineItemChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddShoppingListLineItemChange {
+        return function (?int $index): ?AddShoppingListLineItemChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddShoppingListLineItemChange $data */

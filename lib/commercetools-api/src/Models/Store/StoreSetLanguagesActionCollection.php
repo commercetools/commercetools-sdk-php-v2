@@ -41,7 +41,7 @@ class StoreSetLanguagesActionCollection extends StoreUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreSetLanguagesAction {
+        return function (?int $index): ?StoreSetLanguagesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreSetLanguagesAction $data */

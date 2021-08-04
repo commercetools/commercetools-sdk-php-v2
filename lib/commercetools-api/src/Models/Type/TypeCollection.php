@@ -41,7 +41,7 @@ class TypeCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Type {
+        return function (?int $index): ?Type {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Type $data */

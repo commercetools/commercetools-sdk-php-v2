@@ -41,7 +41,7 @@ class CartSetCartTotalTaxActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetCartTotalTaxAction {
+        return function (?int $index): ?CartSetCartTotalTaxAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetCartTotalTaxAction $data */

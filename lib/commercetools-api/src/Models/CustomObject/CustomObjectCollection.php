@@ -41,7 +41,7 @@ class CustomObjectCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomObject {
+        return function (?int $index): ?CustomObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomObject $data */

@@ -41,7 +41,7 @@ class SetCartPredicateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCartPredicateChange {
+        return function (?int $index): ?SetCartPredicateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCartPredicateChange $data */

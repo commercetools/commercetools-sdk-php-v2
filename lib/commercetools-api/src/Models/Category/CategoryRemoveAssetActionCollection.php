@@ -41,7 +41,7 @@ class CategoryRemoveAssetActionCollection extends CategoryUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryRemoveAssetAction {
+        return function (?int $index): ?CategoryRemoveAssetAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryRemoveAssetAction $data */

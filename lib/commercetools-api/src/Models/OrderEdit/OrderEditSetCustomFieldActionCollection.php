@@ -41,7 +41,7 @@ class OrderEditSetCustomFieldActionCollection extends OrderEditUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditSetCustomFieldAction {
+        return function (?int $index): ?OrderEditSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditSetCustomFieldAction $data */

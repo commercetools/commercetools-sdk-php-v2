@@ -41,7 +41,7 @@ class TermFacetResultCollection extends FacetResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TermFacetResult {
+        return function (?int $index): ?TermFacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TermFacetResult $data */

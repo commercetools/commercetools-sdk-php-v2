@@ -41,7 +41,7 @@ class AddDeliveryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddDeliveryChange {
+        return function (?int $index): ?AddDeliveryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddDeliveryChange $data */

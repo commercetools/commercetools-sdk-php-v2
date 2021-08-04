@@ -41,7 +41,7 @@ class SetMethodInfoInterfaceChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMethodInfoInterfaceChange {
+        return function (?int $index): ?SetMethodInfoInterfaceChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMethodInfoInterfaceChange $data */

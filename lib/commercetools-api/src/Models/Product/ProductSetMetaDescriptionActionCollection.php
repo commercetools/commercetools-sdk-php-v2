@@ -41,7 +41,7 @@ class ProductSetMetaDescriptionActionCollection extends ProductUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetMetaDescriptionAction {
+        return function (?int $index): ?ProductSetMetaDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetMetaDescriptionAction $data */

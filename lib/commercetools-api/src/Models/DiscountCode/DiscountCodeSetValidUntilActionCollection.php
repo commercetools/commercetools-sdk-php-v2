@@ -41,7 +41,7 @@ class DiscountCodeSetValidUntilActionCollection extends DiscountCodeUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetValidUntilAction {
+        return function (?int $index): ?DiscountCodeSetValidUntilAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetValidUntilAction $data */

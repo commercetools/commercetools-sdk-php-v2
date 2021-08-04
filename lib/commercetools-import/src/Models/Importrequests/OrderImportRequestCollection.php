@@ -41,7 +41,7 @@ class OrderImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderImportRequest {
+        return function (?int $index): ?OrderImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderImportRequest $data */

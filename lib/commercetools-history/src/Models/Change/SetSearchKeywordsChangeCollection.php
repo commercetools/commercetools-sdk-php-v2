@@ -41,7 +41,7 @@ class SetSearchKeywordsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSearchKeywordsChange {
+        return function (?int $index): ?SetSearchKeywordsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSearchKeywordsChange $data */

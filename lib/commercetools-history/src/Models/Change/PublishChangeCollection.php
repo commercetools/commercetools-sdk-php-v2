@@ -41,7 +41,7 @@ class PublishChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PublishChange {
+        return function (?int $index): ?PublishChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PublishChange $data */

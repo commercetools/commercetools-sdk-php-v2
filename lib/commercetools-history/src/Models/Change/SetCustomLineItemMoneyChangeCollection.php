@@ -41,7 +41,7 @@ class SetCustomLineItemMoneyChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomLineItemMoneyChange {
+        return function (?int $index): ?SetCustomLineItemMoneyChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomLineItemMoneyChange $data */

@@ -41,7 +41,7 @@ class TypeChangeInputHintActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeInputHintAction {
+        return function (?int $index): ?TypeChangeInputHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeInputHintAction $data */

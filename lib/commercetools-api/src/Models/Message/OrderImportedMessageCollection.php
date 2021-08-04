@@ -41,7 +41,7 @@ class OrderImportedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderImportedMessage {
+        return function (?int $index): ?OrderImportedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderImportedMessage $data */

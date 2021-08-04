@@ -41,7 +41,7 @@ class CustomLineItemStateTransitionMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomLineItemStateTransitionMessage {
+        return function (?int $index): ?CustomLineItemStateTransitionMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomLineItemStateTransitionMessage $data */

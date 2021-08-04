@@ -41,7 +41,7 @@ class ShippingRatePriceTierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingRatePriceTier {
+        return function (?int $index): ?ShippingRatePriceTier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingRatePriceTier $data */

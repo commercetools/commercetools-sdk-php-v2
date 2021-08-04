@@ -41,7 +41,7 @@ class InventoryEntryDeletedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryDeletedMessage {
+        return function (?int $index): ?InventoryEntryDeletedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryDeletedMessage $data */

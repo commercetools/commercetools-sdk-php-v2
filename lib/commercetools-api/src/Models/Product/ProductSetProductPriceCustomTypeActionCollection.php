@@ -41,7 +41,7 @@ class ProductSetProductPriceCustomTypeActionCollection extends ProductUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetProductPriceCustomTypeAction {
+        return function (?int $index): ?ProductSetProductPriceCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetProductPriceCustomTypeAction $data */

@@ -41,7 +41,7 @@ class ProjectCategoryRecommendationMetaCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectCategoryRecommendationMeta {
+        return function (?int $index): ?ProjectCategoryRecommendationMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectCategoryRecommendationMeta $data */

@@ -41,7 +41,7 @@ class ParcelTrackingDataCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ParcelTrackingData {
+        return function (?int $index): ?ParcelTrackingData {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ParcelTrackingData $data */

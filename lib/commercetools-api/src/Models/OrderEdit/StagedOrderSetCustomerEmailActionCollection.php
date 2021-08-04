@@ -41,7 +41,7 @@ class StagedOrderSetCustomerEmailActionCollection extends StagedOrderUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetCustomerEmailAction {
+        return function (?int $index): ?StagedOrderSetCustomerEmailAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetCustomerEmailAction $data */

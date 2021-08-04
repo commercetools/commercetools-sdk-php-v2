@@ -41,7 +41,7 @@ class StagedOrderUpdateSyncInfoActionCollection extends StagedOrderUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderUpdateSyncInfoAction {
+        return function (?int $index): ?StagedOrderUpdateSyncInfoAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderUpdateSyncInfoAction $data */

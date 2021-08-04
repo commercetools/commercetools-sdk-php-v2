@@ -41,7 +41,7 @@ class ProductRemovedFromCategoryMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductRemovedFromCategoryMessage {
+        return function (?int $index): ?ProductRemovedFromCategoryMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductRemovedFromCategoryMessage $data */

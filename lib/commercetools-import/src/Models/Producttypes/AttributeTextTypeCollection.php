@@ -41,7 +41,7 @@ class AttributeTextTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeTextType {
+        return function (?int $index): ?AttributeTextType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeTextType $data */

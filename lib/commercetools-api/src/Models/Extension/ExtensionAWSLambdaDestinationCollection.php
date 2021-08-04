@@ -41,7 +41,7 @@ class ExtensionAWSLambdaDestinationCollection extends ExtensionDestinationCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionAWSLambdaDestination {
+        return function (?int $index): ?ExtensionAWSLambdaDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionAWSLambdaDestination $data */

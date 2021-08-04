@@ -41,7 +41,7 @@ class MessageDeliveryCollection extends SubscriptionDeliveryCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MessageDelivery {
+        return function (?int $index): ?MessageDelivery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MessageDelivery $data */

@@ -41,7 +41,7 @@ class InventoryEntrySetSupplyChannelActionCollection extends InventoryEntryUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntrySetSupplyChannelAction {
+        return function (?int $index): ?InventoryEntrySetSupplyChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntrySetSupplyChannelAction $data */

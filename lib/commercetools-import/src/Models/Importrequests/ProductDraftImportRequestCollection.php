@@ -41,7 +41,7 @@ class ProductDraftImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDraftImportRequest {
+        return function (?int $index): ?ProductDraftImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDraftImportRequest $data */

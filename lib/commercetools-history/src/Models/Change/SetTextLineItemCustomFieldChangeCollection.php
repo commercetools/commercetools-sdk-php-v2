@@ -41,7 +41,7 @@ class SetTextLineItemCustomFieldChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTextLineItemCustomFieldChange {
+        return function (?int $index): ?SetTextLineItemCustomFieldChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTextLineItemCustomFieldChange $data */

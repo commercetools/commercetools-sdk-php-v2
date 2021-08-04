@@ -41,7 +41,7 @@ class SemanticErrorErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SemanticErrorError {
+        return function (?int $index): ?SemanticErrorError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SemanticErrorError $data */

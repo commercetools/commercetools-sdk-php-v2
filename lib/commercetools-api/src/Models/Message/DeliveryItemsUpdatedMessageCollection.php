@@ -41,7 +41,7 @@ class DeliveryItemsUpdatedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryItemsUpdatedMessage {
+        return function (?int $index): ?DeliveryItemsUpdatedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryItemsUpdatedMessage $data */

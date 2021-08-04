@@ -41,7 +41,7 @@ class InventoryEntryResourceIdentifierCollection extends ResourceIdentifierColle
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryResourceIdentifier {
+        return function (?int $index): ?InventoryEntryResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryResourceIdentifier $data */
