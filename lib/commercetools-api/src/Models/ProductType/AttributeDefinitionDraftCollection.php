@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributeDefinitionDraft>
  * @method AttributeDefinitionDraft current()
+ * @method AttributeDefinitionDraft end()
  * @method AttributeDefinitionDraft at($offset)
  */
 class AttributeDefinitionDraftCollection extends MapperSequence

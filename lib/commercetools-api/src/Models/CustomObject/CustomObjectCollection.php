@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<CustomObject>
  * @method CustomObject current()
+ * @method CustomObject end()
  * @method CustomObject at($offset)
  */
 class CustomObjectCollection extends BaseResourceCollection

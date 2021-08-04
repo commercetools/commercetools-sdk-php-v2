@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderField>
  * @method OrderField current()
+ * @method OrderField end()
  * @method OrderField at($offset)
  */
 class OrderFieldCollection extends MapperSequence

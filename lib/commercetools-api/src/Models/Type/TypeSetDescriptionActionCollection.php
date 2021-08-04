@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeSetDescriptionAction>
  * @method TypeSetDescriptionAction current()
+ * @method TypeSetDescriptionAction end()
  * @method TypeSetDescriptionAction at($offset)
  */
 class TypeSetDescriptionActionCollection extends TypeUpdateActionCollection

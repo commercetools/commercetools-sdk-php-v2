@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TrackingData>
  * @method TrackingData current()
+ * @method TrackingData end()
  * @method TrackingData at($offset)
  */
 class TrackingDataCollection extends MapperSequence

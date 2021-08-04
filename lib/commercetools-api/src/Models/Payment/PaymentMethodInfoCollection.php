@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<PaymentMethodInfo>
  * @method PaymentMethodInfo current()
+ * @method PaymentMethodInfo end()
  * @method PaymentMethodInfo at($offset)
  */
 class PaymentMethodInfoCollection extends MapperSequence

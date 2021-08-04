@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<UpdateSyncInfoChange>
  * @method UpdateSyncInfoChange current()
+ * @method UpdateSyncInfoChange end()
  * @method UpdateSyncInfoChange at($offset)
  */
 class UpdateSyncInfoChangeCollection extends ChangeCollection

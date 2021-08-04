@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelRemoveRolesAction>
  * @method ChannelRemoveRolesAction current()
+ * @method ChannelRemoveRolesAction end()
  * @method ChannelRemoveRolesAction at($offset)
  */
 class ChannelRemoveRolesActionCollection extends ChannelUpdateActionCollection

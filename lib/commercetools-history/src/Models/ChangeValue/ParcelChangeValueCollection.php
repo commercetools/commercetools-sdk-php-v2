@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ParcelChangeValue>
  * @method ParcelChangeValue current()
+ * @method ParcelChangeValue end()
  * @method ParcelChangeValue at($offset)
  */
 class ParcelChangeValueCollection extends MapperSequence

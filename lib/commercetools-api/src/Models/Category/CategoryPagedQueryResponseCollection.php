@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CategoryPagedQueryResponse>
  * @method CategoryPagedQueryResponse current()
+ * @method CategoryPagedQueryResponse end()
  * @method CategoryPagedQueryResponse at($offset)
  */
 class CategoryPagedQueryResponseCollection extends MapperSequence

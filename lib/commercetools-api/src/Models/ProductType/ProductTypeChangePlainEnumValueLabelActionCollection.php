@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangePlainEnumValueLabelAction>
  * @method ProductTypeChangePlainEnumValueLabelAction current()
+ * @method ProductTypeChangePlainEnumValueLabelAction end()
  * @method ProductTypeChangePlainEnumValueLabelAction at($offset)
  */
 class ProductTypeChangePlainEnumValueLabelActionCollection extends ProductTypeUpdateActionCollection

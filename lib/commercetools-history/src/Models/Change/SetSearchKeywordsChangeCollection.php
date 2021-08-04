@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSearchKeywordsChange>
  * @method SetSearchKeywordsChange current()
+ * @method SetSearchKeywordsChange end()
  * @method SetSearchKeywordsChange at($offset)
  */
 class SetSearchKeywordsChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportResourceCollection<CategoryImport>
  * @method CategoryImport current()
+ * @method CategoryImport end()
  * @method CategoryImport at($offset)
  */
 class CategoryImportCollection extends ImportResourceCollection

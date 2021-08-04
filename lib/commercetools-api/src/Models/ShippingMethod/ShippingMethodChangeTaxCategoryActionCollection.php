@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingMethodUpdateActionCollection<ShippingMethodChangeTaxCategoryAction>
  * @method ShippingMethodChangeTaxCategoryAction current()
+ * @method ShippingMethodChangeTaxCategoryAction end()
  * @method ShippingMethodChangeTaxCategoryAction at($offset)
  */
 class ShippingMethodChangeTaxCategoryActionCollection extends ShippingMethodUpdateActionCollection

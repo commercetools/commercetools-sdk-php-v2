@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<OrderShippingRateInputSetMessage>
  * @method OrderShippingRateInputSetMessage current()
+ * @method OrderShippingRateInputSetMessage end()
  * @method OrderShippingRateInputSetMessage at($offset)
  */
 class OrderShippingRateInputSetMessageCollection extends MessageCollection

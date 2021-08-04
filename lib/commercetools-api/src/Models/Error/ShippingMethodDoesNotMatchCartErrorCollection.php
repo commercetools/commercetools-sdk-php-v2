@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ShippingMethodDoesNotMatchCartError>
  * @method ShippingMethodDoesNotMatchCartError current()
+ * @method ShippingMethodDoesNotMatchCartError end()
  * @method ShippingMethodDoesNotMatchCartError at($offset)
  */
 class ShippingMethodDoesNotMatchCartErrorCollection extends ErrorObjectCollection

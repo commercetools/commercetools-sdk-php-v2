@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateFieldWithConflictingResourceError>
  * @method DuplicateFieldWithConflictingResourceError current()
+ * @method DuplicateFieldWithConflictingResourceError end()
  * @method DuplicateFieldWithConflictingResourceError at($offset)
  */
 class DuplicateFieldWithConflictingResourceErrorCollection extends ErrorObjectCollection

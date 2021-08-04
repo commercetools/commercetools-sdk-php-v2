@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InsufficientScopeError>
  * @method InsufficientScopeError current()
+ * @method InsufficientScopeError end()
  * @method InsufficientScopeError at($offset)
  */
 class InsufficientScopeErrorCollection extends ErrorObjectCollection

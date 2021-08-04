@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ErrorResponse>
  * @method ErrorResponse current()
+ * @method ErrorResponse end()
  * @method ErrorResponse at($offset)
  */
 class ErrorResponseCollection extends MapperSequence

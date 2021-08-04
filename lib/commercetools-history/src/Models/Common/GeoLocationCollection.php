@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GeoLocation>
  * @method GeoLocation current()
+ * @method GeoLocation end()
  * @method GeoLocation at($offset)
  */
 class GeoLocationCollection extends MapperSequence

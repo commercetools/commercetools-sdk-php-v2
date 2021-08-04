@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeAttributeOrderByNameAction>
  * @method ProductTypeChangeAttributeOrderByNameAction current()
+ * @method ProductTypeChangeAttributeOrderByNameAction end()
  * @method ProductTypeChangeAttributeOrderByNameAction at($offset)
  */
 class ProductTypeChangeAttributeOrderByNameActionCollection extends ProductTypeUpdateActionCollection

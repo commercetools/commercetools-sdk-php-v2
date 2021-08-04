@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MissingRoleOnChannelError>
  * @method MissingRoleOnChannelError current()
+ * @method MissingRoleOnChannelError end()
  * @method MissingRoleOnChannelError at($offset)
  */
 class MissingRoleOnChannelErrorCollection extends ErrorObjectCollection

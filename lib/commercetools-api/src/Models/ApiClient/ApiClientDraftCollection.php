@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ApiClientDraft>
  * @method ApiClientDraft current()
+ * @method ApiClientDraft end()
  * @method ApiClientDraft at($offset)
  */
 class ApiClientDraftCollection extends MapperSequence

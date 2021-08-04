@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingDataTaskStatus>
  * @method MissingDataTaskStatus current()
+ * @method MissingDataTaskStatus end()
  * @method MissingDataTaskStatus at($offset)
  */
 class MissingDataTaskStatusCollection extends MapperSequence

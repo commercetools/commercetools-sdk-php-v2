@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<PaymentLabel>
  * @method PaymentLabel current()
+ * @method PaymentLabel end()
  * @method PaymentLabel at($offset)
  */
 class PaymentLabelCollection extends LabelCollection

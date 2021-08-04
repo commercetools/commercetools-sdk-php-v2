@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<CustomerDateOfBirthSetMessage>
  * @method CustomerDateOfBirthSetMessage current()
+ * @method CustomerDateOfBirthSetMessage end()
  * @method CustomerDateOfBirthSetMessage at($offset)
  */
 class CustomerDateOfBirthSetMessageCollection extends MessageCollection

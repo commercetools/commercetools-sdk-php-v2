@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<UnpublishChange>
  * @method UnpublishChange current()
+ * @method UnpublishChange end()
  * @method UnpublishChange at($offset)
  */
 class UnpublishChangeCollection extends ChangeCollection

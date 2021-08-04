@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSkuChange>
  * @method SetSkuChange current()
+ * @method SetSkuChange end()
  * @method SetSkuChange at($offset)
  */
 class SetSkuChangeCollection extends ChangeCollection

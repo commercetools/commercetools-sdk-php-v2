@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderExcerpt>
  * @method OrderExcerpt current()
+ * @method OrderExcerpt end()
  * @method OrderExcerpt at($offset)
  */
 class OrderExcerptCollection extends MapperSequence

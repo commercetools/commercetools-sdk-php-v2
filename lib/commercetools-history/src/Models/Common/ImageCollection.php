@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Image>
  * @method Image current()
+ * @method Image end()
  * @method Image at($offset)
  */
 class ImageCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessagePayloadCollection<OrderStateChangedMessagePayload>
  * @method OrderStateChangedMessagePayload current()
+ * @method OrderStateChangedMessagePayload end()
  * @method OrderStateChangedMessagePayload at($offset)
  */
 class OrderStateChangedMessagePayloadCollection extends MessagePayloadCollection

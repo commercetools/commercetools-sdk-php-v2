@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<MoneySetAttribute>
  * @method MoneySetAttribute current()
+ * @method MoneySetAttribute end()
  * @method MoneySetAttribute at($offset)
  */
 class MoneySetAttributeCollection extends AttributeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetCustomerEmailAction>
  * @method StagedOrderSetCustomerEmailAction current()
+ * @method StagedOrderSetCustomerEmailAction end()
  * @method StagedOrderSetCustomerEmailAction at($offset)
  */
 class StagedOrderSetCustomerEmailActionCollection extends StagedOrderUpdateActionCollection

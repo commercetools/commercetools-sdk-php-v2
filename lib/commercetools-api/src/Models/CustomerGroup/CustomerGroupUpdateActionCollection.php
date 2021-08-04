@@ -16,8 +16,10 @@ use stdClass;
  * @template T of CustomerGroupUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method CustomerGroupUpdateAction current()
+ * @method CustomerGroupUpdateAction end()
  * @method CustomerGroupUpdateAction at($offset)
  */
 class CustomerGroupUpdateActionCollection extends MapperSequence

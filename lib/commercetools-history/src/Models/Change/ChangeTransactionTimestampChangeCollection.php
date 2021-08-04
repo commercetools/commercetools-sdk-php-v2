@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeTransactionTimestampChange>
  * @method ChangeTransactionTimestampChange current()
+ * @method ChangeTransactionTimestampChange end()
  * @method ChangeTransactionTimestampChange at($offset)
  */
 class ChangeTransactionTimestampChangeCollection extends ChangeCollection

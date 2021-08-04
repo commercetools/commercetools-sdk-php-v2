@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SubscriptionDeliveryCollection<ResourceCreatedDelivery>
  * @method ResourceCreatedDelivery current()
+ * @method ResourceCreatedDelivery end()
  * @method ResourceCreatedDelivery at($offset)
  */
 class ResourceCreatedDeliveryCollection extends SubscriptionDeliveryCollection

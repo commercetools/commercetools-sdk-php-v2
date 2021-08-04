@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ZoneUpdateActionCollection<ZoneSetKeyAction>
  * @method ZoneSetKeyAction current()
+ * @method ZoneSetKeyAction end()
  * @method ZoneSetKeyAction at($offset)
  */
 class ZoneSetKeyActionCollection extends ZoneUpdateActionCollection

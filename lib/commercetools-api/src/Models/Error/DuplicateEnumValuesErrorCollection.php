@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateEnumValuesError>
  * @method DuplicateEnumValuesError current()
+ * @method DuplicateEnumValuesError end()
  * @method DuplicateEnumValuesError at($offset)
  */
 class DuplicateEnumValuesErrorCollection extends ErrorObjectCollection

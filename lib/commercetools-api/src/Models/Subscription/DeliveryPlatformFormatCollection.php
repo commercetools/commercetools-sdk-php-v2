@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DeliveryFormatCollection<DeliveryPlatformFormat>
  * @method DeliveryPlatformFormat current()
+ * @method DeliveryPlatformFormat end()
  * @method DeliveryPlatformFormat at($offset)
  */
 class DeliveryPlatformFormatCollection extends DeliveryFormatCollection

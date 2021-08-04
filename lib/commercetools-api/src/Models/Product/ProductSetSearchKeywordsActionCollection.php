@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetSearchKeywordsAction>
  * @method ProductSetSearchKeywordsAction current()
+ * @method ProductSetSearchKeywordsAction end()
  * @method ProductSetSearchKeywordsAction at($offset)
  */
 class ProductSetSearchKeywordsActionCollection extends ProductUpdateActionCollection

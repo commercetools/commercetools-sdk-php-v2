@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRateInputCollection<ClassificationShippingRateInput>
  * @method ClassificationShippingRateInput current()
+ * @method ClassificationShippingRateInput end()
  * @method ClassificationShippingRateInput at($offset)
  */
 class ClassificationShippingRateInputCollection extends ShippingRateInputCollection

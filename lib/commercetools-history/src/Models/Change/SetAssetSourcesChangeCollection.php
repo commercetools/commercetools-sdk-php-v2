@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAssetSourcesChange>
  * @method SetAssetSourcesChange current()
+ * @method SetAssetSourcesChange end()
  * @method SetAssetSourcesChange at($offset)
  */
 class SetAssetSourcesChangeCollection extends ChangeCollection

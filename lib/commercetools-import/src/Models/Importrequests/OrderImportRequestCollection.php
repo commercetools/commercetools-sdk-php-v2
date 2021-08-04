@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<OrderImportRequest>
  * @method OrderImportRequest current()
+ * @method OrderImportRequest end()
  * @method OrderImportRequest at($offset)
  */
 class OrderImportRequestCollection extends ImportRequestCollection

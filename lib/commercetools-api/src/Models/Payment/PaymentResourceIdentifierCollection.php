@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<PaymentResourceIdentifier>
  * @method PaymentResourceIdentifier current()
+ * @method PaymentResourceIdentifier end()
  * @method PaymentResourceIdentifier at($offset)
  */
 class PaymentResourceIdentifierCollection extends ResourceIdentifierCollection

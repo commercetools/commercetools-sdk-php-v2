@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AnonymousIdAlreadyInUseError>
  * @method AnonymousIdAlreadyInUseError current()
+ * @method AnonymousIdAlreadyInUseError end()
  * @method AnonymousIdAlreadyInUseError at($offset)
  */
 class AnonymousIdAlreadyInUseErrorCollection extends ErrorObjectCollection

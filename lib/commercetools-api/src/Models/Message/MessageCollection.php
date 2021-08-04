@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Message
  * @extends BaseResourceCollection<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Message current()
+ * @method Message end()
  * @method Message at($offset)
  */
 class MessageCollection extends BaseResourceCollection

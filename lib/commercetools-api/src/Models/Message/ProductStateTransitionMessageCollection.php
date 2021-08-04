@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ProductStateTransitionMessage>
  * @method ProductStateTransitionMessage current()
+ * @method ProductStateTransitionMessage end()
  * @method ProductStateTransitionMessage at($offset)
  */
 class ProductStateTransitionMessageCollection extends MessageCollection

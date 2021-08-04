@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<MoveImageToPositionChange>
  * @method MoveImageToPositionChange current()
+ * @method MoveImageToPositionChange end()
  * @method MoveImageToPositionChange at($offset)
  */
 class MoveImageToPositionChangeCollection extends ChangeCollection

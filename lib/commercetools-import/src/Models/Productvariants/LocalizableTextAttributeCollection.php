@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<LocalizableTextAttribute>
  * @method LocalizableTextAttribute current()
+ * @method LocalizableTextAttribute end()
  * @method LocalizableTextAttribute at($offset)
  */
 class LocalizableTextAttributeCollection extends AttributeCollection

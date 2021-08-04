@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ProductImageAddedMessage>
  * @method ProductImageAddedMessage current()
+ * @method ProductImageAddedMessage end()
  * @method ProductImageAddedMessage at($offset)
  */
 class ProductImageAddedMessageCollection extends MessageCollection

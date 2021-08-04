@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ShoppingListReference>
  * @method ShoppingListReference current()
+ * @method ShoppingListReference end()
  * @method ShoppingListReference at($offset)
  */
 class ShoppingListReferenceCollection extends ReferenceCollection

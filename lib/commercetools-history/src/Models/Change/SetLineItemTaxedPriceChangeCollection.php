@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLineItemTaxedPriceChange>
  * @method SetLineItemTaxedPriceChange current()
+ * @method SetLineItemTaxedPriceChange end()
  * @method SetLineItemTaxedPriceChange at($offset)
  */
 class SetLineItemTaxedPriceChangeCollection extends ChangeCollection

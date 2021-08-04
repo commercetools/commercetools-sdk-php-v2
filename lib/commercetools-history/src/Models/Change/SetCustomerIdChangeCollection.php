@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomerIdChange>
  * @method SetCustomerIdChange current()
+ * @method SetCustomerIdChange end()
  * @method SetCustomerIdChange at($offset)
  */
 class SetCustomerIdChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MyTransactionDraft>
  * @method MyTransactionDraft current()
+ * @method MyTransactionDraft end()
  * @method MyTransactionDraft at($offset)
  */
 class MyTransactionDraftCollection extends MapperSequence

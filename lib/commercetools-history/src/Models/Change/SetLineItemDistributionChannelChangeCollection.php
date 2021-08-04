@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLineItemDistributionChannelChange>
  * @method SetLineItemDistributionChannelChange current()
+ * @method SetLineItemDistributionChannelChange end()
  * @method SetLineItemDistributionChannelChange at($offset)
  */
 class SetLineItemDistributionChannelChangeCollection extends ChangeCollection

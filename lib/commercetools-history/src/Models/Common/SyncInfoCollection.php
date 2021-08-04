@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SyncInfo>
  * @method SyncInfo current()
+ * @method SyncInfo end()
  * @method SyncInfo at($offset)
  */
 class SyncInfoCollection extends MapperSequence

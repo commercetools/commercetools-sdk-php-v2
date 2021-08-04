@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRateInputTypeCollection<CartScoreType>
  * @method CartScoreType current()
+ * @method CartScoreType end()
  * @method CartScoreType at($offset)
  */
 class CartScoreTypeCollection extends ShippingRateInputTypeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetParcelTrackingDataAction>
  * @method StagedOrderSetParcelTrackingDataAction current()
+ * @method StagedOrderSetParcelTrackingDataAction end()
  * @method StagedOrderSetParcelTrackingDataAction at($offset)
  */
 class StagedOrderSetParcelTrackingDataActionCollection extends StagedOrderUpdateActionCollection

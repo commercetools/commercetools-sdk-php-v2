@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeReviewRatingStatisticsChange>
  * @method ChangeReviewRatingStatisticsChange current()
+ * @method ChangeReviewRatingStatisticsChange end()
  * @method ChangeReviewRatingStatisticsChange at($offset)
  */
 class ChangeReviewRatingStatisticsChangeCollection extends ChangeCollection

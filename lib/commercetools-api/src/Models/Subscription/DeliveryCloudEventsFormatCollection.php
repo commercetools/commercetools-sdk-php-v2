@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DeliveryFormatCollection<DeliveryCloudEventsFormat>
  * @method DeliveryCloudEventsFormat current()
+ * @method DeliveryCloudEventsFormat end()
  * @method DeliveryCloudEventsFormat at($offset)
  */
 class DeliveryCloudEventsFormatCollection extends DeliveryFormatCollection

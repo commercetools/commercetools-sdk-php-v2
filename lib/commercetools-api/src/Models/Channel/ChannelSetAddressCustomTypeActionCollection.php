@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelSetAddressCustomTypeAction>
  * @method ChannelSetAddressCustomTypeAction current()
+ * @method ChannelSetAddressCustomTypeAction end()
  * @method ChannelSetAddressCustomTypeAction at($offset)
  */
 class ChannelSetAddressCustomTypeActionCollection extends ChannelUpdateActionCollection

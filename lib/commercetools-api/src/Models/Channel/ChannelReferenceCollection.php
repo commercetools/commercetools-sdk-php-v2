@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ChannelReference>
  * @method ChannelReference current()
+ * @method ChannelReference end()
  * @method ChannelReference at($offset)
  */
 class ChannelReferenceCollection extends ReferenceCollection

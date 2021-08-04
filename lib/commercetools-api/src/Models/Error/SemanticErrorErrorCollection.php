@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SemanticErrorError>
  * @method SemanticErrorError current()
+ * @method SemanticErrorError end()
  * @method SemanticErrorError at($offset)
  */
 class SemanticErrorErrorCollection extends ErrorObjectCollection

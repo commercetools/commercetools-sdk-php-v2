@@ -16,8 +16,10 @@ use stdClass;
  * @template T of CartDiscountValueDraft
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method CartDiscountValueDraft current()
+ * @method CartDiscountValueDraft end()
  * @method CartDiscountValueDraft at($offset)
  */
 class CartDiscountValueDraftCollection extends MapperSequence

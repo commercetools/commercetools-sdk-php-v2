@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSupplyChannelsChange>
  * @method SetSupplyChannelsChange current()
+ * @method SetSupplyChannelsChange end()
  * @method SetSupplyChannelsChange at($offset)
  */
 class SetSupplyChannelsChangeCollection extends ChangeCollection

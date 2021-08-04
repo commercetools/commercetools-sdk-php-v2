@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderChangeCustomLineItemQuantityAction>
  * @method StagedOrderChangeCustomLineItemQuantityAction current()
+ * @method StagedOrderChangeCustomLineItemQuantityAction end()
  * @method StagedOrderChangeCustomLineItemQuantityAction at($offset)
  */
 class StagedOrderChangeCustomLineItemQuantityActionCollection extends StagedOrderUpdateActionCollection

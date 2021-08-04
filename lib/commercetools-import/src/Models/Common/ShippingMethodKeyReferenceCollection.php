@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<ShippingMethodKeyReference>
  * @method ShippingMethodKeyReference current()
+ * @method ShippingMethodKeyReference end()
  * @method ShippingMethodKeyReference at($offset)
  */
 class ShippingMethodKeyReferenceCollection extends KeyReferenceCollection

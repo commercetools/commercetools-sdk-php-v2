@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SubscriptionUpdateActionCollection<SubscriptionChangeDestinationAction>
  * @method SubscriptionChangeDestinationAction current()
+ * @method SubscriptionChangeDestinationAction end()
  * @method SubscriptionChangeDestinationAction at($offset)
  */
 class SubscriptionChangeDestinationActionCollection extends SubscriptionUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetMiddleNameChange>
  * @method SetMiddleNameChange current()
+ * @method SetMiddleNameChange end()
  * @method SetMiddleNameChange at($offset)
  */
 class SetMiddleNameChangeCollection extends ChangeCollection

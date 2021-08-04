@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductAddExternalImageAction>
  * @method ProductAddExternalImageAction current()
+ * @method ProductAddExternalImageAction end()
  * @method ProductAddExternalImageAction at($offset)
  */
 class ProductAddExternalImageActionCollection extends ProductUpdateActionCollection

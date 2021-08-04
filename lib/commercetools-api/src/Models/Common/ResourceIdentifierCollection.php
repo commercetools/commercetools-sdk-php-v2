@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ResourceIdentifier
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ResourceIdentifier current()
+ * @method ResourceIdentifier end()
  * @method ResourceIdentifier at($offset)
  */
 class ResourceIdentifierCollection extends MapperSequence

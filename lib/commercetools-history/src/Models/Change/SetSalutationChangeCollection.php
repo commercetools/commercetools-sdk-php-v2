@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSalutationChange>
  * @method SetSalutationChange current()
+ * @method SetSalutationChange end()
  * @method SetSalutationChange at($offset)
  */
 class SetSalutationChangeCollection extends ChangeCollection

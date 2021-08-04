@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ParcelAddedToDeliveryMessage>
  * @method ParcelAddedToDeliveryMessage current()
+ * @method ParcelAddedToDeliveryMessage end()
  * @method ParcelAddedToDeliveryMessage at($offset)
  */
 class ParcelAddedToDeliveryMessageCollection extends MessageCollection

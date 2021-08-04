@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ReferenceExistsError>
  * @method ReferenceExistsError current()
+ * @method ReferenceExistsError end()
  * @method ReferenceExistsError at($offset)
  */
 class ReferenceExistsErrorCollection extends ErrorObjectCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<QueryComplexityLimitExceededError>
  * @method QueryComplexityLimitExceededError current()
+ * @method QueryComplexityLimitExceededError end()
  * @method QueryComplexityLimitExceededError at($offset)
  */
 class QueryComplexityLimitExceededErrorCollection extends ErrorObjectCollection

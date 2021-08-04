@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypedMoneyDraftCollection<HighPrecisionMoneyDraft>
  * @method HighPrecisionMoneyDraft current()
+ * @method HighPrecisionMoneyDraft end()
  * @method HighPrecisionMoneyDraft at($offset)
  */
 class HighPrecisionMoneyDraftCollection extends TypedMoneyDraftCollection

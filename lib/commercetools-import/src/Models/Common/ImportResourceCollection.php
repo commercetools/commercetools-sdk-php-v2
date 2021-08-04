@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ImportResource
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ImportResource current()
+ * @method ImportResource end()
  * @method ImportResource at($offset)
  */
 class ImportResourceCollection extends MapperSequence

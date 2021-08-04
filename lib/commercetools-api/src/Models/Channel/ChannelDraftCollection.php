@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ChannelDraft>
  * @method ChannelDraft current()
+ * @method ChannelDraft end()
  * @method ChannelDraft at($offset)
  */
 class ChannelDraftCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ZoneReference>
  * @method ZoneReference current()
+ * @method ZoneReference end()
  * @method ZoneReference at($offset)
  */
 class ZoneReferenceCollection extends ReferenceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<VariantValues>
  * @method VariantValues current()
+ * @method VariantValues end()
  * @method VariantValues at($offset)
  */
 class VariantValuesCollection extends MapperSequence

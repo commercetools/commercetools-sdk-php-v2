@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<LineItemProductVariantImportDraft>
  * @method LineItemProductVariantImportDraft current()
+ * @method LineItemProductVariantImportDraft end()
  * @method LineItemProductVariantImportDraft at($offset)
  */
 class LineItemProductVariantImportDraftCollection extends MapperSequence

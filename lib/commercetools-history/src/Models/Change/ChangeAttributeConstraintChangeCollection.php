@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAttributeConstraintChange>
  * @method ChangeAttributeConstraintChange current()
+ * @method ChangeAttributeConstraintChange end()
  * @method ChangeAttributeConstraintChange at($offset)
  */
 class ChangeAttributeConstraintChangeCollection extends ChangeCollection

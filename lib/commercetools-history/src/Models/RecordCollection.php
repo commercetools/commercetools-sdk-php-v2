@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Record>
  * @method Record current()
+ * @method Record end()
  * @method Record at($offset)
  */
 class RecordCollection extends MapperSequence

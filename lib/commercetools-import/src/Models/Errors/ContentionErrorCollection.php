@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ContentionError>
  * @method ContentionError current()
+ * @method ContentionError end()
  * @method ContentionError at($offset)
  */
 class ContentionErrorCollection extends ErrorObjectCollection

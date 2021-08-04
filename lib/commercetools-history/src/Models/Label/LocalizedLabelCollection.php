@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<LocalizedLabel>
  * @method LocalizedLabel current()
+ * @method LocalizedLabel end()
  * @method LocalizedLabel at($offset)
  */
 class LocalizedLabelCollection extends LabelCollection

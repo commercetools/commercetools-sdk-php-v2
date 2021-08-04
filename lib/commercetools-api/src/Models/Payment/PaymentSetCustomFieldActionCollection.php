@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends PaymentUpdateActionCollection<PaymentSetCustomFieldAction>
  * @method PaymentSetCustomFieldAction current()
+ * @method PaymentSetCustomFieldAction end()
  * @method PaymentSetCustomFieldAction at($offset)
  */
 class PaymentSetCustomFieldActionCollection extends PaymentUpdateActionCollection

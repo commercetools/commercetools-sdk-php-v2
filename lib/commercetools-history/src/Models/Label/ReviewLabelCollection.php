@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<ReviewLabel>
  * @method ReviewLabel current()
+ * @method ReviewLabel end()
  * @method ReviewLabel at($offset)
  */
 class ReviewLabelCollection extends LabelCollection

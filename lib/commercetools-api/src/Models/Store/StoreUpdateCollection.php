@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<StoreUpdate>
  * @method StoreUpdate current()
+ * @method StoreUpdate end()
  * @method StoreUpdate at($offset)
  */
 class StoreUpdateCollection extends MapperSequence

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of OrderEditResult
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method OrderEditResult current()
+ * @method OrderEditResult end()
  * @method OrderEditResult at($offset)
  */
 class OrderEditResultCollection extends MapperSequence

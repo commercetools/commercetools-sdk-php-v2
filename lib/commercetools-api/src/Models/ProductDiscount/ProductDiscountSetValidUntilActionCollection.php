@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductDiscountUpdateActionCollection<ProductDiscountSetValidUntilAction>
  * @method ProductDiscountSetValidUntilAction current()
+ * @method ProductDiscountSetValidUntilAction end()
  * @method ProductDiscountSetValidUntilAction at($offset)
  */
 class ProductDiscountSetValidUntilActionCollection extends ProductDiscountUpdateActionCollection

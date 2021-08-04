@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<TaxCategoryKeyReference>
  * @method TaxCategoryKeyReference current()
+ * @method TaxCategoryKeyReference end()
  * @method TaxCategoryKeyReference at($offset)
  */
 class TaxCategoryKeyReferenceCollection extends KeyReferenceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GeneralCategoryRecommendation>
  * @method GeneralCategoryRecommendation current()
+ * @method GeneralCategoryRecommendation end()
  * @method GeneralCategoryRecommendation at($offset)
  */
 class GeneralCategoryRecommendationCollection extends MapperSequence

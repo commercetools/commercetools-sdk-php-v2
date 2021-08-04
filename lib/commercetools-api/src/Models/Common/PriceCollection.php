@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Price>
  * @method Price current()
+ * @method Price end()
  * @method Price at($offset)
  */
 class PriceCollection extends MapperSequence

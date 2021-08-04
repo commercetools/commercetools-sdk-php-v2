@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ExtensionInput>
  * @method ExtensionInput current()
+ * @method ExtensionInput end()
  * @method ExtensionInput at($offset)
  */
 class ExtensionInputCollection extends MapperSequence

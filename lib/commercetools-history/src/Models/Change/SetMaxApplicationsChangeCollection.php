@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetMaxApplicationsChange>
  * @method SetMaxApplicationsChange current()
+ * @method SetMaxApplicationsChange end()
  * @method SetMaxApplicationsChange at($offset)
  */
 class SetMaxApplicationsChangeCollection extends ChangeCollection

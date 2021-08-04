@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetCustomFieldAction>
  * @method InventoryEntrySetCustomFieldAction current()
+ * @method InventoryEntrySetCustomFieldAction end()
  * @method InventoryEntrySetCustomFieldAction at($offset)
  */
 class InventoryEntrySetCustomFieldActionCollection extends InventoryEntryUpdateActionCollection

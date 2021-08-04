@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<NumberSetField>
  * @method NumberSetField current()
+ * @method NumberSetField end()
  * @method NumberSetField at($offset)
  */
 class NumberSetFieldCollection extends CustomFieldCollection

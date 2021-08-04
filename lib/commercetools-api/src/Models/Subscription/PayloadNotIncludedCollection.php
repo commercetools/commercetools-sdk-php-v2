@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<PayloadNotIncluded>
  * @method PayloadNotIncluded current()
+ * @method PayloadNotIncluded end()
  * @method PayloadNotIncluded at($offset)
  */
 class PayloadNotIncludedCollection extends MapperSequence

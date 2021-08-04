@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReviewDraft>
  * @method ReviewDraft current()
+ * @method ReviewDraft end()
  * @method ReviewDraft at($offset)
  */
 class ReviewDraftCollection extends MapperSequence

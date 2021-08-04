@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImageDimensions>
  * @method ImageDimensions current()
+ * @method ImageDimensions end()
  * @method ImageDimensions at($offset)
  */
 class ImageDimensionsCollection extends MapperSequence

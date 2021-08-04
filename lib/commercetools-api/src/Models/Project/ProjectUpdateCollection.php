@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProjectUpdate>
  * @method ProjectUpdate current()
+ * @method ProjectUpdate end()
  * @method ProjectUpdate at($offset)
  */
 class ProjectUpdateCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Extension>
  * @method Extension current()
+ * @method Extension end()
  * @method Extension at($offset)
  */
 class ExtensionCollection extends BaseResourceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<InventoryEntryReference>
  * @method InventoryEntryReference current()
+ * @method InventoryEntryReference end()
  * @method InventoryEntryReference at($offset)
  */
 class InventoryEntryReferenceCollection extends ReferenceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategoryChangeAssetOrderAction>
  * @method CategoryChangeAssetOrderAction current()
+ * @method CategoryChangeAssetOrderAction end()
  * @method CategoryChangeAssetOrderAction at($offset)
  */
 class CategoryChangeAssetOrderActionCollection extends CategoryUpdateActionCollection

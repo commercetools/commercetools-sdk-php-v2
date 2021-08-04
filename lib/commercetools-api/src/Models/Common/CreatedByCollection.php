@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ClientLoggingCollection<CreatedBy>
  * @method CreatedBy current()
+ * @method CreatedBy end()
  * @method CreatedBy at($offset)
  */
 class CreatedByCollection extends ClientLoggingCollection

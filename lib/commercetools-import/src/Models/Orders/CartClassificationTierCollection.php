@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRatePriceTierCollection<CartClassificationTier>
  * @method CartClassificationTier current()
+ * @method CartClassificationTier end()
  * @method CartClassificationTier at($offset)
  */
 class CartClassificationTierCollection extends ShippingRatePriceTierCollection

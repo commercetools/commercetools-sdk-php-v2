@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<ShippingMethodResourceIdentifier>
  * @method ShippingMethodResourceIdentifier current()
+ * @method ShippingMethodResourceIdentifier end()
  * @method ShippingMethodResourceIdentifier at($offset)
  */
 class ShippingMethodResourceIdentifierCollection extends ResourceIdentifierCollection

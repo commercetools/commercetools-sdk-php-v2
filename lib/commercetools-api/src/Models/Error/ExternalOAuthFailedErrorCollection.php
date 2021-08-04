@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ExternalOAuthFailedError>
  * @method ExternalOAuthFailedError current()
+ * @method ExternalOAuthFailedError end()
  * @method ExternalOAuthFailedError at($offset)
  */
 class ExternalOAuthFailedErrorCollection extends ErrorObjectCollection

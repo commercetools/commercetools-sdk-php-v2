@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<OrderLineItemAddedMessage>
  * @method OrderLineItemAddedMessage current()
+ * @method OrderLineItemAddedMessage end()
  * @method OrderLineItemAddedMessage at($offset)
  */
 class OrderLineItemAddedMessageCollection extends MessageCollection

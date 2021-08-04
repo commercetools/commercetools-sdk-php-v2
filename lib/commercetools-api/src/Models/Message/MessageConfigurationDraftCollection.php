@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MessageConfigurationDraft>
  * @method MessageConfigurationDraft current()
+ * @method MessageConfigurationDraft end()
  * @method MessageConfigurationDraft at($offset)
  */
 class MessageConfigurationDraftCollection extends MapperSequence

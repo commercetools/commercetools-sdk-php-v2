@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Attribute
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Attribute current()
+ * @method Attribute end()
  * @method Attribute at($offset)
  */
 class AttributeCollection extends MapperSequence

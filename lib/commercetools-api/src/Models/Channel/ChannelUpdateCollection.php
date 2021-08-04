@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ChannelUpdate>
  * @method ChannelUpdate current()
+ * @method ChannelUpdate end()
  * @method ChannelUpdate at($offset)
  */
 class ChannelUpdateCollection extends MapperSequence

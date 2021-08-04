@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetImageLabelChange>
  * @method SetImageLabelChange current()
+ * @method SetImageLabelChange end()
  * @method SetImageLabelChange at($offset)
  */
 class SetImageLabelChangeCollection extends ChangeCollection

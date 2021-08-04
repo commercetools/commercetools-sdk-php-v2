@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Payment>
  * @method Payment current()
+ * @method Payment end()
  * @method Payment at($offset)
  */
 class PaymentCollection extends BaseResourceCollection

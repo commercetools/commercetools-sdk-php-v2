@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<PaymentTransactionAddedMessage>
  * @method PaymentTransactionAddedMessage current()
+ * @method PaymentTransactionAddedMessage end()
  * @method PaymentTransactionAddedMessage at($offset)
  */
 class PaymentTransactionAddedMessageCollection extends MessageCollection

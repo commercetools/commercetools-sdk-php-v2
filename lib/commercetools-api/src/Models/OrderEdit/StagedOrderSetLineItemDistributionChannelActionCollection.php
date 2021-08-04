@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetLineItemDistributionChannelAction>
  * @method StagedOrderSetLineItemDistributionChannelAction current()
+ * @method StagedOrderSetLineItemDistributionChannelAction end()
  * @method StagedOrderSetLineItemDistributionChannelAction at($offset)
  */
 class StagedOrderSetLineItemDistributionChannelActionCollection extends StagedOrderUpdateActionCollection

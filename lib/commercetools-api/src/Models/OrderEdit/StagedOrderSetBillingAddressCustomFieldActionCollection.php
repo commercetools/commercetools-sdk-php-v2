@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetBillingAddressCustomFieldAction>
  * @method StagedOrderSetBillingAddressCustomFieldAction current()
+ * @method StagedOrderSetBillingAddressCustomFieldAction end()
  * @method StagedOrderSetBillingAddressCustomFieldAction at($offset)
  */
 class StagedOrderSetBillingAddressCustomFieldActionCollection extends StagedOrderUpdateActionCollection

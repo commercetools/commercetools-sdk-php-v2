@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAnonymousIdChange>
  * @method SetAnonymousIdChange current()
+ * @method SetAnonymousIdChange end()
  * @method SetAnonymousIdChange at($offset)
  */
 class SetAnonymousIdChangeCollection extends ChangeCollection

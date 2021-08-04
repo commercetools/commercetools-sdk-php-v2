@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SubscriptionDraft>
  * @method SubscriptionDraft current()
+ * @method SubscriptionDraft end()
  * @method SubscriptionDraft at($offset)
  */
 class SubscriptionDraftCollection extends MapperSequence

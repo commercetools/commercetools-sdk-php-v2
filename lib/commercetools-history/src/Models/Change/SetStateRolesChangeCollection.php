@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetStateRolesChange>
  * @method SetStateRolesChange current()
+ * @method SetStateRolesChange end()
  * @method SetStateRolesChange at($offset)
  */
 class SetStateRolesChangeCollection extends ChangeCollection

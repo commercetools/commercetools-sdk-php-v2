@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReturnItemCollection<LineItemReturnItem>
  * @method LineItemReturnItem current()
+ * @method LineItemReturnItem end()
  * @method LineItemReturnItem at($offset)
  */
 class LineItemReturnItemCollection extends ReturnItemCollection

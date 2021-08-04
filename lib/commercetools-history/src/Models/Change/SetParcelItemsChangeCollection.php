@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetParcelItemsChange>
  * @method SetParcelItemsChange current()
+ * @method SetParcelItemsChange end()
  * @method SetParcelItemsChange at($offset)
  */
 class SetParcelItemsChangeCollection extends ChangeCollection

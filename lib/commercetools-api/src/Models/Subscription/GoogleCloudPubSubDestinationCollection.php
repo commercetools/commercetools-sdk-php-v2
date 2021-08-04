@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<GoogleCloudPubSubDestination>
  * @method GoogleCloudPubSubDestination current()
+ * @method GoogleCloudPubSubDestination end()
  * @method GoogleCloudPubSubDestination at($offset)
  */
 class GoogleCloudPubSubDestinationCollection extends DestinationCollection

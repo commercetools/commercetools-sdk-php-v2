@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeCartsConfiguration>
  * @method ProjectChangeCartsConfiguration current()
+ * @method ProjectChangeCartsConfiguration end()
  * @method ProjectChangeCartsConfiguration at($offset)
  */
 class ProjectChangeCartsConfigurationCollection extends ProjectUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProjectCategoryRecommendationMeta>
  * @method ProjectCategoryRecommendationMeta current()
+ * @method ProjectCategoryRecommendationMeta end()
  * @method ProjectCategoryRecommendationMeta at($offset)
  */
 class ProjectCategoryRecommendationMetaCollection extends MapperSequence

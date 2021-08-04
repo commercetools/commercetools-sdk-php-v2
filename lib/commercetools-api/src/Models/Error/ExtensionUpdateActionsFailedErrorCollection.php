@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ExtensionUpdateActionsFailedError>
  * @method ExtensionUpdateActionsFailedError current()
+ * @method ExtensionUpdateActionsFailedError end()
  * @method ExtensionUpdateActionsFailedError at($offset)
  */
 class ExtensionUpdateActionsFailedErrorCollection extends ErrorObjectCollection

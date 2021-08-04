@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeShipmentStateChange>
  * @method ChangeShipmentStateChange current()
+ * @method ChangeShipmentStateChange end()
  * @method ChangeShipmentStateChange at($offset)
  */
 class ChangeShipmentStateChangeCollection extends ChangeCollection

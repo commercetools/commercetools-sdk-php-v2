@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<CustomerGroup>
  * @method CustomerGroup current()
+ * @method CustomerGroup end()
  * @method CustomerGroup at($offset)
  */
 class CustomerGroupCollection extends BaseResourceCollection

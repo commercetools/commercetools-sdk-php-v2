@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveVariantChange>
  * @method RemoveVariantChange current()
+ * @method RemoveVariantChange end()
  * @method RemoveVariantChange at($offset)
  */
 class RemoveVariantChangeCollection extends ChangeCollection

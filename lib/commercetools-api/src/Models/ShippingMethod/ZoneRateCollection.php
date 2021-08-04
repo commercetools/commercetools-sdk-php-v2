@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ZoneRate>
  * @method ZoneRate current()
+ * @method ZoneRate end()
  * @method ZoneRate at($offset)
  */
 class ZoneRateCollection extends MapperSequence

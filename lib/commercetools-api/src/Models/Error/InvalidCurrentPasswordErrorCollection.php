@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidCurrentPasswordError>
  * @method InvalidCurrentPasswordError current()
+ * @method InvalidCurrentPasswordError end()
  * @method InvalidCurrentPasswordError at($offset)
  */
 class InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection

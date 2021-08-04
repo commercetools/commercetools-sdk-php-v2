@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeNestedType>
  * @method AttributeNestedType current()
+ * @method AttributeNestedType end()
  * @method AttributeNestedType at($offset)
  */
 class AttributeNestedTypeCollection extends AttributeTypeCollection

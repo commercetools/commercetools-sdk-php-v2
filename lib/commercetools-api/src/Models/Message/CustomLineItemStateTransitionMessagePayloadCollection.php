@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessagePayloadCollection<CustomLineItemStateTransitionMessagePayload>
  * @method CustomLineItemStateTransitionMessagePayload current()
+ * @method CustomLineItemStateTransitionMessagePayload end()
  * @method CustomLineItemStateTransitionMessagePayload at($offset)
  */
 class CustomLineItemStateTransitionMessagePayloadCollection extends MessagePayloadCollection

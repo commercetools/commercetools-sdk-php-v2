@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InternalConstraintViolatedError>
  * @method InternalConstraintViolatedError current()
+ * @method InternalConstraintViolatedError end()
  * @method InternalConstraintViolatedError at($offset)
  */
 class InternalConstraintViolatedErrorCollection extends ErrorObjectCollection

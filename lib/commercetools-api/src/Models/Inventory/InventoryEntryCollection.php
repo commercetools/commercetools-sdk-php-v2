@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<InventoryEntry>
  * @method InventoryEntry current()
+ * @method InventoryEntry end()
  * @method InventoryEntry at($offset)
  */
 class InventoryEntryCollection extends BaseResourceCollection

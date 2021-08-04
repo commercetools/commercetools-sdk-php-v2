@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetExternalIdAction>
  * @method CategorySetExternalIdAction current()
+ * @method CategorySetExternalIdAction end()
  * @method CategorySetExternalIdAction at($offset)
  */
 class CategorySetExternalIdActionCollection extends CategoryUpdateActionCollection

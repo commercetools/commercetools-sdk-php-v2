@@ -16,8 +16,10 @@ use stdClass;
  * @template T of KeyReference
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method KeyReference current()
+ * @method KeyReference end()
  * @method KeyReference at($offset)
  */
 class KeyReferenceCollection extends MapperSequence

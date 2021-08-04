@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<ZoneResourceIdentifier>
  * @method ZoneResourceIdentifier current()
+ * @method ZoneResourceIdentifier end()
  * @method ZoneResourceIdentifier at($offset)
  */
 class ZoneResourceIdentifierCollection extends ResourceIdentifierCollection

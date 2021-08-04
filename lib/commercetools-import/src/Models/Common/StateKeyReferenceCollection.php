@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<StateKeyReference>
  * @method StateKeyReference current()
+ * @method StateKeyReference end()
  * @method StateKeyReference at($offset)
  */
 class StateKeyReferenceCollection extends KeyReferenceCollection

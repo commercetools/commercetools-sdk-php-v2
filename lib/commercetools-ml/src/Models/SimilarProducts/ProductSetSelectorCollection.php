@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductSetSelector>
  * @method ProductSetSelector current()
+ * @method ProductSetSelector end()
  * @method ProductSetSelector at($offset)
  */
 class ProductSetSelectorCollection extends MapperSequence

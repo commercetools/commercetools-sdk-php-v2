@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FieldContainer>
  * @method FieldContainer current()
+ * @method FieldContainer end()
  * @method FieldContainer at($offset)
  */
 class FieldContainerCollection extends MapperSequence

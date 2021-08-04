@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<CustomerGroupReference>
  * @method CustomerGroupReference current()
+ * @method CustomerGroupReference end()
  * @method CustomerGroupReference at($offset)
  */
 class CustomerGroupReferenceCollection extends ReferenceCollection

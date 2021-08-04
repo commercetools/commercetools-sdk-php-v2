@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeLocalizedEnumType>
  * @method AttributeLocalizedEnumType current()
+ * @method AttributeLocalizedEnumType end()
  * @method AttributeLocalizedEnumType at($offset)
  */
 class AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection

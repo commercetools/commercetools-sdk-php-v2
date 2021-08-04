@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetDeleteDaysAfterLastModificationChange>
  * @method SetDeleteDaysAfterLastModificationChange current()
+ * @method SetDeleteDaysAfterLastModificationChange end()
  * @method SetDeleteDaysAfterLastModificationChange at($offset)
  */
 class SetDeleteDaysAfterLastModificationChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchIndexingInProgressError>
  * @method SearchIndexingInProgressError current()
+ * @method SearchIndexingInProgressError end()
  * @method SearchIndexingInProgressError at($offset)
  */
 class SearchIndexingInProgressErrorCollection extends ErrorObjectCollection

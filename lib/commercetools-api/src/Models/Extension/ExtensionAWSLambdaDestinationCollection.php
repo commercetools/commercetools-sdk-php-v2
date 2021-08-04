@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionDestinationCollection<ExtensionAWSLambdaDestination>
  * @method ExtensionAWSLambdaDestination current()
+ * @method ExtensionAWSLambdaDestination end()
  * @method ExtensionAWSLambdaDestination at($offset)
  */
 class ExtensionAWSLambdaDestinationCollection extends ExtensionDestinationCollection

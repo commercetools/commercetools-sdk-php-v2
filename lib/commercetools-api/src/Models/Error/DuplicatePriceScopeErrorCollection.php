@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicatePriceScopeError>
  * @method DuplicatePriceScopeError current()
+ * @method DuplicatePriceScopeError end()
  * @method DuplicatePriceScopeError at($offset)
  */
 class DuplicatePriceScopeErrorCollection extends ErrorObjectCollection

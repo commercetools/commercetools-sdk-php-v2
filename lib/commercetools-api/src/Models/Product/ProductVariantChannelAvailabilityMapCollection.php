@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductVariantChannelAvailabilityMap>
  * @method ProductVariantChannelAvailabilityMap current()
+ * @method ProductVariantChannelAvailabilityMap end()
  * @method ProductVariantChannelAvailabilityMap at($offset)
  */
 class ProductVariantChannelAvailabilityMapCollection extends MapperSequence

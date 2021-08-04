@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAttributeChange>
  * @method SetAttributeChange current()
+ * @method SetAttributeChange end()
  * @method SetAttributeChange at($offset)
  */
 class SetAttributeChangeCollection extends ChangeCollection

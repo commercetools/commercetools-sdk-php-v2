@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Order
  * @extends BaseResourceCollection<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Order current()
+ * @method Order end()
  * @method Order at($offset)
  */
 class OrderCollection extends BaseResourceCollection

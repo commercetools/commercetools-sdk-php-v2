@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ExtensionNoResponseError>
  * @method ExtensionNoResponseError current()
+ * @method ExtensionNoResponseError end()
  * @method ExtensionNoResponseError at($offset)
  */
 class ExtensionNoResponseErrorCollection extends ErrorObjectCollection

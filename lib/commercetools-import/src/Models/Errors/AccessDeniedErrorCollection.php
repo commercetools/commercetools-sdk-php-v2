@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AccessDeniedError>
  * @method AccessDeniedError current()
+ * @method AccessDeniedError end()
  * @method AccessDeniedError at($offset)
  */
 class AccessDeniedErrorCollection extends ErrorObjectCollection

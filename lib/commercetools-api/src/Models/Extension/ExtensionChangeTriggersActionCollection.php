@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionUpdateActionCollection<ExtensionChangeTriggersAction>
  * @method ExtensionChangeTriggersAction current()
+ * @method ExtensionChangeTriggersAction end()
  * @method ExtensionChangeTriggersAction at($offset)
  */
 class ExtensionChangeTriggersActionCollection extends ExtensionUpdateActionCollection

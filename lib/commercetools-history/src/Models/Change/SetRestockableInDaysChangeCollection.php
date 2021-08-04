@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetRestockableInDaysChange>
  * @method SetRestockableInDaysChange current()
+ * @method SetRestockableInDaysChange end()
  * @method SetRestockableInDaysChange at($offset)
  */
 class SetRestockableInDaysChangeCollection extends ChangeCollection

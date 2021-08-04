@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends PaymentUpdateActionCollection<PaymentSetAnonymousIdAction>
  * @method PaymentSetAnonymousIdAction current()
+ * @method PaymentSetAnonymousIdAction end()
  * @method PaymentSetAnonymousIdAction at($offset)
  */
 class PaymentSetAnonymousIdActionCollection extends PaymentUpdateActionCollection

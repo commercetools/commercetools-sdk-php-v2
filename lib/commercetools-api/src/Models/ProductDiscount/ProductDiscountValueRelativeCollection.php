@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductDiscountValueCollection<ProductDiscountValueRelative>
  * @method ProductDiscountValueRelative current()
+ * @method ProductDiscountValueRelative end()
  * @method ProductDiscountValueRelative at($offset)
  */
 class ProductDiscountValueRelativeCollection extends ProductDiscountValueCollection

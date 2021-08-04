@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerEmailVerify>
  * @method CustomerEmailVerify current()
+ * @method CustomerEmailVerify end()
  * @method CustomerEmailVerify at($offset)
  */
 class CustomerEmailVerifyCollection extends MapperSequence

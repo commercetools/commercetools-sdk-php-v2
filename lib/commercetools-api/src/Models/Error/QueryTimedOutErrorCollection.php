@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<QueryTimedOutError>
  * @method QueryTimedOutError current()
+ * @method QueryTimedOutError end()
  * @method QueryTimedOutError at($offset)
  */
 class QueryTimedOutErrorCollection extends ErrorObjectCollection

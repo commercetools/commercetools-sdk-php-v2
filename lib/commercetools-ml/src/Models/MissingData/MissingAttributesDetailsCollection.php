@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingAttributesDetails>
  * @method MissingAttributesDetails current()
+ * @method MissingAttributesDetails end()
  * @method MissingAttributesDetails at($offset)
  */
 class MissingAttributesDetailsCollection extends MapperSequence

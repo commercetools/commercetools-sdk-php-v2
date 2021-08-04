@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarProductSearchRequestMeta>
  * @method SimilarProductSearchRequestMeta current()
+ * @method SimilarProductSearchRequestMeta end()
  * @method SimilarProductSearchRequestMeta at($offset)
  */
 class SimilarProductSearchRequestMetaCollection extends MapperSequence

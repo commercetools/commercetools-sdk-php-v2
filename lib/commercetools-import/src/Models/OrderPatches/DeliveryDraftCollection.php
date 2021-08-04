@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<DeliveryDraft>
  * @method DeliveryDraft current()
+ * @method DeliveryDraft end()
  * @method DeliveryDraft at($offset)
  */
 class DeliveryDraftCollection extends MapperSequence

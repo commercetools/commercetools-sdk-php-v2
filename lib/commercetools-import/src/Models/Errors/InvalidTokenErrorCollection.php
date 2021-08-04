@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidTokenError>
  * @method InvalidTokenError current()
+ * @method InvalidTokenError end()
  * @method InvalidTokenError at($offset)
  */
 class InvalidTokenErrorCollection extends ErrorObjectCollection

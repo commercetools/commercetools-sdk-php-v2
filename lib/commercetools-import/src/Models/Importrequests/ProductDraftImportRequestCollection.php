@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<ProductDraftImportRequest>
  * @method ProductDraftImportRequest current()
+ * @method ProductDraftImportRequest end()
  * @method ProductDraftImportRequest at($offset)
  */
 class ProductDraftImportRequestCollection extends ImportRequestCollection

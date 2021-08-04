@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetExpectedDeliveryChange>
  * @method SetExpectedDeliveryChange current()
+ * @method SetExpectedDeliveryChange end()
  * @method SetExpectedDeliveryChange at($offset)
  */
 class SetExpectedDeliveryChangeCollection extends ChangeCollection

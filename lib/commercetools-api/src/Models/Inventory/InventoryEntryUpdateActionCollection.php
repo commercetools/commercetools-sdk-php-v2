@@ -16,8 +16,10 @@ use stdClass;
  * @template T of InventoryEntryUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method InventoryEntryUpdateAction current()
+ * @method InventoryEntryUpdateAction end()
  * @method InventoryEntryUpdateAction at($offset)
  */
 class InventoryEntryUpdateActionCollection extends MapperSequence

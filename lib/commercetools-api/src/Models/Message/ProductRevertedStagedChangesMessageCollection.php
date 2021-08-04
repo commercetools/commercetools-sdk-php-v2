@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ProductRevertedStagedChangesMessage>
  * @method ProductRevertedStagedChangesMessage current()
+ * @method ProductRevertedStagedChangesMessage end()
  * @method ProductRevertedStagedChangesMessage at($offset)
  */
 class ProductRevertedStagedChangesMessageCollection extends MessageCollection

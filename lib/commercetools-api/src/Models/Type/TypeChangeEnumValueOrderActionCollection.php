@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeEnumValueOrderAction>
  * @method TypeChangeEnumValueOrderAction current()
+ * @method TypeChangeEnumValueOrderAction end()
  * @method TypeChangeEnumValueOrderAction at($offset)
  */
 class TypeChangeEnumValueOrderActionCollection extends TypeUpdateActionCollection

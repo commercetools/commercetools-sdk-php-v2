@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StateUpdateActionCollection<StateSetDescriptionAction>
  * @method StateSetDescriptionAction current()
+ * @method StateSetDescriptionAction end()
  * @method StateSetDescriptionAction at($offset)
  */
 class StateSetDescriptionActionCollection extends StateUpdateActionCollection

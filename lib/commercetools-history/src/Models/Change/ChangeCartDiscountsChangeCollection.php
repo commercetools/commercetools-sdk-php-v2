@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeCartDiscountsChange>
  * @method ChangeCartDiscountsChange current()
+ * @method ChangeCartDiscountsChange end()
  * @method ChangeCartDiscountsChange at($offset)
  */
 class ChangeCartDiscountsChangeCollection extends ChangeCollection

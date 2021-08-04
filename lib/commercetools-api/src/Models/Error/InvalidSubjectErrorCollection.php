@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidSubjectError>
  * @method InvalidSubjectError current()
+ * @method InvalidSubjectError end()
  * @method InvalidSubjectError at($offset)
  */
 class InvalidSubjectErrorCollection extends ErrorObjectCollection

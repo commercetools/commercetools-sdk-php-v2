@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLocaleChange>
  * @method SetLocaleChange current()
+ * @method SetLocaleChange end()
  * @method SetLocaleChange at($offset)
  */
 class SetLocaleChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidFieldError>
  * @method InvalidFieldError current()
+ * @method InvalidFieldError end()
  * @method InvalidFieldError at($offset)
  */
 class InvalidFieldErrorCollection extends ErrorObjectCollection

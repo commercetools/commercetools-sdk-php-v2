@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImageSearchConfigRequest>
  * @method ImageSearchConfigRequest current()
+ * @method ImageSearchConfigRequest end()
  * @method ImageSearchConfigRequest at($offset)
  */
 class ImageSearchConfigRequestCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeDateTimeType>
  * @method AttributeDateTimeType current()
+ * @method AttributeDateTimeType end()
  * @method AttributeDateTimeType at($offset)
  */
 class AttributeDateTimeTypeCollection extends AttributeTypeCollection

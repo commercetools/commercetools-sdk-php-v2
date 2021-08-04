@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCustomerUpdateActionCollection<MyCustomerSetDefaultShippingAddressAction>
  * @method MyCustomerSetDefaultShippingAddressAction current()
+ * @method MyCustomerSetDefaultShippingAddressAction end()
  * @method MyCustomerSetDefaultShippingAddressAction at($offset)
  */
 class MyCustomerSetDefaultShippingAddressActionCollection extends MyCustomerUpdateActionCollection

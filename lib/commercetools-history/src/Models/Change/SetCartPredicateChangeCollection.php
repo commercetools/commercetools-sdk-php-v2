@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCartPredicateChange>
  * @method SetCartPredicateChange current()
+ * @method SetCartPredicateChange end()
  * @method SetCartPredicateChange at($offset)
  */
 class SetCartPredicateChangeCollection extends ChangeCollection

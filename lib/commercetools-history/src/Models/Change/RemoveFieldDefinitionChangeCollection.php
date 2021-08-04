@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveFieldDefinitionChange>
  * @method RemoveFieldDefinitionChange current()
+ * @method RemoveFieldDefinitionChange end()
  * @method RemoveFieldDefinitionChange at($offset)
  */
 class RemoveFieldDefinitionChangeCollection extends ChangeCollection

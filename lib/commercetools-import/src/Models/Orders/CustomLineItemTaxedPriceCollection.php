@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomLineItemTaxedPrice>
  * @method CustomLineItemTaxedPrice current()
+ * @method CustomLineItemTaxedPrice end()
  * @method CustomLineItemTaxedPrice at($offset)
  */
 class CustomLineItemTaxedPriceCollection extends MapperSequence

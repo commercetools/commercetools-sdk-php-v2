@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ChangeTargetChangeValue
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ChangeTargetChangeValue current()
+ * @method ChangeTargetChangeValue end()
  * @method ChangeTargetChangeValue at($offset)
  */
 class ChangeTargetChangeValueCollection extends MapperSequence

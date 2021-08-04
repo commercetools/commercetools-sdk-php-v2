@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSinkUpdateDraft>
  * @method ImportSinkUpdateDraft current()
+ * @method ImportSinkUpdateDraft end()
  * @method ImportSinkUpdateDraft at($offset)
  */
 class ImportSinkUpdateDraftCollection extends MapperSequence

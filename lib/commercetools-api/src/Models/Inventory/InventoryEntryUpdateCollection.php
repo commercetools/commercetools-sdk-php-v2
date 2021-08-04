@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<InventoryEntryUpdate>
  * @method InventoryEntryUpdate current()
+ * @method InventoryEntryUpdate end()
  * @method InventoryEntryUpdate at($offset)
  */
 class InventoryEntryUpdateCollection extends MapperSequence

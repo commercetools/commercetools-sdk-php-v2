@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderUpdateActionCollection<OrderSetShippingAddressAction>
  * @method OrderSetShippingAddressAction current()
+ * @method OrderSetShippingAddressAction end()
  * @method OrderSetShippingAddressAction at($offset)
  */
 class OrderSetShippingAddressActionCollection extends OrderUpdateActionCollection

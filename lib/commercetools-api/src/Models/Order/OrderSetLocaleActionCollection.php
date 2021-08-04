@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderUpdateActionCollection<OrderSetLocaleAction>
  * @method OrderSetLocaleAction current()
+ * @method OrderSetLocaleAction end()
  * @method OrderSetLocaleAction at($offset)
  */
 class OrderSetLocaleActionCollection extends OrderUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DiscountCodeNonApplicableError>
  * @method DiscountCodeNonApplicableError current()
+ * @method DiscountCodeNonApplicableError end()
  * @method DiscountCodeNonApplicableError at($offset)
  */
 class DiscountCodeNonApplicableErrorCollection extends ErrorObjectCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetDefaultBillingAddressChange>
  * @method SetDefaultBillingAddressChange current()
+ * @method SetDefaultBillingAddressChange end()
  * @method SetDefaultBillingAddressChange at($offset)
  */
 class SetDefaultBillingAddressChangeCollection extends ChangeCollection

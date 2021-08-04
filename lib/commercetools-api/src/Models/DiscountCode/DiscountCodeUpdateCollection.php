@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<DiscountCodeUpdate>
  * @method DiscountCodeUpdate current()
+ * @method DiscountCodeUpdate end()
  * @method DiscountCodeUpdate at($offset)
  */
 class DiscountCodeUpdateCollection extends MapperSequence

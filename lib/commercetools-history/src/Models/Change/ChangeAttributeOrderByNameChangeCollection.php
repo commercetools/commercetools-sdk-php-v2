@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAttributeOrderByNameChange>
  * @method ChangeAttributeOrderByNameChange current()
+ * @method ChangeAttributeOrderByNameChange end()
  * @method ChangeAttributeOrderByNameChange at($offset)
  */
 class ChangeAttributeOrderByNameChangeCollection extends ChangeCollection

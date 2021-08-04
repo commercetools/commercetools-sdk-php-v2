@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ModifiedBy>
  * @method ModifiedBy current()
+ * @method ModifiedBy end()
  * @method ModifiedBy at($offset)
  */
 class ModifiedByCollection extends MapperSequence

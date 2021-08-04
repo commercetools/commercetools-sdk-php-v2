@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerSignin>
  * @method CustomerSignin current()
+ * @method CustomerSignin end()
  * @method CustomerSignin at($offset)
  */
 class CustomerSigninCollection extends MapperSequence

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ReturnItem
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ReturnItem current()
+ * @method ReturnItem end()
  * @method ReturnItem at($offset)
  */
 class ReturnItemCollection extends MapperSequence

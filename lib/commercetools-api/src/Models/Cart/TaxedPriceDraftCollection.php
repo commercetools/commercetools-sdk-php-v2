@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaxedPriceDraft>
  * @method TaxedPriceDraft current()
+ * @method TaxedPriceDraft end()
  * @method TaxedPriceDraft at($offset)
  */
 class TaxedPriceDraftCollection extends MapperSequence

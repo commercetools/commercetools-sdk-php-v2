@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImageSearchConfigUpdateActionCollection<ChangeStatusUpdateAction>
  * @method ChangeStatusUpdateAction current()
+ * @method ChangeStatusUpdateAction end()
  * @method ChangeStatusUpdateAction at($offset)
  */
 class ChangeStatusUpdateActionCollection extends ImageSearchConfigUpdateActionCollection

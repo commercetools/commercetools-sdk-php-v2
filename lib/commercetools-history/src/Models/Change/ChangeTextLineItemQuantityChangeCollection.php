@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeTextLineItemQuantityChange>
  * @method ChangeTextLineItemQuantityChange current()
+ * @method ChangeTextLineItemQuantityChange end()
  * @method ChangeTextLineItemQuantityChange at($offset)
  */
 class ChangeTextLineItemQuantityChangeCollection extends ChangeCollection

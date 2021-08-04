@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<PaymentKeyReference>
  * @method PaymentKeyReference current()
+ * @method PaymentKeyReference end()
  * @method PaymentKeyReference at($offset)
  */
 class PaymentKeyReferenceCollection extends KeyReferenceCollection

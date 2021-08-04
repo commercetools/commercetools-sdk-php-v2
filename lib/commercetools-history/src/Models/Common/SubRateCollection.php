@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SubRate>
  * @method SubRate current()
+ * @method SubRate end()
  * @method SubRate at($offset)
  */
 class SubRateCollection extends MapperSequence

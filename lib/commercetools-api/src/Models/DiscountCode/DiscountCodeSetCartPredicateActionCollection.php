@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetCartPredicateAction>
  * @method DiscountCodeSetCartPredicateAction current()
+ * @method DiscountCodeSetCartPredicateAction end()
  * @method DiscountCodeSetCartPredicateAction at($offset)
  */
 class DiscountCodeSetCartPredicateActionCollection extends DiscountCodeUpdateActionCollection

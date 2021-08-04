@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAssetNameChange>
  * @method ChangeAssetNameChange current()
+ * @method ChangeAssetNameChange end()
  * @method ChangeAssetNameChange at($offset)
  */
 class ChangeAssetNameChangeCollection extends ChangeCollection

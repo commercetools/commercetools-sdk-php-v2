@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeIsActiveChange>
  * @method ChangeIsActiveChange current()
+ * @method ChangeIsActiveChange end()
  * @method ChangeIsActiveChange at($offset)
  */
 class ChangeIsActiveChangeCollection extends ChangeCollection

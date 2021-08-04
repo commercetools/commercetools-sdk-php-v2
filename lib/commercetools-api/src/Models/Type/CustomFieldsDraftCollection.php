@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomFieldsDraft>
  * @method CustomFieldsDraft current()
+ * @method CustomFieldsDraft end()
  * @method CustomFieldsDraft at($offset)
  */
 class CustomFieldsDraftCollection extends MapperSequence

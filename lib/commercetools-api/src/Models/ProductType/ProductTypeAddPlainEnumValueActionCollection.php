@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeAddPlainEnumValueAction>
  * @method ProductTypeAddPlainEnumValueAction current()
+ * @method ProductTypeAddPlainEnumValueAction end()
  * @method ProductTypeAddPlainEnumValueAction at($offset)
  */
 class ProductTypeAddPlainEnumValueActionCollection extends ProductTypeUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ErrorByExtension>
  * @method ErrorByExtension current()
+ * @method ErrorByExtension end()
  * @method ErrorByExtension at($offset)
  */
 class ErrorByExtensionCollection extends MapperSequence

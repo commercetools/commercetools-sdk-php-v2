@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<OverCapacityError>
  * @method OverCapacityError current()
+ * @method OverCapacityError end()
  * @method OverCapacityError at($offset)
  */
 class OverCapacityErrorCollection extends ErrorObjectCollection

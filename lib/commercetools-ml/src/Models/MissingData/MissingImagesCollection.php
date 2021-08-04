@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingImages>
  * @method MissingImages current()
+ * @method MissingImages end()
  * @method MissingImages at($offset)
  */
 class MissingImagesCollection extends MapperSequence

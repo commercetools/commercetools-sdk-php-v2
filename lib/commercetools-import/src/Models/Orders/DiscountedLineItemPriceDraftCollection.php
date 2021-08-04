@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<DiscountedLineItemPriceDraft>
  * @method DiscountedLineItemPriceDraft current()
+ * @method DiscountedLineItemPriceDraft end()
  * @method DiscountedLineItemPriceDraft at($offset)
  */
 class DiscountedLineItemPriceDraftCollection extends MapperSequence

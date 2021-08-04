@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CategoryOrderHints>
  * @method CategoryOrderHints current()
+ * @method CategoryOrderHints end()
  * @method CategoryOrderHints at($offset)
  */
 class CategoryOrderHintsCollection extends MapperSequence

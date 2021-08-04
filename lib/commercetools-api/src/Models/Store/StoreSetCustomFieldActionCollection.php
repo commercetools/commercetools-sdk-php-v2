@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StoreUpdateActionCollection<StoreSetCustomFieldAction>
  * @method StoreSetCustomFieldAction current()
+ * @method StoreSetCustomFieldAction end()
  * @method StoreSetCustomFieldAction at($offset)
  */
 class StoreSetCustomFieldActionCollection extends StoreUpdateActionCollection

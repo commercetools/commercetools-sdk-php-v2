@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingPricesPagedQueryResult>
  * @method MissingPricesPagedQueryResult current()
+ * @method MissingPricesPagedQueryResult end()
  * @method MissingPricesPagedQueryResult at($offset)
  */
 class MissingPricesPagedQueryResultCollection extends MapperSequence

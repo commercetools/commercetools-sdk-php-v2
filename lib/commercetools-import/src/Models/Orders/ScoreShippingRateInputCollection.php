@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRateInputCollection<ScoreShippingRateInput>
  * @method ScoreShippingRateInput current()
+ * @method ScoreShippingRateInput end()
  * @method ScoreShippingRateInput at($offset)
  */
 class ScoreShippingRateInputCollection extends ShippingRateInputCollection

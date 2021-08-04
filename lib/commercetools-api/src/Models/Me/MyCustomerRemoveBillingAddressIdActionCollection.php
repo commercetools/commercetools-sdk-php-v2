@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCustomerUpdateActionCollection<MyCustomerRemoveBillingAddressIdAction>
  * @method MyCustomerRemoveBillingAddressIdAction current()
+ * @method MyCustomerRemoveBillingAddressIdAction end()
  * @method MyCustomerRemoveBillingAddressIdAction at($offset)
  */
 class MyCustomerRemoveBillingAddressIdActionCollection extends MyCustomerUpdateActionCollection

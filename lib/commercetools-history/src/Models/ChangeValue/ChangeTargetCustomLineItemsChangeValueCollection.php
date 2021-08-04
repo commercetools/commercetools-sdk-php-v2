@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeTargetChangeValueCollection<ChangeTargetCustomLineItemsChangeValue>
  * @method ChangeTargetCustomLineItemsChangeValue current()
+ * @method ChangeTargetCustomLineItemsChangeValue end()
  * @method ChangeTargetCustomLineItemsChangeValue at($offset)
  */
 class ChangeTargetCustomLineItemsChangeValueCollection extends ChangeTargetChangeValueCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReviewRatingStatistics>
  * @method ReviewRatingStatistics current()
+ * @method ReviewRatingStatistics end()
  * @method ReviewRatingStatistics at($offset)
  */
 class ReviewRatingStatisticsCollection extends MapperSequence

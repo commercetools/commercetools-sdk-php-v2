@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReturnInfo>
  * @method ReturnInfo current()
+ * @method ReturnInfo end()
  * @method ReturnInfo at($offset)
  */
 class ReturnInfoCollection extends MapperSequence

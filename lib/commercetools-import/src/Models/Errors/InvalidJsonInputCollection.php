@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidJsonInput>
  * @method InvalidJsonInput current()
+ * @method InvalidJsonInput end()
  * @method InvalidJsonInput at($offset)
  */
 class InvalidJsonInputCollection extends ErrorObjectCollection

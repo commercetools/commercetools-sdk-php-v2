@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MissingPricesProductCountCollection<MissingPricesVariantLevel>
  * @method MissingPricesVariantLevel current()
+ * @method MissingPricesVariantLevel end()
  * @method MissingPricesVariantLevel at($offset)
  */
 class MissingPricesVariantLevelCollection extends MissingPricesProductCountCollection

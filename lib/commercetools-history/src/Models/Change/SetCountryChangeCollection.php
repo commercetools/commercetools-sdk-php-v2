@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCountryChange>
  * @method SetCountryChange current()
+ * @method SetCountryChange end()
  * @method SetCountryChange at($offset)
  */
 class SetCountryChangeCollection extends ChangeCollection

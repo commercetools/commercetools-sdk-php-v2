@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetCustomTypeAction>
  * @method CategorySetCustomTypeAction current()
+ * @method CategorySetCustomTypeAction end()
  * @method CategorySetCustomTypeAction at($offset)
  */
 class CategorySetCustomTypeActionCollection extends CategoryUpdateActionCollection

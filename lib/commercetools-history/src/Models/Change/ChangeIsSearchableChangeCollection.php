@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeIsSearchableChange>
  * @method ChangeIsSearchableChange current()
+ * @method ChangeIsSearchableChange end()
  * @method ChangeIsSearchableChange at($offset)
  */
 class ChangeIsSearchableChangeCollection extends ChangeCollection

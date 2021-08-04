@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ReviewReference>
  * @method ReviewReference current()
+ * @method ReviewReference end()
  * @method ReviewReference at($offset)
  */
 class ReviewReferenceCollection extends ReferenceCollection

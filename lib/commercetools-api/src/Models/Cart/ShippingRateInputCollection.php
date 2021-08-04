@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ShippingRateInput
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ShippingRateInput current()
+ * @method ShippingRateInput end()
  * @method ShippingRateInput at($offset)
  */
 class ShippingRateInputCollection extends MapperSequence

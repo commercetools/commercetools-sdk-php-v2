@@ -16,8 +16,10 @@ use stdClass;
  * @template T of OrderUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method OrderUpdateAction current()
+ * @method OrderUpdateAction end()
  * @method OrderUpdateAction at($offset)
  */
 class OrderUpdateActionCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportResponse>
  * @method ImportResponse current()
+ * @method ImportResponse end()
  * @method ImportResponse at($offset)
  */
 class ImportResponseCollection extends MapperSequence

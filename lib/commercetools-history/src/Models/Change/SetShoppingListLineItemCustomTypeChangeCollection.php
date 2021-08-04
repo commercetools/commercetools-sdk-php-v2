@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetShoppingListLineItemCustomTypeChange>
  * @method SetShoppingListLineItemCustomTypeChange current()
+ * @method SetShoppingListLineItemCustomTypeChange end()
  * @method SetShoppingListLineItemCustomTypeChange at($offset)
  */
 class SetShoppingListLineItemCustomTypeChangeCollection extends ChangeCollection

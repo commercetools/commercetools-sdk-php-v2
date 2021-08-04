@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddFieldDefinitionChange>
  * @method AddFieldDefinitionChange current()
+ * @method AddFieldDefinitionChange end()
  * @method AddFieldDefinitionChange at($offset)
  */
 class AddFieldDefinitionChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SuggestTokenizer>
  * @method SuggestTokenizer current()
+ * @method SuggestTokenizer end()
  * @method SuggestTokenizer at($offset)
  */
 class SuggestTokenizerCollection extends MapperSequence

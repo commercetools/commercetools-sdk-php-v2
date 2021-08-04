@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeInputHintAction>
  * @method TypeChangeInputHintAction current()
+ * @method TypeChangeInputHintAction end()
  * @method TypeChangeInputHintAction at($offset)
  */
 class TypeChangeInputHintActionCollection extends TypeUpdateActionCollection

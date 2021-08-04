@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddPlainEnumValueChange>
  * @method AddPlainEnumValueChange current()
+ * @method AddPlainEnumValueChange end()
  * @method AddPlainEnumValueChange at($offset)
  */
 class AddPlainEnumValueChangeCollection extends ChangeCollection

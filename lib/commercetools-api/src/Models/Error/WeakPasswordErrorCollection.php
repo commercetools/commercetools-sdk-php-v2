@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<WeakPasswordError>
  * @method WeakPasswordError current()
+ * @method WeakPasswordError end()
  * @method WeakPasswordError at($offset)
  */
 class WeakPasswordErrorCollection extends ErrorObjectCollection

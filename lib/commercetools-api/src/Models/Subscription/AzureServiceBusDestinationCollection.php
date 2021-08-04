@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<AzureServiceBusDestination>
  * @method AzureServiceBusDestination current()
+ * @method AzureServiceBusDestination end()
  * @method AzureServiceBusDestination at($offset)
  */
 class AzureServiceBusDestinationCollection extends DestinationCollection

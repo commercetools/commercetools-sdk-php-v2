@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<LocalizedEnumField>
  * @method LocalizedEnumField current()
+ * @method LocalizedEnumField end()
  * @method LocalizedEnumField at($offset)
  */
 class LocalizedEnumFieldCollection extends CustomFieldCollection

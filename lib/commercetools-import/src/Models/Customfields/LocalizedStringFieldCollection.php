@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<LocalizedStringField>
  * @method LocalizedStringField current()
+ * @method LocalizedStringField end()
  * @method LocalizedStringField at($offset)
  */
 class LocalizedStringFieldCollection extends CustomFieldCollection

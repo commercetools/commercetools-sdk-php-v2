@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetInterfaceIdChange>
  * @method SetInterfaceIdChange current()
+ * @method SetInterfaceIdChange end()
  * @method SetInterfaceIdChange at($offset)
  */
 class SetInterfaceIdChangeCollection extends ChangeCollection

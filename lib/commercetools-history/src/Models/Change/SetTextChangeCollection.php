@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTextChange>
  * @method SetTextChange current()
+ * @method SetTextChange end()
  * @method SetTextChange at($offset)
  */
 class SetTextChangeCollection extends ChangeCollection

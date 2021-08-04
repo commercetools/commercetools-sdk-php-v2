@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeNumberType>
  * @method AttributeNumberType current()
+ * @method AttributeNumberType end()
  * @method AttributeNumberType at($offset)
  */
 class AttributeNumberTypeCollection extends AttributeTypeCollection

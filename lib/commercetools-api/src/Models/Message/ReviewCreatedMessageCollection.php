@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ReviewCreatedMessage>
  * @method ReviewCreatedMessage current()
+ * @method ReviewCreatedMessage end()
  * @method ReviewCreatedMessage at($offset)
  */
 class ReviewCreatedMessageCollection extends MessageCollection

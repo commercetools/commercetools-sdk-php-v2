@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductChangeMasterVariantAction>
  * @method ProductChangeMasterVariantAction current()
+ * @method ProductChangeMasterVariantAction end()
  * @method ProductChangeMasterVariantAction at($offset)
  */
 class ProductChangeMasterVariantActionCollection extends ProductUpdateActionCollection

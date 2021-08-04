@@ -16,8 +16,10 @@ use stdClass;
  * @template T of GeoJson
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method GeoJson current()
+ * @method GeoJson end()
  * @method GeoJson at($offset)
  */
 class GeoJsonCollection extends MapperSequence

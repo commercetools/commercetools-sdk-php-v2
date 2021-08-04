@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetKeyAction>
  * @method CategorySetKeyAction current()
+ * @method CategorySetKeyAction end()
  * @method CategorySetKeyAction at($offset)
  */
 class CategorySetKeyActionCollection extends CategoryUpdateActionCollection

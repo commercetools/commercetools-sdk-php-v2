@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddReturnInfoChange>
  * @method AddReturnInfoChange current()
+ * @method AddReturnInfoChange end()
  * @method AddReturnInfoChange at($offset)
  */
 class AddReturnInfoChangeCollection extends ChangeCollection

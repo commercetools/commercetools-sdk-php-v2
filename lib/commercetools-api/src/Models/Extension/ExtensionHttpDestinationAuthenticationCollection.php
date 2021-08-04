@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ExtensionHttpDestinationAuthentication
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ExtensionHttpDestinationAuthentication current()
+ * @method ExtensionHttpDestinationAuthentication end()
  * @method ExtensionHttpDestinationAuthentication at($offset)
  */
 class ExtensionHttpDestinationAuthenticationCollection extends MapperSequence

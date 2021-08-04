@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ClientLogging
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ClientLogging current()
+ * @method ClientLogging end()
  * @method ClientLogging at($offset)
  */
 class ClientLoggingCollection extends MapperSequence

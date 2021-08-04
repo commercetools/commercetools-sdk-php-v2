@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<PaymentDraft>
  * @method PaymentDraft current()
+ * @method PaymentDraft end()
  * @method PaymentDraft at($offset)
  */
 class PaymentDraftCollection extends MapperSequence

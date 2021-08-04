@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Store>
  * @method Store current()
+ * @method Store end()
  * @method Store at($offset)
  */
 class StoreCollection extends BaseResourceCollection

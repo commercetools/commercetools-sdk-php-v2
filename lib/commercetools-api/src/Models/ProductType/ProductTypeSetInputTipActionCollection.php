@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeSetInputTipAction>
  * @method ProductTypeSetInputTipAction current()
+ * @method ProductTypeSetInputTipAction end()
  * @method ProductTypeSetInputTipAction at($offset)
  */
 class ProductTypeSetInputTipActionCollection extends ProductTypeUpdateActionCollection

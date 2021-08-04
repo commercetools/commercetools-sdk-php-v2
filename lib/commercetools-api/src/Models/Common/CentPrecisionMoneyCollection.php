@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypedMoneyCollection<CentPrecisionMoney>
  * @method CentPrecisionMoney current()
+ * @method CentPrecisionMoney end()
  * @method CentPrecisionMoney at($offset)
  */
 class CentPrecisionMoneyCollection extends TypedMoneyCollection

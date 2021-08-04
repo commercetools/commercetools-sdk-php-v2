@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ChangeSubscription>
  * @method ChangeSubscription current()
+ * @method ChangeSubscription end()
  * @method ChangeSubscription at($offset)
  */
 class ChangeSubscriptionCollection extends MapperSequence

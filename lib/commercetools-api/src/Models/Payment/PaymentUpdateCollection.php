@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<PaymentUpdate>
  * @method PaymentUpdate current()
+ * @method PaymentUpdate end()
  * @method PaymentUpdate at($offset)
  */
 class PaymentUpdateCollection extends MapperSequence

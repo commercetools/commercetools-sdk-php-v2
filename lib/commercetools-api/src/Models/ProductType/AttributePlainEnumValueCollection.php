@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributePlainEnumValue>
  * @method AttributePlainEnumValue current()
+ * @method AttributePlainEnumValue end()
  * @method AttributePlainEnumValue at($offset)
  */
 class AttributePlainEnumValueCollection extends MapperSequence

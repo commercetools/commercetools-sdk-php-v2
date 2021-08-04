@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetGeoLocationChange>
  * @method SetGeoLocationChange current()
+ * @method SetGeoLocationChange end()
  * @method SetGeoLocationChange at($offset)
  */
 class SetGeoLocationChangeCollection extends ChangeCollection

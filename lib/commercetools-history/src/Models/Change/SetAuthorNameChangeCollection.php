@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAuthorNameChange>
  * @method SetAuthorNameChange current()
+ * @method SetAuthorNameChange end()
  * @method SetAuthorNameChange at($offset)
  */
 class SetAuthorNameChangeCollection extends ChangeCollection

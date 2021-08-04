@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchExecutionFailureError>
  * @method SearchExecutionFailureError current()
+ * @method SearchExecutionFailureError end()
  * @method SearchExecutionFailureError at($offset)
  */
 class SearchExecutionFailureErrorCollection extends ErrorObjectCollection

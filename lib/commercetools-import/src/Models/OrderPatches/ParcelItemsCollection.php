@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ParcelItems>
  * @method ParcelItems current()
+ * @method ParcelItems end()
  * @method ParcelItems at($offset)
  */
 class ParcelItemsCollection extends MapperSequence

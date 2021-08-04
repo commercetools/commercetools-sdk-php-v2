@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<EnumAttribute>
  * @method EnumAttribute current()
+ * @method EnumAttribute end()
  * @method EnumAttribute at($offset)
  */
 class EnumAttributeCollection extends AttributeCollection

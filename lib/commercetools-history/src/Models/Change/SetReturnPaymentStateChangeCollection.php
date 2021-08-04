@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetReturnPaymentStateChange>
  * @method SetReturnPaymentStateChange current()
+ * @method SetReturnPaymentStateChange end()
  * @method SetReturnPaymentStateChange at($offset)
  */
 class SetReturnPaymentStateChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<StringField>
  * @method StringField current()
+ * @method StringField end()
  * @method StringField at($offset)
  */
 class StringFieldCollection extends CustomFieldCollection

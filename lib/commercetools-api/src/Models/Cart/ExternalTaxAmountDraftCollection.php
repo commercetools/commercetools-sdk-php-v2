@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ExternalTaxAmountDraft>
  * @method ExternalTaxAmountDraft current()
+ * @method ExternalTaxAmountDraft end()
  * @method ExternalTaxAmountDraft at($offset)
  */
 class ExternalTaxAmountDraftCollection extends MapperSequence

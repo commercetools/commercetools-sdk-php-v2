@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<LocalizedString>
  * @method LocalizedString current()
+ * @method LocalizedString end()
  * @method LocalizedString at($offset)
  */
 class LocalizedStringCollection extends MapperSequence

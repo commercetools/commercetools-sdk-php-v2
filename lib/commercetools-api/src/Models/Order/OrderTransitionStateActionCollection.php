@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderUpdateActionCollection<OrderTransitionStateAction>
  * @method OrderTransitionStateAction current()
+ * @method OrderTransitionStateAction end()
  * @method OrderTransitionStateAction at($offset)
  */
 class OrderTransitionStateActionCollection extends OrderUpdateActionCollection

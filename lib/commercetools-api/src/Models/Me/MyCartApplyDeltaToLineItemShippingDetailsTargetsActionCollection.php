@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCartUpdateActionCollection<MyCartApplyDeltaToLineItemShippingDetailsTargetsAction>
  * @method MyCartApplyDeltaToLineItemShippingDetailsTargetsAction current()
+ * @method MyCartApplyDeltaToLineItemShippingDetailsTargetsAction end()
  * @method MyCartApplyDeltaToLineItemShippingDetailsTargetsAction at($offset)
  */
 class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionCollection extends MyCartUpdateActionCollection

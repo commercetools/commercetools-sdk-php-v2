@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarProductsPagedQueryResult>
  * @method SimilarProductsPagedQueryResult current()
+ * @method SimilarProductsPagedQueryResult end()
  * @method SimilarProductsPagedQueryResult at($offset)
  */
 class SimilarProductsPagedQueryResultCollection extends MapperSequence

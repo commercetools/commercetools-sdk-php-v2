@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ItemState>
  * @method ItemState current()
+ * @method ItemState end()
  * @method ItemState at($offset)
  */
 class ItemStateCollection extends MapperSequence

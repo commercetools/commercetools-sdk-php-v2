@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductVariant>
  * @method ProductVariant current()
+ * @method ProductVariant end()
  * @method ProductVariant at($offset)
  */
 class ProductVariantCollection extends MapperSequence

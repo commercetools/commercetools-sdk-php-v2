@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributeCoverage>
  * @method AttributeCoverage current()
+ * @method AttributeCoverage end()
  * @method AttributeCoverage at($offset)
  */
 class AttributeCoverageCollection extends MapperSequence

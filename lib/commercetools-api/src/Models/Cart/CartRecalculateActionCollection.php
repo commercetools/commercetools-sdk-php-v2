@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartRecalculateAction>
  * @method CartRecalculateAction current()
+ * @method CartRecalculateAction end()
  * @method CartRecalculateAction at($offset)
  */
 class CartRecalculateActionCollection extends CartUpdateActionCollection

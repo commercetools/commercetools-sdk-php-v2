@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SuggestTokenizerCollection<WhitespaceTokenizer>
  * @method WhitespaceTokenizer current()
+ * @method WhitespaceTokenizer end()
  * @method WhitespaceTokenizer at($offset)
  */
 class WhitespaceTokenizerCollection extends SuggestTokenizerCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<PriceChangedError>
  * @method PriceChangedError current()
+ * @method PriceChangedError end()
  * @method PriceChangedError at($offset)
  */
 class PriceChangedErrorCollection extends ErrorObjectCollection

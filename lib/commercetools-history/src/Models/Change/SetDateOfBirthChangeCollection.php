@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetDateOfBirthChange>
  * @method SetDateOfBirthChange current()
+ * @method SetDateOfBirthChange end()
  * @method SetDateOfBirthChange at($offset)
  */
 class SetDateOfBirthChangeCollection extends ChangeCollection

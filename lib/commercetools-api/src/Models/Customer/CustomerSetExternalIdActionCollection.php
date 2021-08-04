@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomerUpdateActionCollection<CustomerSetExternalIdAction>
  * @method CustomerSetExternalIdAction current()
+ * @method CustomerSetExternalIdAction end()
  * @method CustomerSetExternalIdAction at($offset)
  */
 class CustomerSetExternalIdActionCollection extends CustomerUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveDiscountCodeChange>
  * @method RemoveDiscountCodeChange current()
+ * @method RemoveDiscountCodeChange end()
  * @method RemoveDiscountCodeChange at($offset)
  */
 class RemoveDiscountCodeChangeCollection extends ChangeCollection

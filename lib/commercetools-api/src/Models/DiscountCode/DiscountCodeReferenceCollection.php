@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<DiscountCodeReference>
  * @method DiscountCodeReference current()
+ * @method DiscountCodeReference end()
  * @method DiscountCodeReference at($offset)
  */
 class DiscountCodeReferenceCollection extends ReferenceCollection

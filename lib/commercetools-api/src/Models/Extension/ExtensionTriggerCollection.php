@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ExtensionTrigger>
  * @method ExtensionTrigger current()
+ * @method ExtensionTrigger end()
  * @method ExtensionTrigger at($offset)
  */
 class ExtensionTriggerCollection extends MapperSequence

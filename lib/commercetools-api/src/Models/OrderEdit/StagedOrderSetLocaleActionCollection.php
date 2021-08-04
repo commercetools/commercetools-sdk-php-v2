@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetLocaleAction>
  * @method StagedOrderSetLocaleAction current()
+ * @method StagedOrderSetLocaleAction end()
  * @method StagedOrderSetLocaleAction at($offset)
  */
 class StagedOrderSetLocaleActionCollection extends StagedOrderUpdateActionCollection

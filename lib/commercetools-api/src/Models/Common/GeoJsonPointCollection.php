@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends GeoJsonCollection<GeoJsonPoint>
  * @method GeoJsonPoint current()
+ * @method GeoJsonPoint end()
  * @method GeoJsonPoint at($offset)
  */
 class GeoJsonPointCollection extends GeoJsonCollection

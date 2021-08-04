@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<State>
  * @method State current()
+ * @method State end()
  * @method State at($offset)
  */
 class StateCollection extends BaseResourceCollection

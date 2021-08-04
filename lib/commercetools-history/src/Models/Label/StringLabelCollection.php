@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<StringLabel>
  * @method StringLabel current()
+ * @method StringLabel end()
  * @method StringLabel at($offset)
  */
 class StringLabelCollection extends LabelCollection

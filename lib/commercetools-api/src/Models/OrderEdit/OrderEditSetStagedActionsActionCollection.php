@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderEditUpdateActionCollection<OrderEditSetStagedActionsAction>
  * @method OrderEditSetStagedActionsAction current()
+ * @method OrderEditSetStagedActionsAction end()
  * @method OrderEditSetStagedActionsAction at($offset)
  */
 class OrderEditSetStagedActionsActionCollection extends OrderEditUpdateActionCollection

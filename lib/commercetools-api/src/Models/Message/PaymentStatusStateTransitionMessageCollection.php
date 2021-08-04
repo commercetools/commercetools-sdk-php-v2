@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<PaymentStatusStateTransitionMessage>
  * @method PaymentStatusStateTransitionMessage current()
+ * @method PaymentStatusStateTransitionMessage end()
  * @method PaymentStatusStateTransitionMessage at($offset)
  */
 class PaymentStatusStateTransitionMessageCollection extends MessageCollection

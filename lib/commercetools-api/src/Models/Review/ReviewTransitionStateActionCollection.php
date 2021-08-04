@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReviewUpdateActionCollection<ReviewTransitionStateAction>
  * @method ReviewTransitionStateAction current()
+ * @method ReviewTransitionStateAction end()
  * @method ReviewTransitionStateAction at($offset)
  */
 class ReviewTransitionStateActionCollection extends ReviewUpdateActionCollection

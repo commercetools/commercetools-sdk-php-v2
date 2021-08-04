@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ReviewStateTransitionMessage>
  * @method ReviewStateTransitionMessage current()
+ * @method ReviewStateTransitionMessage end()
  * @method ReviewStateTransitionMessage at($offset)
  */
 class ReviewStateTransitionMessageCollection extends MessageCollection

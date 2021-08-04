@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TypeDraft>
  * @method TypeDraft current()
+ * @method TypeDraft end()
  * @method TypeDraft at($offset)
  */
 class TypeDraftCollection extends MapperSequence

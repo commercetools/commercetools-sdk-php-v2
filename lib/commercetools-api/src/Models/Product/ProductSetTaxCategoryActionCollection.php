@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetTaxCategoryAction>
  * @method ProductSetTaxCategoryAction current()
+ * @method ProductSetTaxCategoryAction end()
  * @method ProductSetTaxCategoryAction at($offset)
  */
 class ProductSetTaxCategoryActionCollection extends ProductUpdateActionCollection

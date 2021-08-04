@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Label
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Label current()
+ * @method Label end()
  * @method Label at($offset)
  */
 class LabelCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ObjectNotFoundError>
  * @method ObjectNotFoundError current()
+ * @method ObjectNotFoundError end()
  * @method ObjectNotFoundError at($offset)
  */
 class ObjectNotFoundErrorCollection extends ErrorObjectCollection

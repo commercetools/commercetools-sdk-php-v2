@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderEditUpdate>
  * @method OrderEditUpdate current()
+ * @method OrderEditUpdate end()
  * @method OrderEditUpdate at($offset)
  */
 class OrderEditUpdateCollection extends MapperSequence

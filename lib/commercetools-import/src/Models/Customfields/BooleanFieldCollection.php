@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<BooleanField>
  * @method BooleanField current()
+ * @method BooleanField end()
  * @method BooleanField at($offset)
  */
 class BooleanFieldCollection extends CustomFieldCollection

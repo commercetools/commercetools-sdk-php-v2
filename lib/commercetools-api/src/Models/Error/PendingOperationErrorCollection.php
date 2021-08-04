@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<PendingOperationError>
  * @method PendingOperationError current()
+ * @method PendingOperationError end()
  * @method PendingOperationError at($offset)
  */
 class PendingOperationErrorCollection extends ErrorObjectCollection

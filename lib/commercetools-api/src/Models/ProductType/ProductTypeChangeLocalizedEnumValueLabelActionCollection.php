@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeLocalizedEnumValueLabelAction>
  * @method ProductTypeChangeLocalizedEnumValueLabelAction current()
+ * @method ProductTypeChangeLocalizedEnumValueLabelAction end()
  * @method ProductTypeChangeLocalizedEnumValueLabelAction at($offset)
  */
 class ProductTypeChangeLocalizedEnumValueLabelActionCollection extends ProductTypeUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetMaxApplicationsPerCustomerAction>
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction current()
+ * @method DiscountCodeSetMaxApplicationsPerCustomerAction end()
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction at($offset)
  */
 class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends DiscountCodeUpdateActionCollection

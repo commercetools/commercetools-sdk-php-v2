@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeOrderStateChange>
  * @method ChangeOrderStateChange current()
+ * @method ChangeOrderStateChange end()
  * @method ChangeOrderStateChange at($offset)
  */
 class ChangeOrderStateChangeCollection extends ChangeCollection

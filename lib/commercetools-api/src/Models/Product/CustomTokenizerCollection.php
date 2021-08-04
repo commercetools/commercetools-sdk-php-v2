@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SuggestTokenizerCollection<CustomTokenizer>
  * @method CustomTokenizer current()
+ * @method CustomTokenizer end()
  * @method CustomTokenizer at($offset)
  */
 class CustomTokenizerCollection extends SuggestTokenizerCollection

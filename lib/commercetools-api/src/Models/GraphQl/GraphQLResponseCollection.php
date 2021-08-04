@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GraphQLResponse>
  * @method GraphQLResponse current()
+ * @method GraphQLResponse end()
  * @method GraphQLResponse at($offset)
  */
 class GraphQLResponseCollection extends MapperSequence

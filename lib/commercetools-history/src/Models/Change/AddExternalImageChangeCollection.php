@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddExternalImageChange>
  * @method AddExternalImageChange current()
+ * @method AddExternalImageChange end()
  * @method AddExternalImageChange at($offset)
  */
 class AddExternalImageChangeCollection extends ChangeCollection

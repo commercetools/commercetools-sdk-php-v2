@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetExpectedDeliveryAction>
  * @method InventoryEntrySetExpectedDeliveryAction current()
+ * @method InventoryEntrySetExpectedDeliveryAction end()
  * @method InventoryEntrySetExpectedDeliveryAction at($offset)
  */
 class InventoryEntrySetExpectedDeliveryActionCollection extends InventoryEntryUpdateActionCollection

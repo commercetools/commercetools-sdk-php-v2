@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddAttributeDefinitionChange>
  * @method AddAttributeDefinitionChange current()
+ * @method AddAttributeDefinitionChange end()
  * @method AddAttributeDefinitionChange at($offset)
  */
 class AddAttributeDefinitionChangeCollection extends ChangeCollection

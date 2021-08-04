@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypedMoneyCollection<Money>
  * @method Money current()
+ * @method Money end()
  * @method Money at($offset)
  */
 class MoneyCollection extends TypedMoneyCollection

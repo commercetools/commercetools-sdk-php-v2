@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingPricesTaskStatus>
  * @method MissingPricesTaskStatus current()
+ * @method MissingPricesTaskStatus end()
  * @method MissingPricesTaskStatus at($offset)
  */
 class MissingPricesTaskStatusCollection extends MapperSequence

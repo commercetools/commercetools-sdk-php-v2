@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetProductVariantKeyChange>
  * @method SetProductVariantKeyChange current()
+ * @method SetProductVariantKeyChange end()
  * @method SetProductVariantKeyChange at($offset)
  */
 class SetProductVariantKeyChangeCollection extends ChangeCollection

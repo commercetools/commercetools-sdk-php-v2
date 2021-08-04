@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeFieldDefinitionLabelAction>
  * @method TypeChangeFieldDefinitionLabelAction current()
+ * @method TypeChangeFieldDefinitionLabelAction end()
  * @method TypeChangeFieldDefinitionLabelAction at($offset)
  */
 class TypeChangeFieldDefinitionLabelActionCollection extends TypeUpdateActionCollection

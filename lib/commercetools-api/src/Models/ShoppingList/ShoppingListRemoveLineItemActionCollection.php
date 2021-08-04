@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShoppingListUpdateActionCollection<ShoppingListRemoveLineItemAction>
  * @method ShoppingListRemoveLineItemAction current()
+ * @method ShoppingListRemoveLineItemAction end()
  * @method ShoppingListRemoveLineItemAction at($offset)
  */
 class ShoppingListRemoveLineItemActionCollection extends ShoppingListUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeCountriesAction>
  * @method ProjectChangeCountriesAction current()
+ * @method ProjectChangeCountriesAction end()
  * @method ProjectChangeCountriesAction at($offset)
  */
 class ProjectChangeCountriesActionCollection extends ProjectUpdateActionCollection

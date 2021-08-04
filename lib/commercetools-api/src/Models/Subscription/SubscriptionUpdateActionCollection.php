@@ -16,8 +16,10 @@ use stdClass;
  * @template T of SubscriptionUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method SubscriptionUpdateAction current()
+ * @method SubscriptionUpdateAction end()
  * @method SubscriptionUpdateAction at($offset)
  */
 class SubscriptionUpdateActionCollection extends MapperSequence

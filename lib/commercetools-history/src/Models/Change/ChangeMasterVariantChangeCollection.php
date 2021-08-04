@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeMasterVariantChange>
  * @method ChangeMasterVariantChange current()
+ * @method ChangeMasterVariantChange end()
  * @method ChangeMasterVariantChange at($offset)
  */
 class ChangeMasterVariantChangeCollection extends ChangeCollection

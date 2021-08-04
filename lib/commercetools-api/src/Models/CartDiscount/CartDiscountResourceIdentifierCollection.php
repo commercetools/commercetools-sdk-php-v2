@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<CartDiscountResourceIdentifier>
  * @method CartDiscountResourceIdentifier current()
+ * @method CartDiscountResourceIdentifier end()
  * @method CartDiscountResourceIdentifier at($offset)
  */
 class CartDiscountResourceIdentifierCollection extends ResourceIdentifierCollection

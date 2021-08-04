@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<ChannelKeyReference>
  * @method ChannelKeyReference current()
+ * @method ChannelKeyReference end()
  * @method ChannelKeyReference at($offset)
  */
 class ChannelKeyReferenceCollection extends KeyReferenceCollection

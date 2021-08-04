@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetCustomFieldAction>
  * @method DiscountCodeSetCustomFieldAction current()
+ * @method DiscountCodeSetCustomFieldAction end()
  * @method DiscountCodeSetCustomFieldAction at($offset)
  */
 class DiscountCodeSetCustomFieldActionCollection extends DiscountCodeUpdateActionCollection

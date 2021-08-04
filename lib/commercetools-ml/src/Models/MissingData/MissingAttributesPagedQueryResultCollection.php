@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingAttributesPagedQueryResult>
  * @method MissingAttributesPagedQueryResult current()
+ * @method MissingAttributesPagedQueryResult end()
  * @method MissingAttributesPagedQueryResult at($offset)
  */
 class MissingAttributesPagedQueryResultCollection extends MapperSequence

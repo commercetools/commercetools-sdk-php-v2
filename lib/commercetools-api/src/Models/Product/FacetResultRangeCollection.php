@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FacetResultRange>
  * @method FacetResultRange current()
+ * @method FacetResultRange end()
  * @method FacetResultRange at($offset)
  */
 class FacetResultRangeCollection extends MapperSequence

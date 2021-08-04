@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StoreUpdateActionCollection<StoreSetLanguagesAction>
  * @method StoreSetLanguagesAction current()
+ * @method StoreSetLanguagesAction end()
  * @method StoreSetLanguagesAction at($offset)
  */
 class StoreSetLanguagesActionCollection extends StoreUpdateActionCollection

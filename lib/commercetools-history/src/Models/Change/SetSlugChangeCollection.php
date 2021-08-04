@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSlugChange>
  * @method SetSlugChange current()
+ * @method SetSlugChange end()
  * @method SetSlugChange at($offset)
  */
 class SetSlugChangeCollection extends ChangeCollection

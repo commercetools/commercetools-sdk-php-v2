@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartSetLineItemTaxRateAction>
  * @method CartSetLineItemTaxRateAction current()
+ * @method CartSetLineItemTaxRateAction end()
  * @method CartSetLineItemTaxRateAction at($offset)
  */
 class CartSetLineItemTaxRateActionCollection extends CartUpdateActionCollection

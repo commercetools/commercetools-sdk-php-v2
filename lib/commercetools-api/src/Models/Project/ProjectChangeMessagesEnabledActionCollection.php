@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeMessagesEnabledAction>
  * @method ProjectChangeMessagesEnabledAction current()
+ * @method ProjectChangeMessagesEnabledAction end()
  * @method ProjectChangeMessagesEnabledAction at($offset)
  */
 class ProjectChangeMessagesEnabledActionCollection extends ProjectUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<PaymentReference>
  * @method PaymentReference current()
+ * @method PaymentReference end()
  * @method PaymentReference at($offset)
  */
 class PaymentReferenceCollection extends ReferenceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderImportDraft>
  * @method OrderImportDraft current()
+ * @method OrderImportDraft end()
  * @method OrderImportDraft at($offset)
  */
 class OrderImportDraftCollection extends MapperSequence

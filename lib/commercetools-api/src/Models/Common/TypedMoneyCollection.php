@@ -16,8 +16,10 @@ use stdClass;
  * @template T of TypedMoney
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method TypedMoney current()
+ * @method TypedMoney end()
  * @method TypedMoney at($offset)
  */
 class TypedMoneyCollection extends MapperSequence

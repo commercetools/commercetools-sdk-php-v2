@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartSetDeliveryAddressCustomFieldAction>
  * @method CartSetDeliveryAddressCustomFieldAction current()
+ * @method CartSetDeliveryAddressCustomFieldAction end()
  * @method CartSetDeliveryAddressCustomFieldAction at($offset)
  */
 class CartSetDeliveryAddressCustomFieldActionCollection extends CartUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<ReviewResourceIdentifier>
  * @method ReviewResourceIdentifier current()
+ * @method ReviewResourceIdentifier end()
  * @method ReviewResourceIdentifier at($offset)
  */
 class ReviewResourceIdentifierCollection extends ResourceIdentifierCollection

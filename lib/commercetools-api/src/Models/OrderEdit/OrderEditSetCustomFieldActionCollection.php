@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderEditUpdateActionCollection<OrderEditSetCustomFieldAction>
  * @method OrderEditSetCustomFieldAction current()
+ * @method OrderEditSetCustomFieldAction end()
  * @method OrderEditSetCustomFieldAction at($offset)
  */
 class OrderEditSetCustomFieldActionCollection extends OrderEditUpdateActionCollection

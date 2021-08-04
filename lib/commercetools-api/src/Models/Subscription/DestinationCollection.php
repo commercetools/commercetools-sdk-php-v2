@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Destination
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Destination current()
+ * @method Destination end()
  * @method Destination at($offset)
  */
 class DestinationCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeTargetChangeValueCollection<ChangeTargetShippingChangeValue>
  * @method ChangeTargetShippingChangeValue current()
+ * @method ChangeTargetShippingChangeValue end()
  * @method ChangeTargetShippingChangeValue at($offset)
  */
 class ChangeTargetShippingChangeValueCollection extends ChangeTargetChangeValueCollection

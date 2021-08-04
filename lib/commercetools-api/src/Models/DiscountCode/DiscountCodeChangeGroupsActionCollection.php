@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DiscountCodeUpdateActionCollection<DiscountCodeChangeGroupsAction>
  * @method DiscountCodeChangeGroupsAction current()
+ * @method DiscountCodeChangeGroupsAction end()
  * @method DiscountCodeChangeGroupsAction at($offset)
  */
 class DiscountCodeChangeGroupsActionCollection extends DiscountCodeUpdateActionCollection

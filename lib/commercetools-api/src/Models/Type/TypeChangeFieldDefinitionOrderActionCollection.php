@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeFieldDefinitionOrderAction>
  * @method TypeChangeFieldDefinitionOrderAction current()
+ * @method TypeChangeFieldDefinitionOrderAction end()
  * @method TypeChangeFieldDefinitionOrderAction at($offset)
  */
 class TypeChangeFieldDefinitionOrderActionCollection extends TypeUpdateActionCollection

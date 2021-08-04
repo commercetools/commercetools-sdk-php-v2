@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReturnItem>
  * @method ReturnItem current()
+ * @method ReturnItem end()
  * @method ReturnItem at($offset)
  */
 class ReturnItemCollection extends MapperSequence

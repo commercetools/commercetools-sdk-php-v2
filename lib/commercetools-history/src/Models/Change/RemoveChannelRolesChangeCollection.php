@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveChannelRolesChange>
  * @method RemoveChannelRolesChange current()
+ * @method RemoveChannelRolesChange end()
  * @method RemoveChannelRolesChange at($offset)
  */
 class RemoveChannelRolesChangeCollection extends ChangeCollection

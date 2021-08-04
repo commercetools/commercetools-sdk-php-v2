@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetAttributeInAllVariantsAction>
  * @method ProductSetAttributeInAllVariantsAction current()
+ * @method ProductSetAttributeInAllVariantsAction end()
  * @method ProductSetAttributeInAllVariantsAction at($offset)
  */
 class ProductSetAttributeInAllVariantsActionCollection extends ProductUpdateActionCollection

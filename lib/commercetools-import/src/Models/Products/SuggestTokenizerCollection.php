@@ -16,8 +16,10 @@ use stdClass;
  * @template T of SuggestTokenizer
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method SuggestTokenizer current()
+ * @method SuggestTokenizer end()
  * @method SuggestTokenizer at($offset)
  */
 class SuggestTokenizerCollection extends MapperSequence

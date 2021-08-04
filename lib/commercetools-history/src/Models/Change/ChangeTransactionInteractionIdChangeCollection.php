@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeTransactionInteractionIdChange>
  * @method ChangeTransactionInteractionIdChange current()
+ * @method ChangeTransactionInteractionIdChange end()
  * @method ChangeTransactionInteractionIdChange at($offset)
  */
 class ChangeTransactionInteractionIdChangeCollection extends ChangeCollection

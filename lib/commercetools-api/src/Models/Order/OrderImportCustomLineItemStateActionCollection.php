@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderUpdateActionCollection<OrderImportCustomLineItemStateAction>
  * @method OrderImportCustomLineItemStateAction current()
+ * @method OrderImportCustomLineItemStateAction end()
  * @method OrderImportCustomLineItemStateAction at($offset)
  */
 class OrderImportCustomLineItemStateActionCollection extends OrderUpdateActionCollection

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ImageSearchConfigUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ImageSearchConfigUpdateAction current()
+ * @method ImageSearchConfigUpdateAction end()
  * @method ImageSearchConfigUpdateAction at($offset)
  */
 class ImageSearchConfigUpdateActionCollection extends MapperSequence

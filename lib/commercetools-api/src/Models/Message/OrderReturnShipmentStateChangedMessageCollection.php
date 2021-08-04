@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<OrderReturnShipmentStateChangedMessage>
  * @method OrderReturnShipmentStateChangedMessage current()
+ * @method OrderReturnShipmentStateChangedMessage end()
  * @method OrderReturnShipmentStateChangedMessage at($offset)
  */
 class OrderReturnShipmentStateChangedMessageCollection extends MessageCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Asset>
  * @method Asset current()
+ * @method Asset end()
  * @method Asset at($offset)
  */
 class AssetCollection extends MapperSequence

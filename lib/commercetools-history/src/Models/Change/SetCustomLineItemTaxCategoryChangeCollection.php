@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomLineItemTaxCategoryChange>
  * @method SetCustomLineItemTaxCategoryChange current()
+ * @method SetCustomLineItemTaxCategoryChange end()
  * @method SetCustomLineItemTaxCategoryChange at($offset)
  */
 class SetCustomLineItemTaxCategoryChangeCollection extends ChangeCollection

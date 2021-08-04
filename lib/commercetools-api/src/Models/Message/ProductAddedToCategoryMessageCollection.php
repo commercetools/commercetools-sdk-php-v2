@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ProductAddedToCategoryMessage>
  * @method ProductAddedToCategoryMessage current()
+ * @method ProductAddedToCategoryMessage end()
  * @method ProductAddedToCategoryMessage at($offset)
  */
 class ProductAddedToCategoryMessageCollection extends MessageCollection

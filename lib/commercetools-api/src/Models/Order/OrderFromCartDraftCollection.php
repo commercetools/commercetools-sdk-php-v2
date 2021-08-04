@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderFromCartDraft>
  * @method OrderFromCartDraft current()
+ * @method OrderFromCartDraft end()
  * @method OrderFromCartDraft at($offset)
  */
 class OrderFromCartDraftCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerToken>
  * @method CustomerToken current()
+ * @method CustomerToken end()
  * @method CustomerToken at($offset)
  */
 class CustomerTokenCollection extends MapperSequence

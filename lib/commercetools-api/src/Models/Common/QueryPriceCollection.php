@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<QueryPrice>
  * @method QueryPrice current()
+ * @method QueryPrice end()
  * @method QueryPrice at($offset)
  */
 class QueryPriceCollection extends MapperSequence

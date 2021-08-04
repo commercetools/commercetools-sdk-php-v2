@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangePredicateChange>
  * @method ChangePredicateChange current()
+ * @method ChangePredicateChange end()
  * @method ChangePredicateChange at($offset)
  */
 class ChangePredicateChangeCollection extends ChangeCollection

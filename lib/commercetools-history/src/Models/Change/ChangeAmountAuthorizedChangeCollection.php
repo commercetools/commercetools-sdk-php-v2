@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAmountAuthorizedChange>
  * @method ChangeAmountAuthorizedChange current()
+ * @method ChangeAmountAuthorizedChange end()
  * @method ChangeAmountAuthorizedChange at($offset)
  */
 class ChangeAmountAuthorizedChangeCollection extends ChangeCollection

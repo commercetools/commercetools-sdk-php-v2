@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessagePayloadCollection<OrderCustomerGroupSetMessagePayload>
  * @method OrderCustomerGroupSetMessagePayload current()
+ * @method OrderCustomerGroupSetMessagePayload end()
  * @method OrderCustomerGroupSetMessagePayload at($offset)
  */
 class OrderCustomerGroupSetMessagePayloadCollection extends MessagePayloadCollection

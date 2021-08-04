@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSinkPagedResponse>
  * @method ImportSinkPagedResponse current()
+ * @method ImportSinkPagedResponse end()
  * @method ImportSinkPagedResponse at($offset)
  */
 class ImportSinkPagedResponseCollection extends MapperSequence

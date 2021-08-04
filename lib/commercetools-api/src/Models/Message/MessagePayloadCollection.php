@@ -16,8 +16,10 @@ use stdClass;
  * @template T of MessagePayload
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method MessagePayload current()
+ * @method MessagePayload end()
  * @method MessagePayload at($offset)
  */
 class MessagePayloadCollection extends MapperSequence

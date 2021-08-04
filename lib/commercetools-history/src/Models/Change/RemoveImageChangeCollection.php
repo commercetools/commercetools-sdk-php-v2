@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveImageChange>
  * @method RemoveImageChange current()
+ * @method RemoveImageChange end()
  * @method RemoveImageChange at($offset)
  */
 class RemoveImageChangeCollection extends ChangeCollection

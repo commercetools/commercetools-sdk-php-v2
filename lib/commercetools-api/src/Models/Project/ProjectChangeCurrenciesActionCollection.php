@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeCurrenciesAction>
  * @method ProjectChangeCurrenciesAction current()
+ * @method ProjectChangeCurrenciesAction end()
  * @method ProjectChangeCurrenciesAction at($offset)
  */
 class ProjectChangeCurrenciesActionCollection extends ProjectUpdateActionCollection

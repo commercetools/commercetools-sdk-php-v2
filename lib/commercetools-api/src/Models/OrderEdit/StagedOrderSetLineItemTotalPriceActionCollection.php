@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetLineItemTotalPriceAction>
  * @method StagedOrderSetLineItemTotalPriceAction current()
+ * @method StagedOrderSetLineItemTotalPriceAction end()
  * @method StagedOrderSetLineItemTotalPriceAction at($offset)
  */
 class StagedOrderSetLineItemTotalPriceActionCollection extends StagedOrderUpdateActionCollection

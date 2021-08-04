@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ShippingRatePriceTier>
  * @method ShippingRatePriceTier current()
+ * @method ShippingRatePriceTier end()
  * @method ShippingRatePriceTier at($offset)
  */
 class ShippingRatePriceTierCollection extends MapperSequence

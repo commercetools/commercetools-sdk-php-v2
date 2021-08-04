@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomLineItemMoneyChange>
  * @method SetCustomLineItemMoneyChange current()
+ * @method SetCustomLineItemMoneyChange end()
  * @method SetCustomLineItemMoneyChange at($offset)
  */
 class SetCustomLineItemMoneyChangeCollection extends ChangeCollection

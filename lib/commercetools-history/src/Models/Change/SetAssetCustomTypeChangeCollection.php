@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAssetCustomTypeChange>
  * @method SetAssetCustomTypeChange current()
+ * @method SetAssetCustomTypeChange end()
  * @method SetAssetCustomTypeChange at($offset)
  */
 class SetAssetCustomTypeChangeCollection extends ChangeCollection

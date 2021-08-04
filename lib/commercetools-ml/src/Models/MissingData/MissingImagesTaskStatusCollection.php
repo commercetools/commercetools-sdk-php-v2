@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingImagesTaskStatus>
  * @method MissingImagesTaskStatus current()
+ * @method MissingImagesTaskStatus end()
  * @method MissingImagesTaskStatus at($offset)
  */
 class MissingImagesTaskStatusCollection extends MapperSequence

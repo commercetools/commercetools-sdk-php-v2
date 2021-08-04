@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchDeactivatedError>
  * @method SearchDeactivatedError current()
+ * @method SearchDeactivatedError end()
  * @method SearchDeactivatedError at($offset)
  */
 class SearchDeactivatedErrorCollection extends ErrorObjectCollection

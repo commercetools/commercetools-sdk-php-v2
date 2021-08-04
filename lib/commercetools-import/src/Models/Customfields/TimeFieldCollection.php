@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<TimeField>
  * @method TimeField current()
+ * @method TimeField end()
  * @method TimeField at($offset)
  */
 class TimeFieldCollection extends CustomFieldCollection

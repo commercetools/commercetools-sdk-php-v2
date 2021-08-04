@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductRemoveVariantAction>
  * @method ProductRemoveVariantAction current()
+ * @method ProductRemoveVariantAction end()
  * @method ProductRemoveVariantAction at($offset)
  */
 class ProductRemoveVariantActionCollection extends ProductUpdateActionCollection

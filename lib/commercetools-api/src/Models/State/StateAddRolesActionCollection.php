@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StateUpdateActionCollection<StateAddRolesAction>
  * @method StateAddRolesAction current()
+ * @method StateAddRolesAction end()
  * @method StateAddRolesAction at($offset)
  */
 class StateAddRolesActionCollection extends StateUpdateActionCollection

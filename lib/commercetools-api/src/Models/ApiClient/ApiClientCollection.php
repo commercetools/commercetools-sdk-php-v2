@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ApiClient>
  * @method ApiClient current()
+ * @method ApiClient end()
  * @method ApiClient at($offset)
  */
 class ApiClientCollection extends MapperSequence

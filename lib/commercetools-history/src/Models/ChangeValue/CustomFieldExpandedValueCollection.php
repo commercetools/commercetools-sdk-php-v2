@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomFieldExpandedValue>
  * @method CustomFieldExpandedValue current()
+ * @method CustomFieldExpandedValue end()
  * @method CustomFieldExpandedValue at($offset)
  */
 class CustomFieldExpandedValueCollection extends MapperSequence

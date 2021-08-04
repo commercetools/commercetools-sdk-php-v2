@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TransactionChangeValue>
  * @method TransactionChangeValue current()
+ * @method TransactionChangeValue end()
  * @method TransactionChangeValue at($offset)
  */
 class TransactionChangeValueCollection extends MapperSequence

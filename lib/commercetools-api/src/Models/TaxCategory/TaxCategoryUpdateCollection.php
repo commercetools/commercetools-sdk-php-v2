@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaxCategoryUpdate>
  * @method TaxCategoryUpdate current()
+ * @method TaxCategoryUpdate end()
  * @method TaxCategoryUpdate at($offset)
  */
 class TaxCategoryUpdateCollection extends MapperSequence

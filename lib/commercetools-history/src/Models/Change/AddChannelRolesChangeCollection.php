@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddChannelRolesChange>
  * @method AddChannelRolesChange current()
+ * @method AddChannelRolesChange end()
  * @method AddChannelRolesChange at($offset)
  */
 class AddChannelRolesChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AttributeNameDoesNotExistError>
  * @method AttributeNameDoesNotExistError current()
+ * @method AttributeNameDoesNotExistError end()
  * @method AttributeNameDoesNotExistError at($offset)
  */
 class AttributeNameDoesNotExistErrorCollection extends ErrorObjectCollection

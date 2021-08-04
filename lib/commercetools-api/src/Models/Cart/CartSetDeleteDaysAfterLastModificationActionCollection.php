@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartSetDeleteDaysAfterLastModificationAction>
  * @method CartSetDeleteDaysAfterLastModificationAction current()
+ * @method CartSetDeleteDaysAfterLastModificationAction end()
  * @method CartSetDeleteDaysAfterLastModificationAction at($offset)
  */
 class CartSetDeleteDaysAfterLastModificationActionCollection extends CartUpdateActionCollection

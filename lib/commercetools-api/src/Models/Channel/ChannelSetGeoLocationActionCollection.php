@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelSetGeoLocationAction>
  * @method ChannelSetGeoLocationAction current()
+ * @method ChannelSetGeoLocationAction end()
  * @method ChannelSetGeoLocationAction at($offset)
  */
 class ChannelSetGeoLocationActionCollection extends ChannelUpdateActionCollection

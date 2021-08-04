@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionDestinationCollection<ExtensionHttpDestination>
  * @method ExtensionHttpDestination current()
+ * @method ExtensionHttpDestination end()
  * @method ExtensionHttpDestination at($offset)
  */
 class ExtensionHttpDestinationCollection extends ExtensionDestinationCollection

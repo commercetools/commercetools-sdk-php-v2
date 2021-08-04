@@ -16,8 +16,10 @@ use stdClass;
  * @template T of TypedMoneyDraft
  * @extends MoneyCollection<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method TypedMoneyDraft current()
+ * @method TypedMoneyDraft end()
  * @method TypedMoneyDraft at($offset)
  */
 class TypedMoneyDraftCollection extends MoneyCollection

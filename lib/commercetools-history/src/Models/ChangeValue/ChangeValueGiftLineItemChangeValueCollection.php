@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeValueChangeValueCollection<ChangeValueGiftLineItemChangeValue>
  * @method ChangeValueGiftLineItemChangeValue current()
+ * @method ChangeValueGiftLineItemChangeValue end()
  * @method ChangeValueGiftLineItemChangeValue at($offset)
  */
 class ChangeValueGiftLineItemChangeValueCollection extends ChangeValueChangeValueCollection

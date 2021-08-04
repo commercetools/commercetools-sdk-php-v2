@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<CartReference>
  * @method CartReference current()
+ * @method CartReference end()
  * @method CartReference at($offset)
  */
 class CartReferenceCollection extends ReferenceCollection

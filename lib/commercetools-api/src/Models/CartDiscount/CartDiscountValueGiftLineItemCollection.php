@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartDiscountValueCollection<CartDiscountValueGiftLineItem>
  * @method CartDiscountValueGiftLineItem current()
+ * @method CartDiscountValueGiftLineItem end()
  * @method CartDiscountValueGiftLineItem at($offset)
  */
 class CartDiscountValueGiftLineItemCollection extends CartDiscountValueCollection

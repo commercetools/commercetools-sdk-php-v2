@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectSetShippingRateInputTypeAction>
  * @method ProjectSetShippingRateInputTypeAction current()
+ * @method ProjectSetShippingRateInputTypeAction end()
  * @method ProjectSetShippingRateInputTypeAction at($offset)
  */
 class ProjectSetShippingRateInputTypeActionCollection extends ProjectUpdateActionCollection

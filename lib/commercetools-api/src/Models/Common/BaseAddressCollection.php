@@ -16,8 +16,10 @@ use stdClass;
  * @template T of BaseAddress
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method BaseAddress current()
+ * @method BaseAddress end()
  * @method BaseAddress at($offset)
  */
 class BaseAddressCollection extends MapperSequence

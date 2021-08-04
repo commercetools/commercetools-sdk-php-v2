@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SyntaxErrorError>
  * @method SyntaxErrorError current()
+ * @method SyntaxErrorError end()
  * @method SyntaxErrorError at($offset)
  */
 class SyntaxErrorErrorCollection extends ErrorObjectCollection

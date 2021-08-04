@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ProjectUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ProjectUpdateAction current()
+ * @method ProjectUpdateAction end()
  * @method ProjectUpdateAction at($offset)
  */
 class ProjectUpdateActionCollection extends MapperSequence

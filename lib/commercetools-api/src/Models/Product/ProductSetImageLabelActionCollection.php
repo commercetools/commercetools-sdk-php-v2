@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetImageLabelAction>
  * @method ProductSetImageLabelAction current()
+ * @method ProductSetImageLabelAction end()
  * @method ProductSetImageLabelAction at($offset)
  */
 class ProductSetImageLabelActionCollection extends ProductUpdateActionCollection

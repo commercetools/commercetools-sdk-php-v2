@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderChangeTaxRoundingModeAction>
  * @method StagedOrderChangeTaxRoundingModeAction current()
+ * @method StagedOrderChangeTaxRoundingModeAction end()
  * @method StagedOrderChangeTaxRoundingModeAction at($offset)
  */
 class StagedOrderChangeTaxRoundingModeActionCollection extends StagedOrderUpdateActionCollection

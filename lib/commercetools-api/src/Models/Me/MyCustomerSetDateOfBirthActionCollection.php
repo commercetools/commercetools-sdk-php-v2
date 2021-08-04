@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCustomerUpdateActionCollection<MyCustomerSetDateOfBirthAction>
  * @method MyCustomerSetDateOfBirthAction current()
+ * @method MyCustomerSetDateOfBirthAction end()
  * @method MyCustomerSetDateOfBirthAction at($offset)
  */
 class MyCustomerSetDateOfBirthActionCollection extends MyCustomerUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTextLineItemCustomTypeChange>
  * @method SetTextLineItemCustomTypeChange current()
+ * @method SetTextLineItemCustomTypeChange end()
  * @method SetTextLineItemCustomTypeChange at($offset)
  */
 class SetTextLineItemCustomTypeChangeCollection extends ChangeCollection

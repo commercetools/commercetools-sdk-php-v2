@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TextLineItemDraft>
  * @method TextLineItemDraft current()
+ * @method TextLineItemDraft end()
  * @method TextLineItemDraft at($offset)
  */
 class TextLineItemDraftCollection extends MapperSequence

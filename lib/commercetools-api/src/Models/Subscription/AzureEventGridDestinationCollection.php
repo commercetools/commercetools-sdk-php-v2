@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<AzureEventGridDestination>
  * @method AzureEventGridDestination current()
+ * @method AzureEventGridDestination end()
  * @method AzureEventGridDestination at($offset)
  */
 class AzureEventGridDestinationCollection extends DestinationCollection

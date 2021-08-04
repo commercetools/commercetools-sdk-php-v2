@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<OrderEdit>
  * @method OrderEdit current()
+ * @method OrderEdit end()
  * @method OrderEdit at($offset)
  */
 class OrderEditCollection extends BaseResourceCollection

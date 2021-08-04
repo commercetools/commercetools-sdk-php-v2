@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ValidFromAndUntilValue>
  * @method ValidFromAndUntilValue current()
+ * @method ValidFromAndUntilValue end()
  * @method ValidFromAndUntilValue at($offset)
  */
 class ValidFromAndUntilValueCollection extends MapperSequence

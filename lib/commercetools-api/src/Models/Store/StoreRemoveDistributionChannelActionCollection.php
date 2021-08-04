@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StoreUpdateActionCollection<StoreRemoveDistributionChannelAction>
  * @method StoreRemoveDistributionChannelAction current()
+ * @method StoreRemoveDistributionChannelAction end()
  * @method StoreRemoveDistributionChannelAction at($offset)
  */
 class StoreRemoveDistributionChannelActionCollection extends StoreUpdateActionCollection

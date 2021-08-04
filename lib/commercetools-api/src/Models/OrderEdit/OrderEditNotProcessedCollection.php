@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderEditResultCollection<OrderEditNotProcessed>
  * @method OrderEditNotProcessed current()
+ * @method OrderEditNotProcessed end()
  * @method OrderEditNotProcessed at($offset)
  */
 class OrderEditNotProcessedCollection extends OrderEditResultCollection

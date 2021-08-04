@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAddressChange>
  * @method ChangeAddressChange current()
+ * @method ChangeAddressChange end()
  * @method ChangeAddressChange at($offset)
  */
 class ChangeAddressChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetInputTipChange>
  * @method SetInputTipChange current()
+ * @method SetInputTipChange end()
  * @method SetInputTipChange at($offset)
  */
 class SetInputTipChangeCollection extends ChangeCollection

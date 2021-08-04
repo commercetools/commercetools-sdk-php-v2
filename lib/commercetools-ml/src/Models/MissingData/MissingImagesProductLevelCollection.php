@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MissingImagesCountCollection<MissingImagesProductLevel>
  * @method MissingImagesProductLevel current()
+ * @method MissingImagesProductLevel end()
  * @method MissingImagesProductLevel at($offset)
  */
 class MissingImagesProductLevelCollection extends MissingImagesCountCollection

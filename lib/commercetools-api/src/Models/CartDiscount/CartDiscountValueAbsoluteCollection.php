@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartDiscountValueCollection<CartDiscountValueAbsolute>
  * @method CartDiscountValueAbsolute current()
+ * @method CartDiscountValueAbsolute end()
  * @method CartDiscountValueAbsolute at($offset)
  */
 class CartDiscountValueAbsoluteCollection extends CartDiscountValueCollection

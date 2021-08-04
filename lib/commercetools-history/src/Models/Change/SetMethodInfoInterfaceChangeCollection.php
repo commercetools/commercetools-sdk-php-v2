@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetMethodInfoInterfaceChange>
  * @method SetMethodInfoInterfaceChange current()
+ * @method SetMethodInfoInterfaceChange end()
  * @method SetMethodInfoInterfaceChange at($offset)
  */
 class SetMethodInfoInterfaceChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<CustomerCompanyNameSetMessage>
  * @method CustomerCompanyNameSetMessage current()
+ * @method CustomerCompanyNameSetMessage end()
  * @method CustomerCompanyNameSetMessage at($offset)
  */
 class CustomerCompanyNameSetMessageCollection extends MessageCollection

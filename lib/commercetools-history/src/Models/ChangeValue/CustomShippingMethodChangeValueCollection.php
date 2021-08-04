@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomShippingMethodChangeValue>
  * @method CustomShippingMethodChangeValue current()
+ * @method CustomShippingMethodChangeValue end()
  * @method CustomShippingMethodChangeValue at($offset)
  */
 class CustomShippingMethodChangeValueCollection extends MapperSequence

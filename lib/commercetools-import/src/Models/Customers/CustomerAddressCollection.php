@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerAddress>
  * @method CustomerAddress current()
+ * @method CustomerAddress end()
  * @method CustomerAddress at($offset)
  */
 class CustomerAddressCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductDiscountMatchQuery>
  * @method ProductDiscountMatchQuery current()
+ * @method ProductDiscountMatchQuery end()
  * @method ProductDiscountMatchQuery at($offset)
  */
 class ProductDiscountMatchQueryCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<TransitionCustomLineItemStateChange>
  * @method TransitionCustomLineItemStateChange current()
+ * @method TransitionCustomLineItemStateChange end()
  * @method TransitionCustomLineItemStateChange at($offset)
  */
 class TransitionCustomLineItemStateChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemovePaymentChange>
  * @method RemovePaymentChange current()
+ * @method RemovePaymentChange end()
  * @method RemovePaymentChange at($offset)
  */
 class RemovePaymentChangeCollection extends ChangeCollection

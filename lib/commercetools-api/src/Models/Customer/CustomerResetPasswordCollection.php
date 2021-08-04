@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerResetPassword>
  * @method CustomerResetPassword current()
+ * @method CustomerResetPassword end()
  * @method CustomerResetPassword at($offset)
  */
 class CustomerResetPasswordCollection extends MapperSequence

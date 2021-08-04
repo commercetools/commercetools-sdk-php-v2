@@ -18,7 +18,7 @@ use stdClass;
 interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
     public function toArray(): ?array;
-
+    
     public function jsonSerialize(): ?array;
 
     /**

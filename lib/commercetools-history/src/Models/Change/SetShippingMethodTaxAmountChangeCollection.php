@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetShippingMethodTaxAmountChange>
  * @method SetShippingMethodTaxAmountChange current()
+ * @method SetShippingMethodTaxAmountChange end()
  * @method SetShippingMethodTaxAmountChange at($offset)
  */
 class SetShippingMethodTaxAmountChangeCollection extends ChangeCollection

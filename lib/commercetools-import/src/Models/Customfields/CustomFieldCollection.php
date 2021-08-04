@@ -16,8 +16,10 @@ use stdClass;
  * @template T of CustomField
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method CustomField current()
+ * @method CustomField end()
  * @method CustomField at($offset)
  */
 class CustomFieldCollection extends MapperSequence

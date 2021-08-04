@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TypeUpdate>
  * @method TypeUpdate current()
+ * @method TypeUpdate end()
  * @method TypeUpdate at($offset)
  */
 class TypeUpdateCollection extends MapperSequence

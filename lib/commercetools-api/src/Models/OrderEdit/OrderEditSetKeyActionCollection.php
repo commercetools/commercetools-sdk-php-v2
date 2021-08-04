@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderEditUpdateActionCollection<OrderEditSetKeyAction>
  * @method OrderEditSetKeyAction current()
+ * @method OrderEditSetKeyAction end()
  * @method OrderEditSetKeyAction at($offset)
  */
 class OrderEditSetKeyActionCollection extends OrderEditUpdateActionCollection

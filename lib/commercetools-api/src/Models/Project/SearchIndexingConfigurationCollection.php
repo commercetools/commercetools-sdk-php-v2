@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SearchIndexingConfiguration>
  * @method SearchIndexingConfiguration current()
+ * @method SearchIndexingConfiguration end()
  * @method SearchIndexingConfiguration at($offset)
  */
 class SearchIndexingConfigurationCollection extends MapperSequence

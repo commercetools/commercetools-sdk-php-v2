@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EnumValuesMustMatchError>
  * @method EnumValuesMustMatchError current()
+ * @method EnumValuesMustMatchError end()
  * @method EnumValuesMustMatchError at($offset)
  */
 class EnumValuesMustMatchErrorCollection extends ErrorObjectCollection

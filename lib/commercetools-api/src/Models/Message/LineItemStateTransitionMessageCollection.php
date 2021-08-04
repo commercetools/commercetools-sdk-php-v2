@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<LineItemStateTransitionMessage>
  * @method LineItemStateTransitionMessage current()
+ * @method LineItemStateTransitionMessage end()
  * @method LineItemStateTransitionMessage at($offset)
  */
 class LineItemStateTransitionMessageCollection extends MessageCollection

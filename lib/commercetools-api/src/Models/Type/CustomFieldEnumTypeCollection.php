@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldEnumType>
  * @method CustomFieldEnumType current()
+ * @method CustomFieldEnumType end()
  * @method CustomFieldEnumType at($offset)
  */
 class CustomFieldEnumTypeCollection extends FieldTypeCollection

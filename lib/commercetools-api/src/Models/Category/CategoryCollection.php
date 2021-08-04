@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Category>
  * @method Category current()
+ * @method Category end()
  * @method Category at($offset)
  */
 class CategoryCollection extends BaseResourceCollection

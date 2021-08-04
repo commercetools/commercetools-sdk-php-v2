@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SubscriptionUpdateActionCollection<SubscriptionSetKeyAction>
  * @method SubscriptionSetKeyAction current()
+ * @method SubscriptionSetKeyAction end()
  * @method SubscriptionSetKeyAction at($offset)
  */
 class SubscriptionSetKeyActionCollection extends SubscriptionUpdateActionCollection

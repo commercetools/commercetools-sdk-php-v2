@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionHttpDestinationAuthenticationCollection<ExtensionAzureFunctionsAuthentication>
  * @method ExtensionAzureFunctionsAuthentication current()
+ * @method ExtensionAzureFunctionsAuthentication end()
  * @method ExtensionAzureFunctionsAuthentication at($offset)
  */
 class ExtensionAzureFunctionsAuthenticationCollection extends ExtensionHttpDestinationAuthenticationCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShoppingListUpdateActionCollection<ShoppingListSetDeleteDaysAfterLastModificationAction>
  * @method ShoppingListSetDeleteDaysAfterLastModificationAction current()
+ * @method ShoppingListSetDeleteDaysAfterLastModificationAction end()
  * @method ShoppingListSetDeleteDaysAfterLastModificationAction at($offset)
  */
 class ShoppingListSetDeleteDaysAfterLastModificationActionCollection extends ShoppingListUpdateActionCollection

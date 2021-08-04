@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<TaxCategoryReference>
  * @method TaxCategoryReference current()
+ * @method TaxCategoryReference end()
  * @method TaxCategoryReference at($offset)
  */
 class TaxCategoryReferenceCollection extends ReferenceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeProductSearchIndexingEnabledAction>
  * @method ProjectChangeProductSearchIndexingEnabledAction current()
+ * @method ProjectChangeProductSearchIndexingEnabledAction end()
  * @method ProjectChangeProductSearchIndexingEnabledAction at($offset)
  */
 class ProjectChangeProductSearchIndexingEnabledActionCollection extends ProjectUpdateActionCollection

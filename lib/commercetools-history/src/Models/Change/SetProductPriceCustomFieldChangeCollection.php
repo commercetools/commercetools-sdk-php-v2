@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetProductPriceCustomFieldChange>
  * @method SetProductPriceCustomFieldChange current()
+ * @method SetProductPriceCustomFieldChange end()
  * @method SetProductPriceCustomFieldChange at($offset)
  */
 class SetProductPriceCustomFieldChangeCollection extends ChangeCollection

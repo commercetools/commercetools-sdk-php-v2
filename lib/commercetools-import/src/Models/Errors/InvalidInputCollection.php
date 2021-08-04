@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidInput>
  * @method InvalidInput current()
+ * @method InvalidInput end()
  * @method InvalidInput at($offset)
  */
 class InvalidInputCollection extends ErrorObjectCollection

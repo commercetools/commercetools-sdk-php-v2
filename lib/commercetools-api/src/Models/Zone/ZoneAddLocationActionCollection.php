@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ZoneUpdateActionCollection<ZoneAddLocationAction>
  * @method ZoneAddLocationAction current()
+ * @method ZoneAddLocationAction end()
  * @method ZoneAddLocationAction at($offset)
  */
 class ZoneAddLocationActionCollection extends ZoneUpdateActionCollection

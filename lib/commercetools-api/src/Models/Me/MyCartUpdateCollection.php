@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MyCartUpdate>
  * @method MyCartUpdate current()
+ * @method MyCartUpdate end()
  * @method MyCartUpdate at($offset)
  */
 class MyCartUpdateCollection extends MapperSequence

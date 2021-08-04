@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<SnsDestination>
  * @method SnsDestination current()
+ * @method SnsDestination end()
  * @method SnsDestination at($offset)
  */
 class SnsDestinationCollection extends DestinationCollection

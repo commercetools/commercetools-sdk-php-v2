@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MaxResourceLimitExceededError>
  * @method MaxResourceLimitExceededError current()
+ * @method MaxResourceLimitExceededError end()
  * @method MaxResourceLimitExceededError at($offset)
  */
 class MaxResourceLimitExceededErrorCollection extends ErrorObjectCollection

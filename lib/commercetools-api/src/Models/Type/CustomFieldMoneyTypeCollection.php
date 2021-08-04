@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldMoneyType>
  * @method CustomFieldMoneyType current()
+ * @method CustomFieldMoneyType end()
  * @method CustomFieldMoneyType at($offset)
  */
 class CustomFieldMoneyTypeCollection extends FieldTypeCollection

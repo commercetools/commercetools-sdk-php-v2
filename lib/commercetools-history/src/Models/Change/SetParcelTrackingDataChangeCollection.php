@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetParcelTrackingDataChange>
  * @method SetParcelTrackingDataChange current()
+ * @method SetParcelTrackingDataChange end()
  * @method SetParcelTrackingDataChange at($offset)
  */
 class SetParcelTrackingDataChangeCollection extends ChangeCollection

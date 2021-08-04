@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseAddressCollection<AddressDraft>
  * @method AddressDraft current()
+ * @method AddressDraft end()
  * @method AddressDraft at($offset)
  */
 class AddressDraftCollection extends BaseAddressCollection

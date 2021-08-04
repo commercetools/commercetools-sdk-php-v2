@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomerUpdateActionCollection<CustomerSetLocaleAction>
  * @method CustomerSetLocaleAction current()
+ * @method CustomerSetLocaleAction end()
  * @method CustomerSetLocaleAction at($offset)
  */
 class CustomerSetLocaleActionCollection extends CustomerUpdateActionCollection

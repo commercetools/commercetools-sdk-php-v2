@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectSetExternalOAuthAction>
  * @method ProjectSetExternalOAuthAction current()
+ * @method ProjectSetExternalOAuthAction end()
  * @method ProjectSetExternalOAuthAction at($offset)
  */
 class ProjectSetExternalOAuthActionCollection extends ProjectUpdateActionCollection

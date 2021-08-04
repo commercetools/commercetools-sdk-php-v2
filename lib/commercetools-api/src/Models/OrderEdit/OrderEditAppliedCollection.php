@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderEditResultCollection<OrderEditApplied>
  * @method OrderEditApplied current()
+ * @method OrderEditApplied end()
  * @method OrderEditApplied at($offset)
  */
 class OrderEditAppliedCollection extends OrderEditResultCollection

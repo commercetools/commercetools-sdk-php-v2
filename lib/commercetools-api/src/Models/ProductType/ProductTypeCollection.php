@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<ProductType>
  * @method ProductType current()
+ * @method ProductType end()
  * @method ProductType at($offset)
  */
 class ProductTypeCollection extends BaseResourceCollection

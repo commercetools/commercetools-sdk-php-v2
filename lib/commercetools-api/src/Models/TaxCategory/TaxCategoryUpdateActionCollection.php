@@ -16,8 +16,10 @@ use stdClass;
  * @template T of TaxCategoryUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method TaxCategoryUpdateAction current()
+ * @method TaxCategoryUpdateAction end()
  * @method TaxCategoryUpdateAction at($offset)
  */
 class TaxCategoryUpdateActionCollection extends MapperSequence

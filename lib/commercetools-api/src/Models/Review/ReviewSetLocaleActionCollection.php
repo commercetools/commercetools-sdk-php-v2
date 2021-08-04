@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReviewUpdateActionCollection<ReviewSetLocaleAction>
  * @method ReviewSetLocaleAction current()
+ * @method ReviewSetLocaleAction end()
  * @method ReviewSetLocaleAction at($offset)
  */
 class ReviewSetLocaleActionCollection extends ReviewUpdateActionCollection

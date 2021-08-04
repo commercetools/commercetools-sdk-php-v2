@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionUpdateActionCollection<ExtensionSetTimeoutInMsAction>
  * @method ExtensionSetTimeoutInMsAction current()
+ * @method ExtensionSetTimeoutInMsAction end()
  * @method ExtensionSetTimeoutInMsAction at($offset)
  */
 class ExtensionSetTimeoutInMsActionCollection extends ExtensionUpdateActionCollection

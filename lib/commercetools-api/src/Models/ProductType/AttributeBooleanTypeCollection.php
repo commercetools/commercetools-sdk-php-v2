@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeBooleanType>
  * @method AttributeBooleanType current()
+ * @method AttributeBooleanType end()
  * @method AttributeBooleanType at($offset)
  */
 class AttributeBooleanTypeCollection extends AttributeTypeCollection

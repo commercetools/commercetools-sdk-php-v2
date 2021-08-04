@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ZoneUpdate>
  * @method ZoneUpdate current()
+ * @method ZoneUpdate end()
  * @method ZoneUpdate at($offset)
  */
 class ZoneUpdateCollection extends MapperSequence

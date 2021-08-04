@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeKeyAction>
  * @method TypeChangeKeyAction current()
+ * @method TypeChangeKeyAction end()
  * @method TypeChangeKeyAction at($offset)
  */
 class TypeChangeKeyActionCollection extends TypeUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderRemoveDeliveryAction>
  * @method StagedOrderRemoveDeliveryAction current()
+ * @method StagedOrderRemoveDeliveryAction end()
  * @method StagedOrderRemoveDeliveryAction at($offset)
  */
 class StagedOrderRemoveDeliveryActionCollection extends StagedOrderUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeEnumValueLabelChange>
  * @method ChangeEnumValueLabelChange current()
+ * @method ChangeEnumValueLabelChange end()
  * @method ChangeEnumValueLabelChange at($offset)
  */
 class ChangeEnumValueLabelChangeCollection extends ChangeCollection

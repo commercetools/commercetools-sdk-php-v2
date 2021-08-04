@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SearchKeywords>
  * @method SearchKeywords current()
+ * @method SearchKeywords end()
  * @method SearchKeywords at($offset)
  */
 class SearchKeywordsCollection extends MapperSequence

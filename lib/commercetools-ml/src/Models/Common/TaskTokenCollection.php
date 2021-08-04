@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaskToken>
  * @method TaskToken current()
+ * @method TaskToken end()
  * @method TaskToken at($offset)
  */
 class TaskTokenCollection extends MapperSequence

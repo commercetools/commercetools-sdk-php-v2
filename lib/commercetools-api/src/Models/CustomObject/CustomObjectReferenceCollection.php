@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<CustomObjectReference>
  * @method CustomObjectReference current()
+ * @method CustomObjectReference end()
  * @method CustomObjectReference at($offset)
  */
 class CustomObjectReferenceCollection extends ReferenceCollection

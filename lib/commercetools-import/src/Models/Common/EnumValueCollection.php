@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<EnumValue>
  * @method EnumValue current()
+ * @method EnumValue end()
  * @method EnumValue at($offset)
  */
 class EnumValueCollection extends MapperSequence

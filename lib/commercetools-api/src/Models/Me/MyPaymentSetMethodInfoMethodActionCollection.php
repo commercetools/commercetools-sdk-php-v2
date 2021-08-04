@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyPaymentUpdateActionCollection<MyPaymentSetMethodInfoMethodAction>
  * @method MyPaymentSetMethodInfoMethodAction current()
+ * @method MyPaymentSetMethodInfoMethodAction end()
  * @method MyPaymentSetMethodInfoMethodAction at($offset)
  */
 class MyPaymentSetMethodInfoMethodActionCollection extends MyPaymentUpdateActionCollection

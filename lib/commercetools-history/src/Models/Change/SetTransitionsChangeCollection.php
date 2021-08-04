@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTransitionsChange>
  * @method SetTransitionsChange current()
+ * @method SetTransitionsChange end()
  * @method SetTransitionsChange at($offset)
  */
 class SetTransitionsChangeCollection extends ChangeCollection

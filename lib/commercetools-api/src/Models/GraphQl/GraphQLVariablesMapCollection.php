@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GraphQLVariablesMap>
  * @method GraphQLVariablesMap current()
+ * @method GraphQLVariablesMap end()
  * @method GraphQLVariablesMap at($offset)
  */
 class GraphQLVariablesMapCollection extends MapperSequence

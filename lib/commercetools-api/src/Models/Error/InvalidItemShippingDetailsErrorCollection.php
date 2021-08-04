@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidItemShippingDetailsError>
  * @method InvalidItemShippingDetailsError current()
+ * @method InvalidItemShippingDetailsError end()
  * @method InvalidItemShippingDetailsError at($offset)
  */
 class InvalidItemShippingDetailsErrorCollection extends ErrorObjectCollection

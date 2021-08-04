@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeAttributeConstraintAction>
  * @method ProductTypeChangeAttributeConstraintAction current()
+ * @method ProductTypeChangeAttributeConstraintAction end()
  * @method ProductTypeChangeAttributeConstraintAction at($offset)
  */
 class ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUpdateActionCollection

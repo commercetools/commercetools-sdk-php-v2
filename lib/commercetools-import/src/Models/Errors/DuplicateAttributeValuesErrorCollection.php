@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateAttributeValuesError>
  * @method DuplicateAttributeValuesError current()
+ * @method DuplicateAttributeValuesError end()
  * @method DuplicateAttributeValuesError at($offset)
  */
 class DuplicateAttributeValuesErrorCollection extends ErrorObjectCollection

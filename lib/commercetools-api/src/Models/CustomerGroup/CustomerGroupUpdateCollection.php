@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerGroupUpdate>
  * @method CustomerGroupUpdate current()
+ * @method CustomerGroupUpdate end()
  * @method CustomerGroupUpdate at($offset)
  */
 class CustomerGroupUpdateCollection extends MapperSequence

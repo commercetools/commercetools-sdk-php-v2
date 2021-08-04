@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntryChangeQuantityAction>
  * @method InventoryEntryChangeQuantityAction current()
+ * @method InventoryEntryChangeQuantityAction end()
  * @method InventoryEntryChangeQuantityAction at($offset)
  */
 class InventoryEntryChangeQuantityActionCollection extends InventoryEntryUpdateActionCollection

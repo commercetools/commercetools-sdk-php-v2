@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductDiscountValueDraftCollection<ProductDiscountValueRelativeDraft>
  * @method ProductDiscountValueRelativeDraft current()
+ * @method ProductDiscountValueRelativeDraft end()
  * @method ProductDiscountValueRelativeDraft at($offset)
  */
 class ProductDiscountValueRelativeDraftCollection extends ProductDiscountValueDraftCollection

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ErrorObject
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ErrorObject current()
+ * @method ErrorObject end()
  * @method ErrorObject at($offset)
  */
 class ErrorObjectCollection extends MapperSequence

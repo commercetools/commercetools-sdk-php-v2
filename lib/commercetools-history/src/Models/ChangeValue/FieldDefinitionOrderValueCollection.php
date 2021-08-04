@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FieldDefinitionOrderValue>
  * @method FieldDefinitionOrderValue current()
+ * @method FieldDefinitionOrderValue end()
  * @method FieldDefinitionOrderValue at($offset)
  */
 class FieldDefinitionOrderValueCollection extends MapperSequence

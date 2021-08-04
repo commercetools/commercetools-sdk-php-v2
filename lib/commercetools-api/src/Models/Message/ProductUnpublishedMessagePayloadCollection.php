@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessagePayloadCollection<ProductUnpublishedMessagePayload>
  * @method ProductUnpublishedMessagePayload current()
+ * @method ProductUnpublishedMessagePayload end()
  * @method ProductUnpublishedMessagePayload at($offset)
  */
 class ProductUnpublishedMessagePayloadCollection extends MessagePayloadCollection

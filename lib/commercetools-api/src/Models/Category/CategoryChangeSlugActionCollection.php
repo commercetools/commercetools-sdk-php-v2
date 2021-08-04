@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategoryChangeSlugAction>
  * @method CategoryChangeSlugAction current()
+ * @method CategoryChangeSlugAction end()
  * @method CategoryChangeSlugAction at($offset)
  */
 class CategoryChangeSlugActionCollection extends CategoryUpdateActionCollection

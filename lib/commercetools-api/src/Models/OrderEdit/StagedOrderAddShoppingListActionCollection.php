@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderAddShoppingListAction>
  * @method StagedOrderAddShoppingListAction current()
+ * @method StagedOrderAddShoppingListAction end()
  * @method StagedOrderAddShoppingListAction at($offset)
  */
 class StagedOrderAddShoppingListActionCollection extends StagedOrderUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<OrderDiscountCodeAddedMessage>
  * @method OrderDiscountCodeAddedMessage current()
+ * @method OrderDiscountCodeAddedMessage end()
  * @method OrderDiscountCodeAddedMessage at($offset)
  */
 class OrderDiscountCodeAddedMessageCollection extends MessageCollection

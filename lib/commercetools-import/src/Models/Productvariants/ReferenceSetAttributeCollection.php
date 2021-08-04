@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<ReferenceSetAttribute>
  * @method ReferenceSetAttribute current()
+ * @method ReferenceSetAttribute end()
  * @method ReferenceSetAttribute at($offset)
  */
 class ReferenceSetAttributeCollection extends AttributeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingMethodUpdateActionCollection<ShippingMethodSetPredicateAction>
  * @method ShippingMethodSetPredicateAction current()
+ * @method ShippingMethodSetPredicateAction end()
  * @method ShippingMethodSetPredicateAction at($offset)
  */
 class ShippingMethodSetPredicateActionCollection extends ShippingMethodUpdateActionCollection

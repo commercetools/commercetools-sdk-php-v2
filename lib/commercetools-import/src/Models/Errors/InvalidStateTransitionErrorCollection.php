@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidStateTransitionError>
  * @method InvalidStateTransitionError current()
+ * @method InvalidStateTransitionError end()
  * @method InvalidStateTransitionError at($offset)
  */
 class InvalidStateTransitionErrorCollection extends ErrorObjectCollection

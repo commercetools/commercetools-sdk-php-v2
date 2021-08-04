@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<ChannelResourceIdentifier>
  * @method ChannelResourceIdentifier current()
+ * @method ChannelResourceIdentifier end()
  * @method ChannelResourceIdentifier at($offset)
  */
 class ChannelResourceIdentifierCollection extends ResourceIdentifierCollection

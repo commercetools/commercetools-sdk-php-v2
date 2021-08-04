@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<OrderEditResourceIdentifier>
  * @method OrderEditResourceIdentifier current()
+ * @method OrderEditResourceIdentifier end()
  * @method OrderEditResourceIdentifier at($offset)
  */
 class OrderEditResourceIdentifierCollection extends ResourceIdentifierCollection

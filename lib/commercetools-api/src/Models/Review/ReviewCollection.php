@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Review>
  * @method Review current()
+ * @method Review end()
  * @method Review at($offset)
  */
 class ReviewCollection extends BaseResourceCollection

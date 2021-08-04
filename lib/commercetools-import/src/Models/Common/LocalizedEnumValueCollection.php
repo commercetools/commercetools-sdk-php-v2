@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<LocalizedEnumValue>
  * @method LocalizedEnumValue current()
+ * @method LocalizedEnumValue end()
  * @method LocalizedEnumValue at($offset)
  */
 class LocalizedEnumValueCollection extends MapperSequence

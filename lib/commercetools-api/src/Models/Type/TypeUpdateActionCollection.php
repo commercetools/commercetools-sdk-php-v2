@@ -16,8 +16,10 @@ use stdClass;
  * @template T of TypeUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method TypeUpdateAction current()
+ * @method TypeUpdateAction end()
  * @method TypeUpdateAction at($offset)
  */
 class TypeUpdateActionCollection extends MapperSequence

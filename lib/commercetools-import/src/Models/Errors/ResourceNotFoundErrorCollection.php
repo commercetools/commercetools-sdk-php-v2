@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ResourceNotFoundError>
  * @method ResourceNotFoundError current()
+ * @method ResourceNotFoundError end()
  * @method ResourceNotFoundError at($offset)
  */
 class ResourceNotFoundErrorCollection extends ErrorObjectCollection

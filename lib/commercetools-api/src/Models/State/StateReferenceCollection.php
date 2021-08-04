@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<StateReference>
  * @method StateReference current()
+ * @method StateReference end()
  * @method StateReference at($offset)
  */
 class StateReferenceCollection extends ReferenceCollection

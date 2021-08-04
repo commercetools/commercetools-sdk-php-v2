@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeLabelChange>
  * @method ChangeLabelChange current()
+ * @method ChangeLabelChange end()
  * @method ChangeLabelChange at($offset)
  */
 class ChangeLabelChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EditPreviewFailedError>
  * @method EditPreviewFailedError current()
+ * @method EditPreviewFailedError end()
  * @method EditPreviewFailedError at($offset)
  */
 class EditPreviewFailedErrorCollection extends ErrorObjectCollection

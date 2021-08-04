@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SubscriptionUpdateActionCollection<SubscriptionSetMessagesAction>
  * @method SubscriptionSetMessagesAction current()
+ * @method SubscriptionSetMessagesAction end()
  * @method SubscriptionSetMessagesAction at($offset)
  */
 class SubscriptionSetMessagesActionCollection extends SubscriptionUpdateActionCollection

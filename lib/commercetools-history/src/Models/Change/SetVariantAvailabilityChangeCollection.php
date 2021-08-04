@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetVariantAvailabilityChange>
  * @method SetVariantAvailabilityChange current()
+ * @method SetVariantAvailabilityChange end()
  * @method SetVariantAvailabilityChange at($offset)
  */
 class SetVariantAvailabilityChangeCollection extends ChangeCollection

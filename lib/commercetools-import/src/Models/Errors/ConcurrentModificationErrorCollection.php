@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ConcurrentModificationError>
  * @method ConcurrentModificationError current()
+ * @method ConcurrentModificationError end()
  * @method ConcurrentModificationError at($offset)
  */
 class ConcurrentModificationErrorCollection extends ErrorObjectCollection

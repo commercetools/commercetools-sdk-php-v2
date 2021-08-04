@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<TaxCategoryResourceIdentifier>
  * @method TaxCategoryResourceIdentifier current()
+ * @method TaxCategoryResourceIdentifier end()
  * @method TaxCategoryResourceIdentifier at($offset)
  */
 class TaxCategoryResourceIdentifierCollection extends ResourceIdentifierCollection

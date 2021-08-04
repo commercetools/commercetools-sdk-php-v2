@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeInputHintChange>
  * @method ChangeInputHintChange current()
+ * @method ChangeInputHintChange end()
  * @method ChangeInputHintChange at($offset)
  */
 class ChangeInputHintChangeCollection extends ChangeCollection

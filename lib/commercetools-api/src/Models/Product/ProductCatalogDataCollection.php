@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductCatalogData>
  * @method ProductCatalogData current()
+ * @method ProductCatalogData end()
  * @method ProductCatalogData at($offset)
  */
 class ProductCatalogDataCollection extends MapperSequence

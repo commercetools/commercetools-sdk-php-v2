@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<LanguageUsedInStoresError>
  * @method LanguageUsedInStoresError current()
+ * @method LanguageUsedInStoresError end()
  * @method LanguageUsedInStoresError at($offset)
  */
 class LanguageUsedInStoresErrorCollection extends ErrorObjectCollection

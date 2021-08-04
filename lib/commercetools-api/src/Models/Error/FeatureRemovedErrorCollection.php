@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<FeatureRemovedError>
  * @method FeatureRemovedError current()
+ * @method FeatureRemovedError end()
  * @method FeatureRemovedError at($offset)
  */
 class FeatureRemovedErrorCollection extends ErrorObjectCollection

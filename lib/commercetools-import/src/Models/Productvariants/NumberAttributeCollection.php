@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<NumberAttribute>
  * @method NumberAttribute current()
+ * @method NumberAttribute end()
  * @method NumberAttribute at($offset)
  */
 class NumberAttributeCollection extends AttributeCollection

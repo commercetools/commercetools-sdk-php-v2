@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GraphQLErrorLocation>
  * @method GraphQLErrorLocation current()
+ * @method GraphQLErrorLocation end()
  * @method GraphQLErrorLocation at($offset)
  */
 class GraphQLErrorLocationCollection extends MapperSequence

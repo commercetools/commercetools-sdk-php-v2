@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeInputHintAction>
  * @method ProductTypeChangeInputHintAction current()
+ * @method ProductTypeChangeInputHintAction end()
  * @method ProductTypeChangeInputHintAction at($offset)
  */
 class ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateActionCollection

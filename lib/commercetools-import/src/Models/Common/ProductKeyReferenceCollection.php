@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<ProductKeyReference>
  * @method ProductKeyReference current()
+ * @method ProductKeyReference end()
  * @method ProductKeyReference at($offset)
  */
 class ProductKeyReferenceCollection extends KeyReferenceCollection

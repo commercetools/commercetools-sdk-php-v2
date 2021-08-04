@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Subscription>
  * @method Subscription current()
+ * @method Subscription end()
  * @method Subscription at($offset)
  */
 class SubscriptionCollection extends BaseResourceCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeDescriptionAction>
  * @method ProductTypeChangeDescriptionAction current()
+ * @method ProductTypeChangeDescriptionAction end()
  * @method ProductTypeChangeDescriptionAction at($offset)
  */
 class ProductTypeChangeDescriptionActionCollection extends ProductTypeUpdateActionCollection

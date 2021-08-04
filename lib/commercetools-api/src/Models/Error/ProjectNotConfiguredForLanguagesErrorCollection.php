@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ProjectNotConfiguredForLanguagesError>
  * @method ProjectNotConfiguredForLanguagesError current()
+ * @method ProjectNotConfiguredForLanguagesError end()
  * @method ProjectNotConfiguredForLanguagesError at($offset)
  */
 class ProjectNotConfiguredForLanguagesErrorCollection extends ErrorObjectCollection

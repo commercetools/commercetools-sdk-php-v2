@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetReservationsChange>
  * @method SetReservationsChange current()
+ * @method SetReservationsChange end()
  * @method SetReservationsChange at($offset)
  */
 class SetReservationsChangeCollection extends ChangeCollection

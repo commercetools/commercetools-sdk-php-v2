@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateFieldError>
  * @method DuplicateFieldError current()
+ * @method DuplicateFieldError end()
  * @method DuplicateFieldError at($offset)
  */
 class DuplicateFieldErrorCollection extends ErrorObjectCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<CustomerResourceIdentifier>
  * @method CustomerResourceIdentifier current()
+ * @method CustomerResourceIdentifier end()
  * @method CustomerResourceIdentifier at($offset)
  */
 class CustomerResourceIdentifierCollection extends ResourceIdentifierCollection

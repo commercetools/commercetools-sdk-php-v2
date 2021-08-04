@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Reference
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Reference current()
+ * @method Reference end()
  * @method Reference at($offset)
  */
 class ReferenceCollection extends MapperSequence

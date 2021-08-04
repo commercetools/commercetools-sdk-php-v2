@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionUpdateActionCollection<ExtensionSetKeyAction>
  * @method ExtensionSetKeyAction current()
+ * @method ExtensionSetKeyAction end()
  * @method ExtensionSetKeyAction at($offset)
  */
 class ExtensionSetKeyActionCollection extends ExtensionUpdateActionCollection

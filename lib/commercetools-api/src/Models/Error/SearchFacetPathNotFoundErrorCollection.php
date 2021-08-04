@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchFacetPathNotFoundError>
  * @method SearchFacetPathNotFoundError current()
+ * @method SearchFacetPathNotFoundError end()
  * @method SearchFacetPathNotFoundError at($offset)
  */
 class SearchFacetPathNotFoundErrorCollection extends ErrorObjectCollection

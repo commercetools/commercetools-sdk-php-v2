@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TaxCategoryUpdateActionCollection<TaxCategoryAddTaxRateAction>
  * @method TaxCategoryAddTaxRateAction current()
+ * @method TaxCategoryAddTaxRateAction end()
  * @method TaxCategoryAddTaxRateAction at($offset)
  */
 class TaxCategoryAddTaxRateActionCollection extends TaxCategoryUpdateActionCollection

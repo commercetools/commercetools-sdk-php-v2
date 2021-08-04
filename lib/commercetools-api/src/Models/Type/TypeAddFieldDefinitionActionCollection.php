@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeAddFieldDefinitionAction>
  * @method TypeAddFieldDefinitionAction current()
+ * @method TypeAddFieldDefinitionAction end()
  * @method TypeAddFieldDefinitionAction at($offset)
  */
 class TypeAddFieldDefinitionActionCollection extends TypeUpdateActionCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddInterfaceInteractionChange>
  * @method AddInterfaceInteractionChange current()
+ * @method AddInterfaceInteractionChange end()
  * @method AddInterfaceInteractionChange at($offset)
  */
 class AddInterfaceInteractionChangeCollection extends ChangeCollection

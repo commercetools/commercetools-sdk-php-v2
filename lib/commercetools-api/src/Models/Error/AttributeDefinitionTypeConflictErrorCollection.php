@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AttributeDefinitionTypeConflictError>
  * @method AttributeDefinitionTypeConflictError current()
+ * @method AttributeDefinitionTypeConflictError end()
  * @method AttributeDefinitionTypeConflictError at($offset)
  */
 class AttributeDefinitionTypeConflictErrorCollection extends ErrorObjectCollection

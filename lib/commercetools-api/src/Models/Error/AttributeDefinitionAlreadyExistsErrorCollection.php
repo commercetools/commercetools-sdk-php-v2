@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AttributeDefinitionAlreadyExistsError>
  * @method AttributeDefinitionAlreadyExistsError current()
+ * @method AttributeDefinitionAlreadyExistsError end()
  * @method AttributeDefinitionAlreadyExistsError at($offset)
  */
 class AttributeDefinitionAlreadyExistsErrorCollection extends ErrorObjectCollection

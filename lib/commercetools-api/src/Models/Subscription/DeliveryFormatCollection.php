@@ -16,8 +16,10 @@ use stdClass;
  * @template T of DeliveryFormat
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method DeliveryFormat current()
+ * @method DeliveryFormat end()
  * @method DeliveryFormat at($offset)
  */
 class DeliveryFormatCollection extends MapperSequence

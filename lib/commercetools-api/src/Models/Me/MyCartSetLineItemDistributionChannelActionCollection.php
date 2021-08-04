@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCartUpdateActionCollection<MyCartSetLineItemDistributionChannelAction>
  * @method MyCartSetLineItemDistributionChannelAction current()
+ * @method MyCartSetLineItemDistributionChannelAction end()
  * @method MyCartSetLineItemDistributionChannelAction at($offset)
  */
 class MyCartSetLineItemDistributionChannelActionCollection extends MyCartUpdateActionCollection

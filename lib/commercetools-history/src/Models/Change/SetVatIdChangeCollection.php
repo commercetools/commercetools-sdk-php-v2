@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetVatIdChange>
  * @method SetVatIdChange current()
+ * @method SetVatIdChange end()
  * @method SetVatIdChange at($offset)
  */
 class SetVatIdChangeCollection extends ChangeCollection

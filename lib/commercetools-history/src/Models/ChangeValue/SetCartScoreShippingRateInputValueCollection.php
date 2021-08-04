@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SetCartScoreShippingRateInputValue>
  * @method SetCartScoreShippingRateInputValue current()
+ * @method SetCartScoreShippingRateInputValue end()
  * @method SetCartScoreShippingRateInputValue at($offset)
  */
 class SetCartScoreShippingRateInputValueCollection extends MapperSequence

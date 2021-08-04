@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<TextAttribute>
  * @method TextAttribute current()
+ * @method TextAttribute end()
  * @method TextAttribute at($offset)
  */
 class TextAttributeCollection extends AttributeCollection

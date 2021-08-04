@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddToCategoryChange>
  * @method AddToCategoryChange current()
+ * @method AddToCategoryChange end()
  * @method AddToCategoryChange at($offset)
  */
 class AddToCategoryChangeCollection extends ChangeCollection

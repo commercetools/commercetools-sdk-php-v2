@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetRestockableInDaysAction>
  * @method InventoryEntrySetRestockableInDaysAction current()
+ * @method InventoryEntrySetRestockableInDaysAction end()
  * @method InventoryEntrySetRestockableInDaysAction at($offset)
  */
 class InventoryEntrySetRestockableInDaysActionCollection extends InventoryEntryUpdateActionCollection

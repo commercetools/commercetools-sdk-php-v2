@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<ShoppingList>
  * @method ShoppingList current()
+ * @method ShoppingList end()
  * @method ShoppingList at($offset)
  */
 class ShoppingListCollection extends BaseResourceCollection

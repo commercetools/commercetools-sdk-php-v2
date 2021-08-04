@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeAddEnumValueAction>
  * @method TypeAddEnumValueAction current()
+ * @method TypeAddEnumValueAction end()
  * @method TypeAddEnumValueAction at($offset)
  */
 class TypeAddEnumValueActionCollection extends TypeUpdateActionCollection

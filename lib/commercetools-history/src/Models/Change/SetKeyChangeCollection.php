@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetKeyChange>
  * @method SetKeyChange current()
+ * @method SetKeyChange end()
  * @method SetKeyChange at($offset)
  */
 class SetKeyChangeCollection extends ChangeCollection

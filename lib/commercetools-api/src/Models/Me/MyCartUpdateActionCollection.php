@@ -16,8 +16,10 @@ use stdClass;
  * @template T of MyCartUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method MyCartUpdateAction current()
+ * @method MyCartUpdateAction end()
  * @method MyCartUpdateAction at($offset)
  */
 class MyCartUpdateActionCollection extends MapperSequence

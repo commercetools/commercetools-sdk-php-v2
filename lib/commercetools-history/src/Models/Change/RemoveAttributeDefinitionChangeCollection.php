@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveAttributeDefinitionChange>
  * @method RemoveAttributeDefinitionChange current()
+ * @method RemoveAttributeDefinitionChange end()
  * @method RemoveAttributeDefinitionChange at($offset)
  */
 class RemoveAttributeDefinitionChangeCollection extends ChangeCollection

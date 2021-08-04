@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetApplicationVersionChange>
  * @method SetApplicationVersionChange current()
+ * @method SetApplicationVersionChange end()
  * @method SetApplicationVersionChange at($offset)
  */
 class SetApplicationVersionChangeCollection extends ChangeCollection

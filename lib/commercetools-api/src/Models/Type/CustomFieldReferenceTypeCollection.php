@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldReferenceType>
  * @method CustomFieldReferenceType current()
+ * @method CustomFieldReferenceType end()
  * @method CustomFieldReferenceType at($offset)
  */
 class CustomFieldReferenceTypeCollection extends FieldTypeCollection

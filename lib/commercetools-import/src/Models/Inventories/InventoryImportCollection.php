@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportResourceCollection<InventoryImport>
  * @method InventoryImport current()
+ * @method InventoryImport end()
  * @method InventoryImport at($offset)
  */
 class InventoryImportCollection extends ImportResourceCollection

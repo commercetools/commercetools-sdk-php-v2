@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomFieldEnumValue>
  * @method CustomFieldEnumValue current()
+ * @method CustomFieldEnumValue end()
  * @method CustomFieldEnumValue at($offset)
  */
 class CustomFieldEnumValueCollection extends MapperSequence

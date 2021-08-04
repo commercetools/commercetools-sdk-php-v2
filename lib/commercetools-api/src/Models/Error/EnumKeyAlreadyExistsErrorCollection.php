@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EnumKeyAlreadyExistsError>
  * @method EnumKeyAlreadyExistsError current()
+ * @method EnumKeyAlreadyExistsError end()
  * @method EnumKeyAlreadyExistsError at($offset)
  */
 class EnumKeyAlreadyExistsErrorCollection extends ErrorObjectCollection

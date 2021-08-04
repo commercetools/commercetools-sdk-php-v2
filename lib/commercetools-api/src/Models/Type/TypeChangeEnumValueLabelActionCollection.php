@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeEnumValueLabelAction>
  * @method TypeChangeEnumValueLabelAction current()
+ * @method TypeChangeEnumValueLabelAction end()
  * @method TypeChangeEnumValueLabelAction at($offset)
  */
 class TypeChangeEnumValueLabelActionCollection extends TypeUpdateActionCollection

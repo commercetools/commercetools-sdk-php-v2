@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetStatusInterfaceTextChange>
  * @method SetStatusInterfaceTextChange current()
+ * @method SetStatusInterfaceTextChange end()
  * @method SetStatusInterfaceTextChange at($offset)
  */
 class SetStatusInterfaceTextChangeCollection extends ChangeCollection

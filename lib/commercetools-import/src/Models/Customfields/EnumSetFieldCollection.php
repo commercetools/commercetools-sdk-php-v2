@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<EnumSetField>
  * @method EnumSetField current()
+ * @method EnumSetField end()
  * @method EnumSetField at($offset)
  */
 class EnumSetFieldCollection extends CustomFieldCollection

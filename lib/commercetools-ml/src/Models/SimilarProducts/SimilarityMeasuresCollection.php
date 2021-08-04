@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarityMeasures>
  * @method SimilarityMeasures current()
+ * @method SimilarityMeasures end()
  * @method SimilarityMeasures at($offset)
  */
 class SimilarityMeasuresCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyShoppingListUpdateActionCollection<MyShoppingListSetCustomTypeAction>
  * @method MyShoppingListSetCustomTypeAction current()
+ * @method MyShoppingListSetCustomTypeAction end()
  * @method MyShoppingListSetCustomTypeAction at($offset)
  */
 class MyShoppingListSetCustomTypeActionCollection extends MyShoppingListUpdateActionCollection

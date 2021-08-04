@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetCategoryOrderHintAction>
  * @method ProductSetCategoryOrderHintAction current()
+ * @method ProductSetCategoryOrderHintAction end()
  * @method ProductSetCategoryOrderHintAction at($offset)
  */
 class ProductSetCategoryOrderHintActionCollection extends ProductUpdateActionCollection

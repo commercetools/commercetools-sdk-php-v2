@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveFromCategoryChange>
  * @method RemoveFromCategoryChange current()
+ * @method RemoveFromCategoryChange end()
  * @method RemoveFromCategoryChange at($offset)
  */
 class RemoveFromCategoryChangeCollection extends ChangeCollection

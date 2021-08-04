@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StateUpdateActionCollection<StateChangeKeyAction>
  * @method StateChangeKeyAction current()
+ * @method StateChangeKeyAction end()
  * @method StateChangeKeyAction at($offset)
  */
 class StateChangeKeyActionCollection extends StateUpdateActionCollection

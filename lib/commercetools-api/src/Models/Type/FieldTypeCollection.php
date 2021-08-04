@@ -16,8 +16,10 @@ use stdClass;
  * @template T of FieldType
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method FieldType current()
+ * @method FieldType end()
  * @method FieldType at($offset)
  */
 class FieldTypeCollection extends MapperSequence

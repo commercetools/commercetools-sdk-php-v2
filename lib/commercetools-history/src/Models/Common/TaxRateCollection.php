@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaxRate>
  * @method TaxRate current()
+ * @method TaxRate end()
  * @method TaxRate at($offset)
  */
 class TaxRateCollection extends MapperSequence

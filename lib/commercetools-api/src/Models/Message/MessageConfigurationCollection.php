@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MessageConfiguration>
  * @method MessageConfiguration current()
+ * @method MessageConfiguration end()
  * @method MessageConfiguration at($offset)
  */
 class MessageConfigurationCollection extends MapperSequence

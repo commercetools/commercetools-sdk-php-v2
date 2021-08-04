@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingImagesPagedQueryResult>
  * @method MissingImagesPagedQueryResult current()
+ * @method MissingImagesPagedQueryResult end()
  * @method MissingImagesPagedQueryResult at($offset)
  */
 class MissingImagesPagedQueryResultCollection extends MapperSequence

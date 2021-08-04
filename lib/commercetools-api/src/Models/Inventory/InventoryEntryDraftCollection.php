@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<InventoryEntryDraft>
  * @method InventoryEntryDraft current()
+ * @method InventoryEntryDraft end()
  * @method InventoryEntryDraft at($offset)
  */
 class InventoryEntryDraftCollection extends MapperSequence

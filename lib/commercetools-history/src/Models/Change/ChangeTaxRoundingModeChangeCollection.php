@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeTaxRoundingModeChange>
  * @method ChangeTaxRoundingModeChange current()
+ * @method ChangeTaxRoundingModeChange end()
  * @method ChangeTaxRoundingModeChange at($offset)
  */
 class ChangeTaxRoundingModeChangeCollection extends ChangeCollection

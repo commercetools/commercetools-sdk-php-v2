@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldSetType>
  * @method CustomFieldSetType current()
+ * @method CustomFieldSetType end()
  * @method CustomFieldSetType at($offset)
  */
 class CustomFieldSetTypeCollection extends FieldTypeCollection

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Change
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Change current()
+ * @method Change end()
  * @method Change at($offset)
  */
 class ChangeCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FacetResultCollection<RangeFacetResult>
  * @method RangeFacetResult current()
+ * @method RangeFacetResult end()
  * @method RangeFacetResult at($offset)
  */
 class RangeFacetResultCollection extends FacetResultCollection

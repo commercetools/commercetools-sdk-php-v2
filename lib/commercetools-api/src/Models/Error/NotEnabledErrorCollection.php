@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<NotEnabledError>
  * @method NotEnabledError current()
+ * @method NotEnabledError end()
  * @method NotEnabledError at($offset)
  */
 class NotEnabledErrorCollection extends ErrorObjectCollection

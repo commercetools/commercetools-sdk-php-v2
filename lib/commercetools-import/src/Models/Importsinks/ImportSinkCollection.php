@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSink>
  * @method ImportSink current()
+ * @method ImportSink end()
  * @method ImportSink at($offset)
  */
 class ImportSinkCollection extends MapperSequence

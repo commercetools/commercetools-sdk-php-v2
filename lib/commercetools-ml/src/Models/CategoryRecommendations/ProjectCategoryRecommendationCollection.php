@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProjectCategoryRecommendation>
  * @method ProjectCategoryRecommendation current()
+ * @method ProjectCategoryRecommendation end()
  * @method ProjectCategoryRecommendation at($offset)
  */
 class ProjectCategoryRecommendationCollection extends MapperSequence

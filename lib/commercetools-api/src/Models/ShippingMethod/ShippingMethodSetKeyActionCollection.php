@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingMethodUpdateActionCollection<ShippingMethodSetKeyAction>
  * @method ShippingMethodSetKeyAction current()
+ * @method ShippingMethodSetKeyAction end()
  * @method ShippingMethodSetKeyAction at($offset)
  */
 class ShippingMethodSetKeyActionCollection extends ShippingMethodUpdateActionCollection

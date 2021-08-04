@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeStackingModeChange>
  * @method ChangeStackingModeChange current()
+ * @method ChangeStackingModeChange end()
  * @method ChangeStackingModeChange at($offset)
  */
 class ChangeStackingModeChangeCollection extends ChangeCollection

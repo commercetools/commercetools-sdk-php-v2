@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelSetCustomFieldAction>
  * @method ChannelSetCustomFieldAction current()
+ * @method ChannelSetCustomFieldAction end()
  * @method ChannelSetCustomFieldAction at($offset)
  */
 class ChannelSetCustomFieldActionCollection extends ChannelUpdateActionCollection

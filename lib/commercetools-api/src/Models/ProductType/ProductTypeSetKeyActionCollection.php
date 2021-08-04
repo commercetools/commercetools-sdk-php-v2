@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeSetKeyAction>
  * @method ProductTypeSetKeyAction current()
+ * @method ProductTypeSetKeyAction end()
  * @method ProductTypeSetKeyAction at($offset)
  */
 class ProductTypeSetKeyActionCollection extends ProductTypeUpdateActionCollection

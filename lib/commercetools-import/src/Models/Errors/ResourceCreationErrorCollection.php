@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ResourceCreationError>
  * @method ResourceCreationError current()
+ * @method ResourceCreationError end()
  * @method ResourceCreationError at($offset)
  */
 class ResourceCreationErrorCollection extends ErrorObjectCollection

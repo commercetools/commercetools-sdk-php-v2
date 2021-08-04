@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Type>
  * @method Type current()
+ * @method Type end()
  * @method Type at($offset)
  */
 class TypeCollection extends BaseResourceCollection

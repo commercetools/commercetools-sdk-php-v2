@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<UserProvidedIdentifiers>
  * @method UserProvidedIdentifiers current()
+ * @method UserProvidedIdentifiers end()
  * @method UserProvidedIdentifiers at($offset)
  */
 class UserProvidedIdentifiersCollection extends MapperSequence

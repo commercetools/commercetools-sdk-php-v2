@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetRatingChange>
  * @method SetRatingChange current()
+ * @method SetRatingChange end()
  * @method SetRatingChange at($offset)
  */
 class SetRatingChangeCollection extends ChangeCollection

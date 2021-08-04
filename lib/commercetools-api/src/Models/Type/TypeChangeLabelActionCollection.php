@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeLabelAction>
  * @method TypeChangeLabelAction current()
+ * @method TypeChangeLabelAction end()
  * @method TypeChangeLabelAction at($offset)
  */
 class TypeChangeLabelActionCollection extends TypeUpdateActionCollection

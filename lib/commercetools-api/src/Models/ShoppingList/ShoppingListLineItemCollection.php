@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ShoppingListLineItem>
  * @method ShoppingListLineItem current()
+ * @method ShoppingListLineItem end()
  * @method ShoppingListLineItem at($offset)
  */
 class ShoppingListLineItemCollection extends MapperSequence

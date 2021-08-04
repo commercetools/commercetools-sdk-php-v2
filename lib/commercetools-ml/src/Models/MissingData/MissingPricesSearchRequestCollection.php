@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingPricesSearchRequest>
  * @method MissingPricesSearchRequest current()
+ * @method MissingPricesSearchRequest end()
  * @method MissingPricesSearchRequest at($offset)
  */
 class MissingPricesSearchRequestCollection extends MapperSequence

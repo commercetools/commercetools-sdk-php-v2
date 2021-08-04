@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveEnumValuesChange>
  * @method RemoveEnumValuesChange current()
+ * @method RemoveEnumValuesChange end()
  * @method RemoveEnumValuesChange at($offset)
  */
 class RemoveEnumValuesChangeCollection extends ChangeCollection

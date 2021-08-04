@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<SqsDestination>
  * @method SqsDestination current()
+ * @method SqsDestination end()
  * @method SqsDestination at($offset)
  */
 class SqsDestinationCollection extends DestinationCollection

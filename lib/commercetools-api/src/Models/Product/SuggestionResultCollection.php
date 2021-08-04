@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SuggestionResult>
  * @method SuggestionResult current()
+ * @method SuggestionResult end()
  * @method SuggestionResult at($offset)
  */
 class SuggestionResultCollection extends MapperSequence

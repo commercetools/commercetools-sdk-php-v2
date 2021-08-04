@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<OrderLabel>
  * @method OrderLabel current()
+ * @method OrderLabel end()
  * @method OrderLabel at($offset)
  */
 class OrderLabelCollection extends LabelCollection

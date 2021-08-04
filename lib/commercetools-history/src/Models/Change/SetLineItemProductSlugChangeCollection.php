@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLineItemProductSlugChange>
  * @method SetLineItemProductSlugChange current()
+ * @method SetLineItemProductSlugChange end()
  * @method SetLineItemProductSlugChange at($offset)
  */
 class SetLineItemProductSlugChangeCollection extends ChangeCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FieldDefinition>
  * @method FieldDefinition current()
+ * @method FieldDefinition end()
  * @method FieldDefinition at($offset)
  */
 class FieldDefinitionCollection extends MapperSequence

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetParcelItemsAction>
  * @method StagedOrderSetParcelItemsAction current()
+ * @method StagedOrderSetParcelItemsAction end()
  * @method StagedOrderSetParcelItemsAction at($offset)
  */
 class StagedOrderSetParcelItemsActionCollection extends StagedOrderUpdateActionCollection

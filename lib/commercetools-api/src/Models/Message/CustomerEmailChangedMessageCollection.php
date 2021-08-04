@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<CustomerEmailChangedMessage>
  * @method CustomerEmailChangedMessage current()
+ * @method CustomerEmailChangedMessage end()
  * @method CustomerEmailChangedMessage at($offset)
  */
 class CustomerEmailChangedMessageCollection extends MessageCollection

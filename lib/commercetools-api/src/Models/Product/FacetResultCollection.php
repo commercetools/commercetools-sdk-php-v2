@@ -16,8 +16,10 @@ use stdClass;
  * @template T of FacetResult
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method FacetResult current()
+ * @method FacetResult end()
  * @method FacetResult at($offset)
  */
 class FacetResultCollection extends MapperSequence

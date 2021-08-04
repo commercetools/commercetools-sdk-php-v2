@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MissingTaxRateForCountryError>
  * @method MissingTaxRateForCountryError current()
+ * @method MissingTaxRateForCountryError end()
  * @method MissingTaxRateForCountryError at($offset)
  */
 class MissingTaxRateForCountryErrorCollection extends ErrorObjectCollection

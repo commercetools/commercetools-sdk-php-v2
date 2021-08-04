@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<NoMatchingProductDiscountFoundError>
  * @method NoMatchingProductDiscountFoundError current()
+ * @method NoMatchingProductDiscountFoundError end()
  * @method NoMatchingProductDiscountFoundError at($offset)
  */
 class NoMatchingProductDiscountFoundErrorCollection extends ErrorObjectCollection

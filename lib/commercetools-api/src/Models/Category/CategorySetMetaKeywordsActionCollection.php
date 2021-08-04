@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetMetaKeywordsAction>
  * @method CategorySetMetaKeywordsAction current()
+ * @method CategorySetMetaKeywordsAction end()
  * @method CategorySetMetaKeywordsAction at($offset)
  */
 class CategorySetMetaKeywordsActionCollection extends CategoryUpdateActionCollection

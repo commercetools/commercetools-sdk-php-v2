@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Reference>
  * @method Reference current()
+ * @method Reference end()
  * @method Reference at($offset)
  */
 class ReferenceCollection extends MapperSequence

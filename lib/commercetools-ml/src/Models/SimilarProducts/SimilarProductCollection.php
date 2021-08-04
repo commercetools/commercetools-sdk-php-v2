@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarProduct>
  * @method SimilarProduct current()
+ * @method SimilarProduct end()
  * @method SimilarProduct at($offset)
  */
 class SimilarProductCollection extends MapperSequence

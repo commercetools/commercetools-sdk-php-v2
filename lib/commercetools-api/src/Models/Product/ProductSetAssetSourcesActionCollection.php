@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetAssetSourcesAction>
  * @method ProductSetAssetSourcesAction current()
+ * @method ProductSetAssetSourcesAction end()
  * @method ProductSetAssetSourcesAction at($offset)
  */
 class ProductSetAssetSourcesActionCollection extends ProductUpdateActionCollection

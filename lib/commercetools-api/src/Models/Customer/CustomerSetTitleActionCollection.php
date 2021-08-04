@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomerUpdateActionCollection<CustomerSetTitleAction>
  * @method CustomerSetTitleAction current()
+ * @method CustomerSetTitleAction end()
  * @method CustomerSetTitleAction at($offset)
  */
 class CustomerSetTitleActionCollection extends CustomerUpdateActionCollection

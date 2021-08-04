@@ -16,8 +16,10 @@ use stdClass;
  * @template T of MissingPricesProductCount
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method MissingPricesProductCount current()
+ * @method MissingPricesProductCount end()
  * @method MissingPricesProductCount at($offset)
  */
 class MissingPricesProductCountCollection extends MapperSequence

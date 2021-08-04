@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Attribute>
  * @method Attribute current()
+ * @method Attribute end()
  * @method Attribute at($offset)
  */
 class AttributeCollection extends MapperSequence

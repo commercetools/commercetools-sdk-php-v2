@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetExternalIdChange>
  * @method SetExternalIdChange current()
+ * @method SetExternalIdChange end()
  * @method SetExternalIdChange at($offset)
  */
 class SetExternalIdChangeCollection extends ChangeCollection

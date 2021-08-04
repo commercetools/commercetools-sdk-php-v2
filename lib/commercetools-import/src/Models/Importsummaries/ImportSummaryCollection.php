@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSummary>
  * @method ImportSummary current()
+ * @method ImportSummary end()
  * @method ImportSummary at($offset)
  */
 class ImportSummaryCollection extends MapperSequence

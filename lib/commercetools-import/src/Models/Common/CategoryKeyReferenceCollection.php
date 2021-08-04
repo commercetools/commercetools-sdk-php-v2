@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<CategoryKeyReference>
  * @method CategoryKeyReference current()
+ * @method CategoryKeyReference end()
  * @method CategoryKeyReference at($offset)
  */
 class CategoryKeyReferenceCollection extends KeyReferenceCollection

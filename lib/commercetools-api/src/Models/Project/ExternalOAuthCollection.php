@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ExternalOAuth>
  * @method ExternalOAuth current()
+ * @method ExternalOAuth end()
  * @method ExternalOAuth at($offset)
  */
 class ExternalOAuthCollection extends MapperSequence

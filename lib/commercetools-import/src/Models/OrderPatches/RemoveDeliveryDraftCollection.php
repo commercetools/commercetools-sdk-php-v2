@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<RemoveDeliveryDraft>
  * @method RemoveDeliveryDraft current()
+ * @method RemoveDeliveryDraft end()
  * @method RemoveDeliveryDraft at($offset)
  */
 class RemoveDeliveryDraftCollection extends MapperSequence

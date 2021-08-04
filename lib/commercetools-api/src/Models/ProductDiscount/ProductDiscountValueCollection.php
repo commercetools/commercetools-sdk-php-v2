@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ProductDiscountValue
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ProductDiscountValue current()
+ * @method ProductDiscountValue end()
  * @method ProductDiscountValue at($offset)
  */
 class ProductDiscountValueCollection extends MapperSequence

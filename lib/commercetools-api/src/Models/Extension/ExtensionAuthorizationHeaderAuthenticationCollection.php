@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionHttpDestinationAuthenticationCollection<ExtensionAuthorizationHeaderAuthentication>
  * @method ExtensionAuthorizationHeaderAuthentication current()
+ * @method ExtensionAuthorizationHeaderAuthentication end()
  * @method ExtensionAuthorizationHeaderAuthentication at($offset)
  */
 class ExtensionAuthorizationHeaderAuthenticationCollection extends ExtensionHttpDestinationAuthenticationCollection

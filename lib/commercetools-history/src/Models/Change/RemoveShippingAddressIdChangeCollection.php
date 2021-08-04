@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveShippingAddressIdChange>
  * @method RemoveShippingAddressIdChange current()
+ * @method RemoveShippingAddressIdChange end()
  * @method RemoveShippingAddressIdChange at($offset)
  */
 class RemoveShippingAddressIdChangeCollection extends ChangeCollection

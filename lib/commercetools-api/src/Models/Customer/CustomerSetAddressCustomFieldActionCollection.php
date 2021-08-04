@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomerUpdateActionCollection<CustomerSetAddressCustomFieldAction>
  * @method CustomerSetAddressCustomFieldAction current()
+ * @method CustomerSetAddressCustomFieldAction end()
  * @method CustomerSetAddressCustomFieldAction at($offset)
  */
 class CustomerSetAddressCustomFieldActionCollection extends CustomerUpdateActionCollection

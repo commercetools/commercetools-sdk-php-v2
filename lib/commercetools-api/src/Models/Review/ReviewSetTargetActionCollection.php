@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReviewUpdateActionCollection<ReviewSetTargetAction>
  * @method ReviewSetTargetAction current()
+ * @method ReviewSetTargetAction end()
  * @method ReviewSetTargetAction at($offset)
  */
 class ReviewSetTargetActionCollection extends ReviewUpdateActionCollection

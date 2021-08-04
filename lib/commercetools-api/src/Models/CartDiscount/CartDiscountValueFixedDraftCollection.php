@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartDiscountValueDraftCollection<CartDiscountValueFixedDraft>
  * @method CartDiscountValueFixedDraft current()
+ * @method CartDiscountValueFixedDraft end()
  * @method CartDiscountValueFixedDraft at($offset)
  */
 class CartDiscountValueFixedDraftCollection extends CartDiscountValueDraftCollection

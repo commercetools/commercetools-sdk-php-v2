@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidOperationError>
  * @method InvalidOperationError current()
+ * @method InvalidOperationError end()
  * @method InvalidOperationError at($offset)
  */
 class InvalidOperationErrorCollection extends ErrorObjectCollection

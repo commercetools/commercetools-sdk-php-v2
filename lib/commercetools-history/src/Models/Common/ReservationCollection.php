@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Reservation>
  * @method Reservation current()
+ * @method Reservation end()
  * @method Reservation at($offset)
  */
 class ReservationCollection extends MapperSequence

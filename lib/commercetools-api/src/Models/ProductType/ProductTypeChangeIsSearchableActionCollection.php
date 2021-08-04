@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeIsSearchableAction>
  * @method ProductTypeChangeIsSearchableAction current()
+ * @method ProductTypeChangeIsSearchableAction end()
  * @method ProductTypeChangeIsSearchableAction at($offset)
  */
 class ProductTypeChangeIsSearchableActionCollection extends ProductTypeUpdateActionCollection

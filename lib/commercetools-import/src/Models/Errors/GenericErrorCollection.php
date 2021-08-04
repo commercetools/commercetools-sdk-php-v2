@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<GenericError>
  * @method GenericError current()
+ * @method GenericError end()
  * @method GenericError at($offset)
  */
 class GenericErrorCollection extends ErrorObjectCollection

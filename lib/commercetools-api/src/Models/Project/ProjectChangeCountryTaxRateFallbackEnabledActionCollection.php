@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeCountryTaxRateFallbackEnabledAction>
  * @method ProjectChangeCountryTaxRateFallbackEnabledAction current()
+ * @method ProjectChangeCountryTaxRateFallbackEnabledAction end()
  * @method ProjectChangeCountryTaxRateFallbackEnabledAction at($offset)
  */
 class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends ProjectUpdateActionCollection

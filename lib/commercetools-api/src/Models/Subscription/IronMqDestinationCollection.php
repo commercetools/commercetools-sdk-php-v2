@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<IronMqDestination>
  * @method IronMqDestination current()
+ * @method IronMqDestination end()
  * @method IronMqDestination at($offset)
  */
 class IronMqDestinationCollection extends DestinationCollection

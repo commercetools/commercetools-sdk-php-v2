@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EnumValueIsUsedError>
  * @method EnumValueIsUsedError current()
+ * @method EnumValueIsUsedError end()
  * @method EnumValueIsUsedError at($offset)
  */
 class EnumValueIsUsedErrorCollection extends ErrorObjectCollection

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidCredentialsError>
  * @method InvalidCredentialsError current()
+ * @method InvalidCredentialsError end()
  * @method InvalidCredentialsError at($offset)
  */
 class InvalidCredentialsErrorCollection extends ErrorObjectCollection

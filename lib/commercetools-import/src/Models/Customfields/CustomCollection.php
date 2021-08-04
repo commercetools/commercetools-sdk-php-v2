@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Custom>
  * @method Custom current()
+ * @method Custom end()
  * @method Custom at($offset)
  */
 class CustomCollection extends MapperSequence

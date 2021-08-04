@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<MoneySetField>
  * @method MoneySetField current()
+ * @method MoneySetField end()
  * @method MoneySetField at($offset)
  */
 class MoneySetFieldCollection extends CustomFieldCollection

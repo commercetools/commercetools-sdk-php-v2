@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ReviewUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ReviewUpdateAction current()
+ * @method ReviewUpdateAction end()
  * @method ReviewUpdateAction at($offset)
  */
 class ReviewUpdateActionCollection extends MapperSequence
