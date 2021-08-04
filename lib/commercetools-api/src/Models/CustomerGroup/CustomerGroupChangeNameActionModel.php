@@ -59,6 +59,8 @@ final class CustomerGroupChangeNameActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>User-defined unique name for the customer group.</p>
+     *
      * @return null|string
      */
     public function getName()

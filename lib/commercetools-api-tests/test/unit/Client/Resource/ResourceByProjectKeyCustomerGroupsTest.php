@@ -102,6 +102,17 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyCustomerGroupsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customerGroups()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                'test_projectKey/customer-groups?where=where',
+            ],
             'ByProjectKeyCustomerGroupsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -156,17 +167,6 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/customer-groups?withTotal=withTotal',
-            ],
-            'ByProjectKeyCustomerGroupsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->customerGroups()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                'test_projectKey/customer-groups?where=where',
             ],
             'ByProjectKeyCustomerGroupsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

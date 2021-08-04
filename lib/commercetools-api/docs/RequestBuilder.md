@@ -37,7 +37,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->get()`
 
-Query api-clients
+null
 
 ### Example
 ```php
@@ -51,7 +51,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->post(null)`
 
-Create ApiClient
+null
 
 ### Example
 ```php
@@ -95,7 +95,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->get()`
 
-Query cart-discounts
+null
 
 ### Example
 ```php
@@ -109,7 +109,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->post(null)`
 
-Create CartDiscount
+null
 
 ### Example
 ```php
@@ -123,7 +123,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->get()`
 
-Get CartDiscount by ID
+null
 
 ### Example
 ```php
@@ -138,7 +138,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->post(null)`
 
-Update CartDiscount by ID
+null
 
 ### Example
 ```php
@@ -153,7 +153,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withId("ID")->delete()`
 
-Delete CartDiscount by ID
+null
 
 ### Example
 ```php
@@ -168,7 +168,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->get()`
 
-Get CartDiscount by key
+null
 
 ### Example
 ```php
@@ -183,7 +183,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->post(null)`
 
-Update CartDiscount by key
+null
 
 ### Example
 ```php
@@ -198,7 +198,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->cartDiscounts()->withKey("key")->delete()`
 
-Delete CartDiscount by key
+null
 
 ### Example
 ```php
@@ -213,7 +213,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->get()`
 
-Query carts
+null
 
 ### Example
 ```php
@@ -260,7 +260,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->post(null)`
 
-Update Cart by ID
+null
 
 ### Example
 ```php
@@ -275,7 +275,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->delete()`
 
-Delete Cart by ID
+null
 
 ### Example
 ```php
@@ -327,7 +327,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->post(null)`
 
-Update Cart by key
+null
 
 ### Example
 ```php
@@ -342,7 +342,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withKey("key")->delete()`
 
-Delete Cart by key
+null
 
 ### Example
 ```php
@@ -372,7 +372,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->get()`
 
-Query categories
+null
 
 ### Example
 ```php
@@ -400,7 +400,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->get()`
 
-Get Category by ID
+null
 
 ### Example
 ```php
@@ -415,7 +415,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->post(null)`
 
-Update Category by ID
+null
 
 ### Example
 ```php
@@ -430,7 +430,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->delete()`
 
-Delete Category by ID
+null
 
 ### Example
 ```php
@@ -445,7 +445,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->get()`
 
-Get Category by key
+null
 
 ### Example
 ```php
@@ -460,7 +460,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
-Update Category by key
+null
 
 ### Example
 ```php
@@ -475,7 +475,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->delete()`
 
-Delete Category by key
+null
 
 ### Example
 ```php
@@ -490,7 +490,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->get()`
 
-Query channels
+null
 
 ### Example
 ```php
@@ -504,7 +504,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->post(null)`
 
-Create Channel
+null
 
 ### Example
 ```php
@@ -518,7 +518,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->get()`
 
-Get Channel by ID
+null
 
 ### Example
 ```php
@@ -533,7 +533,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->post(null)`
 
-Update Channel by ID
+null
 
 ### Example
 ```php
@@ -548,7 +548,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->channels()->withId("ID")->delete()`
 
-Delete Channel by ID
+null
 
 ### Example
 ```php
@@ -601,7 +601,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainer("container")->get()`
 
-Get CustomObjectPagedQueryResponse by container
+null
 
 ### Example
 ```php
@@ -646,7 +646,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->get()`
 
-Query customer-groups
+null
 
 ### Example
 ```php
@@ -660,7 +660,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->post(null)`
 
-Create CustomerGroup
+null
 
 ### Example
 ```php
@@ -674,7 +674,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withId("ID")->get()`
 
-Get CustomerGroup by ID
+null
 
 ### Example
 ```php
@@ -689,7 +689,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withId("ID")->post(null)`
 
-Update CustomerGroup by ID
+null
 
 ### Example
 ```php
@@ -704,7 +704,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withId("ID")->delete()`
 
-Delete CustomerGroup by ID
+null
 
 ### Example
 ```php
@@ -719,7 +719,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->get()`
 
-Gets a customer group by Key.
+null
 
 ### Example
 ```php
@@ -734,7 +734,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->post(null)`
 
-Updates a customer group by Key.
+
 
 ### Example
 ```php
@@ -749,7 +749,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->delete()`
 
-Delete CustomerGroup by key
+null
 
 ### Example
 ```php
@@ -764,7 +764,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->get()`
 
-Query customers
+null
 
 ### Example
 ```php
@@ -795,7 +795,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withId("ID")->get()`
 
-Get Customer by ID
+null
 
 ### Example
 ```php
@@ -810,7 +810,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withId("ID")->post(null)`
 
-Update Customer by ID
+null
 
 ### Example
 ```php
@@ -825,7 +825,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withId("ID")->delete()`
 
-Delete Customer by ID
+null
 
 ### Example
 ```php
@@ -870,7 +870,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withEmailToken("emailToken")->get()`
 
-Get Customer by emailToken
+null
 
 ### Example
 ```php
@@ -885,7 +885,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withKey("key")->get()`
 
-Get Customer by key
+null
 
 ### Example
 ```php
@@ -900,7 +900,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withKey("key")->post(null)`
 
-Update Customer by key
+null
 
 ### Example
 ```php
@@ -915,7 +915,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withKey("key")->delete()`
 
-Delete Customer by key
+null
 
 ### Example
 ```php
@@ -977,7 +977,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-Get Customer by passwordToken
+null
 
 ### Example
 ```php
@@ -992,7 +992,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->get()`
 
-Query discount-codes
+null
 
 ### Example
 ```php
@@ -1006,7 +1006,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->post(null)`
 
-Create DiscountCode
+null
 
 ### Example
 ```php
@@ -1020,7 +1020,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->get()`
 
-Get DiscountCode by ID
+null
 
 ### Example
 ```php
@@ -1035,7 +1035,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->post(null)`
 
-Update DiscountCode by ID
+null
 
 ### Example
 ```php
@@ -1050,7 +1050,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->delete()`
 
-Delete DiscountCode by ID
+null
 
 ### Example
 ```php
@@ -1065,7 +1065,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->get()`
 
-Query extensions
+null
 
 ### Example
 ```php
@@ -1108,7 +1108,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->post(null)`
 
-Update Extension by ID
+null
 
 ### Example
 ```php
@@ -1123,7 +1123,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->delete()`
 
-Delete Extension by ID
+null
 
 ### Example
 ```php
@@ -1153,7 +1153,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->post(null)`
 
-Update Extension by key
+null
 
 ### Example
 ```php
@@ -1168,7 +1168,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->delete()`
 
-Delete Extension by key
+null
 
 ### Example
 ```php
@@ -1271,7 +1271,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->delete()`
 
-Delete Cart by ID
+null
 
 ### Example
 ```php
@@ -1351,7 +1351,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->delete()`
 
-Delete Cart by key
+null
 
 ### Example
 ```php
@@ -1383,7 +1383,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->get()`
 
-Query customers
+null
 
 ### Example
 ```php
@@ -1460,7 +1460,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->delete()`
 
-Delete Customer by ID
+null
 
 ### Example
 ```php
@@ -1508,7 +1508,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withEmailToken("emailToken")->get()`
 
-Get Customer by emailToken
+null
 
 ### Example
 ```php
@@ -1562,7 +1562,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->delete()`
 
-Delete Customer by key
+null
 
 ### Example
 ```php
@@ -1628,7 +1628,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-Get Customer by passwordToken
+null
 
 ### Example
 ```php
@@ -1675,7 +1675,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->get()`
 
-Query carts
+null
 
 ### Example
 ```php
@@ -1691,7 +1691,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
-Create Cart
+null
 
 ### Example
 ```php
@@ -1707,7 +1707,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->get()`
 
-Get Cart by ID
+null
 
 ### Example
 ```php
@@ -1724,7 +1724,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->post(null)`
 
-Update Cart by ID
+null
 
 ### Example
 ```php
@@ -1741,7 +1741,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->withId("ID")->delete()`
 
-Delete Cart by ID
+null
 
 ### Example
 ```php
@@ -1758,7 +1758,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->get()`
 
-Query orders
+null
 
 ### Example
 ```php
@@ -1774,7 +1774,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
 
-Create Order
+null
 
 ### Example
 ```php
@@ -1790,7 +1790,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->withId("ID")->get()`
 
-Get Order by ID
+null
 
 ### Example
 ```php
@@ -1807,7 +1807,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->get()`
 
-Query shopping-lists
+null
 
 ### Example
 ```php
@@ -1823,7 +1823,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
-Create ShoppingList
+null
 
 ### Example
 ```php
@@ -1856,7 +1856,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Update ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -1873,7 +1873,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-Delete ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -1924,7 +1924,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-Delete ShoppingList by key
+null
 
 ### Example
 ```php
@@ -2013,7 +2013,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->delete()`
 
-Delete Order by ID
+null
 
 ### Example
 ```php
@@ -2072,7 +2072,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->delete()`
 
-Delete Order by orderNumber
+null
 
 ### Example
 ```php
@@ -2104,7 +2104,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->get()`
 
-Query shopping-lists
+null
 
 ### Example
 ```php
@@ -2119,7 +2119,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->post(null)`
 
-Create ShoppingList
+null
 
 ### Example
 ```php
@@ -2150,7 +2150,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
 
-Update ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -2166,7 +2166,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->delete()`
 
-Delete ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -2214,7 +2214,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->delete()`
 
-Delete ShoppingList by key
+null
 
 ### Example
 ```php
@@ -2230,7 +2230,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->get()`
 
-Query inventory
+null
 
 ### Example
 ```php
@@ -2244,7 +2244,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
-Create InventoryEntry
+null
 
 ### Example
 ```php
@@ -2258,7 +2258,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->get()`
 
-Get InventoryEntry by ID
+null
 
 ### Example
 ```php
@@ -2273,7 +2273,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->post(null)`
 
-Update InventoryEntry by ID
+null
 
 ### Example
 ```php
@@ -2288,7 +2288,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->delete()`
 
-Delete InventoryEntry by ID
+null
 
 ### Example
 ```php
@@ -2381,7 +2381,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->get()`
 
-Query carts
+null
 
 ### Example
 ```php
@@ -2396,7 +2396,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
-Create Cart
+null
 
 ### Example
 ```php
@@ -2411,7 +2411,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->get()`
 
-Get Cart by ID
+null
 
 ### Example
 ```php
@@ -2427,7 +2427,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->post(null)`
 
-Update Cart by ID
+null
 
 ### Example
 ```php
@@ -2443,7 +2443,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withId("ID")->delete()`
 
-Delete Cart by ID
+null
 
 ### Example
 ```php
@@ -2459,7 +2459,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->get()`
 
-Get Cart by key
+null
 
 ### Example
 ```php
@@ -2475,7 +2475,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->post(null)`
 
-Update Cart by key
+null
 
 ### Example
 ```php
@@ -2491,7 +2491,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->withKey("key")->delete()`
 
-Delete Cart by key
+null
 
 ### Example
 ```php
@@ -2537,7 +2537,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->get()`
 
-Query orders
+null
 
 ### Example
 ```php
@@ -2552,7 +2552,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
-Create Order
+null
 
 ### Example
 ```php
@@ -2567,7 +2567,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->withId("ID")->get()`
 
-Get Order by ID
+null
 
 ### Example
 ```php
@@ -2614,7 +2614,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 
-Query payments
+null
 
 ### Example
 ```php
@@ -2629,7 +2629,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
-Create MyPayment
+null
 
 ### Example
 ```php
@@ -2644,7 +2644,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->get()`
 
-Get MyPayment by ID
+null
 
 ### Example
 ```php
@@ -2660,7 +2660,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
-Update MyPayment by ID
+null
 
 ### Example
 ```php
@@ -2676,7 +2676,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->delete()`
 
-Delete MyPayment by ID
+null
 
 ### Example
 ```php
@@ -2692,7 +2692,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withKey("key")->get()`
 
-Get MyPayment by key
+null
 
 ### Example
 ```php
@@ -2708,7 +2708,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withKey("key")->post(null)`
 
-Update MyPayment by key
+null
 
 ### Example
 ```php
@@ -2724,7 +2724,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withKey("key")->delete()`
 
-Delete MyPayment by key
+null
 
 ### Example
 ```php
@@ -2740,7 +2740,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->get()`
 
-Query shopping-lists
+null
 
 ### Example
 ```php
@@ -2755,7 +2755,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->post(null)`
 
-Create ShoppingList
+null
 
 ### Example
 ```php
@@ -2770,7 +2770,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->get()`
 
-Get ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -2786,7 +2786,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-Update ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -2802,7 +2802,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-Delete ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -2818,7 +2818,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->get()`
 
-Get ShoppingList by key
+null
 
 ### Example
 ```php
@@ -2834,7 +2834,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Update ShoppingList by key
+null
 
 ### Example
 ```php
@@ -2850,7 +2850,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-Delete ShoppingList by key
+null
 
 ### Example
 ```php
@@ -2881,7 +2881,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->get()`
 
-Query messages
+null
 
 ### Example
 ```php
@@ -2895,7 +2895,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->withId("ID")->get()`
 
-Get Message by ID
+null
 
 ### Example
 ```php
@@ -2910,7 +2910,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->get()`
 
-Query orders
+null
 
 ### Example
 ```php
@@ -2941,7 +2941,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->get()`
 
-Get Order by ID
+null
 
 ### Example
 ```php
@@ -2956,7 +2956,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->post(null)`
 
-Update Order by ID
+null
 
 ### Example
 ```php
@@ -2971,7 +2971,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withId("ID")->delete()`
 
-Delete Order by ID
+null
 
 ### Example
 ```php
@@ -2986,7 +2986,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->get()`
 
-Query edits
+null
 
 ### Example
 ```php
@@ -3001,7 +3001,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->post(null)`
 
-Create OrderEdit
+null
 
 ### Example
 ```php
@@ -3016,7 +3016,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->get()`
 
-Get OrderEdit by ID
+null
 
 ### Example
 ```php
@@ -3032,7 +3032,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->post(null)`
 
-Update OrderEdit by ID
+null
 
 ### Example
 ```php
@@ -3048,7 +3048,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withId("ID")->delete()`
 
-Delete OrderEdit by ID
+null
 
 ### Example
 ```php
@@ -3081,7 +3081,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->get()`
 
-Get OrderEdit by key
+null
 
 ### Example
 ```php
@@ -3097,7 +3097,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->post(null)`
 
-Update OrderEdit by key
+null
 
 ### Example
 ```php
@@ -3113,7 +3113,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->edits()->withKey("key")->delete()`
 
-Delete OrderEdit by key
+null
 
 ### Example
 ```php
@@ -3161,7 +3161,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Update Order by orderNumber
+null
 
 ### Example
 ```php
@@ -3176,7 +3176,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->delete()`
 
-Delete Order by orderNumber
+null
 
 ### Example
 ```php
@@ -3191,7 +3191,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->get()`
 
-Query payments
+null
 
 ### Example
 ```php
@@ -3219,7 +3219,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->get()`
 
-Get Payment by ID
+null
 
 ### Example
 ```php
@@ -3234,7 +3234,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->post(null)`
 
-Update Payment by ID
+null
 
 ### Example
 ```php
@@ -3249,7 +3249,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withId("ID")->delete()`
 
-Delete Payment by ID
+null
 
 ### Example
 ```php
@@ -3264,7 +3264,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->get()`
 
-Get Payment by key
+null
 
 ### Example
 ```php
@@ -3279,7 +3279,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->post(null)`
 
-Update Payment by key
+null
 
 ### Example
 ```php
@@ -3294,7 +3294,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->withKey("key")->delete()`
 
-Delete Payment by key
+null
 
 ### Example
 ```php
@@ -3309,7 +3309,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->get()`
 
-Query product-discounts
+null
 
 ### Example
 ```php
@@ -3323,7 +3323,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->post(null)`
 
-Create ProductDiscount
+null
 
 ### Example
 ```php
@@ -3337,7 +3337,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withId("ID")->get()`
 
-Get ProductDiscount by ID
+null
 
 ### Example
 ```php
@@ -3352,7 +3352,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withId("ID")->post(null)`
 
-Update ProductDiscount by ID
+null
 
 ### Example
 ```php
@@ -3367,7 +3367,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withId("ID")->delete()`
 
-Delete ProductDiscount by ID
+null
 
 ### Example
 ```php
@@ -3382,7 +3382,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withKey("key")->get()`
 
-Get ProductDiscount by key
+null
 
 ### Example
 ```php
@@ -3397,7 +3397,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withKey("key")->post(null)`
 
-Update ProductDiscount by key
+null
 
 ### Example
 ```php
@@ -3412,7 +3412,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->withKey("key")->delete()`
 
-Delete ProductDiscount by key
+null
 
 ### Example
 ```php
@@ -3540,7 +3540,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->get()`
 
-Query product-types
+null
 
 ### Example
 ```php
@@ -3554,7 +3554,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->post(null)`
 
-Create ProductType
+null
 
 ### Example
 ```php
@@ -3568,7 +3568,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->get()`
 
-Get ProductType by ID
+null
 
 ### Example
 ```php
@@ -3583,7 +3583,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->post(null)`
 
-Update ProductType by ID
+null
 
 ### Example
 ```php
@@ -3598,7 +3598,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->delete()`
 
-Delete ProductType by ID
+null
 
 ### Example
 ```php
@@ -3613,7 +3613,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->get()`
 
-Get ProductType by key
+null
 
 ### Example
 ```php
@@ -3628,7 +3628,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->post(null)`
 
-Update ProductType by key
+null
 
 ### Example
 ```php
@@ -3643,7 +3643,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->delete()`
 
-Delete ProductType by key
+null
 
 ### Example
 ```php
@@ -3707,7 +3707,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-Update Product by ID
+null
 
 ### Example
 ```php
@@ -3722,7 +3722,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-Delete Product by ID
+null
 
 ### Example
 ```php
@@ -3769,7 +3769,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->post(null)`
 
-Update Product by key
+null
 
 ### Example
 ```php
@@ -3784,7 +3784,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-Delete Product by key
+null
 
 ### Example
 ```php
@@ -3799,7 +3799,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->get()`
 
-Query reviews
+null
 
 ### Example
 ```php
@@ -3813,7 +3813,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->post(null)`
 
-Create Review
+null
 
 ### Example
 ```php
@@ -3827,7 +3827,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withId("ID")->get()`
 
-Get Review by ID
+null
 
 ### Example
 ```php
@@ -3842,7 +3842,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withId("ID")->post(null)`
 
-Update Review by ID
+null
 
 ### Example
 ```php
@@ -3857,7 +3857,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withId("ID")->delete()`
 
-Delete Review by ID
+null
 
 ### Example
 ```php
@@ -3872,7 +3872,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withKey("key")->get()`
 
-Get Review by key
+null
 
 ### Example
 ```php
@@ -3887,7 +3887,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withKey("key")->post(null)`
 
-Update Review by key
+null
 
 ### Example
 ```php
@@ -3902,7 +3902,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->reviews()->withKey("key")->delete()`
 
-Delete Review by key
+null
 
 ### Example
 ```php
@@ -3917,7 +3917,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->get()`
 
-Query shipping-methods
+null
 
 ### Example
 ```php
@@ -3931,7 +3931,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->post(null)`
 
-Create ShippingMethod
+null
 
 ### Example
 ```php
@@ -3945,7 +3945,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->get()`
 
-Get ShippingMethod by ID
+null
 
 ### Example
 ```php
@@ -3960,7 +3960,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->post(null)`
 
-Update ShippingMethod by ID
+null
 
 ### Example
 ```php
@@ -3975,7 +3975,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withId("ID")->delete()`
 
-Delete ShippingMethod by ID
+null
 
 ### Example
 ```php
@@ -3990,7 +3990,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->get()`
 
-Get ShippingMethod by key
+null
 
 ### Example
 ```php
@@ -4005,7 +4005,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->post(null)`
 
-Update ShippingMethod by key
+null
 
 ### Example
 ```php
@@ -4020,7 +4020,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->withKey("key")->delete()`
 
-Delete ShippingMethod by key
+null
 
 ### Example
 ```php
@@ -4080,7 +4080,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->get()`
 
-Query shopping-lists
+null
 
 ### Example
 ```php
@@ -4094,7 +4094,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->post(null)`
 
-Create ShoppingList
+null
 
 ### Example
 ```php
@@ -4123,7 +4123,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->post(null)`
 
-Update ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -4138,7 +4138,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->delete()`
 
-Delete ShoppingList by ID
+null
 
 ### Example
 ```php
@@ -4183,7 +4183,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->delete()`
 
-Delete ShoppingList by key
+null
 
 ### Example
 ```php
@@ -4198,7 +4198,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->get()`
 
-Query states
+null
 
 ### Example
 ```php
@@ -4212,7 +4212,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->post(null)`
 
-Create State
+null
 
 ### Example
 ```php
@@ -4226,7 +4226,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withId("ID")->get()`
 
-Get State by ID
+null
 
 ### Example
 ```php
@@ -4241,7 +4241,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withId("ID")->post(null)`
 
-Update State by ID
+null
 
 ### Example
 ```php
@@ -4256,7 +4256,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withId("ID")->delete()`
 
-Delete State by ID
+null
 
 ### Example
 ```php
@@ -4271,7 +4271,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->get()`
 
-Get State by key
+null
 
 ### Example
 ```php
@@ -4286,7 +4286,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->post(null)`
 
-Update State by key
+null
 
 ### Example
 ```php
@@ -4301,7 +4301,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->states()->withKey("key")->delete()`
 
-Delete State by key
+null
 
 ### Example
 ```php
@@ -4316,7 +4316,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->get()`
 
-Query stores
+null
 
 ### Example
 ```php
@@ -4330,7 +4330,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->post(null)`
 
-Create Store
+null
 
 ### Example
 ```php
@@ -4344,7 +4344,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->get()`
 
-Get Store by ID
+null
 
 ### Example
 ```php
@@ -4359,7 +4359,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->post(null)`
 
-Update Store by ID
+null
 
 ### Example
 ```php
@@ -4374,7 +4374,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withId("ID")->delete()`
 
-Delete Store by ID
+null
 
 ### Example
 ```php
@@ -4389,7 +4389,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->get()`
 
-Get Store by key
+null
 
 ### Example
 ```php
@@ -4404,7 +4404,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->post(null)`
 
-Update Store by key
+null
 
 ### Example
 ```php
@@ -4419,7 +4419,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->stores()->withKey("key")->delete()`
 
-Delete Store by key
+null
 
 ### Example
 ```php
@@ -4434,7 +4434,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->get()`
 
-Query subscriptions
+null
 
 ### Example
 ```php
@@ -4482,7 +4482,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->post(null)`
 
-Update Subscription by ID
+null
 
 ### Example
 ```php
@@ -4497,7 +4497,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->delete()`
 
-Delete Subscription by ID
+null
 
 ### Example
 ```php
@@ -4527,7 +4527,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->post(null)`
 
-Update Subscription by key
+null
 
 ### Example
 ```php
@@ -4542,7 +4542,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->delete()`
 
-Delete Subscription by key
+null
 
 ### Example
 ```php
@@ -4557,7 +4557,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->get()`
 
-Query tax-categories
+null
 
 ### Example
 ```php
@@ -4571,7 +4571,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->post(null)`
 
-Create TaxCategory
+null
 
 ### Example
 ```php
@@ -4585,7 +4585,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->get()`
 
-Get TaxCategory by ID
+null
 
 ### Example
 ```php
@@ -4600,7 +4600,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->post(null)`
 
-Update TaxCategory by ID
+null
 
 ### Example
 ```php
@@ -4615,7 +4615,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withId("ID")->delete()`
 
-Delete TaxCategory by ID
+null
 
 ### Example
 ```php
@@ -4630,7 +4630,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->get()`
 
-Get TaxCategory by key
+null
 
 ### Example
 ```php
@@ -4645,7 +4645,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->post(null)`
 
-Update TaxCategory by key
+null
 
 ### Example
 ```php
@@ -4660,7 +4660,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->taxCategories()->withKey("key")->delete()`
 
-Delete TaxCategory by key
+null
 
 ### Example
 ```php
@@ -4675,7 +4675,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->get()`
 
-Query types
+null
 
 ### Example
 ```php
@@ -4689,7 +4689,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->post(null)`
 
-Create Type
+null
 
 ### Example
 ```php
@@ -4703,7 +4703,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withId("ID")->get()`
 
-Get Type by ID
+null
 
 ### Example
 ```php
@@ -4718,7 +4718,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withId("ID")->post(null)`
 
-Update Type by ID
+null
 
 ### Example
 ```php
@@ -4733,7 +4733,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withId("ID")->delete()`
 
-Delete Type by ID
+null
 
 ### Example
 ```php
@@ -4748,7 +4748,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withKey("key")->get()`
 
-Get Type by key
+null
 
 ### Example
 ```php
@@ -4763,7 +4763,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withKey("key")->post(null)`
 
-Update Type by key
+null
 
 ### Example
 ```php
@@ -4778,7 +4778,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->types()->withKey("key")->delete()`
 
-Delete Type by key
+null
 
 ### Example
 ```php
@@ -4793,7 +4793,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->get()`
 
-Query zones
+null
 
 ### Example
 ```php
@@ -4807,7 +4807,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->post(null)`
 
-Create Zone
+null
 
 ### Example
 ```php
@@ -4821,7 +4821,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->get()`
 
-Get Zone by ID
+null
 
 ### Example
 ```php
@@ -4836,7 +4836,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->post(null)`
 
-Update Zone by ID
+null
 
 ### Example
 ```php
@@ -4851,7 +4851,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withId("ID")->delete()`
 
-Delete Zone by ID
+null
 
 ### Example
 ```php
@@ -4866,7 +4866,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->get()`
 
-Get Zone by key
+null
 
 ### Example
 ```php
@@ -4881,7 +4881,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->post(null)`
 
-Update Zone by key
+null
 
 ### Example
 ```php
@@ -4896,7 +4896,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->zones()->withKey("key")->delete()`
 
-Delete Zone by key
+null
 
 ### Example
 ```php

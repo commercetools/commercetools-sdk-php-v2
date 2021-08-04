@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -32,7 +32,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     protected $groupName;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -43,7 +43,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     public function __construct(
         ?string $key = null,
         ?string $groupName = null,
-        ?CustomFields $custom = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->key = $key;
         $this->groupName = $groupName;
@@ -51,7 +51,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the customer group.</p>
      *
      * @return null|string
      */
@@ -70,6 +70,9 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
+     * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the project.
+     * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
+     *
      * @return null|string
      */
     public function getGroupName()
@@ -87,7 +90,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -98,7 +101,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -122,9 +125,9 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }

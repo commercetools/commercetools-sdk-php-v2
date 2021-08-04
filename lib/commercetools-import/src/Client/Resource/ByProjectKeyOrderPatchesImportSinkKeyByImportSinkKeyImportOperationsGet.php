@@ -25,8 +25,11 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyOrderPatchesImportSinkKeyByImportSinkKeyImportOperationsGet extends ApiRequest
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements SecuredByViewOrders<ByProjectKeyOrderPatchesImportSinkKeyByImportSinkKeyImportOperationsGet>
+ */
+class ByProjectKeyOrderPatchesImportSinkKeyByImportSinkKeyImportOperationsGet extends ApiRequest implements SecuredByViewOrders
 {
     /**
      * @param ?object|array|string $body

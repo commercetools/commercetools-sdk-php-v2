@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -33,12 +33,12 @@ final class CustomerGroupDraftBuilder implements Builder
     private $groupName;
 
     /**
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the customer group.</p>
      *
      * @return null|string
      */
@@ -48,6 +48,9 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
+     * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the project.
+     * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
+     *
      * @return null|string
      */
     public function getGroupName()
@@ -56,11 +59,11 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -86,10 +89,10 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -100,7 +103,7 @@ final class CustomerGroupDraftBuilder implements Builder
      * @deprecated use withCustom() instead
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
 
@@ -112,7 +115,7 @@ final class CustomerGroupDraftBuilder implements Builder
         return new CustomerGroupDraftModel(
             $this->key,
             $this->groupName,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

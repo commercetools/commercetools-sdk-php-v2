@@ -25,7 +25,10 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ *
+ */
 class ByProjectKeyProductsByIDImagesPost extends ApiRequest
 {
     /**

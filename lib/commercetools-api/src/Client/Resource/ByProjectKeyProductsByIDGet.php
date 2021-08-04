@@ -27,8 +27,14 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyProductsByIDGet extends ApiRequest
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements PriceSelecting<ByProjectKeyProductsByIDGet>
+ * @template-implements Expandable<ByProjectKeyProductsByIDGet>
+ * @template-implements Errorable<ByProjectKeyProductsByIDGet>
+ * @template-implements Deprecatable200<ByProjectKeyProductsByIDGet>
+ */
+class ByProjectKeyProductsByIDGet extends ApiRequest implements PriceSelecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body

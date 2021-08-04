@@ -27,8 +27,16 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyCustomerGroupsGet extends ApiRequest
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements Expandable<ByProjectKeyCustomerGroupsGet>
+ * @template-implements Sortable<ByProjectKeyCustomerGroupsGet>
+ * @template-implements Paging<ByProjectKeyCustomerGroupsGet>
+ * @template-implements Query<ByProjectKeyCustomerGroupsGet>
+ * @template-implements Errorable<ByProjectKeyCustomerGroupsGet>
+ * @template-implements Deprecatable200<ByProjectKeyCustomerGroupsGet>
+ */
+class ByProjectKeyCustomerGroupsGet extends ApiRequest implements Expandable, Sortable, Paging, Query, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -136,6 +144,15 @@ class ByProjectKeyCustomerGroupsGet extends ApiRequest
 
     /**
      *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyCustomerGroupsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyCustomerGroupsGet
@@ -177,15 +194,6 @@ class ByProjectKeyCustomerGroupsGet extends ApiRequest
     public function withWithTotal($withTotal): ByProjectKeyCustomerGroupsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $where
-     */
-    public function withWhere($where): ByProjectKeyCustomerGroupsGet
-    {
-        return $this->withQueryParam('where', $where);
     }
 
     /**

@@ -25,8 +25,11 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyMeEmailConfirmPost extends ApiRequest
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements Errorable<ByProjectKeyMeEmailConfirmPost>
+ */
+class ByProjectKeyMeEmailConfirmPost extends ApiRequest implements Errorable
 {
     /**
      * @param ?object|array|string $body

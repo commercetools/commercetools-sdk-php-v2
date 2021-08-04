@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,19 +19,22 @@ interface CustomerGroupDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the customer group.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the project.
+     * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
+     *
      * @return null|string
      */
     public function getGroupName();
 
     /**
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -46,7 +49,7 @@ interface CustomerGroupDraft extends JsonObject
     public function setGroupName(?string $groupName): void;
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

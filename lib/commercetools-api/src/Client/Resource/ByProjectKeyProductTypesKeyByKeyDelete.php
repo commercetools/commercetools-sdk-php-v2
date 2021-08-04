@@ -27,8 +27,15 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyProductTypesKeyByKeyDelete extends ApiRequest
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements Versioned<ByProjectKeyProductTypesKeyByKeyDelete>
+ * @template-implements Conflicting<ByProjectKeyProductTypesKeyByKeyDelete>
+ * @template-implements Expandable<ByProjectKeyProductTypesKeyByKeyDelete>
+ * @template-implements Errorable<ByProjectKeyProductTypesKeyByKeyDelete>
+ * @template-implements Deprecatable200<ByProjectKeyProductTypesKeyByKeyDelete>
+ */
+class ByProjectKeyProductTypesKeyByKeyDelete extends ApiRequest implements Versioned, Conflicting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body

@@ -25,7 +25,10 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ *
+ */
 class ByProjectKeyImageSearchConfigGet extends ApiRequest
 {
     /**

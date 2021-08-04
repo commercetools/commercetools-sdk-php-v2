@@ -25,8 +25,11 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
-class ByProjectKeyProductProjectionsSearchPost extends ApiRequest
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements Errorable<ByProjectKeyProductProjectionsSearchPost>
+ */
+class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Errorable
 {
     /**
      * @param ?object|array|string $body

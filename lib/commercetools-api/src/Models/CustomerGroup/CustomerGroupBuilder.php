@@ -111,7 +111,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources updated after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -121,7 +121,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -131,7 +131,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the customer group.</p>
      *
      * @return null|string
      */
@@ -141,6 +141,8 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
+     * <p>Unique within the project.</p>
+     *
      * @return null|string
      */
     public function getName()

@@ -19,7 +19,7 @@ use Psr\Http\Message\ResponseInterface;
 use stdClass;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class ApiRequest extends Request
+class ApiRequest extends Request implements ApiRequestInterface
 {
     /** @psalm-var array<string, scalar[]> */
     private $queryParts;
@@ -74,7 +74,7 @@ class ApiRequest extends Request
      * @param mixed $value
      * @psalm-return static
      */
-    public function withQueryParam(string $parameterName, $value): ApiRequest
+    public function withQueryParam(string $parameterName, $value): ApiRequestInterface
     {
         $query = $this->getUri()->getQuery();
         if ($this->query !== $query) {

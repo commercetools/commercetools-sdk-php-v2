@@ -16,7 +16,7 @@ interface CustomerGroupSetKeyAction extends CustomerGroupUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>User-specific unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the customer group.</p>
      *
      * @return null|string
      */

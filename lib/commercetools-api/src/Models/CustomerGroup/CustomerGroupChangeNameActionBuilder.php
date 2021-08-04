@@ -26,6 +26,8 @@ final class CustomerGroupChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>User-defined unique name for the customer group.</p>
+     *
      * @return null|string
      */
     public function getName()
