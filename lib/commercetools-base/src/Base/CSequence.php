@@ -18,7 +18,7 @@ use stdClass;
 interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
     public function toArray(): ?array;
-    
+
     public function jsonSerialize(): ?array;
 
     /**
@@ -46,6 +46,11 @@ interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \Iterat
      * @return ?TObject
      */
     public function current();
+
+    /**
+     * @return ?TObject
+     */
+    public function end();
 
     /**
      * @return void
