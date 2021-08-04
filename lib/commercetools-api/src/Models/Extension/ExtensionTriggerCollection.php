@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ExtensionTrigger>
  * @method ExtensionTrigger current()
+ * @method ExtensionTrigger end()
  * @method ExtensionTrigger at($offset)
  */
 class ExtensionTriggerCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ExtensionTriggerCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionTrigger {
+        return function (?int $index): ?ExtensionTrigger {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionTrigger $data */

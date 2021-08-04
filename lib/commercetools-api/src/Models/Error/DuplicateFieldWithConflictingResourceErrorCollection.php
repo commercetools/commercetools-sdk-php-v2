@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateFieldWithConflictingResourceError>
  * @method DuplicateFieldWithConflictingResourceError current()
+ * @method DuplicateFieldWithConflictingResourceError end()
  * @method DuplicateFieldWithConflictingResourceError at($offset)
  */
 class DuplicateFieldWithConflictingResourceErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class DuplicateFieldWithConflictingResourceErrorCollection extends ErrorObjectCo
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicateFieldWithConflictingResourceError {
+        return function (?int $index): ?DuplicateFieldWithConflictingResourceError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicateFieldWithConflictingResourceError $data */

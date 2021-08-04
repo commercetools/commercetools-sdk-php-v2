@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImageSearchConfigUpdateActionCollection<ChangeStatusUpdateAction>
  * @method ChangeStatusUpdateAction current()
+ * @method ChangeStatusUpdateAction end()
  * @method ChangeStatusUpdateAction at($offset)
  */
 class ChangeStatusUpdateActionCollection extends ImageSearchConfigUpdateActionCollection
@@ -41,7 +42,7 @@ class ChangeStatusUpdateActionCollection extends ImageSearchConfigUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeStatusUpdateAction {
+        return function (?int $index): ?ChangeStatusUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeStatusUpdateAction $data */

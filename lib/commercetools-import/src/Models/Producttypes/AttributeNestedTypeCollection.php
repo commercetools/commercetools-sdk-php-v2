@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeNestedType>
  * @method AttributeNestedType current()
+ * @method AttributeNestedType end()
  * @method AttributeNestedType at($offset)
  */
 class AttributeNestedTypeCollection extends AttributeTypeCollection
@@ -41,7 +42,7 @@ class AttributeNestedTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeNestedType {
+        return function (?int $index): ?AttributeNestedType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeNestedType $data */

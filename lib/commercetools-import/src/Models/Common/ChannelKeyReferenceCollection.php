@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<ChannelKeyReference>
  * @method ChannelKeyReference current()
+ * @method ChannelKeyReference end()
  * @method ChannelKeyReference at($offset)
  */
 class ChannelKeyReferenceCollection extends KeyReferenceCollection
@@ -41,7 +42,7 @@ class ChannelKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelKeyReference {
+        return function (?int $index): ?ChannelKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelKeyReference $data */

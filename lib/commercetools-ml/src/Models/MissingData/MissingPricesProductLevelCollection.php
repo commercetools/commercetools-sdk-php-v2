@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MissingPricesProductCountCollection<MissingPricesProductLevel>
  * @method MissingPricesProductLevel current()
+ * @method MissingPricesProductLevel end()
  * @method MissingPricesProductLevel at($offset)
  */
 class MissingPricesProductLevelCollection extends MissingPricesProductCountCollection
@@ -41,7 +42,7 @@ class MissingPricesProductLevelCollection extends MissingPricesProductCountColle
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingPricesProductLevel {
+        return function (?int $index): ?MissingPricesProductLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingPricesProductLevel $data */

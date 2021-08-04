@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductAddExternalImageAction>
  * @method ProductAddExternalImageAction current()
+ * @method ProductAddExternalImageAction end()
  * @method ProductAddExternalImageAction at($offset)
  */
 class ProductAddExternalImageActionCollection extends ProductUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductAddExternalImageActionCollection extends ProductUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductAddExternalImageAction {
+        return function (?int $index): ?ProductAddExternalImageAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductAddExternalImageAction $data */

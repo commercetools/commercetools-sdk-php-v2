@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ShoppingListReference>
  * @method ShoppingListReference current()
+ * @method ShoppingListReference end()
  * @method ShoppingListReference at($offset)
  */
 class ShoppingListReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class ShoppingListReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListReference {
+        return function (?int $index): ?ShoppingListReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListReference $data */

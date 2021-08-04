@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<OrderPatchImportRequest>
  * @method OrderPatchImportRequest current()
+ * @method OrderPatchImportRequest end()
  * @method OrderPatchImportRequest at($offset)
  */
 class OrderPatchImportRequestCollection extends ImportRequestCollection
@@ -41,7 +42,7 @@ class OrderPatchImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderPatchImportRequest {
+        return function (?int $index): ?OrderPatchImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderPatchImportRequest $data */

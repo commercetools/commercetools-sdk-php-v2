@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<MoneyField>
  * @method MoneyField current()
+ * @method MoneyField end()
  * @method MoneyField at($offset)
  */
 class MoneyFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class MoneyFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MoneyField {
+        return function (?int $index): ?MoneyField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MoneyField $data */

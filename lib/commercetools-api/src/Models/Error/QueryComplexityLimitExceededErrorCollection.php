@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<QueryComplexityLimitExceededError>
  * @method QueryComplexityLimitExceededError current()
+ * @method QueryComplexityLimitExceededError end()
  * @method QueryComplexityLimitExceededError at($offset)
  */
 class QueryComplexityLimitExceededErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class QueryComplexityLimitExceededErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?QueryComplexityLimitExceededError {
+        return function (?int $index): ?QueryComplexityLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var QueryComplexityLimitExceededError $data */

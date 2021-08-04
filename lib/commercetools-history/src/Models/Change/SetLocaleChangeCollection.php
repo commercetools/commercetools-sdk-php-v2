@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLocaleChange>
  * @method SetLocaleChange current()
+ * @method SetLocaleChange end()
  * @method SetLocaleChange at($offset)
  */
 class SetLocaleChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetLocaleChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLocaleChange {
+        return function (?int $index): ?SetLocaleChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLocaleChange $data */

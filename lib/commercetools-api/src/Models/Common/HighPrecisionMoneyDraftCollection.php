@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypedMoneyDraftCollection<HighPrecisionMoneyDraft>
  * @method HighPrecisionMoneyDraft current()
+ * @method HighPrecisionMoneyDraft end()
  * @method HighPrecisionMoneyDraft at($offset)
  */
 class HighPrecisionMoneyDraftCollection extends TypedMoneyDraftCollection
@@ -41,7 +42,7 @@ class HighPrecisionMoneyDraftCollection extends TypedMoneyDraftCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?HighPrecisionMoneyDraft {
+        return function (?int $index): ?HighPrecisionMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var HighPrecisionMoneyDraft $data */

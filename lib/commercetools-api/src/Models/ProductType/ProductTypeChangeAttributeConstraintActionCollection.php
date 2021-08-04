@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeAttributeConstraintAction>
  * @method ProductTypeChangeAttributeConstraintAction current()
+ * @method ProductTypeChangeAttributeConstraintAction end()
  * @method ProductTypeChangeAttributeConstraintAction at($offset)
  */
 class ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUp
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeAttributeConstraintAction {
+        return function (?int $index): ?ProductTypeChangeAttributeConstraintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeAttributeConstraintAction $data */

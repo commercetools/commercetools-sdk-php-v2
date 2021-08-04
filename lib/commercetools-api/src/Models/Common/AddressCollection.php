@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseAddressCollection<Address>
  * @method Address current()
+ * @method Address end()
  * @method Address at($offset)
  */
 class AddressCollection extends BaseAddressCollection
@@ -41,7 +42,7 @@ class AddressCollection extends BaseAddressCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Address {
+        return function (?int $index): ?Address {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Address $data */

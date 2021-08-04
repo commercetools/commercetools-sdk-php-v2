@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductSetTaxCategoryAction>
  * @method ProductSetTaxCategoryAction current()
+ * @method ProductSetTaxCategoryAction end()
  * @method ProductSetTaxCategoryAction at($offset)
  */
 class ProductSetTaxCategoryActionCollection extends ProductUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductSetTaxCategoryActionCollection extends ProductUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductSetTaxCategoryAction {
+        return function (?int $index): ?ProductSetTaxCategoryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductSetTaxCategoryAction $data */

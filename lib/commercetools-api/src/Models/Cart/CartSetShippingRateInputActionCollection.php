@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartSetShippingRateInputAction>
  * @method CartSetShippingRateInputAction current()
+ * @method CartSetShippingRateInputAction end()
  * @method CartSetShippingRateInputAction at($offset)
  */
 class CartSetShippingRateInputActionCollection extends CartUpdateActionCollection
@@ -41,7 +42,7 @@ class CartSetShippingRateInputActionCollection extends CartUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetShippingRateInputAction {
+        return function (?int $index): ?CartSetShippingRateInputAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetShippingRateInputAction $data */

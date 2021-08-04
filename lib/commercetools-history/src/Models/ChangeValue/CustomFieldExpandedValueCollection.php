@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomFieldExpandedValue>
  * @method CustomFieldExpandedValue current()
+ * @method CustomFieldExpandedValue end()
  * @method CustomFieldExpandedValue at($offset)
  */
 class CustomFieldExpandedValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomFieldExpandedValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldExpandedValue {
+        return function (?int $index): ?CustomFieldExpandedValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldExpandedValue $data */

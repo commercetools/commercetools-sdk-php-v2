@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeNameAction>
  * @method ProjectChangeNameAction current()
+ * @method ProjectChangeNameAction end()
  * @method ProjectChangeNameAction at($offset)
  */
 class ProjectChangeNameActionCollection extends ProjectUpdateActionCollection
@@ -41,7 +42,7 @@ class ProjectChangeNameActionCollection extends ProjectUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeNameAction {
+        return function (?int $index): ?ProjectChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeNameAction $data */

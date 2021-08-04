@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<SqsDestination>
  * @method SqsDestination current()
+ * @method SqsDestination end()
  * @method SqsDestination at($offset)
  */
 class SqsDestinationCollection extends DestinationCollection
@@ -41,7 +42,7 @@ class SqsDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SqsDestination {
+        return function (?int $index): ?SqsDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SqsDestination $data */

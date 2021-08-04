@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MyOrderFromCartDraft>
  * @method MyOrderFromCartDraft current()
+ * @method MyOrderFromCartDraft end()
  * @method MyOrderFromCartDraft at($offset)
  */
 class MyOrderFromCartDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MyOrderFromCartDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MyOrderFromCartDraft {
+        return function (?int $index): ?MyOrderFromCartDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyOrderFromCartDraft $data */

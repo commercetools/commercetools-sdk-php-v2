@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ChannelUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ChannelUpdateAction current()
+ * @method ChannelUpdateAction end()
  * @method ChannelUpdateAction at($offset)
  */
 class ChannelUpdateActionCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ChannelUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelUpdateAction {
+        return function (?int $index): ?ChannelUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

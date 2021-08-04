@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartDiscountValueCollection<CartDiscountValueGiftLineItem>
  * @method CartDiscountValueGiftLineItem current()
+ * @method CartDiscountValueGiftLineItem end()
  * @method CartDiscountValueGiftLineItem at($offset)
  */
 class CartDiscountValueGiftLineItemCollection extends CartDiscountValueCollection
@@ -41,7 +42,7 @@ class CartDiscountValueGiftLineItemCollection extends CartDiscountValueCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountValueGiftLineItem {
+        return function (?int $index): ?CartDiscountValueGiftLineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountValueGiftLineItem $data */

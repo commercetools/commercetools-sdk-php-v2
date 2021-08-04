@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeEnumType>
  * @method AttributeEnumType current()
+ * @method AttributeEnumType end()
  * @method AttributeEnumType at($offset)
  */
 class AttributeEnumTypeCollection extends AttributeTypeCollection
@@ -41,7 +42,7 @@ class AttributeEnumTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeEnumType {
+        return function (?int $index): ?AttributeEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeEnumType $data */

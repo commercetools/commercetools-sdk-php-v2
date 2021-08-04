@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<DiscountCodeReference>
  * @method DiscountCodeReference current()
+ * @method DiscountCodeReference end()
  * @method DiscountCodeReference at($offset)
  */
 class DiscountCodeReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class DiscountCodeReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeReference {
+        return function (?int $index): ?DiscountCodeReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeReference $data */

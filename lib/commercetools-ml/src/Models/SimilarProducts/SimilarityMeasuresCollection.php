@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarityMeasures>
  * @method SimilarityMeasures current()
+ * @method SimilarityMeasures end()
  * @method SimilarityMeasures at($offset)
  */
 class SimilarityMeasuresCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SimilarityMeasuresCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SimilarityMeasures {
+        return function (?int $index): ?SimilarityMeasures {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SimilarityMeasures $data */

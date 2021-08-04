@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeIsSearchableChange>
  * @method ChangeIsSearchableChange current()
+ * @method ChangeIsSearchableChange end()
  * @method ChangeIsSearchableChange at($offset)
  */
 class ChangeIsSearchableChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeIsSearchableChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeIsSearchableChange {
+        return function (?int $index): ?ChangeIsSearchableChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeIsSearchableChange $data */

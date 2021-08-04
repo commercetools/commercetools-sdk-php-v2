@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetRestockableInDaysAction>
  * @method InventoryEntrySetRestockableInDaysAction current()
+ * @method InventoryEntrySetRestockableInDaysAction end()
  * @method InventoryEntrySetRestockableInDaysAction at($offset)
  */
 class InventoryEntrySetRestockableInDaysActionCollection extends InventoryEntryUpdateActionCollection
@@ -41,7 +42,7 @@ class InventoryEntrySetRestockableInDaysActionCollection extends InventoryEntryU
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntrySetRestockableInDaysAction {
+        return function (?int $index): ?InventoryEntrySetRestockableInDaysAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntrySetRestockableInDaysAction $data */

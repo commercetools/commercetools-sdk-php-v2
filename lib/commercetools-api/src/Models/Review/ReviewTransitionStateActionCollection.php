@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReviewUpdateActionCollection<ReviewTransitionStateAction>
  * @method ReviewTransitionStateAction current()
+ * @method ReviewTransitionStateAction end()
  * @method ReviewTransitionStateAction at($offset)
  */
 class ReviewTransitionStateActionCollection extends ReviewUpdateActionCollection
@@ -41,7 +42,7 @@ class ReviewTransitionStateActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewTransitionStateAction {
+        return function (?int $index): ?ReviewTransitionStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewTransitionStateAction $data */

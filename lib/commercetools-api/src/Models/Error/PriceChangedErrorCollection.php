@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<PriceChangedError>
  * @method PriceChangedError current()
+ * @method PriceChangedError end()
  * @method PriceChangedError at($offset)
  */
 class PriceChangedErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class PriceChangedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PriceChangedError {
+        return function (?int $index): ?PriceChangedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PriceChangedError $data */

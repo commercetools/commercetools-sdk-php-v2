@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectSetShippingRateInputTypeAction>
  * @method ProjectSetShippingRateInputTypeAction current()
+ * @method ProjectSetShippingRateInputTypeAction end()
  * @method ProjectSetShippingRateInputTypeAction at($offset)
  */
 class ProjectSetShippingRateInputTypeActionCollection extends ProjectUpdateActionCollection
@@ -41,7 +42,7 @@ class ProjectSetShippingRateInputTypeActionCollection extends ProjectUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectSetShippingRateInputTypeAction {
+        return function (?int $index): ?ProjectSetShippingRateInputTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectSetShippingRateInputTypeAction $data */

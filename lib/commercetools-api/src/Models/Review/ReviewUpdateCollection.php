@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReviewUpdate>
  * @method ReviewUpdate current()
+ * @method ReviewUpdate end()
  * @method ReviewUpdate at($offset)
  */
 class ReviewUpdateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ReviewUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewUpdate {
+        return function (?int $index): ?ReviewUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewUpdate $data */

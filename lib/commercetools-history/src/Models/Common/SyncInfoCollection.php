@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SyncInfo>
  * @method SyncInfo current()
+ * @method SyncInfo end()
  * @method SyncInfo at($offset)
  */
 class SyncInfoCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SyncInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SyncInfo {
+        return function (?int $index): ?SyncInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SyncInfo $data */

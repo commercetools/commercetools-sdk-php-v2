@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSalutationChange>
  * @method SetSalutationChange current()
+ * @method SetSalutationChange end()
  * @method SetSalutationChange at($offset)
  */
 class SetSalutationChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetSalutationChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSalutationChange {
+        return function (?int $index): ?SetSalutationChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSalutationChange $data */

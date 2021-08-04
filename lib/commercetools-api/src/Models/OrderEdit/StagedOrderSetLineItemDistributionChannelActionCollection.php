@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetLineItemDistributionChannelAction>
  * @method StagedOrderSetLineItemDistributionChannelAction current()
+ * @method StagedOrderSetLineItemDistributionChannelAction end()
  * @method StagedOrderSetLineItemDistributionChannelAction at($offset)
  */
 class StagedOrderSetLineItemDistributionChannelActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderSetLineItemDistributionChannelActionCollection extends StagedOr
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLineItemDistributionChannelAction {
+        return function (?int $index): ?StagedOrderSetLineItemDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLineItemDistributionChannelAction $data */

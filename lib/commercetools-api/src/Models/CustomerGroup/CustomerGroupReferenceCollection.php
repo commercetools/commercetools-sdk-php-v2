@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<CustomerGroupReference>
  * @method CustomerGroupReference current()
+ * @method CustomerGroupReference end()
  * @method CustomerGroupReference at($offset)
  */
 class CustomerGroupReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class CustomerGroupReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupReference {
+        return function (?int $index): ?CustomerGroupReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupReference $data */

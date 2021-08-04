@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSink>
  * @method ImportSink current()
+ * @method ImportSink end()
  * @method ImportSink at($offset)
  */
 class ImportSinkCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ImportSinkCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportSink {
+        return function (?int $index): ?ImportSink {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImportSink $data */

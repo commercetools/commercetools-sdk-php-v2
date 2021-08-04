@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<LocalizableEnumSetAttribute>
  * @method LocalizableEnumSetAttribute current()
+ * @method LocalizableEnumSetAttribute end()
  * @method LocalizableEnumSetAttribute at($offset)
  */
 class LocalizableEnumSetAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class LocalizableEnumSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizableEnumSetAttribute {
+        return function (?int $index): ?LocalizableEnumSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizableEnumSetAttribute $data */

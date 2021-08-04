@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductChangeAssetOrderAction>
  * @method ProductChangeAssetOrderAction current()
+ * @method ProductChangeAssetOrderAction end()
  * @method ProductChangeAssetOrderAction at($offset)
  */
 class ProductChangeAssetOrderActionCollection extends ProductUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductChangeAssetOrderActionCollection extends ProductUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductChangeAssetOrderAction {
+        return function (?int $index): ?ProductChangeAssetOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductChangeAssetOrderAction $data */

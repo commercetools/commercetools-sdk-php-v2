@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeEnumKeyAction>
  * @method ProductTypeChangeEnumKeyAction current()
+ * @method ProductTypeChangeEnumKeyAction end()
  * @method ProductTypeChangeEnumKeyAction at($offset)
  */
 class ProductTypeChangeEnumKeyActionCollection extends ProductTypeUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductTypeChangeEnumKeyActionCollection extends ProductTypeUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeEnumKeyAction {
+        return function (?int $index): ?ProductTypeChangeEnumKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeEnumKeyAction $data */

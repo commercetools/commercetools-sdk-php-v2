@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EnumKeyDoesNotExistError>
  * @method EnumKeyDoesNotExistError current()
+ * @method EnumKeyDoesNotExistError end()
  * @method EnumKeyDoesNotExistError at($offset)
  */
 class EnumKeyDoesNotExistErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class EnumKeyDoesNotExistErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumKeyDoesNotExistError {
+        return function (?int $index): ?EnumKeyDoesNotExistError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumKeyDoesNotExistError $data */

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of SuggestTokenizer
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method SuggestTokenizer current()
+ * @method SuggestTokenizer end()
  * @method SuggestTokenizer at($offset)
  */
 class SuggestTokenizerCollection extends MapperSequence
@@ -44,7 +46,7 @@ class SuggestTokenizerCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SuggestTokenizer {
+        return function (?int $index): ?SuggestTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

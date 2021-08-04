@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SuggestTokenizerCollection<WhitespaceTokenizer>
  * @method WhitespaceTokenizer current()
+ * @method WhitespaceTokenizer end()
  * @method WhitespaceTokenizer at($offset)
  */
 class WhitespaceTokenizerCollection extends SuggestTokenizerCollection
@@ -41,7 +42,7 @@ class WhitespaceTokenizerCollection extends SuggestTokenizerCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?WhitespaceTokenizer {
+        return function (?int $index): ?WhitespaceTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var WhitespaceTokenizer $data */

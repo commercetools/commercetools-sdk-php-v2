@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCustomerUpdateActionCollection<MyCustomerSetDateOfBirthAction>
  * @method MyCustomerSetDateOfBirthAction current()
+ * @method MyCustomerSetDateOfBirthAction end()
  * @method MyCustomerSetDateOfBirthAction at($offset)
  */
 class MyCustomerSetDateOfBirthActionCollection extends MyCustomerUpdateActionCollection
@@ -41,7 +42,7 @@ class MyCustomerSetDateOfBirthActionCollection extends MyCustomerUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetDateOfBirthAction {
+        return function (?int $index): ?MyCustomerSetDateOfBirthAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetDateOfBirthAction $data */

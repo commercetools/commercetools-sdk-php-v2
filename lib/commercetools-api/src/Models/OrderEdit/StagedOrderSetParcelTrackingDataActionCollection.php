@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetParcelTrackingDataAction>
  * @method StagedOrderSetParcelTrackingDataAction current()
+ * @method StagedOrderSetParcelTrackingDataAction end()
  * @method StagedOrderSetParcelTrackingDataAction at($offset)
  */
 class StagedOrderSetParcelTrackingDataActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderSetParcelTrackingDataActionCollection extends StagedOrderUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetParcelTrackingDataAction {
+        return function (?int $index): ?StagedOrderSetParcelTrackingDataAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetParcelTrackingDataAction $data */

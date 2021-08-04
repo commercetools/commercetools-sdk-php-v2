@@ -27,7 +27,10 @@ use Commercetools\History\Models\RecordPagedQueryResponseModel;
 
 use Psr\Http\Message\ResponseInterface;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ *
+ */
 class ByProjectKeyByResourceTypeGet extends ApiRequest
 {
     /**

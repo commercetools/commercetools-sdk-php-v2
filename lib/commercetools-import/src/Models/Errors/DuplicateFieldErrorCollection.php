@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateFieldError>
  * @method DuplicateFieldError current()
+ * @method DuplicateFieldError end()
  * @method DuplicateFieldError at($offset)
  */
 class DuplicateFieldErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class DuplicateFieldErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicateFieldError {
+        return function (?int $index): ?DuplicateFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicateFieldError $data */

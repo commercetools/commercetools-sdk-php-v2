@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAssetCustomFieldChange>
  * @method SetAssetCustomFieldChange current()
+ * @method SetAssetCustomFieldChange end()
  * @method SetAssetCustomFieldChange at($offset)
  */
 class SetAssetCustomFieldChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetAssetCustomFieldChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAssetCustomFieldChange {
+        return function (?int $index): ?SetAssetCustomFieldChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAssetCustomFieldChange $data */

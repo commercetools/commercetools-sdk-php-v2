@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetDescriptionAction>
  * @method DiscountCodeSetDescriptionAction current()
+ * @method DiscountCodeSetDescriptionAction end()
  * @method DiscountCodeSetDescriptionAction at($offset)
  */
 class DiscountCodeSetDescriptionActionCollection extends DiscountCodeUpdateActionCollection
@@ -41,7 +42,7 @@ class DiscountCodeSetDescriptionActionCollection extends DiscountCodeUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetDescriptionAction {
+        return function (?int $index): ?DiscountCodeSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetDescriptionAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetExpectedDeliveryChange>
  * @method SetExpectedDeliveryChange current()
+ * @method SetExpectedDeliveryChange end()
  * @method SetExpectedDeliveryChange at($offset)
  */
 class SetExpectedDeliveryChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetExpectedDeliveryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetExpectedDeliveryChange {
+        return function (?int $index): ?SetExpectedDeliveryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetExpectedDeliveryChange $data */

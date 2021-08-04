@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetAssetKeyAction>
  * @method CategorySetAssetKeyAction current()
+ * @method CategorySetAssetKeyAction end()
  * @method CategorySetAssetKeyAction at($offset)
  */
 class CategorySetAssetKeyActionCollection extends CategoryUpdateActionCollection
@@ -41,7 +42,7 @@ class CategorySetAssetKeyActionCollection extends CategoryUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetAssetKeyAction {
+        return function (?int $index): ?CategorySetAssetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetAssetKeyAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MissingRoleOnChannelError>
  * @method MissingRoleOnChannelError current()
+ * @method MissingRoleOnChannelError end()
  * @method MissingRoleOnChannelError at($offset)
  */
 class MissingRoleOnChannelErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class MissingRoleOnChannelErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingRoleOnChannelError {
+        return function (?int $index): ?MissingRoleOnChannelError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingRoleOnChannelError $data */

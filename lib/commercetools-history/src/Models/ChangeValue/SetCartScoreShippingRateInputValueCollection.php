@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SetCartScoreShippingRateInputValue>
  * @method SetCartScoreShippingRateInputValue current()
+ * @method SetCartScoreShippingRateInputValue end()
  * @method SetCartScoreShippingRateInputValue at($offset)
  */
 class SetCartScoreShippingRateInputValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SetCartScoreShippingRateInputValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCartScoreShippingRateInputValue {
+        return function (?int $index): ?SetCartScoreShippingRateInputValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCartScoreShippingRateInputValue $data */

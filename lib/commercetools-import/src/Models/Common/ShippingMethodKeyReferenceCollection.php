@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<ShippingMethodKeyReference>
  * @method ShippingMethodKeyReference current()
+ * @method ShippingMethodKeyReference end()
  * @method ShippingMethodKeyReference at($offset)
  */
 class ShippingMethodKeyReferenceCollection extends KeyReferenceCollection
@@ -41,7 +42,7 @@ class ShippingMethodKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodKeyReference {
+        return function (?int $index): ?ShippingMethodKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodKeyReference $data */

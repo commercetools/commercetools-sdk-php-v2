@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeRemoveAttributeDefinitionAction>
  * @method ProductTypeRemoveAttributeDefinitionAction current()
+ * @method ProductTypeRemoveAttributeDefinitionAction end()
  * @method ProductTypeRemoveAttributeDefinitionAction at($offset)
  */
 class ProductTypeRemoveAttributeDefinitionActionCollection extends ProductTypeUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductTypeRemoveAttributeDefinitionActionCollection extends ProductTypeUp
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeRemoveAttributeDefinitionAction {
+        return function (?int $index): ?ProductTypeRemoveAttributeDefinitionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeRemoveAttributeDefinitionAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StoreUpdateActionCollection<StoreAddDistributionChannelAction>
  * @method StoreAddDistributionChannelAction current()
+ * @method StoreAddDistributionChannelAction end()
  * @method StoreAddDistributionChannelAction at($offset)
  */
 class StoreAddDistributionChannelActionCollection extends StoreUpdateActionCollection
@@ -41,7 +42,7 @@ class StoreAddDistributionChannelActionCollection extends StoreUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreAddDistributionChannelAction {
+        return function (?int $index): ?StoreAddDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreAddDistributionChannelAction $data */

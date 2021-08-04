@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetMetaKeywordsAction>
  * @method CategorySetMetaKeywordsAction current()
+ * @method CategorySetMetaKeywordsAction end()
  * @method CategorySetMetaKeywordsAction at($offset)
  */
 class CategorySetMetaKeywordsActionCollection extends CategoryUpdateActionCollection
@@ -41,7 +42,7 @@ class CategorySetMetaKeywordsActionCollection extends CategoryUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetMetaKeywordsAction {
+        return function (?int $index): ?CategorySetMetaKeywordsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetMetaKeywordsAction $data */

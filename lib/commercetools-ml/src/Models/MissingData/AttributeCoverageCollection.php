@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributeCoverage>
  * @method AttributeCoverage current()
+ * @method AttributeCoverage end()
  * @method AttributeCoverage at($offset)
  */
 class AttributeCoverageCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AttributeCoverageCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeCoverage {
+        return function (?int $index): ?AttributeCoverage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeCoverage $data */

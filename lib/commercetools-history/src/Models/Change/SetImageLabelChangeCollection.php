@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetImageLabelChange>
  * @method SetImageLabelChange current()
+ * @method SetImageLabelChange end()
  * @method SetImageLabelChange at($offset)
  */
 class SetImageLabelChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetImageLabelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetImageLabelChange {
+        return function (?int $index): ?SetImageLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetImageLabelChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingAttributes>
  * @method MissingAttributes current()
+ * @method MissingAttributes end()
  * @method MissingAttributes at($offset)
  */
 class MissingAttributesCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MissingAttributesCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingAttributes {
+        return function (?int $index): ?MissingAttributes {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingAttributes $data */

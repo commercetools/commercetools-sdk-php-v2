@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTargetChange>
  * @method SetTargetChange current()
+ * @method SetTargetChange end()
  * @method SetTargetChange at($offset)
  */
 class SetTargetChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetTargetChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTargetChange {
+        return function (?int $index): ?SetTargetChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTargetChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessagePayloadCollection<LineItemStateTransitionMessagePayload>
  * @method LineItemStateTransitionMessagePayload current()
+ * @method LineItemStateTransitionMessagePayload end()
  * @method LineItemStateTransitionMessagePayload at($offset)
  */
 class LineItemStateTransitionMessagePayloadCollection extends MessagePayloadCollection
@@ -41,7 +42,7 @@ class LineItemStateTransitionMessagePayloadCollection extends MessagePayloadColl
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemStateTransitionMessagePayload {
+        return function (?int $index): ?LineItemStateTransitionMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemStateTransitionMessagePayload $data */

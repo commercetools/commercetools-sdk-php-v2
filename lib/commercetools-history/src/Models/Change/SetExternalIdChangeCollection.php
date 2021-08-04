@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetExternalIdChange>
  * @method SetExternalIdChange current()
+ * @method SetExternalIdChange end()
  * @method SetExternalIdChange at($offset)
  */
 class SetExternalIdChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetExternalIdChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetExternalIdChange {
+        return function (?int $index): ?SetExternalIdChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetExternalIdChange $data */

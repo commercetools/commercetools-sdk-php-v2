@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<CustomObject>
  * @method CustomObject current()
+ * @method CustomObject end()
  * @method CustomObject at($offset)
  */
 class CustomObjectCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class CustomObjectCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomObject {
+        return function (?int $index): ?CustomObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomObject $data */

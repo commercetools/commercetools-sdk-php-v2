@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeTextType>
  * @method AttributeTextType current()
+ * @method AttributeTextType end()
  * @method AttributeTextType at($offset)
  */
 class AttributeTextTypeCollection extends AttributeTypeCollection
@@ -41,7 +42,7 @@ class AttributeTextTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeTextType {
+        return function (?int $index): ?AttributeTextType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeTextType $data */

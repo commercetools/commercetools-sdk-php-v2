@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeStateTypeChange>
  * @method ChangeStateTypeChange current()
+ * @method ChangeStateTypeChange end()
  * @method ChangeStateTypeChange at($offset)
  */
 class ChangeStateTypeChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeStateTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeStateTypeChange {
+        return function (?int $index): ?ChangeStateTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeStateTypeChange $data */

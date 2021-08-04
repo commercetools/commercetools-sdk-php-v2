@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingPricesMeta>
  * @method MissingPricesMeta current()
+ * @method MissingPricesMeta end()
  * @method MissingPricesMeta at($offset)
  */
 class MissingPricesMetaCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MissingPricesMetaCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingPricesMeta {
+        return function (?int $index): ?MissingPricesMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingPricesMeta $data */

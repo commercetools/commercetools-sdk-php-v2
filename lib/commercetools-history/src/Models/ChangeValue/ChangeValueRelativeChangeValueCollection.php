@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeValueChangeValueCollection<ChangeValueRelativeChangeValue>
  * @method ChangeValueRelativeChangeValue current()
+ * @method ChangeValueRelativeChangeValue end()
  * @method ChangeValueRelativeChangeValue at($offset)
  */
 class ChangeValueRelativeChangeValueCollection extends ChangeValueChangeValueCollection
@@ -41,7 +42,7 @@ class ChangeValueRelativeChangeValueCollection extends ChangeValueChangeValueCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeValueRelativeChangeValue {
+        return function (?int $index): ?ChangeValueRelativeChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeValueRelativeChangeValue $data */

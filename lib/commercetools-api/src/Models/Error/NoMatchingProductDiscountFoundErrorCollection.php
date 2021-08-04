@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<NoMatchingProductDiscountFoundError>
  * @method NoMatchingProductDiscountFoundError current()
+ * @method NoMatchingProductDiscountFoundError end()
  * @method NoMatchingProductDiscountFoundError at($offset)
  */
 class NoMatchingProductDiscountFoundErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class NoMatchingProductDiscountFoundErrorCollection extends ErrorObjectCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?NoMatchingProductDiscountFoundError {
+        return function (?int $index): ?NoMatchingProductDiscountFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NoMatchingProductDiscountFoundError $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ChannelDraft>
  * @method ChannelDraft current()
+ * @method ChannelDraft end()
  * @method ChannelDraft at($offset)
  */
 class ChannelDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ChannelDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelDraft {
+        return function (?int $index): ?ChannelDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelDraft $data */

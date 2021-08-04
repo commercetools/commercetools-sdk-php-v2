@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaxCategoryPagedQueryResponse>
  * @method TaxCategoryPagedQueryResponse current()
+ * @method TaxCategoryPagedQueryResponse end()
  * @method TaxCategoryPagedQueryResponse at($offset)
  */
 class TaxCategoryPagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TaxCategoryPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryPagedQueryResponse {
+        return function (?int $index): ?TaxCategoryPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryPagedQueryResponse $data */

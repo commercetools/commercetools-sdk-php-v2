@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypedMoneyCollection<Money>
  * @method Money current()
+ * @method Money end()
  * @method Money at($offset)
  */
 class MoneyCollection extends TypedMoneyCollection
@@ -41,7 +42,7 @@ class MoneyCollection extends TypedMoneyCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Money {
+        return function (?int $index): ?Money {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Money $data */

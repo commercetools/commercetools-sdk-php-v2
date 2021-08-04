@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangePredicateChange>
  * @method ChangePredicateChange current()
+ * @method ChangePredicateChange end()
  * @method ChangePredicateChange at($offset)
  */
 class ChangePredicateChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangePredicateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangePredicateChange {
+        return function (?int $index): ?ChangePredicateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangePredicateChange $data */

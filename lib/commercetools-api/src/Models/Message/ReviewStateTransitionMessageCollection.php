@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ReviewStateTransitionMessage>
  * @method ReviewStateTransitionMessage current()
+ * @method ReviewStateTransitionMessage end()
  * @method ReviewStateTransitionMessage at($offset)
  */
 class ReviewStateTransitionMessageCollection extends MessageCollection
@@ -41,7 +42,7 @@ class ReviewStateTransitionMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewStateTransitionMessage {
+        return function (?int $index): ?ReviewStateTransitionMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewStateTransitionMessage $data */

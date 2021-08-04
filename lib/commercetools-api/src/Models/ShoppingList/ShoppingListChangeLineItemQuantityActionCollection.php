@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShoppingListUpdateActionCollection<ShoppingListChangeLineItemQuantityAction>
  * @method ShoppingListChangeLineItemQuantityAction current()
+ * @method ShoppingListChangeLineItemQuantityAction end()
  * @method ShoppingListChangeLineItemQuantityAction at($offset)
  */
 class ShoppingListChangeLineItemQuantityActionCollection extends ShoppingListUpdateActionCollection
@@ -41,7 +42,7 @@ class ShoppingListChangeLineItemQuantityActionCollection extends ShoppingListUpd
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListChangeLineItemQuantityAction {
+        return function (?int $index): ?ShoppingListChangeLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListChangeLineItemQuantityAction $data */

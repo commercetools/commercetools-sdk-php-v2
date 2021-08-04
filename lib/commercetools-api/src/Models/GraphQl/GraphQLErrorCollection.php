@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GraphQLError>
  * @method GraphQLError current()
+ * @method GraphQLError end()
  * @method GraphQLError at($offset)
  */
 class GraphQLErrorCollection extends MapperSequence
@@ -41,7 +42,7 @@ class GraphQLErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GraphQLError {
+        return function (?int $index): ?GraphQLError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GraphQLError $data */

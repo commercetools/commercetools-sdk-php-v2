@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CategoryOrderHints>
  * @method CategoryOrderHints current()
+ * @method CategoryOrderHints end()
  * @method CategoryOrderHints at($offset)
  */
 class CategoryOrderHintsCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CategoryOrderHintsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryOrderHints {
+        return function (?int $index): ?CategoryOrderHints {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryOrderHints $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<CategoryImportRequest>
  * @method CategoryImportRequest current()
+ * @method CategoryImportRequest end()
  * @method CategoryImportRequest at($offset)
  */
 class CategoryImportRequestCollection extends ImportRequestCollection
@@ -41,7 +42,7 @@ class CategoryImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryImportRequest {
+        return function (?int $index): ?CategoryImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryImportRequest $data */

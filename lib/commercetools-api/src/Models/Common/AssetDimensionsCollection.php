@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AssetDimensions>
  * @method AssetDimensions current()
+ * @method AssetDimensions end()
  * @method AssetDimensions at($offset)
  */
 class AssetDimensionsCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AssetDimensionsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AssetDimensions {
+        return function (?int $index): ?AssetDimensions {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AssetDimensions $data */

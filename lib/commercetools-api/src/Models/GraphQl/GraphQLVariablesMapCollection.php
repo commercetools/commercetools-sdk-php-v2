@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GraphQLVariablesMap>
  * @method GraphQLVariablesMap current()
+ * @method GraphQLVariablesMap end()
  * @method GraphQLVariablesMap at($offset)
  */
 class GraphQLVariablesMapCollection extends MapperSequence
@@ -41,7 +42,7 @@ class GraphQLVariablesMapCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GraphQLVariablesMap {
+        return function (?int $index): ?GraphQLVariablesMap {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GraphQLVariablesMap $data */

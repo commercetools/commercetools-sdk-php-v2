@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetMaxApplicationsPerCustomerChange>
  * @method SetMaxApplicationsPerCustomerChange current()
+ * @method SetMaxApplicationsPerCustomerChange end()
  * @method SetMaxApplicationsPerCustomerChange at($offset)
  */
 class SetMaxApplicationsPerCustomerChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetMaxApplicationsPerCustomerChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMaxApplicationsPerCustomerChange {
+        return function (?int $index): ?SetMaxApplicationsPerCustomerChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMaxApplicationsPerCustomerChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<NumberSetField>
  * @method NumberSetField current()
+ * @method NumberSetField end()
  * @method NumberSetField at($offset)
  */
 class NumberSetFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class NumberSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?NumberSetField {
+        return function (?int $index): ?NumberSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NumberSetField $data */

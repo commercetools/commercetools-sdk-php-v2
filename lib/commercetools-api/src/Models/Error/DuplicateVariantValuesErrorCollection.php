@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateVariantValuesError>
  * @method DuplicateVariantValuesError current()
+ * @method DuplicateVariantValuesError end()
  * @method DuplicateVariantValuesError at($offset)
  */
 class DuplicateVariantValuesErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class DuplicateVariantValuesErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicateVariantValuesError {
+        return function (?int $index): ?DuplicateVariantValuesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicateVariantValuesError $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<EnumSetField>
  * @method EnumSetField current()
+ * @method EnumSetField end()
  * @method EnumSetField at($offset)
  */
 class EnumSetFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class EnumSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumSetField {
+        return function (?int $index): ?EnumSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumSetField $data */

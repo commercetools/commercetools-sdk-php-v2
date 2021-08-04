@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRatePriceTierCollection<CartClassificationTier>
  * @method CartClassificationTier current()
+ * @method CartClassificationTier end()
  * @method CartClassificationTier at($offset)
  */
 class CartClassificationTierCollection extends ShippingRatePriceTierCollection
@@ -41,7 +42,7 @@ class CartClassificationTierCollection extends ShippingRatePriceTierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartClassificationTier {
+        return function (?int $index): ?CartClassificationTier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartClassificationTier $data */

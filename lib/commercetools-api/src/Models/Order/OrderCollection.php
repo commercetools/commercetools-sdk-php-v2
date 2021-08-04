@@ -16,8 +16,10 @@ use stdClass;
  * @template T of Order
  * @extends BaseResourceCollection<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method Order current()
+ * @method Order end()
  * @method Order at($offset)
  */
 class OrderCollection extends BaseResourceCollection
@@ -44,7 +46,7 @@ class OrderCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Order {
+        return function (?int $index): ?Order {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

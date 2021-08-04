@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TaxCategoryUpdateActionCollection<TaxCategoryRemoveTaxRateAction>
  * @method TaxCategoryRemoveTaxRateAction current()
+ * @method TaxCategoryRemoveTaxRateAction end()
  * @method TaxCategoryRemoveTaxRateAction at($offset)
  */
 class TaxCategoryRemoveTaxRateActionCollection extends TaxCategoryUpdateActionCollection
@@ -41,7 +42,7 @@ class TaxCategoryRemoveTaxRateActionCollection extends TaxCategoryUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryRemoveTaxRateAction {
+        return function (?int $index): ?TaxCategoryRemoveTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryRemoveTaxRateAction $data */

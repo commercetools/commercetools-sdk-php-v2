@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ChannelReference>
  * @method ChannelReference current()
+ * @method ChannelReference end()
  * @method ChannelReference at($offset)
  */
 class ChannelReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class ChannelReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelReference {
+        return function (?int $index): ?ChannelReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelReference $data */

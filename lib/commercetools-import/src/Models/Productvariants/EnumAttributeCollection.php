@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<EnumAttribute>
  * @method EnumAttribute current()
+ * @method EnumAttribute end()
  * @method EnumAttribute at($offset)
  */
 class EnumAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class EnumAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumAttribute {
+        return function (?int $index): ?EnumAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumAttribute $data */

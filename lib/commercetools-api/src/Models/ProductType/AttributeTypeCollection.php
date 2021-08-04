@@ -16,8 +16,10 @@ use stdClass;
  * @template T of AttributeType
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method AttributeType current()
+ * @method AttributeType end()
  * @method AttributeType at($offset)
  */
 class AttributeTypeCollection extends MapperSequence
@@ -44,7 +46,7 @@ class AttributeTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeType {
+        return function (?int $index): ?AttributeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

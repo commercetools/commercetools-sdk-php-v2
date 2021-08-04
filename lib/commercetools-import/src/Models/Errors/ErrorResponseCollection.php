@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ErrorResponse>
  * @method ErrorResponse current()
+ * @method ErrorResponse end()
  * @method ErrorResponse at($offset)
  */
 class ErrorResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ErrorResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ErrorResponse {
+        return function (?int $index): ?ErrorResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ErrorResponse $data */

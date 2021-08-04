@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StoreUpdateActionCollection<StoreSetLanguagesAction>
  * @method StoreSetLanguagesAction current()
+ * @method StoreSetLanguagesAction end()
  * @method StoreSetLanguagesAction at($offset)
  */
 class StoreSetLanguagesActionCollection extends StoreUpdateActionCollection
@@ -41,7 +42,7 @@ class StoreSetLanguagesActionCollection extends StoreUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StoreSetLanguagesAction {
+        return function (?int $index): ?StoreSetLanguagesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StoreSetLanguagesAction $data */

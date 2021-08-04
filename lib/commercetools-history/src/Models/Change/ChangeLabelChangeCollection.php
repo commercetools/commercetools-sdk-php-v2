@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeLabelChange>
  * @method ChangeLabelChange current()
+ * @method ChangeLabelChange end()
  * @method ChangeLabelChange at($offset)
  */
 class ChangeLabelChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeLabelChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeLabelChange {
+        return function (?int $index): ?ChangeLabelChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeLabelChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidStateTransitionError>
  * @method InvalidStateTransitionError current()
+ * @method InvalidStateTransitionError end()
  * @method InvalidStateTransitionError at($offset)
  */
 class InvalidStateTransitionErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidStateTransitionErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidStateTransitionError {
+        return function (?int $index): ?InvalidStateTransitionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidStateTransitionError $data */

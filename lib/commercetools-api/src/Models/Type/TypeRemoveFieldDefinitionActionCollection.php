@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeRemoveFieldDefinitionAction>
  * @method TypeRemoveFieldDefinitionAction current()
+ * @method TypeRemoveFieldDefinitionAction end()
  * @method TypeRemoveFieldDefinitionAction at($offset)
  */
 class TypeRemoveFieldDefinitionActionCollection extends TypeUpdateActionCollection
@@ -41,7 +42,7 @@ class TypeRemoveFieldDefinitionActionCollection extends TypeUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeRemoveFieldDefinitionAction {
+        return function (?int $index): ?TypeRemoveFieldDefinitionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeRemoveFieldDefinitionAction $data */

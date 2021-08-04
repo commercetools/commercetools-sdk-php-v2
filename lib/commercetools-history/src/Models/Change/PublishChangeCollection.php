@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<PublishChange>
  * @method PublishChange current()
+ * @method PublishChange end()
  * @method PublishChange at($offset)
  */
 class PublishChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class PublishChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PublishChange {
+        return function (?int $index): ?PublishChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PublishChange $data */

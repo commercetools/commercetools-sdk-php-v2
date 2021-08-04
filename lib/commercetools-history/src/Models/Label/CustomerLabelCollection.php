@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<CustomerLabel>
  * @method CustomerLabel current()
+ * @method CustomerLabel end()
  * @method CustomerLabel at($offset)
  */
 class CustomerLabelCollection extends LabelCollection
@@ -41,7 +42,7 @@ class CustomerLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerLabel {
+        return function (?int $index): ?CustomerLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerLabel $data */

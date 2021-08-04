@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShoppingListUpdateActionCollection<ShoppingListSetKeyAction>
  * @method ShoppingListSetKeyAction current()
+ * @method ShoppingListSetKeyAction end()
  * @method ShoppingListSetKeyAction at($offset)
  */
 class ShoppingListSetKeyActionCollection extends ShoppingListUpdateActionCollection
@@ -41,7 +42,7 @@ class ShoppingListSetKeyActionCollection extends ShoppingListUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListSetKeyAction {
+        return function (?int $index): ?ShoppingListSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListSetKeyAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Reference>
  * @method Reference current()
+ * @method Reference end()
  * @method Reference at($offset)
  */
 class ReferenceCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Reference {
+        return function (?int $index): ?Reference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Reference $data */

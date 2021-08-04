@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<PayloadNotIncluded>
  * @method PayloadNotIncluded current()
+ * @method PayloadNotIncluded end()
  * @method PayloadNotIncluded at($offset)
  */
 class PayloadNotIncludedCollection extends MapperSequence
@@ -41,7 +42,7 @@ class PayloadNotIncludedCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?PayloadNotIncluded {
+        return function (?int $index): ?PayloadNotIncluded {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PayloadNotIncluded $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetMethodInfoNameChange>
  * @method SetMethodInfoNameChange current()
+ * @method SetMethodInfoNameChange end()
  * @method SetMethodInfoNameChange at($offset)
  */
 class SetMethodInfoNameChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetMethodInfoNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMethodInfoNameChange {
+        return function (?int $index): ?SetMethodInfoNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMethodInfoNameChange $data */

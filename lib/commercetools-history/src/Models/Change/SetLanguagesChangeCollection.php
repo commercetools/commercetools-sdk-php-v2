@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLanguagesChange>
  * @method SetLanguagesChange current()
+ * @method SetLanguagesChange end()
  * @method SetLanguagesChange at($offset)
  */
 class SetLanguagesChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetLanguagesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLanguagesChange {
+        return function (?int $index): ?SetLanguagesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLanguagesChange $data */

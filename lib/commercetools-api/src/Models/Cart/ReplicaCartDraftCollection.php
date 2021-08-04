@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReplicaCartDraft>
  * @method ReplicaCartDraft current()
+ * @method ReplicaCartDraft end()
  * @method ReplicaCartDraft at($offset)
  */
 class ReplicaCartDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ReplicaCartDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReplicaCartDraft {
+        return function (?int $index): ?ReplicaCartDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReplicaCartDraft $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartSetLineItemDistributionChannelAction>
  * @method CartSetLineItemDistributionChannelAction current()
+ * @method CartSetLineItemDistributionChannelAction end()
  * @method CartSetLineItemDistributionChannelAction at($offset)
  */
 class CartSetLineItemDistributionChannelActionCollection extends CartUpdateActionCollection
@@ -41,7 +42,7 @@ class CartSetLineItemDistributionChannelActionCollection extends CartUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetLineItemDistributionChannelAction {
+        return function (?int $index): ?CartSetLineItemDistributionChannelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetLineItemDistributionChannelAction $data */

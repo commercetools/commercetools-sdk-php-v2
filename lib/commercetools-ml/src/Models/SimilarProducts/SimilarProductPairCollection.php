@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarProductPair>
  * @method SimilarProductPair current()
+ * @method SimilarProductPair end()
  * @method SimilarProductPair at($offset)
  */
 class SimilarProductPairCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SimilarProductPairCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SimilarProductPair {
+        return function (?int $index): ?SimilarProductPair {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SimilarProductPair $data */

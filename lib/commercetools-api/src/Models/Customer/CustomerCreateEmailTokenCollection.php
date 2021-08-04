@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerCreateEmailToken>
  * @method CustomerCreateEmailToken current()
+ * @method CustomerCreateEmailToken end()
  * @method CustomerCreateEmailToken at($offset)
  */
 class CustomerCreateEmailTokenCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomerCreateEmailTokenCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerCreateEmailToken {
+        return function (?int $index): ?CustomerCreateEmailToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerCreateEmailToken $data */

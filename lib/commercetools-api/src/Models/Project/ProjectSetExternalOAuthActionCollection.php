@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectSetExternalOAuthAction>
  * @method ProjectSetExternalOAuthAction current()
+ * @method ProjectSetExternalOAuthAction end()
  * @method ProjectSetExternalOAuthAction at($offset)
  */
 class ProjectSetExternalOAuthActionCollection extends ProjectUpdateActionCollection
@@ -41,7 +42,7 @@ class ProjectSetExternalOAuthActionCollection extends ProjectUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectSetExternalOAuthAction {
+        return function (?int $index): ?ProjectSetExternalOAuthAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectSetExternalOAuthAction $data */

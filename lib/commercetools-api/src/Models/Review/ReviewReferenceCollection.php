@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ReviewReference>
  * @method ReviewReference current()
+ * @method ReviewReference end()
  * @method ReviewReference at($offset)
  */
 class ReviewReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class ReviewReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewReference {
+        return function (?int $index): ?ReviewReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewReference $data */

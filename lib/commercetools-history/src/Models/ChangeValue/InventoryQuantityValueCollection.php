@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<InventoryQuantityValue>
  * @method InventoryQuantityValue current()
+ * @method InventoryQuantityValue end()
  * @method InventoryQuantityValue at($offset)
  */
 class InventoryQuantityValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class InventoryQuantityValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryQuantityValue {
+        return function (?int $index): ?InventoryQuantityValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryQuantityValue $data */

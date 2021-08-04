@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSupplyChannelsChange>
  * @method SetSupplyChannelsChange current()
+ * @method SetSupplyChannelsChange end()
  * @method SetSupplyChannelsChange at($offset)
  */
 class SetSupplyChannelsChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetSupplyChannelsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSupplyChannelsChange {
+        return function (?int $index): ?SetSupplyChannelsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSupplyChannelsChange $data */

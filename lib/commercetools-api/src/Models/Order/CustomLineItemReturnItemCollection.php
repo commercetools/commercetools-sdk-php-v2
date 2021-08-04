@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReturnItemCollection<CustomLineItemReturnItem>
  * @method CustomLineItemReturnItem current()
+ * @method CustomLineItemReturnItem end()
  * @method CustomLineItemReturnItem at($offset)
  */
 class CustomLineItemReturnItemCollection extends ReturnItemCollection
@@ -41,7 +42,7 @@ class CustomLineItemReturnItemCollection extends ReturnItemCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomLineItemReturnItem {
+        return function (?int $index): ?CustomLineItemReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomLineItemReturnItem $data */

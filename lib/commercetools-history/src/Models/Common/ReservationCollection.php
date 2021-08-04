@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Reservation>
  * @method Reservation current()
+ * @method Reservation end()
  * @method Reservation at($offset)
  */
 class ReservationCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ReservationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Reservation {
+        return function (?int $index): ?Reservation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Reservation $data */

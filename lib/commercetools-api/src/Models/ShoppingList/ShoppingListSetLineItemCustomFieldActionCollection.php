@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShoppingListUpdateActionCollection<ShoppingListSetLineItemCustomFieldAction>
  * @method ShoppingListSetLineItemCustomFieldAction current()
+ * @method ShoppingListSetLineItemCustomFieldAction end()
  * @method ShoppingListSetLineItemCustomFieldAction at($offset)
  */
 class ShoppingListSetLineItemCustomFieldActionCollection extends ShoppingListUpdateActionCollection
@@ -41,7 +42,7 @@ class ShoppingListSetLineItemCustomFieldActionCollection extends ShoppingListUpd
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListSetLineItemCustomFieldAction {
+        return function (?int $index): ?ShoppingListSetLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListSetLineItemCustomFieldAction $data */

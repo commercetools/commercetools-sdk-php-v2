@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeLabelAction>
  * @method TypeChangeLabelAction current()
+ * @method TypeChangeLabelAction end()
  * @method TypeChangeLabelAction at($offset)
  */
 class TypeChangeLabelActionCollection extends TypeUpdateActionCollection
@@ -41,7 +42,7 @@ class TypeChangeLabelActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeLabelAction {
+        return function (?int $index): ?TypeChangeLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeLabelAction $data */

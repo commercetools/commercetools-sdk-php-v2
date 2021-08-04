@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<ProductVariantPatchRequest>
  * @method ProductVariantPatchRequest current()
+ * @method ProductVariantPatchRequest end()
  * @method ProductVariantPatchRequest at($offset)
  */
 class ProductVariantPatchRequestCollection extends ImportRequestCollection
@@ -41,7 +42,7 @@ class ProductVariantPatchRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariantPatchRequest {
+        return function (?int $index): ?ProductVariantPatchRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariantPatchRequest $data */

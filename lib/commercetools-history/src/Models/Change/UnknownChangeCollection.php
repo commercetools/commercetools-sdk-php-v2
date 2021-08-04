@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<UnknownChange>
  * @method UnknownChange current()
+ * @method UnknownChange end()
  * @method UnknownChange at($offset)
  */
 class UnknownChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class UnknownChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?UnknownChange {
+        return function (?int $index): ?UnknownChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var UnknownChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntryAddQuantityAction>
  * @method InventoryEntryAddQuantityAction current()
+ * @method InventoryEntryAddQuantityAction end()
  * @method InventoryEntryAddQuantityAction at($offset)
  */
 class InventoryEntryAddQuantityActionCollection extends InventoryEntryUpdateActionCollection
@@ -41,7 +42,7 @@ class InventoryEntryAddQuantityActionCollection extends InventoryEntryUpdateActi
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryAddQuantityAction {
+        return function (?int $index): ?InventoryEntryAddQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryAddQuantityAction $data */

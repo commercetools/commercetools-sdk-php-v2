@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<WeakPasswordError>
  * @method WeakPasswordError current()
+ * @method WeakPasswordError end()
  * @method WeakPasswordError at($offset)
  */
 class WeakPasswordErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class WeakPasswordErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?WeakPasswordError {
+        return function (?int $index): ?WeakPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var WeakPasswordError $data */

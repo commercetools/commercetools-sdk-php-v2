@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSinkPagedResponse>
  * @method ImportSinkPagedResponse current()
+ * @method ImportSinkPagedResponse end()
  * @method ImportSinkPagedResponse at($offset)
  */
 class ImportSinkPagedResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ImportSinkPagedResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportSinkPagedResponse {
+        return function (?int $index): ?ImportSinkPagedResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImportSinkPagedResponse $data */

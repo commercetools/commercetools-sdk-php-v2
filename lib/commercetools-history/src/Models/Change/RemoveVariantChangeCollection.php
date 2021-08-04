@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveVariantChange>
  * @method RemoveVariantChange current()
+ * @method RemoveVariantChange end()
  * @method RemoveVariantChange at($offset)
  */
 class RemoveVariantChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class RemoveVariantChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveVariantChange {
+        return function (?int $index): ?RemoveVariantChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveVariantChange $data */

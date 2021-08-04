@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FieldContainer>
  * @method FieldContainer current()
+ * @method FieldContainer end()
  * @method FieldContainer at($offset)
  */
 class FieldContainerCollection extends MapperSequence
@@ -41,7 +42,7 @@ class FieldContainerCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FieldContainer {
+        return function (?int $index): ?FieldContainer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FieldContainer $data */

@@ -22,6 +22,5 @@ class CollectionTest extends TestCase
         $collection = new BaseResourceCollection(json_decode($data));
 
         static::assertSame("3", $collection->end()->getId());
-
     }
 }

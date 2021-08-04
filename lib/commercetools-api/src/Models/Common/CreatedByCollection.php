@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ClientLoggingCollection<CreatedBy>
  * @method CreatedBy current()
+ * @method CreatedBy end()
  * @method CreatedBy at($offset)
  */
 class CreatedByCollection extends ClientLoggingCollection
@@ -41,7 +42,7 @@ class CreatedByCollection extends ClientLoggingCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CreatedBy {
+        return function (?int $index): ?CreatedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CreatedBy $data */

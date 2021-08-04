@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderUpdateActionCollection<OrderAddDeliveryAction>
  * @method OrderAddDeliveryAction current()
+ * @method OrderAddDeliveryAction end()
  * @method OrderAddDeliveryAction at($offset)
  */
 class OrderAddDeliveryActionCollection extends OrderUpdateActionCollection
@@ -41,7 +42,7 @@ class OrderAddDeliveryActionCollection extends OrderUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderAddDeliveryAction {
+        return function (?int $index): ?OrderAddDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderAddDeliveryAction $data */

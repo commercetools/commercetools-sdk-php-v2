@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomerUpdateActionCollection<CustomerSetMiddleNameAction>
  * @method CustomerSetMiddleNameAction current()
+ * @method CustomerSetMiddleNameAction end()
  * @method CustomerSetMiddleNameAction at($offset)
  */
 class CustomerSetMiddleNameActionCollection extends CustomerUpdateActionCollection
@@ -41,7 +42,7 @@ class CustomerSetMiddleNameActionCollection extends CustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetMiddleNameAction {
+        return function (?int $index): ?CustomerSetMiddleNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetMiddleNameAction $data */

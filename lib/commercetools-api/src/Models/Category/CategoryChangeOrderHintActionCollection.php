@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategoryChangeOrderHintAction>
  * @method CategoryChangeOrderHintAction current()
+ * @method CategoryChangeOrderHintAction end()
  * @method CategoryChangeOrderHintAction at($offset)
  */
 class CategoryChangeOrderHintActionCollection extends CategoryUpdateActionCollection
@@ -41,7 +42,7 @@ class CategoryChangeOrderHintActionCollection extends CategoryUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryChangeOrderHintAction {
+        return function (?int $index): ?CategoryChangeOrderHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryChangeOrderHintAction $data */

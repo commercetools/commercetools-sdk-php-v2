@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<PendingOperationError>
  * @method PendingOperationError current()
+ * @method PendingOperationError end()
  * @method PendingOperationError at($offset)
  */
 class PendingOperationErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class PendingOperationErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PendingOperationError {
+        return function (?int $index): ?PendingOperationError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PendingOperationError $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessagePayloadCollection<ProductPriceDiscountsSetMessagePayload>
  * @method ProductPriceDiscountsSetMessagePayload current()
+ * @method ProductPriceDiscountsSetMessagePayload end()
  * @method ProductPriceDiscountsSetMessagePayload at($offset)
  */
 class ProductPriceDiscountsSetMessagePayloadCollection extends MessagePayloadCollection
@@ -41,7 +42,7 @@ class ProductPriceDiscountsSetMessagePayloadCollection extends MessagePayloadCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductPriceDiscountsSetMessagePayload {
+        return function (?int $index): ?ProductPriceDiscountsSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductPriceDiscountsSetMessagePayload $data */

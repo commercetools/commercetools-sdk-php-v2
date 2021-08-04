@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomLineItemDraft>
  * @method CustomLineItemDraft current()
+ * @method CustomLineItemDraft end()
  * @method CustomLineItemDraft at($offset)
  */
 class CustomLineItemDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomLineItemDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomLineItemDraft {
+        return function (?int $index): ?CustomLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomLineItemDraft $data */

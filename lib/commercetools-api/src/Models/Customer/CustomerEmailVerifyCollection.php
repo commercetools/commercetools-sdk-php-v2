@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerEmailVerify>
  * @method CustomerEmailVerify current()
+ * @method CustomerEmailVerify end()
  * @method CustomerEmailVerify at($offset)
  */
 class CustomerEmailVerifyCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomerEmailVerifyCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerEmailVerify {
+        return function (?int $index): ?CustomerEmailVerify {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerEmailVerify $data */

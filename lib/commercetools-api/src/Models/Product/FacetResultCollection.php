@@ -16,8 +16,10 @@ use stdClass;
  * @template T of FacetResult
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method FacetResult current()
+ * @method FacetResult end()
  * @method FacetResult at($offset)
  */
 class FacetResultCollection extends MapperSequence
@@ -44,7 +46,7 @@ class FacetResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FacetResult {
+        return function (?int $index): ?FacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

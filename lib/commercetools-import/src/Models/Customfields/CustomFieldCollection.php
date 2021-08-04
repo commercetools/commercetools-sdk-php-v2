@@ -16,8 +16,10 @@ use stdClass;
  * @template T of CustomField
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method CustomField current()
+ * @method CustomField end()
  * @method CustomField at($offset)
  */
 class CustomFieldCollection extends MapperSequence
@@ -44,7 +46,7 @@ class CustomFieldCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomField {
+        return function (?int $index): ?CustomField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

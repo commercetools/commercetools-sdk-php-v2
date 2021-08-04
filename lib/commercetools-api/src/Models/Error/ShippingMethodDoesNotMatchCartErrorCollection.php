@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ShippingMethodDoesNotMatchCartError>
  * @method ShippingMethodDoesNotMatchCartError current()
+ * @method ShippingMethodDoesNotMatchCartError end()
  * @method ShippingMethodDoesNotMatchCartError at($offset)
  */
 class ShippingMethodDoesNotMatchCartErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ShippingMethodDoesNotMatchCartErrorCollection extends ErrorObjectCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodDoesNotMatchCartError {
+        return function (?int $index): ?ShippingMethodDoesNotMatchCartError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodDoesNotMatchCartError $data */

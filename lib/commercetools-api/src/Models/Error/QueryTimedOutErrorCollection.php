@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<QueryTimedOutError>
  * @method QueryTimedOutError current()
+ * @method QueryTimedOutError end()
  * @method QueryTimedOutError at($offset)
  */
 class QueryTimedOutErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class QueryTimedOutErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?QueryTimedOutError {
+        return function (?int $index): ?QueryTimedOutError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var QueryTimedOutError $data */

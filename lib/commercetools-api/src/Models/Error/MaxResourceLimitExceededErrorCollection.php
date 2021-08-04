@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MaxResourceLimitExceededError>
  * @method MaxResourceLimitExceededError current()
+ * @method MaxResourceLimitExceededError end()
  * @method MaxResourceLimitExceededError at($offset)
  */
 class MaxResourceLimitExceededErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class MaxResourceLimitExceededErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MaxResourceLimitExceededError {
+        return function (?int $index): ?MaxResourceLimitExceededError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MaxResourceLimitExceededError $data */

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of SubscriptionDelivery
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method SubscriptionDelivery current()
+ * @method SubscriptionDelivery end()
  * @method SubscriptionDelivery at($offset)
  */
 class SubscriptionDeliveryCollection extends MapperSequence
@@ -44,7 +46,7 @@ class SubscriptionDeliveryCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SubscriptionDelivery {
+        return function (?int $index): ?SubscriptionDelivery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

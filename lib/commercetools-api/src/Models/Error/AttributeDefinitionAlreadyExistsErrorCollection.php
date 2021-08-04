@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AttributeDefinitionAlreadyExistsError>
  * @method AttributeDefinitionAlreadyExistsError current()
+ * @method AttributeDefinitionAlreadyExistsError end()
  * @method AttributeDefinitionAlreadyExistsError at($offset)
  */
 class AttributeDefinitionAlreadyExistsErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class AttributeDefinitionAlreadyExistsErrorCollection extends ErrorObjectCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeDefinitionAlreadyExistsError {
+        return function (?int $index): ?AttributeDefinitionAlreadyExistsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeDefinitionAlreadyExistsError $data */

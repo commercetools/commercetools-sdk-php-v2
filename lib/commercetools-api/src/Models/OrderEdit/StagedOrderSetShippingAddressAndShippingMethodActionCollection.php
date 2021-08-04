@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetShippingAddressAndShippingMethodAction>
  * @method StagedOrderSetShippingAddressAndShippingMethodAction current()
+ * @method StagedOrderSetShippingAddressAndShippingMethodAction end()
  * @method StagedOrderSetShippingAddressAndShippingMethodAction at($offset)
  */
 class StagedOrderSetShippingAddressAndShippingMethodActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderSetShippingAddressAndShippingMethodActionCollection extends Sta
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetShippingAddressAndShippingMethodAction {
+        return function (?int $index): ?StagedOrderSetShippingAddressAndShippingMethodAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetShippingAddressAndShippingMethodAction $data */

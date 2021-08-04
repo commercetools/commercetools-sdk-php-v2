@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SimilarProductsPagedQueryResult>
  * @method SimilarProductsPagedQueryResult current()
+ * @method SimilarProductsPagedQueryResult end()
  * @method SimilarProductsPagedQueryResult at($offset)
  */
 class SimilarProductsPagedQueryResultCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SimilarProductsPagedQueryResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SimilarProductsPagedQueryResult {
+        return function (?int $index): ?SimilarProductsPagedQueryResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SimilarProductsPagedQueryResult $data */

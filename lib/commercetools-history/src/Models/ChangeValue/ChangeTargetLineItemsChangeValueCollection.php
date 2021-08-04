@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeTargetChangeValueCollection<ChangeTargetLineItemsChangeValue>
  * @method ChangeTargetLineItemsChangeValue current()
+ * @method ChangeTargetLineItemsChangeValue end()
  * @method ChangeTargetLineItemsChangeValue at($offset)
  */
 class ChangeTargetLineItemsChangeValueCollection extends ChangeTargetChangeValueCollection
@@ -41,7 +42,7 @@ class ChangeTargetLineItemsChangeValueCollection extends ChangeTargetChangeValue
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTargetLineItemsChangeValue {
+        return function (?int $index): ?ChangeTargetLineItemsChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTargetLineItemsChangeValue $data */

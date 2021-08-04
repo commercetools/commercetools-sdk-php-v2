@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportOperation>
  * @method ImportOperation current()
+ * @method ImportOperation end()
  * @method ImportOperation at($offset)
  */
 class ImportOperationCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ImportOperationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportOperation {
+        return function (?int $index): ?ImportOperation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImportOperation $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeSetDescriptionAction>
  * @method TypeSetDescriptionAction current()
+ * @method TypeSetDescriptionAction end()
  * @method TypeSetDescriptionAction at($offset)
  */
 class TypeSetDescriptionActionCollection extends TypeUpdateActionCollection
@@ -41,7 +42,7 @@ class TypeSetDescriptionActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeSetDescriptionAction {
+        return function (?int $index): ?TypeSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeSetDescriptionAction $data */

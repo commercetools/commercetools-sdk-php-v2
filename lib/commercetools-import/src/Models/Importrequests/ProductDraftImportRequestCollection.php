@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<ProductDraftImportRequest>
  * @method ProductDraftImportRequest current()
+ * @method ProductDraftImportRequest end()
  * @method ProductDraftImportRequest at($offset)
  */
 class ProductDraftImportRequestCollection extends ImportRequestCollection
@@ -41,7 +42,7 @@ class ProductDraftImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDraftImportRequest {
+        return function (?int $index): ?ProductDraftImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDraftImportRequest $data */

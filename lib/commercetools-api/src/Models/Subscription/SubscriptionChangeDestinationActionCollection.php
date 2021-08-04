@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SubscriptionUpdateActionCollection<SubscriptionChangeDestinationAction>
  * @method SubscriptionChangeDestinationAction current()
+ * @method SubscriptionChangeDestinationAction end()
  * @method SubscriptionChangeDestinationAction at($offset)
  */
 class SubscriptionChangeDestinationActionCollection extends SubscriptionUpdateActionCollection
@@ -41,7 +42,7 @@ class SubscriptionChangeDestinationActionCollection extends SubscriptionUpdateAc
      */
     protected function mapper()
     {
-        return function (int $index): ?SubscriptionChangeDestinationAction {
+        return function (?int $index): ?SubscriptionChangeDestinationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SubscriptionChangeDestinationAction $data */

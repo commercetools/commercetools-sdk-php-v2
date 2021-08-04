@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<LanguageUsedInStoresError>
  * @method LanguageUsedInStoresError current()
+ * @method LanguageUsedInStoresError end()
  * @method LanguageUsedInStoresError at($offset)
  */
 class LanguageUsedInStoresErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class LanguageUsedInStoresErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LanguageUsedInStoresError {
+        return function (?int $index): ?LanguageUsedInStoresError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LanguageUsedInStoresError $data */

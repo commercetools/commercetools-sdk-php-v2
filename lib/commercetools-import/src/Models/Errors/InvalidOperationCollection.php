@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidOperation>
  * @method InvalidOperation current()
+ * @method InvalidOperation end()
  * @method InvalidOperation at($offset)
  */
 class InvalidOperationCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidOperationCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidOperation {
+        return function (?int $index): ?InvalidOperation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidOperation $data */

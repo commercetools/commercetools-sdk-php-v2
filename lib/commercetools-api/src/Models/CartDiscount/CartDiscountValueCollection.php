@@ -16,8 +16,10 @@ use stdClass;
  * @template T of CartDiscountValue
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method CartDiscountValue current()
+ * @method CartDiscountValue end()
  * @method CartDiscountValue at($offset)
  */
 class CartDiscountValueCollection extends MapperSequence
@@ -44,7 +46,7 @@ class CartDiscountValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountValue {
+        return function (?int $index): ?CartDiscountValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

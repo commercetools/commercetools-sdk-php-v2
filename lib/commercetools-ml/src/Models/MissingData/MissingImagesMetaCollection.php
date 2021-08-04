@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingImagesMeta>
  * @method MissingImagesMeta current()
+ * @method MissingImagesMeta end()
  * @method MissingImagesMeta at($offset)
  */
 class MissingImagesMetaCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MissingImagesMetaCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesMeta {
+        return function (?int $index): ?MissingImagesMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingImagesMeta $data */

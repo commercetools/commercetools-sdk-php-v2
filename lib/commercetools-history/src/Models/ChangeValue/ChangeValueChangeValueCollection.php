@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ChangeValueChangeValue
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ChangeValueChangeValue current()
+ * @method ChangeValueChangeValue end()
  * @method ChangeValueChangeValue at($offset)
  */
 class ChangeValueChangeValueCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ChangeValueChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeValueChangeValue {
+        return function (?int $index): ?ChangeValueChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of BaseAddress
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method BaseAddress current()
+ * @method BaseAddress end()
  * @method BaseAddress at($offset)
  */
 class BaseAddressCollection extends MapperSequence
@@ -44,7 +46,7 @@ class BaseAddressCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?BaseAddress {
+        return function (?int $index): ?BaseAddress {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomShippingMethodChangeValue>
  * @method CustomShippingMethodChangeValue current()
+ * @method CustomShippingMethodChangeValue end()
  * @method CustomShippingMethodChangeValue at($offset)
  */
 class CustomShippingMethodChangeValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomShippingMethodChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomShippingMethodChangeValue {
+        return function (?int $index): ?CustomShippingMethodChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomShippingMethodChangeValue $data */

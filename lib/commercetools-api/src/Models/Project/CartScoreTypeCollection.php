@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRateInputTypeCollection<CartScoreType>
  * @method CartScoreType current()
+ * @method CartScoreType end()
  * @method CartScoreType at($offset)
  */
 class CartScoreTypeCollection extends ShippingRateInputTypeCollection
@@ -41,7 +42,7 @@ class CartScoreTypeCollection extends ShippingRateInputTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartScoreType {
+        return function (?int $index): ?CartScoreType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartScoreType $data */

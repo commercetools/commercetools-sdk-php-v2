@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionHttpDestinationAuthenticationCollection<ExtensionAzureFunctionsAuthentication>
  * @method ExtensionAzureFunctionsAuthentication current()
+ * @method ExtensionAzureFunctionsAuthentication end()
  * @method ExtensionAzureFunctionsAuthentication at($offset)
  */
 class ExtensionAzureFunctionsAuthenticationCollection extends ExtensionHttpDestinationAuthenticationCollection
@@ -41,7 +42,7 @@ class ExtensionAzureFunctionsAuthenticationCollection extends ExtensionHttpDesti
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionAzureFunctionsAuthentication {
+        return function (?int $index): ?ExtensionAzureFunctionsAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionAzureFunctionsAuthentication $data */

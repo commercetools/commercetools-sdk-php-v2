@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ExtensionHttpDestinationAuthentication
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ExtensionHttpDestinationAuthentication current()
+ * @method ExtensionHttpDestinationAuthentication end()
  * @method ExtensionHttpDestinationAuthentication at($offset)
  */
 class ExtensionHttpDestinationAuthenticationCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ExtensionHttpDestinationAuthenticationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionHttpDestinationAuthentication {
+        return function (?int $index): ?ExtensionHttpDestinationAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

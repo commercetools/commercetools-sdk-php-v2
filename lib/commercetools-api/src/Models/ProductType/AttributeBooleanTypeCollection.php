@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeBooleanType>
  * @method AttributeBooleanType current()
+ * @method AttributeBooleanType end()
  * @method AttributeBooleanType at($offset)
  */
 class AttributeBooleanTypeCollection extends AttributeTypeCollection
@@ -41,7 +42,7 @@ class AttributeBooleanTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeBooleanType {
+        return function (?int $index): ?AttributeBooleanType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeBooleanType $data */

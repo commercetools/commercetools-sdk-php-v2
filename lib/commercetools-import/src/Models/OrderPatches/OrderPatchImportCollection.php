@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderPatchImport>
  * @method OrderPatchImport current()
+ * @method OrderPatchImport end()
  * @method OrderPatchImport at($offset)
  */
 class OrderPatchImportCollection extends MapperSequence
@@ -41,7 +42,7 @@ class OrderPatchImportCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderPatchImport {
+        return function (?int $index): ?OrderPatchImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderPatchImport $data */

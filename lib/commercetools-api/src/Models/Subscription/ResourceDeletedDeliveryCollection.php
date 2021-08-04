@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SubscriptionDeliveryCollection<ResourceDeletedDelivery>
  * @method ResourceDeletedDelivery current()
+ * @method ResourceDeletedDelivery end()
  * @method ResourceDeletedDelivery at($offset)
  */
 class ResourceDeletedDeliveryCollection extends SubscriptionDeliveryCollection
@@ -41,7 +42,7 @@ class ResourceDeletedDeliveryCollection extends SubscriptionDeliveryCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceDeletedDelivery {
+        return function (?int $index): ?ResourceDeletedDelivery {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceDeletedDelivery $data */

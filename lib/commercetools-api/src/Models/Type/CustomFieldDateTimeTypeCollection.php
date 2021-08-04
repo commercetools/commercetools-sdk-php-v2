@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldDateTimeType>
  * @method CustomFieldDateTimeType current()
+ * @method CustomFieldDateTimeType end()
  * @method CustomFieldDateTimeType at($offset)
  */
 class CustomFieldDateTimeTypeCollection extends FieldTypeCollection
@@ -41,7 +42,7 @@ class CustomFieldDateTimeTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldDateTimeType {
+        return function (?int $index): ?CustomFieldDateTimeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldDateTimeType $data */

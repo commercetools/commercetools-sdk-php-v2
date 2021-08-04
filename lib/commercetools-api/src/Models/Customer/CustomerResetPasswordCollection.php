@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerResetPassword>
  * @method CustomerResetPassword current()
+ * @method CustomerResetPassword end()
  * @method CustomerResetPassword at($offset)
  */
 class CustomerResetPasswordCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomerResetPasswordCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerResetPassword {
+        return function (?int $index): ?CustomerResetPassword {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerResetPassword $data */

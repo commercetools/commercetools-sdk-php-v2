@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<GeoLocation>
  * @method GeoLocation current()
+ * @method GeoLocation end()
  * @method GeoLocation at($offset)
  */
 class GeoLocationCollection extends MapperSequence
@@ -41,7 +42,7 @@ class GeoLocationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GeoLocation {
+        return function (?int $index): ?GeoLocation {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GeoLocation $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShoppingListUpdateActionCollection<ShoppingListRemoveLineItemAction>
  * @method ShoppingListRemoveLineItemAction current()
+ * @method ShoppingListRemoveLineItemAction end()
  * @method ShoppingListRemoveLineItemAction at($offset)
  */
 class ShoppingListRemoveLineItemActionCollection extends ShoppingListUpdateActionCollection
@@ -41,7 +42,7 @@ class ShoppingListRemoveLineItemActionCollection extends ShoppingListUpdateActio
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListRemoveLineItemAction {
+        return function (?int $index): ?ShoppingListRemoveLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListRemoveLineItemAction $data */

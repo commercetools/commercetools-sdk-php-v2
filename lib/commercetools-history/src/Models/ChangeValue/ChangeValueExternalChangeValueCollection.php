@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeValueChangeValueCollection<ChangeValueExternalChangeValue>
  * @method ChangeValueExternalChangeValue current()
+ * @method ChangeValueExternalChangeValue end()
  * @method ChangeValueExternalChangeValue at($offset)
  */
 class ChangeValueExternalChangeValueCollection extends ChangeValueChangeValueCollection
@@ -41,7 +42,7 @@ class ChangeValueExternalChangeValueCollection extends ChangeValueChangeValueCol
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeValueExternalChangeValue {
+        return function (?int $index): ?ChangeValueExternalChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeValueExternalChangeValue $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<DiscountedPrice>
  * @method DiscountedPrice current()
+ * @method DiscountedPrice end()
  * @method DiscountedPrice at($offset)
  */
 class DiscountedPriceCollection extends MapperSequence
@@ -41,7 +42,7 @@ class DiscountedPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountedPrice {
+        return function (?int $index): ?DiscountedPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountedPrice $data */

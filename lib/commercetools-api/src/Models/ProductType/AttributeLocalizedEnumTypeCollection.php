@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeTypeCollection<AttributeLocalizedEnumType>
  * @method AttributeLocalizedEnumType current()
+ * @method AttributeLocalizedEnumType end()
  * @method AttributeLocalizedEnumType at($offset)
  */
 class AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection
@@ -41,7 +42,7 @@ class AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeLocalizedEnumType {
+        return function (?int $index): ?AttributeLocalizedEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeLocalizedEnumType $data */

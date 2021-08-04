@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetMiddleNameChange>
  * @method SetMiddleNameChange current()
+ * @method SetMiddleNameChange end()
  * @method SetMiddleNameChange at($offset)
  */
 class SetMiddleNameChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetMiddleNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetMiddleNameChange {
+        return function (?int $index): ?SetMiddleNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetMiddleNameChange $data */

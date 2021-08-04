@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<TaxCategory>
  * @method TaxCategory current()
+ * @method TaxCategory end()
  * @method TaxCategory at($offset)
  */
 class TaxCategoryCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class TaxCategoryCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategory {
+        return function (?int $index): ?TaxCategory {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategory $data */

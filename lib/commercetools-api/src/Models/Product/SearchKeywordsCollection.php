@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SearchKeywords>
  * @method SearchKeywords current()
+ * @method SearchKeywords end()
  * @method SearchKeywords at($offset)
  */
 class SearchKeywordsCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SearchKeywordsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchKeywords {
+        return function (?int $index): ?SearchKeywords {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchKeywords $data */

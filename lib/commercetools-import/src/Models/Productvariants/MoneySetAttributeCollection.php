@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<MoneySetAttribute>
  * @method MoneySetAttribute current()
+ * @method MoneySetAttribute end()
  * @method MoneySetAttribute at($offset)
  */
 class MoneySetAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class MoneySetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MoneySetAttribute {
+        return function (?int $index): ?MoneySetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MoneySetAttribute $data */

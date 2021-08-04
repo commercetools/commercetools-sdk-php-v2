@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductVariantChannelAvailability>
  * @method ProductVariantChannelAvailability current()
+ * @method ProductVariantChannelAvailability end()
  * @method ProductVariantChannelAvailability at($offset)
  */
 class ProductVariantChannelAvailabilityCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ProductVariantChannelAvailabilityCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariantChannelAvailability {
+        return function (?int $index): ?ProductVariantChannelAvailability {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariantChannelAvailability $data */

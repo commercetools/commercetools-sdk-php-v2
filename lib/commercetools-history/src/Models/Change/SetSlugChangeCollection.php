@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSlugChange>
  * @method SetSlugChange current()
+ * @method SetSlugChange end()
  * @method SetSlugChange at($offset)
  */
 class SetSlugChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetSlugChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSlugChange {
+        return function (?int $index): ?SetSlugChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSlugChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TrackingData>
  * @method TrackingData current()
+ * @method TrackingData end()
  * @method TrackingData at($offset)
  */
 class TrackingDataCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TrackingDataCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TrackingData {
+        return function (?int $index): ?TrackingData {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TrackingData $data */

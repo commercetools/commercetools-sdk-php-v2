@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ResultItem>
  * @method ResultItem current()
+ * @method ResultItem end()
  * @method ResultItem at($offset)
  */
 class ResultItemCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ResultItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ResultItem {
+        return function (?int $index): ?ResultItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResultItem $data */

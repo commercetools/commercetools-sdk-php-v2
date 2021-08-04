@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<InventoryEntryUpdate>
  * @method InventoryEntryUpdate current()
+ * @method InventoryEntryUpdate end()
  * @method InventoryEntryUpdate at($offset)
  */
 class InventoryEntryUpdateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class InventoryEntryUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryUpdate {
+        return function (?int $index): ?InventoryEntryUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryUpdate $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<CategoryKeyReference>
  * @method CategoryKeyReference current()
+ * @method CategoryKeyReference end()
  * @method CategoryKeyReference at($offset)
  */
 class CategoryKeyReferenceCollection extends KeyReferenceCollection
@@ -41,7 +42,7 @@ class CategoryKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategoryKeyReference {
+        return function (?int $index): ?CategoryKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategoryKeyReference $data */

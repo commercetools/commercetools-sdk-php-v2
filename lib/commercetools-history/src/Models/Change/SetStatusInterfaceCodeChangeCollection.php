@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetStatusInterfaceCodeChange>
  * @method SetStatusInterfaceCodeChange current()
+ * @method SetStatusInterfaceCodeChange end()
  * @method SetStatusInterfaceCodeChange at($offset)
  */
 class SetStatusInterfaceCodeChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetStatusInterfaceCodeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetStatusInterfaceCodeChange {
+        return function (?int $index): ?SetStatusInterfaceCodeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetStatusInterfaceCodeChange $data */

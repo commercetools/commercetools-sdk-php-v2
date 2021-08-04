@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomObjectPagedQueryResponse>
  * @method CustomObjectPagedQueryResponse current()
+ * @method CustomObjectPagedQueryResponse end()
  * @method CustomObjectPagedQueryResponse at($offset)
  */
 class CustomObjectPagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomObjectPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomObjectPagedQueryResponse {
+        return function (?int $index): ?CustomObjectPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomObjectPagedQueryResponse $data */

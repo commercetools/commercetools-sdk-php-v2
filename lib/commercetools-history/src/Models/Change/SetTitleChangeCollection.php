@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTitleChange>
  * @method SetTitleChange current()
+ * @method SetTitleChange end()
  * @method SetTitleChange at($offset)
  */
 class SetTitleChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetTitleChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTitleChange {
+        return function (?int $index): ?SetTitleChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTitleChange $data */

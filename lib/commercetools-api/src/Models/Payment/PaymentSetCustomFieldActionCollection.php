@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends PaymentUpdateActionCollection<PaymentSetCustomFieldAction>
  * @method PaymentSetCustomFieldAction current()
+ * @method PaymentSetCustomFieldAction end()
  * @method PaymentSetCustomFieldAction at($offset)
  */
 class PaymentSetCustomFieldActionCollection extends PaymentUpdateActionCollection
@@ -41,7 +42,7 @@ class PaymentSetCustomFieldActionCollection extends PaymentUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentSetCustomFieldAction {
+        return function (?int $index): ?PaymentSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentSetCustomFieldAction $data */

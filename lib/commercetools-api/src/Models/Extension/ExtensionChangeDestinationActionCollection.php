@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionUpdateActionCollection<ExtensionChangeDestinationAction>
  * @method ExtensionChangeDestinationAction current()
+ * @method ExtensionChangeDestinationAction end()
  * @method ExtensionChangeDestinationAction at($offset)
  */
 class ExtensionChangeDestinationActionCollection extends ExtensionUpdateActionCollection
@@ -41,7 +42,7 @@ class ExtensionChangeDestinationActionCollection extends ExtensionUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionChangeDestinationAction {
+        return function (?int $index): ?ExtensionChangeDestinationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionChangeDestinationAction $data */

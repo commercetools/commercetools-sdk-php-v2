@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ShippingRateInputDraft
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ShippingRateInputDraft current()
+ * @method ShippingRateInputDraft end()
  * @method ShippingRateInputDraft at($offset)
  */
 class ShippingRateInputDraftCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ShippingRateInputDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingRateInputDraft {
+        return function (?int $index): ?ShippingRateInputDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

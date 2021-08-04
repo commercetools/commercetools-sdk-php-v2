@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductDiscountValueDraftCollection<ProductDiscountValueAbsoluteDraft>
  * @method ProductDiscountValueAbsoluteDraft current()
+ * @method ProductDiscountValueAbsoluteDraft end()
  * @method ProductDiscountValueAbsoluteDraft at($offset)
  */
 class ProductDiscountValueAbsoluteDraftCollection extends ProductDiscountValueDraftCollection
@@ -41,7 +42,7 @@ class ProductDiscountValueAbsoluteDraftCollection extends ProductDiscountValueDr
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountValueAbsoluteDraft {
+        return function (?int $index): ?ProductDiscountValueAbsoluteDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountValueAbsoluteDraft $data */

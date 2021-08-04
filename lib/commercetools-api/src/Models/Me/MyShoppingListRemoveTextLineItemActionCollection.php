@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyShoppingListUpdateActionCollection<MyShoppingListRemoveTextLineItemAction>
  * @method MyShoppingListRemoveTextLineItemAction current()
+ * @method MyShoppingListRemoveTextLineItemAction end()
  * @method MyShoppingListRemoveTextLineItemAction at($offset)
  */
 class MyShoppingListRemoveTextLineItemActionCollection extends MyShoppingListUpdateActionCollection
@@ -41,7 +42,7 @@ class MyShoppingListRemoveTextLineItemActionCollection extends MyShoppingListUpd
      */
     protected function mapper()
     {
-        return function (int $index): ?MyShoppingListRemoveTextLineItemAction {
+        return function (?int $index): ?MyShoppingListRemoveTextLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyShoppingListRemoveTextLineItemAction $data */

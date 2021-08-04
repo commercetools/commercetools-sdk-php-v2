@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MissingTaxRateForCountryError>
  * @method MissingTaxRateForCountryError current()
+ * @method MissingTaxRateForCountryError end()
  * @method MissingTaxRateForCountryError at($offset)
  */
 class MissingTaxRateForCountryErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class MissingTaxRateForCountryErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingTaxRateForCountryError {
+        return function (?int $index): ?MissingTaxRateForCountryError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingTaxRateForCountryError $data */

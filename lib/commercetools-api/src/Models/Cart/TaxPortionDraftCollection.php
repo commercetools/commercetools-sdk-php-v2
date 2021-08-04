@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaxPortionDraft>
  * @method TaxPortionDraft current()
+ * @method TaxPortionDraft end()
  * @method TaxPortionDraft at($offset)
  */
 class TaxPortionDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TaxPortionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxPortionDraft {
+        return function (?int $index): ?TaxPortionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxPortionDraft $data */

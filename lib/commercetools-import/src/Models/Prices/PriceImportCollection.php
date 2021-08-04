@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportResourceCollection<PriceImport>
  * @method PriceImport current()
+ * @method PriceImport end()
  * @method PriceImport at($offset)
  */
 class PriceImportCollection extends ImportResourceCollection
@@ -41,7 +42,7 @@ class PriceImportCollection extends ImportResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PriceImport {
+        return function (?int $index): ?PriceImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PriceImport $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<AzureEventGridDestination>
  * @method AzureEventGridDestination current()
+ * @method AzureEventGridDestination end()
  * @method AzureEventGridDestination at($offset)
  */
 class AzureEventGridDestinationCollection extends DestinationCollection
@@ -41,7 +42,7 @@ class AzureEventGridDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AzureEventGridDestination {
+        return function (?int $index): ?AzureEventGridDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AzureEventGridDestination $data */

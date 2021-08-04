@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldNumberType>
  * @method CustomFieldNumberType current()
+ * @method CustomFieldNumberType end()
  * @method CustomFieldNumberType at($offset)
  */
 class CustomFieldNumberTypeCollection extends FieldTypeCollection
@@ -41,7 +42,7 @@ class CustomFieldNumberTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldNumberType {
+        return function (?int $index): ?CustomFieldNumberType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldNumberType $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ReturnInfo>
  * @method ReturnInfo current()
+ * @method ReturnInfo end()
  * @method ReturnInfo at($offset)
  */
 class ReturnInfoCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ReturnInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReturnInfo {
+        return function (?int $index): ?ReturnInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReturnInfo $data */

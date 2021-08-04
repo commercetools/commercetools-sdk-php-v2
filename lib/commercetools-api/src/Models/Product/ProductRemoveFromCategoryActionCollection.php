@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductRemoveFromCategoryAction>
  * @method ProductRemoveFromCategoryAction current()
+ * @method ProductRemoveFromCategoryAction end()
  * @method ProductRemoveFromCategoryAction at($offset)
  */
 class ProductRemoveFromCategoryActionCollection extends ProductUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductRemoveFromCategoryActionCollection extends ProductUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductRemoveFromCategoryAction {
+        return function (?int $index): ?ProductRemoveFromCategoryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductRemoveFromCategoryAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EnumValuesMustMatchError>
  * @method EnumValuesMustMatchError current()
+ * @method EnumValuesMustMatchError end()
  * @method EnumValuesMustMatchError at($offset)
  */
 class EnumValuesMustMatchErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class EnumValuesMustMatchErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EnumValuesMustMatchError {
+        return function (?int $index): ?EnumValuesMustMatchError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EnumValuesMustMatchError $data */

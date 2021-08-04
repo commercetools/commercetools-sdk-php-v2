@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ResourceIdentifier
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ResourceIdentifier current()
+ * @method ResourceIdentifier end()
  * @method ResourceIdentifier at($offset)
  */
 class ResourceIdentifierCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceIdentifier {
+        return function (?int $index): ?ResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

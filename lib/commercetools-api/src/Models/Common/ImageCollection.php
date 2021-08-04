@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Image>
  * @method Image current()
+ * @method Image end()
  * @method Image at($offset)
  */
 class ImageCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ImageCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Image {
+        return function (?int $index): ?Image {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Image $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CartDiscountUpdate>
  * @method CartDiscountUpdate current()
+ * @method CartDiscountUpdate end()
  * @method CartDiscountUpdate at($offset)
  */
 class CartDiscountUpdateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CartDiscountUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountUpdate {
+        return function (?int $index): ?CartDiscountUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountUpdate $data */

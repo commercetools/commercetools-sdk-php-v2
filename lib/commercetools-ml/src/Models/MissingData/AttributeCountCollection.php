@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributeCount>
  * @method AttributeCount current()
+ * @method AttributeCount end()
  * @method AttributeCount at($offset)
  */
 class AttributeCountCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AttributeCountCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeCount {
+        return function (?int $index): ?AttributeCount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeCount $data */

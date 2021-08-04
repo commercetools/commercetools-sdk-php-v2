@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<State>
  * @method State current()
+ * @method State end()
  * @method State at($offset)
  */
 class StateCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class StateCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?State {
+        return function (?int $index): ?State {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var State $data */

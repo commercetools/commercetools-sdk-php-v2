@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SemanticErrorError>
  * @method SemanticErrorError current()
+ * @method SemanticErrorError end()
  * @method SemanticErrorError at($offset)
  */
 class SemanticErrorErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class SemanticErrorErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SemanticErrorError {
+        return function (?int $index): ?SemanticErrorError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SemanticErrorError $data */

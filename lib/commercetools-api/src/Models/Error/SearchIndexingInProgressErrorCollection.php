@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchIndexingInProgressError>
  * @method SearchIndexingInProgressError current()
+ * @method SearchIndexingInProgressError end()
  * @method SearchIndexingInProgressError at($offset)
  */
 class SearchIndexingInProgressErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class SearchIndexingInProgressErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchIndexingInProgressError {
+        return function (?int $index): ?SearchIndexingInProgressError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchIndexingInProgressError $data */

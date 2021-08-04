@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartSetCustomFieldAction>
  * @method CartSetCustomFieldAction current()
+ * @method CartSetCustomFieldAction end()
  * @method CartSetCustomFieldAction at($offset)
  */
 class CartSetCustomFieldActionCollection extends CartUpdateActionCollection
@@ -41,7 +42,7 @@ class CartSetCustomFieldActionCollection extends CartUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartSetCustomFieldAction {
+        return function (?int $index): ?CartSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartSetCustomFieldAction $data */

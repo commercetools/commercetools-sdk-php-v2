@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ShippingMethodDraft>
  * @method ShippingMethodDraft current()
+ * @method ShippingMethodDraft end()
  * @method ShippingMethodDraft at($offset)
  */
 class ShippingMethodDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ShippingMethodDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodDraft {
+        return function (?int $index): ?ShippingMethodDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodDraft $data */

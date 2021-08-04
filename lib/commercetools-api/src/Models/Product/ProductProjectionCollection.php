@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<ProductProjection>
  * @method ProductProjection current()
+ * @method ProductProjection end()
  * @method ProductProjection at($offset)
  */
 class ProductProjectionCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class ProductProjectionCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductProjection {
+        return function (?int $index): ?ProductProjection {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductProjection $data */

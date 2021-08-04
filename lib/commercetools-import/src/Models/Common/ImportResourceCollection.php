@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ImportResource
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ImportResource current()
+ * @method ImportResource end()
  * @method ImportResource at($offset)
  */
 class ImportResourceCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ImportResourceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportResource {
+        return function (?int $index): ?ImportResource {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

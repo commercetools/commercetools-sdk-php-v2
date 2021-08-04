@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingMethodUpdateActionCollection<ShippingMethodAddZoneAction>
  * @method ShippingMethodAddZoneAction current()
+ * @method ShippingMethodAddZoneAction end()
  * @method ShippingMethodAddZoneAction at($offset)
  */
 class ShippingMethodAddZoneActionCollection extends ShippingMethodUpdateActionCollection
@@ -41,7 +42,7 @@ class ShippingMethodAddZoneActionCollection extends ShippingMethodUpdateActionCo
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodAddZoneAction {
+        return function (?int $index): ?ShippingMethodAddZoneAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodAddZoneAction $data */

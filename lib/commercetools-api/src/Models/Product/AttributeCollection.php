@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Attribute>
  * @method Attribute current()
+ * @method Attribute end()
  * @method Attribute at($offset)
  */
 class AttributeCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AttributeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Attribute {
+        return function (?int $index): ?Attribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Attribute $data */

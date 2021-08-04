@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CategoryUpdateActionCollection<CategorySetCustomFieldAction>
  * @method CategorySetCustomFieldAction current()
+ * @method CategorySetCustomFieldAction end()
  * @method CategorySetCustomFieldAction at($offset)
  */
 class CategorySetCustomFieldActionCollection extends CategoryUpdateActionCollection
@@ -41,7 +42,7 @@ class CategorySetCustomFieldActionCollection extends CategoryUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySetCustomFieldAction {
+        return function (?int $index): ?CategorySetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySetCustomFieldAction $data */

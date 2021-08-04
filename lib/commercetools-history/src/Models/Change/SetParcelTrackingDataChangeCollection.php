@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetParcelTrackingDataChange>
  * @method SetParcelTrackingDataChange current()
+ * @method SetParcelTrackingDataChange end()
  * @method SetParcelTrackingDataChange at($offset)
  */
 class SetParcelTrackingDataChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetParcelTrackingDataChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetParcelTrackingDataChange {
+        return function (?int $index): ?SetParcelTrackingDataChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetParcelTrackingDataChange $data */

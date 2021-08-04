@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<ParcelAddedToDeliveryMessage>
  * @method ParcelAddedToDeliveryMessage current()
+ * @method ParcelAddedToDeliveryMessage end()
  * @method ParcelAddedToDeliveryMessage at($offset)
  */
 class ParcelAddedToDeliveryMessageCollection extends MessageCollection
@@ -41,7 +42,7 @@ class ParcelAddedToDeliveryMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ParcelAddedToDeliveryMessage {
+        return function (?int $index): ?ParcelAddedToDeliveryMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ParcelAddedToDeliveryMessage $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAttributeConstraintChange>
  * @method ChangeAttributeConstraintChange current()
+ * @method ChangeAttributeConstraintChange end()
  * @method ChangeAttributeConstraintChange at($offset)
  */
 class ChangeAttributeConstraintChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeAttributeConstraintChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeAttributeConstraintChange {
+        return function (?int $index): ?ChangeAttributeConstraintChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeAttributeConstraintChange $data */

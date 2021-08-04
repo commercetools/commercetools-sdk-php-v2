@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelSetCustomTypeAction>
  * @method ChannelSetCustomTypeAction current()
+ * @method ChannelSetCustomTypeAction end()
  * @method ChannelSetCustomTypeAction at($offset)
  */
 class ChannelSetCustomTypeActionCollection extends ChannelUpdateActionCollection
@@ -41,7 +42,7 @@ class ChannelSetCustomTypeActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetCustomTypeAction {
+        return function (?int $index): ?ChannelSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetCustomTypeAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SuggestionResult>
  * @method SuggestionResult current()
+ * @method SuggestionResult end()
  * @method SuggestionResult at($offset)
  */
 class SuggestionResultCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SuggestionResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SuggestionResult {
+        return function (?int $index): ?SuggestionResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SuggestionResult $data */

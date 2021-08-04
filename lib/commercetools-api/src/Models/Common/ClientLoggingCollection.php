@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ClientLogging
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ClientLogging current()
+ * @method ClientLogging end()
  * @method ClientLogging at($offset)
  */
 class ClientLoggingCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ClientLoggingCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ClientLogging {
+        return function (?int $index): ?ClientLogging {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

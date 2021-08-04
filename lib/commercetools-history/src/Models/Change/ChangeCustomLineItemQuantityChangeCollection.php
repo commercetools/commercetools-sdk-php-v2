@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeCustomLineItemQuantityChange>
  * @method ChangeCustomLineItemQuantityChange current()
+ * @method ChangeCustomLineItemQuantityChange end()
  * @method ChangeCustomLineItemQuantityChange at($offset)
  */
 class ChangeCustomLineItemQuantityChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeCustomLineItemQuantityChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeCustomLineItemQuantityChange {
+        return function (?int $index): ?ChangeCustomLineItemQuantityChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeCustomLineItemQuantityChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ExternalOAuthFailedError>
  * @method ExternalOAuthFailedError current()
+ * @method ExternalOAuthFailedError end()
  * @method ExternalOAuthFailedError at($offset)
  */
 class ExternalOAuthFailedErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ExternalOAuthFailedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExternalOAuthFailedError {
+        return function (?int $index): ?ExternalOAuthFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExternalOAuthFailedError $data */

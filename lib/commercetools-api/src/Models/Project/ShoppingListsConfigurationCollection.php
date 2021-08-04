@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ShoppingListsConfiguration>
  * @method ShoppingListsConfiguration current()
+ * @method ShoppingListsConfiguration end()
  * @method ShoppingListsConfiguration at($offset)
  */
 class ShoppingListsConfigurationCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ShoppingListsConfigurationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShoppingListsConfiguration {
+        return function (?int $index): ?ShoppingListsConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShoppingListsConfiguration $data */

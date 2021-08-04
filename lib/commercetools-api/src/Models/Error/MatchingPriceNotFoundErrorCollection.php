@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<MatchingPriceNotFoundError>
  * @method MatchingPriceNotFoundError current()
+ * @method MatchingPriceNotFoundError end()
  * @method MatchingPriceNotFoundError at($offset)
  */
 class MatchingPriceNotFoundErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class MatchingPriceNotFoundErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MatchingPriceNotFoundError {
+        return function (?int $index): ?MatchingPriceNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MatchingPriceNotFoundError $data */

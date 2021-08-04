@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTextLineItemCustomFieldChange>
  * @method SetTextLineItemCustomFieldChange current()
+ * @method SetTextLineItemCustomFieldChange end()
  * @method SetTextLineItemCustomFieldChange at($offset)
  */
 class SetTextLineItemCustomFieldChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetTextLineItemCustomFieldChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTextLineItemCustomFieldChange {
+        return function (?int $index): ?SetTextLineItemCustomFieldChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTextLineItemCustomFieldChange $data */

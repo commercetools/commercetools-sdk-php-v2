@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartDiscountValueCollection<CartDiscountValueAbsolute>
  * @method CartDiscountValueAbsolute current()
+ * @method CartDiscountValueAbsolute end()
  * @method CartDiscountValueAbsolute at($offset)
  */
 class CartDiscountValueAbsoluteCollection extends CartDiscountValueCollection
@@ -41,7 +42,7 @@ class CartDiscountValueAbsoluteCollection extends CartDiscountValueCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartDiscountValueAbsolute {
+        return function (?int $index): ?CartDiscountValueAbsolute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartDiscountValueAbsolute $data */

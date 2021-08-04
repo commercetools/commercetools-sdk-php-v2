@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartChangeTaxCalculationModeAction>
  * @method CartChangeTaxCalculationModeAction current()
+ * @method CartChangeTaxCalculationModeAction end()
  * @method CartChangeTaxCalculationModeAction at($offset)
  */
 class CartChangeTaxCalculationModeActionCollection extends CartUpdateActionCollection
@@ -41,7 +42,7 @@ class CartChangeTaxCalculationModeActionCollection extends CartUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?CartChangeTaxCalculationModeAction {
+        return function (?int $index): ?CartChangeTaxCalculationModeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartChangeTaxCalculationModeAction $data */

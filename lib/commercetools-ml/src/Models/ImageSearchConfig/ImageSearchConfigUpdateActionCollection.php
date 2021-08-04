@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ImageSearchConfigUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ImageSearchConfigUpdateAction current()
+ * @method ImageSearchConfigUpdateAction end()
  * @method ImageSearchConfigUpdateAction at($offset)
  */
 class ImageSearchConfigUpdateActionCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ImageSearchConfigUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImageSearchConfigUpdateAction {
+        return function (?int $index): ?ImageSearchConfigUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

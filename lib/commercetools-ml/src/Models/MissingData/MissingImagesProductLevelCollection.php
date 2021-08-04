@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MissingImagesCountCollection<MissingImagesProductLevel>
  * @method MissingImagesProductLevel current()
+ * @method MissingImagesProductLevel end()
  * @method MissingImagesProductLevel at($offset)
  */
 class MissingImagesProductLevelCollection extends MissingImagesCountCollection
@@ -41,7 +42,7 @@ class MissingImagesProductLevelCollection extends MissingImagesCountCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesProductLevel {
+        return function (?int $index): ?MissingImagesProductLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingImagesProductLevel $data */

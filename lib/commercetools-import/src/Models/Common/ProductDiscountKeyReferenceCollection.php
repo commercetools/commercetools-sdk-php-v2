@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<ProductDiscountKeyReference>
  * @method ProductDiscountKeyReference current()
+ * @method ProductDiscountKeyReference end()
  * @method ProductDiscountKeyReference at($offset)
  */
 class ProductDiscountKeyReferenceCollection extends KeyReferenceCollection
@@ -41,7 +42,7 @@ class ProductDiscountKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountKeyReference {
+        return function (?int $index): ?ProductDiscountKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountKeyReference $data */

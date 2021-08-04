@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<OrderExcerpt>
  * @method OrderExcerpt current()
+ * @method OrderExcerpt end()
  * @method OrderExcerpt at($offset)
  */
 class OrderExcerptCollection extends MapperSequence
@@ -41,7 +42,7 @@ class OrderExcerptCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderExcerpt {
+        return function (?int $index): ?OrderExcerpt {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderExcerpt $data */

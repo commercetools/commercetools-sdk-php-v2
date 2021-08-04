@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Review>
  * @method Review current()
+ * @method Review end()
  * @method Review at($offset)
  */
 class ReviewCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class ReviewCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Review {
+        return function (?int $index): ?Review {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Review $data */

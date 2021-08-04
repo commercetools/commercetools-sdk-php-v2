@@ -16,8 +16,10 @@ use stdClass;
  * @template T of StagedOrderUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method StagedOrderUpdateAction current()
+ * @method StagedOrderUpdateAction end()
  * @method StagedOrderUpdateAction at($offset)
  */
 class StagedOrderUpdateActionCollection extends MapperSequence
@@ -44,7 +46,7 @@ class StagedOrderUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderUpdateAction {
+        return function (?int $index): ?StagedOrderUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

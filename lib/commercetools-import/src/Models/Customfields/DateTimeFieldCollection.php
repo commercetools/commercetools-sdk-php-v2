@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<DateTimeField>
  * @method DateTimeField current()
+ * @method DateTimeField end()
  * @method DateTimeField at($offset)
  */
 class DateTimeFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class DateTimeFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DateTimeField {
+        return function (?int $index): ?DateTimeField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DateTimeField $data */

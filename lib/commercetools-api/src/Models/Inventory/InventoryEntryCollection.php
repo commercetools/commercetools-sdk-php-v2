@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<InventoryEntry>
  * @method InventoryEntry current()
+ * @method InventoryEntry end()
  * @method InventoryEntry at($offset)
  */
 class InventoryEntryCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class InventoryEntryCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntry {
+        return function (?int $index): ?InventoryEntry {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntry $data */

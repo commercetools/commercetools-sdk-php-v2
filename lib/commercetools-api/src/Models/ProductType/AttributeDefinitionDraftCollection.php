@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributeDefinitionDraft>
  * @method AttributeDefinitionDraft current()
+ * @method AttributeDefinitionDraft end()
  * @method AttributeDefinitionDraft at($offset)
  */
 class AttributeDefinitionDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AttributeDefinitionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeDefinitionDraft {
+        return function (?int $index): ?AttributeDefinitionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeDefinitionDraft $data */

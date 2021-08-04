@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Record>
  * @method Record current()
+ * @method Record end()
  * @method Record at($offset)
  */
 class RecordCollection extends MapperSequence
@@ -41,7 +42,7 @@ class RecordCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Record {
+        return function (?int $index): ?Record {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Record $data */

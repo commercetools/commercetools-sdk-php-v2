@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MissingAttributesPagedQueryResult>
  * @method MissingAttributesPagedQueryResult current()
+ * @method MissingAttributesPagedQueryResult end()
  * @method MissingAttributesPagedQueryResult at($offset)
  */
 class MissingAttributesPagedQueryResultCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MissingAttributesPagedQueryResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingAttributesPagedQueryResult {
+        return function (?int $index): ?MissingAttributesPagedQueryResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingAttributesPagedQueryResult $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Subscription>
  * @method Subscription current()
+ * @method Subscription end()
  * @method Subscription at($offset)
  */
 class SubscriptionCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class SubscriptionCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Subscription {
+        return function (?int $index): ?Subscription {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Subscription $data */

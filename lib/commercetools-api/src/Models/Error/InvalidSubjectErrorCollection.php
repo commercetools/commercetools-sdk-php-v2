@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidSubjectError>
  * @method InvalidSubjectError current()
+ * @method InvalidSubjectError end()
  * @method InvalidSubjectError at($offset)
  */
 class InvalidSubjectErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidSubjectErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidSubjectError {
+        return function (?int $index): ?InvalidSubjectError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidSubjectError $data */

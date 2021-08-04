@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddInterfaceInteractionChange>
  * @method AddInterfaceInteractionChange current()
+ * @method AddInterfaceInteractionChange end()
  * @method AddInterfaceInteractionChange at($offset)
  */
 class AddInterfaceInteractionChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddInterfaceInteractionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddInterfaceInteractionChange {
+        return function (?int $index): ?AddInterfaceInteractionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddInterfaceInteractionChange $data */

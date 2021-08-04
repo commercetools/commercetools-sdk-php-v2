@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<ProductResourceIdentifier>
  * @method ProductResourceIdentifier current()
+ * @method ProductResourceIdentifier end()
  * @method ProductResourceIdentifier at($offset)
  */
 class ProductResourceIdentifierCollection extends ResourceIdentifierCollection
@@ -41,7 +42,7 @@ class ProductResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductResourceIdentifier {
+        return function (?int $index): ?ProductResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductResourceIdentifier $data */

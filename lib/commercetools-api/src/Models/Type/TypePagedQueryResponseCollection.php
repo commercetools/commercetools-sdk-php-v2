@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TypePagedQueryResponse>
  * @method TypePagedQueryResponse current()
+ * @method TypePagedQueryResponse end()
  * @method TypePagedQueryResponse at($offset)
  */
 class TypePagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TypePagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TypePagedQueryResponse {
+        return function (?int $index): ?TypePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypePagedQueryResponse $data */

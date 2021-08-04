@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ZoneUpdate>
  * @method ZoneUpdate current()
+ * @method ZoneUpdate end()
  * @method ZoneUpdate at($offset)
  */
 class ZoneUpdateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ZoneUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneUpdate {
+        return function (?int $index): ?ZoneUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneUpdate $data */

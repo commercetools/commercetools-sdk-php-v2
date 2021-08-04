@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ShippingRateInputType
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ShippingRateInputType current()
+ * @method ShippingRateInputType end()
  * @method ShippingRateInputType at($offset)
  */
 class ShippingRateInputTypeCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ShippingRateInputTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingRateInputType {
+        return function (?int $index): ?ShippingRateInputType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

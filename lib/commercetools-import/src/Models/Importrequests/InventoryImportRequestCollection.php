@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportRequestCollection<InventoryImportRequest>
  * @method InventoryImportRequest current()
+ * @method InventoryImportRequest end()
  * @method InventoryImportRequest at($offset)
  */
 class InventoryImportRequestCollection extends ImportRequestCollection
@@ -41,7 +42,7 @@ class InventoryImportRequestCollection extends ImportRequestCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryImportRequest {
+        return function (?int $index): ?InventoryImportRequest {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryImportRequest $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<RequiredFieldError>
  * @method RequiredFieldError current()
+ * @method RequiredFieldError end()
  * @method RequiredFieldError at($offset)
  */
 class RequiredFieldErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class RequiredFieldErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RequiredFieldError {
+        return function (?int $index): ?RequiredFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RequiredFieldError $data */

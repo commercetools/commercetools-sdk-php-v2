@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetProductVariantKeyChange>
  * @method SetProductVariantKeyChange current()
+ * @method SetProductVariantKeyChange end()
  * @method SetProductVariantKeyChange at($offset)
  */
 class SetProductVariantKeyChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetProductVariantKeyChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetProductVariantKeyChange {
+        return function (?int $index): ?SetProductVariantKeyChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetProductVariantKeyChange $data */

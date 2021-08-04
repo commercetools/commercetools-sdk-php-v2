@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReviewUpdateActionCollection<ReviewSetKeyAction>
  * @method ReviewSetKeyAction current()
+ * @method ReviewSetKeyAction end()
  * @method ReviewSetKeyAction at($offset)
  */
 class ReviewSetKeyActionCollection extends ReviewUpdateActionCollection
@@ -41,7 +42,7 @@ class ReviewSetKeyActionCollection extends ReviewUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewSetKeyAction {
+        return function (?int $index): ?ReviewSetKeyAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewSetKeyAction $data */

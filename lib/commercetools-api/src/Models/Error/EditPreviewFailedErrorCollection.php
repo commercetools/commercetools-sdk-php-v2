@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<EditPreviewFailedError>
  * @method EditPreviewFailedError current()
+ * @method EditPreviewFailedError end()
  * @method EditPreviewFailedError at($offset)
  */
 class EditPreviewFailedErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class EditPreviewFailedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?EditPreviewFailedError {
+        return function (?int $index): ?EditPreviewFailedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var EditPreviewFailedError $data */

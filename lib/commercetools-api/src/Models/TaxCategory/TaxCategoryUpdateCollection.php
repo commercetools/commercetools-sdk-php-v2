@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaxCategoryUpdate>
  * @method TaxCategoryUpdate current()
+ * @method TaxCategoryUpdate end()
  * @method TaxCategoryUpdate at($offset)
  */
 class TaxCategoryUpdateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TaxCategoryUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryUpdate {
+        return function (?int $index): ?TaxCategoryUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryUpdate $data */

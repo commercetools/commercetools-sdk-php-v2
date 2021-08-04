@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends SuggestTokenizerCollection<CustomTokenizer>
  * @method CustomTokenizer current()
+ * @method CustomTokenizer end()
  * @method CustomTokenizer at($offset)
  */
 class CustomTokenizerCollection extends SuggestTokenizerCollection
@@ -41,7 +42,7 @@ class CustomTokenizerCollection extends SuggestTokenizerCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomTokenizer {
+        return function (?int $index): ?CustomTokenizer {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomTokenizer $data */

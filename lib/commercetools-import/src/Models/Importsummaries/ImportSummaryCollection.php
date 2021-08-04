@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImportSummary>
  * @method ImportSummary current()
+ * @method ImportSummary end()
  * @method ImportSummary at($offset)
  */
 class ImportSummaryCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ImportSummaryCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImportSummary {
+        return function (?int $index): ?ImportSummary {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImportSummary $data */

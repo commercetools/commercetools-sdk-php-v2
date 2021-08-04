@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeShoppingListsConfiguration>
  * @method ProjectChangeShoppingListsConfiguration current()
+ * @method ProjectChangeShoppingListsConfiguration end()
  * @method ProjectChangeShoppingListsConfiguration at($offset)
  */
 class ProjectChangeShoppingListsConfigurationCollection extends ProjectUpdateActionCollection
@@ -41,7 +42,7 @@ class ProjectChangeShoppingListsConfigurationCollection extends ProjectUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeShoppingListsConfiguration {
+        return function (?int $index): ?ProjectChangeShoppingListsConfiguration {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeShoppingListsConfiguration $data */

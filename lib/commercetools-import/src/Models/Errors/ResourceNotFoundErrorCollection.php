@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ResourceNotFoundError>
  * @method ResourceNotFoundError current()
+ * @method ResourceNotFoundError end()
  * @method ResourceNotFoundError at($offset)
  */
 class ResourceNotFoundErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ResourceNotFoundErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceNotFoundError {
+        return function (?int $index): ?ResourceNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceNotFoundError $data */

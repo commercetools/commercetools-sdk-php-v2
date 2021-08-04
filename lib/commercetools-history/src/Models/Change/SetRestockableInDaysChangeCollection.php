@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetRestockableInDaysChange>
  * @method SetRestockableInDaysChange current()
+ * @method SetRestockableInDaysChange end()
  * @method SetRestockableInDaysChange at($offset)
  */
 class SetRestockableInDaysChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetRestockableInDaysChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetRestockableInDaysChange {
+        return function (?int $index): ?SetRestockableInDaysChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetRestockableInDaysChange $data */

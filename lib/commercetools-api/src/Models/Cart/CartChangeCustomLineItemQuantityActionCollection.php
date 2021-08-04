@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartChangeCustomLineItemQuantityAction>
  * @method CartChangeCustomLineItemQuantityAction current()
+ * @method CartChangeCustomLineItemQuantityAction end()
  * @method CartChangeCustomLineItemQuantityAction at($offset)
  */
 class CartChangeCustomLineItemQuantityActionCollection extends CartUpdateActionCollection
@@ -41,7 +42,7 @@ class CartChangeCustomLineItemQuantityActionCollection extends CartUpdateActionC
      */
     protected function mapper()
     {
-        return function (int $index): ?CartChangeCustomLineItemQuantityAction {
+        return function (?int $index): ?CartChangeCustomLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartChangeCustomLineItemQuantityAction $data */

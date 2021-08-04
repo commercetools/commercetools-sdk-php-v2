@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<OrderEdit>
  * @method OrderEdit current()
+ * @method OrderEdit end()
  * @method OrderEdit at($offset)
  */
 class OrderEditCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class OrderEditCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEdit {
+        return function (?int $index): ?OrderEdit {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEdit $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<LineItemProductVariantImportDraft>
  * @method LineItemProductVariantImportDraft current()
+ * @method LineItemProductVariantImportDraft end()
  * @method LineItemProductVariantImportDraft at($offset)
  */
 class LineItemProductVariantImportDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class LineItemProductVariantImportDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LineItemProductVariantImportDraft {
+        return function (?int $index): ?LineItemProductVariantImportDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LineItemProductVariantImportDraft $data */

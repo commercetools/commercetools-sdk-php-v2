@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<StringField>
  * @method StringField current()
+ * @method StringField end()
  * @method StringField at($offset)
  */
 class StringFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class StringFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StringField {
+        return function (?int $index): ?StringField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StringField $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchFacetPathNotFoundError>
  * @method SearchFacetPathNotFoundError current()
+ * @method SearchFacetPathNotFoundError end()
  * @method SearchFacetPathNotFoundError at($offset)
  */
 class SearchFacetPathNotFoundErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class SearchFacetPathNotFoundErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchFacetPathNotFoundError {
+        return function (?int $index): ?SearchFacetPathNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchFacetPathNotFoundError $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderEditResultCollection<OrderEditApplied>
  * @method OrderEditApplied current()
+ * @method OrderEditApplied end()
  * @method OrderEditApplied at($offset)
  */
 class OrderEditAppliedCollection extends OrderEditResultCollection
@@ -41,7 +42,7 @@ class OrderEditAppliedCollection extends OrderEditResultCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderEditApplied {
+        return function (?int $index): ?OrderEditApplied {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderEditApplied $data */

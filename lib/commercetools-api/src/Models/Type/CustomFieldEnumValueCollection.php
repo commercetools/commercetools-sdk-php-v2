@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomFieldEnumValue>
  * @method CustomFieldEnumValue current()
+ * @method CustomFieldEnumValue end()
  * @method CustomFieldEnumValue at($offset)
  */
 class CustomFieldEnumValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomFieldEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldEnumValue {
+        return function (?int $index): ?CustomFieldEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldEnumValue $data */

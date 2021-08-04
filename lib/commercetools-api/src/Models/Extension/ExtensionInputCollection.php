@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ExtensionInput>
  * @method ExtensionInput current()
+ * @method ExtensionInput end()
  * @method ExtensionInput at($offset)
  */
 class ExtensionInputCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ExtensionInputCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionInput {
+        return function (?int $index): ?ExtensionInput {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionInput $data */

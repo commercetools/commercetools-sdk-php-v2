@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ContentionError>
  * @method ContentionError current()
+ * @method ContentionError end()
  * @method ContentionError at($offset)
  */
 class ContentionErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ContentionErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ContentionError {
+        return function (?int $index): ?ContentionError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ContentionError $data */

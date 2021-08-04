@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<RemoveEnumValuesChange>
  * @method RemoveEnumValuesChange current()
+ * @method RemoveEnumValuesChange end()
  * @method RemoveEnumValuesChange at($offset)
  */
 class RemoveEnumValuesChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class RemoveEnumValuesChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveEnumValuesChange {
+        return function (?int $index): ?RemoveEnumValuesChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveEnumValuesChange $data */

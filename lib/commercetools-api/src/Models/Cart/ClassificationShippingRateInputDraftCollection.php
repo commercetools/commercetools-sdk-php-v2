@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingRateInputDraftCollection<ClassificationShippingRateInputDraft>
  * @method ClassificationShippingRateInputDraft current()
+ * @method ClassificationShippingRateInputDraft end()
  * @method ClassificationShippingRateInputDraft at($offset)
  */
 class ClassificationShippingRateInputDraftCollection extends ShippingRateInputDraftCollection
@@ -41,7 +42,7 @@ class ClassificationShippingRateInputDraftCollection extends ShippingRateInputDr
      */
     protected function mapper()
     {
-        return function (int $index): ?ClassificationShippingRateInputDraft {
+        return function (?int $index): ?ClassificationShippingRateInputDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ClassificationShippingRateInputDraft $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SearchDeactivatedError>
  * @method SearchDeactivatedError current()
+ * @method SearchDeactivatedError end()
  * @method SearchDeactivatedError at($offset)
  */
 class SearchDeactivatedErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class SearchDeactivatedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchDeactivatedError {
+        return function (?int $index): ?SearchDeactivatedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchDeactivatedError $data */

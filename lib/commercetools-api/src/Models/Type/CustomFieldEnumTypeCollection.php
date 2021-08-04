@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldEnumType>
  * @method CustomFieldEnumType current()
+ * @method CustomFieldEnumType end()
  * @method CustomFieldEnumType at($offset)
  */
 class CustomFieldEnumTypeCollection extends FieldTypeCollection
@@ -41,7 +42,7 @@ class CustomFieldEnumTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldEnumType {
+        return function (?int $index): ?CustomFieldEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldEnumType $data */

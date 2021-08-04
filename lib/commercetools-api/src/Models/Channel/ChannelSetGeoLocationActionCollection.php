@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelSetGeoLocationAction>
  * @method ChannelSetGeoLocationAction current()
+ * @method ChannelSetGeoLocationAction end()
  * @method ChannelSetGeoLocationAction at($offset)
  */
 class ChannelSetGeoLocationActionCollection extends ChannelUpdateActionCollection
@@ -41,7 +42,7 @@ class ChannelSetGeoLocationActionCollection extends ChannelUpdateActionCollectio
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelSetGeoLocationAction {
+        return function (?int $index): ?ChannelSetGeoLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelSetGeoLocationAction $data */

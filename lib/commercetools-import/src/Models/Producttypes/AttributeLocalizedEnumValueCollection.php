@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributeLocalizedEnumValue>
  * @method AttributeLocalizedEnumValue current()
+ * @method AttributeLocalizedEnumValue end()
  * @method AttributeLocalizedEnumValue at($offset)
  */
 class AttributeLocalizedEnumValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AttributeLocalizedEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeLocalizedEnumValue {
+        return function (?int $index): ?AttributeLocalizedEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeLocalizedEnumValue $data */

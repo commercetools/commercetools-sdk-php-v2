@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductVariantPatch>
  * @method ProductVariantPatch current()
+ * @method ProductVariantPatch end()
  * @method ProductVariantPatch at($offset)
  */
 class ProductVariantPatchCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ProductVariantPatchCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariantPatch {
+        return function (?int $index): ?ProductVariantPatch {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariantPatch $data */

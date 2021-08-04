@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ResourceUpdateError>
  * @method ResourceUpdateError current()
+ * @method ResourceUpdateError end()
  * @method ResourceUpdateError at($offset)
  */
 class ResourceUpdateErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ResourceUpdateErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ResourceUpdateError {
+        return function (?int $index): ?ResourceUpdateError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ResourceUpdateError $data */

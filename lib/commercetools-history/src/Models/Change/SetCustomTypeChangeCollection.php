@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomTypeChange>
  * @method SetCustomTypeChange current()
+ * @method SetCustomTypeChange end()
  * @method SetCustomTypeChange at($offset)
  */
 class SetCustomTypeChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetCustomTypeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomTypeChange {
+        return function (?int $index): ?SetCustomTypeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomTypeChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<DiscountedLineItemPortion>
  * @method DiscountedLineItemPortion current()
+ * @method DiscountedLineItemPortion end()
  * @method DiscountedLineItemPortion at($offset)
  */
 class DiscountedLineItemPortionCollection extends MapperSequence
@@ -41,7 +42,7 @@ class DiscountedLineItemPortionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountedLineItemPortion {
+        return function (?int $index): ?DiscountedLineItemPortion {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountedLineItemPortion $data */

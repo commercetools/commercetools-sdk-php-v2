@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DiscountCodeUpdateActionCollection<DiscountCodeSetMaxApplicationsPerCustomerAction>
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction current()
+ * @method DiscountCodeSetMaxApplicationsPerCustomerAction end()
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction at($offset)
  */
 class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends DiscountCodeUpdateActionCollection
@@ -41,7 +42,7 @@ class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends Discount
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
+        return function (?int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeSetMaxApplicationsPerCustomerAction $data */

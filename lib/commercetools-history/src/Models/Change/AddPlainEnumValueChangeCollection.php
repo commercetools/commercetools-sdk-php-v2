@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddPlainEnumValueChange>
  * @method AddPlainEnumValueChange current()
+ * @method AddPlainEnumValueChange end()
  * @method AddPlainEnumValueChange at($offset)
  */
 class AddPlainEnumValueChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddPlainEnumValueChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddPlainEnumValueChange {
+        return function (?int $index): ?AddPlainEnumValueChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddPlainEnumValueChange $data */

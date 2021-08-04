@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetApplicationVersionChange>
  * @method SetApplicationVersionChange current()
+ * @method SetApplicationVersionChange end()
  * @method SetApplicationVersionChange at($offset)
  */
 class SetApplicationVersionChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetApplicationVersionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetApplicationVersionChange {
+        return function (?int $index): ?SetApplicationVersionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetApplicationVersionChange $data */

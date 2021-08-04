@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<DateSetAttribute>
  * @method DateSetAttribute current()
+ * @method DateSetAttribute end()
  * @method DateSetAttribute at($offset)
  */
 class DateSetAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class DateSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DateSetAttribute {
+        return function (?int $index): ?DateSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DateSetAttribute $data */

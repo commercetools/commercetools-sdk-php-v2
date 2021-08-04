@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomLineItemTaxAmountChange>
  * @method SetCustomLineItemTaxAmountChange current()
+ * @method SetCustomLineItemTaxAmountChange end()
  * @method SetCustomLineItemTaxAmountChange at($offset)
  */
 class SetCustomLineItemTaxAmountChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetCustomLineItemTaxAmountChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomLineItemTaxAmountChange {
+        return function (?int $index): ?SetCustomLineItemTaxAmountChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomLineItemTaxAmountChange $data */

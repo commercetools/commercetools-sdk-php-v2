@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends InventoryEntryUpdateActionCollection<InventoryEntrySetCustomTypeAction>
  * @method InventoryEntrySetCustomTypeAction current()
+ * @method InventoryEntrySetCustomTypeAction end()
  * @method InventoryEntrySetCustomTypeAction at($offset)
  */
 class InventoryEntrySetCustomTypeActionCollection extends InventoryEntryUpdateActionCollection
@@ -41,7 +42,7 @@ class InventoryEntrySetCustomTypeActionCollection extends InventoryEntryUpdateAc
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntrySetCustomTypeAction {
+        return function (?int $index): ?InventoryEntrySetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntrySetCustomTypeAction $data */

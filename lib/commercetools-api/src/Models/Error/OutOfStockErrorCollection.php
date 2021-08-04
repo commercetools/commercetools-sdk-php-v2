@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<OutOfStockError>
  * @method OutOfStockError current()
+ * @method OutOfStockError end()
  * @method OutOfStockError at($offset)
  */
 class OutOfStockErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class OutOfStockErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OutOfStockError {
+        return function (?int $index): ?OutOfStockError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OutOfStockError $data */

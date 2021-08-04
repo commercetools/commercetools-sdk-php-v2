@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetAttributeChange>
  * @method SetAttributeChange current()
+ * @method SetAttributeChange end()
  * @method SetAttributeChange at($offset)
  */
 class SetAttributeChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetAttributeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetAttributeChange {
+        return function (?int $index): ?SetAttributeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetAttributeChange $data */

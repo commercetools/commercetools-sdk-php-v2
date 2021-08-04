@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StateUpdateActionCollection<StateSetRolesAction>
  * @method StateSetRolesAction current()
+ * @method StateSetRolesAction end()
  * @method StateSetRolesAction at($offset)
  */
 class StateSetRolesActionCollection extends StateUpdateActionCollection
@@ -41,7 +42,7 @@ class StateSetRolesActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateSetRolesAction {
+        return function (?int $index): ?StateSetRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateSetRolesAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<ChannelResourceIdentifier>
  * @method ChannelResourceIdentifier current()
+ * @method ChannelResourceIdentifier end()
  * @method ChannelResourceIdentifier at($offset)
  */
 class ChannelResourceIdentifierCollection extends ResourceIdentifierCollection
@@ -41,7 +42,7 @@ class ChannelResourceIdentifierCollection extends ResourceIdentifierCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelResourceIdentifier {
+        return function (?int $index): ?ChannelResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelResourceIdentifier $data */

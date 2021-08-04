@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<DiscountCodeResourceIdentifier>
  * @method DiscountCodeResourceIdentifier current()
+ * @method DiscountCodeResourceIdentifier end()
  * @method DiscountCodeResourceIdentifier at($offset)
  */
 class DiscountCodeResourceIdentifierCollection extends ResourceIdentifierCollection
@@ -41,7 +42,7 @@ class DiscountCodeResourceIdentifierCollection extends ResourceIdentifierCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?DiscountCodeResourceIdentifier {
+        return function (?int $index): ?DiscountCodeResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DiscountCodeResourceIdentifier $data */

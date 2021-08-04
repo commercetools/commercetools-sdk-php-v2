@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SearchIndexingConfigurationValues>
  * @method SearchIndexingConfigurationValues current()
+ * @method SearchIndexingConfigurationValues end()
  * @method SearchIndexingConfigurationValues at($offset)
  */
 class SearchIndexingConfigurationValuesCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SearchIndexingConfigurationValuesCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SearchIndexingConfigurationValues {
+        return function (?int $index): ?SearchIndexingConfigurationValues {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SearchIndexingConfigurationValues $data */

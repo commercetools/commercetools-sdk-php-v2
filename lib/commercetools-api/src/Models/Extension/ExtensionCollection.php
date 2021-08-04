@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Extension>
  * @method Extension current()
+ * @method Extension end()
  * @method Extension at($offset)
  */
 class ExtensionCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class ExtensionCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Extension {
+        return function (?int $index): ?Extension {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Extension $data */

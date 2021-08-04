@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddToCategoryChange>
  * @method AddToCategoryChange current()
+ * @method AddToCategoryChange end()
  * @method AddToCategoryChange at($offset)
  */
 class AddToCategoryChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddToCategoryChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddToCategoryChange {
+        return function (?int $index): ?AddToCategoryChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddToCategoryChange $data */

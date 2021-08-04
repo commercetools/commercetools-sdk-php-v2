@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<TaxCategoryKeyReference>
  * @method TaxCategoryKeyReference current()
+ * @method TaxCategoryKeyReference end()
  * @method TaxCategoryKeyReference at($offset)
  */
 class TaxCategoryKeyReferenceCollection extends KeyReferenceCollection
@@ -41,7 +42,7 @@ class TaxCategoryKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryKeyReference {
+        return function (?int $index): ?TaxCategoryKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaxCategoryKeyReference $data */

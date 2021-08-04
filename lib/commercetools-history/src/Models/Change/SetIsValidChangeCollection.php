@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetIsValidChange>
  * @method SetIsValidChange current()
+ * @method SetIsValidChange end()
  * @method SetIsValidChange at($offset)
  */
 class SetIsValidChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetIsValidChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetIsValidChange {
+        return function (?int $index): ?SetIsValidChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetIsValidChange $data */

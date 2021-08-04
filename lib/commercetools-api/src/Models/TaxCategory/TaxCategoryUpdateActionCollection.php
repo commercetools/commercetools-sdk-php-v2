@@ -16,8 +16,10 @@ use stdClass;
  * @template T of TaxCategoryUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method TaxCategoryUpdateAction current()
+ * @method TaxCategoryUpdateAction end()
  * @method TaxCategoryUpdateAction at($offset)
  */
 class TaxCategoryUpdateActionCollection extends MapperSequence
@@ -44,7 +46,7 @@ class TaxCategoryUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaxCategoryUpdateAction {
+        return function (?int $index): ?TaxCategoryUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

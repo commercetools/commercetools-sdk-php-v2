@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TypeUpdate>
  * @method TypeUpdate current()
+ * @method TypeUpdate end()
  * @method TypeUpdate at($offset)
  */
 class TypeUpdateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TypeUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeUpdate {
+        return function (?int $index): ?TypeUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeUpdate $data */

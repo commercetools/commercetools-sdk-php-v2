@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<QueryPrice>
  * @method QueryPrice current()
+ * @method QueryPrice end()
  * @method QueryPrice at($offset)
  */
 class QueryPriceCollection extends MapperSequence
@@ -41,7 +42,7 @@ class QueryPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?QueryPrice {
+        return function (?int $index): ?QueryPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var QueryPrice $data */

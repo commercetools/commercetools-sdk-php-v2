@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ErrorByExtension>
  * @method ErrorByExtension current()
+ * @method ErrorByExtension end()
  * @method ErrorByExtension at($offset)
  */
 class ErrorByExtensionCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ErrorByExtensionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ErrorByExtension {
+        return function (?int $index): ?ErrorByExtension {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ErrorByExtension $data */

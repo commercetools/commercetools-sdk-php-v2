@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeCartPredicateChange>
  * @method ChangeCartPredicateChange current()
+ * @method ChangeCartPredicateChange end()
  * @method ChangeCartPredicateChange at($offset)
  */
 class ChangeCartPredicateChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeCartPredicateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeCartPredicateChange {
+        return function (?int $index): ?ChangeCartPredicateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeCartPredicateChange $data */

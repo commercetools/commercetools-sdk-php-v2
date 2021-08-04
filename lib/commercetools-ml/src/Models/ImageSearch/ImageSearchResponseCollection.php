@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ImageSearchResponse>
  * @method ImageSearchResponse current()
+ * @method ImageSearchResponse end()
  * @method ImageSearchResponse at($offset)
  */
 class ImageSearchResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ImageSearchResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ImageSearchResponse {
+        return function (?int $index): ?ImageSearchResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ImageSearchResponse $data */

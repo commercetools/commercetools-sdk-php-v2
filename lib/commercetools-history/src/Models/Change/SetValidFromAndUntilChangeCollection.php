@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetValidFromAndUntilChange>
  * @method SetValidFromAndUntilChange current()
+ * @method SetValidFromAndUntilChange end()
  * @method SetValidFromAndUntilChange at($offset)
  */
 class SetValidFromAndUntilChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetValidFromAndUntilChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetValidFromAndUntilChange {
+        return function (?int $index): ?SetValidFromAndUntilChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetValidFromAndUntilChange $data */

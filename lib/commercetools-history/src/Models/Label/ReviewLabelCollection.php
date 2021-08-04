@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<ReviewLabel>
  * @method ReviewLabel current()
+ * @method ReviewLabel end()
  * @method ReviewLabel at($offset)
  */
 class ReviewLabelCollection extends LabelCollection
@@ -41,7 +42,7 @@ class ReviewLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReviewLabel {
+        return function (?int $index): ?ReviewLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReviewLabel $data */

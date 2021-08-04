@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<CategorySlugChangedMessage>
  * @method CategorySlugChangedMessage current()
+ * @method CategorySlugChangedMessage end()
  * @method CategorySlugChangedMessage at($offset)
  */
 class CategorySlugChangedMessageCollection extends MessageCollection
@@ -41,7 +42,7 @@ class CategorySlugChangedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CategorySlugChangedMessage {
+        return function (?int $index): ?CategorySlugChangedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CategorySlugChangedMessage $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FieldDefinition>
  * @method FieldDefinition current()
+ * @method FieldDefinition end()
  * @method FieldDefinition at($offset)
  */
 class FieldDefinitionCollection extends MapperSequence
@@ -41,7 +42,7 @@ class FieldDefinitionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FieldDefinition {
+        return function (?int $index): ?FieldDefinition {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FieldDefinition $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<VariantValues>
  * @method VariantValues current()
+ * @method VariantValues end()
  * @method VariantValues at($offset)
  */
 class VariantValuesCollection extends MapperSequence
@@ -41,7 +42,7 @@ class VariantValuesCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?VariantValues {
+        return function (?int $index): ?VariantValues {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var VariantValues $data */

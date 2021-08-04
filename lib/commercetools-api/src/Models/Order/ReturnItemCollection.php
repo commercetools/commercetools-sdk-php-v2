@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ReturnItem
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ReturnItem current()
+ * @method ReturnItem end()
  * @method ReturnItem at($offset)
  */
 class ReturnItemCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ReturnItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ReturnItem {
+        return function (?int $index): ?ReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

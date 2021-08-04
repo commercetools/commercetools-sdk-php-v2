@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetShippingMethodTaxRateChange>
  * @method SetShippingMethodTaxRateChange current()
+ * @method SetShippingMethodTaxRateChange end()
  * @method SetShippingMethodTaxRateChange at($offset)
  */
 class SetShippingMethodTaxRateChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetShippingMethodTaxRateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetShippingMethodTaxRateChange {
+        return function (?int $index): ?SetShippingMethodTaxRateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetShippingMethodTaxRateChange $data */

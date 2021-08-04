@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<DeliveryChangeValue>
  * @method DeliveryChangeValue current()
+ * @method DeliveryChangeValue end()
  * @method DeliveryChangeValue at($offset)
  */
 class DeliveryChangeValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class DeliveryChangeValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryChangeValue {
+        return function (?int $index): ?DeliveryChangeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryChangeValue $data */

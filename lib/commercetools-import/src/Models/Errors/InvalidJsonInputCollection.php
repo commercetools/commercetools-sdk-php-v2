@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidJsonInput>
  * @method InvalidJsonInput current()
+ * @method InvalidJsonInput end()
  * @method InvalidJsonInput at($offset)
  */
 class InvalidJsonInputCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidJsonInputCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidJsonInput {
+        return function (?int $index): ?InvalidJsonInput {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidJsonInput $data */

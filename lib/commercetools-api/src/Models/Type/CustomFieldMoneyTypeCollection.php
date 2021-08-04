@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldMoneyType>
  * @method CustomFieldMoneyType current()
+ * @method CustomFieldMoneyType end()
  * @method CustomFieldMoneyType at($offset)
  */
 class CustomFieldMoneyTypeCollection extends FieldTypeCollection
@@ -41,7 +42,7 @@ class CustomFieldMoneyTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldMoneyType {
+        return function (?int $index): ?CustomFieldMoneyType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldMoneyType $data */

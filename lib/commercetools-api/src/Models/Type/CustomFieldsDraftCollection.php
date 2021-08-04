@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomFieldsDraft>
  * @method CustomFieldsDraft current()
+ * @method CustomFieldsDraft end()
  * @method CustomFieldsDraft at($offset)
  */
 class CustomFieldsDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomFieldsDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldsDraft {
+        return function (?int $index): ?CustomFieldsDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldsDraft $data */

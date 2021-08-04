@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<LocalizableTextSetAttribute>
  * @method LocalizableTextSetAttribute current()
+ * @method LocalizableTextSetAttribute end()
  * @method LocalizableTextSetAttribute at($offset)
  */
 class LocalizableTextSetAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class LocalizableTextSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizableTextSetAttribute {
+        return function (?int $index): ?LocalizableTextSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizableTextSetAttribute $data */

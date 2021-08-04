@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<Custom>
  * @method Custom current()
+ * @method Custom end()
  * @method Custom at($offset)
  */
 class CustomCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?Custom {
+        return function (?int $index): ?Custom {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Custom $data */

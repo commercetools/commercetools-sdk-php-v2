@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddVariantChange>
  * @method AddVariantChange current()
+ * @method AddVariantChange end()
  * @method AddVariantChange at($offset)
  */
 class AddVariantChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddVariantChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddVariantChange {
+        return function (?int $index): ?AddVariantChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddVariantChange $data */

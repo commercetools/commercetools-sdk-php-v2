@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CartPagedQueryResponse>
  * @method CartPagedQueryResponse current()
+ * @method CartPagedQueryResponse end()
  * @method CartPagedQueryResponse at($offset)
  */
 class CartPagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CartPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CartPagedQueryResponse {
+        return function (?int $index): ?CartPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartPagedQueryResponse $data */

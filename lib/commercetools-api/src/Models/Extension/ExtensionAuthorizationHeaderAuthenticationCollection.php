@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionHttpDestinationAuthenticationCollection<ExtensionAuthorizationHeaderAuthentication>
  * @method ExtensionAuthorizationHeaderAuthentication current()
+ * @method ExtensionAuthorizationHeaderAuthentication end()
  * @method ExtensionAuthorizationHeaderAuthentication at($offset)
  */
 class ExtensionAuthorizationHeaderAuthenticationCollection extends ExtensionHttpDestinationAuthenticationCollection
@@ -41,7 +42,7 @@ class ExtensionAuthorizationHeaderAuthenticationCollection extends ExtensionHttp
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionAuthorizationHeaderAuthentication {
+        return function (?int $index): ?ExtensionAuthorizationHeaderAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionAuthorizationHeaderAuthentication $data */

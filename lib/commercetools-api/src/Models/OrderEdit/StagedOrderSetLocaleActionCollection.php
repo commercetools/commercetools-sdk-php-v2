@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetLocaleAction>
  * @method StagedOrderSetLocaleAction current()
+ * @method StagedOrderSetLocaleAction end()
  * @method StagedOrderSetLocaleAction at($offset)
  */
 class StagedOrderSetLocaleActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderSetLocaleActionCollection extends StagedOrderUpdateActionCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLocaleAction {
+        return function (?int $index): ?StagedOrderSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLocaleAction $data */

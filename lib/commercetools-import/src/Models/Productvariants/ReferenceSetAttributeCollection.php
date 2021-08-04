@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<ReferenceSetAttribute>
  * @method ReferenceSetAttribute current()
+ * @method ReferenceSetAttribute end()
  * @method ReferenceSetAttribute at($offset)
  */
 class ReferenceSetAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class ReferenceSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ReferenceSetAttribute {
+        return function (?int $index): ?ReferenceSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ReferenceSetAttribute $data */

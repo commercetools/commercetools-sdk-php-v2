@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<Payment>
  * @method Payment current()
+ * @method Payment end()
  * @method Payment at($offset)
  */
 class PaymentCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class PaymentCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?Payment {
+        return function (?int $index): ?Payment {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var Payment $data */

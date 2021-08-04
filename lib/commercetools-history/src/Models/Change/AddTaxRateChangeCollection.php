@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddTaxRateChange>
  * @method AddTaxRateChange current()
+ * @method AddTaxRateChange end()
  * @method AddTaxRateChange at($offset)
  */
 class AddTaxRateChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddTaxRateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddTaxRateChange {
+        return function (?int $index): ?AddTaxRateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddTaxRateChange $data */

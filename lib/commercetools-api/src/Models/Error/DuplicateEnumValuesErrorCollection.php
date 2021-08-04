@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<DuplicateEnumValuesError>
  * @method DuplicateEnumValuesError current()
+ * @method DuplicateEnumValuesError end()
  * @method DuplicateEnumValuesError at($offset)
  */
 class DuplicateEnumValuesErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class DuplicateEnumValuesErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DuplicateEnumValuesError {
+        return function (?int $index): ?DuplicateEnumValuesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DuplicateEnumValuesError $data */

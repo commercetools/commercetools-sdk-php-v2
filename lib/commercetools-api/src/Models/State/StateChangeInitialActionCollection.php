@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StateUpdateActionCollection<StateChangeInitialAction>
  * @method StateChangeInitialAction current()
+ * @method StateChangeInitialAction end()
  * @method StateChangeInitialAction at($offset)
  */
 class StateChangeInitialActionCollection extends StateUpdateActionCollection
@@ -41,7 +42,7 @@ class StateChangeInitialActionCollection extends StateUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?StateChangeInitialAction {
+        return function (?int $index): ?StateChangeInitialAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StateChangeInitialAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetCountryAction>
  * @method StagedOrderSetCountryAction current()
+ * @method StagedOrderSetCountryAction end()
  * @method StagedOrderSetCountryAction at($offset)
  */
 class StagedOrderSetCountryActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderSetCountryActionCollection extends StagedOrderUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetCountryAction {
+        return function (?int $index): ?StagedOrderSetCountryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetCountryAction $data */

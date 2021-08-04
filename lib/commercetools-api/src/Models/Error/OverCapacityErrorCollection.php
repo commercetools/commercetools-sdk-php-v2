@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<OverCapacityError>
  * @method OverCapacityError current()
+ * @method OverCapacityError end()
  * @method OverCapacityError at($offset)
  */
 class OverCapacityErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class OverCapacityErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OverCapacityError {
+        return function (?int $index): ?OverCapacityError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OverCapacityError $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProductProjectionPagedSearchResponse>
  * @method ProductProjectionPagedSearchResponse current()
+ * @method ProductProjectionPagedSearchResponse end()
  * @method ProductProjectionPagedSearchResponse at($offset)
  */
 class ProductProjectionPagedSearchResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ProductProjectionPagedSearchResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductProjectionPagedSearchResponse {
+        return function (?int $index): ?ProductProjectionPagedSearchResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductProjectionPagedSearchResponse $data */

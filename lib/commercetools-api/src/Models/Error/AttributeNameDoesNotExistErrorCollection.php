@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AttributeNameDoesNotExistError>
  * @method AttributeNameDoesNotExistError current()
+ * @method AttributeNameDoesNotExistError end()
  * @method AttributeNameDoesNotExistError at($offset)
  */
 class AttributeNameDoesNotExistErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class AttributeNameDoesNotExistErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributeNameDoesNotExistError {
+        return function (?int $index): ?AttributeNameDoesNotExistError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributeNameDoesNotExistError $data */

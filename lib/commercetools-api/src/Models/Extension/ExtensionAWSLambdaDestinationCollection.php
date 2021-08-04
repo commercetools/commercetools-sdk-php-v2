@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionDestinationCollection<ExtensionAWSLambdaDestination>
  * @method ExtensionAWSLambdaDestination current()
+ * @method ExtensionAWSLambdaDestination end()
  * @method ExtensionAWSLambdaDestination at($offset)
  */
 class ExtensionAWSLambdaDestinationCollection extends ExtensionDestinationCollection
@@ -41,7 +42,7 @@ class ExtensionAWSLambdaDestinationCollection extends ExtensionDestinationCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionAWSLambdaDestination {
+        return function (?int $index): ?ExtensionAWSLambdaDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionAWSLambdaDestination $data */

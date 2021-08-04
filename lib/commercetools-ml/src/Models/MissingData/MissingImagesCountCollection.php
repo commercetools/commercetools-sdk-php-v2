@@ -16,8 +16,10 @@ use stdClass;
  * @template T of MissingImagesCount
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method MissingImagesCount current()
+ * @method MissingImagesCount end()
  * @method MissingImagesCount at($offset)
  */
 class MissingImagesCountCollection extends MapperSequence
@@ -44,7 +46,7 @@ class MissingImagesCountCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingImagesCount {
+        return function (?int $index): ?MissingImagesCount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

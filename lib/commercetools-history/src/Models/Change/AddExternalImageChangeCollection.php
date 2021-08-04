@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddExternalImageChange>
  * @method AddExternalImageChange current()
+ * @method AddExternalImageChange end()
  * @method AddExternalImageChange at($offset)
  */
 class AddExternalImageChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddExternalImageChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddExternalImageChange {
+        return function (?int $index): ?AddExternalImageChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddExternalImageChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeProductSearchIndexingEnabledAction>
  * @method ProjectChangeProductSearchIndexingEnabledAction current()
+ * @method ProjectChangeProductSearchIndexingEnabledAction end()
  * @method ProjectChangeProductSearchIndexingEnabledAction at($offset)
  */
 class ProjectChangeProductSearchIndexingEnabledActionCollection extends ProjectUpdateActionCollection
@@ -41,7 +42,7 @@ class ProjectChangeProductSearchIndexingEnabledActionCollection extends ProjectU
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeProductSearchIndexingEnabledAction {
+        return function (?int $index): ?ProjectChangeProductSearchIndexingEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeProductSearchIndexingEnabledAction $data */

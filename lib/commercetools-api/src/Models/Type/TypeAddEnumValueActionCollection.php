@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeAddEnumValueAction>
  * @method TypeAddEnumValueAction current()
+ * @method TypeAddEnumValueAction end()
  * @method TypeAddEnumValueAction at($offset)
  */
 class TypeAddEnumValueActionCollection extends TypeUpdateActionCollection
@@ -41,7 +42,7 @@ class TypeAddEnumValueActionCollection extends TypeUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeAddEnumValueAction {
+        return function (?int $index): ?TypeAddEnumValueAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeAddEnumValueAction $data */

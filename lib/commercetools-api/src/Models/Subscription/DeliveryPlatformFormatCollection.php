@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DeliveryFormatCollection<DeliveryPlatformFormat>
  * @method DeliveryPlatformFormat current()
+ * @method DeliveryPlatformFormat end()
  * @method DeliveryPlatformFormat at($offset)
  */
 class DeliveryPlatformFormatCollection extends DeliveryFormatCollection
@@ -41,7 +42,7 @@ class DeliveryPlatformFormatCollection extends DeliveryFormatCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryPlatformFormat {
+        return function (?int $index): ?DeliveryPlatformFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryPlatformFormat $data */

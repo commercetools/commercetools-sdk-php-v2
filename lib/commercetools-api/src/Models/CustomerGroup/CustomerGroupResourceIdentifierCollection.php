@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ResourceIdentifierCollection<CustomerGroupResourceIdentifier>
  * @method CustomerGroupResourceIdentifier current()
+ * @method CustomerGroupResourceIdentifier end()
  * @method CustomerGroupResourceIdentifier at($offset)
  */
 class CustomerGroupResourceIdentifierCollection extends ResourceIdentifierCollection
@@ -41,7 +42,7 @@ class CustomerGroupResourceIdentifierCollection extends ResourceIdentifierCollec
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroupResourceIdentifier {
+        return function (?int $index): ?CustomerGroupResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroupResourceIdentifier $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddFieldDefinitionChange>
  * @method AddFieldDefinitionChange current()
+ * @method AddFieldDefinitionChange end()
  * @method AddFieldDefinitionChange at($offset)
  */
 class AddFieldDefinitionChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddFieldDefinitionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddFieldDefinitionChange {
+        return function (?int $index): ?AddFieldDefinitionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddFieldDefinitionChange $data */

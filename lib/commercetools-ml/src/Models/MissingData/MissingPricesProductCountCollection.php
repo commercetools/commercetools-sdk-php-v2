@@ -16,8 +16,10 @@ use stdClass;
  * @template T of MissingPricesProductCount
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method MissingPricesProductCount current()
+ * @method MissingPricesProductCount end()
  * @method MissingPricesProductCount at($offset)
  */
 class MissingPricesProductCountCollection extends MapperSequence
@@ -44,7 +46,7 @@ class MissingPricesProductCountCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingPricesProductCount {
+        return function (?int $index): ?MissingPricesProductCount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeInputHintChange>
  * @method ChangeInputHintChange current()
+ * @method ChangeInputHintChange end()
  * @method ChangeInputHintChange at($offset)
  */
 class ChangeInputHintChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeInputHintChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeInputHintChange {
+        return function (?int $index): ?ChangeInputHintChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeInputHintChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ShippingMethodUpdateActionCollection<ShippingMethodSetCustomTypeAction>
  * @method ShippingMethodSetCustomTypeAction current()
+ * @method ShippingMethodSetCustomTypeAction end()
  * @method ShippingMethodSetCustomTypeAction at($offset)
  */
 class ShippingMethodSetCustomTypeActionCollection extends ShippingMethodUpdateActionCollection
@@ -41,7 +42,7 @@ class ShippingMethodSetCustomTypeActionCollection extends ShippingMethodUpdateAc
      */
     protected function mapper()
     {
-        return function (int $index): ?ShippingMethodSetCustomTypeAction {
+        return function (?int $index): ?ShippingMethodSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ShippingMethodSetCustomTypeAction $data */

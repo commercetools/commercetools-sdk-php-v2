@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSkuChange>
  * @method SetSkuChange current()
+ * @method SetSkuChange end()
  * @method SetSkuChange at($offset)
  */
 class SetSkuChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetSkuChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSkuChange {
+        return function (?int $index): ?SetSkuChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSkuChange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<PaymentInteractionAddedMessage>
  * @method PaymentInteractionAddedMessage current()
+ * @method PaymentInteractionAddedMessage end()
  * @method PaymentInteractionAddedMessage at($offset)
  */
 class PaymentInteractionAddedMessageCollection extends MessageCollection
@@ -41,7 +42,7 @@ class PaymentInteractionAddedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentInteractionAddedMessage {
+        return function (?int $index): ?PaymentInteractionAddedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentInteractionAddedMessage $data */

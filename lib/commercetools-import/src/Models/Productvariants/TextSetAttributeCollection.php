@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<TextSetAttribute>
  * @method TextSetAttribute current()
+ * @method TextSetAttribute end()
  * @method TextSetAttribute at($offset)
  */
 class TextSetAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class TextSetAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TextSetAttribute {
+        return function (?int $index): ?TextSetAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TextSetAttribute $data */

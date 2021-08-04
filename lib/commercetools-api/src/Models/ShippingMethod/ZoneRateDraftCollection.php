@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ZoneRateDraft>
  * @method ZoneRateDraft current()
+ * @method ZoneRateDraft end()
  * @method ZoneRateDraft at($offset)
  */
 class ZoneRateDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ZoneRateDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneRateDraft {
+        return function (?int $index): ?ZoneRateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneRateDraft $data */

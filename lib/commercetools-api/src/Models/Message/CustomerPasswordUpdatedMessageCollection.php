@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MessageCollection<CustomerPasswordUpdatedMessage>
  * @method CustomerPasswordUpdatedMessage current()
+ * @method CustomerPasswordUpdatedMessage end()
  * @method CustomerPasswordUpdatedMessage at($offset)
  */
 class CustomerPasswordUpdatedMessageCollection extends MessageCollection
@@ -41,7 +42,7 @@ class CustomerPasswordUpdatedMessageCollection extends MessageCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerPasswordUpdatedMessage {
+        return function (?int $index): ?CustomerPasswordUpdatedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerPasswordUpdatedMessage $data */

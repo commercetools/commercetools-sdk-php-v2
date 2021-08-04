@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends OrderUpdateActionCollection<OrderSetCustomLineItemCustomTypeAction>
  * @method OrderSetCustomLineItemCustomTypeAction current()
+ * @method OrderSetCustomLineItemCustomTypeAction end()
  * @method OrderSetCustomLineItemCustomTypeAction at($offset)
  */
 class OrderSetCustomLineItemCustomTypeActionCollection extends OrderUpdateActionCollection
@@ -41,7 +42,7 @@ class OrderSetCustomLineItemCustomTypeActionCollection extends OrderUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderSetCustomLineItemCustomTypeAction {
+        return function (?int $index): ?OrderSetCustomLineItemCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderSetCustomLineItemCustomTypeAction $data */

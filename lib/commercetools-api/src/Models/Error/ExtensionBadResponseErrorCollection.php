@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ExtensionBadResponseError>
  * @method ExtensionBadResponseError current()
+ * @method ExtensionBadResponseError end()
  * @method ExtensionBadResponseError at($offset)
  */
 class ExtensionBadResponseErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ExtensionBadResponseErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionBadResponseError {
+        return function (?int $index): ?ExtensionBadResponseError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionBadResponseError $data */

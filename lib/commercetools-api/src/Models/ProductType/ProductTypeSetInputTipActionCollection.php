@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeSetInputTipAction>
  * @method ProductTypeSetInputTipAction current()
+ * @method ProductTypeSetInputTipAction end()
  * @method ProductTypeSetInputTipAction at($offset)
  */
 class ProductTypeSetInputTipActionCollection extends ProductTypeUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductTypeSetInputTipActionCollection extends ProductTypeUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeSetInputTipAction {
+        return function (?int $index): ?ProductTypeSetInputTipAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeSetInputTipAction $data */

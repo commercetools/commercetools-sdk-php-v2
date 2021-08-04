@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetSearchKeywordsChange>
  * @method SetSearchKeywordsChange current()
+ * @method SetSearchKeywordsChange end()
  * @method SetSearchKeywordsChange at($offset)
  */
 class SetSearchKeywordsChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetSearchKeywordsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetSearchKeywordsChange {
+        return function (?int $index): ?SetSearchKeywordsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetSearchKeywordsChange $data */

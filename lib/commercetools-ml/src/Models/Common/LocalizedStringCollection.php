@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<LocalizedString>
  * @method LocalizedString current()
+ * @method LocalizedString end()
  * @method LocalizedString at($offset)
  */
 class LocalizedStringCollection extends MapperSequence
@@ -41,7 +42,7 @@ class LocalizedStringCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizedString {
+        return function (?int $index): ?LocalizedString {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizedString $data */

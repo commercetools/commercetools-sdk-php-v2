@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends KeyReferenceCollection<CartKeyReference>
  * @method CartKeyReference current()
+ * @method CartKeyReference end()
  * @method CartKeyReference at($offset)
  */
 class CartKeyReferenceCollection extends KeyReferenceCollection
@@ -41,7 +42,7 @@ class CartKeyReferenceCollection extends KeyReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CartKeyReference {
+        return function (?int $index): ?CartKeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartKeyReference $data */

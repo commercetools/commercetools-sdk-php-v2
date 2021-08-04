@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<ZoneReference>
  * @method ZoneReference current()
+ * @method ZoneReference end()
  * @method ZoneReference at($offset)
  */
 class ZoneReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class ZoneReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneReference {
+        return function (?int $index): ?ZoneReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneReference $data */

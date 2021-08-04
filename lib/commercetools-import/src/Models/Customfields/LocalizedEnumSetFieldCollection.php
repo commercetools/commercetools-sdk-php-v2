@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<LocalizedEnumSetField>
  * @method LocalizedEnumSetField current()
+ * @method LocalizedEnumSetField end()
  * @method LocalizedEnumSetField at($offset)
  */
 class LocalizedEnumSetFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class LocalizedEnumSetFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LocalizedEnumSetField {
+        return function (?int $index): ?LocalizedEnumSetField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LocalizedEnumSetField $data */

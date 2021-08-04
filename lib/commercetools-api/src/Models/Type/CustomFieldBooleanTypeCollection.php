@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends FieldTypeCollection<CustomFieldBooleanType>
  * @method CustomFieldBooleanType current()
+ * @method CustomFieldBooleanType end()
  * @method CustomFieldBooleanType at($offset)
  */
 class CustomFieldBooleanTypeCollection extends FieldTypeCollection
@@ -41,7 +42,7 @@ class CustomFieldBooleanTypeCollection extends FieldTypeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomFieldBooleanType {
+        return function (?int $index): ?CustomFieldBooleanType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomFieldBooleanType $data */

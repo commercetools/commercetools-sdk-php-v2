@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderChangeLineItemQuantityAction>
  * @method StagedOrderChangeLineItemQuantityAction current()
+ * @method StagedOrderChangeLineItemQuantityAction end()
  * @method StagedOrderChangeLineItemQuantityAction at($offset)
  */
 class StagedOrderChangeLineItemQuantityActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderChangeLineItemQuantityActionCollection extends StagedOrderUpdat
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderChangeLineItemQuantityAction {
+        return function (?int $index): ?StagedOrderChangeLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderChangeLineItemQuantityAction $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DeliveryFormatCollection<DeliveryCloudEventsFormat>
  * @method DeliveryCloudEventsFormat current()
+ * @method DeliveryCloudEventsFormat end()
  * @method DeliveryCloudEventsFormat at($offset)
  */
 class DeliveryCloudEventsFormatCollection extends DeliveryFormatCollection
@@ -41,7 +42,7 @@ class DeliveryCloudEventsFormatCollection extends DeliveryFormatCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryCloudEventsFormat {
+        return function (?int $index): ?DeliveryCloudEventsFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var DeliveryCloudEventsFormat $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InsufficientScopeError>
  * @method InsufficientScopeError current()
+ * @method InsufficientScopeError end()
  * @method InsufficientScopeError at($offset)
  */
 class InsufficientScopeErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InsufficientScopeErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InsufficientScopeError {
+        return function (?int $index): ?InsufficientScopeError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InsufficientScopeError $data */

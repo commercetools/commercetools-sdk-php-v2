@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<SubRate>
  * @method SubRate current()
+ * @method SubRate end()
  * @method SubRate at($offset)
  */
 class SubRateCollection extends MapperSequence
@@ -41,7 +42,7 @@ class SubRateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?SubRate {
+        return function (?int $index): ?SubRate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SubRate $data */

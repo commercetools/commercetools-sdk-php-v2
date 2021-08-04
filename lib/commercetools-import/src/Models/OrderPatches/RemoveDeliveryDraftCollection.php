@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<RemoveDeliveryDraft>
  * @method RemoveDeliveryDraft current()
+ * @method RemoveDeliveryDraft end()
  * @method RemoveDeliveryDraft at($offset)
  */
 class RemoveDeliveryDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class RemoveDeliveryDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?RemoveDeliveryDraft {
+        return function (?int $index): ?RemoveDeliveryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var RemoveDeliveryDraft $data */

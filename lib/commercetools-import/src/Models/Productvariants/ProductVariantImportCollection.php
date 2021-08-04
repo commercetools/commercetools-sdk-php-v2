@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ImportResourceCollection<ProductVariantImport>
  * @method ProductVariantImport current()
+ * @method ProductVariantImport end()
  * @method ProductVariantImport at($offset)
  */
 class ProductVariantImportCollection extends ImportResourceCollection
@@ -41,7 +42,7 @@ class ProductVariantImportCollection extends ImportResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductVariantImport {
+        return function (?int $index): ?ProductVariantImport {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductVariantImport $data */

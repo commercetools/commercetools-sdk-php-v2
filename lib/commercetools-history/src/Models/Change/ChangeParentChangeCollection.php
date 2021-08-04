@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeParentChange>
  * @method ChangeParentChange current()
+ * @method ChangeParentChange end()
  * @method ChangeParentChange at($offset)
  */
 class ChangeParentChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeParentChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeParentChange {
+        return function (?int $index): ?ChangeParentChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeParentChange $data */

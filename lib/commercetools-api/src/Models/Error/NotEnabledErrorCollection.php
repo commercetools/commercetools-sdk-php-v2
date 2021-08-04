@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<NotEnabledError>
  * @method NotEnabledError current()
+ * @method NotEnabledError end()
  * @method NotEnabledError at($offset)
  */
 class NotEnabledErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class NotEnabledErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?NotEnabledError {
+        return function (?int $index): ?NotEnabledError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NotEnabledError $data */

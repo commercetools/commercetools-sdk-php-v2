@@ -16,8 +16,10 @@ use stdClass;
  * @template T of KeyReference
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method KeyReference current()
+ * @method KeyReference end()
  * @method KeyReference at($offset)
  */
 class KeyReferenceCollection extends MapperSequence
@@ -44,7 +46,7 @@ class KeyReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?KeyReference {
+        return function (?int $index): ?KeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

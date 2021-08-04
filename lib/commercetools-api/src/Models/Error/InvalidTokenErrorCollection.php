@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidTokenError>
  * @method InvalidTokenError current()
+ * @method InvalidTokenError end()
  * @method InvalidTokenError at($offset)
  */
 class InvalidTokenErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidTokenErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidTokenError {
+        return function (?int $index): ?InvalidTokenError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidTokenError $data */

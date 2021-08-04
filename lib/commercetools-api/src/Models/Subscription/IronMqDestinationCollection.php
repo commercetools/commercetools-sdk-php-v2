@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<IronMqDestination>
  * @method IronMqDestination current()
+ * @method IronMqDestination end()
  * @method IronMqDestination at($offset)
  */
 class IronMqDestinationCollection extends DestinationCollection
@@ -41,7 +42,7 @@ class IronMqDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?IronMqDestination {
+        return function (?int $index): ?IronMqDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var IronMqDestination $data */

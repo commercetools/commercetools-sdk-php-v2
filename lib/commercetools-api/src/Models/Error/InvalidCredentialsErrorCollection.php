@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidCredentialsError>
  * @method InvalidCredentialsError current()
+ * @method InvalidCredentialsError end()
  * @method InvalidCredentialsError at($offset)
  */
 class InvalidCredentialsErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidCredentialsErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidCredentialsError {
+        return function (?int $index): ?InvalidCredentialsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidCredentialsError $data */

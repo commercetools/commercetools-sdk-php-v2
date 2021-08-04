@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductDiscountUpdateActionCollection<ProductDiscountSetValidUntilAction>
  * @method ProductDiscountSetValidUntilAction current()
+ * @method ProductDiscountSetValidUntilAction end()
  * @method ProductDiscountSetValidUntilAction at($offset)
  */
 class ProductDiscountSetValidUntilActionCollection extends ProductDiscountUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductDiscountSetValidUntilActionCollection extends ProductDiscountUpdate
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductDiscountSetValidUntilAction {
+        return function (?int $index): ?ProductDiscountSetValidUntilAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductDiscountSetValidUntilAction $data */

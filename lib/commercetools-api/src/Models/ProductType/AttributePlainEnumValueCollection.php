@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<AttributePlainEnumValue>
  * @method AttributePlainEnumValue current()
+ * @method AttributePlainEnumValue end()
  * @method AttributePlainEnumValue at($offset)
  */
 class AttributePlainEnumValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class AttributePlainEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?AttributePlainEnumValue {
+        return function (?int $index): ?AttributePlainEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AttributePlainEnumValue $data */

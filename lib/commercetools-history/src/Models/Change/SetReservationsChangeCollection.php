@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetReservationsChange>
  * @method SetReservationsChange current()
+ * @method SetReservationsChange end()
  * @method SetReservationsChange at($offset)
  */
 class SetReservationsChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetReservationsChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetReservationsChange {
+        return function (?int $index): ?SetReservationsChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetReservationsChange $data */

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of GeoJson
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method GeoJson current()
+ * @method GeoJson end()
  * @method GeoJson at($offset)
  */
 class GeoJsonCollection extends MapperSequence
@@ -44,7 +46,7 @@ class GeoJsonCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?GeoJson {
+        return function (?int $index): ?GeoJson {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

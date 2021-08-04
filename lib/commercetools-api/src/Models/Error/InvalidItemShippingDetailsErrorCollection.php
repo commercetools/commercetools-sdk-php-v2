@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidItemShippingDetailsError>
  * @method InvalidItemShippingDetailsError current()
+ * @method InvalidItemShippingDetailsError end()
  * @method InvalidItemShippingDetailsError at($offset)
  */
 class InvalidItemShippingDetailsErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidItemShippingDetailsErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidItemShippingDetailsError {
+        return function (?int $index): ?InvalidItemShippingDetailsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidItemShippingDetailsError $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TransactionDraft>
  * @method TransactionDraft current()
+ * @method TransactionDraft end()
  * @method TransactionDraft at($offset)
  */
 class TransactionDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TransactionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TransactionDraft {
+        return function (?int $index): ?TransactionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TransactionDraft $data */

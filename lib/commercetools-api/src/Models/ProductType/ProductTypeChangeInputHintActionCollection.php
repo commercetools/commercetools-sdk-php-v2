@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductTypeUpdateActionCollection<ProductTypeChangeInputHintAction>
  * @method ProductTypeChangeInputHintAction current()
+ * @method ProductTypeChangeInputHintAction end()
  * @method ProductTypeChangeInputHintAction at($offset)
  */
 class ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductTypeChangeInputHintAction {
+        return function (?int $index): ?ProductTypeChangeInputHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductTypeChangeInputHintAction $data */

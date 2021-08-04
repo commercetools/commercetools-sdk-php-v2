@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLocalizedDescriptionChange>
  * @method SetLocalizedDescriptionChange current()
+ * @method SetLocalizedDescriptionChange end()
  * @method SetLocalizedDescriptionChange at($offset)
  */
 class SetLocalizedDescriptionChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetLocalizedDescriptionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLocalizedDescriptionChange {
+        return function (?int $index): ?SetLocalizedDescriptionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLocalizedDescriptionChange $data */

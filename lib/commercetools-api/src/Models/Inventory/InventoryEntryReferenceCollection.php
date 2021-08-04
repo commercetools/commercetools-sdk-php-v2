@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<InventoryEntryReference>
  * @method InventoryEntryReference current()
+ * @method InventoryEntryReference end()
  * @method InventoryEntryReference at($offset)
  */
 class InventoryEntryReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class InventoryEntryReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InventoryEntryReference {
+        return function (?int $index): ?InventoryEntryReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InventoryEntryReference $data */

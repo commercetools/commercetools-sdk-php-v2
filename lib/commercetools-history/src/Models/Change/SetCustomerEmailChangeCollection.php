@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomerEmailChange>
  * @method SetCustomerEmailChange current()
+ * @method SetCustomerEmailChange end()
  * @method SetCustomerEmailChange at($offset)
  */
 class SetCustomerEmailChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetCustomerEmailChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomerEmailChange {
+        return function (?int $index): ?SetCustomerEmailChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomerEmailChange $data */

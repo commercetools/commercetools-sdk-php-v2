@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomFieldCollection<BooleanField>
  * @method BooleanField current()
+ * @method BooleanField end()
  * @method BooleanField at($offset)
  */
 class BooleanFieldCollection extends CustomFieldCollection
@@ -41,7 +42,7 @@ class BooleanFieldCollection extends CustomFieldCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?BooleanField {
+        return function (?int $index): ?BooleanField {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var BooleanField $data */

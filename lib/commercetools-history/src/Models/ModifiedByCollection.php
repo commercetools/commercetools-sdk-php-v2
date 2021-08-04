@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ModifiedBy>
  * @method ModifiedBy current()
+ * @method ModifiedBy end()
  * @method ModifiedBy at($offset)
  */
 class ModifiedByCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ModifiedByCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ModifiedBy {
+        return function (?int $index): ?ModifiedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ModifiedBy $data */

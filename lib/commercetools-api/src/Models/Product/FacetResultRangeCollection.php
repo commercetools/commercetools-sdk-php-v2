@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<FacetResultRange>
  * @method FacetResultRange current()
+ * @method FacetResultRange end()
  * @method FacetResultRange at($offset)
  */
 class FacetResultRangeCollection extends MapperSequence
@@ -41,7 +42,7 @@ class FacetResultRangeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?FacetResultRange {
+        return function (?int $index): ?FacetResultRange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var FacetResultRange $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<TransitionLineItemStateChange>
  * @method TransitionLineItemStateChange current()
+ * @method TransitionLineItemStateChange end()
  * @method TransitionLineItemStateChange at($offset)
  */
 class TransitionLineItemStateChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class TransitionLineItemStateChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TransitionLineItemStateChange {
+        return function (?int $index): ?TransitionLineItemStateChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TransitionLineItemStateChange $data */

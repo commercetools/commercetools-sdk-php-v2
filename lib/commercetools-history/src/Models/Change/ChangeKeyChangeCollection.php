@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeKeyChange>
  * @method ChangeKeyChange current()
+ * @method ChangeKeyChange end()
  * @method ChangeKeyChange at($offset)
  */
 class ChangeKeyChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeKeyChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeKeyChange {
+        return function (?int $index): ?ChangeKeyChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeKeyChange $data */

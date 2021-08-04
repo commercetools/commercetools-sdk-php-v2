@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<AccessDeniedError>
  * @method AccessDeniedError current()
+ * @method AccessDeniedError end()
  * @method AccessDeniedError at($offset)
  */
 class AccessDeniedErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class AccessDeniedErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AccessDeniedError {
+        return function (?int $index): ?AccessDeniedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AccessDeniedError $data */

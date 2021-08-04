@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ClientLoggingCollection<LastModifiedBy>
  * @method LastModifiedBy current()
+ * @method LastModifiedBy end()
  * @method LastModifiedBy at($offset)
  */
 class LastModifiedByCollection extends ClientLoggingCollection
@@ -41,7 +42,7 @@ class LastModifiedByCollection extends ClientLoggingCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?LastModifiedBy {
+        return function (?int $index): ?LastModifiedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var LastModifiedBy $data */

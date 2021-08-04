@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyCustomerUpdateActionCollection<MyCustomerSetLocaleAction>
  * @method MyCustomerSetLocaleAction current()
+ * @method MyCustomerSetLocaleAction end()
  * @method MyCustomerSetLocaleAction at($offset)
  */
 class MyCustomerSetLocaleActionCollection extends MyCustomerUpdateActionCollection
@@ -41,7 +42,7 @@ class MyCustomerSetLocaleActionCollection extends MyCustomerUpdateActionCollecti
      */
     protected function mapper()
     {
-        return function (int $index): ?MyCustomerSetLocaleAction {
+        return function (?int $index): ?MyCustomerSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyCustomerSetLocaleAction $data */

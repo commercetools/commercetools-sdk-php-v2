@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProjectUpdateActionCollection<ProjectChangeCountryTaxRateFallbackEnabledAction>
  * @method ProjectChangeCountryTaxRateFallbackEnabledAction current()
+ * @method ProjectChangeCountryTaxRateFallbackEnabledAction end()
  * @method ProjectChangeCountryTaxRateFallbackEnabledAction at($offset)
  */
 class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends ProjectUpdateActionCollection
@@ -41,7 +42,7 @@ class ProjectChangeCountryTaxRateFallbackEnabledActionCollection extends Project
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectChangeCountryTaxRateFallbackEnabledAction {
+        return function (?int $index): ?ProjectChangeCountryTaxRateFallbackEnabledAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectChangeCountryTaxRateFallbackEnabledAction $data */

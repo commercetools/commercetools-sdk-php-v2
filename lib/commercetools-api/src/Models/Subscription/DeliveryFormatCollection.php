@@ -16,8 +16,10 @@ use stdClass;
  * @template T of DeliveryFormat
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method DeliveryFormat current()
+ * @method DeliveryFormat end()
  * @method DeliveryFormat at($offset)
  */
 class DeliveryFormatCollection extends MapperSequence
@@ -44,7 +46,7 @@ class DeliveryFormatCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?DeliveryFormat {
+        return function (?int $index): ?DeliveryFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

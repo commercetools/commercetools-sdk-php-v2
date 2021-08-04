@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProjectCategoryRecommendationMeta>
  * @method ProjectCategoryRecommendationMeta current()
+ * @method ProjectCategoryRecommendationMeta end()
  * @method ProjectCategoryRecommendationMeta at($offset)
  */
 class ProjectCategoryRecommendationMetaCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ProjectCategoryRecommendationMetaCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectCategoryRecommendationMeta {
+        return function (?int $index): ?ProjectCategoryRecommendationMeta {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectCategoryRecommendationMeta $data */

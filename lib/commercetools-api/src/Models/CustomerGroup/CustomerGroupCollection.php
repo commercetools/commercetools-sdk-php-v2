@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends BaseResourceCollection<CustomerGroup>
  * @method CustomerGroup current()
+ * @method CustomerGroup end()
  * @method CustomerGroup at($offset)
  */
 class CustomerGroupCollection extends BaseResourceCollection
@@ -41,7 +42,7 @@ class CustomerGroupCollection extends BaseResourceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerGroup {
+        return function (?int $index): ?CustomerGroup {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerGroup $data */

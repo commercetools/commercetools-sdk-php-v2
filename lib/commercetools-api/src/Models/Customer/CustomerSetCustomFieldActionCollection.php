@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CustomerUpdateActionCollection<CustomerSetCustomFieldAction>
  * @method CustomerSetCustomFieldAction current()
+ * @method CustomerSetCustomFieldAction end()
  * @method CustomerSetCustomFieldAction at($offset)
  */
 class CustomerSetCustomFieldActionCollection extends CustomerUpdateActionCollection
@@ -41,7 +42,7 @@ class CustomerSetCustomFieldActionCollection extends CustomerUpdateActionCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerSetCustomFieldAction {
+        return function (?int $index): ?CustomerSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerSetCustomFieldAction $data */

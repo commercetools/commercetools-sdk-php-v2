@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomLineItem>
  * @method CustomLineItem current()
+ * @method CustomLineItem end()
  * @method CustomLineItem at($offset)
  */
 class CustomLineItemCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomLineItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomLineItem {
+        return function (?int $index): ?CustomLineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomLineItem $data */

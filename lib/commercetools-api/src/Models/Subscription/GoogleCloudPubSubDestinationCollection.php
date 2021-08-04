@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends DestinationCollection<GoogleCloudPubSubDestination>
  * @method GoogleCloudPubSubDestination current()
+ * @method GoogleCloudPubSubDestination end()
  * @method GoogleCloudPubSubDestination at($offset)
  */
 class GoogleCloudPubSubDestinationCollection extends DestinationCollection
@@ -41,7 +42,7 @@ class GoogleCloudPubSubDestinationCollection extends DestinationCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?GoogleCloudPubSubDestination {
+        return function (?int $index): ?GoogleCloudPubSubDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var GoogleCloudPubSubDestination $data */

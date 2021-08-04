@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends CartUpdateActionCollection<CartApplyDeltaToLineItemShippingDetailsTargetsAction>
  * @method CartApplyDeltaToLineItemShippingDetailsTargetsAction current()
+ * @method CartApplyDeltaToLineItemShippingDetailsTargetsAction end()
  * @method CartApplyDeltaToLineItemShippingDetailsTargetsAction at($offset)
  */
 class CartApplyDeltaToLineItemShippingDetailsTargetsActionCollection extends CartUpdateActionCollection
@@ -41,7 +42,7 @@ class CartApplyDeltaToLineItemShippingDetailsTargetsActionCollection extends Car
      */
     protected function mapper()
     {
-        return function (int $index): ?CartApplyDeltaToLineItemShippingDetailsTargetsAction {
+        return function (?int $index): ?CartApplyDeltaToLineItemShippingDetailsTargetsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CartApplyDeltaToLineItemShippingDetailsTargetsAction $data */

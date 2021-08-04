@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ProductUpdateActionCollection<ProductMoveImageToPositionAction>
  * @method ProductMoveImageToPositionAction current()
+ * @method ProductMoveImageToPositionAction end()
  * @method ProductMoveImageToPositionAction at($offset)
  */
 class ProductMoveImageToPositionActionCollection extends ProductUpdateActionCollection
@@ -41,7 +42,7 @@ class ProductMoveImageToPositionActionCollection extends ProductUpdateActionColl
      */
     protected function mapper()
     {
-        return function (int $index): ?ProductMoveImageToPositionAction {
+        return function (?int $index): ?ProductMoveImageToPositionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProductMoveImageToPositionAction $data */

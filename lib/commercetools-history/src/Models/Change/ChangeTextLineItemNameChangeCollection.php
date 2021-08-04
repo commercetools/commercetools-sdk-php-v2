@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeTextLineItemNameChange>
  * @method ChangeTextLineItemNameChange current()
+ * @method ChangeTextLineItemNameChange end()
  * @method ChangeTextLineItemNameChange at($offset)
  */
 class ChangeTextLineItemNameChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeTextLineItemNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeTextLineItemNameChange {
+        return function (?int $index): ?ChangeTextLineItemNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeTextLineItemNameChange $data */

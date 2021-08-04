@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends StagedOrderUpdateActionCollection<StagedOrderSetLineItemTaxRateAction>
  * @method StagedOrderSetLineItemTaxRateAction current()
+ * @method StagedOrderSetLineItemTaxRateAction end()
  * @method StagedOrderSetLineItemTaxRateAction at($offset)
  */
 class StagedOrderSetLineItemTaxRateActionCollection extends StagedOrderUpdateActionCollection
@@ -41,7 +42,7 @@ class StagedOrderSetLineItemTaxRateActionCollection extends StagedOrderUpdateAct
      */
     protected function mapper()
     {
-        return function (int $index): ?StagedOrderSetLineItemTaxRateAction {
+        return function (?int $index): ?StagedOrderSetLineItemTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var StagedOrderSetLineItemTaxRateAction $data */

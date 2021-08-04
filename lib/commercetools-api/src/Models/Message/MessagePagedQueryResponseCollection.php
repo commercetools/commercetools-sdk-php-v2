@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MessagePagedQueryResponse>
  * @method MessagePagedQueryResponse current()
+ * @method MessagePagedQueryResponse end()
  * @method MessagePagedQueryResponse at($offset)
  */
 class MessagePagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MessagePagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MessagePagedQueryResponse {
+        return function (?int $index): ?MessagePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MessagePagedQueryResponse $data */

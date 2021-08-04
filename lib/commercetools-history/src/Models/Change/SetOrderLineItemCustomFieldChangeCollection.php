@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetOrderLineItemCustomFieldChange>
  * @method SetOrderLineItemCustomFieldChange current()
+ * @method SetOrderLineItemCustomFieldChange end()
  * @method SetOrderLineItemCustomFieldChange at($offset)
  */
 class SetOrderLineItemCustomFieldChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetOrderLineItemCustomFieldChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetOrderLineItemCustomFieldChange {
+        return function (?int $index): ?SetOrderLineItemCustomFieldChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetOrderLineItemCustomFieldChange $data */

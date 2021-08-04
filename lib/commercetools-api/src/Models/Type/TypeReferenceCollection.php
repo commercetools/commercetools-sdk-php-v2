@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<TypeReference>
  * @method TypeReference current()
+ * @method TypeReference end()
  * @method TypeReference at($offset)
  */
 class TypeReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class TypeReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeReference {
+        return function (?int $index): ?TypeReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeReference $data */

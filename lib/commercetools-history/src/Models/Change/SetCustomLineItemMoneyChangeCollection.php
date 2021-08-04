@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetCustomLineItemMoneyChange>
  * @method SetCustomLineItemMoneyChange current()
+ * @method SetCustomLineItemMoneyChange end()
  * @method SetCustomLineItemMoneyChange at($offset)
  */
 class SetCustomLineItemMoneyChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetCustomLineItemMoneyChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetCustomLineItemMoneyChange {
+        return function (?int $index): ?SetCustomLineItemMoneyChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetCustomLineItemMoneyChange $data */

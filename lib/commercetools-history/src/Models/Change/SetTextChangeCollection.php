@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetTextChange>
  * @method SetTextChange current()
+ * @method SetTextChange end()
  * @method SetTextChange at($offset)
  */
 class SetTextChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetTextChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetTextChange {
+        return function (?int $index): ?SetTextChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetTextChange $data */

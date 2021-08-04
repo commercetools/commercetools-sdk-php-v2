@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetLastNameChange>
  * @method SetLastNameChange current()
+ * @method SetLastNameChange end()
  * @method SetLastNameChange at($offset)
  */
 class SetLastNameChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetLastNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetLastNameChange {
+        return function (?int $index): ?SetLastNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetLastNameChange $data */

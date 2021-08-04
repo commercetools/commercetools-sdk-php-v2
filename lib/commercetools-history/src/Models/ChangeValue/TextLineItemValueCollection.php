@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TextLineItemValue>
  * @method TextLineItemValue current()
+ * @method TextLineItemValue end()
  * @method TextLineItemValue at($offset)
  */
 class TextLineItemValueCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TextLineItemValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TextLineItemValue {
+        return function (?int $index): ?TextLineItemValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TextLineItemValue $data */

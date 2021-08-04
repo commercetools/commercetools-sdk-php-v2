@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ProjectCategoryRecommendationPagedQueryResponse>
  * @method ProjectCategoryRecommendationPagedQueryResponse current()
+ * @method ProjectCategoryRecommendationPagedQueryResponse end()
  * @method ProjectCategoryRecommendationPagedQueryResponse at($offset)
  */
 class ProjectCategoryRecommendationPagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ProjectCategoryRecommendationPagedQueryResponseCollection extends MapperSe
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectCategoryRecommendationPagedQueryResponse {
+        return function (?int $index): ?ProjectCategoryRecommendationPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectCategoryRecommendationPagedQueryResponse $data */

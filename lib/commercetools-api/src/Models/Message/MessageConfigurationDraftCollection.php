@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<MessageConfigurationDraft>
  * @method MessageConfigurationDraft current()
+ * @method MessageConfigurationDraft end()
  * @method MessageConfigurationDraft at($offset)
  */
 class MessageConfigurationDraftCollection extends MapperSequence
@@ -41,7 +42,7 @@ class MessageConfigurationDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?MessageConfigurationDraft {
+        return function (?int $index): ?MessageConfigurationDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MessageConfigurationDraft $data */

@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<AddPriceChange>
  * @method AddPriceChange current()
+ * @method AddPriceChange end()
  * @method AddPriceChange at($offset)
  */
 class AddPriceChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class AddPriceChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?AddPriceChange {
+        return function (?int $index): ?AddPriceChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var AddPriceChange $data */

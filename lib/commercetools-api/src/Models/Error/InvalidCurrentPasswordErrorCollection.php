@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<InvalidCurrentPasswordError>
  * @method InvalidCurrentPasswordError current()
+ * @method InvalidCurrentPasswordError end()
  * @method InvalidCurrentPasswordError at($offset)
  */
 class InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?InvalidCurrentPasswordError {
+        return function (?int $index): ?InvalidCurrentPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var InvalidCurrentPasswordError $data */

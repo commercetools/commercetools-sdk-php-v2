@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<SetDateOfBirthChange>
  * @method SetDateOfBirthChange current()
+ * @method SetDateOfBirthChange end()
  * @method SetDateOfBirthChange at($offset)
  */
 class SetDateOfBirthChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class SetDateOfBirthChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SetDateOfBirthChange {
+        return function (?int $index): ?SetDateOfBirthChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SetDateOfBirthChange $data */

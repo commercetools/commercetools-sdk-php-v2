@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MyPaymentUpdateActionCollection<MyPaymentSetMethodInfoMethodAction>
  * @method MyPaymentSetMethodInfoMethodAction current()
+ * @method MyPaymentSetMethodInfoMethodAction end()
  * @method MyPaymentSetMethodInfoMethodAction at($offset)
  */
 class MyPaymentSetMethodInfoMethodActionCollection extends MyPaymentUpdateActionCollection
@@ -41,7 +42,7 @@ class MyPaymentSetMethodInfoMethodActionCollection extends MyPaymentUpdateAction
      */
     protected function mapper()
     {
-        return function (int $index): ?MyPaymentSetMethodInfoMethodAction {
+        return function (?int $index): ?MyPaymentSetMethodInfoMethodAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MyPaymentSetMethodInfoMethodAction $data */

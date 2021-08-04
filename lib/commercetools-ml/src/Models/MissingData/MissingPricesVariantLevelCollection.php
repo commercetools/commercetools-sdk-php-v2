@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MissingPricesProductCountCollection<MissingPricesVariantLevel>
  * @method MissingPricesVariantLevel current()
+ * @method MissingPricesVariantLevel end()
  * @method MissingPricesVariantLevel at($offset)
  */
 class MissingPricesVariantLevelCollection extends MissingPricesProductCountCollection
@@ -41,7 +42,7 @@ class MissingPricesVariantLevelCollection extends MissingPricesProductCountColle
      */
     protected function mapper()
     {
-        return function (int $index): ?MissingPricesVariantLevel {
+        return function (?int $index): ?MissingPricesVariantLevel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MissingPricesVariantLevel $data */

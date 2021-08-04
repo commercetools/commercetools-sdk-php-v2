@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends AttributeCollection<NumberAttribute>
  * @method NumberAttribute current()
+ * @method NumberAttribute end()
  * @method NumberAttribute at($offset)
  */
 class NumberAttributeCollection extends AttributeCollection
@@ -41,7 +42,7 @@ class NumberAttributeCollection extends AttributeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?NumberAttribute {
+        return function (?int $index): ?NumberAttribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var NumberAttribute $data */

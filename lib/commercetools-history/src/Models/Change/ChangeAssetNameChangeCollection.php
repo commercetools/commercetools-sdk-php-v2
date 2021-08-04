@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAssetNameChange>
  * @method ChangeAssetNameChange current()
+ * @method ChangeAssetNameChange end()
  * @method ChangeAssetNameChange at($offset)
  */
 class ChangeAssetNameChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeAssetNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeAssetNameChange {
+        return function (?int $index): ?ChangeAssetNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeAssetNameChange $data */

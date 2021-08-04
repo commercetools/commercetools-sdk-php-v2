@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeAttributeOrderByNameChange>
  * @method ChangeAttributeOrderByNameChange current()
+ * @method ChangeAttributeOrderByNameChange end()
  * @method ChangeAttributeOrderByNameChange at($offset)
  */
 class ChangeAttributeOrderByNameChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeAttributeOrderByNameChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeAttributeOrderByNameChange {
+        return function (?int $index): ?ChangeAttributeOrderByNameChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeAttributeOrderByNameChange $data */

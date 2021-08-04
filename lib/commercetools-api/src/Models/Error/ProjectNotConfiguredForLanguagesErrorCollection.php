@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<ProjectNotConfiguredForLanguagesError>
  * @method ProjectNotConfiguredForLanguagesError current()
+ * @method ProjectNotConfiguredForLanguagesError end()
  * @method ProjectNotConfiguredForLanguagesError at($offset)
  */
 class ProjectNotConfiguredForLanguagesErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class ProjectNotConfiguredForLanguagesErrorCollection extends ErrorObjectCollect
      */
     protected function mapper()
     {
-        return function (int $index): ?ProjectNotConfiguredForLanguagesError {
+        return function (?int $index): ?ProjectNotConfiguredForLanguagesError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ProjectNotConfiguredForLanguagesError $data */

@@ -16,8 +16,10 @@ use stdClass;
  * @template T of ZoneUpdateAction
  * @extends MapperSequence<T>
  * @psalm-method T current()
+ * @psalm-method T end()
  * @psalm-method T at($offset)
  * @method ZoneUpdateAction current()
+ * @method ZoneUpdateAction end()
  * @method ZoneUpdateAction at($offset)
  */
 class ZoneUpdateActionCollection extends MapperSequence
@@ -44,7 +46,7 @@ class ZoneUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneUpdateAction {
+        return function (?int $index): ?ZoneUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */

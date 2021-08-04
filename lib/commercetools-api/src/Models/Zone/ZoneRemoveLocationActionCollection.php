@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ZoneUpdateActionCollection<ZoneRemoveLocationAction>
  * @method ZoneRemoveLocationAction current()
+ * @method ZoneRemoveLocationAction end()
  * @method ZoneRemoveLocationAction at($offset)
  */
 class ZoneRemoveLocationActionCollection extends ZoneUpdateActionCollection
@@ -41,7 +42,7 @@ class ZoneRemoveLocationActionCollection extends ZoneUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ZoneRemoveLocationAction {
+        return function (?int $index): ?ZoneRemoveLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZoneRemoveLocationAction $data */

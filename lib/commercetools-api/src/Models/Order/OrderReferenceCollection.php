@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<OrderReference>
  * @method OrderReference current()
+ * @method OrderReference end()
  * @method OrderReference at($offset)
  */
 class OrderReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class OrderReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?OrderReference {
+        return function (?int $index): ?OrderReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var OrderReference $data */

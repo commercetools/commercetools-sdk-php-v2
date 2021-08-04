@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ErrorObjectCollection<SyntaxErrorError>
  * @method SyntaxErrorError current()
+ * @method SyntaxErrorError end()
  * @method SyntaxErrorError at($offset)
  */
 class SyntaxErrorErrorCollection extends ErrorObjectCollection
@@ -41,7 +42,7 @@ class SyntaxErrorErrorCollection extends ErrorObjectCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?SyntaxErrorError {
+        return function (?int $index): ?SyntaxErrorError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var SyntaxErrorError $data */

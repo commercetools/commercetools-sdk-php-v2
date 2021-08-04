@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends TypeUpdateActionCollection<TypeChangeFieldDefinitionOrderAction>
  * @method TypeChangeFieldDefinitionOrderAction current()
+ * @method TypeChangeFieldDefinitionOrderAction end()
  * @method TypeChangeFieldDefinitionOrderAction at($offset)
  */
 class TypeChangeFieldDefinitionOrderActionCollection extends TypeUpdateActionCollection
@@ -41,7 +42,7 @@ class TypeChangeFieldDefinitionOrderActionCollection extends TypeUpdateActionCol
      */
     protected function mapper()
     {
-        return function (int $index): ?TypeChangeFieldDefinitionOrderAction {
+        return function (?int $index): ?TypeChangeFieldDefinitionOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TypeChangeFieldDefinitionOrderAction $data */

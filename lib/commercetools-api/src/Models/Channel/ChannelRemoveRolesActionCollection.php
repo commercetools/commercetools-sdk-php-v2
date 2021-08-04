@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChannelUpdateActionCollection<ChannelRemoveRolesAction>
  * @method ChannelRemoveRolesAction current()
+ * @method ChannelRemoveRolesAction end()
  * @method ChannelRemoveRolesAction at($offset)
  */
 class ChannelRemoveRolesActionCollection extends ChannelUpdateActionCollection
@@ -41,7 +42,7 @@ class ChannelRemoveRolesActionCollection extends ChannelUpdateActionCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChannelRemoveRolesAction {
+        return function (?int $index): ?ChannelRemoveRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChannelRemoveRolesAction $data */

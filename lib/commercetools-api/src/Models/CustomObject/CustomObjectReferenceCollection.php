@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ReferenceCollection<CustomObjectReference>
  * @method CustomObjectReference current()
+ * @method CustomObjectReference end()
  * @method CustomObjectReference at($offset)
  */
 class CustomObjectReferenceCollection extends ReferenceCollection
@@ -41,7 +42,7 @@ class CustomObjectReferenceCollection extends ReferenceCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomObjectReference {
+        return function (?int $index): ?CustomObjectReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomObjectReference $data */

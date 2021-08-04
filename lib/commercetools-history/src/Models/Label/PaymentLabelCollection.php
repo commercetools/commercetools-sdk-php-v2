@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends LabelCollection<PaymentLabel>
  * @method PaymentLabel current()
+ * @method PaymentLabel end()
  * @method PaymentLabel at($offset)
  */
 class PaymentLabelCollection extends LabelCollection
@@ -41,7 +42,7 @@ class PaymentLabelCollection extends LabelCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?PaymentLabel {
+        return function (?int $index): ?PaymentLabel {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var PaymentLabel $data */

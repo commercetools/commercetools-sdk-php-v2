@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<ZonePagedQueryResponse>
  * @method ZonePagedQueryResponse current()
+ * @method ZonePagedQueryResponse end()
  * @method ZonePagedQueryResponse at($offset)
  */
 class ZonePagedQueryResponseCollection extends MapperSequence
@@ -41,7 +42,7 @@ class ZonePagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?ZonePagedQueryResponse {
+        return function (?int $index): ?ZonePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ZonePagedQueryResponse $data */

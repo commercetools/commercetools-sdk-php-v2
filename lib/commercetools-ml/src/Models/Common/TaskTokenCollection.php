@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<TaskToken>
  * @method TaskToken current()
+ * @method TaskToken end()
  * @method TaskToken at($offset)
  */
 class TaskTokenCollection extends MapperSequence
@@ -41,7 +42,7 @@ class TaskTokenCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?TaskToken {
+        return function (?int $index): ?TaskToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var TaskToken $data */

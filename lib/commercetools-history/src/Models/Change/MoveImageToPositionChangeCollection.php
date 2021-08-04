@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<MoveImageToPositionChange>
  * @method MoveImageToPositionChange current()
+ * @method MoveImageToPositionChange end()
  * @method MoveImageToPositionChange at($offset)
  */
 class MoveImageToPositionChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class MoveImageToPositionChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?MoveImageToPositionChange {
+        return function (?int $index): ?MoveImageToPositionChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var MoveImageToPositionChange $data */

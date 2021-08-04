@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ChangeCollection<ChangeRequiresDiscountCodeChange>
  * @method ChangeRequiresDiscountCodeChange current()
+ * @method ChangeRequiresDiscountCodeChange end()
  * @method ChangeRequiresDiscountCodeChange at($offset)
  */
 class ChangeRequiresDiscountCodeChangeCollection extends ChangeCollection
@@ -41,7 +42,7 @@ class ChangeRequiresDiscountCodeChangeCollection extends ChangeCollection
      */
     protected function mapper()
     {
-        return function (int $index): ?ChangeRequiresDiscountCodeChange {
+        return function (?int $index): ?ChangeRequiresDiscountCodeChange {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ChangeRequiresDiscountCodeChange $data */

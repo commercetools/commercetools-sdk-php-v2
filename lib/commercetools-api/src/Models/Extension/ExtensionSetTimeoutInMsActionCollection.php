@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends ExtensionUpdateActionCollection<ExtensionSetTimeoutInMsAction>
  * @method ExtensionSetTimeoutInMsAction current()
+ * @method ExtensionSetTimeoutInMsAction end()
  * @method ExtensionSetTimeoutInMsAction at($offset)
  */
 class ExtensionSetTimeoutInMsActionCollection extends ExtensionUpdateActionCollection
@@ -41,7 +42,7 @@ class ExtensionSetTimeoutInMsActionCollection extends ExtensionUpdateActionColle
      */
     protected function mapper()
     {
-        return function (int $index): ?ExtensionSetTimeoutInMsAction {
+        return function (?int $index): ?ExtensionSetTimeoutInMsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var ExtensionSetTimeoutInMsAction $data */

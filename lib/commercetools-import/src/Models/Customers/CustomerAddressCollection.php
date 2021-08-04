@@ -15,6 +15,7 @@ use stdClass;
 /**
  * @extends MapperSequence<CustomerAddress>
  * @method CustomerAddress current()
+ * @method CustomerAddress end()
  * @method CustomerAddress at($offset)
  */
 class CustomerAddressCollection extends MapperSequence
@@ -41,7 +42,7 @@ class CustomerAddressCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?CustomerAddress {
+        return function (?int $index): ?CustomerAddress {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var CustomerAddress $data */
