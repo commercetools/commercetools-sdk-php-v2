@@ -160,6 +160,20 @@ abstract class MapperArraySequence implements CSequence
     }
 
     /**
+     * @return ?TCollection
+     */
+    public function end()
+    {
+        if ($this->data == null) {
+            return null;
+        }
+        $arrayKeys = array_keys($this->data);
+        $lastKey = array_pop($arrayKeys);
+
+        return $this->at($lastKey);
+    }
+
+    /**
      * @return void
      */
     public function next()
