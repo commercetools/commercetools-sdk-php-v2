@@ -41,7 +41,7 @@ abstract class MapperScalarSequence implements CSequence
     {
         return $this->data;
     }
-    
+
     public function jsonSerialize(): ?array
     {
         return $this->data;
@@ -67,7 +67,7 @@ abstract class MapperScalarSequence implements CSequence
     /**
      * @psalm-return TScalar|scalar|null
      */
-    final protected function get(int $index)
+    final protected function get(?int $index)
     {
         if (isset($this->data[$index])) {
             return $this->data[$index];

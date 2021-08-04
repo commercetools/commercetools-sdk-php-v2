@@ -44,7 +44,7 @@ class BaseResourceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function (int $index): ?BaseResource {
+        return function (?int $index): ?BaseResource {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 /** @var T $data */
