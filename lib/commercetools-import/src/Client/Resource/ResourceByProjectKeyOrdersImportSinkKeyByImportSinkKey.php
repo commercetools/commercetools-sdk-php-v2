@@ -26,6 +26,8 @@ class ResourceByProjectKeyOrdersImportSinkKeyByImportSinkKey extends ApiResource
         parent::__construct('/{projectKey}/orders/importSinkKey={importSinkKey}', $args, $client);
     }
 
+    /**
+     */
     public function importOperations(): ResourceByProjectKeyOrdersImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

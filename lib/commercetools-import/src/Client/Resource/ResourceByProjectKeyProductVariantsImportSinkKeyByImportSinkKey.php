@@ -26,6 +26,8 @@ class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends Ap
         parent::__construct('/{projectKey}/product-variants/importSinkKey={importSinkKey}', $args, $client);
     }
 
+    /**
+     */
     public function importOperations(): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

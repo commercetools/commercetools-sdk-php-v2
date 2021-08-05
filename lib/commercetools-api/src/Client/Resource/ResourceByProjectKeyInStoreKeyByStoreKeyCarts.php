@@ -26,6 +26,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCarts extends ApiResource
         parent::__construct('/{projectKey}/in-store/key={storeKey}/carts', $args, $client);
     }
 
+    /**
+     */
     public function withCustomerId(string $customerId = null): ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCarts extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerId($args, $this->getClient());
     }
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCartsKeyByKey
     {
         $args = $this->getArgs();
@@ -44,12 +48,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCarts extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCartsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function replicate(): ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicate($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCartsByID
     {
         $args = $this->getArgs();

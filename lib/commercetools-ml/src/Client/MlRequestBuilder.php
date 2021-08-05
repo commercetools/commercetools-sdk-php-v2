@@ -23,6 +23,8 @@ class MlRequestBuilder extends ApiResource
         parent::__construct('', $args, $client);
     }
 
+    /**
+     */
     public function withProjectKey(string $projectKey = null): ResourceByProjectKey
     {
         $args = $this->getArgs();

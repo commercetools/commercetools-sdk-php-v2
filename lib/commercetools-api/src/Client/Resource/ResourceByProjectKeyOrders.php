@@ -26,12 +26,16 @@ class ResourceByProjectKeyOrders extends ApiResource
         parent::__construct('/{projectKey}/orders', $args, $client);
     }
 
+    /**
+     */
     public function importOrder(): ResourceByProjectKeyOrdersImport
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyOrdersImport($args, $this->getClient());
     }
+    /**
+     */
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
@@ -41,12 +45,16 @@ class ResourceByProjectKeyOrders extends ApiResource
 
         return new ResourceByProjectKeyOrdersOrderNumberByOrderNumber($args, $this->getClient());
     }
+    /**
+     */
     public function edits(): ResourceByProjectKeyOrdersEdits
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyOrdersEdits($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyOrdersByID
     {
         $args = $this->getArgs();

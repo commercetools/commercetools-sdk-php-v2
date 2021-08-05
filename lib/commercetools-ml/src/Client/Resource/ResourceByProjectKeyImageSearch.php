@@ -26,6 +26,8 @@ class ResourceByProjectKeyImageSearch extends ApiResource
         parent::__construct('/{projectKey}/image-search', $args, $client);
     }
 
+    /**
+     */
     public function config(): ResourceByProjectKeyImageSearchConfig
     {
         $args = $this->getArgs();

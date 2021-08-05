@@ -26,6 +26,8 @@ class ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKey extends ApiRe
         parent::__construct('/{projectKey}/order-patches/importSinkKey={importSinkKey}', $args, $client);
     }
 
+    /**
+     */
     public function importOperations(): ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

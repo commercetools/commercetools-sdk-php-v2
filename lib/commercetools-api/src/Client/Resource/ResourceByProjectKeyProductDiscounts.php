@@ -26,12 +26,16 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
         parent::__construct('/{projectKey}/product-discounts', $args, $client);
     }
 
+    /**
+     */
     public function matching(): ResourceByProjectKeyProductDiscountsMatching
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyProductDiscountsMatching($args, $this->getClient());
     }
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyProductDiscountsKeyByKey
     {
         $args = $this->getArgs();
@@ -41,6 +45,8 @@ class ResourceByProjectKeyProductDiscounts extends ApiResource
 
         return new ResourceByProjectKeyProductDiscountsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyProductDiscountsByID
     {
         $args = $this->getArgs();

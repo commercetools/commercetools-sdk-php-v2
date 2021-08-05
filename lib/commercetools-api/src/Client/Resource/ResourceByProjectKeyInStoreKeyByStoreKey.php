@@ -25,42 +25,56 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
         parent::__construct('/{projectKey}/in-store/key={storeKey}', $args, $client);
     }
 
+    /**
+     */
     public function carts(): ResourceByProjectKeyInStoreKeyByStoreKeyCarts
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCarts($args, $this->getClient());
     }
+    /**
+     */
     public function orders(): ResourceByProjectKeyInStoreKeyByStoreKeyOrders
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyOrders($args, $this->getClient());
     }
+    /**
+     */
     public function me(): ResourceByProjectKeyInStoreKeyByStoreKeyMe
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyMe($args, $this->getClient());
     }
+    /**
+     */
     public function customers(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomers
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomers($args, $this->getClient());
     }
+    /**
+     */
     public function login(): ResourceByProjectKeyInStoreKeyByStoreKeyLogin
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($args, $this->getClient());
     }
+    /**
+     */
     public function shippingMethods(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods($args, $this->getClient());
     }
+    /**
+     */
     public function shoppingLists(): ResourceByProjectKeyInStoreKeyByStoreKeyShoppingLists
     {
         $args = $this->getArgs();

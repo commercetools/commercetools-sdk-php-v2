@@ -25,6 +25,8 @@ class ResourceByProjectKeyMessages extends ApiResource
         parent::__construct('/{projectKey}/messages', $args, $client);
     }
 
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyMessagesByID
     {
         $args = $this->getArgs();

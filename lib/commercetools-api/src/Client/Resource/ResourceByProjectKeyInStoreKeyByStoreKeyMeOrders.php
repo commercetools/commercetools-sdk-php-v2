@@ -26,6 +26,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrders extends ApiResource
         parent::__construct('/{projectKey}/in-store/key={storeKey}/me/orders', $args, $client);
     }
 
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByID
     {
         $args = $this->getArgs();

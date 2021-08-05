@@ -25,12 +25,16 @@ class ResourceByProjectKeyRecommendations extends ApiResource
         parent::__construct('/{projectKey}/recommendations', $args, $client);
     }
 
+    /**
+     */
     public function projectCategories(): ResourceByProjectKeyRecommendationsProjectCategories
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyRecommendationsProjectCategories($args, $this->getClient());
     }
+    /**
+     */
     public function generalCategories(): ResourceByProjectKeyRecommendationsGeneralCategories
     {
         $args = $this->getArgs();

@@ -25,18 +25,24 @@ class ResourceByProjectKeyProductProjections extends ApiResource
         parent::__construct('/{projectKey}/product-projections', $args, $client);
     }
 
+    /**
+     */
     public function search(): ResourceByProjectKeyProductProjectionsSearch
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyProductProjectionsSearch($args, $this->getClient());
     }
+    /**
+     */
     public function suggest(): ResourceByProjectKeyProductProjectionsSuggest
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyProductProjectionsSuggest($args, $this->getClient());
     }
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyProductProjectionsKeyByKey
     {
         $args = $this->getArgs();
@@ -46,6 +52,8 @@ class ResourceByProjectKeyProductProjections extends ApiResource
 
         return new ResourceByProjectKeyProductProjectionsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyProductProjectionsByID
     {
         $args = $this->getArgs();

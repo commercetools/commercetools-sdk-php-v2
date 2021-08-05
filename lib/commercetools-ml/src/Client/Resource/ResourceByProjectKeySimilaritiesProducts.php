@@ -26,6 +26,8 @@ class ResourceByProjectKeySimilaritiesProducts extends ApiResource
         parent::__construct('/{projectKey}/similarities/products', $args, $client);
     }
 
+    /**
+     */
     public function status(): ResourceByProjectKeySimilaritiesProductsStatus
     {
         $args = $this->getArgs();

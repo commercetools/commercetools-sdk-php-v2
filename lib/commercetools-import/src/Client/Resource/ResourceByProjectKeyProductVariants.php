@@ -25,6 +25,8 @@ class ResourceByProjectKeyProductVariants extends ApiResource
         parent::__construct('/{projectKey}/product-variants', $args, $client);
     }
 
+    /**
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

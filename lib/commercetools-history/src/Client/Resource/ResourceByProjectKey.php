@@ -24,6 +24,8 @@ class ResourceByProjectKey extends ApiResource
         parent::__construct('/{projectKey}', $args, $client);
     }
 
+    /**
+     */
     public function withResourceTypeValue(string $resourceType = null): ResourceByProjectKeyByResourceType
     {
         $args = $this->getArgs();

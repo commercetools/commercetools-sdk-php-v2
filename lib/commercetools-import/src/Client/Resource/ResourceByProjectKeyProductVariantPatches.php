@@ -25,6 +25,8 @@ class ResourceByProjectKeyProductVariantPatches extends ApiResource
         parent::__construct('/{projectKey}/product-variant-patches', $args, $client);
     }
 
+    /**
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

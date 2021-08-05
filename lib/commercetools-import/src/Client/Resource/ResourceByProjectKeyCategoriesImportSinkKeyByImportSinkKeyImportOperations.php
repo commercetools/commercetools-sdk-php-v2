@@ -25,6 +25,8 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
         parent::__construct('/{projectKey}/categories/importSinkKey={importSinkKey}/import-operations', $args, $client);
     }
 
+    /**
+     */
     public function withIdValue(string $id = null): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperationsById
     {
         $args = $this->getArgs();

@@ -26,6 +26,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
         parent::__construct('/{projectKey}/in-store/key={storeKey}/orders', $args, $client);
     }
 
+    /**
+     */
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrders extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumber($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByID
     {
         $args = $this->getArgs();

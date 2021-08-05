@@ -26,6 +26,8 @@ class ResourceByProjectKeyChannels extends ApiResource
         parent::__construct('/{projectKey}/channels', $args, $client);
     }
 
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyChannelsByID
     {
         $args = $this->getArgs();

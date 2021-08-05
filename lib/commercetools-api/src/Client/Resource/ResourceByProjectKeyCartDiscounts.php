@@ -26,6 +26,8 @@ class ResourceByProjectKeyCartDiscounts extends ApiResource
         parent::__construct('/{projectKey}/cart-discounts', $args, $client);
     }
 
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyCartDiscountsKeyByKey
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyCartDiscounts extends ApiResource
 
         return new ResourceByProjectKeyCartDiscountsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyCartDiscountsByID
     {
         $args = $this->getArgs();

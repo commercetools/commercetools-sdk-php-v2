@@ -26,6 +26,8 @@ class ResourceByProjectKeyCustomers extends ApiResource
         parent::__construct('/{projectKey}/customers', $args, $client);
     }
 
+    /**
+     */
     public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyCustomersPasswordTokenByPasswordToken($args, $this->getClient());
     }
+    /**
+     */
     public function withEmailToken(string $emailToken = null): ResourceByProjectKeyCustomersEmailTokenByEmailToken
     {
         $args = $this->getArgs();
@@ -44,36 +48,48 @@ class ResourceByProjectKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyCustomersEmailTokenByEmailToken($args, $this->getClient());
     }
+    /**
+     */
     public function emailToken(): ResourceByProjectKeyCustomersEmailToken
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomersEmailToken($args, $this->getClient());
     }
+    /**
+     */
     public function emailConfirm(): ResourceByProjectKeyCustomersEmailConfirm
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomersEmailConfirm($args, $this->getClient());
     }
+    /**
+     */
     public function password(): ResourceByProjectKeyCustomersPassword
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomersPassword($args, $this->getClient());
     }
+    /**
+     */
     public function passwordReset(): ResourceByProjectKeyCustomersPasswordReset
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomersPasswordReset($args, $this->getClient());
     }
+    /**
+     */
     public function passwordToken(): ResourceByProjectKeyCustomersPasswordToken
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomersPasswordToken($args, $this->getClient());
     }
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
@@ -83,6 +99,8 @@ class ResourceByProjectKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyCustomersKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyCustomersByID
     {
         $args = $this->getArgs();

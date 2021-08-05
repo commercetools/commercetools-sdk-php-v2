@@ -25,6 +25,8 @@ class ResourceByProjectKeyInventories extends ApiResource
         parent::__construct('/{projectKey}/inventories', $args, $client);
     }
 
+    /**
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyInventoriesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

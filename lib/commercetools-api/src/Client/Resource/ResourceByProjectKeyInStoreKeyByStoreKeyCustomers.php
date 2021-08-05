@@ -26,6 +26,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
         parent::__construct('/{projectKey}/in-store/key={storeKey}/customers', $args, $client);
     }
 
+    /**
+     */
     public function withPasswordToken(string $passwordToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordToken($args, $this->getClient());
     }
+    /**
+     */
     public function withEmailToken(string $emailToken = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken
     {
         $args = $this->getArgs();
@@ -44,36 +48,48 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailToken($args, $this->getClient());
     }
+    /**
+     */
     public function emailToken(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailToken($args, $this->getClient());
     }
+    /**
+     */
     public function emailConfirm(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirm($args, $this->getClient());
     }
+    /**
+     */
     public function password(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPassword($args, $this->getClient());
     }
+    /**
+     */
     public function passwordReset(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset($args, $this->getClient());
     }
+    /**
+     */
     public function passwordToken(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordToken($args, $this->getClient());
     }
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
@@ -83,6 +99,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomers extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyInStoreKeyByStoreKeyCustomersByID
     {
         $args = $this->getArgs();

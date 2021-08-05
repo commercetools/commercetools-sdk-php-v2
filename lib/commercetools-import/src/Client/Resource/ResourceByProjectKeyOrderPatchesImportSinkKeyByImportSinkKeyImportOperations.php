@@ -25,6 +25,8 @@ class ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKeyImportOperatio
         parent::__construct('/{projectKey}/order-patches/importSinkKey={importSinkKey}/import-operations', $args, $client);
     }
 
+    /**
+     */
     public function withIdValue(string $id = null): ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKeyImportOperationsById
     {
         $args = $this->getArgs();

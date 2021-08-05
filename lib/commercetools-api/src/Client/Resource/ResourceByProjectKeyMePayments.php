@@ -26,6 +26,8 @@ class ResourceByProjectKeyMePayments extends ApiResource
         parent::__construct('/{projectKey}/me/payments', $args, $client);
     }
 
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyMePaymentsKeyByKey
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyMePayments extends ApiResource
 
         return new ResourceByProjectKeyMePaymentsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyMePaymentsByID
     {
         $args = $this->getArgs();

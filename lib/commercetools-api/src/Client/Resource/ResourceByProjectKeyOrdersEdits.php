@@ -26,6 +26,8 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
         parent::__construct('/{projectKey}/orders/edits', $args, $client);
     }
 
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyOrdersEditsKeyByKey
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyOrdersEdits extends ApiResource
 
         return new ResourceByProjectKeyOrdersEditsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyOrdersEditsByID
     {
         $args = $this->getArgs();

@@ -26,6 +26,8 @@ class ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKey extends ApiR
         parent::__construct('/{projectKey}/product-drafts/importSinkKey={importSinkKey}', $args, $client);
     }
 
+    /**
+     */
     public function importOperations(): ResourceByProjectKeyProductDraftsImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

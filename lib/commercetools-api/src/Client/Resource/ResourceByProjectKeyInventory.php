@@ -26,6 +26,8 @@ class ResourceByProjectKeyInventory extends ApiResource
         parent::__construct('/{projectKey}/inventory', $args, $client);
     }
 
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyInventoryByID
     {
         $args = $this->getArgs();
