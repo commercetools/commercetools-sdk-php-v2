@@ -8,11 +8,10 @@ use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryPagedQueryResponse;
 use Commercetools\Client\UserAgentProvider;
 use Commercetools\IntegrationTest\Api\Category\CategoryFixture;
-use GuzzleHttp\ClientInterface;
 
 class ClientFactoryTest extends ApiTestCase
 {
-    public function testCreateClient()
+    public function testUserAgent()
     {
         $builder = $this->getApiBuilder();
 
@@ -26,7 +25,7 @@ class ClientFactoryTest extends ApiTestCase
 
                 $categoryQueryResponse->getResults()->toArray();
 
-                $this->assertStringContainsString("commercetools-sdk-PHP-V2-", (new UserAgentProvider())->getUserAgent());
+                $this->assertStringContainsString(UserAgentProvider::USER_AGENT, (new UserAgentProvider())->getUserAgent());
 
             }
         );
