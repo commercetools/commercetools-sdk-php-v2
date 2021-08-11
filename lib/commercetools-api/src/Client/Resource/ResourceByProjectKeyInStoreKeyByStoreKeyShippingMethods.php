@@ -25,6 +25,8 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethods extends ApiResourc
         parent::__construct('/{projectKey}/in-store/key={storeKey}/shipping-methods', $args, $client);
     }
 
+    /**
+     */
     public function matchingCart(): ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCart
     {
         $args = $this->getArgs();

@@ -26,6 +26,8 @@ class ResourceByProjectKeyApiClients extends ApiResource
         parent::__construct('/{projectKey}/api-clients', $args, $client);
     }
 
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyApiClientsByID
     {
         $args = $this->getArgs();

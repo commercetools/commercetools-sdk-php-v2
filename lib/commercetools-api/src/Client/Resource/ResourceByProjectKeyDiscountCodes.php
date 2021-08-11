@@ -26,6 +26,8 @@ class ResourceByProjectKeyDiscountCodes extends ApiResource
         parent::__construct('/{projectKey}/discount-codes', $args, $client);
     }
 
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyDiscountCodesByID
     {
         $args = $this->getArgs();

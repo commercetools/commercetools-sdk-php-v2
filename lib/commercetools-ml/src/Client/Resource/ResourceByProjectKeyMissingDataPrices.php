@@ -26,6 +26,8 @@ class ResourceByProjectKeyMissingDataPrices extends ApiResource
         parent::__construct('/{projectKey}/missing-data/prices', $args, $client);
     }
 
+    /**
+     */
     public function status(): ResourceByProjectKeyMissingDataPricesStatus
     {
         $args = $this->getArgs();

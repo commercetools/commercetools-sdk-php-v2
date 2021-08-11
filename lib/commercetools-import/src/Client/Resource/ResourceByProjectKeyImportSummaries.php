@@ -25,6 +25,8 @@ class ResourceByProjectKeyImportSummaries extends ApiResource
         parent::__construct('/{projectKey}/import-summaries', $args, $client);
     }
 
+    /**
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyImportSummariesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

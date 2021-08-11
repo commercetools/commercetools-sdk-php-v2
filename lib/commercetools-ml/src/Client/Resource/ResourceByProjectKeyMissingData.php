@@ -25,18 +25,24 @@ class ResourceByProjectKeyMissingData extends ApiResource
         parent::__construct('/{projectKey}/missing-data', $args, $client);
     }
 
+    /**
+     */
     public function attributes(): ResourceByProjectKeyMissingDataAttributes
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyMissingDataAttributes($args, $this->getClient());
     }
+    /**
+     */
     public function images(): ResourceByProjectKeyMissingDataImages
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyMissingDataImages($args, $this->getClient());
     }
+    /**
+     */
     public function prices(): ResourceByProjectKeyMissingDataPrices
     {
         $args = $this->getArgs();

@@ -26,6 +26,8 @@ class ResourceByProjectKeyOrdersEditsByID extends ApiResource
         parent::__construct('/{projectKey}/orders/edits/{ID}', $args, $client);
     }
 
+    /**
+     */
     public function apply(): ResourceByProjectKeyOrdersEditsByIDApply
     {
         $args = $this->getArgs();

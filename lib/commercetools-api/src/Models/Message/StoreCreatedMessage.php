@@ -1,0 +1,74 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file has been auto generated
+ * Do not change it.
+ */
+
+namespace Commercetools\Api\Models\Message;
+
+use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
+use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\Base\JsonObject;
+
+interface StoreCreatedMessage extends Message
+{
+    public const FIELD_NAME = 'name';
+    public const FIELD_LANGUAGES = 'languages';
+    public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
+    public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName();
+
+    /**
+     * @return null|array
+     */
+    public function getLanguages();
+
+    /**
+     * @return null|ChannelReferenceCollection
+     */
+    public function getDistributionChannels();
+
+    /**
+     * @return null|ChannelReferenceCollection
+     */
+    public function getSupplyChannels();
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * @param ?LocalizedString $name
+     */
+    public function setName(?LocalizedString $name): void;
+
+    /**
+     * @param ?array $languages
+     */
+    public function setLanguages(?array $languages): void;
+
+    /**
+     * @param ?ChannelReferenceCollection $distributionChannels
+     */
+    public function setDistributionChannels(?ChannelReferenceCollection $distributionChannels): void;
+
+    /**
+     * @param ?ChannelReferenceCollection $supplyChannels
+     */
+    public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
+}

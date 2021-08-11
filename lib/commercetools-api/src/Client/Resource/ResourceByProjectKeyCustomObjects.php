@@ -26,6 +26,8 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
         parent::__construct('/{projectKey}/custom-objects', $args, $client);
     }
 
+    /**
+     */
     public function withContainerAndKey(string $container = null, string $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
     {
         $args = $this->getArgs();
@@ -39,6 +41,8 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
 
         return new ResourceByProjectKeyCustomObjectsByContainerByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withContainer(string $container = null): ResourceByProjectKeyCustomObjectsByContainer
     {
         $args = $this->getArgs();

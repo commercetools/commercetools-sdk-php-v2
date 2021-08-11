@@ -25,6 +25,8 @@ class ResourceByProjectKeyRecommendationsProjectCategories extends ApiResource
         parent::__construct('/{projectKey}/recommendations/project-categories', $args, $client);
     }
 
+    /**
+     */
     public function withProductId(string $productId = null): ResourceByProjectKeyRecommendationsProjectCategoriesByProductId
     {
         $args = $this->getArgs();

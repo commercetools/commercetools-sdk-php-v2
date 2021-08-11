@@ -25,6 +25,8 @@ class ResourceByProjectKeyPrices extends ApiResource
         parent::__construct('/{projectKey}/prices', $args, $client);
     }
 
+    /**
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyPricesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

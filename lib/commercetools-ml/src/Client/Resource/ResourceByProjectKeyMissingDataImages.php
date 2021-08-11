@@ -26,6 +26,8 @@ class ResourceByProjectKeyMissingDataImages extends ApiResource
         parent::__construct('/{projectKey}/missing-data/images', $args, $client);
     }
 
+    /**
+     */
     public function status(): ResourceByProjectKeyMissingDataImagesStatus
     {
         $args = $this->getArgs();

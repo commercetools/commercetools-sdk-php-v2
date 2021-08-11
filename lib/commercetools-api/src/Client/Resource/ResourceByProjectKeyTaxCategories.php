@@ -26,6 +26,8 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
         parent::__construct('/{projectKey}/tax-categories', $args, $client);
     }
 
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyTaxCategoriesKeyByKey
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyTaxCategories extends ApiResource
 
         return new ResourceByProjectKeyTaxCategoriesKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyTaxCategoriesByID
     {
         $args = $this->getArgs();

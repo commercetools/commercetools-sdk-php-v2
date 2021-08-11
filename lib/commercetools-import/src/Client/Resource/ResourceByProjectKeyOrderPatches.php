@@ -25,6 +25,8 @@ class ResourceByProjectKeyOrderPatches extends ApiResource
         parent::__construct('/{projectKey}/order-patches', $args, $client);
     }
 
+    /**
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

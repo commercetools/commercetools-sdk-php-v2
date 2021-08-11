@@ -26,6 +26,8 @@ class ResourceByProjectKeyInventoriesImportSinkKeyByImportSinkKey extends ApiRes
         parent::__construct('/{projectKey}/inventories/importSinkKey={importSinkKey}', $args, $client);
     }
 
+    /**
+     */
     public function importOperations(): ResourceByProjectKeyInventoriesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

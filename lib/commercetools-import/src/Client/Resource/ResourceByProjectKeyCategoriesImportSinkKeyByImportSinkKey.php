@@ -26,6 +26,8 @@ class ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKey extends ApiReso
         parent::__construct('/{projectKey}/categories/importSinkKey={importSinkKey}', $args, $client);
     }
 
+    /**
+     */
     public function importOperations(): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKeyImportOperations
     {
         $args = $this->getArgs();

@@ -26,6 +26,8 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
         parent::__construct('/{projectKey}/shipping-methods', $args, $client);
     }
 
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyShippingMethodsKeyByKey
     {
         $args = $this->getArgs();
@@ -35,24 +37,32 @@ class ResourceByProjectKeyShippingMethods extends ApiResource
 
         return new ResourceByProjectKeyShippingMethodsKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function matchingCart(): ResourceByProjectKeyShippingMethodsMatchingCart
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyShippingMethodsMatchingCart($args, $this->getClient());
     }
+    /**
+     */
     public function matchingOrderedit(): ResourceByProjectKeyShippingMethodsMatchingOrderedit
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyShippingMethodsMatchingOrderedit($args, $this->getClient());
     }
+    /**
+     */
     public function matchingLocation(): ResourceByProjectKeyShippingMethodsMatchingLocation
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyShippingMethodsMatchingLocation($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyShippingMethodsByID
     {
         $args = $this->getArgs();

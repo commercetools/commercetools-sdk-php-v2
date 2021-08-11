@@ -25,6 +25,8 @@ class ResourceByProjectKeyMissingDataPricesStatus extends ApiResource
         parent::__construct('/{projectKey}/missing-data/prices/status', $args, $client);
     }
 
+    /**
+     */
     public function withTaskId(string $taskId = null): ResourceByProjectKeyMissingDataPricesStatusByTaskId
     {
         $args = $this->getArgs();

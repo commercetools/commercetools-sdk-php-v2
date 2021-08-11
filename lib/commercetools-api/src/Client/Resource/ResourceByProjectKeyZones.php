@@ -26,6 +26,8 @@ class ResourceByProjectKeyZones extends ApiResource
         parent::__construct('/{projectKey}/zones', $args, $client);
     }
 
+    /**
+     */
     public function withKey(string $key = null): ResourceByProjectKeyZonesKeyByKey
     {
         $args = $this->getArgs();
@@ -35,6 +37,8 @@ class ResourceByProjectKeyZones extends ApiResource
 
         return new ResourceByProjectKeyZonesKeyByKey($args, $this->getClient());
     }
+    /**
+     */
     public function withId(string $ID = null): ResourceByProjectKeyZonesByID
     {
         $args = $this->getArgs();

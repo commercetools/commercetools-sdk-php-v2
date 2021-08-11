@@ -25,6 +25,8 @@ class ResourceByProjectKeyMePassword extends ApiResource
         parent::__construct('/{projectKey}/me/password', $args, $client);
     }
 
+    /**
+     */
     public function reset(): ResourceByProjectKeyMePasswordReset
     {
         $args = $this->getArgs();

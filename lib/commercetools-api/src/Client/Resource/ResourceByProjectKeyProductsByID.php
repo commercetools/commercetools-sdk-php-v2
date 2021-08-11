@@ -26,6 +26,8 @@ class ResourceByProjectKeyProductsByID extends ApiResource
         parent::__construct('/{projectKey}/products/{ID}', $args, $client);
     }
 
+    /**
+     */
     public function images(): ResourceByProjectKeyProductsByIDImages
     {
         $args = $this->getArgs();
