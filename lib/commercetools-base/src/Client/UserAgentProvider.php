@@ -19,7 +19,8 @@ class UserAgentProvider
       * @readonly
       */
     private $userAgent;
-    
+    public const USER_AGENT = 'commercetools-sdk-php-v2';
+
     public function __construct(string $suffix = null)
     {
         if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
@@ -27,8 +28,9 @@ class UserAgentProvider
         } else {
             $clientVersion = (string) constant(ClientInterface::class . '::VERSION');
         }
-        $userAgent = 'commercetools-sdk';
 
+        $userAgent = self::USER_AGENT . $this->getPackageVersion();
+        
         $userAgent .= ' (GuzzleHttp/' . $clientVersion;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $userAgent .= '; curl/' . (string) \curl_version()['version'];
@@ -38,6 +40,17 @@ class UserAgentProvider
             $userAgent .= ' ' . $suffix;
         }
         $this->userAgent = $userAgent;
+    }
+
+    private function getPackageVersion(): string
+    {
+        if (class_exists("\Commercetools\Client\PackageVersion")) {
+            $version = PackageVersion::get();
+            if ($version != null) {
+                return "/" . $version;
+            }
+        }
+        return "";
     }
 
     public function getUserAgent(): string
