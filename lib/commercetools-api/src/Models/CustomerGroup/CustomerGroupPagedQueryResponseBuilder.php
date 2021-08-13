@@ -46,7 +46,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
-     * <p>The offset supplied by the client or the server default.
+     * <p>Offset supplied by the client or server default.
      * It is the number of elements skipped, not a page number.</p>
      *
      * @return null|int
@@ -57,7 +57,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>The number of results requested in the query request.</p>
+     * <p>Number of results requested in the query request.</p>
      *
      * @return null|int
      */
@@ -67,7 +67,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>The actual number of results returned.</p>
+     * <p>Actual number of results returned.</p>
      *
      * @return null|int
      */
@@ -77,7 +77,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>The total number of results matching the query.
+     * <p>Total number of results matching the query.
      * This number is an estimation that is not <a href="/general-concepts#strong-consistency">strongly consistent</a>.
      * This field is returned by default.
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
@@ -91,7 +91,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>The array of <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
+     * <p>Array of <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
      *
      * @return null|CustomerGroupCollection
      */

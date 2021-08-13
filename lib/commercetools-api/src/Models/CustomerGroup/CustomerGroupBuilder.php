@@ -75,7 +75,7 @@ final class CustomerGroupBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The unique ID of the customer group.</p>
+     * <p>Unique ID of the customer group.</p>
      *
      * @return null|string
      */
@@ -85,7 +85,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the customer group.</p>
+     * <p>Current version of the customer group.</p>
      *
      * @return null|int
      */

@@ -31,7 +31,7 @@ final class CustomerGroupUpdateBuilder implements Builder
     private $actions;
 
     /**
-     * <p>The expected version of the customer group on which the changes should be applied.
+     * <p>Expected version of the customer group on which the changes should be applied.
      * If the expected version does not match the actual version, a 409 Conflict
      * will be returned.</p>
      *
@@ -43,7 +43,7 @@ final class CustomerGroupUpdateBuilder implements Builder
     }
 
     /**
-     * <p>The list of update actions to be performed on the customer group.</p>
+     * <p>List of update actions to be performed on the customer group.</p>
      *
      * @return null|CustomerGroupUpdateActionCollection
      */

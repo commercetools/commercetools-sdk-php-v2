@@ -100,7 +100,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>The unique ID of the customer group.</p>
+     * <p>Unique ID of the customer group.</p>
      *
      * @return null|string
      */
@@ -119,7 +119,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>The current version of the customer group.</p>
+     * <p>Current version of the customer group.</p>
      *
      * @return null|int
      */

@@ -25,14 +25,14 @@ interface CustomerGroup extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>The unique ID of the customer group.</p>
+     * <p>Unique ID of the customer group.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the customer group.</p>
+     * <p>Current version of the customer group.</p>
      *
      * @return null|int
      */

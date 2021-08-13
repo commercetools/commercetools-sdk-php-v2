@@ -17,7 +17,7 @@ interface CustomerGroupUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
-     * <p>The expected version of the customer group on which the changes should be applied.
+     * <p>Expected version of the customer group on which the changes should be applied.
      * If the expected version does not match the actual version, a 409 Conflict
      * will be returned.</p>
      *
@@ -26,7 +26,7 @@ interface CustomerGroupUpdate extends JsonObject
     public function getVersion();
 
     /**
-     * <p>The list of update actions to be performed on the customer group.</p>
+     * <p>List of update actions to be performed on the customer group.</p>
      *
      * @return null|CustomerGroupUpdateActionCollection
      */
