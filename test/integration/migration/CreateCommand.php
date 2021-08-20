@@ -13,6 +13,9 @@ use Commercetools\Core\Model\Common\LocalizedString;
 
 class CreateCommand extends MigrationService implements MigrationInterface
 {
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function v1()
     {
         $client = $this->clientV1();

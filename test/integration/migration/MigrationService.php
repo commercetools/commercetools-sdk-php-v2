@@ -13,7 +13,9 @@ use Commercetools\Core\Config;
 use Commercetools\Core\Helper\Uuid;
 use Commercetools\Core\Request\ClientRequestInterface;
 use Commercetools\Core\Response\ApiResponseInterface;
+use Commercetools\Exception\BadRequestException;
 use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class MigrationService
 {
@@ -44,9 +46,9 @@ abstract class MigrationService
     /**
      * @throws GuzzleException
      */
-    public function executeV1(Client\ApiClient $client, ClientRequestInterface $request): ApiResponseInterface
+    public function executeV1(Client\ApiClient $client, $request, array $headers = null)
     {
-        return $client->execute($request);
+        return $client->execute($request, $headers);
     }
 
     /**
