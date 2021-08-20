@@ -188,6 +188,8 @@ final class CustomerEmailVerifiedMessageModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -206,6 +208,8 @@ final class CustomerEmailVerifiedMessageModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
