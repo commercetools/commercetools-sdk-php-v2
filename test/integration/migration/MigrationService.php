@@ -17,13 +17,18 @@ use Commercetools\Exception\BadRequestException;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
-abstract class MigrationService
+class MigrationService
 {
     const OAUTH_URL = 'https://auth.europe-west1.gcp.commercetools.com';
     const API_URL = 'https://api.europe-west1.gcp.commercetools.com';
     const CLIENT_ID = 'my_client_id';
     const CLIENT_SECRET = 'my_client_secret';
     const PROJECT_KEY = 'my_project_key';
+
+    public function uniqueString(): string
+    {
+        return 'test-' . Uuid::uuidv4();
+    }
 
     public function clientV1(): Client\ApiClient
     {
@@ -36,11 +41,6 @@ abstract class MigrationService
         $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
 
         return Client\ClientFactory::of()->createClient($config);
-    }
-
-    public function uniqueString(): string
-    {
-        return 'test-' . Uuid::uuidv4();
     }
 
     /**
