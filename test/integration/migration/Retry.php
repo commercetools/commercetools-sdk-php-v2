@@ -9,6 +9,8 @@ use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Core\Client\ClientFactory;
 use Commercetools\Core\Config as ConfigV1;
 use Commercetools\Core\Error\ServiceUnavailableException;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Middleware;
 use Monolog\Logger;
@@ -24,30 +26,12 @@ class Retry extends MigrationService implements MigrationInterface
             'client_secret' => self::CLIENT_SECRET,
             'project' => self::PROJECT_KEY
         ]);
-
-        $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
-
         $maxRetries = 3;
         $clientOptions = [
             'middlewares' => [
                 'retry' => Middleware::retry(
-                    function ($retries, RequestInterface $request, ResponseInterface $response = null, $error = null) use ($maxRetries) {
-                        if ($response instanceof ResponseInterface && $response->getStatusCode() < 500) {
-                            return false;
-                        }
-                        if ($retries > $maxRetries) {
-                            return false;
-                        }
-                        if ($error instanceof ServiceUnavailableException) {
-                            return true;
-                        }
-                        if ($error instanceof ServerException && $error->getCode() == 503) {
-                            return true;
-                        }
-                        if ($response instanceof ResponseInterface && $response->getStatusCode() == 503) {
-                            return true;
-                        }
-                        return false;
+                    function ($retries, RequestInterface $request, ResponseInterface $response = null, RequestException $error = null) use ($maxRetries) {
+                        return $retries < $maxRetries && ($error instanceof ConnectException || $response && $response->getStatusCode() >= 500);
                     })
             ]
         ];
