@@ -73,6 +73,10 @@ class ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost extends ApiRequest implements
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '409':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '500':
                     $resultType = ErrorResponseModel::class;
 
