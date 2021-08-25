@@ -11,7 +11,6 @@ use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config as ConfigV1;
 use Commercetools\Core\Request\Project\ProjectGetRequest;
-use Commercetools\Core\Response\ApiResponseInterface;
 
 class Configuration implements MigrationInterface
 {
@@ -21,7 +20,7 @@ class Configuration implements MigrationInterface
     /**
      * @throws \Commercetools\Core\Error\ApiException
      */
-    public function v1(): ApiResponseInterface
+    public function v1()
     {
         $config = ConfigV1::fromArray([
             'client_id' => 'my_client_id',
@@ -32,7 +31,7 @@ class Configuration implements MigrationInterface
         $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
         $client = Client::ofConfig($config);
         $request = ProjectGetRequest::of();
-        $response = $request->executeWithClient($client);
+        $response = $client->execute($request);
 
         return $response;
     }
@@ -40,7 +39,7 @@ class Configuration implements MigrationInterface
     /**
      * @throws \Commercetools\Exception\InvalidArgumentException
      */
-    public function v2(): ApiRequestBuilder
+    public function v2()
     {
         $clientId = 'my_client_id';
         $clientSecret = 'my_client_secret';
@@ -49,8 +48,9 @@ class Configuration implements MigrationInterface
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
         $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3]), $authConfig);
 
-        $apiRequest = new ApiRequestBuilder($projectKey, $client);
+        $apiRequestBuilder = new ApiRequestBuilder($projectKey, $client);
+        $request = $apiRequestBuilder->with()->get();
 
-        return $apiRequest;
+        return $request->execute();
     }
 }
