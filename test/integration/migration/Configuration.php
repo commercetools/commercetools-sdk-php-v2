@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
 use Commercetools\Client\ApiRequestBuilder;
@@ -16,13 +15,13 @@ use Commercetools\Core\Response\ApiResponseInterface;
 
 class Configuration implements MigrationInterface
 {
-    const OAUTH_URL = 'https://auth.europe-west1.gcp.commercetools.com';
-    const API_URL = 'https://api.europe-west1.gcp.commercetools.com';
+    public const OAUTH_URL = 'https://auth.europe-west1.gcp.commercetools.com';
+    public const API_URL = 'https://api.europe-west1.gcp.commercetools.com';
 
     /**
      * @throws \Commercetools\Core\Error\ApiException
      */
-    public function v1() :ApiResponseInterface
+    public function v1(): ApiResponseInterface
     {
         $config = ConfigV1::fromArray([
             'client_id' => 'my_client_id',
@@ -41,7 +40,7 @@ class Configuration implements MigrationInterface
     /**
      * @throws \Commercetools\Exception\InvalidArgumentException
      */
-    public function v2() :ApiRequestBuilder
+    public function v2(): ApiRequestBuilder
     {
         $clientId = 'my_client_id';
         $clientSecret = 'my_client_secret';

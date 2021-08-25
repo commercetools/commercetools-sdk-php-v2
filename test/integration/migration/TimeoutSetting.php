@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
 use Commercetools\Core\Builder\Request\RequestBuilder;
 
 class TimeoutSetting extends MigrationService implements MigrationInterface

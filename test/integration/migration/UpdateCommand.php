@@ -3,14 +3,11 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
 use Commercetools\Api\Models\Category\Category as CategoryV2;
-use Commercetools\Api\Models\Category\CategoryChangeNameAction;
 use Commercetools\Api\Models\Category\CategoryChangeNameActionModel;
 use Commercetools\Api\Models\Category\CategoryUpdateActionCollection;
 use Commercetools\Api\Models\Category\CategoryUpdateBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Base\MapperSequence;
 use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Model\Category\Category as CategoryV1;
 use Commercetools\Core\Model\Common\LocalizedString;
@@ -27,7 +24,8 @@ class UpdateCommand extends MigrationService implements MigrationInterface
 
         /** @var CategoryV1 $category */
         $request = RequestBuilder::of()->categories()->update($category)
-                    ->addAction(CategoryChangeNameActionV1::ofName(
+                    ->addAction(
+                        CategoryChangeNameActionV1::ofName(
                             LocalizedString::ofLangAndText('en', 'name')
                         )
                     );

@@ -3,8 +3,6 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
-
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Core\Builder\Request\RequestBuilder;
@@ -45,5 +43,4 @@ class CreateCommand extends MigrationService implements MigrationInterface
 
         return $request->execute();
     }
-
 }

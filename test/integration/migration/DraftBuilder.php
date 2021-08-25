@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Core\Model\Category\CategoryDraft;

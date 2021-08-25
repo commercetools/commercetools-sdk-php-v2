@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
 use Commercetools\Api\Models\Category\CategoryBuilder;
 use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Model\Category\Category;

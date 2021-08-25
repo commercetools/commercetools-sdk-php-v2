@@ -3,15 +3,9 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
-use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Models\Category\CategoryDraft as CategoryDraftV2;
-use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Builder\Request\RequestBuilder;
-use Commercetools\Core\Model\Category\Category;
 use Commercetools\Core\Model\Category\CategoryDraft as CategoryDraftV1;
-use Commercetools\Core\Request\AbstractApiRequest;
-
 
 class CreateFromJson extends MigrationService implements MigrationInterface
 {

@@ -3,15 +3,12 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
 use Commercetools\Api\Client\Config as ConfigV2;
 use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Core\Client\ClientFactory;
 use Commercetools\Core\Config as ConfigV1;
-use Commercetools\Core\Error\ServiceUnavailableException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Middleware;
 use Monolog\Logger;
 use Psr\Http\Message\RequestInterface;
@@ -32,7 +29,8 @@ class Retry extends MigrationService implements MigrationInterface
                 'retry' => Middleware::retry(
                     function ($retries, RequestInterface $request, ResponseInterface $response = null, RequestException $error = null) use ($maxRetries) {
                         return $retries < $maxRetries && ($error instanceof ConnectException || $response && $response->getStatusCode() >= 500);
-                    })
+                    }
+                )
             ]
         ];
         $config->setClientOptions($clientOptions);

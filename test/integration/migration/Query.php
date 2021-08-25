@@ -5,7 +5,6 @@ namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Core\Builder\Request\RequestBuilder;
 
-
 class Query extends MigrationService implements MigrationInterface
 {
     /**

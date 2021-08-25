@@ -3,27 +3,23 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
+use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config;
 use Commercetools\Core\Helper\Uuid;
-use Commercetools\Core\Request\ClientRequestInterface;
-use Commercetools\Core\Response\ApiResponseInterface;
-use Commercetools\Exception\BadRequestException;
 use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\ResponseInterface;
 
 class MigrationService
 {
-    const OAUTH_URL = 'https://auth.europe-west1.gcp.commercetools.com';
-    const API_URL = 'https://api.europe-west1.gcp.commercetools.com';
-    const CLIENT_ID = 'my_client_id';
-    const CLIENT_SECRET = 'my_client_secret';
-    const PROJECT_KEY = 'my_project_key';
+    public const OAUTH_URL = 'https://auth.europe-west1.gcp.commercetools.com';
+    public const API_URL = 'https://api.europe-west1.gcp.commercetools.com';
+    public const CLIENT_ID = 'my_client_id';
+    public const CLIENT_SECRET = 'my_client_secret';
+    public const PROJECT_KEY = 'my_project_key';
 
     public function uniqueString(): string
     {

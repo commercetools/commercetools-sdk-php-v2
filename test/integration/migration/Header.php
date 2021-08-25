@@ -3,14 +3,11 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
-
-
 use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Model\Category\CategoryDraft;
 
 class Header extends MigrationService implements MigrationInterface
 {
-
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -24,7 +21,6 @@ class Header extends MigrationService implements MigrationInterface
         $result = $request->mapFromResponse($response);
 
         return $result;
-
     }
 
     /**
@@ -33,8 +29,8 @@ class Header extends MigrationService implements MigrationInterface
     public function v2()
     {
         $builder = $this->builderV2();
-        $request = $builder->with()->categories()->get()->withHeader("foo", "bar");
+        $request = $builder->with()->categories()->get();
 
-        return $request->execute();
+        return $request->withHeader("foo", "bar");
     }
 }
