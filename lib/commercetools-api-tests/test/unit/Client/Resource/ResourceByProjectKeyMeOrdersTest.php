@@ -357,6 +357,16 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                 },
                 201
             ],
+            'ByProjectKeyMeOrdersPost_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->post(null);
+                },
+                409
+            ],
             'ByProjectKeyMeOrdersPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
