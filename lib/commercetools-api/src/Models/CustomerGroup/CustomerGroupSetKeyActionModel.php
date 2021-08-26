@@ -59,7 +59,7 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>User-defined unique identifier for the customer group.</p>
+     * <p>If <code>key</code> is absent or <code>null</code>, the existing key, if any, will be removed.</p>
      *
      * @return null|string
      */

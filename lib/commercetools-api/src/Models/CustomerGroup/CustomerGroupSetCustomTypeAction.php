@@ -26,7 +26,7 @@ interface CustomerGroupSetCustomTypeAction extends CustomerGroupUpdateAction
     public function getType();
 
     /**
-     * <p>A valid JSON object, based on the <a href="/../api/projects/types#fielddefinition">FieldDefinitions</a> of the <a href="/../api/projects/types#type">Type</a>.
+     * <p>Valid JSON object, based on the <a href="/../api/projects/types#fielddefinition">FieldDefinitions</a> of the <a href="/../api/projects/types#type">Type</a>.
      * Sets the <a href="/../api/projects/custom-fields#custom">custom</a> fields to this value.</p>
      *
      * @return null|FieldContainer
