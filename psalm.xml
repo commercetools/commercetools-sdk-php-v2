@@ -7,6 +7,11 @@
 
     strictBinaryOperands="true"
 >
+    <issueHandlers>
+        <DeprecatedClass errorLevel="suppress"/>
+        <DeprecatedMethod errorLevel="suppress"/>
+        <DeprecatedFunction errorLevel="info"/>
+    </issueHandlers>
     <projectFiles>
         <directory name="src" />
         <directory name="lib/commercetools-api/src" />
