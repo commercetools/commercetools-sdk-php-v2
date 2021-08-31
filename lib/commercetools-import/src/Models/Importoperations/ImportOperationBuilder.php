@@ -31,7 +31,7 @@ final class ImportOperationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $importSinkKey;
+    private $importContainerKey;
 
     /**
      * @var ?string
@@ -89,13 +89,13 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The key of the <a href="/import-sink#importsink">ImportSink</a>.</p>
+     * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
      *
      * @return null|string
      */
-    public function getImportSinkKey()
+    public function getImportContainerKey()
     {
-        return $this->importSinkKey;
+        return $this->importContainerKey;
     }
 
     /**
@@ -200,12 +200,12 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * @param ?string $importSinkKey
+     * @param ?string $importContainerKey
      * @return $this
      */
-    public function withImportSinkKey(?string $importSinkKey)
+    public function withImportContainerKey(?string $importContainerKey)
     {
-        $this->importSinkKey = $importSinkKey;
+        $this->importContainerKey = $importContainerKey;
 
         return $this;
     }
@@ -314,7 +314,7 @@ final class ImportOperationBuilder implements Builder
     {
         return new ImportOperationModel(
             $this->version,
-            $this->importSinkKey,
+            $this->importContainerKey,
             $this->resourceKey,
             $this->id,
             $this->state,

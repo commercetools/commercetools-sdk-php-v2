@@ -31,7 +31,7 @@ final class ImportSummaryBuilder implements Builder
     private $total;
 
     /**
-     * <p>The import status of an <a href="/import-sink#importsink">ImportSink</a> given by the number of resources in each <a href="/processing-state#the-list-of-processing-states">Processing State</a>.</p>
+     * <p>The import status of an <a href="/import-container#importcontainer">ImportContainer</a> given by the number of resources in each <a href="/processing-state#the-list-of-processing-states">Processing State</a>.</p>
      *
      * @return null|OperationStates
      */

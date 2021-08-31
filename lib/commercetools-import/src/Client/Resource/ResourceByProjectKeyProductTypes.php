@@ -27,6 +27,15 @@ class ResourceByProjectKeyProductTypes extends ApiResource
 
     /**
      */
+    public function importContainers(): ResourceByProjectKeyProductTypesImportContainers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductTypesImportContainers($args, $this->getClient());
+    }
+    /**
+     * @deprecated
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();
