@@ -8,6 +8,7 @@ use Commercetools\Api\Client\Config as ConfigV2;
 use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
+use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config as ConfigV1;
 use Commercetools\Core\Request\Project\ProjectGetRequest;
@@ -30,7 +31,7 @@ class Configuration implements MigrationInterface
 
         $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
         $client = Client::ofConfig($config);
-        $request = ProjectGetRequest::of();
+        $request = RequestBuilder::of()->project()->get();
         $response = $client->execute($request);
 
         return $response;
