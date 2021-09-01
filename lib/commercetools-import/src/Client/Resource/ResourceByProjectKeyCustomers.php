@@ -27,6 +27,15 @@ class ResourceByProjectKeyCustomers extends ApiResource
 
     /**
      */
+    public function importContainers(): ResourceByProjectKeyCustomersImportContainers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyCustomersImportContainers($args, $this->getClient());
+    }
+    /**
+     * @deprecated
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyCustomersImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

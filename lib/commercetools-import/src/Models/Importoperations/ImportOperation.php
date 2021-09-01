@@ -17,7 +17,7 @@ use DateTimeImmutable;
 interface ImportOperation extends JsonObject
 {
     public const FIELD_VERSION = 'version';
-    public const FIELD_IMPORT_SINK_KEY = 'importSinkKey';
+    public const FIELD_IMPORT_CONTAINER_KEY = 'importContainerKey';
     public const FIELD_RESOURCE_KEY = 'resourceKey';
     public const FIELD_ID = 'id';
     public const FIELD_STATE = 'state';
@@ -36,11 +36,11 @@ interface ImportOperation extends JsonObject
     public function getVersion();
 
     /**
-     * <p>The key of the <a href="/import-sink#importsink">ImportSink</a>.</p>
+     * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
      *
      * @return null|string
      */
-    public function getImportSinkKey();
+    public function getImportContainerKey();
 
     /**
      * <p>The key of the resource.</p>
@@ -57,7 +57,7 @@ interface ImportOperation extends JsonObject
     public function getId();
 
     /**
-     * <p>The import status of the resource. Set to <code>Rejected</code> or <code>ValidationFailed</code> if the import of the resource was not successful.</p>
+     * <p>The import status of the resource. Set to <code>rejected</code> or <code>validationFailed</code> if the import of the resource was not successful.</p>
      *
      * @return null|string
      */
@@ -111,9 +111,9 @@ interface ImportOperation extends JsonObject
     public function setVersion(?int $version): void;
 
     /**
-     * @param ?string $importSinkKey
+     * @param ?string $importContainerKey
      */
-    public function setImportSinkKey(?string $importSinkKey): void;
+    public function setImportContainerKey(?string $importContainerKey): void;
 
     /**
      * @param ?string $resourceKey

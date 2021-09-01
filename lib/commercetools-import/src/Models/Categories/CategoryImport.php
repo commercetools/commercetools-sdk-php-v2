@@ -55,7 +55,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.parent</code>.
      * The Reference to the parent <a href="/../api/projects/categories#category">Category</a> with which the Category is associated.
-     * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Category is created.</p>
+     * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
      *
      * @return null|CategoryKeyReference
      */

@@ -15,6 +15,8 @@ use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCustomers;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportContainers;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportOperations;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSinks;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSummaries;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyInventories;
@@ -83,6 +85,26 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyImportSummaries::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/import-summaries'
+            ],
+            'ResourceByProjectKeyImportContainers' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyImportContainers {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->importContainers();
+                },
+                ResourceByProjectKeyImportContainers::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/import-containers'
+            ],
+            'ResourceByProjectKeyImportOperations' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyImportOperations {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->importOperations();
+                },
+                ResourceByProjectKeyImportOperations::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/import-operations'
             ],
             'ResourceByProjectKeyCategories' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyCategories {
