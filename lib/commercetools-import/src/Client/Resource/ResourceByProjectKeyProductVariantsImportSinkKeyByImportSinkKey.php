@@ -15,6 +15,7 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @deprecated
  */
 class ResourceByProjectKeyProductVariantsImportSinkKeyByImportSinkKey extends ApiResource
 {
