@@ -1,0 +1,3 @@
+ignore:
+  - "test/**/*.php"
+  - "lib/**/test/**/*.php"
