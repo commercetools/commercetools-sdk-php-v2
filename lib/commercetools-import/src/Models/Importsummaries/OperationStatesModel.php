@@ -22,179 +22,213 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * @var ?int
      */
-    protected $ValidationFailed;
+    protected $processing;
 
     /**
      * @var ?int
      */
-    protected $Unresolved;
+    protected $validationFailed;
 
     /**
      * @var ?int
      */
-    protected $WaitForMasterVariant;
+    protected $unresolved;
 
     /**
      * @var ?int
      */
-    protected $Imported;
+    protected $waitForMasterVariant;
 
     /**
      * @var ?int
      */
-    protected $Rejected;
+    protected $imported;
+
+    /**
+     * @var ?int
+     */
+    protected $rejected;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $ValidationFailed = null,
-        ?int $Unresolved = null,
-        ?int $WaitForMasterVariant = null,
-        ?int $Imported = null,
-        ?int $Rejected = null
+        ?int $processing = null,
+        ?int $validationFailed = null,
+        ?int $unresolved = null,
+        ?int $waitForMasterVariant = null,
+        ?int $imported = null,
+        ?int $rejected = null
     ) {
-        $this->ValidationFailed = $ValidationFailed;
-        $this->Unresolved = $Unresolved;
-        $this->WaitForMasterVariant = $WaitForMasterVariant;
-        $this->Imported = $Imported;
-        $this->Rejected = $Rejected;
+        $this->processing = $processing;
+        $this->validationFailed = $validationFailed;
+        $this->unresolved = $unresolved;
+        $this->waitForMasterVariant = $waitForMasterVariant;
+        $this->imported = $imported;
+        $this->rejected = $rejected;
     }
 
     /**
-     * <p>The number of resources in the <code>ValidationFailed</code> state.</p>
+     * <p>The number of resources in the <code>processing</code> state.</p>
+     *
+     * @return null|int
+     */
+    public function getProcessing()
+    {
+        if (is_null($this->processing)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_PROCESSING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->processing = (int) $data;
+        }
+
+        return $this->processing;
+    }
+
+    /**
+     * <p>The number of resources in the <code>validationFailed</code> state.</p>
      *
      * @return null|int
      */
     public function getValidationFailed()
     {
-        if (is_null($this->ValidationFailed)) {
+        if (is_null($this->validationFailed)) {
             /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_VALIDATION_FAILED);
             if (is_null($data)) {
                 return null;
             }
-            $this->ValidationFailed = (int) $data;
+            $this->validationFailed = (int) $data;
         }
 
-        return $this->ValidationFailed;
+        return $this->validationFailed;
     }
 
     /**
-     * <p>The number of resources in the <code>Unresolved</code> state.</p>
+     * <p>The number of resources in the <code>unresolved</code> state.</p>
      *
      * @return null|int
      */
     public function getUnresolved()
     {
-        if (is_null($this->Unresolved)) {
+        if (is_null($this->unresolved)) {
             /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_UNRESOLVED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Unresolved = (int) $data;
+            $this->unresolved = (int) $data;
         }
 
-        return $this->Unresolved;
+        return $this->unresolved;
     }
 
     /**
-     * <p>The number of resources in the <code>WaitForMasterVariant</code> state.</p>
+     * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
      *
      * @return null|int
      */
     public function getWaitForMasterVariant()
     {
-        if (is_null($this->WaitForMasterVariant)) {
+        if (is_null($this->waitForMasterVariant)) {
             /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_WAIT_FOR_MASTER_VARIANT);
             if (is_null($data)) {
                 return null;
             }
-            $this->WaitForMasterVariant = (int) $data;
+            $this->waitForMasterVariant = (int) $data;
         }
 
-        return $this->WaitForMasterVariant;
+        return $this->waitForMasterVariant;
     }
 
     /**
-     * <p>The number of resources in the <code>Imported</code> state.</p>
+     * <p>The number of resources in the <code>imported</code> state.</p>
      *
      * @return null|int
      */
     public function getImported()
     {
-        if (is_null($this->Imported)) {
+        if (is_null($this->imported)) {
             /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_IMPORTED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Imported = (int) $data;
+            $this->imported = (int) $data;
         }
 
-        return $this->Imported;
+        return $this->imported;
     }
 
     /**
-     * <p>The number of resources in the <code>Rejected</code> state.</p>
+     * <p>The number of resources in the <code>rejected</code> state.</p>
      *
      * @return null|int
      */
     public function getRejected()
     {
-        if (is_null($this->Rejected)) {
+        if (is_null($this->rejected)) {
             /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_REJECTED);
             if (is_null($data)) {
                 return null;
             }
-            $this->Rejected = (int) $data;
+            $this->rejected = (int) $data;
         }
 
-        return $this->Rejected;
+        return $this->rejected;
     }
 
 
     /**
-     * @param ?int $ValidationFailed
+     * @param ?int $processing
      */
-    public function setValidationFailed(?int $ValidationFailed): void
+    public function setProcessing(?int $processing): void
     {
-        $this->ValidationFailed = $ValidationFailed;
+        $this->processing = $processing;
     }
 
     /**
-     * @param ?int $Unresolved
+     * @param ?int $validationFailed
      */
-    public function setUnresolved(?int $Unresolved): void
+    public function setValidationFailed(?int $validationFailed): void
     {
-        $this->Unresolved = $Unresolved;
+        $this->validationFailed = $validationFailed;
     }
 
     /**
-     * @param ?int $WaitForMasterVariant
+     * @param ?int $unresolved
      */
-    public function setWaitForMasterVariant(?int $WaitForMasterVariant): void
+    public function setUnresolved(?int $unresolved): void
     {
-        $this->WaitForMasterVariant = $WaitForMasterVariant;
+        $this->unresolved = $unresolved;
     }
 
     /**
-     * @param ?int $Imported
+     * @param ?int $waitForMasterVariant
      */
-    public function setImported(?int $Imported): void
+    public function setWaitForMasterVariant(?int $waitForMasterVariant): void
     {
-        $this->Imported = $Imported;
+        $this->waitForMasterVariant = $waitForMasterVariant;
     }
 
     /**
-     * @param ?int $Rejected
+     * @param ?int $imported
      */
-    public function setRejected(?int $Rejected): void
+    public function setImported(?int $imported): void
     {
-        $this->Rejected = $Rejected;
+        $this->imported = $imported;
+    }
+
+    /**
+     * @param ?int $rejected
+     */
+    public function setRejected(?int $rejected): void
+    {
+        $this->rejected = $rejected;
     }
 }

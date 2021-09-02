@@ -23,129 +23,155 @@ final class OperationStatesBuilder implements Builder
     /**
      * @var ?int
      */
-    private $ValidationFailed;
+    private $processing;
 
     /**
      * @var ?int
      */
-    private $Unresolved;
+    private $validationFailed;
 
     /**
      * @var ?int
      */
-    private $WaitForMasterVariant;
+    private $unresolved;
 
     /**
      * @var ?int
      */
-    private $Imported;
+    private $waitForMasterVariant;
 
     /**
      * @var ?int
      */
-    private $Rejected;
+    private $imported;
 
     /**
-     * <p>The number of resources in the <code>ValidationFailed</code> state.</p>
+     * @var ?int
+     */
+    private $rejected;
+
+    /**
+     * <p>The number of resources in the <code>processing</code> state.</p>
+     *
+     * @return null|int
+     */
+    public function getProcessing()
+    {
+        return $this->processing;
+    }
+
+    /**
+     * <p>The number of resources in the <code>validationFailed</code> state.</p>
      *
      * @return null|int
      */
     public function getValidationFailed()
     {
-        return $this->ValidationFailed;
+        return $this->validationFailed;
     }
 
     /**
-     * <p>The number of resources in the <code>Unresolved</code> state.</p>
+     * <p>The number of resources in the <code>unresolved</code> state.</p>
      *
      * @return null|int
      */
     public function getUnresolved()
     {
-        return $this->Unresolved;
+        return $this->unresolved;
     }
 
     /**
-     * <p>The number of resources in the <code>WaitForMasterVariant</code> state.</p>
+     * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
      *
      * @return null|int
      */
     public function getWaitForMasterVariant()
     {
-        return $this->WaitForMasterVariant;
+        return $this->waitForMasterVariant;
     }
 
     /**
-     * <p>The number of resources in the <code>Imported</code> state.</p>
+     * <p>The number of resources in the <code>imported</code> state.</p>
      *
      * @return null|int
      */
     public function getImported()
     {
-        return $this->Imported;
+        return $this->imported;
     }
 
     /**
-     * <p>The number of resources in the <code>Rejected</code> state.</p>
+     * <p>The number of resources in the <code>rejected</code> state.</p>
      *
      * @return null|int
      */
     public function getRejected()
     {
-        return $this->Rejected;
+        return $this->rejected;
     }
 
     /**
-     * @param ?int $ValidationFailed
+     * @param ?int $processing
      * @return $this
      */
-    public function withValidationFailed(?int $ValidationFailed)
+    public function withProcessing(?int $processing)
     {
-        $this->ValidationFailed = $ValidationFailed;
+        $this->processing = $processing;
 
         return $this;
     }
 
     /**
-     * @param ?int $Unresolved
+     * @param ?int $validationFailed
      * @return $this
      */
-    public function withUnresolved(?int $Unresolved)
+    public function withValidationFailed(?int $validationFailed)
     {
-        $this->Unresolved = $Unresolved;
+        $this->validationFailed = $validationFailed;
 
         return $this;
     }
 
     /**
-     * @param ?int $WaitForMasterVariant
+     * @param ?int $unresolved
      * @return $this
      */
-    public function withWaitForMasterVariant(?int $WaitForMasterVariant)
+    public function withUnresolved(?int $unresolved)
     {
-        $this->WaitForMasterVariant = $WaitForMasterVariant;
+        $this->unresolved = $unresolved;
 
         return $this;
     }
 
     /**
-     * @param ?int $Imported
+     * @param ?int $waitForMasterVariant
      * @return $this
      */
-    public function withImported(?int $Imported)
+    public function withWaitForMasterVariant(?int $waitForMasterVariant)
     {
-        $this->Imported = $Imported;
+        $this->waitForMasterVariant = $waitForMasterVariant;
 
         return $this;
     }
 
     /**
-     * @param ?int $Rejected
+     * @param ?int $imported
      * @return $this
      */
-    public function withRejected(?int $Rejected)
+    public function withImported(?int $imported)
     {
-        $this->Rejected = $Rejected;
+        $this->imported = $imported;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $rejected
+     * @return $this
+     */
+    public function withRejected(?int $rejected)
+    {
+        $this->rejected = $rejected;
 
         return $this;
     }
@@ -154,11 +180,12 @@ final class OperationStatesBuilder implements Builder
     public function build(): OperationStates
     {
         return new OperationStatesModel(
-            $this->ValidationFailed,
-            $this->Unresolved,
-            $this->WaitForMasterVariant,
-            $this->Imported,
-            $this->Rejected
+            $this->processing,
+            $this->validationFailed,
+            $this->unresolved,
+            $this->waitForMasterVariant,
+            $this->imported,
+            $this->rejected
         );
     }
 

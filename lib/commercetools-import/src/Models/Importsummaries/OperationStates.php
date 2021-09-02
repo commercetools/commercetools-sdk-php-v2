@@ -13,69 +13,82 @@ use Commercetools\Base\JsonObject;
 
 interface OperationStates extends JsonObject
 {
-    public const FIELD_VALIDATION_FAILED = 'ValidationFailed';
-    public const FIELD_UNRESOLVED = 'Unresolved';
-    public const FIELD_WAIT_FOR_MASTER_VARIANT = 'WaitForMasterVariant';
-    public const FIELD_IMPORTED = 'Imported';
-    public const FIELD_REJECTED = 'Rejected';
+    public const FIELD_PROCESSING = 'processing';
+    public const FIELD_VALIDATION_FAILED = 'validationFailed';
+    public const FIELD_UNRESOLVED = 'unresolved';
+    public const FIELD_WAIT_FOR_MASTER_VARIANT = 'waitForMasterVariant';
+    public const FIELD_IMPORTED = 'imported';
+    public const FIELD_REJECTED = 'rejected';
 
     /**
-     * <p>The number of resources in the <code>ValidationFailed</code> state.</p>
+     * <p>The number of resources in the <code>processing</code> state.</p>
+     *
+     * @return null|int
+     */
+    public function getProcessing();
+
+    /**
+     * <p>The number of resources in the <code>validationFailed</code> state.</p>
      *
      * @return null|int
      */
     public function getValidationFailed();
 
     /**
-     * <p>The number of resources in the <code>Unresolved</code> state.</p>
+     * <p>The number of resources in the <code>unresolved</code> state.</p>
      *
      * @return null|int
      */
     public function getUnresolved();
 
     /**
-     * <p>The number of resources in the <code>WaitForMasterVariant</code> state.</p>
+     * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
      *
      * @return null|int
      */
     public function getWaitForMasterVariant();
 
     /**
-     * <p>The number of resources in the <code>Imported</code> state.</p>
+     * <p>The number of resources in the <code>imported</code> state.</p>
      *
      * @return null|int
      */
     public function getImported();
 
     /**
-     * <p>The number of resources in the <code>Rejected</code> state.</p>
+     * <p>The number of resources in the <code>rejected</code> state.</p>
      *
      * @return null|int
      */
     public function getRejected();
 
     /**
-     * @param ?int $ValidationFailed
+     * @param ?int $processing
      */
-    public function setValidationFailed(?int $ValidationFailed): void;
+    public function setProcessing(?int $processing): void;
 
     /**
-     * @param ?int $Unresolved
+     * @param ?int $validationFailed
      */
-    public function setUnresolved(?int $Unresolved): void;
+    public function setValidationFailed(?int $validationFailed): void;
 
     /**
-     * @param ?int $WaitForMasterVariant
+     * @param ?int $unresolved
      */
-    public function setWaitForMasterVariant(?int $WaitForMasterVariant): void;
+    public function setUnresolved(?int $unresolved): void;
 
     /**
-     * @param ?int $Imported
+     * @param ?int $waitForMasterVariant
      */
-    public function setImported(?int $Imported): void;
+    public function setWaitForMasterVariant(?int $waitForMasterVariant): void;
 
     /**
-     * @param ?int $Rejected
+     * @param ?int $imported
      */
-    public function setRejected(?int $Rejected): void;
+    public function setImported(?int $imported): void;
+
+    /**
+     * @param ?int $rejected
+     */
+    public function setRejected(?int $rejected): void;
 }

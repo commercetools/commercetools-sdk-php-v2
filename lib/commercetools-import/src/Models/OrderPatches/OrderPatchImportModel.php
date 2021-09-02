@@ -61,7 +61,7 @@ final class OrderPatchImportModel extends JsonObjectModel implements OrderPatchI
     }
 
     /**
-     * <p>Each field referenced must be defined in an already existing order in the commercetools project or the import operation state is set to <code>ValidationFailed</code>.</p>
+     * <p>Each field referenced must be defined in an already existing order in the commercetools project or the import operation state is set to <code>validationFailed</code>.</p>
      *
      * @return null|OrderField
      */
