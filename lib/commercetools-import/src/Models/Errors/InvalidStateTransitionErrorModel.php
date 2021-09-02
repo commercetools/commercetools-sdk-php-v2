@@ -90,7 +90,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Represents the status of a resource under an import process. Every resource has the initial state <code>Unresolved</code>.</p>
+     * <p>Represents the status of a resource under an import process. Every resource has the initial state <code>processing</code>.</p>
      *
      * @return null|string
      */
@@ -109,7 +109,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Represents the status of a resource under an import process. Every resource has the initial state <code>Unresolved</code>.</p>
+     * <p>Represents the status of a resource under an import process. Every resource has the initial state <code>processing</code>.</p>
      *
      * @return null|string
      */
