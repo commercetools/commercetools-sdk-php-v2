@@ -88,9 +88,9 @@ To set *Headers*, in the 1.x it is possible in the <strong>execute()</strong> me
 ```
 <a id="retry"></a>
 ### Retry
-In the 1.x, the *Retry* is handled through the client options, so preparing a multidimensional array. And then the creation of the Client, which here below there is another way to build it.
+In the 1.x, the *Retry* is handled through the client options, so with multidimensional array. And then, the creation of the Client, which here below there is another way to build it.
 
-The 2.x is better structured because through the <strong>MiddlewareFactory</strong> is possible to set a middleware array through the <strong>createRetryNAMiddleware</strong> method, that helps to setup the *Retry*. 
+The 2.x is better structured because through the <strong>MiddlewareFactory</strong> is possible to set a middleware array through the <strong>createRetryNAMiddleware</strong> method, that helps in this case, to setup the *Retry*.
 
 
 
@@ -132,7 +132,7 @@ The 2.x is better structured because through the <strong>MiddlewareFactory</stro
 ```
 <a id="draft-builder"></a>
 ### Draft Builder
-About the *DraftBuilder* the main difference is that in the 2.x we introduced the <strong>build</strong> method to create the objects, in this case the *DraftBuilder* object.
+About the *DraftBuilder* the main difference is that in the 2.x we introduced the <strong>build</strong> method to create objects, in this case the *DraftBuilder* object.
 As can be seen below, the setters are being replaced by the *with* methods. 
 
 1.x
@@ -209,7 +209,7 @@ The main difference is how to build the request, as explained in the [Create Com
 ```
 <a id="update-command"></a>
 ### Update Command
-Like the [Create Command](#create-command), there are not dedicated classes for the *Update Command*, but the use of the <strong>UpdateBuilder</strong> to create the type of update action to apply in the <strong>post</strong> method is substantial.
+Like the [Create Command](#create-command), there are not dedicated classes for the *Update Command* like in the 1.x the <strong>update</strong> method, but it's substantial, the use of the <strong>UpdateBuilder</strong> to create the type of update action to apply in the <strong>post</strong> method.
 
 Here the differences:
 
@@ -247,7 +247,7 @@ Here the differences:
 
 <a id="query-getbyid"></a>
 ### Query - GetById
-In case of *Query by Id* action, the 2.x is not so different from the previous cases, except that it uses the <strong>get</strong> method before the other ways to filter the query request.
+In case of *Query by Id* action, the 2.x is not so different from the previous cases, except that, it uses the <strong>get</strong> method in the request before the other ways to filter the query request.
 
 1.x
 ```php
