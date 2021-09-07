@@ -17,14 +17,14 @@ interface InvalidStateTransitionError extends ErrorObject
     public const FIELD_NEW_STATE = 'newState';
 
     /**
-     * <p>Represents the status of a resource under an import process. Every resource has the initial state <code>processing</code>.</p>
+     * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
      * @return null|string
      */
     public function getCurrentState();
 
     /**
-     * <p>Represents the status of a resource under an import process. Every resource has the initial state <code>processing</code>.</p>
+     * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
      * @return null|string
      */
