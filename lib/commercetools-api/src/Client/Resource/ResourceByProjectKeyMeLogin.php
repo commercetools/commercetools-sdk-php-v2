@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Customer\CustomerSignin;
 use Commercetools\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
@@ -26,10 +27,10 @@ class ResourceByProjectKeyMeLogin extends ApiResource
     }
 
     /**
-     * @psalm-param ?object|array|string $body
+     * @psalm-param ?CustomerSignin $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post($body = null, array $headers = []): ByProjectKeyMeLoginPost
+    public function post(?CustomerSignin $body = null, array $headers = []): ByProjectKeyMeLoginPost
     {
         $args = $this->getArgs();
 
