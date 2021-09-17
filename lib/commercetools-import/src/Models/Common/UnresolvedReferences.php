@@ -11,9 +11,8 @@ namespace Commercetools\Import\Models\Common;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface KeyReference extends JsonObject
+interface UnresolvedReferences extends JsonObject
 {
-    public const DISCRIMINATOR_FIELD = 'typeId';
     public const FIELD_KEY = 'key';
     public const FIELD_TYPE_ID = 'typeId';
 
@@ -23,6 +22,8 @@ interface KeyReference extends JsonObject
     public function getKey();
 
     /**
+     * <p>The type of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId();
@@ -31,4 +32,9 @@ interface KeyReference extends JsonObject
      * @param ?string $key
      */
     public function setKey(?string $key): void;
+
+    /**
+     * @param ?string $typeId
+     */
+    public function setTypeId(?string $typeId): void;
 }

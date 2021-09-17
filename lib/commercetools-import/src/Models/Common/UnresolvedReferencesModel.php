@@ -17,9 +17,8 @@ use stdClass;
 /**
  * @internal
  */
-final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyReference
+final class UnresolvedReferencesModel extends JsonObjectModel implements UnresolvedReferences
 {
-    public const DISCRIMINATOR_VALUE = 'state';
     /**
      * @var ?string
      */
@@ -35,10 +34,11 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId;
     }
 
     /**
@@ -59,6 +59,8 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     }
 
     /**
+     * <p>The type of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -82,5 +84,13 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param ?string $typeId
+     */
+    public function setTypeId(?string $typeId): void
+    {
+        $this->typeId = $typeId;
     }
 }

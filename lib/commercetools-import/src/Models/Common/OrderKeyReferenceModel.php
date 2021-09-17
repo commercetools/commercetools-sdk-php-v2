@@ -59,8 +59,6 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
-     *
      * @return null|string
      */
     public function getTypeId()

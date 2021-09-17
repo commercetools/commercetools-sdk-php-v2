@@ -17,9 +17,9 @@ use stdClass;
 /**
  * @internal
  */
-final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyReference
+final class CustomObjectKeyReferenceModel extends JsonObjectModel implements CustomObjectKeyReference
 {
-    public const DISCRIMINATOR_VALUE = 'state';
+    public const DISCRIMINATOR_VALUE = 'key-value-document';
     /**
      * @var ?string
      */
@@ -30,14 +30,21 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
      */
     protected $typeId;
 
+    /**
+     * @var ?string
+     */
+    protected $container;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $container = null
     ) {
         $this->key = $key;
+        $this->container = $container;
         $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
@@ -75,6 +82,23 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
         return $this->typeId;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getContainer()
+    {
+        if (is_null($this->container)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CONTAINER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->container = (string) $data;
+        }
+
+        return $this->container;
+    }
+
 
     /**
      * @param ?string $key
@@ -82,5 +106,13 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param ?string $container
+     */
+    public function setContainer(?string $container): void
+    {
+        $this->container = $container;
     }
 }

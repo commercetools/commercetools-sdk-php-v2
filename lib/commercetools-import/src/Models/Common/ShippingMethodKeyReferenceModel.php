@@ -59,8 +59,6 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
-     *
      * @return null|string
      */
     public function getTypeId()
