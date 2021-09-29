@@ -39,6 +39,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'CustomerCompanyNameSet' => CustomerCompanyNameSetMessagePayloadModel::class,
        'CustomerCreated' => CustomerCreatedMessagePayloadModel::class,
        'CustomerDateOfBirthSet' => CustomerDateOfBirthSetMessagePayloadModel::class,
+       'CustomerDeleted' => CustomerDeletedMessagePayloadModel::class,
        'CustomerEmailChanged' => CustomerEmailChangedMessagePayloadModel::class,
        'CustomerEmailVerified' => CustomerEmailVerifiedMessagePayloadModel::class,
        'CustomerGroupSet' => CustomerGroupSetMessagePayloadModel::class,
