@@ -59,6 +59,8 @@ final class PaymentKeyReferenceModel extends JsonObjectModel implements PaymentK
     }
 
     /**
+     * <p>The type of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

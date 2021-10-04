@@ -59,6 +59,8 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
     }
 
     /**
+     * <p>The type of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
