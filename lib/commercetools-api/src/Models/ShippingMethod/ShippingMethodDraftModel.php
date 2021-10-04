@@ -36,6 +36,11 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     protected $name;
 
     /**
+     * @var ?LocalizedString
+     */
+    protected $localizedName;
+
+    /**
      * @var ?string
      */
     protected $description;
@@ -77,6 +82,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function __construct(
         ?string $key = null,
         ?string $name = null,
+        ?LocalizedString $localizedName = null,
         ?string $description = null,
         ?LocalizedString $localizedDescription = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
@@ -87,6 +93,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     ) {
         $this->key = $key;
         $this->name = $name;
+        $this->localizedName = $localizedName;
         $this->description = $description;
         $this->localizedDescription = $localizedDescription;
         $this->taxCategory = $taxCategory;
@@ -128,6 +135,24 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         }
 
         return $this->name;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedName()
+    {
+        if (is_null($this->localizedName)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LOCALIZED_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->localizedName = LocalizedStringModel::of($data);
+        }
+
+        return $this->localizedName;
     }
 
     /**
@@ -271,6 +296,14 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     public function setName(?string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?LocalizedString $localizedName
+     */
+    public function setLocalizedName(?LocalizedString $localizedName): void
+    {
+        $this->localizedName = $localizedName;
     }
 
     /**
