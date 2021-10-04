@@ -73,6 +73,11 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $name;
 
     /**
+     * @var ?LocalizedString
+     */
+    protected $localizedName;
+
+    /**
      * @var ?string
      */
     protected $description;
@@ -120,6 +125,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         ?CreatedBy $createdBy = null,
         ?string $key = null,
         ?string $name = null,
+        ?LocalizedString $localizedName = null,
         ?string $description = null,
         ?LocalizedString $localizedDescription = null,
         ?TaxCategoryReference $taxCategory = null,
@@ -136,6 +142,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->createdBy = $createdBy;
         $this->key = $key;
         $this->name = $name;
+        $this->localizedName = $localizedName;
         $this->description = $description;
         $this->localizedDescription = $localizedDescription;
         $this->taxCategory = $taxCategory;
@@ -299,6 +306,24 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         }
 
         return $this->name;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedName()
+    {
+        if (is_null($this->localizedName)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_LOCALIZED_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->localizedName = LocalizedStringModel::of($data);
+        }
+
+        return $this->localizedName;
     }
 
     /**
@@ -490,6 +515,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     public function setName(?string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param ?LocalizedString $localizedName
+     */
+    public function setLocalizedName(?LocalizedString $localizedName): void
+    {
+        $this->localizedName = $localizedName;
     }
 
     /**

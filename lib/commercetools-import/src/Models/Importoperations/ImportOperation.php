@@ -10,7 +10,7 @@ namespace Commercetools\Import\Models\Importoperations;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
-use Commercetools\Import\Models\Common\KeyReferenceCollection;
+use Commercetools\Import\Models\Common\UnresolvedReferencesCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 
@@ -80,7 +80,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>In case of unresolved status this array will show the unresolved references</p>
      *
-     * @return null|KeyReferenceCollection
+     * @return null|UnresolvedReferencesCollection
      */
     public function getUnresolvedReferences();
 
@@ -141,9 +141,9 @@ interface ImportOperation extends JsonObject
     public function setErrors(?ErrorObjectCollection $errors): void;
 
     /**
-     * @param ?KeyReferenceCollection $unresolvedReferences
+     * @param ?UnresolvedReferencesCollection $unresolvedReferences
      */
-    public function setUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences): void;
+    public function setUnresolvedReferences(?UnresolvedReferencesCollection $unresolvedReferences): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt

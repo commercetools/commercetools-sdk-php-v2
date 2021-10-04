@@ -127,6 +127,11 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      */
     protected $validUntil;
 
+    /**
+     * @var ?int
+     */
+    protected $applicationVersion;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -150,7 +155,8 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         ?CustomFields $custom = null,
         ?array $groups = null,
         ?DateTimeImmutable $validFrom = null,
-        ?DateTimeImmutable $validUntil = null
+        ?DateTimeImmutable $validUntil = null,
+        ?int $applicationVersion = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -171,6 +177,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->groups = $groups;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
+        $this->applicationVersion = $applicationVersion;
     }
 
     /**
@@ -546,6 +553,28 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         return $this->validUntil;
     }
 
+    /**
+     * <p>Used for the internal platform only and registers the reservation of use of a discount code.
+     * Its value is managed by the platform.
+     * It can change at any time due to internal and external factors.
+     * It should not be used in customer logic.</p>
+     *
+     * @return null|int
+     */
+    public function getApplicationVersion()
+    {
+        if (is_null($this->applicationVersion)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_APPLICATION_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->applicationVersion = (int) $data;
+        }
+
+        return $this->applicationVersion;
+    }
+
 
     /**
      * @param ?string $id
@@ -697,6 +726,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
+    }
+
+    /**
+     * @param ?int $applicationVersion
+     */
+    public function setApplicationVersion(?int $applicationVersion): void
+    {
+        $this->applicationVersion = $applicationVersion;
     }
 
 

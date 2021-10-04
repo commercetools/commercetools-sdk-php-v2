@@ -221,6 +221,17 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType?customerId=customerId',
             ],
+            'ByProjectKeyByResourceTypeGet_withExcludePlatformInitiatedChanges' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withExcludePlatformInitiatedChanges('excludePlatformInitiatedChanges');
+                },
+                'get',
+                'test_projectKey/test_resourceType?excludePlatformInitiatedChanges=excludePlatformInitiatedChanges',
+            ],
             'ByProjectKeyByResourceTypeGet_withExpand' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -238,6 +238,15 @@ class ByProjectKeyByResourceTypeGet extends ApiRequest
 
     /**
      * 
+     * @psalm-param scalar|scalar[] $excludePlatformInitiatedChanges
+     */
+    public function withExcludePlatformInitiatedChanges($excludePlatformInitiatedChanges): ByProjectKeyByResourceTypeGet
+    {
+        return $this->withQueryParam('excludePlatformInitiatedChanges', $excludePlatformInitiatedChanges);
+    }
+
+    /**
+     * 
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyByResourceTypeGet
