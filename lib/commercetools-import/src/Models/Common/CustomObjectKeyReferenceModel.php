@@ -66,8 +66,6 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>The type of the referenced resource.</p>
-     *
      * @return null|string
      */
     public function getTypeId()
