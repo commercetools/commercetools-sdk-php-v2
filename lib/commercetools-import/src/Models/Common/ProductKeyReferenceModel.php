@@ -59,6 +59,8 @@ final class ProductKeyReferenceModel extends JsonObjectModel implements ProductK
     }
 
     /**
+     * <p>The type of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
