@@ -196,6 +196,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsReplicateTest extends TestCas
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsReplicatePost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->replicate()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsReplicatePost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

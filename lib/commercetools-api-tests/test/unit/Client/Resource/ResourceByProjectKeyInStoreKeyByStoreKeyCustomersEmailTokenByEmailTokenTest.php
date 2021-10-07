@@ -209,6 +209,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenTes
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withEmailToken("emailToken")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenByEmailTokenGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

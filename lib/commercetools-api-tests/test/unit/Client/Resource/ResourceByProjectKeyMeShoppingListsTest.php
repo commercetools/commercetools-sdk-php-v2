@@ -340,6 +340,16 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeShoppingListsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMeShoppingListsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -419,6 +429,16 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyMeShoppingListsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyMeShoppingListsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

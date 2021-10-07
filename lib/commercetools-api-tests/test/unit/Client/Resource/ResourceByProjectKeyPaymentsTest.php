@@ -320,6 +320,15 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyPaymentsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyPaymentsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeyPaymentsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyPaymentsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->payments()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyPaymentsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

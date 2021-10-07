@@ -209,6 +209,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTo
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTokenByPasswordTokenGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

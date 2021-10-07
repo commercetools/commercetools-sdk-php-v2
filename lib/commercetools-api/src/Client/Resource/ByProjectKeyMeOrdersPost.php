@@ -82,6 +82,10 @@ class ByProjectKeyMeOrdersPost extends ApiRequest implements Conflicting, Expand
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '503':
                     $resultType = ErrorResponseModel::class;
 

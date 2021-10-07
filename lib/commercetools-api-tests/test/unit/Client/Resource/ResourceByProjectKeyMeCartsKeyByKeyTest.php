@@ -294,6 +294,17 @@ class ResourceByProjectKeyMeCartsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeCartsKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->carts()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMeCartsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -393,6 +404,17 @@ class ResourceByProjectKeyMeCartsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeCartsKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->carts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyMeCartsKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -491,6 +513,17 @@ class ResourceByProjectKeyMeCartsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyMeCartsKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->carts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyMeCartsKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

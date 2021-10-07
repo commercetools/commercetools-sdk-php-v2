@@ -81,6 +81,10 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '503':
                     $resultType = ErrorResponseModel::class;
 

@@ -212,6 +212,16 @@ class ResourceByProjectKeyShippingMethodsMatchingCartTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyShippingMethodsMatchingCartGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingCart()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyShippingMethodsMatchingCartGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

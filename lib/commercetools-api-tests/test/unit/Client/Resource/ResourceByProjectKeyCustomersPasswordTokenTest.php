@@ -188,6 +188,16 @@ class ResourceByProjectKeyCustomersPasswordTokenTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomersPasswordTokenPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->passwordToken()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyCustomersPasswordTokenPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -344,6 +344,15 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyOrdersGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyOrdersGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -424,6 +433,15 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyOrdersPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyOrdersPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

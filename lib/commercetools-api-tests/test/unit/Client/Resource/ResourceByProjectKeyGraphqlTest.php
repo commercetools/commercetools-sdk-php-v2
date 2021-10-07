@@ -180,6 +180,15 @@ class ResourceByProjectKeyGraphqlTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyGraphqlPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->graphql()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyGraphqlPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

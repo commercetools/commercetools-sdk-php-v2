@@ -257,6 +257,16 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomObjectsByContainerByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withContainerAndKey("container", "key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCustomObjectsByContainerByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -346,6 +356,16 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyCustomObjectsByContainerByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withContainerAndKey("container", "key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

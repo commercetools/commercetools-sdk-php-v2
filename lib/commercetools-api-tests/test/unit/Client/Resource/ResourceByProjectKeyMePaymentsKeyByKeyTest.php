@@ -294,6 +294,17 @@ class ResourceByProjectKeyMePaymentsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMePaymentsKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMePaymentsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -393,6 +404,17 @@ class ResourceByProjectKeyMePaymentsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMePaymentsKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyMePaymentsKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -491,6 +513,17 @@ class ResourceByProjectKeyMePaymentsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyMePaymentsKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyMePaymentsKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

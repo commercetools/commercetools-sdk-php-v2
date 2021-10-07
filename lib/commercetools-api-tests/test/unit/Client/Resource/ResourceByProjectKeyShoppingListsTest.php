@@ -320,6 +320,15 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyShoppingListsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyShoppingListsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyShoppingListsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyShoppingListsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -224,6 +224,16 @@ class ResourceByProjectKeyCustomObjectsByContainerTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomObjectsByContainerGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withContainer("container")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCustomObjectsByContainerGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

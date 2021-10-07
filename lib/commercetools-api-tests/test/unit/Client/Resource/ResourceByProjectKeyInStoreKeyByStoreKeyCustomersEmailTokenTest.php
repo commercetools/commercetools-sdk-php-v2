@@ -196,6 +196,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenTest extends Te
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->emailToken()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailTokenPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
