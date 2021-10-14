@@ -188,6 +188,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyLoginPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->login()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyLoginPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

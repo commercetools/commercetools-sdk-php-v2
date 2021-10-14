@@ -272,6 +272,16 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductProjectionsSuggestGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->suggest()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyProductProjectionsSuggestGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -290,6 +290,16 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomersByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCustomersByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -380,6 +390,16 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomersByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyCustomersByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -469,6 +489,16 @@ class ResourceByProjectKeyCustomersByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyCustomersByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyCustomersByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

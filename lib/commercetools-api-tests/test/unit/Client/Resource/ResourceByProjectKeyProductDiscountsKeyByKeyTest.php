@@ -278,6 +278,16 @@ class ResourceByProjectKeyProductDiscountsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductDiscountsKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyProductDiscountsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeyProductDiscountsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductDiscountsKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyProductDiscountsKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeyProductDiscountsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyProductDiscountsKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyProductDiscountsKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

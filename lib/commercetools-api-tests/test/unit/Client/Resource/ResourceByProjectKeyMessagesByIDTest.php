@@ -200,6 +200,16 @@ class ResourceByProjectKeyMessagesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMessagesByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMessagesByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

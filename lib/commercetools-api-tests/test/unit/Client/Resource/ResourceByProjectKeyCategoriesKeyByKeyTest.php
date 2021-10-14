@@ -278,6 +278,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCategoriesKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCategoriesKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCategoriesKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyCategoriesKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyCategoriesKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyCategoriesKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

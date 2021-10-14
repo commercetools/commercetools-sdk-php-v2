@@ -290,6 +290,16 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyShoppingListsKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyShoppingListsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -380,6 +390,16 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyShoppingListsKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyShoppingListsKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -469,6 +489,16 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyShoppingListsKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

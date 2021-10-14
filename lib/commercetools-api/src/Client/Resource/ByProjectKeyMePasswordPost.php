@@ -80,6 +80,10 @@ class ByProjectKeyMePasswordPost extends ApiRequest implements Conflicting, Erro
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '503':
                     $resultType = ErrorResponseModel::class;
 

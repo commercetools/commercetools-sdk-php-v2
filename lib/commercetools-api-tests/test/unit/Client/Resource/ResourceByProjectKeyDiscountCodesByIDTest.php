@@ -290,6 +290,16 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyDiscountCodesByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyDiscountCodesByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -380,6 +390,16 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyDiscountCodesByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyDiscountCodesByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -469,6 +489,16 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyDiscountCodesByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyDiscountCodesByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

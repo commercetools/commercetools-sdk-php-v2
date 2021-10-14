@@ -294,6 +294,17 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeShoppingListsByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMeShoppingListsByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -393,6 +404,17 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeShoppingListsByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyMeShoppingListsByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -491,6 +513,17 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyMeShoppingListsByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyMeShoppingListsByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

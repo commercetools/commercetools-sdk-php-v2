@@ -320,6 +320,15 @@ class ResourceByProjectKeyTypesTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyTypesGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyTypesGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyTypesPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyTypesPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

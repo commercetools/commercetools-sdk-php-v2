@@ -278,6 +278,16 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyChannelsByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyChannelsByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyChannelsByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyChannelsByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyChannelsByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyChannelsByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

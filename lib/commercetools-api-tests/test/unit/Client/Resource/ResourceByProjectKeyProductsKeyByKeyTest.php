@@ -494,6 +494,16 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductsKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyProductsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -584,6 +594,16 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductsKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyProductsKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -673,6 +693,16 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyProductsKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyProductsKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

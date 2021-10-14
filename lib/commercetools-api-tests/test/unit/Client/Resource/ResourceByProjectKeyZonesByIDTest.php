@@ -278,6 +278,16 @@ class ResourceByProjectKeyZonesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyZonesByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyZonesByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeyZonesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyZonesByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyZonesByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeyZonesByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyZonesByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyZonesByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -78,6 +78,10 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest implements PriceSelecti
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '503':
                     $resultType = ErrorResponseModel::class;
 

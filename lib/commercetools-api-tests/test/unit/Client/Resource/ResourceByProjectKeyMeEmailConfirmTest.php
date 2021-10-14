@@ -178,6 +178,16 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeEmailConfirmPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->emailConfirm()
+                        ->post();
+                },
+                502
+            ],
             'ByProjectKeyMeEmailConfirmPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

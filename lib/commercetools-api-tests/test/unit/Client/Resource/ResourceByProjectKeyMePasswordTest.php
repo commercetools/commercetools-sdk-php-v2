@@ -220,6 +220,16 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMePasswordPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->password()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyMePasswordPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -196,6 +196,17 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMePasswordResetPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->password()
+                        ->reset()
+                        ->post();
+                },
+                502
+            ],
             'ByProjectKeyMePasswordResetPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

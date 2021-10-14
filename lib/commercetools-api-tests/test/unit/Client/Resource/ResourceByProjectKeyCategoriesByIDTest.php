@@ -278,6 +278,16 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCategoriesByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCategoriesByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCategoriesByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyCategoriesByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyCategoriesByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyCategoriesByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

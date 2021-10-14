@@ -307,6 +307,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -406,6 +417,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -504,6 +526,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -539,6 +539,14 @@ class ResourceByProjectKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

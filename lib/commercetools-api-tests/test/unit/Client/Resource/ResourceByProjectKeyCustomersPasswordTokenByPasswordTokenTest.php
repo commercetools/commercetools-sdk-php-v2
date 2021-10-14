@@ -200,6 +200,16 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
                 },
                 500
             ],
+            'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

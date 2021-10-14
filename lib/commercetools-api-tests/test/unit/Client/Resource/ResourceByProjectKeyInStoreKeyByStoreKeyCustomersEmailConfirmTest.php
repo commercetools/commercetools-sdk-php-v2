@@ -196,6 +196,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmTest extends 
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->emailConfirm()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

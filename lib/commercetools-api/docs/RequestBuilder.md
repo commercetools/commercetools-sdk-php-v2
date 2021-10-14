@@ -65,7 +65,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->withId("ID")->get()`
 
-Get ApiClient by ID
+null
 
 ### Example
 ```php
@@ -80,7 +80,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->withId("ID")->delete()`
 
-Delete ApiClient by ID
+null
 
 ### Example
 ```php

@@ -307,6 +307,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -406,6 +417,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -504,6 +526,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyTest extends Test
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

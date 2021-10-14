@@ -218,6 +218,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

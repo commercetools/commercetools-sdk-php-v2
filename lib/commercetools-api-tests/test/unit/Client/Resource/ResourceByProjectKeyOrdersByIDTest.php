@@ -290,6 +290,16 @@ class ResourceByProjectKeyOrdersByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyOrdersByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyOrdersByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -380,6 +390,16 @@ class ResourceByProjectKeyOrdersByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyOrdersByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyOrdersByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -469,6 +489,16 @@ class ResourceByProjectKeyOrdersByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyOrdersByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyOrdersByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

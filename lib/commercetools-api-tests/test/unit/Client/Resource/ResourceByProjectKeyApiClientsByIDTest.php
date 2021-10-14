@@ -209,6 +209,16 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyApiClientsByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyApiClientsByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -288,6 +298,16 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyApiClientsByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyApiClientsByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -222,6 +222,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCartTest ex
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCartGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->shippingMethods()
+                        ->matchingCart()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyShippingMethodsMatchingCartGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

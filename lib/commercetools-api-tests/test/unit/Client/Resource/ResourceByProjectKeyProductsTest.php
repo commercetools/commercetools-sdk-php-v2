@@ -452,6 +452,15 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyProductsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -523,6 +532,15 @@ class ResourceByProjectKeyProductsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyProductsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyProductsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

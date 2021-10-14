@@ -308,6 +308,15 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInventoryGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInventoryGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -379,6 +388,15 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyInventoryPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyInventoryPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -188,6 +188,16 @@ class ResourceByProjectKeyCustomersEmailTokenTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomersEmailTokenPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->emailToken()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyCustomersEmailTokenPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

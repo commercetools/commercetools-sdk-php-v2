@@ -188,6 +188,16 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeActiveCartGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->activeCart()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMeActiveCartGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
