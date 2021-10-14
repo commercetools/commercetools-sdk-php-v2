@@ -17,39 +17,43 @@ interface ApiClient extends JsonObject
     public const FIELD_ID = 'id';
     public const FIELD_NAME = 'name';
     public const FIELD_SCOPE = 'scope';
-    public const FIELD_CREATED_AT = 'createdAt';
+    public const FIELD_SECRET = 'secret';
     public const FIELD_LAST_USED_AT = 'lastUsedAt';
     public const FIELD_DELETE_AT = 'deleteAt';
-    public const FIELD_SECRET = 'secret';
+    public const FIELD_CREATED_AT = 'createdAt';
 
     /**
-     * <p>The unique ID of the API client.
-     * This is the OAuth2 <code>client_id</code> and can be used to obtain a token.</p>
+     * <p>Unique ID of the API client.
+     * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Name of the API Client.</p>
+     *
      * @return null|string
      */
     public function getName();
 
     /**
-     * <p>A whitespace separated list of the OAuth scopes.
-     * This is the OAuth2 <code>scope</code> and can be used to obtain a token.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
      *
      * @return null|string
      */
     public function getScope();
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>Only shown once in the response of creating the API Client.
+     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     *
+     * @return null|string
      */
-    public function getCreatedAt();
+    public function getSecret();
 
     /**
-     * <p>The last day this API Client was used to obtain a token.</p>
+     * <p>Date of the last day this API Client was used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -63,12 +67,11 @@ interface ApiClient extends JsonObject
     public function getDeleteAt();
 
     /**
-     * <p>The secret is only shown once in the response of creating the API Client.
-     * This is the OAuth2 <code>client_secret</code> and can be used to obtain a token.</p>
+     * <p>Date and time (UTC) the API Client was initially created.</p>
      *
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
-    public function getSecret();
+    public function getCreatedAt();
 
     /**
      * @param ?string $id
@@ -86,9 +89,9 @@ interface ApiClient extends JsonObject
     public function setScope(?string $scope): void;
 
     /**
-     * @param ?DateTimeImmutable $createdAt
+     * @param ?string $secret
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+    public function setSecret(?string $secret): void;
 
     /**
      * @param ?DateTimeImmutable $lastUsedAt
@@ -101,7 +104,7 @@ interface ApiClient extends JsonObject
     public function setDeleteAt(?DateTimeImmutable $deleteAt): void;
 
     /**
-     * @param ?string $secret
+     * @param ?DateTimeImmutable $createdAt
      */
-    public function setSecret(?string $secret): void;
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 }

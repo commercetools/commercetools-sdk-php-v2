@@ -36,6 +36,8 @@ final class ApiClientDraftBuilder implements Builder
     private $deleteDaysAfterCreation;
 
     /**
+     * <p>Name of the API Client.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -44,6 +46,8 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
+     *
      * @return null|string
      */
     public function getScope()

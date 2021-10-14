@@ -37,9 +37,9 @@ final class ApiClientBuilder implements Builder
     private $scope;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    private $createdAt;
+    private $secret;
 
     /**
      * @var ?DateTimeImmutable
@@ -52,13 +52,13 @@ final class ApiClientBuilder implements Builder
     private $deleteAt;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    private $secret;
+    private $createdAt;
 
     /**
-     * <p>The unique ID of the API client.
-     * This is the OAuth2 <code>client_id</code> and can be used to obtain a token.</p>
+     * <p>Unique ID of the API client.
+     * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -68,6 +68,8 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * <p>Name of the API Client.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -76,8 +78,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>A whitespace separated list of the OAuth scopes.
-     * This is the OAuth2 <code>scope</code> and can be used to obtain a token.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
      *
      * @return null|string
      */
@@ -87,15 +88,18 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>Only shown once in the response of creating the API Client.
+     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     *
+     * @return null|string
      */
-    public function getCreatedAt()
+    public function getSecret()
     {
-        return $this->createdAt;
+        return $this->secret;
     }
 
     /**
-     * <p>The last day this API Client was used to obtain a token.</p>
+     * <p>Date of the last day this API Client was used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -115,14 +119,13 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>The secret is only shown once in the response of creating the API Client.
-     * This is the OAuth2 <code>client_secret</code> and can be used to obtain a token.</p>
+     * <p>Date and time (UTC) the API Client was initially created.</p>
      *
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
-    public function getSecret()
+    public function getCreatedAt()
     {
-        return $this->secret;
+        return $this->createdAt;
     }
 
     /**
@@ -159,12 +162,12 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * @param ?DateTimeImmutable $createdAt
+     * @param ?string $secret
      * @return $this
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withSecret(?string $secret)
     {
-        $this->createdAt = $createdAt;
+        $this->secret = $secret;
 
         return $this;
     }
@@ -192,12 +195,12 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * @param ?string $secret
+     * @param ?DateTimeImmutable $createdAt
      * @return $this
      */
-    public function withSecret(?string $secret)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->secret = $secret;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -209,10 +212,10 @@ final class ApiClientBuilder implements Builder
             $this->id,
             $this->name,
             $this->scope,
-            $this->createdAt,
+            $this->secret,
             $this->lastUsedAt,
             $this->deleteAt,
-            $this->secret
+            $this->createdAt
         );
     }
 
