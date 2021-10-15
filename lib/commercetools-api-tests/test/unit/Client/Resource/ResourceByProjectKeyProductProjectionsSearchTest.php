@@ -389,6 +389,16 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
+            'ByProjectKeyProductProjectionsSearchPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->search()
+                        ->post(null);
+                },
+                200
+            ],
             'ByProjectKeyProductProjectionsSearchPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
