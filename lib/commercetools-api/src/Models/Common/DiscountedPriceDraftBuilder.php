@@ -18,12 +18,12 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<DiscountedPrice>
+ * @implements Builder<DiscountedPriceDraft>
  */
-final class DiscountedPriceBuilder implements Builder
+final class DiscountedPriceDraftBuilder implements Builder
 {
     /**
-     * @var null|TypedMoney|TypedMoneyBuilder
+     * @var null|Money|MoneyBuilder
      */
     private $value;
 
@@ -33,11 +33,11 @@ final class DiscountedPriceBuilder implements Builder
     private $discount;
 
     /**
-     * @return null|TypedMoney
+     * @return null|Money
      */
     public function getValue()
     {
-        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -49,10 +49,10 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $value
+     * @param ?Money $value
      * @return $this
      */
-    public function withValue(?TypedMoney $value)
+    public function withValue(?Money $value)
     {
         $this->value = $value;
 
@@ -74,7 +74,7 @@ final class DiscountedPriceBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?TypedMoneyBuilder $value)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
 
@@ -92,15 +92,15 @@ final class DiscountedPriceBuilder implements Builder
         return $this;
     }
 
-    public function build(): DiscountedPrice
+    public function build(): DiscountedPriceDraft
     {
-        return new DiscountedPriceModel(
-            $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
+        return new DiscountedPriceDraftModel(
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
             $this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount
         );
     }
 
-    public static function of(): DiscountedPriceBuilder
+    public static function of(): DiscountedPriceDraftBuilder
     {
         return new self();
     }

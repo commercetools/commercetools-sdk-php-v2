@@ -66,7 +66,7 @@ interface QueryPrice extends JsonObject
     public function getValidUntil();
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
 
@@ -116,9 +116,9 @@ interface QueryPrice extends JsonObject
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void;
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void;
 
     /**
      * @param ?CustomFields $custom

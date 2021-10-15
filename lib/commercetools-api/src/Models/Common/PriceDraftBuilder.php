@@ -68,7 +68,7 @@ final class PriceDraftBuilder implements Builder
     private $tiers;
 
     /**
-     * @var null|DiscountedPrice|DiscountedPriceBuilder
+     * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
     private $discounted;
 
@@ -139,11 +139,11 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
     {
-        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+        return $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
@@ -235,10 +235,10 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      * @return $this
      */
-    public function withDiscounted(?DiscountedPrice $discounted)
+    public function withDiscounted(?DiscountedPriceDraft $discounted)
     {
         $this->discounted = $discounted;
 
@@ -293,7 +293,7 @@ final class PriceDraftBuilder implements Builder
      * @deprecated use withDiscounted() instead
      * @return $this
      */
-    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withDiscountedBuilder(?DiscountedPriceDraftBuilder $discounted)
     {
         $this->discounted = $discounted;
 
@@ -311,7 +311,7 @@ final class PriceDraftBuilder implements Builder
             $this->validUntil,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->tiers,
-            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
+            $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted
         );
     }
 

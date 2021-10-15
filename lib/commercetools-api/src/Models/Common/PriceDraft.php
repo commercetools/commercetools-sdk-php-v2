@@ -70,7 +70,7 @@ interface PriceDraft extends JsonObject
     public function getTiers();
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
 
@@ -115,7 +115,7 @@ interface PriceDraft extends JsonObject
     public function setTiers(?PriceTierDraftCollection $tiers): void;
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void;
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void;
 }

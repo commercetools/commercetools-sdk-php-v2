@@ -12,13 +12,13 @@ use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface DiscountedPrice extends JsonObject
+interface DiscountedPriceDraft extends JsonObject
 {
     public const FIELD_VALUE = 'value';
     public const FIELD_DISCOUNT = 'discount';
 
     /**
-     * @return null|TypedMoney
+     * @return null|Money
      */
     public function getValue();
 
@@ -28,9 +28,9 @@ interface DiscountedPrice extends JsonObject
     public function getDiscount();
 
     /**
-     * @param ?TypedMoney $value
+     * @param ?Money $value
      */
-    public function setValue(?TypedMoney $value): void;
+    public function setValue(?Money $value): void;
 
     /**
      * @param ?ProductDiscountReference $discount

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\DiscountedPrice;
-use Commercetools\Api\Models\Common\DiscountedPriceModel;
+use Commercetools\Api\Models\Common\DiscountedPriceDraft;
+use Commercetools\Api\Models\Common\DiscountedPriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -38,7 +38,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     protected $staged;
 
     /**
-     * @var ?DiscountedPrice
+     * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
@@ -49,7 +49,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     public function __construct(
         ?string $priceId = null,
         ?bool $staged = null,
-        ?DiscountedPrice $discounted = null
+        ?DiscountedPriceDraft $discounted = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
@@ -109,7 +109,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
     {
@@ -120,7 +120,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
                 return null;
             }
 
-            $this->discounted = DiscountedPriceModel::of($data);
+            $this->discounted = DiscountedPriceDraftModel::of($data);
         }
 
         return $this->discounted;
@@ -144,9 +144,9 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void
     {
         $this->discounted = $discounted;
     }

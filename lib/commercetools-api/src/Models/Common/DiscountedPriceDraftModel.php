@@ -19,10 +19,10 @@ use stdClass;
 /**
  * @internal
  */
-final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice
+final class DiscountedPriceDraftModel extends JsonObjectModel implements DiscountedPriceDraft
 {
     /**
-     * @var ?TypedMoney
+     * @var ?Money
      */
     protected $value;
 
@@ -36,7 +36,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoney $value = null,
+        ?Money $value = null,
         ?ProductDiscountReference $discount = null
     ) {
         $this->value = $value;
@@ -44,7 +44,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     }
 
     /**
-     * @return null|TypedMoney
+     * @return null|Money
      */
     public function getValue()
     {
@@ -54,8 +54,8 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
+
+            $this->value = MoneyModel::of($data);
         }
 
         return $this->value;
@@ -81,9 +81,9 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
 
 
     /**
-     * @param ?TypedMoney $value
+     * @param ?Money $value
      */
-    public function setValue(?TypedMoney $value): void
+    public function setValue(?Money $value): void
     {
         $this->value = $value;
     }
