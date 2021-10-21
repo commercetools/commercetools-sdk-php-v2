@@ -1,4 +1,4 @@
-name: Add Issues to project
+name: issues to project workflow
 on:
   workflow_call:
     inputs:
