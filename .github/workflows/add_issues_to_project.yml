@@ -1,15 +1,20 @@
 name: Add Issues to project
 on:
-  issues:
-    types:
-      - opened
+  workflow_call:
+    inputs:
+      issue_id:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 jobs:
   track_issues:
     runs-on: ubuntu-latest
     steps:
       - name: Get project data
         env:
-          GITHUB_TOKEN: ${{secrets.PROJECT_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.token}}
           ORGANIZATION: commercetools
           PROJECT_NUMBER: 32
         run: |
@@ -34,8 +39,8 @@ jobs:
           echo 'NEW_OPTION_ID='$(jq '.data.organization.projectNext.fields.nodes[] | select(.name== "Status") |.settings | fromjson.options[] | select(.name=="New") |.id' project_data.json) >> $GITHUB_ENV
       - name: Add Issue to project
         env:
-          GITHUB_TOKEN: ${{secrets.PROJECT_TOKEN}}
-          ISSUE_ID: ${{ github.event.issue.node_id }}
+          GITHUB_TOKEN: ${{secrets.token}}
+          ISSUE_ID: ${{ inputs.issue_id }}
         run: |
           item_id="$( gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
             mutation($project:ID!, $issue:ID!) {
@@ -52,7 +57,7 @@ jobs:
 
       - name: Set fields
         env:
-          GITHUB_TOKEN: ${{secrets.PROJECT_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.token}}
         run: |
           gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
             mutation (
