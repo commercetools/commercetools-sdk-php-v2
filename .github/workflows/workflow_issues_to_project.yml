@@ -21,7 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.token}}
           ORGANIZATION: commercetools
           PROJECT_NUMBER: 32
-          STATUS: ${{ input.status }}
+          STATUS: ${{ inputs.status }}
         run: |
           gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
             query($org: String!, $number: Int!) {
