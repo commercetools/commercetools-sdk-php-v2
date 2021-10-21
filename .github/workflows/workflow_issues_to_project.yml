@@ -2,14 +2,18 @@ name: issues to project workflow
 on:
   workflow_call:
     inputs:
-      issue_id:
+      node_id:
         required: true
         type: string
+      status:
+        required: false
+        type: string
+        default: New
     secrets:
       token:
         required: true
 jobs:
-  track_issues:
+  add_issue_pr:
     runs-on: ubuntu-latest
     steps:
       - name: Get project data
@@ -17,6 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{secrets.token}}
           ORGANIZATION: commercetools
           PROJECT_NUMBER: 32
+          STATUS: ${{ input.status }}
         run: |
           gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
             query($org: String!, $number: Int!) {
@@ -36,20 +41,20 @@ jobs:
           echo 'PROJECT_ID='$(jq '.data.organization.projectNext.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectNext.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
           echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectNext.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
-          echo 'NEW_OPTION_ID='$(jq '.data.organization.projectNext.fields.nodes[] | select(.name== "Status") |.settings | fromjson.options[] | select(.name=="New") |.id' project_data.json) >> $GITHUB_ENV
-      - name: Add Issue to project
+          echo 'STATUS_OPTION_ID='$(jq --arg STATUS "$STATUS" '.data.organization.projectNext.fields.nodes[] | select(.name== "Status") |.settings | fromjson.options[] | select(.name==$STATUS) |.id' project_data.json) >> $GITHUB_ENV
+      - name: Add Issue/PR to project
         env:
           GITHUB_TOKEN: ${{secrets.token}}
-          ISSUE_ID: ${{ inputs.issue_id }}
+          NODE_ID: ${{ inputs.node_id }}
         run: |
           item_id="$( gh api graphql --header 'GraphQL-Features: projects_next_graphql' -f query='
-            mutation($project:ID!, $issue:ID!) {
-              addProjectNextItem(input: {projectId: $project, contentId: $issue}) {
+            mutation($project:ID!, $node:ID!) {
+              addProjectNextItem(input: {projectId: $project, contentId: $node}) {
                 projectNextItem {
                   id
                 }
               }
-            }' -f project=$PROJECT_ID -f issue=$ISSUE_ID --jq '.data.addProjectNextItem.projectNextItem.id')"
+            }' -f project=$PROJECT_ID -f node=$NODE_ID --jq '.data.addProjectNextItem.projectNextItem.id')"
           
           echo 'ITEM_ID='$item_id >> $GITHUB_ENV
       - name: Get date
@@ -88,4 +93,4 @@ jobs:
                   id
                 }
               }
-            }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value=${{ env.NEW_OPTION_ID }} -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent
+            }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value=${{ env.STATUS_OPTION_ID }} -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent
