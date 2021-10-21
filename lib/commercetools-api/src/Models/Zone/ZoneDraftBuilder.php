@@ -41,9 +41,7 @@ final class ZoneDraftBuilder implements Builder
     private $locations;
 
     /**
-     * <p>User-specific unique identifier for a zone.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>
+     * <p>User-defined unique identifier for the Zone.</p>
      *
      * @return null|string
      */
@@ -53,6 +51,8 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Zone.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -61,6 +61,8 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Zone.</p>
+     *
      * @return null|string
      */
     public function getDescription()
@@ -69,6 +71,8 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
+     * <p>List of locations that belong to the Zone.</p>
+     *
      * @return null|LocationCollection
      */
     public function getLocations()

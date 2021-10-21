@@ -68,6 +68,8 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

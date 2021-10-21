@@ -33,6 +33,8 @@ final class CartReferenceBuilder implements Builder
     private $obj;
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

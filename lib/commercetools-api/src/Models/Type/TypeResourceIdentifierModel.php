@@ -68,6 +68,8 @@ final class TypeResourceIdentifierModel extends JsonObjectModel implements TypeR
     }
 
     /**
+     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -85,6 +87,8 @@ final class TypeResourceIdentifierModel extends JsonObjectModel implements TypeR
     }
 
     /**
+     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     *
      * @return null|string
      */
     public function getKey()

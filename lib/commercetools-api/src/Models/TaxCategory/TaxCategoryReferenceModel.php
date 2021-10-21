@@ -68,6 +68,8 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -26,6 +26,8 @@ final class ZoneAddLocationActionBuilder implements Builder
     private $location;
 
     /**
+     * <p>Location to be added to the Zone.</p>
+     *
      * @return null|Location
      */
     public function getLocation()

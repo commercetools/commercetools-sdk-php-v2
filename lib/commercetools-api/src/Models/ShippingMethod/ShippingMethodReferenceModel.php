@@ -68,6 +68,8 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

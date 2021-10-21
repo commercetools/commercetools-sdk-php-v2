@@ -16,6 +16,8 @@ interface ZoneChangeNameAction extends ZoneUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>New name of the Zone.</p>
+     *
      * @return null|string
      */
     public function getName();
