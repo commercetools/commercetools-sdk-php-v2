@@ -103,7 +103,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>References a customer group by its key.</p>
+     * <p>References a customer group by key.</p>
      *
      * @return null|CustomerGroupKeyReference
      */
@@ -113,7 +113,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>References a channel by its key.</p>
+     * <p>References a channel by key.</p>
      *
      * @return null|ChannelKeyReference
      */

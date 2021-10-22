@@ -44,7 +44,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     }
 
     /**
-     * <p>References a discount code by its key.</p>
+     * <p>References a discount code by key.</p>
      *
      * @return null|DiscountCodeKeyReference
      */

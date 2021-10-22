@@ -77,7 +77,7 @@ interface CustomLineItemDraft extends JsonObject
     public function getState();
 
     /**
-     * <p>References a tax category by its key.</p>
+     * <p>References a tax category by key.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
