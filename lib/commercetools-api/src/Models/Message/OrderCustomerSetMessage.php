@@ -26,6 +26,8 @@ interface OrderCustomerSetMessage extends Message
     public function getCustomer();
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -36,6 +38,8 @@ interface OrderCustomerSetMessage extends Message
     public function getOldCustomer();
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup();

@@ -28,6 +28,8 @@ final class CustomerGroupSetMessagePayloadBuilder implements Builder
     private $customerGroup;
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()

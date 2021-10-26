@@ -22,12 +22,12 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     /**
      * @var ?int
      */
-    protected $offset;
+    protected $limit;
 
     /**
      * @var ?int
      */
-    protected $limit;
+    protected $offset;
 
     /**
      * @var ?int
@@ -49,17 +49,36 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $offset = null,
         ?int $limit = null,
+        ?int $offset = null,
         ?int $count = null,
         ?int $total = null,
         ?CustomerGroupCollection $results = null
     ) {
-        $this->offset = $offset;
         $this->limit = $limit;
+        $this->offset = $offset;
         $this->count = $count;
         $this->total = $total;
         $this->results = $results;
+    }
+
+    /**
+     * <p>Number of results requested in the query request.</p>
+     *
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
     }
 
     /**
@@ -80,25 +99,6 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
         }
 
         return $this->offset;
-    }
-
-    /**
-     * <p>Number of results requested in the query request.</p>
-     *
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        if (is_null($this->limit)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_LIMIT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->limit = (int) $data;
-        }
-
-        return $this->limit;
     }
 
     /**
@@ -144,7 +144,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Array of <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
      *
      * @return null|CustomerGroupCollection
      */
@@ -164,19 +164,19 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
 
 
     /**
-     * @param ?int $offset
-     */
-    public function setOffset(?int $offset): void
-    {
-        $this->offset = $offset;
-    }
-
-    /**
      * @param ?int $limit
      */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
+    }
+
+    /**
+     * @param ?int $offset
+     */
+    public function setOffset(?int $offset): void
+    {
+        $this->offset = $offset;
     }
 
     /**

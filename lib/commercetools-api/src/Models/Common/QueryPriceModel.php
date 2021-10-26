@@ -159,6 +159,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()

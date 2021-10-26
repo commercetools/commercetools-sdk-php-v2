@@ -100,7 +100,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Unique ID of the customer group.</p>
+     * <p>Unique ID of the Customer Group.</p>
      *
      * @return null|string
      */
@@ -119,7 +119,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Current version of the customer group.</p>
+     * <p>Current version of the Customer Group.</p>
      *
      * @return null|int
      */
@@ -138,6 +138,8 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
+     * <p>Date and time (UTC) the Customer Group was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -159,6 +161,8 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
+     * <p>Date and time (UTC) the Customer Group was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -220,7 +224,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>User-defined unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the Customer Group.</p>
      *
      * @return null|string
      */
@@ -239,7 +243,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Unique within the project.</p>
+     * <p>Unique name of the Customer Group.</p>
      *
      * @return null|string
      */
@@ -258,6 +262,8 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
+     * <p>Custom Fields for the Customer Group.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()

@@ -23,12 +23,12 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $offset;
+    private $limit;
 
     /**
      * @var ?int
      */
-    private $limit;
+    private $offset;
 
     /**
      * @var ?int
@@ -46,6 +46,16 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
+     * <p>Number of results requested in the query request.</p>
+     *
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
      * <p>Offset supplied by the client or server default.
      * It is the number of elements skipped, not a page number.</p>
      *
@@ -54,16 +64,6 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     public function getOffset()
     {
         return $this->offset;
-    }
-
-    /**
-     * <p>Number of results requested in the query request.</p>
-     *
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        return $this->limit;
     }
 
     /**
@@ -91,7 +91,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>Array of <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
      *
      * @return null|CustomerGroupCollection
      */
@@ -101,23 +101,23 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @param ?int $offset
-     * @return $this
-     */
-    public function withOffset(?int $offset)
-    {
-        $this->offset = $offset;
-
-        return $this;
-    }
-
-    /**
      * @param ?int $limit
      * @return $this
      */
     public function withLimit(?int $limit)
     {
         $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $offset
+     * @return $this
+     */
+    public function withOffset(?int $offset)
+    {
+        $this->offset = $offset;
 
         return $this;
     }
@@ -159,8 +159,8 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     public function build(): CustomerGroupPagedQueryResponse
     {
         return new CustomerGroupPagedQueryResponseModel(
-            $this->offset,
             $this->limit,
+            $this->offset,
             $this->count,
             $this->total,
             $this->results

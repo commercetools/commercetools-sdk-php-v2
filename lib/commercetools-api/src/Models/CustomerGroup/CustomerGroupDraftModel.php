@@ -51,7 +51,8 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * <p>User-defined unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the Customer Group.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
      *
      * @return null|string
      */
@@ -70,7 +71,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the project.
+     * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the Project.
      * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
      *
      * @return null|string
@@ -90,6 +91,8 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
+     * <p>Custom Fields for the Customer Group.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

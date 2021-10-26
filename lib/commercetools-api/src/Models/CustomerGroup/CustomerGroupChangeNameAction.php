@@ -16,7 +16,7 @@ interface CustomerGroupChangeNameAction extends CustomerGroupUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>User-defined unique name for the customer group.</p>
+     * <p>New name of the Customer Group.</p>
      *
      * @return null|string
      */

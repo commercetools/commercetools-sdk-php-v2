@@ -177,6 +177,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
