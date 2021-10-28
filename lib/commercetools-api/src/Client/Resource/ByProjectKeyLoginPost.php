@@ -55,7 +55,7 @@ class ByProjectKeyLoginPost extends ApiRequest implements Errorable
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '201':
+                case '200':
                     $resultType = CustomerSignInResultModel::class;
 
                     break;
