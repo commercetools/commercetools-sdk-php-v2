@@ -18,7 +18,7 @@ interface DiscountCodeInfo extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
-     * <p>References a discount code by its key.</p>
+     * <p>References a discount code by key.</p>
      *
      * @return null|DiscountCodeKeyReference
      */

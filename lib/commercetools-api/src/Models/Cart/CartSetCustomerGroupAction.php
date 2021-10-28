@@ -17,6 +17,8 @@ interface CartSetCustomerGroupAction extends CartUpdateAction
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
+     * <p><a href="/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();

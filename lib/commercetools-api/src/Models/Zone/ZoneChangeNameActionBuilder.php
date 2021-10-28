@@ -26,6 +26,8 @@ final class ZoneChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>New name of the Zone.</p>
+     *
      * @return null|string
      */
     public function getName()

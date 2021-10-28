@@ -68,6 +68,8 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

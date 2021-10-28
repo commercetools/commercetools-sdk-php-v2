@@ -61,7 +61,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>References a product type by its key.</p>
+     * <p>References a product type by key.</p>
      *
      * @return null|ProductTypeKeyReference
      */

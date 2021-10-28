@@ -108,7 +108,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>References a tax category by its key.</p>
+     * <p>References a tax category by key.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -118,7 +118,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>References a shipping method by its key.</p>
+     * <p>References a shipping method by key.</p>
      *
      * @return null|ShippingMethodKeyReference
      */

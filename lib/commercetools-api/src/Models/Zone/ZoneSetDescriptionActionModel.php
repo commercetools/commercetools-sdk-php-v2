@@ -59,6 +59,8 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
     }
 
     /**
+     * <p>Description of the Zone.</p>
+     *
      * @return null|string
      */
     public function getDescription()

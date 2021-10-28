@@ -13,11 +13,18 @@ use Commercetools\Base\JsonObject;
 
 interface CustomerGroupPagedQueryResponse extends JsonObject
 {
-    public const FIELD_OFFSET = 'offset';
     public const FIELD_LIMIT = 'limit';
+    public const FIELD_OFFSET = 'offset';
     public const FIELD_COUNT = 'count';
     public const FIELD_TOTAL = 'total';
     public const FIELD_RESULTS = 'results';
+
+    /**
+     * <p>Number of results requested in the query request.</p>
+     *
+     * @return null|int
+     */
+    public function getLimit();
 
     /**
      * <p>Offset supplied by the client or server default.
@@ -26,13 +33,6 @@ interface CustomerGroupPagedQueryResponse extends JsonObject
      * @return null|int
      */
     public function getOffset();
-
-    /**
-     * <p>Number of results requested in the query request.</p>
-     *
-     * @return null|int
-     */
-    public function getLimit();
 
     /**
      * <p>Actual number of results returned.</p>
@@ -53,21 +53,21 @@ interface CustomerGroupPagedQueryResponse extends JsonObject
     public function getTotal();
 
     /**
-     * <p>Array of <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
      *
      * @return null|CustomerGroupCollection
      */
     public function getResults();
 
     /**
-     * @param ?int $offset
-     */
-    public function setOffset(?int $offset): void;
-
-    /**
      * @param ?int $limit
      */
     public function setLimit(?int $limit): void;
+
+    /**
+     * @param ?int $offset
+     */
+    public function setOffset(?int $offset): void;
 
     /**
      * @param ?int $count

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\DiscountedPrice;
-use Commercetools\Api\Models\Common\DiscountedPriceBuilder;
+use Commercetools\Api\Models\Common\DiscountedPriceDraft;
+use Commercetools\Api\Models\Common\DiscountedPriceDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -33,7 +33,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var null|DiscountedPrice|DiscountedPriceBuilder
+     * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
     private $discounted;
 
@@ -54,11 +54,11 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
     {
-        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+        return $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
@@ -84,10 +84,10 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      * @return $this
      */
-    public function withDiscounted(?DiscountedPrice $discounted)
+    public function withDiscounted(?DiscountedPriceDraft $discounted)
     {
         $this->discounted = $discounted;
 
@@ -98,7 +98,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
      * @deprecated use withDiscounted() instead
      * @return $this
      */
-    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withDiscountedBuilder(?DiscountedPriceDraftBuilder $discounted)
     {
         $this->discounted = $discounted;
 
@@ -110,7 +110,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
         return new ProductSetDiscountedPriceActionModel(
             $this->priceId,
             $this->staged,
-            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
+            $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted
         );
     }
 

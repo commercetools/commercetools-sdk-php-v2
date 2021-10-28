@@ -67,7 +67,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     protected $tiers;
 
     /**
-     * @var ?DiscountedPrice
+     * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
@@ -84,7 +84,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         ?DateTimeImmutable $validUntil = null,
         ?CustomFieldsDraft $custom = null,
         ?PriceTierDraftCollection $tiers = null,
-        ?DiscountedPrice $discounted = null
+        ?DiscountedPriceDraft $discounted = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -135,6 +135,8 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
+     * <p><a href="/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -248,7 +250,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
     {
@@ -259,7 +261,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
                 return null;
             }
 
-            $this->discounted = DiscountedPriceModel::of($data);
+            $this->discounted = DiscountedPriceDraftModel::of($data);
         }
 
         return $this->discounted;
@@ -331,9 +333,9 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void
     {
         $this->discounted = $discounted;
     }

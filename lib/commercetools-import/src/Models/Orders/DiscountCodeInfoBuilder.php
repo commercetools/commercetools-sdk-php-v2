@@ -33,7 +33,7 @@ final class DiscountCodeInfoBuilder implements Builder
     private $state;
 
     /**
-     * <p>References a discount code by its key.</p>
+     * <p>References a discount code by key.</p>
      *
      * @return null|DiscountCodeKeyReference
      */

@@ -68,6 +68,8 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

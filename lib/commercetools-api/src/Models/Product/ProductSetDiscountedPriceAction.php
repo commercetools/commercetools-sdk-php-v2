@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Api\Models\Common\DiscountedPriceDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -29,7 +29,7 @@ interface ProductSetDiscountedPriceAction extends ProductUpdateAction
     public function getStaged();
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
 
@@ -44,7 +44,7 @@ interface ProductSetDiscountedPriceAction extends ProductUpdateAction
     public function setStaged(?bool $staged): void;
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void;
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void;
 }

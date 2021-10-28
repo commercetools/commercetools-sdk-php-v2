@@ -68,6 +68,8 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

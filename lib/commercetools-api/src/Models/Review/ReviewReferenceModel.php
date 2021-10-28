@@ -68,6 +68,8 @@ final class ReviewReferenceModel extends JsonObjectModel implements ReviewRefere
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

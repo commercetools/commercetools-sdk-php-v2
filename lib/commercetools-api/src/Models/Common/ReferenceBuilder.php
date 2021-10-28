@@ -72,6 +72,8 @@ final class ReferenceBuilder implements Builder
     private $id;
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

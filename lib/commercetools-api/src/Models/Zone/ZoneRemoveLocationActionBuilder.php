@@ -26,6 +26,8 @@ final class ZoneRemoveLocationActionBuilder implements Builder
     private $location;
 
     /**
+     * <p>Location to be removed from the Zone.</p>
+     *
      * @return null|Location
      */
     public function getLocation()

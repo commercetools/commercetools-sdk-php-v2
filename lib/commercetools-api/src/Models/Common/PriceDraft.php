@@ -40,6 +40,8 @@ interface PriceDraft extends JsonObject
     public function getCountry();
 
     /**
+     * <p><a href="/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -70,7 +72,7 @@ interface PriceDraft extends JsonObject
     public function getTiers();
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
 
@@ -115,7 +117,7 @@ interface PriceDraft extends JsonObject
     public function setTiers(?PriceTierDraftCollection $tiers): void;
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void;
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void;
 }

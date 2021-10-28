@@ -107,7 +107,7 @@ final class InventoryImportBuilder implements Builder
     }
 
     /**
-     * <p>References a channel by its key.</p>
+     * <p>References a channel by key.</p>
      *
      * @return null|ChannelKeyReference
      */

@@ -25,25 +25,29 @@ interface CustomerGroup extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Unique ID of the customer group.</p>
+     * <p>Unique ID of the Customer Group.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>Current version of the customer group.</p>
+     * <p>Current version of the Customer Group.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the Customer Group was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Customer Group was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -63,20 +67,22 @@ interface CustomerGroup extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the Customer Group.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>Unique within the project.</p>
+     * <p>Unique name of the Customer Group.</p>
      *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Custom Fields for the Customer Group.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();

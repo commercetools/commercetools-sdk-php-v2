@@ -68,6 +68,8 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

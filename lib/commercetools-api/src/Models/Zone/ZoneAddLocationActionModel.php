@@ -59,6 +59,8 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
     }
 
     /**
+     * <p>Location to be added to the Zone.</p>
+     *
      * @return null|Location
      */
     public function getLocation()

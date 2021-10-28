@@ -177,7 +177,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
-     * <p>References a channel by its key.</p>
+     * <p>References a channel by key.</p>
      *
      * @return null|ChannelKeyReference
      */
