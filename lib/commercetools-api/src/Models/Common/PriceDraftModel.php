@@ -135,7 +135,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p><a href="/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */

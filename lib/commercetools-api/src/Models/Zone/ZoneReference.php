@@ -17,7 +17,7 @@ interface ZoneReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
-     * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
+     * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
      *
      * @return null|Zone
      */

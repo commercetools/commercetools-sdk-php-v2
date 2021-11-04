@@ -43,7 +43,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded Customer Group. Only present in responses to requests with <a href="/general-concepts#reference-expansion">Reference Expansion</a> for Customer Groups.</p>
+     * <p>Contains the representation of the expanded Customer Group. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Customer Groups.</p>
      *
      * @return null|CustomerGroup
      */
