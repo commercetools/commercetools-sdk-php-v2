@@ -141,6 +141,17 @@ class ResourceByProjectKeyProductDraftsImportContainersByImportContainerKeyTest 
                 },
                 201
             ],
+            'ByProjectKeyProductDraftsImportContainersByImportContainerKeyPost_400' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->productDrafts()
+                        ->importContainers()
+                        ->withImportContainerKeyValue("importContainerKey")
+                        ->post(null);
+                },
+                400
+            ],
             'ByProjectKeyProductDraftsImportContainersByImportContainerKeyPost_599' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder

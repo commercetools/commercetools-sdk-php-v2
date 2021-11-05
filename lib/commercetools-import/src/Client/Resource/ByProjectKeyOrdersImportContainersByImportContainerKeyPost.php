@@ -15,6 +15,8 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Exception\ExceptionFactory;
 use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Import\Models\Errors\ErrorResponse;
+use Commercetools\Import\Models\Errors\ErrorResponseModel;
 use Commercetools\Import\Models\Importrequests\ImportResponse;
 use Commercetools\Import\Models\Importrequests\ImportResponseModel;
 use GuzzleHttp\ClientInterface;
@@ -44,7 +46,7 @@ class ByProjectKeyOrdersImportContainersByImportContainerKeyPost extends ApiRequ
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ImportResponse|JsonObject|T|null
+     * @return ErrorResponse|ImportResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -55,6 +57,10 @@ class ByProjectKeyOrdersImportContainersByImportContainerKeyPost extends ApiRequ
             switch ($response->getStatusCode()) {
                 case '201':
                     $resultType = ImportResponseModel::class;
+
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
 
                     break;
                 default:
@@ -71,7 +77,7 @@ class ByProjectKeyOrdersImportContainersByImportContainerKeyPost extends ApiRequ
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImportResponse|JsonObject
+     * @return null|ErrorResponse|ImportResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

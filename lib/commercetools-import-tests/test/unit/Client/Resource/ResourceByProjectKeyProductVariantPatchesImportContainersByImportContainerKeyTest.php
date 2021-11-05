@@ -141,6 +141,17 @@ class ResourceByProjectKeyProductVariantPatchesImportContainersByImportContainer
                 },
                 201
             ],
+            'ByProjectKeyProductVariantPatchesImportContainersByImportContainerKeyPost_400' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->productVariantPatches()
+                        ->importContainers()
+                        ->withImportContainerKeyValue("importContainerKey")
+                        ->post(null);
+                },
+                400
+            ],
             'ByProjectKeyProductVariantPatchesImportContainersByImportContainerKeyPost_599' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder
