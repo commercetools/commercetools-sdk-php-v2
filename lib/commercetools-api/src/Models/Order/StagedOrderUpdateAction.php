@@ -70,6 +70,7 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetOrderTotalTaxAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnPaymentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnShipmentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingAddressAction;
