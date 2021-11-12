@@ -159,7 +159,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Optional connection to a particular supplier.</p>
+     * <p>Connection to a particular supplier.</p>
      *
      * @return null|ChannelReference
      */

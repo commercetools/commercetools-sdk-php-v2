@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -102,6 +104,11 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
      */
     protected $newAvailableQuantity;
 
+    /**
+     * @var ?ChannelReference
+     */
+    protected $supplyChannel;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -120,7 +127,8 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
         ?int $oldQuantityOnStock = null,
         ?int $newQuantityOnStock = null,
         ?int $oldAvailableQuantity = null,
-        ?int $newAvailableQuantity = null
+        ?int $newAvailableQuantity = null,
+        ?ChannelReference $supplyChannel = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -136,6 +144,7 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
         $this->newQuantityOnStock = $newQuantityOnStock;
         $this->oldAvailableQuantity = $oldAvailableQuantity;
         $this->newAvailableQuantity = $newAvailableQuantity;
+        $this->supplyChannel = $supplyChannel;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -410,6 +419,24 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
         return $this->newAvailableQuantity;
     }
 
+    /**
+     * @return null|ChannelReference
+     */
+    public function getSupplyChannel()
+    {
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelReferenceModel::of($data);
+        }
+
+        return $this->supplyChannel;
+    }
+
 
     /**
      * @param ?string $id
@@ -521,6 +548,14 @@ final class InventoryEntryQuantitySetMessageModel extends JsonObjectModel implem
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void
     {
         $this->newAvailableQuantity = $newAvailableQuantity;
+    }
+
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
+    public function setSupplyChannel(?ChannelReference $supplyChannel): void
+    {
+        $this->supplyChannel = $supplyChannel;
     }
 
 
