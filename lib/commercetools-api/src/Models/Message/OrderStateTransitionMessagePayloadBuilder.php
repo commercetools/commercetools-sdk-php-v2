@@ -28,6 +28,11 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     private $state;
 
     /**
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $oldState;
+
+    /**
      * @var ?bool
      */
     private $force;
@@ -38,6 +43,14 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getOldState()
+    {
+        return $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState;
     }
 
     /**
@@ -55,6 +68,17 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     public function withState(?StateReference $state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StateReference $oldState
+     * @return $this
+     */
+    public function withOldState(?StateReference $oldState)
+    {
+        $this->oldState = $oldState;
 
         return $this;
     }
@@ -81,10 +105,22 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withOldState() instead
+     * @return $this
+     */
+    public function withOldStateBuilder(?StateReferenceBuilder $oldState)
+    {
+        $this->oldState = $oldState;
+
+        return $this;
+    }
+
     public function build(): OrderStateTransitionMessagePayload
     {
         return new OrderStateTransitionMessagePayloadModel(
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState,
             $this->force
         );
     }
