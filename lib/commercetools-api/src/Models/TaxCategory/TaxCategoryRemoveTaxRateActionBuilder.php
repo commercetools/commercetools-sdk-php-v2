@@ -26,6 +26,8 @@ final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
     private $taxRateId;
 
     /**
+     * <p>ID of the TaxRate to remove.</p>
+     *
      * @return null|string
      */
     public function getTaxRateId()
