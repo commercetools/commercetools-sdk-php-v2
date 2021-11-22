@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,6 +18,7 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
     public const FIELD_NEW_QUANTITY_ON_STOCK = 'newQuantityOnStock';
     public const FIELD_OLD_AVAILABLE_QUANTITY = 'oldAvailableQuantity';
     public const FIELD_NEW_AVAILABLE_QUANTITY = 'newAvailableQuantity';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
      * @return null|int
@@ -39,6 +41,11 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
     public function getNewAvailableQuantity();
 
     /**
+     * @return null|ChannelReference
+     */
+    public function getSupplyChannel();
+
+    /**
      * @param ?int $oldQuantityOnStock
      */
     public function setOldQuantityOnStock(?int $oldQuantityOnStock): void;
@@ -57,4 +64,9 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
      * @param ?int $newAvailableQuantity
      */
     public function setNewAvailableQuantity(?int $newAvailableQuantity): void;
+
+    /**
+     * @param ?ChannelReference $supplyChannel
+     */
+    public function setSupplyChannel(?ChannelReference $supplyChannel): void;
 }

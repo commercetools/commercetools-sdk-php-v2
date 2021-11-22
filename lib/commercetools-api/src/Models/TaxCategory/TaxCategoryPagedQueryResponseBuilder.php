@@ -28,6 +28,11 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
+    private $offset;
+
+    /**
+     * @var ?int
+     */
     private $count;
 
     /**
@@ -36,16 +41,13 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     private $total;
 
     /**
-     * @var ?int
-     */
-    private $offset;
-
-    /**
      * @var ?TaxCategoryCollection
      */
     private $results;
 
     /**
+     * <p>Number of results requested in the query request.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -54,22 +56,9 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
+     * <p>Offset supplied by the client or the server default.
+     * It is the number of elements skipped, not a page number.</p>
+     *
      * @return null|int
      */
     public function getOffset()
@@ -78,6 +67,32 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This field is returned by default.
+     * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/contract#queries">limit</a>.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:TaxCategory">TaxCategories</a> matching the query.</p>
+     *
      * @return null|TaxCategoryCollection
      */
     public function getResults()
@@ -92,6 +107,17 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     public function withLimit(?int $limit)
     {
         $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $offset
+     * @return $this
+     */
+    public function withOffset(?int $offset)
+    {
+        $this->offset = $offset;
 
         return $this;
     }
@@ -119,17 +145,6 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @param ?int $offset
-     * @return $this
-     */
-    public function withOffset(?int $offset)
-    {
-        $this->offset = $offset;
-
-        return $this;
-    }
-
-    /**
      * @param ?TaxCategoryCollection $results
      * @return $this
      */
@@ -145,9 +160,9 @@ final class TaxCategoryPagedQueryResponseBuilder implements Builder
     {
         return new TaxCategoryPagedQueryResponseModel(
             $this->limit,
+            $this->offset,
             $this->count,
             $this->total,
-            $this->offset,
             $this->results
         );
     }

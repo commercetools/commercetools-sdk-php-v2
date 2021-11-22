@@ -25,62 +25,70 @@ interface TaxCategory extends BaseResource
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>The unique ID of the category.</p>
+     * <p>Unique ID of the TaxCategory.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the category.</p>
+     * <p>Current version of the TaxCategory.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the TaxCategory was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the TaxCategory was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>Name of the TaxCategory.</p>
+     *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Description of the TaxCategory.</p>
+     *
      * @return null|string
      */
     public function getDescription();
 
     /**
-     * <p>The tax rates have unique IDs in the rates list</p>
+     * <p>Tax rates and subrates of states and countries. Each TaxRate in the array has a unique ID assigned by the platform.</p>
      *
      * @return null|TaxRateCollection
      */
     public function getRates();
 
     /**
-     * <p>User-specific unique identifier for the category.</p>
+     * <p>User-defined unique identifier for the TaxCategory.</p>
      *
      * @return null|string
      */

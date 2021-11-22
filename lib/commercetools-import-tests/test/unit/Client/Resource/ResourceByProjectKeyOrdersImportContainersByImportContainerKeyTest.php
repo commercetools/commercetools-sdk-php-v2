@@ -141,6 +141,17 @@ class ResourceByProjectKeyOrdersImportContainersByImportContainerKeyTest extends
                 },
                 201
             ],
+            'ByProjectKeyOrdersImportContainersByImportContainerKeyPost_400' => [
+                function (ImportRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->orders()
+                        ->importContainers()
+                        ->withImportContainerKeyValue("importContainerKey")
+                        ->post(null);
+                },
+                400
+            ],
             'ByProjectKeyOrdersImportContainersByImportContainerKeyPost_599' => [
                 function (ImportRequestBuilder $builder): RequestInterface {
                     return $builder

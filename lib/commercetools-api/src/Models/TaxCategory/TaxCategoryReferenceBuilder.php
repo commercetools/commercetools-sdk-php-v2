@@ -33,7 +33,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Unique ID of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|string
      */
@@ -43,6 +43,8 @@ final class TaxCategoryReferenceBuilder implements Builder
     }
 
     /**
+     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategory.</p>
+     *
      * @return null|TaxCategory
      */
     public function getObj()

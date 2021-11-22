@@ -26,6 +26,8 @@ final class TaxCategoryChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getName()

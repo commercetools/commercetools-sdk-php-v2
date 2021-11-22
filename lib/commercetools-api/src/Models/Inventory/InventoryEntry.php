@@ -71,7 +71,7 @@ interface InventoryEntry extends BaseResource
     public function getSku();
 
     /**
-     * <p>Optional connection to a particular supplier.</p>
+     * <p>Connection to a particular supplier.</p>
      *
      * @return null|ChannelReference
      */

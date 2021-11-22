@@ -45,6 +45,11 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
      */
     protected $allowedValues;
 
+    /**
+     * @var ?int
+     */
+    protected $resourceIndex;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,12 +58,14 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
         ?string $message = null,
         ?string $field = null,
         $invalidValue = null,
-        ?array $allowedValues = null
+        ?array $allowedValues = null,
+        ?int $resourceIndex = null
     ) {
         $this->message = $message;
         $this->field = $field;
         $this->invalidValue = $invalidValue;
         $this->allowedValues = $allowedValues;
+        $this->resourceIndex = $resourceIndex;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -153,6 +160,23 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
         return $this->allowedValues;
     }
 
+    /**
+     * @return null|int
+     */
+    public function getResourceIndex()
+    {
+        if (is_null($this->resourceIndex)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_RESOURCE_INDEX);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->resourceIndex = (int) $data;
+        }
+
+        return $this->resourceIndex;
+    }
+
 
     /**
      * @param ?string $message
@@ -184,5 +208,13 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     public function setAllowedValues(?array $allowedValues): void
     {
         $this->allowedValues = $allowedValues;
+    }
+
+    /**
+     * @param ?int $resourceIndex
+     */
+    public function setResourceIndex(?int $resourceIndex): void
+    {
+        $this->resourceIndex = $resourceIndex;
     }
 }

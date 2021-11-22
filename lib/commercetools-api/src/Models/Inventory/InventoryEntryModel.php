@@ -265,7 +265,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Optional connection to a particular supplier.</p>
+     * <p>Connection to a particular supplier.</p>
      *
      * @return null|ChannelReference
      */
