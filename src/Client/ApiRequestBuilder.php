@@ -2,8 +2,8 @@
 
 namespace Commercetools\Client;
 
-use Commercetools\Api\Client\Resource;
 use Commercetools\Api\Client\ApiRequestBuilder as Builder;
+use Commercetools\Api\Client\Resource;
 use Commercetools\Api\Client\Resource\ResourceByProjectKey;
 use Commercetools\Api\Models\Project\ProjectUpdate;
 use GuzzleHttp\ClientInterface;

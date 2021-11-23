@@ -2,7 +2,6 @@
 
 namespace Commercetools\Client;
 
-
 use Commercetools\History\Client\HistoryRequestBuilder as Builder;
 use Commercetools\History\Client\Resource;
 use GuzzleHttp\ClientInterface;
