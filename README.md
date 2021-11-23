@@ -56,13 +56,13 @@ use GuzzleHttp\ClientInterface;
 
 /** @var ClientInterface $client */
 $builder =  new ApiRequestBuilder('your-project-key', $client);
-$request = $builder->with()->categories()->get();
+$request = $builder->categories()->get();
 
 $importBuilder =  new ImportRequestBuilder('your-project-key', $client);
-$request = $importBuilder->with()->importSinks()->get();
+$request = $importBuilder->importSinks()->get();
 
 $mlBuilder =  new MLRequestBuilder('your-project-key', $client);
-$request = $mlBuilder->with()->recommendations()->generalCategories()->get();
+$request = $mlBuilder->recommendations()->generalCategories()->get();
 ```
 
 

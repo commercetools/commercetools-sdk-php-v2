@@ -2,8 +2,9 @@
 
 namespace Commercetools\Client;
 
+
 use Commercetools\History\Client\HistoryRequestBuilder as Builder;
-use Commercetools\History\Client\Resource\ResourceByProjectKey;
+use Commercetools\History\Client\Resource;
 use GuzzleHttp\ClientInterface;
 
 class HistoryRequestBuilder extends Builder
@@ -22,8 +23,22 @@ class HistoryRequestBuilder extends Builder
         $this->projectKey = $projectKey;
     }
 
-    public function with(): ResourceByProjectKey
+    public function with(): Resource\ResourceByProjectKey
     {
         return $this->withProjectKeyValue($this->projectKey);
+    }
+
+    /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function get($body = null, array $headers = []): Resource\ByProjectKeyGet
+    {
+        return $this->with()->get($body, $headers);
+    }
+
+    public function resourceType(string $resourceType): Resource\ResourceByProjectKeyByResourceType
+    {
+        return $this->with()->withResourceTypeValue($resourceType);
     }
 }
