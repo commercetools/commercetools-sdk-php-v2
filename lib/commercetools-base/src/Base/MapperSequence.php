@@ -134,7 +134,7 @@ abstract class MapperSequence implements CSequence
     /**
      * @psalm-return ?TObject
      */
-    final protected function valueByKey(string $field, string $key)
+    final public function valueByKey(string $field, string $key)
     {
         return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
