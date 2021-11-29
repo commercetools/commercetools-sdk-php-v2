@@ -8,7 +8,7 @@ use Commercetools\Api\Models\Common\PriceDraftBuilder;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\ProductDraftBuilder;
 use Commercetools\Api\Models\Product\ProductVariantDraftBuilder;
-use Commercetools\Core\Helper\Uuid;
+use Ramsey\Uuid\Uuid;
 use Commercetools\IntegrationTest\ApiTestCase;
 
 class ProductProjectionRequestTest extends ApiTestCase
@@ -17,7 +17,7 @@ class ProductProjectionRequestTest extends ApiTestCase
     {
         $builder = $this->getApiBuilder();
 
-        $uniqueCategoryString = 'test-' . Uuid::uuidv4();
+        $uniqueCategoryString = 'test-' . Uuid::uuid4();
         $draft = ProductDraftBuilder::of()->withName(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
                             ->withSlug(LocalizedStringBuilder::of()->put('en', $uniqueCategoryString)->build())
                             ->withMasterVariant(ProductVariantDraftBuilder::of()->withSku($uniqueCategoryString)
@@ -34,9 +34,7 @@ class ProductProjectionRequestTest extends ApiTestCase
         $variant = $this->getVariantBySku($sku, $productProjectionResponse);
 
         $this->assertNotEmpty($variant);
-
-        $this->assertCount(1, $productProjectionResponse->getResults());
-        $this->assertSame($product->getId(), $productProjectionResponse->getResults()->current()->getId());
+        $this->assertSame($product->getId(), $productProjectionResponse->getId());
 
         $request = $builder->with()->products()->withId($product->getId())->delete()->withVersion($product->getVersion());
         $queryResponse = $request->execute();
@@ -47,12 +45,12 @@ class ProductProjectionRequestTest extends ApiTestCase
 
     /**
      * @param $sku
-     * @param $productProjectionResponse
-     * @return mixed
+     * @param \Commercetools\Api\Models\Product\ProductProjection $productProjectionResponse
+     * @return mixed|null
      */
     public function getVariantBySku($sku, $productProjectionResponse)
     {
-        if ($sku == $productProjectionResponse->getMasterVariant()->getSku()) {
+        if ($sku == $productProjectionResponse->getMasterVariant()) {
             return $productProjectionResponse->getMasterVariant();
         }
 
