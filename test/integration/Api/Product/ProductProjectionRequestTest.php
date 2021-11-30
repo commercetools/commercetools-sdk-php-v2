@@ -21,7 +21,7 @@ class ProductProjectionRequestTest extends ApiTestCase
         $uniqueString = 'test-' . Uuid::uuid4();
         $productTypeDraft = ProductTypeDraftBuilder::of()->withName("name" . $uniqueString)
                         ->withDescription("description" . $uniqueString)->build();
-        $request = $builder->with()->productTypes()->post($productTypeDraft);
+        $request = $builder->productTypes()->post($productTypeDraft);
         $productType = $request->execute();
 
         $draft = ProductDraftBuilder::of()->withName(LocalizedStringBuilder::of()->put('en', $uniqueString)->build())
@@ -32,11 +32,11 @@ class ProductProjectionRequestTest extends ApiTestCase
                                 ->build())
                             ->build();
 
-        $request = $builder->with()->products()->post($draft);
+        $request = $builder->products()->post($draft);
         $product = $request->execute();
 
         $sku = $product->getMasterData()->getCurrent()->getMasterVariant()->getSku();
-        $request = $builder->with()->productProjections()->withId($product->getId())->get();
+        $request = $builder->productProjections()->withId($product->getId())->get();
         $productProjectionResponse = $request->execute();
 
         //the method created using valueByKey method
