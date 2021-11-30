@@ -3,7 +3,6 @@
 
 namespace Commercetools\IntegrationTest\Api\CustomObject;
 
-
 use Commercetools\Api\Models\CustomObject\CustomObjectDraftBuilder;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ExceptionFactory;
@@ -17,7 +16,6 @@ use Ramsey\Uuid\Uuid;
 
 class CustomObjectCreateTest extends ApiTestCase
 {
-
     public function testCustomObjectHandle200And201()
     {
         $uniqueString = 'test-' . Uuid::uuid4();
