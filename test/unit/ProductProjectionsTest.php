@@ -39,6 +39,7 @@ class ProductProjectionsTest extends TestCase
 
         $variantsAccessor = $products[0]->with(ProductVariantSkuAccessor::of());
         self::assertSame(1, $variantsAccessor->getBySku("prod1-abc")->getId());
+        self::assertNull($variantsAccessor->getBySku("non-existant"));
         self::assertSame(2, $variantsAccessor->getBySku("prod1-def")->getId());
 
         $variantsAccessor = $products[1]->with(ProductVariantSkuAccessor::of());

@@ -49,6 +49,9 @@ class ProductVariantSkuAccessor
     }
 
     public function getBySku(string $sku): ?ProductVariant {
+        if (!isset($this->skuIndex[$sku])) {
+            return null;
+        }
         return $this->variants->at($this->skuIndex[$sku]);
     }
 
