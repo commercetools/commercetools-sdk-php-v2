@@ -2,14 +2,11 @@
 
 namespace Commercetools\UnitTest;
 
-use Commercetools\Api\Client\ApiRequestBuilder;
-use Commercetools\Api\Models\Product\Attribute;
 use Commercetools\Api\Models\Product\AttributeAccessor;
 use Commercetools\Api\Models\Product\ProductProjection;
-use Commercetools\Api\Models\Product\ProductProjectionModel;
-use Commercetools\Api\Models\Product\ProductProjectionPagedQueryResponse;
 use Commercetools\Api\Models\Product\ProductProjectionPagedQueryResponseModel;
-use GuzzleHttp\ClientInterface;
+use Commercetools\Api\Models\Product\ProductProjectionVariantSkuAccessor;
+use Commercetools\Api\Models\Product\ProductVariantSkuAccessor;
 use PHPUnit\Framework\TestCase;
 
 class ProductProjectionsTest extends TestCase
@@ -19,12 +16,7 @@ class ProductProjectionsTest extends TestCase
         $productsJson = json_decode(file_get_contents(__DIR__ . "/products.json"));
         $products = ProductProjectionPagedQueryResponseModel::fromStdClass($productsJson)->getResults();
 
-//        /** @var ClientInterface $client */
-//        $builder = new ApiRequestBuilder($client);
-//        $productResponse = $builder->withProjectKey("")->productProjections()->get()->execute();
-//        $products = $productResponse->getResults();
-
-//        /** @var ProductProjection $product */
+        /** @var ProductProjection $product */
         foreach ($products as $product) {
             foreach ($product->getMasterVariant()->getAttributes() as $attribute) {
                 /** @var AttributeAccessor $attrAccessor */
@@ -38,5 +30,19 @@ class ProductProjectionsTest extends TestCase
                 }
             }
         }
+    }
+
+    public function testSkuMapping()
+    {
+        $productsJson = json_decode(file_get_contents(__DIR__ . "/products.json"));
+        $products = ProductProjectionPagedQueryResponseModel::fromStdClass($productsJson)->getResults();
+
+        $variantsAccessor = $products[0]->with(ProductVariantSkuAccessor::of());
+        self::assertSame(1, $variantsAccessor->getBySku("prod1-abc")->getId());
+        self::assertSame(2, $variantsAccessor->getBySku("prod1-def")->getId());
+
+        $variantsAccessor = $products[1]->with(ProductVariantSkuAccessor::of());
+        self::assertSame(1, $variantsAccessor->getBySku("prod2-abc")->getId());
+        self::assertSame(2, $variantsAccessor->getBySku("prod2-def")->getId());
     }
 }
