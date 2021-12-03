@@ -57,6 +57,10 @@ class ByProjectKeyCustomObjectsPost extends ApiRequest implements Expandable, De
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
+                case '200':
+                    $resultType = CustomObjectModel::class;
+
+                    break;
                 case '201':
                     $resultType = CustomObjectModel::class;
 
