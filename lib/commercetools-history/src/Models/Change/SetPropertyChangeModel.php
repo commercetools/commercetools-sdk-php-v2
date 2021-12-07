@@ -13,18 +13,14 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\CustomFields;
-use Commercetools\History\Models\Common\CustomFieldsModel;
-use Commercetools\History\Models\Common\LocalizedString;
-use Commercetools\History\Models\Common\LocalizedStringModel;
 
 /**
  * @internal
  */
-final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel implements SetCustomLineItemCustomTypeChange
+final class SetPropertyChangeModel extends JsonObjectModel implements SetPropertyChange
 {
 
-    public const DISCRIMINATOR_VALUE = 'SetCustomLineItemCustomTypeChange';
+    public const DISCRIMINATOR_VALUE = 'SetPropertyChange';
     /**
      * @var ?string
      */
@@ -36,22 +32,17 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     protected $change;
 
     /**
-     * @var ?LocalizedString
-     */
-    protected $customLineItem;
-
-    /**
      * @var ?string
      */
-    protected $customLineItemId;
+    protected $path;
 
     /**
-     * @var ?CustomFields
+     * @var ?mixed
      */
     protected $nextValue;
 
     /**
-     * @var ?CustomFields
+     * @var ?mixed
      */
     protected $previousValue;
 
@@ -61,14 +52,12 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
      */
     public function __construct(
         ?string $change = null,
-        ?LocalizedString $customLineItem = null,
-        ?string $customLineItemId = null,
-        ?CustomFields $nextValue = null,
-        ?CustomFields $previousValue = null
+        ?string $path = null,
+         $nextValue = null,
+         $previousValue = null
     ) {
         $this->change = $change;
-        $this->customLineItem = $customLineItem;
-        $this->customLineItemId = $customLineItemId;
+        $this->path = $path;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -92,7 +81,7 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Update action for <code>setCustomLineItemCustomType</code></p>
+     * <p>Update action for <code>setProperty</code> on custom objects</p>
      *
      * @return null|string
      */
@@ -111,71 +100,53 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem()
-    {
-        if (is_null($this->customLineItem)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->customLineItem =  LocalizedStringModel::of($data);
-        }
-
-        return $this->customLineItem;
-    }
-
-    /**
+     * <p>Value path to the property that was changed</p>
+     *
      * @return null|string
      */
-    public function getCustomLineItemId()
+    public function getPath()
     {
-        if (is_null($this->customLineItemId)) {
+        if (is_null($this->path)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
+            $data = $this->raw(self::FIELD_PATH);
             if (is_null($data)) {
                 return null;
             }
-            $this->customLineItemId =  (string) $data;
+            $this->path =  (string) $data;
         }
 
-        return $this->customLineItemId;
+        return $this->path;
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|mixed
      */
     public function getNextValue()
     {
         if (is_null($this->nextValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_NEXT_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->nextValue =  CustomFieldsModel::of($data);
+            $this->nextValue =  $data;
         }
 
         return $this->nextValue;
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|mixed
      */
     public function getPreviousValue()
     {
         if (is_null($this->previousValue)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var mixed $data */
             $data = $this->raw(self::FIELD_PREVIOUS_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->previousValue =  CustomFieldsModel::of($data);
+            $this->previousValue =  $data;
         }
 
         return $this->previousValue;
@@ -191,33 +162,25 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?LocalizedString $customLineItem
+     * @param ?string $path
      */
-    public function setCustomLineItem(?LocalizedString $customLineItem): void
+    public function setPath(?string $path): void
     {
-        $this->customLineItem = $customLineItem;
+        $this->path = $path;
     }
 
     /**
-     * @param ?string $customLineItemId
+     * @param mixed $nextValue
      */
-    public function setCustomLineItemId(?string $customLineItemId): void
-    {
-        $this->customLineItemId = $customLineItemId;
-    }
-
-    /**
-     * @param ?CustomFields $nextValue
-     */
-    public function setNextValue(?CustomFields $nextValue): void
+    public function setNextValue( $nextValue): void
     {
         $this->nextValue = $nextValue;
     }
 
     /**
-     * @param ?CustomFields $previousValue
+     * @param mixed $previousValue
      */
-    public function setPreviousValue(?CustomFields $previousValue): void
+    public function setPreviousValue( $previousValue): void
     {
         $this->previousValue = $previousValue;
     }

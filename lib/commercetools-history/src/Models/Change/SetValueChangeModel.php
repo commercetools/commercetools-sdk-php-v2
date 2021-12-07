@@ -13,16 +13,14 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
-use Commercetools\History\Models\Common\LocalizedString;
-use Commercetools\History\Models\Common\LocalizedStringModel;
 
 /**
  * @internal
  */
-final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel implements SetCustomLineItemCustomFieldChange
+final class SetValueChangeModel extends JsonObjectModel implements SetValueChange
 {
 
-    public const DISCRIMINATOR_VALUE = 'SetCustomLineItemCustomFieldChange';
+    public const DISCRIMINATOR_VALUE = 'SetValueChange';
     /**
      * @var ?string
      */
@@ -32,21 +30,6 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
      * @var ?string
      */
     protected $change;
-
-    /**
-     * @var ?string
-     */
-    protected $name;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $customLineItem;
-
-    /**
-     * @var ?string
-     */
-    protected $customLineItemId;
 
     /**
      * @var ?mixed
@@ -64,16 +47,10 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
      */
     public function __construct(
         ?string $change = null,
-        ?string $name = null,
-        ?LocalizedString $customLineItem = null,
-        ?string $customLineItemId = null,
          $nextValue = null,
          $previousValue = null
     ) {
         $this->change = $change;
-        $this->name = $name;
-        $this->customLineItem = $customLineItem;
-        $this->customLineItemId = $customLineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -97,7 +74,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Update action for <code>setCustomLineItemCustomField</code></p>
+     * <p>Update action for <code>setValue</code> on custom objects</p>
      *
      * @return null|string
      */
@@ -113,58 +90,6 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         }
 
         return $this->change;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->name =  (string) $data;
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem()
-    {
-        if (is_null($this->customLineItem)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->customLineItem =  LocalizedStringModel::of($data);
-        }
-
-        return $this->customLineItem;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        if (is_null($this->customLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CUSTOM_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customLineItemId =  (string) $data;
-        }
-
-        return $this->customLineItemId;
     }
 
     /**
@@ -208,30 +133,6 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     public function setChange(?string $change): void
     {
         $this->change = $change;
-    }
-
-    /**
-     * @param ?string $name
-     */
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @param ?LocalizedString $customLineItem
-     */
-    public function setCustomLineItem(?LocalizedString $customLineItem): void
-    {
-        $this->customLineItem = $customLineItem;
-    }
-
-    /**
-     * @param ?string $customLineItemId
-     */
-    public function setCustomLineItemId(?string $customLineItemId): void
-    {
-        $this->customLineItemId = $customLineItemId;
     }
 
     /**

@@ -38,6 +38,11 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     private $customLineItem;
 
     /**
+     * @var ?string
+     */
+    private $customLineItemId;
+
+    /**
      * @var null|mixed|mixed
      */
     private $nextValue;
@@ -71,6 +76,14 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     public function getCustomLineItem()
     {
         return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
     }
 
     /**
@@ -123,6 +136,17 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $customLineItemId
+     * @return $this
+     */
+    public function withCustomLineItemId(?string $customLineItemId)
+    {
+        $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
      * @param mixed $nextValue
      * @return $this
      */
@@ -161,6 +185,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
             $this->change,
             $this->name,
             $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
+            $this->customLineItemId,
             $this->nextValue,
             $this->previousValue
         );

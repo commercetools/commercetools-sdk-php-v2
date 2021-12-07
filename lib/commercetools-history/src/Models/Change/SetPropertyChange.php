@@ -10,14 +10,11 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\History\Models\Common\LocalizedString;
 
-interface SetCustomLineItemCustomFieldChange extends Change
+interface SetPropertyChange extends Change
 {
 
-    public const FIELD_NAME = 'name';
-    public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
-    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
+    public const FIELD_PATH = 'path';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
@@ -27,26 +24,18 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public function getType();
 
     /**
-     * <p>Update action for <code>setCustomLineItemCustomField</code></p>
+     * <p>Update action for <code>setProperty</code> on custom objects</p>
      *
      * @return null|string
      */
     public function getChange();
 
     /**
+     * <p>Value path to the property that was changed</p>
+     *
      * @return null|string
      */
-    public function getName();
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getCustomLineItem();
-
-    /**
-     * @return null|string
-     */
-    public function getCustomLineItemId();
+    public function getPath();
 
     /**
      * @return null|mixed
@@ -64,19 +53,9 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public function setChange(?string $change): void;
 
     /**
-     * @param ?string $name
+     * @param ?string $path
      */
-    public function setName(?string $name): void;
-
-    /**
-     * @param ?LocalizedString $customLineItem
-     */
-    public function setCustomLineItem(?LocalizedString $customLineItem): void;
-
-    /**
-     * @param ?string $customLineItemId
-     */
-    public function setCustomLineItemId(?string $customLineItemId): void;
+    public function setPath(?string $path): void;
 
     /**
      * @param mixed $nextValue
