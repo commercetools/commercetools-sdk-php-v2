@@ -347,6 +347,15 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 },
                 599
             ],
+            'ByProjectKeyCustomObjectsPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->post(null);
+                },
+                200
+            ],
             'ByProjectKeyCustomObjectsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

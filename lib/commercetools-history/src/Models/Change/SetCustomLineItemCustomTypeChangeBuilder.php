@@ -35,6 +35,11 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
     private $customLineItem;
 
     /**
+     * @var ?string
+     */
+    private $customLineItemId;
+
+    /**
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $nextValue;
@@ -60,6 +65,14 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
     public function getCustomLineItem()
     {
         return $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
     }
 
     /**
@@ -96,6 +109,17 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
     public function withCustomLineItem(?LocalizedString $customLineItem)
     {
         $this->customLineItem = $customLineItem;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customLineItemId
+     * @return $this
+     */
+    public function withCustomLineItemId(?string $customLineItemId)
+    {
+        $this->customLineItemId = $customLineItemId;
 
         return $this;
     }
@@ -160,6 +184,7 @@ final class SetCustomLineItemCustomTypeChangeBuilder implements Builder
         return new SetCustomLineItemCustomTypeChangeModel(
             $this->change,
             $this->customLineItem instanceof LocalizedStringBuilder ? $this->customLineItem->build() : $this->customLineItem,
+            $this->customLineItemId,
             $this->nextValue instanceof CustomFieldsBuilder ? $this->nextValue->build() : $this->nextValue,
             $this->previousValue instanceof CustomFieldsBuilder ? $this->previousValue->build() : $this->previousValue
         );
