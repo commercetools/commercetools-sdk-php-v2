@@ -4,6 +4,7 @@
 namespace Commercetools\IntegrationTest\Api\CustomObject;
 
 use Commercetools\Api\Models\CustomObject\CustomObjectDraftBuilder;
+use Commercetools\Api\Models\CustomObject\CustomObjectModel;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ExceptionFactory;
 use Commercetools\Exception\InvalidArgumentException;
@@ -33,6 +34,7 @@ class CustomObjectCreateTest extends ApiTestCase
         $resultCreate = $request->mapFromResponse($response);
 
         $this->assertSame($response->getStatusCode(), 201);
+        $this->assertInstanceOf(CustomObjectModel::class, $resultCreate);
 
         $customObjectDraftToUpdate = CustomObjectDraftBuilder::of()->withContainer($customObjectDraft->getContainer())
             ->withKey($customObjectDraft->getKey())->withValue("new Value" . $uniqueString)->build();
@@ -47,5 +49,6 @@ class CustomObjectCreateTest extends ApiTestCase
 
         $this->assertSame($response->getStatusCode(), 200);
         $this->assertNotSame($resultCreate->getVersion(), $resultUpdate->getVersion());
+        $this->assertInstanceOf(CustomObjectModel::class, $resultUpdate);
     }
 }
