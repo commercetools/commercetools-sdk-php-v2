@@ -31,6 +31,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
      */
     private static $discriminatorClasses = [
        'AzureServiceBus' => AzureServiceBusDestinationModel::class,
+       'EventBridge' => EventBridgeDestinationModel::class,
        'EventGrid' => AzureEventGridDestinationModel::class,
        'GoogleCloudPubSub' => GoogleCloudPubSubDestinationModel::class,
        'IronMQ' => IronMqDestinationModel::class,
