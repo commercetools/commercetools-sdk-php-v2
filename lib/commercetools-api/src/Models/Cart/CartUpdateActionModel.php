@@ -78,6 +78,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'setLineItemDistributionChannel' => CartSetLineItemDistributionChannelActionModel::class,
        'setLineItemPrice' => CartSetLineItemPriceActionModel::class,
        'setLineItemShippingDetails' => CartSetLineItemShippingDetailsActionModel::class,
+       'setLineItemSupplyChannel' => CartSetLineItemSupplyChannelActionModel::class,
        'setLineItemTaxAmount' => CartSetLineItemTaxAmountActionModel::class,
        'setLineItemTaxRate' => CartSetLineItemTaxRateActionModel::class,
        'setLineItemTotalPrice' => CartSetLineItemTotalPriceActionModel::class,
