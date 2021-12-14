@@ -53,6 +53,11 @@ final class UserProvidedIdentifiersBuilder implements Builder
     private $slug;
 
     /**
+     * @var null|ContainerAndKey|ContainerAndKeyBuilder
+     */
+    private $containerAndKey;
+
+    /**
      * @return null|string
      */
     public function getKey()
@@ -98,6 +103,16 @@ final class UserProvidedIdentifiersBuilder implements Builder
     public function getSlug()
     {
         return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * <p>Custom Objects are grouped into containers, which can be used like namespaces. Within a given container, a user-defined key can be used to uniquely identify resources.</p>
+     *
+     * @return null|ContainerAndKey
+     */
+    public function getContainerAndKey()
+    {
+        return $this->containerAndKey instanceof ContainerAndKeyBuilder ? $this->containerAndKey->build() : $this->containerAndKey;
     }
 
     /**
@@ -167,12 +182,34 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @param ?ContainerAndKey $containerAndKey
+     * @return $this
+     */
+    public function withContainerAndKey(?ContainerAndKey $containerAndKey)
+    {
+        $this->containerAndKey = $containerAndKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withSlug() instead
      * @return $this
      */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withContainerAndKey() instead
+     * @return $this
+     */
+    public function withContainerAndKeyBuilder(?ContainerAndKeyBuilder $containerAndKey)
+    {
+        $this->containerAndKey = $containerAndKey;
 
         return $this;
     }
@@ -185,7 +222,8 @@ final class UserProvidedIdentifiersBuilder implements Builder
             $this->orderNumber,
             $this->customerNumber,
             $this->sku,
-            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug
+            $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->containerAndKey instanceof ContainerAndKeyBuilder ? $this->containerAndKey->build() : $this->containerAndKey
         );
     }
 
