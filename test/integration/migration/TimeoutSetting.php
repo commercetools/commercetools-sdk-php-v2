@@ -27,8 +27,8 @@ class TimeoutSetting extends MigrationService implements MigrationInterface
         $options = ['timeout' => '45'];
         $builder = $this->builderV2();
         $request = $builder->with()->categories()->get();
-        $respose = $request->execute($options);
+        $response = $request->execute($options);
 
-        return $respose;
+        return $response;
     }
 }

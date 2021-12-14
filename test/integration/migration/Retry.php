@@ -3,7 +3,10 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
+use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
+use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Core\Client\ClientFactory;
 use Commercetools\Core\Config as ConfigV1;
@@ -44,19 +47,18 @@ class Retry extends MigrationService implements MigrationInterface
      */
     public function v2()
     {
-        $config = new ConfigV2(
-            [
-                'client_id' => self::CLIENT_ID,
-                'client_secret' => self::CLIENT_SECRET,
-                'project' => self::PROJECT_KEY
-            ]
-        );
+        $clientId = 'my_client_id';
+        $clientSecret = 'my_client_secret';
+        $projectKey = 'my_project_key';
+
         $middlewares = [];
         $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries = 3);
-        $client = \Commercetools\Client\ClientFactory::of()->createGuzzleClientForMiddlewares(
-            $config,
-            $middlewares
-        );
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
+        $client = \Commercetools\Client\ClientFactory::of()->createGuzzleClient(new ConfigV2(), $authConfig, null, $middlewares);
+        $apiRequestBuilder = new ApiRequestBuilder($client);
+        $request = $apiRequestBuilder->withProjectKey($projectKey)->get();
+
+        $client = $request->execute();
 
         return $client;
     }

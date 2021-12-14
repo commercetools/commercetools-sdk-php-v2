@@ -3,6 +3,8 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
+use Commercetools\Api\Models\Category\CategoryDraftBuilder;
+use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Core\Builder\Request\RequestBuilder;
 
 class Query extends MigrationService implements MigrationInterface
@@ -27,7 +29,7 @@ class Query extends MigrationService implements MigrationInterface
     public function v2()
     {
         $builder = $this->builderV2();
-        $request = $builder->with()->categories()->get()->withWhere('id = :id')->withPredicateVar("id", "id123");
+        $request = $builder->with()->categories()->get()->withWhere("id=" . "\"" . $category->getId() . "\"");
 
         return $request->execute();
     }
