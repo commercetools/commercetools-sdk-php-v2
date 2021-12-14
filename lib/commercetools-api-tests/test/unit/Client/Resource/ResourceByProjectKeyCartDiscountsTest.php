@@ -320,6 +320,15 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCartDiscountsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCartDiscountsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyCartDiscountsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyCartDiscountsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

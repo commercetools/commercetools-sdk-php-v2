@@ -59,7 +59,7 @@ final class ZoneSetKeyActionModel extends JsonObjectModel implements ZoneSetKeyA
     }
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>If <code>key</code> is absent or <code>null</code>, the existing key, if any, will be removed.</p>
      *
      * @return null|string
      */

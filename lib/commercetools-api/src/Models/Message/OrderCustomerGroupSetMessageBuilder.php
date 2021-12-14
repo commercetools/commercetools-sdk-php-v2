@@ -122,6 +122,8 @@ final class OrderCustomerGroupSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -130,6 +132,8 @@ final class OrderCustomerGroupSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -170,6 +174,8 @@ final class OrderCustomerGroupSetMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -178,6 +184,8 @@ final class OrderCustomerGroupSetMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup()

@@ -42,7 +42,7 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The expected version of the customer group on which the changes should be applied.
+     * <p>Expected version of the Customer Group on which the changes should be applied.
      * If the expected version does not match the actual version, a 409 Conflict
      * will be returned.</p>
      *
@@ -63,7 +63,7 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The list of update actions to be performed on the customer group.</p>
+     * <p>Update actions to be performed on the Customer Group.</p>
      *
      * @return null|CustomerGroupUpdateActionCollection
      */

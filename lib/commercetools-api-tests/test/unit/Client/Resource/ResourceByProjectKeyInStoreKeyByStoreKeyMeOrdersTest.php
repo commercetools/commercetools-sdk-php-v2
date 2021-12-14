@@ -346,6 +346,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->orders()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -378,6 +389,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->post(null);
                 },
                 201
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost_409' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->orders()
+                        ->post(null);
+                },
+                409
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -433,6 +455,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->orders()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

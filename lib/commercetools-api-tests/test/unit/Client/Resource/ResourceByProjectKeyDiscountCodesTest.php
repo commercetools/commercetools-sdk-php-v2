@@ -308,6 +308,15 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyDiscountCodesGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyDiscountCodesGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -379,6 +388,15 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyDiscountCodesPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyDiscountCodesPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

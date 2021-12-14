@@ -278,6 +278,16 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyTaxCategoriesByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyTaxCategoriesByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyTaxCategoriesByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyTaxCategoriesByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyTaxCategoriesByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyTaxCategoriesByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -236,6 +236,16 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyShippingMethodsMatchingLocationGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyShippingMethodsMatchingLocationGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

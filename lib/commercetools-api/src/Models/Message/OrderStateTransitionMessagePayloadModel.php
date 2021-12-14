@@ -33,6 +33,11 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     protected $state;
 
     /**
+     * @var ?StateReference
+     */
+    protected $oldState;
+
+    /**
      * @var ?bool
      */
     protected $force;
@@ -43,9 +48,11 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
      */
     public function __construct(
         ?StateReference $state = null,
+        ?StateReference $oldState = null,
         ?bool $force = null
     ) {
         $this->state = $state;
+        $this->oldState = $oldState;
         $this->force = $force;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -86,6 +93,24 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * @return null|StateReference
+     */
+    public function getOldState()
+    {
+        if (is_null($this->oldState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_OLD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldState = StateReferenceModel::of($data);
+        }
+
+        return $this->oldState;
+    }
+
+    /**
      * @return null|bool
      */
     public function getForce()
@@ -109,6 +134,14 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?StateReference $oldState
+     */
+    public function setOldState(?StateReference $oldState): void
+    {
+        $this->oldState = $oldState;
     }
 
     /**

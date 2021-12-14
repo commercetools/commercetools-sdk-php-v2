@@ -66,6 +66,8 @@ final class CustomerGroupSetCustomFieldActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Name of the Custom Field.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -85,8 +87,8 @@ final class CustomerGroupSetCustomFieldActionModel extends JsonObjectModel imple
     /**
      * <p>Value must be of type <a href="/../api/projects/custom-fields#value">Value</a>.
      * If <code>value</code> is absent or <code>null</code>, this field will be removed if it exists.
-     * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#400-bad-request-1">InvalidOperation</a> error.
-     * If <code>value</code> is provided, set the <code>value</code> of the field defined by the <code>name</code>.</p>
+     * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
+     * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
      * @return null|mixed
      */

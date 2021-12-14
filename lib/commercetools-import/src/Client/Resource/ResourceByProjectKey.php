@@ -26,6 +26,7 @@ class ResourceByProjectKey extends ApiResource
     }
 
     /**
+     * @deprecated
      */
     public function importSinks(): ResourceByProjectKeyImportSinks
     {
@@ -34,12 +35,29 @@ class ResourceByProjectKey extends ApiResource
         return new ResourceByProjectKeyImportSinks($args, $this->getClient());
     }
     /**
+     * @deprecated
      */
     public function importSummaries(): ResourceByProjectKeyImportSummaries
     {
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyImportSummaries($args, $this->getClient());
+    }
+    /**
+     */
+    public function importContainers(): ResourceByProjectKeyImportContainers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyImportContainers($args, $this->getClient());
+    }
+    /**
+     */
+    public function importOperations(): ResourceByProjectKeyImportOperations
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyImportOperations($args, $this->getClient());
     }
     /**
      */

@@ -75,7 +75,7 @@ final class CustomerGroupBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The unique ID of the customer group.</p>
+     * <p>Unique ID of the Customer Group.</p>
      *
      * @return null|string
      */
@@ -85,7 +85,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the customer group.</p>
+     * <p>Current version of the Customer Group.</p>
      *
      * @return null|int
      */
@@ -95,6 +95,8 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Customer Group was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -103,6 +105,8 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Customer Group was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -111,7 +115,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -121,7 +125,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -131,7 +135,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the Customer Group.</p>
      *
      * @return null|string
      */
@@ -141,7 +145,7 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
-     * <p>Unique within the project.</p>
+     * <p>Unique name of the Customer Group.</p>
      *
      * @return null|string
      */
@@ -151,6 +155,8 @@ final class CustomerGroupBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Customer Group.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()

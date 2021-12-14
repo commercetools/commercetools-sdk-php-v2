@@ -68,6 +68,8 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

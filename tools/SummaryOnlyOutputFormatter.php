@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Tools;
 
-use Symplify\EasyCodingStandard\Configuration\Configuration;
+
+use Symfony\Component\Console\Command\Command;
 use Symplify\EasyCodingStandard\Console\Style\EasyCodingStandardStyle;
 use Symplify\EasyCodingStandard\Contract\Console\Output\OutputFormatterInterface;
-use Symplify\EasyCodingStandard\Error\ErrorAndDiffCollector;
+
+use Symplify\EasyCodingStandard\ValueObject\Configuration;
 use Symplify\EasyCodingStandard\ValueObject\Error\ErrorAndDiffResult;
-use Symplify\PackageBuilder\Console\ShellCode;
+
 
 final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
 {
@@ -23,43 +25,32 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
      */
     private $easyCodingStandardStyle;
 
-    /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
-     * @var ErrorAndDiffCollector
-     */
-    private $errorAndDiffCollector;
-
     public function __construct(
-        EasyCodingStandardStyle $easyCodingStandardStyle,
-        Configuration $configuration,
-        ErrorAndDiffCollector $errorAndDiffCollector
+        EasyCodingStandardStyle $easyCodingStandardStyle
     ) {
         $this->easyCodingStandardStyle = $easyCodingStandardStyle;
-        $this->configuration = $configuration;
-        $errorAndDiffResult = $errorAndDiffCollector;
     }
 
-    public function report(ErrorAndDiffResult $errorAndDiffResult, $processedFilesCount): int
+    /**
+     * @param ErrorAndDiffResult $errorAndDiffResult
+     * @param Configuration $configuration
+     * @return int
+     */
+    public function report($errorAndDiffResult, $configuration): int
     {
         if ($errorAndDiffResult->getErrorCount() === 0
             && $errorAndDiffResult->getFileDiffsCount() === 0
         ) {
-            if ($processedFilesCount !== 0) {
-                $this->easyCodingStandardStyle->newLine();
-            }
+            $this->easyCodingStandardStyle->newLine();
 
             $this->easyCodingStandardStyle->success('No errors found. Great job - your code is shiny in style!');
 
-            return ShellCode::SUCCESS;
+            return Command::SUCCESS;
         }
 
         $this->easyCodingStandardStyle->newLine();
 
-        return $this->configuration->isFixer() ? $this->printAfterFixerStatus($errorAndDiffResult) : $this->printNoFixerStatus($errorAndDiffResult);
+        return $configuration->isFixer() ? $this->printAfterFixerStatus($errorAndDiffResult, $configuration) : $this->printNoFixerStatus($errorAndDiffResult, $configuration);
     }
 
     public function getName(): string
@@ -67,9 +58,9 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
         return self::NAME;
     }
 
-    private function printAfterFixerStatus(ErrorAndDiffResult $errorAndDiffResult): int
+    private function printAfterFixerStatus(ErrorAndDiffResult $errorAndDiffResult, Configuration $configuration): int
     {
-        if ($this->configuration->shouldShowErrorTable()) {
+        if ($configuration->shouldShowErrorTable()) {
             $this->easyCodingStandardStyle->printErrors($errorAndDiffResult->getErrors());
         }
 
@@ -82,20 +73,21 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
                 )
             );
 
-            return ShellCode::SUCCESS;
+            return Command::SUCCESS;
         }
 
         $this->printErrorMessageFromErrorCounts(
+            $configuration,
             $errorAndDiffResult->getErrorCount(),
             $errorAndDiffResult->getFileDiffsCount()
         );
 
-        return ShellCode::ERROR;
+        return Command::FAILURE;
     }
 
-    private function printNoFixerStatus(ErrorAndDiffResult $errorAndDiffResult): int
+    private function printNoFixerStatus(ErrorAndDiffResult $errorAndDiffResult, Configuration $configuration): int
     {
-        if ($this->configuration->shouldShowErrorTable()) {
+        if ($configuration->shouldShowErrorTable()) {
             $errors = $errorAndDiffResult->getErrors();
             if (count($errors) > 0) {
                 $this->easyCodingStandardStyle->newLine();
@@ -104,14 +96,15 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
         }
 
         $this->printErrorMessageFromErrorCounts(
+            $configuration,
             $errorAndDiffResult->getErrorCount(),
             $errorAndDiffResult->getFileDiffsCount()
         );
 
-        return ShellCode::ERROR;
+        return Command::FAILURE;
     }
 
-    private function printErrorMessageFromErrorCounts(int $errorCount, int $fileDiffsCount): void
+    private function printErrorMessageFromErrorCounts(Configuration $configuration, int $errorCount, int $fileDiffsCount): void
     {
         if ($errorCount !== 0) {
             $this->easyCodingStandardStyle->error(
@@ -124,11 +117,11 @@ final class SummaryOnlyOutputFormatter implements OutputFormatterInterface
             );
         }
 
-        if (! $fileDiffsCount || $this->configuration->isFixer()) {
+        if (! $fileDiffsCount || $configuration->isFixer()) {
             return;
         }
 
-        $this->easyCodingStandardStyle->fixableError(
+        $this->easyCodingStandardStyle->error(
             sprintf(
                 '%s%d %s fixable! Just add "--fix" to console command and rerun to apply.',
                 $errorCount !== 0 ? 'Good news is that ' : '',

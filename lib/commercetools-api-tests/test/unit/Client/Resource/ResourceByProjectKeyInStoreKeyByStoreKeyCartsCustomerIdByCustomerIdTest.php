@@ -209,6 +209,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdTest ex
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsCustomerIdByCustomerIdGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

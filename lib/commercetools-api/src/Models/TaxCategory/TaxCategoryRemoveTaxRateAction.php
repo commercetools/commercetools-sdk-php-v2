@@ -16,6 +16,8 @@ interface TaxCategoryRemoveTaxRateAction extends TaxCategoryUpdateAction
     public const FIELD_TAX_RATE_ID = 'taxRateId';
 
     /**
+     * <p>ID of the TaxRate to remove.</p>
+     *
      * @return null|string
      */
     public function getTaxRateId();

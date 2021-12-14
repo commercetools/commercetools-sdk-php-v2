@@ -17,6 +17,7 @@ interface SetCustomLineItemCustomFieldChange extends Change
 
     public const FIELD_NAME = 'name';
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
+    public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
@@ -43,6 +44,11 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public function getCustomLineItem();
 
     /**
+     * @return null|string
+     */
+    public function getCustomLineItemId();
+
+    /**
      * @return null|mixed
      */
     public function getNextValue();
@@ -66,6 +72,11 @@ interface SetCustomLineItemCustomFieldChange extends Change
      * @param ?LocalizedString $customLineItem
      */
     public function setCustomLineItem(?LocalizedString $customLineItem): void;
+
+    /**
+     * @param ?string $customLineItemId
+     */
+    public function setCustomLineItemId(?string $customLineItemId): void;
 
     /**
      * @param mixed $nextValue

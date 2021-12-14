@@ -62,7 +62,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     protected $validUntil;
 
     /**
-     * @var ?DiscountedPrice
+     * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
@@ -88,7 +88,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
         ?ChannelReference $channel = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
-        ?DiscountedPrice $discounted = null,
+        ?DiscountedPriceDraft $discounted = null,
         ?CustomFields $custom = null,
         ?PriceTierDraftCollection $tiers = null
     ) {
@@ -159,6 +159,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -237,7 +239,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
     {
@@ -248,7 +250,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
                 return null;
             }
 
-            $this->discounted = DiscountedPriceModel::of($data);
+            $this->discounted = DiscountedPriceDraftModel::of($data);
         }
 
         return $this->discounted;
@@ -347,9 +349,9 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setDiscounted(?DiscountedPrice $discounted): void
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void
     {
         $this->discounted = $discounted;
     }

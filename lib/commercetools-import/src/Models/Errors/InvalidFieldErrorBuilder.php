@@ -41,6 +41,11 @@ final class InvalidFieldErrorBuilder implements Builder
     private $allowedValues;
 
     /**
+     * @var ?int
+     */
+    private $resourceIndex;
+
+    /**
      * @return null|string
      */
     public function getMessage()
@@ -76,6 +81,14 @@ final class InvalidFieldErrorBuilder implements Builder
     public function getAllowedValues()
     {
         return $this->allowedValues;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getResourceIndex()
+    {
+        return $this->resourceIndex;
     }
 
     /**
@@ -122,6 +135,17 @@ final class InvalidFieldErrorBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $resourceIndex
+     * @return $this
+     */
+    public function withResourceIndex(?int $resourceIndex)
+    {
+        $this->resourceIndex = $resourceIndex;
+
+        return $this;
+    }
+
 
     public function build(): InvalidFieldError
     {
@@ -129,7 +153,8 @@ final class InvalidFieldErrorBuilder implements Builder
             $this->message,
             $this->field,
             $this->invalidValue,
-            $this->allowedValues
+            $this->allowedValues,
+            $this->resourceIndex
         );
     }
 

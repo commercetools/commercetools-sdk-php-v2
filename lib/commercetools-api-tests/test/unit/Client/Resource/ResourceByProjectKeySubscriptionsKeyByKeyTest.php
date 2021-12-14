@@ -278,6 +278,16 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeySubscriptionsKeyByKeyGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeySubscriptionsKeyByKeyGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -368,6 +378,16 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeySubscriptionsKeyByKeyPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeySubscriptionsKeyByKeyPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -457,6 +477,16 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

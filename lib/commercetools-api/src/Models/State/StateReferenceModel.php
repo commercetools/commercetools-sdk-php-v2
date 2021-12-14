@@ -68,6 +68,8 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

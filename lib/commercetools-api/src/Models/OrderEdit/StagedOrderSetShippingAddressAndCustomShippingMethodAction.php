@@ -40,6 +40,8 @@ interface StagedOrderSetShippingAddressAndCustomShippingMethodAction extends Sta
     public function getShippingRate();
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();

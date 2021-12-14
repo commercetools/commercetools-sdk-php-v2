@@ -39,6 +39,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'AttributeDefinitionAlreadyExists' => AttributeDefinitionAlreadyExistsErrorModel::class,
        'AttributeDefinitionTypeConflict' => AttributeDefinitionTypeConflictErrorModel::class,
        'AttributeNameDoesNotExist' => AttributeNameDoesNotExistErrorModel::class,
+       'BadGateway' => BadGatewayErrorModel::class,
        'ConcurrentModification' => ConcurrentModificationErrorModel::class,
        'DiscountCodeNonApplicable' => DiscountCodeNonApplicableErrorModel::class,
        'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,

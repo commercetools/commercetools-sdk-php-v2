@@ -16,6 +16,8 @@ interface ZoneRemoveLocationAction extends ZoneUpdateAction
     public const FIELD_LOCATION = 'location';
 
     /**
+     * <p>Location to be removed from the Zone.</p>
+     *
      * @return null|Location
      */
     public function getLocation();

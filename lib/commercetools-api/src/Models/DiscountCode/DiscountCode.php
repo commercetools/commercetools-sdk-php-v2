@@ -36,6 +36,7 @@ interface DiscountCode extends BaseResource
     public const FIELD_GROUPS = 'groups';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
+    public const FIELD_APPLICATION_VERSION = 'applicationVersion';
 
     /**
      * <p>The unique ID of the discount code.</p>
@@ -60,14 +61,14 @@ interface DiscountCode extends BaseResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -160,6 +161,16 @@ interface DiscountCode extends BaseResource
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
+
+    /**
+     * <p>Used for the internal platform only and registers the reservation of use of a discount code.
+     * Its value is managed by the platform.
+     * It can change at any time due to internal and external factors.
+     * It should not be used in customer logic.</p>
+     *
+     * @return null|int
+     */
+    public function getApplicationVersion();
 
     /**
      * @param ?string $id
@@ -255,4 +266,9 @@ interface DiscountCode extends BaseResource
      * @param ?DateTimeImmutable $validUntil
      */
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
+
+    /**
+     * @param ?int $applicationVersion
+     */
+    public function setApplicationVersion(?int $applicationVersion): void;
 }

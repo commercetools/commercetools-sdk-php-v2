@@ -224,6 +224,16 @@ class ResourceByProjectKeyShippingMethodsMatchingOrdereditTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyShippingMethodsMatchingOrdereditGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->matchingOrderedit()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyShippingMethodsMatchingOrdereditGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

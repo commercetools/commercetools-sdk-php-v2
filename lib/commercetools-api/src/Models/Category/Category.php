@@ -61,14 +61,14 @@ interface Category extends BaseResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */

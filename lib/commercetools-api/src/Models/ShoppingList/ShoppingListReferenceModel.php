@@ -68,6 +68,8 @@ final class ShoppingListReferenceModel extends JsonObjectModel implements Shoppi
     }
 
     /**
+     * <p>Unique ID of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getId()

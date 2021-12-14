@@ -98,10 +98,14 @@ final class MessageModel extends JsonObjectModel implements Message
        'CustomerCompanyNameSet' => CustomerCompanyNameSetMessageModel::class,
        'CustomerCreated' => CustomerCreatedMessageModel::class,
        'CustomerDateOfBirthSet' => CustomerDateOfBirthSetMessageModel::class,
+       'CustomerDeleted' => CustomerDeletedMessageModel::class,
        'CustomerEmailChanged' => CustomerEmailChangedMessageModel::class,
        'CustomerEmailVerified' => CustomerEmailVerifiedMessageModel::class,
+       'CustomerFirstNameSet' => CustomerFirstNameSetMessageModel::class,
        'CustomerGroupSet' => CustomerGroupSetMessageModel::class,
+       'CustomerLastNameSet' => CustomerLastNameSetMessageModel::class,
        'CustomerPasswordUpdated' => CustomerPasswordUpdatedMessageModel::class,
+       'CustomerTitleSet' => CustomerTitleSetMessageModel::class,
        'DeliveryAdded' => DeliveryAddedMessageModel::class,
        'DeliveryAddressSet' => DeliveryAddressSetMessageModel::class,
        'DeliveryItemsUpdated' => DeliveryItemsUpdatedMessageModel::class,
@@ -124,6 +128,8 @@ final class MessageModel extends JsonObjectModel implements Message
        'OrderImported' => OrderImportedMessageModel::class,
        'OrderLineItemAdded' => OrderLineItemAddedMessageModel::class,
        'OrderLineItemDiscountSet' => OrderLineItemDiscountSetMessageModel::class,
+       'OrderLineItemDistributionChannelSet' => OrderLineItemDistributionChannelSetMessageModel::class,
+       'OrderLineItemRemoved' => OrderLineItemRemovedMessageModel::class,
        'OrderPaymentStateChanged' => OrderPaymentStateChangedMessageModel::class,
        'OrderReturnShipmentStateChanged' => OrderReturnShipmentStateChangedMessageModel::class,
        'OrderShipmentStateChanged' => OrderShipmentStateChangedMessageModel::class,
@@ -159,6 +165,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductVariantAdded' => ProductVariantAddedMessageModel::class,
        'ProductVariantDeleted' => ProductVariantDeletedMessageModel::class,
        'ReturnInfoAdded' => OrderReturnInfoAddedMessageModel::class,
+       'ReturnInfoSet' => OrderReturnInfoSetMessageModel::class,
        'ReviewCreated' => ReviewCreatedMessageModel::class,
        'ReviewRatingSet' => ReviewRatingSetMessageModel::class,
        'ReviewStateTransition' => ReviewStateTransitionMessageModel::class,
@@ -271,6 +278,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -289,6 +298,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()

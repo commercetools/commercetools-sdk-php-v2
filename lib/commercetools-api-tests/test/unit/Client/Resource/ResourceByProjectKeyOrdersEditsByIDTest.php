@@ -317,6 +317,17 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyOrdersEditsByIDGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyOrdersEditsByIDGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -416,6 +427,17 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyOrdersEditsByIDPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyOrdersEditsByIDPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -514,6 +536,17 @@ class ResourceByProjectKeyOrdersEditsByIDTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyOrdersEditsByIDDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyOrdersEditsByIDDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

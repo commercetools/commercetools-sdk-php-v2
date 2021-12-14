@@ -68,6 +68,8 @@ final class PaymentResourceIdentifierModel extends JsonObjectModel implements Pa
     }
 
     /**
+     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -85,6 +87,8 @@ final class PaymentResourceIdentifierModel extends JsonObjectModel implements Pa
     }
 
     /**
+     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     *
      * @return null|string
      */
     public function getKey()

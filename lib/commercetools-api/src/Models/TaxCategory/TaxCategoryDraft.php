@@ -19,21 +19,29 @@ interface TaxCategoryDraft extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Name of the TaxCategory.</p>
+     *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Description of the TaxCategory.</p>
+     *
      * @return null|string
      */
     public function getDescription();
 
     /**
+     * <p>Tax rates and subrates of states and countries.</p>
+     *
      * @return null|TaxRateDraftCollection
      */
     public function getRates();
 
     /**
+     * <p>User-defined unique identifier for the TaxCategory.</p>
+     *
      * @return null|string
      */
     public function getKey();

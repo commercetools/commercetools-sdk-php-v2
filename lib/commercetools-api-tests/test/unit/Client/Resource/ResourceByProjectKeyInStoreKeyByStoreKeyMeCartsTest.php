@@ -346,6 +346,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyMeCartsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -433,6 +444,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeCartsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

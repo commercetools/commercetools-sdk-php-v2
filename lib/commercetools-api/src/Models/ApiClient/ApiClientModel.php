@@ -36,9 +36,9 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     protected $scope;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    protected $createdAt;
+    protected $secret;
 
     /**
      * @var ?DateTimeImmutable
@@ -51,9 +51,9 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     protected $deleteAt;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    protected $secret;
+    protected $createdAt;
 
 
     /**
@@ -63,23 +63,23 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         ?string $id = null,
         ?string $name = null,
         ?string $scope = null,
-        ?DateTimeImmutable $createdAt = null,
+        ?string $secret = null,
         ?DateTimeImmutable $lastUsedAt = null,
         ?DateTimeImmutable $deleteAt = null,
-        ?string $secret = null
+        ?DateTimeImmutable $createdAt = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->scope = $scope;
-        $this->createdAt = $createdAt;
+        $this->secret = $secret;
         $this->lastUsedAt = $lastUsedAt;
         $this->deleteAt = $deleteAt;
-        $this->secret = $secret;
+        $this->createdAt = $createdAt;
     }
 
     /**
-     * <p>The unique ID of the API client.
-     * This is the OAuth2 <code>client_id</code> and can be used to obtain a token.</p>
+     * <p>Unique ID of the API client.
+     * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -98,6 +98,8 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
+     * <p>Name of the API Client.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -115,8 +117,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>A whitespace separated list of the OAuth scopes.
-     * This is the OAuth2 <code>scope</code> and can be used to obtain a token.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
      *
      * @return null|string
      */
@@ -135,28 +136,27 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>Only shown once in the response of creating the API Client.
+     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     *
+     * @return null|string
      */
-    public function getCreatedAt()
+    public function getSecret()
     {
-        if (is_null($this->createdAt)) {
+        if (is_null($this->secret)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CREATED_AT);
+            $data = $this->raw(self::FIELD_SECRET);
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->createdAt = $data;
+            $this->secret = (string) $data;
         }
 
-        return $this->createdAt;
+        return $this->secret;
     }
 
     /**
-     * <p>The last day this API Client was used to obtain a token.</p>
+     * <p>Date of the last day this API Client was used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -202,23 +202,26 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>The secret is only shown once in the response of creating the API Client.
-     * This is the OAuth2 <code>client_secret</code> and can be used to obtain a token.</p>
+     * <p>Date and time (UTC) the API Client was initially created.</p>
      *
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
-    public function getSecret()
+    public function getCreatedAt()
     {
-        if (is_null($this->secret)) {
+        if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SECRET);
+            $data = $this->raw(self::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
-            $this->secret = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
         }
 
-        return $this->secret;
+        return $this->createdAt;
     }
 
 
@@ -247,11 +250,11 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * @param ?DateTimeImmutable $createdAt
+     * @param ?string $secret
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setSecret(?string $secret): void
     {
-        $this->createdAt = $createdAt;
+        $this->secret = $secret;
     }
 
     /**
@@ -271,27 +274,27 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * @param ?string $secret
+     * @param ?DateTimeImmutable $createdAt
      */
-    public function setSecret(?string $secret): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->secret = $secret;
+        $this->createdAt = $createdAt;
     }
 
 
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ApiClient::FIELD_CREATED_AT]) && $data[ApiClient::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[ApiClient::FIELD_CREATED_AT] = $data[ApiClient::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[ApiClient::FIELD_LAST_USED_AT]) && $data[ApiClient::FIELD_LAST_USED_AT] instanceof \DateTimeImmutable) {
             $data[ApiClient::FIELD_LAST_USED_AT] = $data[ApiClient::FIELD_LAST_USED_AT]->format('Y-m-d');
         }
 
         if (isset($data[ApiClient::FIELD_DELETE_AT]) && $data[ApiClient::FIELD_DELETE_AT] instanceof \DateTimeImmutable) {
             $data[ApiClient::FIELD_DELETE_AT] = $data[ApiClient::FIELD_DELETE_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ApiClient::FIELD_CREATED_AT]) && $data[ApiClient::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[ApiClient::FIELD_CREATED_AT] = $data[ApiClient::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

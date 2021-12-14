@@ -22,12 +22,12 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     /**
      * @var ?int
      */
-    protected $offset;
+    protected $limit;
 
     /**
      * @var ?int
      */
-    protected $limit;
+    protected $offset;
 
     /**
      * @var ?int
@@ -49,21 +49,40 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $offset = null,
         ?int $limit = null,
+        ?int $offset = null,
         ?int $count = null,
         ?int $total = null,
         ?CustomerGroupCollection $results = null
     ) {
-        $this->offset = $offset;
         $this->limit = $limit;
+        $this->offset = $offset;
         $this->count = $count;
         $this->total = $total;
         $this->results = $results;
     }
 
     /**
-     * <p>The offset supplied by the client or the server default.
+     * <p>Number of results requested in the query request.</p>
+     *
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
+     * <p>Offset supplied by the client or server default.
      * It is the number of elements skipped, not a page number.</p>
      *
      * @return null|int
@@ -83,26 +102,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The number of results requested in the query request.</p>
-     *
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        if (is_null($this->limit)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_LIMIT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->limit = (int) $data;
-        }
-
-        return $this->limit;
-    }
-
-    /**
-     * <p>The actual number of results returned.</p>
+     * <p>Actual number of results returned.</p>
      *
      * @return null|int
      */
@@ -121,11 +121,11 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The total number of results matching the query.
-     * This number is an estimation that is not <a href="/general-concepts#strong-consistency">strongly consistent</a>.
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
      * This field is returned by default.
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
-     * When the results are filtered with a <a href="/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/contract#queries">limit</a>.</p>
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
      * @return null|int
      */
@@ -144,7 +144,7 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The array of <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroups</a> matching the query.</p>
      *
      * @return null|CustomerGroupCollection
      */
@@ -164,19 +164,19 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
 
 
     /**
-     * @param ?int $offset
-     */
-    public function setOffset(?int $offset): void
-    {
-        $this->offset = $offset;
-    }
-
-    /**
      * @param ?int $limit
      */
     public function setLimit(?int $limit): void
     {
         $this->limit = $limit;
+    }
+
+    /**
+     * @param ?int $offset
+     */
+    public function setOffset(?int $offset): void
+    {
+        $this->offset = $offset;
     }
 
     /**

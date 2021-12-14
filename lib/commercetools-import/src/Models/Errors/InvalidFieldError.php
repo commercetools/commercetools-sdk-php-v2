@@ -16,6 +16,7 @@ interface InvalidFieldError extends ErrorObject
     public const FIELD_FIELD = 'field';
     public const FIELD_INVALID_VALUE = 'invalidValue';
     public const FIELD_ALLOWED_VALUES = 'allowedValues';
+    public const FIELD_RESOURCE_INDEX = 'resourceIndex';
 
     /**
      * <p>The name of the field.</p>
@@ -39,6 +40,11 @@ interface InvalidFieldError extends ErrorObject
     public function getAllowedValues();
 
     /**
+     * @return null|int
+     */
+    public function getResourceIndex();
+
+    /**
      * @param ?string $field
      */
     public function setField(?string $field): void;
@@ -52,4 +58,9 @@ interface InvalidFieldError extends ErrorObject
      * @param ?array $allowedValues
      */
     public function setAllowedValues(?array $allowedValues): void;
+
+    /**
+     * @param ?int $resourceIndex
+     */
+    public function setResourceIndex(?int $resourceIndex): void;
 }

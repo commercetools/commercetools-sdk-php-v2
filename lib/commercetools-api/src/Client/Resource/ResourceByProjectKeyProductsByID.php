@@ -46,6 +46,16 @@ class ResourceByProjectKeyProductsByID extends ApiResource
         return new ByProjectKeyProductsByIDGet($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
     }
     /**
+     * @psalm-param ?object|array|string $body
+     * @psalm-param array<string, scalar|scalar[]> $headers
+     */
+    public function head($body = null, array $headers = []): ByProjectKeyProductsByIDHead
+    {
+        $args = $this->getArgs();
+
+        return new ByProjectKeyProductsByIDHead($args['projectKey'], $args['ID'], $body, $headers, $this->getClient());
+    }
+    /**
      * @psalm-param ?ProductUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

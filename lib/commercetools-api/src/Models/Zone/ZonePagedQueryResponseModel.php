@@ -27,17 +27,17 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     /**
      * @var ?int
      */
+    protected $offset;
+
+    /**
+     * @var ?int
+     */
     protected $count;
 
     /**
      * @var ?int
      */
     protected $total;
-
-    /**
-     * @var ?int
-     */
-    protected $offset;
 
     /**
      * @var ?ZoneCollection
@@ -50,19 +50,21 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
      */
     public function __construct(
         ?int $limit = null,
+        ?int $offset = null,
         ?int $count = null,
         ?int $total = null,
-        ?int $offset = null,
         ?ZoneCollection $results = null
     ) {
         $this->limit = $limit;
+        $this->offset = $offset;
         $this->count = $count;
         $this->total = $total;
-        $this->offset = $offset;
         $this->results = $results;
     }
 
     /**
+     * <p>Number of results requested in the query request.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -80,40 +82,9 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        if (is_null($this->count)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->count = (int) $data;
-        }
-
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        if (is_null($this->total)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_TOTAL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->total = (int) $data;
-        }
-
-        return $this->total;
-    }
-
-    /**
+     * <p>Offset supplied by the client or the server default.
+     * It is the number of elements skipped, not a page number.</p>
+     *
      * @return null|int
      */
     public function getOffset()
@@ -131,6 +102,50 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
+     * @return null|int
+     */
+    public function getCount()
+    {
+        if (is_null($this->count)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->count = (int) $data;
+        }
+
+        return $this->count;
+    }
+
+    /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This field is returned by default.
+     * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        if (is_null($this->total)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_TOTAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->total = (int) $data;
+        }
+
+        return $this->total;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Zone">Zones</a> matching the query.</p>
+     *
      * @return null|ZoneCollection
      */
     public function getResults()
@@ -157,6 +172,14 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     }
 
     /**
+     * @param ?int $offset
+     */
+    public function setOffset(?int $offset): void
+    {
+        $this->offset = $offset;
+    }
+
+    /**
      * @param ?int $count
      */
     public function setCount(?int $count): void
@@ -170,14 +193,6 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     public function setTotal(?int $total): void
     {
         $this->total = $total;
-    }
-
-    /**
-     * @param ?int $offset
-     */
-    public function setOffset(?int $offset): void
-    {
-        $this->offset = $offset;
     }
 
     /**

@@ -12,7 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\KeyReferenceCollection;
+use Commercetools\Import\Models\Common\UnresolvedReferencesCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 use stdClass;
@@ -30,7 +30,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * @var ?string
      */
-    protected $importSinkKey;
+    protected $importContainerKey;
 
     /**
      * @var ?string
@@ -58,7 +58,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     protected $errors;
 
     /**
-     * @var ?KeyReferenceCollection
+     * @var ?UnresolvedReferencesCollection
      */
     protected $unresolvedReferences;
 
@@ -83,19 +83,19 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
      */
     public function __construct(
         ?int $version = null,
-        ?string $importSinkKey = null,
+        ?string $importContainerKey = null,
         ?string $resourceKey = null,
         ?string $id = null,
         ?string $state = null,
         ?int $resourceVersion = null,
         ?ErrorObjectCollection $errors = null,
-        ?KeyReferenceCollection $unresolvedReferences = null,
+        ?UnresolvedReferencesCollection $unresolvedReferences = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
         ?DateTimeImmutable $expiresAt = null
     ) {
         $this->version = $version;
-        $this->importSinkKey = $importSinkKey;
+        $this->importContainerKey = $importContainerKey;
         $this->resourceKey = $resourceKey;
         $this->id = $id;
         $this->state = $state;
@@ -127,22 +127,22 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * <p>The key of the <a href="/import-sink#importsink">ImportSink</a>.</p>
+     * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
      *
      * @return null|string
      */
-    public function getImportSinkKey()
+    public function getImportContainerKey()
     {
-        if (is_null($this->importSinkKey)) {
+        if (is_null($this->importContainerKey)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_IMPORT_SINK_KEY);
+            $data = $this->raw(self::FIELD_IMPORT_CONTAINER_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->importSinkKey = (string) $data;
+            $this->importContainerKey = (string) $data;
         }
 
-        return $this->importSinkKey;
+        return $this->importContainerKey;
     }
 
     /**
@@ -184,7 +184,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * <p>The import status of the resource. Set to <code>Rejected</code> or <code>ValidationFailed</code> if the import of the resource was not successful.</p>
+     * <p>The import status of the resource. Set to <code>rejected</code> or <code>validationFailed</code> if the import of the resource was not successful.</p>
      *
      * @return null|string
      */
@@ -243,7 +243,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>In case of unresolved status this array will show the unresolved references</p>
      *
-     * @return null|KeyReferenceCollection
+     * @return null|UnresolvedReferencesCollection
      */
     public function getUnresolvedReferences()
     {
@@ -253,7 +253,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
             if (is_null($data)) {
                 return null;
             }
-            $this->unresolvedReferences = KeyReferenceCollection::fromArray($data);
+            $this->unresolvedReferences = UnresolvedReferencesCollection::fromArray($data);
         }
 
         return $this->unresolvedReferences;
@@ -338,11 +338,11 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * @param ?string $importSinkKey
+     * @param ?string $importContainerKey
      */
-    public function setImportSinkKey(?string $importSinkKey): void
+    public function setImportContainerKey(?string $importContainerKey): void
     {
-        $this->importSinkKey = $importSinkKey;
+        $this->importContainerKey = $importContainerKey;
     }
 
     /**
@@ -386,9 +386,9 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
     /**
-     * @param ?KeyReferenceCollection $unresolvedReferences
+     * @param ?UnresolvedReferencesCollection $unresolvedReferences
      */
-    public function setUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences): void
+    public function setUnresolvedReferences(?UnresolvedReferencesCollection $unresolvedReferences): void
     {
         $this->unresolvedReferences = $unresolvedReferences;
     }

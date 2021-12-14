@@ -17,11 +17,15 @@ interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
     public const FIELD_TAX_RATE = 'taxRate';
 
     /**
+     * <p>ID of the TaxRate to replace.</p>
+     *
      * @return null|string
      */
     public function getTaxRateId();
 
     /**
+     * <p>New TaxRate to replace with.</p>
+     *
      * @return null|TaxRateDraft
      */
     public function getTaxRate();

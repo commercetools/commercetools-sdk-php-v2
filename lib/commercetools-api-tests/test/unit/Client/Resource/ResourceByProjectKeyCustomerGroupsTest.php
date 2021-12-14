@@ -320,6 +320,15 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomerGroupsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCustomerGroupsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeyCustomerGroupsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyCustomerGroupsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyCustomerGroupsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

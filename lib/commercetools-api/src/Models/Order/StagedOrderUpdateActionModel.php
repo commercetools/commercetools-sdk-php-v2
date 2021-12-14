@@ -132,6 +132,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnPaymentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnPaymentStateActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnShipmentStateAction;
@@ -248,6 +250,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setParcelItems' => StagedOrderSetParcelItemsActionModel::class,
        'setParcelMeasurements' => StagedOrderSetParcelMeasurementsActionModel::class,
        'setParcelTrackingData' => StagedOrderSetParcelTrackingDataActionModel::class,
+       'setReturnInfo' => StagedOrderSetReturnInfoActionModel::class,
        'setReturnPaymentState' => StagedOrderSetReturnPaymentStateActionModel::class,
        'setReturnShipmentState' => StagedOrderSetReturnShipmentStateActionModel::class,
        'setShippingAddress' => StagedOrderSetShippingAddressActionModel::class,

@@ -25,58 +25,64 @@ interface CustomerGroup extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>The unique ID of the customer group.</p>
+     * <p>Unique ID of the Customer Group.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the customer group.</p>
+     * <p>Current version of the Customer Group.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the Customer Group was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Customer Group was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier for the customer group.</p>
+     * <p>User-defined unique identifier for the Customer Group.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>Unique within the project.</p>
+     * <p>Unique name of the Customer Group.</p>
      *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Custom Fields for the Customer Group.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();

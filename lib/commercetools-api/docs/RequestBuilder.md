@@ -65,7 +65,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->withId("ID")->get()`
 
-Get ApiClient by ID
+null
 
 ### Example
 ```php
@@ -80,7 +80,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->apiClients()->withId("ID")->delete()`
 
-Delete ApiClient by ID
+null
 
 ### Example
 ```php
@@ -3673,6 +3673,20 @@ $request = $builder
                 ->products()
                 ->get();
 ```
+## `withProjectKey("projectKey")->products()->head()`
+
+Checks if products exist.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->head();
+```
 ## `withProjectKey("projectKey")->products()->post(null)`
 
 To create a new product, send a representation that is going to become the initial staged representation
@@ -3704,6 +3718,21 @@ $request = $builder
                 ->products()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->products()->withId("ID")->head()`
+
+Checks if product with given ID exists.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
@@ -3766,6 +3795,21 @@ $request = $builder
                 ->products()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->products()->withKey("key")->head()`
+
+Checks if product with given key exists.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->post(null)`
 

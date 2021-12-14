@@ -74,6 +74,11 @@ final class ShippingMethodBuilder implements Builder
     private $name;
 
     /**
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $localizedName;
+
+    /**
      * @var ?string
      */
     private $description;
@@ -145,6 +150,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -153,6 +160,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -176,6 +185,14 @@ final class ShippingMethodBuilder implements Builder
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedName()
+    {
+        return $this->localizedName instanceof LocalizedStringBuilder ? $this->localizedName->build() : $this->localizedName;
     }
 
     /**
@@ -327,6 +344,17 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $localizedName
+     * @return $this
+     */
+    public function withLocalizedName(?LocalizedString $localizedName)
+    {
+        $this->localizedName = $localizedName;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $description
      * @return $this
      */
@@ -426,6 +454,17 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * @deprecated use withLocalizedName() instead
+     * @return $this
+     */
+    public function withLocalizedNameBuilder(?LocalizedStringBuilder $localizedName)
+    {
+        $this->localizedName = $localizedName;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLocalizedDescription() instead
      * @return $this
      */
@@ -469,6 +508,7 @@ final class ShippingMethodBuilder implements Builder
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->key,
             $this->name,
+            $this->localizedName instanceof LocalizedStringBuilder ? $this->localizedName->build() : $this->localizedName,
             $this->description,
             $this->localizedDescription instanceof LocalizedStringBuilder ? $this->localizedDescription->build() : $this->localizedDescription,
             $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,

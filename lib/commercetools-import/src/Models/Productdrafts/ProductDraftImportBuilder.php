@@ -120,7 +120,7 @@ final class ProductDraftImportBuilder implements Builder
      * <p>The <code>productType</code> of a <a href="/../api/projects/products#product">Product</a>.
      * Maps to <code>Product.productType</code>.
      * The Reference to the <a href="/../api/projects/productTypes#producttype">ProductType</a> with which the ProductDraft is associated.
-     * If referenced ProductType does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary ProductType is created.</p>
+     * If referenced ProductType does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductType is created.</p>
      *
      * @return null|ProductTypeKeyReference
      */
@@ -160,7 +160,7 @@ final class ProductDraftImportBuilder implements Builder
 
     /**
      * <p>The Reference to the <a href="/../api/projects/categories#category">Categories</a> with which the ProductDraft is associated.
-     * If referenced Categories do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary Categories are created.</p>
+     * If referenced Categories do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Categories are created.</p>
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -237,7 +237,7 @@ final class ProductDraftImportBuilder implements Builder
 
     /**
      * <p>The Reference to the <a href="/../api/projects/taxCategories#taxcategory">TaxCategory</a> with which the ProductDraft is associated.
-     * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary TaxCategory is created.</p>
+     * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary TaxCategory is created.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -274,7 +274,7 @@ final class ProductDraftImportBuilder implements Builder
 
     /**
      * <p>The Reference to the <a href="/../api/projects/states#state">State</a> with which the ProductDraft is associated.
-     * If referenced State does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>Unresolved</code> until the necessary State is created.</p>
+     * If referenced State does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary State is created.</p>
      *
      * @return null|StateKeyReference
      */
@@ -284,7 +284,9 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
-     * <p>If there were updates, only the updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     * <p>If <code>publish</code> is set to either <code>true</code> or <code>false</code>, both staged and current projections are set to the same value provided by the import data.
+     * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
+     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product in the platform, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
      * @return null|bool
      */

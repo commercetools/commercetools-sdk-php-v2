@@ -28,6 +28,8 @@ final class CartSetCustomerGroupActionBuilder implements Builder
     private $customerGroup;
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

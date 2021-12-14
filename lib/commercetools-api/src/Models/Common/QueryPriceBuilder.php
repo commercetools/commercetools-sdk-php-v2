@@ -63,7 +63,7 @@ final class QueryPriceBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var null|DiscountedPrice|DiscountedPriceBuilder
+     * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
     private $discounted;
 
@@ -104,6 +104,8 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -136,11 +138,11 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
     {
-        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+        return $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
@@ -237,10 +239,10 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountedPrice $discounted
+     * @param ?DiscountedPriceDraft $discounted
      * @return $this
      */
-    public function withDiscounted(?DiscountedPrice $discounted)
+    public function withDiscounted(?DiscountedPriceDraft $discounted)
     {
         $this->discounted = $discounted;
 
@@ -306,7 +308,7 @@ final class QueryPriceBuilder implements Builder
      * @deprecated use withDiscounted() instead
      * @return $this
      */
-    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withDiscountedBuilder(?DiscountedPriceDraftBuilder $discounted)
     {
         $this->discounted = $discounted;
 
@@ -334,7 +336,7 @@ final class QueryPriceBuilder implements Builder
             $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
             $this->validUntil,
-            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
+            $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->tiers
         );

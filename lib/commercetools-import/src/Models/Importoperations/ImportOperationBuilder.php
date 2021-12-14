@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use Commercetools\Import\Models\Common\KeyReferenceCollection;
+use Commercetools\Import\Models\Common\UnresolvedReferencesCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 use stdClass;
@@ -31,7 +31,7 @@ final class ImportOperationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $importSinkKey;
+    private $importContainerKey;
 
     /**
      * @var ?string
@@ -59,7 +59,7 @@ final class ImportOperationBuilder implements Builder
     private $errors;
 
     /**
-     * @var ?KeyReferenceCollection
+     * @var ?UnresolvedReferencesCollection
      */
     private $unresolvedReferences;
 
@@ -89,13 +89,13 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The key of the <a href="/import-sink#importsink">ImportSink</a>.</p>
+     * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
      *
      * @return null|string
      */
-    public function getImportSinkKey()
+    public function getImportContainerKey()
     {
-        return $this->importSinkKey;
+        return $this->importContainerKey;
     }
 
     /**
@@ -119,7 +119,7 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * <p>The import status of the resource. Set to <code>Rejected</code> or <code>ValidationFailed</code> if the import of the resource was not successful.</p>
+     * <p>The import status of the resource. Set to <code>rejected</code> or <code>validationFailed</code> if the import of the resource was not successful.</p>
      *
      * @return null|string
      */
@@ -151,7 +151,7 @@ final class ImportOperationBuilder implements Builder
     /**
      * <p>In case of unresolved status this array will show the unresolved references</p>
      *
-     * @return null|KeyReferenceCollection
+     * @return null|UnresolvedReferencesCollection
      */
     public function getUnresolvedReferences()
     {
@@ -200,12 +200,12 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * @param ?string $importSinkKey
+     * @param ?string $importContainerKey
      * @return $this
      */
-    public function withImportSinkKey(?string $importSinkKey)
+    public function withImportContainerKey(?string $importContainerKey)
     {
-        $this->importSinkKey = $importSinkKey;
+        $this->importContainerKey = $importContainerKey;
 
         return $this;
     }
@@ -266,10 +266,10 @@ final class ImportOperationBuilder implements Builder
     }
 
     /**
-     * @param ?KeyReferenceCollection $unresolvedReferences
+     * @param ?UnresolvedReferencesCollection $unresolvedReferences
      * @return $this
      */
-    public function withUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences)
+    public function withUnresolvedReferences(?UnresolvedReferencesCollection $unresolvedReferences)
     {
         $this->unresolvedReferences = $unresolvedReferences;
 
@@ -314,7 +314,7 @@ final class ImportOperationBuilder implements Builder
     {
         return new ImportOperationModel(
             $this->version,
-            $this->importSinkKey,
+            $this->importContainerKey,
             $this->resourceKey,
             $this->id,
             $this->state,

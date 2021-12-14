@@ -129,6 +129,11 @@ final class DiscountCodeBuilder implements Builder
     private $validUntil;
 
     /**
+     * @var ?int
+     */
+    private $applicationVersion;
+
+    /**
      * <p>The unique ID of the discount code.</p>
      *
      * @return null|string
@@ -163,7 +168,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -173,7 +178,7 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -307,6 +312,19 @@ final class DiscountCodeBuilder implements Builder
     public function getValidUntil()
     {
         return $this->validUntil;
+    }
+
+    /**
+     * <p>Used for the internal platform only and registers the reservation of use of a discount code.
+     * Its value is managed by the platform.
+     * It can change at any time due to internal and external factors.
+     * It should not be used in customer logic.</p>
+     *
+     * @return null|int
+     */
+    public function getApplicationVersion()
+    {
+        return $this->applicationVersion;
     }
 
     /**
@@ -519,6 +537,17 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
+     * @param ?int $applicationVersion
+     * @return $this
+     */
+    public function withApplicationVersion(?int $applicationVersion)
+    {
+        $this->applicationVersion = $applicationVersion;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -594,7 +623,8 @@ final class DiscountCodeBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->groups,
             $this->validFrom,
-            $this->validUntil
+            $this->validUntil,
+            $this->applicationVersion
         );
     }
 

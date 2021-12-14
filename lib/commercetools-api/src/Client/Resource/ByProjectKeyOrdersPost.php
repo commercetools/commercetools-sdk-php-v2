@@ -29,11 +29,12 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements Conflicting<ByProjectKeyOrdersPost>
  * @template-implements Expandable<ByProjectKeyOrdersPost>
  * @template-implements Deprecatable201<ByProjectKeyOrdersPost>
  * @template-implements Errorable<ByProjectKeyOrdersPost>
  */
-class ByProjectKeyOrdersPost extends ApiRequest implements Expandable, Deprecatable201, Errorable
+class ByProjectKeyOrdersPost extends ApiRequest implements Conflicting, Expandable, Deprecatable201, Errorable
 {
     /**
      * @param ?object|array|string $body
@@ -61,6 +62,10 @@ class ByProjectKeyOrdersPost extends ApiRequest implements Expandable, Deprecata
                     $resultType = OrderModel::class;
 
                     break;
+                case '409':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '400':
                     $resultType = ErrorResponseModel::class;
 
@@ -74,6 +79,10 @@ class ByProjectKeyOrdersPost extends ApiRequest implements Expandable, Deprecata
 
                     break;
                 case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
                     $resultType = ErrorResponseModel::class;
 
                     break;

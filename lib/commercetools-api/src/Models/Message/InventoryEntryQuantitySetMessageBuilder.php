@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Channel\ChannelReference;
+use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -98,6 +100,11 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     private $newAvailableQuantity;
 
     /**
+     * @var null|ChannelReference|ChannelReferenceBuilder
+     */
+    private $supplyChannel;
+
+    /**
      * @return null|string
      */
     public function getId()
@@ -130,6 +137,8 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -138,6 +147,8 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -207,6 +218,14 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     public function getNewAvailableQuantity()
     {
         return $this->newAvailableQuantity;
+    }
+
+    /**
+     * @return null|ChannelReference
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -364,6 +383,17 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?ChannelReference $supplyChannel
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -407,6 +437,17 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withSupplyChannel() instead
+     * @return $this
+     */
+    public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
+
+        return $this;
+    }
+
     public function build(): InventoryEntryQuantitySetMessage
     {
         return new InventoryEntryQuantitySetMessageModel(
@@ -423,7 +464,8 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
             $this->oldQuantityOnStock,
             $this->newQuantityOnStock,
             $this->oldAvailableQuantity,
-            $this->newAvailableQuantity
+            $this->newAvailableQuantity,
+            $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }
 

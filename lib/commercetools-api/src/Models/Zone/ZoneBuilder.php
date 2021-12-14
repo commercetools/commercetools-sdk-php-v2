@@ -78,7 +78,7 @@ final class ZoneBuilder implements Builder
     private $locations;
 
     /**
-     * <p>The unique ID of the zone.</p>
+     * <p>Unique ID of the Zone.</p>
      *
      * @return null|string
      */
@@ -88,7 +88,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the zone.</p>
+     * <p>Current version of the Zone.</p>
      *
      * @return null|int
      */
@@ -98,6 +98,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Zone was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -106,6 +108,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Zone was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -114,6 +118,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -122,6 +128,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -130,9 +138,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for a zone.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction.</p>
+     * <p>User-defined unique identifier for the Zone.</p>
      *
      * @return null|string
      */
@@ -142,6 +148,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Zone.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -150,6 +158,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Zone.</p>
+     *
      * @return null|string
      */
     public function getDescription()
@@ -158,6 +168,8 @@ final class ZoneBuilder implements Builder
     }
 
     /**
+     * <p>List of locations that belong to the Zone.</p>
+     *
      * @return null|LocationCollection
      */
     public function getLocations()

@@ -66,6 +66,8 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>ID of the TaxRate to replace.</p>
+     *
      * @return null|string
      */
     public function getTaxRateId()
@@ -83,6 +85,8 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>New TaxRate to replace with.</p>
+     *
      * @return null|TaxRateDraft
      */
     public function getTaxRate()

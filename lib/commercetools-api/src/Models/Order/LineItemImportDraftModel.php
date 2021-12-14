@@ -52,7 +52,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     protected $price;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -95,7 +95,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         ?LocalizedString $name = null,
         ?ProductVariantImportDraft $variant = null,
         ?PriceDraft $price = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?ItemStateCollection $state = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
@@ -193,17 +193,17 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -227,7 +227,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>Optional connection to a particular supplier.
+     * <p>Connection to a particular supplier.
      * By providing supply channel information, you can uniquely identify
      * inventory entries that should be reserved.
      * The provided channel should have the
@@ -361,9 +361,9 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

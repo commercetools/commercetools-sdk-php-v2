@@ -89,7 +89,7 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
     }
 
     /**
-     * <p>References a resource by its key.</p>
+     * <p>References a resource by key.</p>
      *
      * @return null|KeyReference
      */

@@ -18,11 +18,15 @@ interface OrderCustomerGroupSetMessagePayload extends MessagePayload
     public const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
+     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup();

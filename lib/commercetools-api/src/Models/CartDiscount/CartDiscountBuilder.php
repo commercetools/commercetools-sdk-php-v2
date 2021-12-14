@@ -78,7 +78,7 @@ final class CartDiscountBuilder implements Builder
     private $description;
 
     /**
-     * @var null|CartDiscountValueDraft|CartDiscountValueDraftBuilder
+     * @var null|CartDiscountValue|CartDiscountValueBuilder
      */
     private $value;
 
@@ -169,7 +169,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -179,7 +179,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -216,11 +216,11 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|CartDiscountValueDraft
+     * @return null|CartDiscountValue
      */
     public function getValue()
     {
-        return $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -422,10 +422,10 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @param ?CartDiscountValueDraft $value
+     * @param ?CartDiscountValue $value
      * @return $this
      */
-    public function withValue(?CartDiscountValueDraft $value)
+    public function withValue(?CartDiscountValue $value)
     {
         $this->value = $value;
 
@@ -590,7 +590,7 @@ final class CartDiscountBuilder implements Builder
      * @deprecated use withValue() instead
      * @return $this
      */
-    public function withValueBuilder(?CartDiscountValueDraftBuilder $value)
+    public function withValueBuilder(?CartDiscountValueBuilder $value)
     {
         $this->value = $value;
 
@@ -631,7 +631,7 @@ final class CartDiscountBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->key,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
-            $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value,
+            $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value,
             $this->cartPredicate,
             $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
             $this->sortOrder,

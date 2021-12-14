@@ -31,6 +31,8 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     private $taxRate;
 
     /**
+     * <p>ID of the TaxRate to replace.</p>
+     *
      * @return null|string
      */
     public function getTaxRateId()
@@ -39,6 +41,8 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     }
 
     /**
+     * <p>New TaxRate to replace with.</p>
+     *
      * @return null|TaxRateDraft
      */
     public function getTaxRate()

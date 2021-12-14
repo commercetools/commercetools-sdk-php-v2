@@ -320,6 +320,15 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeySubscriptionsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeySubscriptionsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeySubscriptionsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeySubscriptionsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

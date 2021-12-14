@@ -63,7 +63,7 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     }
 
     /**
-     * <p>References a resource by its key</p>
+     * <p>References a resource by key</p>
      *
      * @return null|KeyReference
      */

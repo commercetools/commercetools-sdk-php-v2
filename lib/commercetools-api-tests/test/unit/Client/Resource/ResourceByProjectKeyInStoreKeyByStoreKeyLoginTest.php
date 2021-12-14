@@ -128,7 +128,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
-            'ByProjectKeyInStoreKeyByStoreKeyLoginPost_201' => [
+            'ByProjectKeyInStoreKeyByStoreKeyLoginPost_200' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
@@ -136,7 +136,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
                         ->login()
                         ->post(null);
                 },
-                201
+                200
             ],
             'ByProjectKeyInStoreKeyByStoreKeyLoginPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -187,6 +187,16 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyLoginTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyLoginPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->login()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyInStoreKeyByStoreKeyLoginPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

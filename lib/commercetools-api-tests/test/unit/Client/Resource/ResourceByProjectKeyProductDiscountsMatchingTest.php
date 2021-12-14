@@ -188,6 +188,16 @@ class ResourceByProjectKeyProductDiscountsMatchingTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyProductDiscountsMatchingPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->matching()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyProductDiscountsMatchingPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

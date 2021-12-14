@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Customer\MyCustomerChangePassword;
 use Commercetools\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
@@ -35,10 +36,10 @@ class ResourceByProjectKeyMePassword extends ApiResource
     }
 
     /**
-     * @psalm-param ?object|array|string $body
+     * @psalm-param ?MyCustomerChangePassword $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post($body = null, array $headers = []): ByProjectKeyMePasswordPost
+    public function post(?MyCustomerChangePassword $body = null, array $headers = []): ByProjectKeyMePasswordPost
     {
         $args = $this->getArgs();
 

@@ -196,6 +196,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordTest extends Test
                 },
                 500
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->customers()
+                        ->password()
+                        ->post(null);
+                },
+                502
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

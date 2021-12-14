@@ -14,6 +14,7 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @deprecated
  */
 class ResourceByProjectKeyImportSummaries extends ApiResource
 {

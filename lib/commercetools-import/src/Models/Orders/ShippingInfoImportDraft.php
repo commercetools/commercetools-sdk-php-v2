@@ -50,14 +50,14 @@ interface ShippingInfoImportDraft extends JsonObject
     public function getTaxRate();
 
     /**
-     * <p>References a tax category by its key.</p>
+     * <p>References a tax category by key.</p>
      *
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory();
 
     /**
-     * <p>References a shipping method by its key.</p>
+     * <p>References a shipping method by key.</p>
      *
      * @return null|ShippingMethodKeyReference
      */

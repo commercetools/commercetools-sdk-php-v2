@@ -16,6 +16,8 @@ interface ZoneAddLocationAction extends ZoneUpdateAction
     public const FIELD_LOCATION = 'location';
 
     /**
+     * <p>Location to be added to the Zone.</p>
+     *
      * @return null|Location
      */
     public function getLocation();

@@ -24,6 +24,7 @@ interface ShippingMethod extends BaseResource
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_KEY = 'key';
     public const FIELD_NAME = 'name';
+    public const FIELD_LOCALIZED_NAME = 'localizedName';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_LOCALIZED_DESCRIPTION = 'localizedDescription';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
@@ -57,11 +58,15 @@ interface ShippingMethod extends BaseResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -77,6 +82,11 @@ interface ShippingMethod extends BaseResource
      * @return null|string
      */
     public function getName();
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLocalizedName();
 
     /**
      * @return null|string
@@ -156,6 +166,11 @@ interface ShippingMethod extends BaseResource
      * @param ?string $name
      */
     public function setName(?string $name): void;
+
+    /**
+     * @param ?LocalizedString $localizedName
+     */
+    public function setLocalizedName(?LocalizedString $localizedName): void;
 
     /**
      * @param ?string $description

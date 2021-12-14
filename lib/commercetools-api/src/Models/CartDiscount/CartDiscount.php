@@ -62,14 +62,14 @@ interface CartDiscount extends BaseResource
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -94,7 +94,7 @@ interface CartDiscount extends BaseResource
     public function getDescription();
 
     /**
-     * @return null|CartDiscountValueDraft
+     * @return null|CartDiscountValue
      */
     public function getValue();
 
@@ -213,9 +213,9 @@ interface CartDiscount extends BaseResource
     public function setDescription(?LocalizedString $description): void;
 
     /**
-     * @param ?CartDiscountValueDraft $value
+     * @param ?CartDiscountValue $value
      */
-    public function setValue(?CartDiscountValueDraft $value): void;
+    public function setValue(?CartDiscountValue $value): void;
 
     /**
      * @param ?string $cartPredicate

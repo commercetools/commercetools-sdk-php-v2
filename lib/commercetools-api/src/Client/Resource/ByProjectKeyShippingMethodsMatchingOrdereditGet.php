@@ -76,6 +76,10 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest impleme
                     $resultType = ErrorResponseModel::class;
 
                     break;
+                case '502':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
                 case '503':
                     $resultType = ErrorResponseModel::class;
 

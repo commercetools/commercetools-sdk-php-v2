@@ -55,7 +55,7 @@ class ByProjectKeyInStoreKeyByStoreKeyLoginPost extends ApiRequest implements Er
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '201':
+                case '200':
                     $resultType = CustomerSignInResultModel::class;
 
                     break;
@@ -72,6 +72,10 @@ class ByProjectKeyInStoreKeyByStoreKeyLoginPost extends ApiRequest implements Er
 
                     break;
                 case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
                     $resultType = ErrorResponseModel::class;
 
                     break;

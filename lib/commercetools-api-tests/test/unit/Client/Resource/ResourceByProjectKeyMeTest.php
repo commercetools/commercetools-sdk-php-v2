@@ -423,6 +423,15 @@ class ResourceByProjectKeyMeTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyMeGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyMeGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -494,6 +503,15 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyMePost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyMePost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -575,6 +593,15 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->delete();
                 },
                 500
+            ],
+            'ByProjectKeyMeDelete_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->delete();
+                },
+                502
             ],
             'ByProjectKeyMeDelete_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

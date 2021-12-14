@@ -46,11 +46,15 @@ interface ResourceIdentifier extends JsonObject
     public function getTypeId();
 
     /**
+     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     *
      * @return null|string
      */
     public function getKey();

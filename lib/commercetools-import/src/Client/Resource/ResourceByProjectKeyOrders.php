@@ -27,6 +27,15 @@ class ResourceByProjectKeyOrders extends ApiResource
 
     /**
      */
+    public function importContainers(): ResourceByProjectKeyOrdersImportContainers
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyOrdersImportContainers($args, $this->getClient());
+    }
+    /**
+     * @deprecated
+     */
     public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyOrdersImportSinkKeyByImportSinkKey
     {
         $args = $this->getArgs();

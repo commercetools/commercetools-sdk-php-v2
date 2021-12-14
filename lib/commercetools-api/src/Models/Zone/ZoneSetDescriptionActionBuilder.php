@@ -26,6 +26,8 @@ final class ZoneSetDescriptionActionBuilder implements Builder
     private $description;
 
     /**
+     * <p>Description of the Zone.</p>
+     *
      * @return null|string
      */
     public function getDescription()

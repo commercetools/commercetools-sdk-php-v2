@@ -31,6 +31,8 @@ final class SubRateBuilder implements Builder
     private $amount;
 
     /**
+     * <p>Name of the SubRate.</p>
+     *
      * @return null|string
      */
     public function getName()

@@ -59,6 +59,8 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
     }
 
     /**
+     * <p>New name of the Zone.</p>
+     *
      * @return null|string
      */
     public function getName()

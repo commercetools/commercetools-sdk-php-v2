@@ -200,6 +200,16 @@ class ResourceByProjectKeyCartsCustomerIdByCustomerIdTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCartsCustomerIdByCustomerIdGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->withCustomerId("customerId")
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCartsCustomerIdByCustomerIdGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

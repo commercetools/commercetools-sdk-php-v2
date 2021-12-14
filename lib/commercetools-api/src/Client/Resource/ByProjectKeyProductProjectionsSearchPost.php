@@ -10,6 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\Product\ProductProjectionPagedSearchResponse;
+use Commercetools\Api\Models\Product\ProductProjectionPagedSearchResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -47,7 +49,7 @@ class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Err
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|T|null
+     * @return ErrorResponse|JsonObject|ProductProjectionPagedSearchResponse|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -56,6 +58,10 @@ class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Err
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
+                case '200':
+                    $resultType = ProductProjectionPagedSearchResponseModel::class;
+
+                    break;
                 case '400':
                     $resultType = ErrorResponseModel::class;
 
@@ -69,6 +75,10 @@ class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Err
 
                     break;
                 case '500':
+                    $resultType = ErrorResponseModel::class;
+
+                    break;
+                case '502':
                     $resultType = ErrorResponseModel::class;
 
                     break;
@@ -90,7 +100,7 @@ class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Err
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|JsonObject|ProductProjectionPagedSearchResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

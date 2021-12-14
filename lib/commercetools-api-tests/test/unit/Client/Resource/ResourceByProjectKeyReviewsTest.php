@@ -320,6 +320,15 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyReviewsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyReviewsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -391,6 +400,15 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyReviewsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyReviewsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

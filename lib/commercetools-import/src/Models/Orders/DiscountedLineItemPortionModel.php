@@ -46,7 +46,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * <p>References a cart discount by its key.</p>
+     * <p>References a cart discount by key.</p>
      *
      * @return null|CartDiscountKeyReference
      */

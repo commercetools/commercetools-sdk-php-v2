@@ -53,7 +53,7 @@ final class LineItemImportDraftBuilder implements Builder
     private $price;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $quantity;
 
@@ -125,7 +125,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -141,7 +141,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * <p>Optional connection to a particular supplier.
+     * <p>Connection to a particular supplier.
      * By providing supply channel information, you can uniquely identify
      * inventory entries that should be reserved.
      * The provided channel should have the
@@ -236,10 +236,10 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      * @return $this
      */
-    public function withQuantity(?float $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
 

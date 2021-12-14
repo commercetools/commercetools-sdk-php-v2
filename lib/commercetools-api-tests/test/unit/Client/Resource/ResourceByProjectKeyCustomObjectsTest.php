@@ -320,6 +320,15 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                 },
                 500
             ],
+            'ByProjectKeyCustomObjectsGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get();
+                },
+                502
+            ],
             'ByProjectKeyCustomObjectsGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -337,6 +346,15 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->get();
                 },
                 599
+            ],
+            'ByProjectKeyCustomObjectsPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->post(null);
+                },
+                200
             ],
             'ByProjectKeyCustomObjectsPost_201' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -391,6 +409,15 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyCustomObjectsPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyCustomObjectsPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

@@ -389,6 +389,16 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
+            'ByProjectKeyProductProjectionsSearchPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->search()
+                        ->post(null);
+                },
+                200
+            ],
             'ByProjectKeyProductProjectionsSearchPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -438,6 +448,16 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->post(null);
                 },
                 500
+            ],
+            'ByProjectKeyProductProjectionsSearchPost_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->search()
+                        ->post(null);
+                },
+                502
             ],
             'ByProjectKeyProductProjectionsSearchPost_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -518,6 +538,16 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->get();
                 },
                 500
+            ],
+            'ByProjectKeyProductProjectionsSearchGet_502' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->search()
+                        ->get();
+                },
+                502
             ],
             'ByProjectKeyProductProjectionsSearchGet_503' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
