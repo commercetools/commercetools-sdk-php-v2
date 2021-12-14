@@ -3,15 +3,15 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
+use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
-use Commercetools\Client\ApiRequestBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config as ConfigV1;
-use Commercetools\Core\Request\Project\ProjectGetRequest;
+
 
 class Configuration implements MigrationInterface
 {
@@ -47,10 +47,9 @@ class Configuration implements MigrationInterface
         $projectKey = 'my_project_key';
 
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
-        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3]), $authConfig);
-
-        $apiRequestBuilder = new ApiRequestBuilder($projectKey, $client);
-        $request = $apiRequestBuilder->with()->get();
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(), $authConfig);
+        $apiRequestBuilder = new ApiRequestBuilder($client);
+        $request = $apiRequestBuilder->withProjectKey($projectKey)->get();
 
         return $request->execute();
     }
