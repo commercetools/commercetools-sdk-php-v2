@@ -1,27 +1,21 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Core\Builder\Request\RequestBuilder;
 
 class TimeoutSetting extends MigrationService implements MigrationInterface
 {
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function v1()
     {
-        $options = ['timeout' => '45'];
-        $request = RequestBuilder::of()->categories()->query();
-        $response = $this->executeV1($this->clientV1(), $request, $options);
+        $client = $this->clientV1();
 
-        return $response;
+        $request = RequestBuilder::of()->categories()->query();
+        $response = $client->execute($request, null, ['timeout' => '45']);
+
+        return $request->mapFromResponse($response);
     }
 
-    /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
-     */
     public function v2()
     {
         $options = ['timeout' => '45'];

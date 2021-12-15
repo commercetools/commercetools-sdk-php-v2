@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Client\ClientCredentialsConfig;
@@ -11,7 +10,6 @@ use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config;
 use Commercetools\Core\Helper\Uuid;
-use GuzzleHttp\Exception\GuzzleException;
 
 class MigrationService
 {
@@ -37,14 +35,6 @@ class MigrationService
         $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
 
         return Client\ClientFactory::of()->createClient($config);
-    }
-
-    /**
-     * @throws GuzzleException
-     */
-    public function executeV1(Client\ApiClient $client, $request, array $headers = null)
-    {
-        return $client->execute($request, $headers);
     }
 
     /**

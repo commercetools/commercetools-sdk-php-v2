@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
@@ -11,9 +10,6 @@ use Commercetools\Core\Model\Common\LocalizedString;
 
 class CreateCommand extends MigrationService implements MigrationInterface
 {
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function v1()
     {
         $client = $this->clientV1();
@@ -22,15 +18,12 @@ class CreateCommand extends MigrationService implements MigrationInterface
                                 ->setSlug(LocalizedString::ofLangAndText('en', $this->uniqueString()))
                                 ->setKey($this->uniqueString());
         $request = RequestBuilder::of()->categories()->create($categoryDraft);
-        $response = $this->executeV1($client, $request);
+        $response = $client->execute($request);
         $result = $request->mapFromResponse($response);
 
         return $result;
     }
 
-    /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
-     */
     public function v2()
     {
         $builder = $this->builderV2();

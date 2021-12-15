@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;

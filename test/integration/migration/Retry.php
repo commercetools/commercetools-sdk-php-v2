@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
@@ -10,9 +9,12 @@ use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Core\Client\ClientFactory;
 use Commercetools\Core\Config as ConfigV1;
+use Commercetools\Exception\ServiceUnavailableException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\RetryMiddleware;
 use Monolog\Logger;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -30,9 +32,25 @@ class Retry extends MigrationService implements MigrationInterface
         $clientOptions = [
             'middlewares' => [
                 'retry' => Middleware::retry(
-                    function ($retries, RequestInterface $request, ResponseInterface $response = null, RequestException $error = null) use ($maxRetries) {
-                        return $retries < $maxRetries && ($error instanceof ConnectException || $response && $response->getStatusCode() >= 500);
-                    }
+                    function ($retries, RequestInterface $request, ResponseInterface $response = null, $error = null) use ($maxRetries) {
+                        if ($response instanceof ResponseInterface && $response->getStatusCode() < 500) {
+                            return false;
+                        }
+                        if ($retries > $maxRetries) {
+                            return false;
+                        }
+                        if ($error instanceof ServiceUnavailableException) {
+                            return true;
+                        }
+                        if ($error instanceof ServerException && $error->getCode() == 503) {
+                            return true;
+                        }
+                        if ($response instanceof ResponseInterface && $response->getStatusCode() == 503) {
+                            return true;
+                        }
+                        return false;
+                    },
+                    [RetryMiddleware::class, 'exponentialDelay']
                 )
             ]
         ];
@@ -42,9 +60,6 @@ class Retry extends MigrationService implements MigrationInterface
         return $client;
     }
 
-    /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
-     */
     public function v2()
     {
         $clientId = 'my_client_id';

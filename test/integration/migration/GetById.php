@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Models\Category\CategoryBuilder;
@@ -9,23 +8,17 @@ use Commercetools\Core\Model\Category\Category;
 
 class GetById extends MigrationService implements MigrationInterface
 {
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function v1()
     {
         $client = $this->clientV1();
         /** @var Category $category */
         $request = RequestBuilder::of()->categories()->getById($category->getId())->expand('parent');
-        $response = $this->executeV1($client, $request);
+        $response = $client->execute($request);
         $result = $request->mapFromResponse($response);
 
         return $result;
     }
 
-    /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
-     */
     public function v2()
     {
         $builder = $this->builderV2();

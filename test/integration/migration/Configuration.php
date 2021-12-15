@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
@@ -13,43 +12,30 @@ use Commercetools\Core\Client;
 use Commercetools\Core\Config as ConfigV1;
 
 
-class Configuration implements MigrationInterface
+class Configuration extends MigrationService implements MigrationInterface
 {
-    public const OAUTH_URL = 'https://auth.europe-west1.gcp.commercetools.com';
-    public const API_URL = 'https://api.europe-west1.gcp.commercetools.com';
+    public const CLIENT_ID = 'my_client_id';
+    public const CLIENT_SECRET = 'my_client_secret';
+    public const PROJECT_KEY = 'my_project_key';
 
-    /**
-     * @throws \Commercetools\Core\Error\ApiException
-     */
     public function v1()
     {
-        $config = ConfigV1::fromArray([
-            'client_id' => 'my_client_id',
-            'client_secret' => 'my_client_secret',
-            'project' => 'my_project_id'
-        ]);
+        $client = Client::ofConfig(
+            ConfigV1::of()->setClientId(self::CLIENT_ID)->setClientSecret(self::CLIENT_SECRET)->setProject(self::PROJECT_KEY)
+        );
 
-        $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
-        $client = Client::ofConfig($config);
         $request = RequestBuilder::of()->project()->get();
         $response = $client->execute($request);
 
-        return $response;
+        return $request->mapFromResponse($response);
     }
 
-    /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
-     */
     public function v2()
     {
-        $clientId = 'my_client_id';
-        $clientSecret = 'my_client_secret';
-        $projectKey = 'my_project_key';
-
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
         $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
-        $request = $apiRequestBuilder->withProjectKey($projectKey)->get();
+        $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
 
         return $request->execute();
     }

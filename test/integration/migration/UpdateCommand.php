@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Models\Category\Category as CategoryV2;
@@ -15,29 +14,18 @@ use Commercetools\Core\Request\Categories\Command\CategoryChangeNameAction as Ca
 
 class UpdateCommand extends MigrationService implements MigrationInterface
 {
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function v1()
     {
         $client = $this->clientV1();
 
+        $newName = LocalizedString::ofLangAndText('en', 'new-name');
         /** @var CategoryV1 $category */
         $request = RequestBuilder::of()->categories()->update($category)
-                    ->addAction(
-                        CategoryChangeNameActionV1::ofName(
-                            LocalizedString::ofLangAndText('en', 'name')
-                        )
-                    );
-        $response = $this->executeV1($client, $request);
-        $result = $request->mapFromResponse($response);
-
-        return $result;
+                    ->addAction(CategoryChangeNameActionV1::ofName($newName));
+        $response = $client->execute($request);
+        return $request->mapFromResponse($response);
     }
 
-    /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
-     */
     public function v2()
     {
         $builder = $this->builderV2();
