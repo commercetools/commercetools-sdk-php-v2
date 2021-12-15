@@ -10,8 +10,6 @@ use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Core\Client\ClientFactory;
 use Commercetools\Core\Config as ConfigV1;
 use Commercetools\Exception\ServiceUnavailableException;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\RetryMiddleware;
