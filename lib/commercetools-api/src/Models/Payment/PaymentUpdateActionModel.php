@@ -51,6 +51,8 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
        'setMethodInfoName' => PaymentSetMethodInfoNameActionModel::class,
        'setStatusInterfaceCode' => PaymentSetStatusInterfaceCodeActionModel::class,
        'setStatusInterfaceText' => PaymentSetStatusInterfaceTextActionModel::class,
+       'setTransactionCustomField' => PaymentSetTransactionCustomFieldActionModel::class,
+       'setTransactionCustomType' => PaymentSetTransactionCustomTypeActionModel::class,
        'transitionState' => PaymentTransitionStateActionModel::class,
     ];
 

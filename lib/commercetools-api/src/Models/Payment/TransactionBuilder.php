@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -52,6 +54,11 @@ final class TransactionBuilder implements Builder
      * @var ?string
      */
     private $state;
+
+    /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * <p>The unique ID of this object.</p>
@@ -110,6 +117,16 @@ final class TransactionBuilder implements Builder
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -179,12 +196,34 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAmount() instead
      * @return $this
      */
     public function withAmountBuilder(?TypedMoneyBuilder $amount)
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -197,7 +236,8 @@ final class TransactionBuilder implements Builder
             $this->type,
             $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
-            $this->state
+            $this->state,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

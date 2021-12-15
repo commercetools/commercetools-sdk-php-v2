@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -47,6 +49,11 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
      */
     protected $state;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -56,13 +63,15 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
         ?string $type = null,
         ?Money $amount = null,
         ?string $interactionId = null,
-        ?string $state = null
+        ?string $state = null,
+        ?CustomFields $custom = null
     ) {
         $this->timestamp = $timestamp;
         $this->type = $type;
         $this->amount = $amount;
         $this->interactionId = $interactionId;
         $this->state = $state;
+        $this->custom = $custom;
     }
 
     /**
@@ -165,6 +174,26 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
         return $this->state;
     }
 
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?DateTimeImmutable $timestamp
@@ -204,6 +233,14 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     public function setState(?string $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 
