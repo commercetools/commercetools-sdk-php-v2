@@ -11,7 +11,6 @@ use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config as ConfigV1;
 
-
 class Configuration extends MigrationService implements MigrationInterface
 {
     public const CLIENT_ID = 'my_client_id';
