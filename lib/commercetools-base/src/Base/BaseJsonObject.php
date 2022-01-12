@@ -66,6 +66,7 @@ abstract class BaseJsonObject implements JsonObject
         return null;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return (object)$this->toArray();

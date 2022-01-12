@@ -600,6 +600,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

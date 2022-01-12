@@ -431,6 +431,7 @@ final class PaymentTransactionAddedMessageModel extends JsonObjectModel implemen
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

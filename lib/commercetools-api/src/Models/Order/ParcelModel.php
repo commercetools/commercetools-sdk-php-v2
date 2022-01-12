@@ -198,6 +198,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

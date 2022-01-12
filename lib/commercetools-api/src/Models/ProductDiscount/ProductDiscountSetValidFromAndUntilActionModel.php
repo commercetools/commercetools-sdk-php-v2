@@ -129,6 +129,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

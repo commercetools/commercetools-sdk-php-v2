@@ -224,6 +224,7 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

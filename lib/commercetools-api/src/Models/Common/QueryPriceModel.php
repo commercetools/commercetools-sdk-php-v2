@@ -373,6 +373,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

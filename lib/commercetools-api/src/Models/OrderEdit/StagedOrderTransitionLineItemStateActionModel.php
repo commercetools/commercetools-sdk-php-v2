@@ -224,6 +224,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

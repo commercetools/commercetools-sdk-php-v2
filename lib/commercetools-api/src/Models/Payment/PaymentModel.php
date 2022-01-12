@@ -620,6 +620,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

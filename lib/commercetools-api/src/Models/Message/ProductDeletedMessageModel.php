@@ -463,6 +463,7 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

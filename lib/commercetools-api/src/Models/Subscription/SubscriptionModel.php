@@ -436,6 +436,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -519,6 +519,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

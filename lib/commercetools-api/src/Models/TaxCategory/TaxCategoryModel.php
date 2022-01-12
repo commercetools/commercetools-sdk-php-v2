@@ -386,6 +386,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

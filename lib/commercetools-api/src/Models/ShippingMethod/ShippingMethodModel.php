@@ -582,6 +582,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

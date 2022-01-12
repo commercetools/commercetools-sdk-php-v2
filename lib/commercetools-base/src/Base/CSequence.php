@@ -18,7 +18,8 @@ use stdClass;
 interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
     public function toArray(): ?array;
-    
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(): ?array;
 
     /**
@@ -72,18 +73,21 @@ interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \Iterat
      */
     public function rewind();
 
+    #[\ReturnTypeWillChange]
     /**
      * @param int $offset
      * @return bool
      */
     public function offsetExists($offset);
 
+    #[\ReturnTypeWillChange]
     /**
      * @param int $offset
      * @return ?TObject
      */
     public function offsetGet($offset);
 
+    #[\ReturnTypeWillChange]
     /**
      * @param int $offset
      * @psalm-param TObject|TRaw $value
@@ -92,6 +96,7 @@ interface CSequence extends Collection, \ArrayAccess, \JsonSerializable, \Iterat
      */
     public function offsetSet($offset, $value);
 
+    #[\ReturnTypeWillChange]
     /**
      * @param int $offset
      * @return void

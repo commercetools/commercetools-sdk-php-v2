@@ -222,6 +222,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

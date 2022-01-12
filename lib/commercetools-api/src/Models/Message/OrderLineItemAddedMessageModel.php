@@ -463,6 +463,7 @@ final class OrderLineItemAddedMessageModel extends JsonObjectModel implements Or
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

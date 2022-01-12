@@ -495,6 +495,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

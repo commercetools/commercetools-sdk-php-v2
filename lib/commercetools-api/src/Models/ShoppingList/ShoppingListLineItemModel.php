@@ -403,6 +403,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

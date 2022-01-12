@@ -49,6 +49,11 @@ final class LineItemBuilder implements Builder
     private $productId;
 
     /**
+     * @var ?string
+     */
+    private $productKey;
+
+    /**
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -159,6 +164,17 @@ final class LineItemBuilder implements Builder
     public function getProductId()
     {
         return $this->productId;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the <a href="ctp:api:type:Product">Product</a>.
+     * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
+     *
+     * @return null|string
+     */
+    public function getProductKey()
+    {
+        return $this->productKey;
     }
 
     /**
@@ -373,6 +389,17 @@ final class LineItemBuilder implements Builder
     public function withProductId(?string $productId)
     {
         $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $productKey
+     * @return $this
+     */
+    public function withProductKey(?string $productKey)
+    {
+        $this->productKey = $productKey;
 
         return $this;
     }
@@ -723,6 +750,7 @@ final class LineItemBuilder implements Builder
         return new LineItemModel(
             $this->id,
             $this->productId,
+            $this->productKey,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug,
             $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,

@@ -428,6 +428,7 @@ final class ProductPriceDiscountsSetMessageModel extends JsonObjectModel impleme
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

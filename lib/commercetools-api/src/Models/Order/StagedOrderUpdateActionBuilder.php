@@ -98,6 +98,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldA
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;

@@ -340,6 +340,7 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

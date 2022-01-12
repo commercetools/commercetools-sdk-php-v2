@@ -525,6 +525,7 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

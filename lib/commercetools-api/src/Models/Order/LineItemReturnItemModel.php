@@ -318,6 +318,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

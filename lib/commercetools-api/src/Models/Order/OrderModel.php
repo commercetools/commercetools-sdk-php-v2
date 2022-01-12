@@ -1448,6 +1448,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

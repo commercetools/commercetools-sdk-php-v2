@@ -229,6 +229,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

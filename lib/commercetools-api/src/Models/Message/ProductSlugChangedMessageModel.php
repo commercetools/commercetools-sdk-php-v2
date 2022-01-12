@@ -464,6 +464,7 @@ final class ProductSlugChangedMessageModel extends JsonObjectModel implements Pr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

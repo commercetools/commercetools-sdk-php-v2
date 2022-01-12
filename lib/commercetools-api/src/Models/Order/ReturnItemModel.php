@@ -294,6 +294,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

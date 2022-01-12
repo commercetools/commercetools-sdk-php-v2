@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -21,6 +22,7 @@ interface Transaction extends JsonObject
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_INTERACTION_ID = 'interactionId';
     public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>The unique ID of this object.</p>
@@ -64,6 +66,13 @@ interface Transaction extends JsonObject
     public function getState();
 
     /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -92,4 +101,9 @@ interface Transaction extends JsonObject
      * @param ?string $state
      */
     public function setState(?string $state): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

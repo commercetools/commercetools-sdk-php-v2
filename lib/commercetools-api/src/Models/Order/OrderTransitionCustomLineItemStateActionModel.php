@@ -222,6 +222,7 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

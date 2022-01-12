@@ -429,6 +429,7 @@ final class OrderReturnInfoSetMessageModel extends JsonObjectModel implements Or
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

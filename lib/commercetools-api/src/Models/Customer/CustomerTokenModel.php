@@ -234,6 +234,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

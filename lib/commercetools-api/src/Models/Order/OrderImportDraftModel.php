@@ -795,6 +795,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

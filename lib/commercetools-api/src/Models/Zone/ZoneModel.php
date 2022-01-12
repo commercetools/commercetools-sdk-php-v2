@@ -386,6 +386,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

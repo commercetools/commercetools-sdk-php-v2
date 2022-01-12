@@ -734,6 +734,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

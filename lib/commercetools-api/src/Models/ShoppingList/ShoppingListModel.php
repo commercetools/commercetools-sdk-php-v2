@@ -622,6 +622,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

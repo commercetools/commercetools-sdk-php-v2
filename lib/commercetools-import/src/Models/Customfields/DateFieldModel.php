@@ -92,6 +92,7 @@ final class DateFieldModel extends JsonObjectModel implements DateField
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

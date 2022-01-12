@@ -90,6 +90,7 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

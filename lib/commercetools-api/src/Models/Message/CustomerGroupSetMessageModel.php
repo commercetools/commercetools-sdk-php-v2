@@ -433,6 +433,7 @@ final class CustomerGroupSetMessageModel extends JsonObjectModel implements Cust
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

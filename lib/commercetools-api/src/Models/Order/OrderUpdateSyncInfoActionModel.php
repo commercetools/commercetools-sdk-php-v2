@@ -157,6 +157,7 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

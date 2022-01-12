@@ -396,6 +396,7 @@ final class StoreDeletedMessageModel extends JsonObjectModel implements StoreDel
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

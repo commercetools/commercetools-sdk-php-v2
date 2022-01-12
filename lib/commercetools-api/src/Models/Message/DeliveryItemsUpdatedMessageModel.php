@@ -493,6 +493,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

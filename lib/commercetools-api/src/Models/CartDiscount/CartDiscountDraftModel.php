@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -85,7 +85,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     protected $stackingMode;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -106,7 +106,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         ?DateTimeImmutable $validUntil = null,
         ?bool $requiresDiscountCode = null,
         ?string $stackingMode = null,
-        ?CustomFields $custom = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->name = $name;
         $this->key = $key;
@@ -361,7 +361,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -372,7 +372,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -476,14 +476,15 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

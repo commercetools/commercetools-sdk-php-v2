@@ -824,6 +824,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

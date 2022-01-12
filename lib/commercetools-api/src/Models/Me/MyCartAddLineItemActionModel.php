@@ -461,6 +461,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

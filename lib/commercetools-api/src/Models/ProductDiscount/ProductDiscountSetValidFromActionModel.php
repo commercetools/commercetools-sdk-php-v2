@@ -93,6 +93,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

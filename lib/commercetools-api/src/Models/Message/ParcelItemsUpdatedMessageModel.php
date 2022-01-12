@@ -525,6 +525,7 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

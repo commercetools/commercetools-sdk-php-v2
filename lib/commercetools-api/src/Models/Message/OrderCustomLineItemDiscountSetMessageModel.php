@@ -496,6 +496,7 @@ final class OrderCustomLineItemDiscountSetMessageModel extends JsonObjectModel i
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -130,6 +130,7 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

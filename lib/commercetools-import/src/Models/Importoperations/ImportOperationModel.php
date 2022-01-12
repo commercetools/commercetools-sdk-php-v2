@@ -418,6 +418,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

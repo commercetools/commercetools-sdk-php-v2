@@ -135,6 +135,7 @@ final class MissingPricesTaskStatusModel extends JsonObjectModel implements Miss
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

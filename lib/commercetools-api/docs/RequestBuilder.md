@@ -3189,6 +3189,36 @@ $request = $builder
                 ->withOrderNumber("orderNumber")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->orders()->search()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->search()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->orders()->search()->head()`
+
+Checks whether a search index for the Project's Orders exists.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->search()
+                ->head();
+```
 ## `withProjectKey("projectKey")->payments()->get()`
 
 null

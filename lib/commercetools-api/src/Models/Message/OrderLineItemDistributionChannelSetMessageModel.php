@@ -463,6 +463,7 @@ final class OrderLineItemDistributionChannelSetMessageModel extends JsonObjectMo
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

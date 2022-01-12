@@ -388,6 +388,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

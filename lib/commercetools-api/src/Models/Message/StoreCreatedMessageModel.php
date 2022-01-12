@@ -563,6 +563,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

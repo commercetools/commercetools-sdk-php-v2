@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -52,6 +54,11 @@ final class TransactionModel extends JsonObjectModel implements Transaction
      */
     protected $state;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,7 +69,8 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         ?string $type = null,
         ?TypedMoney $amount = null,
         ?string $interactionId = null,
-        ?string $state = null
+        ?string $state = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->timestamp = $timestamp;
@@ -70,6 +78,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         $this->amount = $amount;
         $this->interactionId = $interactionId;
         $this->state = $state;
+        $this->custom = $custom;
     }
 
     /**
@@ -190,6 +199,26 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         return $this->state;
     }
 
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -239,7 +268,16 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         $this->state = $state;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
 
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

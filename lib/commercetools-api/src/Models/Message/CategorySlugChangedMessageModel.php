@@ -464,6 +464,7 @@ final class CategorySlugChangedMessageModel extends JsonObjectModel implements C
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

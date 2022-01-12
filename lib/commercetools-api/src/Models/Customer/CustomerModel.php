@@ -1020,6 +1020,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

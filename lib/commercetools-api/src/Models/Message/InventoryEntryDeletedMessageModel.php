@@ -463,6 +463,7 @@ final class InventoryEntryDeletedMessageModel extends JsonObjectModel implements
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

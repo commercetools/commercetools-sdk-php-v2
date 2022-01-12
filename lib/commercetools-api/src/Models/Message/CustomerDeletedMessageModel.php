@@ -396,6 +396,7 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

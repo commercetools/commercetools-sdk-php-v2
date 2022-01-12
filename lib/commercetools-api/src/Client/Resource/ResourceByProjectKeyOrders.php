@@ -64,6 +64,14 @@ class ResourceByProjectKeyOrders extends ApiResource
 
         return new ResourceByProjectKeyOrdersByID($args, $this->getClient());
     }
+    /**
+     */
+    public function search(): ResourceByProjectKeyOrdersSearch
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyOrdersSearch($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

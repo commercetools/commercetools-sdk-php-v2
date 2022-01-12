@@ -431,6 +431,7 @@ final class OrderImportedMessageModel extends JsonObjectModel implements OrderIm
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

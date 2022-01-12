@@ -139,6 +139,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

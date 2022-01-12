@@ -1206,6 +1206,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

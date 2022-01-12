@@ -48,6 +48,11 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     protected $productId;
 
     /**
+     * @var ?string
+     */
+    protected $productKey;
+
+    /**
      * @var ?LocalizedString
      */
     protected $name;
@@ -149,6 +154,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function __construct(
         ?string $id = null,
         ?string $productId = null,
+        ?string $productKey = null,
         ?LocalizedString $name = null,
         ?LocalizedString $productSlug = null,
         ?ProductTypeReference $productType = null,
@@ -171,6 +177,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     ) {
         $this->id = $id;
         $this->productId = $productId;
+        $this->productKey = $productKey;
         $this->name = $name;
         $this->productSlug = $productSlug;
         $this->productType = $productType;
@@ -226,6 +233,26 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         }
 
         return $this->productId;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the <a href="ctp:api:type:Product">Product</a>.
+     * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
+     *
+     * @return null|string
+     */
+    public function getProductKey()
+    {
+        if (is_null($this->productKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRODUCT_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productKey = (string) $data;
+        }
+
+        return $this->productKey;
     }
 
     /**
@@ -631,6 +658,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * @param ?string $productKey
+     */
+    public function setProductKey(?string $productKey): void
+    {
+        $this->productKey = $productKey;
+    }
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void
@@ -783,6 +818,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

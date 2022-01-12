@@ -253,6 +253,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

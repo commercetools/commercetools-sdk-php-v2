@@ -688,6 +688,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

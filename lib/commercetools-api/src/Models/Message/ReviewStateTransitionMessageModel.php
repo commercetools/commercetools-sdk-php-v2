@@ -593,6 +593,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

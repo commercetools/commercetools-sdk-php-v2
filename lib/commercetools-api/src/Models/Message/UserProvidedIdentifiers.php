@@ -20,6 +20,7 @@ interface UserProvidedIdentifiers extends JsonObject
     public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
     public const FIELD_SKU = 'sku';
     public const FIELD_SLUG = 'slug';
+    public const FIELD_CONTAINER_AND_KEY = 'containerAndKey';
 
     /**
      * @return null|string
@@ -52,6 +53,13 @@ interface UserProvidedIdentifiers extends JsonObject
     public function getSlug();
 
     /**
+     * <p>Custom Objects are grouped into containers, which can be used like namespaces. Within a given container, a user-defined key can be used to uniquely identify resources.</p>
+     *
+     * @return null|ContainerAndKey
+     */
+    public function getContainerAndKey();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -80,4 +88,9 @@ interface UserProvidedIdentifiers extends JsonObject
      * @param ?LocalizedString $slug
      */
     public function setSlug(?LocalizedString $slug): void;
+
+    /**
+     * @param ?ContainerAndKey $containerAndKey
+     */
+    public function setContainerAndKey(?ContainerAndKey $containerAndKey): void;
 }

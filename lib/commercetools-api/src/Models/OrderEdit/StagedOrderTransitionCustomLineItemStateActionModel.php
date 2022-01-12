@@ -224,6 +224,7 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

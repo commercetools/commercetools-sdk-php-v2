@@ -532,6 +532,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

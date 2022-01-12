@@ -28,6 +28,7 @@ interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAgg
      */
     public function toArray(): ?array;
 
+    #[\ReturnTypeWillChange]
     /**
      * @psalm-return array<string, stdClass|mixed>
      */
@@ -90,18 +91,21 @@ interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAgg
      */
     public function rewind();
 
+    #[\ReturnTypeWillChange]
     /**
      * @param string $offset
      * @return bool
      */
     public function offsetExists($offset);
 
+    #[\ReturnTypeWillChange]
     /**
      * @param string $offset
      * @return ?TObject
      */
     public function offsetGet($offset);
 
+    #[\ReturnTypeWillChange]
     /**
      * @param string $offset
      * @psalm-param TObject|stdClass $value
@@ -110,6 +114,7 @@ interface CMap extends Collection, \ArrayAccess, \JsonSerializable, \IteratorAgg
      */
     public function offsetSet($offset, $value);
 
+    #[\ReturnTypeWillChange]
     /**
      * @param string $offset
      * @return void

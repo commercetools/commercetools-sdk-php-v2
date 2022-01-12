@@ -92,6 +92,7 @@ final class DiscountCodeSetValidFromActionModel extends JsonObjectModel implemen
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

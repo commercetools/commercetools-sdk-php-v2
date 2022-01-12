@@ -98,6 +98,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldA
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;
@@ -233,6 +237,8 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setDeliveryAddress' => StagedOrderSetDeliveryAddressActionModel::class,
        'setDeliveryAddressCustomField' => StagedOrderSetDeliveryAddressCustomFieldActionModel::class,
        'setDeliveryAddressCustomType' => StagedOrderSetDeliveryAddressCustomTypeActionModel::class,
+       'setDeliveryCustomField' => StagedOrderSetDeliveryCustomFieldActionModel::class,
+       'setDeliveryCustomType' => StagedOrderSetDeliveryCustomTypeActionModel::class,
        'setDeliveryItems' => StagedOrderSetDeliveryItemsActionModel::class,
        'setItemShippingAddressCustomField' => StagedOrderSetItemShippingAddressCustomFieldActionModel::class,
        'setItemShippingAddressCustomType' => StagedOrderSetItemShippingAddressCustomTypeActionModel::class,

@@ -431,6 +431,7 @@ final class CategoryCreatedMessageModel extends JsonObjectModel implements Categ
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

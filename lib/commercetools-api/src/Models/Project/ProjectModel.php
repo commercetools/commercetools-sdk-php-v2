@@ -502,6 +502,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

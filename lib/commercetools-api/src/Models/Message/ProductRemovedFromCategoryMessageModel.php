@@ -463,6 +463,7 @@ final class ProductRemovedFromCategoryMessageModel extends JsonObjectModel imple
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

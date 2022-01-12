@@ -24,17 +24,26 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
      */
     protected $products;
 
+    /**
+     * @var ?SearchIndexingConfigurationValues
+     */
+    protected $orders;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?SearchIndexingConfigurationValues $products = null
+        ?SearchIndexingConfigurationValues $products = null,
+        ?SearchIndexingConfigurationValues $orders = null
     ) {
         $this->products = $products;
+        $this->orders = $orders;
     }
 
     /**
+     * <p>Configuration for endpoints serving indexed <a href="ctp:api:type:Product">Product</a> information.</p>
+     *
      * @return null|SearchIndexingConfigurationValues
      */
     public function getProducts()
@@ -52,6 +61,26 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
         return $this->products;
     }
 
+    /**
+     * <p>Configuration for the <a href="/../api/projects/order-search">Order Search</a> feature.</p>
+     *
+     * @return null|SearchIndexingConfigurationValues
+     */
+    public function getOrders()
+    {
+        if (is_null($this->orders)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ORDERS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->orders = SearchIndexingConfigurationValuesModel::of($data);
+        }
+
+        return $this->orders;
+    }
+
 
     /**
      * @param ?SearchIndexingConfigurationValues $products
@@ -59,5 +88,13 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     public function setProducts(?SearchIndexingConfigurationValues $products): void
     {
         $this->products = $products;
+    }
+
+    /**
+     * @param ?SearchIndexingConfigurationValues $orders
+     */
+    public function setOrders(?SearchIndexingConfigurationValues $orders): void
+    {
+        $this->orders = $orders;
     }
 }

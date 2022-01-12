@@ -282,6 +282,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

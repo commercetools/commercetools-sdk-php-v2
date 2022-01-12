@@ -374,6 +374,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -210,6 +210,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

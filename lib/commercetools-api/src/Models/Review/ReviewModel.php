@@ -689,6 +689,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

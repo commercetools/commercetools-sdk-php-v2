@@ -431,6 +431,7 @@ final class OrderDeletedMessageModel extends JsonObjectModel implements OrderDel
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

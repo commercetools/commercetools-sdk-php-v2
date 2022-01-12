@@ -495,6 +495,7 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

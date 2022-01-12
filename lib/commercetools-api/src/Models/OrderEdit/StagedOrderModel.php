@@ -1450,6 +1450,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

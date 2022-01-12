@@ -431,6 +431,7 @@ final class CustomerCreatedMessageModel extends JsonObjectModel implements Custo
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

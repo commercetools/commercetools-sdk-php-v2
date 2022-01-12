@@ -318,6 +318,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

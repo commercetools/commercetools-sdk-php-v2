@@ -36,6 +36,7 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
        'setMethodInfoInterface' => MyPaymentSetMethodInfoInterfaceActionModel::class,
        'setMethodInfoMethod' => MyPaymentSetMethodInfoMethodActionModel::class,
        'setMethodInfoName' => MyPaymentSetMethodInfoNameActionModel::class,
+       'setTransactionCustomField' => MyPaymentSetTransactionCustomFieldActionModel::class,
     ];
 
     /**

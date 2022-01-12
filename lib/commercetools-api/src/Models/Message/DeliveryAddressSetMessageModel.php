@@ -496,6 +496,7 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

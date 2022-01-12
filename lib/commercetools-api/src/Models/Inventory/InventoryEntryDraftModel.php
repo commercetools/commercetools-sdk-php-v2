@@ -234,6 +234,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -59,6 +59,7 @@ abstract class MapperMap implements CMap
         return $this->data;
     }
 
+    #[\ReturnTypeWillChange]
     /**
      * @psalm-return array<string, stdClass|mixed>
      */

@@ -132,6 +132,7 @@ final class ReturnInfoDraftModel extends JsonObjectModel implements ReturnInfoDr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -428,6 +428,7 @@ final class ProductRevertedStagedChangesMessageModel extends JsonObjectModel imp
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -377,6 +377,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -431,6 +431,7 @@ final class OrderStoreSetMessageModel extends JsonObjectModel implements OrderSt
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

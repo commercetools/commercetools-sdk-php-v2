@@ -408,6 +408,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

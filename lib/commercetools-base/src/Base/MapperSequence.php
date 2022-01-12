@@ -41,7 +41,8 @@ abstract class MapperSequence implements CSequence
     {
         return $this->data;
     }
-    
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize(): ?array
     {
         return $this->data;

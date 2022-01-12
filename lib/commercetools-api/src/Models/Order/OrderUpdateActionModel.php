@@ -27,7 +27,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
 
     /**
      * @psalm-var array<string, class-string<OrderUpdateAction> >
-     *
+     * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
        'addDelivery' => OrderAddDeliveryActionModel::class,
@@ -57,6 +57,8 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setDeliveryAddress' => OrderSetDeliveryAddressActionModel::class,
        'setDeliveryAddressCustomField' => OrderSetDeliveryAddressCustomFieldActionModel::class,
        'setDeliveryAddressCustomType' => OrderSetDeliveryAddressCustomTypeActionModel::class,
+       'setDeliveryCustomField' => OrderSetDeliveryCustomFieldActionModel::class,
+       'setDeliveryCustomType' => OrderSetDeliveryCustomTypeActionModel::class,
        'setDeliveryItems' => OrderSetDeliveryItemsActionModel::class,
        'setItemShippingAddressCustomField' => OrderSetItemShippingAddressCustomFieldActionModel::class,
        'setItemShippingAddressCustomType' => OrderSetItemShippingAddressCustomTypeActionModel::class,

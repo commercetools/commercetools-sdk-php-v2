@@ -463,6 +463,7 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

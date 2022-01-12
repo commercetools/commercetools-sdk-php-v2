@@ -53,6 +53,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomTypeAction;

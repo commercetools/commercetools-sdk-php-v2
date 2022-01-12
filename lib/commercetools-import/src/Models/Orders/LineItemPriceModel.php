@@ -360,6 +360,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

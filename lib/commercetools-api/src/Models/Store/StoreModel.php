@@ -451,6 +451,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

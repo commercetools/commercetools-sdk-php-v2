@@ -25,6 +25,7 @@ interface LineItem extends JsonObject
 {
     public const FIELD_ID = 'id';
     public const FIELD_PRODUCT_ID = 'productId';
+    public const FIELD_PRODUCT_KEY = 'productKey';
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_SLUG = 'productSlug';
     public const FIELD_PRODUCT_TYPE = 'productType';
@@ -56,6 +57,14 @@ interface LineItem extends JsonObject
      * @return null|string
      */
     public function getProductId();
+
+    /**
+     * <p>User-defined unique identifier for the <a href="ctp:api:type:Product">Product</a>.
+     * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
+     *
+     * @return null|string
+     */
+    public function getProductKey();
 
     /**
      * <p>The product name.</p>
@@ -203,6 +212,11 @@ interface LineItem extends JsonObject
      * @param ?string $productId
      */
     public function setProductId(?string $productId): void;
+
+    /**
+     * @param ?string $productKey
+     */
+    public function setProductKey(?string $productKey): void;
 
     /**
      * @param ?LocalizedString $name

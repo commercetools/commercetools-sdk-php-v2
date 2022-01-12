@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -20,6 +21,7 @@ interface Delivery extends JsonObject
     public const FIELD_ITEMS = 'items';
     public const FIELD_PARCELS = 'parcels';
     public const FIELD_ADDRESS = 'address';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|string
@@ -50,6 +52,13 @@ interface Delivery extends JsonObject
     public function getAddress();
 
     /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -73,4 +82,9 @@ interface Delivery extends JsonObject
      * @param ?Address $address
      */
     public function setAddress(?Address $address): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

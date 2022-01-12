@@ -137,6 +137,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -460,6 +460,7 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

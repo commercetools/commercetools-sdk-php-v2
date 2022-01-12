@@ -30,7 +30,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
      *
      */
     private static $discriminatorClasses = [
-       'changeCartsConfiguration' => ProjectChangeCartsConfigurationModel::class,
+       'changeCartsConfiguration' => ProjectChangeCartsConfigurationActionModel::class,
        'changeCountries' => ProjectChangeCountriesActionModel::class,
        'changeCountryTaxRateFallbackEnabled' => ProjectChangeCountryTaxRateFallbackEnabledActionModel::class,
        'changeCurrencies' => ProjectChangeCurrenciesActionModel::class,
@@ -38,8 +38,9 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'changeMessagesConfiguration' => ProjectChangeMessagesConfigurationActionModel::class,
        'changeMessagesEnabled' => ProjectChangeMessagesEnabledActionModel::class,
        'changeName' => ProjectChangeNameActionModel::class,
+       'changeOrderSearchStatus' => ProjectChangeOrderSearchStatusActionModel::class,
        'changeProductSearchIndexingEnabled' => ProjectChangeProductSearchIndexingEnabledActionModel::class,
-       'changeShoppingListsConfiguration' => ProjectChangeShoppingListsConfigurationModel::class,
+       'changeShoppingListsConfiguration' => ProjectChangeShoppingListsConfigurationActionModel::class,
        'setExternalOAuth' => ProjectSetExternalOAuthActionModel::class,
        'setShippingRateInputType' => ProjectSetShippingRateInputTypeActionModel::class,
     ];

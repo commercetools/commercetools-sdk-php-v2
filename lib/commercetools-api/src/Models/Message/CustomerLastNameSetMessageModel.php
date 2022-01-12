@@ -428,6 +428,7 @@ final class CustomerLastNameSetMessageModel extends JsonObjectModel implements C
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

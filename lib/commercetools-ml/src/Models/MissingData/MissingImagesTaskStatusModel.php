@@ -135,6 +135,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

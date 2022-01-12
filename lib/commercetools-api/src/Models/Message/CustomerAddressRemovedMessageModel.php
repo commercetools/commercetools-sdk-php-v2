@@ -431,6 +431,7 @@ final class CustomerAddressRemovedMessageModel extends JsonObjectModel implement
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

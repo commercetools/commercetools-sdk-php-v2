@@ -464,6 +464,7 @@ final class OrderBillingAddressSetMessageModel extends JsonObjectModel implement
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

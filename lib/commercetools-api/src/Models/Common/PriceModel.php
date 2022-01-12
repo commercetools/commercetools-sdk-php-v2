@@ -373,6 +373,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

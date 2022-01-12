@@ -51,6 +51,11 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
      */
     protected $slug;
 
+    /**
+     * @var ?ContainerAndKey
+     */
+    protected $containerAndKey;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -61,7 +66,8 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         ?string $orderNumber = null,
         ?string $customerNumber = null,
         ?string $sku = null,
-        ?LocalizedString $slug = null
+        ?LocalizedString $slug = null,
+        ?ContainerAndKey $containerAndKey = null
     ) {
         $this->key = $key;
         $this->externalId = $externalId;
@@ -69,6 +75,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         $this->customerNumber = $customerNumber;
         $this->sku = $sku;
         $this->slug = $slug;
+        $this->containerAndKey = $containerAndKey;
     }
 
     /**
@@ -174,6 +181,26 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         return $this->slug;
     }
 
+    /**
+     * <p>Custom Objects are grouped into containers, which can be used like namespaces. Within a given container, a user-defined key can be used to uniquely identify resources.</p>
+     *
+     * @return null|ContainerAndKey
+     */
+    public function getContainerAndKey()
+    {
+        if (is_null($this->containerAndKey)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CONTAINER_AND_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->containerAndKey = ContainerAndKeyModel::of($data);
+        }
+
+        return $this->containerAndKey;
+    }
+
 
     /**
      * @param ?string $key
@@ -221,5 +248,13 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @param ?ContainerAndKey $containerAndKey
+     */
+    public function setContainerAndKey(?ContainerAndKey $containerAndKey): void
+    {
+        $this->containerAndKey = $containerAndKey;
     }
 }

@@ -918,6 +918,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

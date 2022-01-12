@@ -415,6 +415,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -86,7 +86,7 @@ final class CartDiscountDraftBuilder implements Builder
     private $stackingMode;
 
     /**
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -208,11 +208,11 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -348,10 +348,10 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -406,7 +406,7 @@ final class CartDiscountDraftBuilder implements Builder
      * @deprecated use withCustom() instead
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
 
@@ -428,7 +428,7 @@ final class CartDiscountDraftBuilder implements Builder
             $this->validUntil,
             $this->requiresDiscountCode,
             $this->stackingMode,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

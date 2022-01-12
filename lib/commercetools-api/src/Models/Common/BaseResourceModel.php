@@ -220,6 +220,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

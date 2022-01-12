@@ -374,6 +374,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

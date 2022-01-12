@@ -431,6 +431,7 @@ final class ReviewCreatedMessageModel extends JsonObjectModel implements ReviewC
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

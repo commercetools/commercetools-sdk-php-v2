@@ -490,6 +490,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

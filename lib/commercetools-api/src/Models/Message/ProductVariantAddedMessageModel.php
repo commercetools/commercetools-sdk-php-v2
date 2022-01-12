@@ -463,6 +463,7 @@ final class ProductVariantAddedMessageModel extends JsonObjectModel implements P
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

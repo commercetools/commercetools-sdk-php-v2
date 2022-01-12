@@ -495,6 +495,7 @@ final class ProductImageAddedMessageModel extends JsonObjectModel implements Pro
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

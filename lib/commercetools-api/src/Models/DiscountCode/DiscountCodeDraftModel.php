@@ -447,6 +447,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

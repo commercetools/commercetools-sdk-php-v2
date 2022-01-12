@@ -396,6 +396,7 @@ final class ProductUnpublishedMessageModel extends JsonObjectModel implements Pr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();
