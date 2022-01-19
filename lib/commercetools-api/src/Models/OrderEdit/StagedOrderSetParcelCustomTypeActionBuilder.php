@@ -6,10 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Type\FieldContainer;
-use Commercetools\Api\Models\Type\FieldContainerBuilder;
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
@@ -20,14 +20,14 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<PaymentSetTransactionCustomTypeAction>
+ * @implements Builder<StagedOrderSetParcelCustomTypeAction>
  */
-final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
+final class StagedOrderSetParcelCustomTypeActionBuilder implements Builder
 {
     /**
      * @var ?string
      */
-    private $transactionId;
+    private $parcelId;
 
     /**
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
@@ -35,16 +35,16 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     private $type;
 
     /**
-     * @var null|FieldContainer|FieldContainerBuilder
+     * @var ?JsonObject
      */
     private $fields;
 
     /**
      * @return null|string
      */
-    public function getTransactionId()
+    public function getParcelId()
     {
-        return $this->transactionId;
+        return $this->parcelId;
     }
 
     /**
@@ -59,22 +59,22 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the custom fields to this value.</p>
+     * <p>If set, the custom fields are set to this new value.</p>
      *
-     * @return null|FieldContainer
+     * @return null|JsonObject
      */
     public function getFields()
     {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
+        return $this->fields;
     }
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $parcelId
      * @return $this
      */
-    public function withTransactionId(?string $transactionId)
+    public function withParcelId(?string $parcelId)
     {
-        $this->transactionId = $transactionId;
+        $this->parcelId = $parcelId;
 
         return $this;
     }
@@ -91,10 +91,10 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @param ?FieldContainer $fields
+     * @param ?JsonObject $fields
      * @return $this
      */
-    public function withFields(?FieldContainer $fields)
+    public function withFields(?JsonObject $fields)
     {
         $this->fields = $fields;
 
@@ -112,27 +112,16 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withFields() instead
-     * @return $this
-     */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function build(): StagedOrderSetParcelCustomTypeAction
     {
-        $this->fields = $fields;
-
-        return $this;
-    }
-
-    public function build(): PaymentSetTransactionCustomTypeAction
-    {
-        return new PaymentSetTransactionCustomTypeActionModel(
-            $this->transactionId,
+        return new StagedOrderSetParcelCustomTypeActionModel(
+            $this->parcelId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
-            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
+            $this->fields
         );
     }
 
-    public static function of(): PaymentSetTransactionCustomTypeActionBuilder
+    public static function of(): StagedOrderSetParcelCustomTypeActionBuilder
     {
         return new self();
     }

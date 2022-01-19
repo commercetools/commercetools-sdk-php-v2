@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -16,14 +16,14 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<PaymentSetTransactionCustomFieldAction>
+ * @implements Builder<OrderSetParcelCustomFieldAction>
  */
-final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
+final class OrderSetParcelCustomFieldActionBuilder implements Builder
 {
     /**
      * @var ?string
      */
-    private $transactionId;
+    private $parcelId;
 
     /**
      * @var ?string
@@ -38,9 +38,9 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTransactionId()
+    public function getParcelId()
     {
-        return $this->transactionId;
+        return $this->parcelId;
     }
 
     /**
@@ -60,12 +60,12 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $parcelId
      * @return $this
      */
-    public function withTransactionId(?string $transactionId)
+    public function withParcelId(?string $parcelId)
     {
-        $this->transactionId = $transactionId;
+        $this->parcelId = $parcelId;
 
         return $this;
     }
@@ -93,16 +93,16 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     }
 
 
-    public function build(): PaymentSetTransactionCustomFieldAction
+    public function build(): OrderSetParcelCustomFieldAction
     {
-        return new PaymentSetTransactionCustomFieldActionModel(
-            $this->transactionId,
+        return new OrderSetParcelCustomFieldActionModel(
+            $this->parcelId,
             $this->name,
             $this->value
         );
     }
 
-    public static function of(): PaymentSetTransactionCustomFieldActionBuilder
+    public static function of(): OrderSetParcelCustomFieldActionBuilder
     {
         return new self();
     }

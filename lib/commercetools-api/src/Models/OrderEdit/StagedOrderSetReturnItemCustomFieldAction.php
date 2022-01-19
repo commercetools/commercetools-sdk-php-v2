@@ -6,21 +6,22 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
+interface StagedOrderSetReturnItemCustomFieldAction extends StagedOrderUpdateAction
 {
-    public const FIELD_TRANSACTION_ID = 'transactionId';
+    public const FIELD_RETURN_ITEM_ID = 'returnItemId';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
 
     /**
      * @return null|string
      */
-    public function getTransactionId();
+    public function getReturnItemId();
 
     /**
      * @return null|string
@@ -33,9 +34,9 @@ interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
     public function getValue();
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $returnItemId
      */
-    public function setTransactionId(?string $transactionId): void;
+    public function setReturnItemId(?string $returnItemId): void;
 
     /**
      * @param ?string $name

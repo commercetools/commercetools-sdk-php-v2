@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerModel;
@@ -21,9 +21,9 @@ use stdClass;
 /**
  * @internal
  */
-final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel implements PaymentSetTransactionCustomTypeAction
+final class OrderSetParcelCustomTypeActionModel extends JsonObjectModel implements OrderSetParcelCustomTypeAction
 {
-    public const DISCRIMINATOR_VALUE = 'setTransactionCustomType';
+    public const DISCRIMINATOR_VALUE = 'setParcelCustomType';
     /**
      * @var ?string
      */
@@ -32,7 +32,7 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     /**
      * @var ?string
      */
-    protected $transactionId;
+    protected $parcelId;
 
     /**
      * @var ?TypeResourceIdentifier
@@ -49,11 +49,11 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $transactionId = null,
+        ?string $parcelId = null,
         ?TypeResourceIdentifier $type = null,
         ?FieldContainer $fields = null
     ) {
-        $this->transactionId = $transactionId;
+        $this->parcelId = $parcelId;
         $this->type = $type;
         $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -79,24 +79,21 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     /**
      * @return null|string
      */
-    public function getTransactionId()
+    public function getParcelId()
     {
-        if (is_null($this->transactionId)) {
+        if (is_null($this->parcelId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TRANSACTION_ID);
+            $data = $this->raw(self::FIELD_PARCEL_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->transactionId = (string) $data;
+            $this->parcelId = (string) $data;
         }
 
-        return $this->transactionId;
+        return $this->parcelId;
     }
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
-     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -115,8 +112,6 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     }
 
     /**
-     * <p>Sets the custom fields to this value.</p>
-     *
      * @return null|FieldContainer
      */
     public function getFields()
@@ -136,11 +131,11 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
 
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $parcelId
      */
-    public function setTransactionId(?string $transactionId): void
+    public function setParcelId(?string $parcelId): void
     {
-        $this->transactionId = $transactionId;
+        $this->parcelId = $parcelId;
     }
 
     /**

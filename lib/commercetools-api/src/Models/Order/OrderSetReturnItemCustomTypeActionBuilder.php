@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
@@ -20,14 +20,14 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<PaymentSetTransactionCustomTypeAction>
+ * @implements Builder<OrderSetReturnItemCustomTypeAction>
  */
-final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
+final class OrderSetReturnItemCustomTypeActionBuilder implements Builder
 {
     /**
      * @var ?string
      */
-    private $transactionId;
+    private $returnItemId;
 
     /**
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
@@ -42,15 +42,12 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTransactionId()
+    public function getReturnItemId()
     {
-        return $this->transactionId;
+        return $this->returnItemId;
     }
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
-     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -59,8 +56,6 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the custom fields to this value.</p>
-     *
      * @return null|FieldContainer
      */
     public function getFields()
@@ -69,12 +64,12 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $returnItemId
      * @return $this
      */
-    public function withTransactionId(?string $transactionId)
+    public function withReturnItemId(?string $returnItemId)
     {
-        $this->transactionId = $transactionId;
+        $this->returnItemId = $returnItemId;
 
         return $this;
     }
@@ -123,16 +118,16 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
         return $this;
     }
 
-    public function build(): PaymentSetTransactionCustomTypeAction
+    public function build(): OrderSetReturnItemCustomTypeAction
     {
-        return new PaymentSetTransactionCustomTypeActionModel(
-            $this->transactionId,
+        return new OrderSetReturnItemCustomTypeActionModel(
+            $this->returnItemId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 
-    public static function of(): PaymentSetTransactionCustomTypeActionBuilder
+    public static function of(): OrderSetReturnItemCustomTypeActionBuilder
     {
         return new self();
     }

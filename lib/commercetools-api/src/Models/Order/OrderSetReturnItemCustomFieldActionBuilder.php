@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -16,14 +16,14 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<PaymentSetTransactionCustomFieldAction>
+ * @implements Builder<OrderSetReturnItemCustomFieldAction>
  */
-final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
+final class OrderSetReturnItemCustomFieldActionBuilder implements Builder
 {
     /**
      * @var ?string
      */
-    private $transactionId;
+    private $returnItemId;
 
     /**
      * @var ?string
@@ -38,9 +38,9 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTransactionId()
+    public function getReturnItemId()
     {
-        return $this->transactionId;
+        return $this->returnItemId;
     }
 
     /**
@@ -60,12 +60,12 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $returnItemId
      * @return $this
      */
-    public function withTransactionId(?string $transactionId)
+    public function withReturnItemId(?string $returnItemId)
     {
-        $this->transactionId = $transactionId;
+        $this->returnItemId = $returnItemId;
 
         return $this;
     }
@@ -93,16 +93,16 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     }
 
 
-    public function build(): PaymentSetTransactionCustomFieldAction
+    public function build(): OrderSetReturnItemCustomFieldAction
     {
-        return new PaymentSetTransactionCustomFieldActionModel(
-            $this->transactionId,
+        return new OrderSetReturnItemCustomFieldActionModel(
+            $this->returnItemId,
             $this->name,
             $this->value
         );
     }
 
-    public static function of(): PaymentSetTransactionCustomFieldActionBuilder
+    public static function of(): OrderSetReturnItemCustomFieldActionBuilder
     {
         return new self();
     }

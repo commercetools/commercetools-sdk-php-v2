@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -52,6 +54,11 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     protected $paymentState;
 
     /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -76,6 +83,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         ?string $comment = null,
         ?string $shipmentState = null,
         ?string $paymentState = null,
+        ?CustomFields $custom = null,
         ?DateTimeImmutable $lastModifiedAt = null,
         ?DateTimeImmutable $createdAt = null,
         ?string $customLineItemId = null
@@ -85,6 +93,7 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
+        $this->custom = $custom;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->createdAt = $createdAt;
         $this->customLineItemId = $customLineItemId;
@@ -194,6 +203,26 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -291,6 +320,14 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
     /**

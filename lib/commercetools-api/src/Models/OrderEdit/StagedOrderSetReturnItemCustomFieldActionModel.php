@@ -6,8 +6,10 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
+use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -17,9 +19,9 @@ use stdClass;
 /**
  * @internal
  */
-final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel implements PaymentSetTransactionCustomFieldAction
+final class StagedOrderSetReturnItemCustomFieldActionModel extends JsonObjectModel implements StagedOrderSetReturnItemCustomFieldAction
 {
-    public const DISCRIMINATOR_VALUE = 'setTransactionCustomField';
+    public const DISCRIMINATOR_VALUE = 'setReturnItemCustomField';
     /**
      * @var ?string
      */
@@ -28,7 +30,7 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     /**
      * @var ?string
      */
-    protected $transactionId;
+    protected $returnItemId;
 
     /**
      * @var ?string
@@ -45,11 +47,11 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $transactionId = null,
+        ?string $returnItemId = null,
         ?string $name = null,
         $value = null
     ) {
-        $this->transactionId = $transactionId;
+        $this->returnItemId = $returnItemId;
         $this->name = $name;
         $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -75,18 +77,18 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     /**
      * @return null|string
      */
-    public function getTransactionId()
+    public function getReturnItemId()
     {
-        if (is_null($this->transactionId)) {
+        if (is_null($this->returnItemId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TRANSACTION_ID);
+            $data = $this->raw(self::FIELD_RETURN_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->transactionId = (string) $data;
+            $this->returnItemId = (string) $data;
         }
 
-        return $this->transactionId;
+        return $this->returnItemId;
     }
 
     /**
@@ -125,11 +127,11 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
 
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $returnItemId
      */
-    public function setTransactionId(?string $transactionId): void
+    public function setReturnItemId(?string $returnItemId): void
     {
-        $this->transactionId = $transactionId;
+        $this->returnItemId = $returnItemId;
     }
 
     /**

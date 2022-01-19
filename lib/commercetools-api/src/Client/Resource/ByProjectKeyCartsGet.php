@@ -148,15 +148,6 @@ class ByProjectKeyCartsGet extends ApiRequest implements Expandable, Sortable, P
 
     /**
      *
-     * @psalm-param scalar|scalar[] $customerId
-     */
-    public function withCustomerId($customerId): ByProjectKeyCartsGet
-    {
-        return $this->withQueryParam('customerId', $customerId);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyCartsGet

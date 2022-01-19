@@ -6,43 +6,38 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
+interface OrderSetReturnItemCustomTypeAction extends OrderUpdateAction
 {
-    public const FIELD_TRANSACTION_ID = 'transactionId';
+    public const FIELD_RETURN_ITEM_ID = 'returnItemId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 
     /**
      * @return null|string
      */
-    public function getTransactionId();
+    public function getReturnItemId();
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
-     *
      * @return null|TypeResourceIdentifier
      */
     public function getType();
 
     /**
-     * <p>Sets the custom fields to this value.</p>
-     *
      * @return null|FieldContainer
      */
     public function getFields();
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $returnItemId
      */
-    public function setTransactionId(?string $transactionId): void;
+    public function setReturnItemId(?string $returnItemId): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -18,6 +19,7 @@ interface ReturnItemDraft extends JsonObject
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_COMMENT = 'comment';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|int
@@ -45,6 +47,13 @@ interface ReturnItemDraft extends JsonObject
     public function getShipmentState();
 
     /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?int $quantity
      */
     public function setQuantity(?int $quantity): void;
@@ -68,4 +77,9 @@ interface ReturnItemDraft extends JsonObject
      * @param ?string $shipmentState
      */
     public function setShipmentState(?string $shipmentState): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

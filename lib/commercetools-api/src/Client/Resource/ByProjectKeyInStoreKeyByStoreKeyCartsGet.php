@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Cart\CartPagedQueryResponse;
+use Commercetools\Api\Models\Cart\CartPagedQueryResponseModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Base\JsonObject;
@@ -49,7 +51,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest implements Exp
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|T|null
+     * @return CartPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -59,7 +61,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest implements Exp
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = JsonObjectModel::class;
+                    $resultType = CartPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -100,7 +102,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest implements Exp
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject
+     * @return null|CartPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -142,15 +144,6 @@ class ByProjectKeyInStoreKeyByStoreKeyCartsGet extends ApiRequest implements Exp
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $customerId
-     */
-    public function withCustomerId($customerId): ByProjectKeyInStoreKeyByStoreKeyCartsGet
-    {
-        return $this->withQueryParam('customerId', $customerId);
     }
 
     /**

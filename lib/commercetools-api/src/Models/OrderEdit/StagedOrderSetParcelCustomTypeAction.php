@@ -6,23 +6,23 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\Payment;
+namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
+interface StagedOrderSetParcelCustomTypeAction extends StagedOrderUpdateAction
 {
-    public const FIELD_TRANSACTION_ID = 'transactionId';
+    public const FIELD_PARCEL_ID = 'parcelId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
 
     /**
      * @return null|string
      */
-    public function getTransactionId();
+    public function getParcelId();
 
     /**
      * <p>If set, the custom type is set to this new value.
@@ -33,16 +33,16 @@ interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
     public function getType();
 
     /**
-     * <p>Sets the custom fields to this value.</p>
+     * <p>If set, the custom fields are set to this new value.</p>
      *
-     * @return null|FieldContainer
+     * @return null|mixed
      */
     public function getFields();
 
     /**
-     * @param ?string $transactionId
+     * @param ?string $parcelId
      */
-    public function setTransactionId(?string $transactionId): void;
+    public function setParcelId(?string $parcelId): void;
 
     /**
      * @param ?TypeResourceIdentifier $type
@@ -50,7 +50,7 @@ interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
     public function setType(?TypeResourceIdentifier $type): void;
 
     /**
-     * @param ?FieldContainer $fields
+     * @param ?JsonObject $fields
      */
-    public function setFields(?FieldContainer $fields): void;
+    public function setFields(?JsonObject $fields): void;
 }

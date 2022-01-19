@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -44,6 +46,11 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
      */
     protected $shipmentState;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,13 +60,15 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         ?string $lineItemId = null,
         ?string $customLineItemId = null,
         ?string $comment = null,
-        ?string $shipmentState = null
+        ?string $shipmentState = null,
+        ?CustomFields $custom = null
     ) {
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
         $this->customLineItemId = $customLineItemId;
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
+        $this->custom = $custom;
     }
 
     /**
@@ -147,6 +156,26 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         return $this->shipmentState;
     }
 
+    /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?int $quantity
@@ -186,5 +215,13 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 }
