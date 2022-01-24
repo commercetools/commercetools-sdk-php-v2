@@ -16,6 +16,8 @@ interface ChannelAddRolesAction extends ChannelUpdateAction
     public const FIELD_ROLES = 'roles';
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|array
      */
     public function getRoles();

@@ -92,6 +92,8 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     }
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -110,6 +112,8 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     }
 
     /**
+     * <p>Describes the purpose and type of the Channel. A Channel can have one or more roles.</p>
+     *
      * @return null|string
      */
     public function getMissingRole()

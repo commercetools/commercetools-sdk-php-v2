@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -50,7 +50,7 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     protected $state;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -64,7 +64,7 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
         ?Money $amount = null,
         ?string $interactionId = null,
         ?string $state = null,
-        ?CustomFields $custom = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->timestamp = $timestamp;
         $this->type = $type;
@@ -177,7 +177,7 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -188,7 +188,7 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -236,9 +236,9 @@ final class TransactionDraftModel extends JsonObjectModel implements Transaction
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }

@@ -42,6 +42,8 @@ final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
     }
 
     /**
+     * <p>Expected version of the Channel on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +61,8 @@ final class ChannelUpdateModel extends JsonObjectModel implements ChannelUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Channel.</p>
+     *
      * @return null|ChannelUpdateActionCollection
      */
     public function getActions()

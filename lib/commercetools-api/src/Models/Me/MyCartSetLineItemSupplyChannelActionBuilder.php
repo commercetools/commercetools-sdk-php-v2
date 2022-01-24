@@ -30,7 +30,7 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     /**
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
-    private $distributionChannel;
+    private $supplyChannel;
 
     /**
      * @return null|string
@@ -41,11 +41,13 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
-    public function getDistributionChannel()
+    public function getSupplyChannel()
     {
-        return $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -60,23 +62,23 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
+     * @param ?ChannelResourceIdentifier $supplyChannel
      * @return $this
      */
-    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
-        $this->distributionChannel = $distributionChannel;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
 
     /**
-     * @deprecated use withDistributionChannel() instead
+     * @deprecated use withSupplyChannel() instead
      * @return $this
      */
-    public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
-        $this->distributionChannel = $distributionChannel;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -85,7 +87,7 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     {
         return new MyCartSetLineItemSupplyChannelActionModel(
             $this->lineItemId,
-            $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel
+            $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel
         );
     }
 

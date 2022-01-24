@@ -39,6 +39,8 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public function getCustom();
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
@@ -69,6 +71,8 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public function getQuantity();
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();

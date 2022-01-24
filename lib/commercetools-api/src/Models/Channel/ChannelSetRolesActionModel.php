@@ -59,6 +59,8 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
     }
 
     /**
+     * <p>Value to set. If not specified, then <code>InventorySupply</code> is assigned by default.</p>
+     *
      * @return null|array
      */
     public function getRoles()

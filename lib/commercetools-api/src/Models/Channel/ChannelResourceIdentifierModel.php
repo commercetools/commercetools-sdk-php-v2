@@ -68,7 +68,7 @@ final class ChannelResourceIdentifierModel extends JsonObjectModel implements Ch
     }
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique ID of the referenced <a href="ctp:api:type:Channel">Channel</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class ChannelResourceIdentifierModel extends JsonObjectModel implements Ch
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:Channel">Channel</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

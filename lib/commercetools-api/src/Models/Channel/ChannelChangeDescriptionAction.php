@@ -17,6 +17,8 @@ interface ChannelChangeDescriptionAction extends ChannelUpdateAction
     public const FIELD_DESCRIPTION = 'description';
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();

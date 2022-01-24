@@ -28,6 +28,8 @@ final class ChannelChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()

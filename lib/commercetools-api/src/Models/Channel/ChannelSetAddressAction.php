@@ -17,6 +17,8 @@ interface ChannelSetAddressAction extends ChannelUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|BaseAddress
      */
     public function getAddress();

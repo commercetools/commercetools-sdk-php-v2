@@ -59,6 +59,8 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
     }
 
     /**
+     * <p>Value to remove from the array.</p>
+     *
      * @return null|array
      */
     public function getRoles()

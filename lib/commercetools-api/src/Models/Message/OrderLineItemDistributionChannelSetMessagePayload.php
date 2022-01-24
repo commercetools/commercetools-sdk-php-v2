@@ -23,6 +23,8 @@ interface OrderLineItemDistributionChannelSetMessagePayload extends MessagePaylo
     public function getLineItemId();
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelReference
      */
     public function getDistributionChannel();

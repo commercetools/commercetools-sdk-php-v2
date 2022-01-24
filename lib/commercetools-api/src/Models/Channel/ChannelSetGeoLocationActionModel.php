@@ -61,6 +61,8 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|GeoJson
      */
     public function getGeoLocation()
