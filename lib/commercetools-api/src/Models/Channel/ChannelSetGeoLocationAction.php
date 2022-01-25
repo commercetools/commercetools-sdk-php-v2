@@ -17,6 +17,8 @@ interface ChannelSetGeoLocationAction extends ChannelUpdateAction
     public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|GeoJson
      */
     public function getGeoLocation();

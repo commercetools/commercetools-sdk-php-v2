@@ -36,6 +36,8 @@ use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionReferenceModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Review\ReviewReference;
@@ -95,6 +97,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'payment' => PaymentReferenceModel::class,
        'product' => ProductReferenceModel::class,
        'product-discount' => ProductDiscountReferenceModel::class,
+       'product-selection' => ProductSelectionReferenceModel::class,
        'product-type' => ProductTypeReferenceModel::class,
        'review' => ReviewReferenceModel::class,
        'shipping-method' => ShippingMethodReferenceModel::class,

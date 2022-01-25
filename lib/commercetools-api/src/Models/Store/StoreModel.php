@@ -87,6 +87,11 @@ final class StoreModel extends JsonObjectModel implements Store
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -107,6 +112,7 @@ final class StoreModel extends JsonObjectModel implements Store
         ?array $languages = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
+        ?ProductSelectionSettingCollection $productSelections = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
@@ -120,6 +126,7 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
     }
 
@@ -336,6 +343,27 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Set of References to Product Selections along with settings.
+     * If <code>productSelections</code> is empty all products in the project are available in this Store.
+     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -440,6 +468,14 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
     }
 
     /**

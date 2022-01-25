@@ -143,7 +143,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>The unique ID of the channel.</p>
+     * <p>Unique ID of the Channel.</p>
      *
      * @return null|string
      */
@@ -162,6 +162,8 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
+     * <p>Current version of the Channel.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -179,6 +181,8 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
+     * <p>Date and time (UTC) the Channel was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -200,6 +204,8 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
+     * <p>Date and time (UTC) the Channel was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -221,7 +227,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -241,7 +247,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -261,7 +267,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>
+     * <p>User-defined unique identifier for the Channel.</p>
      *
      * @return null|string
      */
@@ -280,8 +286,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>The roles of this channel.
-     * Each channel must have at least one role.</p>
+     * <p>Roles of the Channel.</p>
      *
      * @return null|array
      */
@@ -300,7 +305,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>A human-readable name of the channel.</p>
+     * <p>Name of the Channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -320,7 +325,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>A human-readable description of the channel.</p>
+     * <p>Description of the Channel.</p>
      *
      * @return null|LocalizedString
      */
@@ -340,8 +345,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>The address where this channel is located (e.g.
-     * if the channel is a physical store).</p>
+     * <p>Address where the Channel is located (for example, if the Channel is a physical store).</p>
      *
      * @return null|Address
      */
@@ -361,7 +365,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Statistics about the review ratings taken into account for this channel.</p>
+     * <p>Statistics about the review ratings taken into account for the Channel.</p>
      *
      * @return null|ReviewRatingStatistics
      */
@@ -381,6 +385,8 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
+     * <p>Custom Fields defined for the Channel.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -399,7 +405,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>
+     * <p>GeoJSON geometry object encoding the geo location of the Channel.</p>
      *
      * @return null|GeoJson
      */

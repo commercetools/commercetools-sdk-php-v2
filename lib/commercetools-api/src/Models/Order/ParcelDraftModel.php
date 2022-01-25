@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -34,6 +36,11 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
      */
     protected $items;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -41,11 +48,13 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     public function __construct(
         ?ParcelMeasurements $measurements = null,
         ?TrackingData $trackingData = null,
-        ?DeliveryItemCollection $items = null
+        ?DeliveryItemCollection $items = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
+        $this->custom = $custom;
     }
 
     /**
@@ -103,6 +112,26 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
         return $this->items;
     }
 
+    /**
+     * <p>Custom Fields of this parcel.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?ParcelMeasurements $measurements
@@ -126,5 +155,13 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

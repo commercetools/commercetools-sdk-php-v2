@@ -1197,7 +1197,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Queries carts in a specific Store. The {storeKey} path parameter maps to a Store's key.
+Queries carts in a specific Store.
 
 ### Example
 ```php
@@ -1212,7 +1212,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-Creates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Creates a cart in the store specified by {storeKey}.
 When using this endpoint the cart's store field is always set to the store specified in the path parameter.
 Creating a cart can fail with an InvalidOperation if the referenced shipping method
 in the CartDraft has a predicate which does not match the cart.
@@ -1231,7 +1231,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
-Returns a cart by its ID from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns a cart by its ID from a specific Store.
 If the cart exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 The cart may not contain up-to-date prices, discounts etc.
@@ -1252,7 +1252,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Updates a cart in the store specified by {storeKey}.
 If the cart exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
@@ -1288,7 +1288,6 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->get()`
 
 Retrieves the active cart of the customer that has been modified most recently in a specific Store.
-The {storeKey} path parameter maps to a Store's key.
 
 If the cart exists in the commercetools project but does not have the store field, or the store field
 references a different store, this method returns a ResourceNotFound error.
@@ -1311,7 +1310,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
-Returns a cart by its key from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns a cart by its key from a specific Store.
 If the cart exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 The cart may not contain up-to-date prices, discounts etc.
@@ -1332,7 +1331,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
-Updates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Updates a cart in the store specified by {storeKey}.
 If the cart exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
@@ -1398,7 +1397,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->post(null)`
 
-Creates a customer in a specific Store. The {storeKey} path parameter maps to a Store's key.
+Creates a customer in a specific Store.
 When using this endpoint, if omitted,
 the customer's stores field is set to the store specified in the path parameter.
 If an anonymous cart is passed in as when using this method,
@@ -1421,7 +1420,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->get()`
 
-Returns a customer by its ID from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns a customer by its ID from a specific Store.
 It also considers customers that do not have the stores field.
 If the customer exists in the commercetools project but the stores field references different stores,
 this method returns a ResourceNotFound error.
@@ -1441,7 +1440,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
-Updates a customer in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Updates a customer in the store specified by {storeKey}.
 If the customer exists in the commercetools project but the stores field references a different store,
 this method returns a ResourceNotFound error.
 
@@ -1524,7 +1523,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->get()`
 
-Returns a customer by its Key from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns a customer by its Key from a specific Store.
 It also considers customers that do not have the stores field.
 If the customer exists in the commercetools project but the stores field references different stores,
 this method returns a ResourceNotFound error.
@@ -1941,7 +1940,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->get()`
 
-Queries orders in a specific Store. The {storeKey} path parameter maps to a Store's key.
+Queries orders in a specific Store.
 
 ### Example
 ```php
@@ -1956,7 +1955,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
-Creates an order from a Cart from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Creates an order from a Cart from a specific Store.
 When using this endpoint the orders's store field is always set to the store specified in the path parameter.
 The cart must have a shipping address set before creating an order. When using the Platform TaxMode,
 the shipping address is used for tax calculation.
@@ -1975,7 +1974,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->get()`
 
-Returns an order by its ID from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns an order by its ID from a specific Store.
 If the order exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
@@ -1994,7 +1993,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
-Updates an order in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Updates an order in the store specified by {storeKey}.
 If the order exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
@@ -2030,7 +2029,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->get()`
 
 Returns an order by its order number from a specific Store.
-The {storeKey} path parameter maps to a Store's key.
+
 If the order exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
@@ -2051,7 +2050,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Updates an order in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Updates an order in the store specified by {storeKey}.
 If the order exists in the commercetools project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
@@ -2085,6 +2084,71 @@ $request = $builder
                 ->orders()
                 ->withOrderNumber("orderNumber")
                 ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->get()`
+
+You can use the product projections query endpoint to get the current or staged representations of Products.
+When used with an API client that has the view_published_products:{projectKey} scope,
+this endpoint only returns published (current) product projections.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
+
+Gets the current or staged representation of a product by its ID from a specific Store.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
+
+Gets the current or staged representation of a product by its ID from a specific Store.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
+
+Queries Product Selection assignments in a specific Store.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productSelectionAssignments()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
@@ -3568,6 +3632,156 @@ $request = $builder
                 ->suggest()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productSelections()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->delete()`
+
+Deletion will only succeed if the Product Selection is not assigned to any [Store](/../api/projects/stores#store).
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->products()->get()`
+
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->products()
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->delete()`
+
+Deletion will only succeed if the Product Selection is not assigned to any [Store](/../api/projects/stores#store).
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->products()->get()`
+
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->products()
+                ->get();
+```
 ## `withProjectKey("projectKey")->productTypes()->get()`
 
 null
@@ -3811,6 +4025,22 @@ $request = $builder
                 ->images()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->products()->withId("ID")->productSelections()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->withId("ID")
+                ->productSelections()
+                ->get();
+```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
 Gets the full representation of a product by Key.
@@ -3870,6 +4100,22 @@ $request = $builder
                 ->products()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->products()->withKey("key")->productSelections()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->withKey("key")
+                ->productSelections()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->reviews()->get()`
 

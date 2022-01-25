@@ -23,12 +23,25 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
+    private $transactionId;
+
+    /**
+     * @var ?string
+     */
     private $name;
 
     /**
      * @var null|mixed|mixed
      */
     private $value;
+
+    /**
+     * @return null|string
+     */
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
 
     /**
      * @return null|string
@@ -44,6 +57,17 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @param ?string $transactionId
+     * @return $this
+     */
+    public function withTransactionId(?string $transactionId)
+    {
+        $this->transactionId = $transactionId;
+
+        return $this;
     }
 
     /**
@@ -72,6 +96,7 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
     public function build(): PaymentSetTransactionCustomFieldAction
     {
         return new PaymentSetTransactionCustomFieldActionModel(
+            $this->transactionId,
             $this->name,
             $this->value
         );

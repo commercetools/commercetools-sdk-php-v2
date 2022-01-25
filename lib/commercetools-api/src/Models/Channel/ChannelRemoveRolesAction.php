@@ -16,6 +16,8 @@ interface ChannelRemoveRolesAction extends ChannelUpdateAction
     public const FIELD_ROLES = 'roles';
 
     /**
+     * <p>Value to remove from the array.</p>
+     *
      * @return null|array
      */
     public function getRoles();

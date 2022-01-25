@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface MyCartSetLineItemSupplyChannelAction extends MyCartUpdateAction
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
-    public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
+    public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
      * @return null|string
@@ -23,9 +23,11 @@ interface MyCartSetLineItemSupplyChannelAction extends MyCartUpdateAction
     public function getLineItemId();
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
-    public function getDistributionChannel();
+    public function getSupplyChannel();
 
     /**
      * @param ?string $lineItemId
@@ -33,7 +35,7 @@ interface MyCartSetLineItemSupplyChannelAction extends MyCartUpdateAction
     public function setLineItemId(?string $lineItemId): void;
 
     /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
 }

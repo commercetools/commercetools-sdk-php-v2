@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -101,6 +102,11 @@ final class StoreCreatedMessageBuilder implements Builder
      * @var ?ChannelReferenceCollection
      */
     private $supplyChannels;
+
+    /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    private $productSelections;
 
     /**
      * @var null|CustomFields|CustomFieldsBuilder
@@ -221,6 +227,14 @@ final class StoreCreatedMessageBuilder implements Builder
     public function getSupplyChannels()
     {
         return $this->supplyChannels;
+    }
+
+    /**
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        return $this->productSelections;
     }
 
     /**
@@ -386,6 +400,17 @@ final class StoreCreatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     * @return $this
+     */
+    public function withProductSelections(?ProductSelectionSettingCollection $productSelections)
+    {
+        $this->productSelections = $productSelections;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -479,6 +504,7 @@ final class StoreCreatedMessageBuilder implements Builder
             $this->languages,
             $this->distributionChannels,
             $this->supplyChannels,
+            $this->productSelections,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -20,6 +21,7 @@ interface StoreCreatedMessagePayload extends MessagePayload
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -41,6 +43,11 @@ interface StoreCreatedMessagePayload extends MessagePayload
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels();
+
+    /**
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections();
 
     /**
      * @return null|CustomFields
@@ -66,6 +73,11 @@ interface StoreCreatedMessagePayload extends MessagePayload
      * @param ?ChannelReferenceCollection $supplyChannels
      */
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void;
+
+    /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void;
 
     /**
      * @param ?CustomFields $custom

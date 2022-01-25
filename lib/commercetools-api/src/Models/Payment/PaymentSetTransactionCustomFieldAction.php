@@ -13,8 +13,14 @@ use Commercetools\Base\JsonObject;
 
 interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
 {
+    public const FIELD_TRANSACTION_ID = 'transactionId';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
+
+    /**
+     * @return null|string
+     */
+    public function getTransactionId();
 
     /**
      * @return null|string
@@ -25,6 +31,11 @@ interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
      * @return null|mixed
      */
     public function getValue();
+
+    /**
+     * @param ?string $transactionId
+     */
+    public function setTransactionId(?string $transactionId): void;
 
     /**
      * @param ?string $name

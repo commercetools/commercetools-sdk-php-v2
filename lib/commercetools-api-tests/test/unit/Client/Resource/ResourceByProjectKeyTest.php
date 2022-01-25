@@ -30,6 +30,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyPayments;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductDiscounts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjections;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProducts;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductSelections;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTypes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyReviews;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethods;
@@ -324,6 +325,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyProductProjections::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-projections'
+            ],
+            'ResourceByProjectKeyProductSelections' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyProductSelections {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->productSelections();
+                },
+                ResourceByProjectKeyProductSelections::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/product-selections'
             ],
             'ResourceByProjectKeyProductTypes' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyProductTypes {

@@ -26,6 +26,8 @@ final class ChannelAddRolesActionBuilder implements Builder
     private $roles;
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|array
      */
     public function getRoles()

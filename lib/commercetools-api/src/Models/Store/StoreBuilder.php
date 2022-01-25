@@ -88,6 +88,11 @@ final class StoreBuilder implements Builder
     private $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    private $productSelections;
+
+    /**
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -192,6 +197,18 @@ final class StoreBuilder implements Builder
     public function getSupplyChannels()
     {
         return $this->supplyChannels;
+    }
+
+    /**
+     * <p>Set of References to Product Selections along with settings.
+     * If <code>productSelections</code> is empty all products in the project are available in this Store.
+     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        return $this->productSelections;
     }
 
     /**
@@ -324,6 +341,17 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     * @return $this
+     */
+    public function withProductSelections(?ProductSelectionSettingCollection $productSelections)
+    {
+        $this->productSelections = $productSelections;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -392,6 +420,7 @@ final class StoreBuilder implements Builder
             $this->languages,
             $this->distributionChannels,
             $this->supplyChannels,
+            $this->productSelections,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

@@ -27,6 +27,7 @@ interface Store extends BaseResource
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -99,6 +100,15 @@ interface Store extends BaseResource
     public function getSupplyChannels();
 
     /**
+     * <p>Set of References to Product Selections along with settings.
+     * If <code>productSelections</code> is empty all products in the project are available in this Store.
+     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections();
+
+    /**
      * @return null|CustomFields
      */
     public function getCustom();
@@ -157,6 +167,11 @@ interface Store extends BaseResource
      * @param ?ChannelReferenceCollection $supplyChannels
      */
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void;
+
+    /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void;
 
     /**
      * @param ?CustomFields $custom

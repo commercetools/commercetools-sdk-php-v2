@@ -15,8 +15,14 @@ use Commercetools\Base\JsonObject;
 
 interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
 {
+    public const FIELD_TRANSACTION_ID = 'transactionId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
+
+    /**
+     * @return null|string
+     */
+    public function getTransactionId();
 
     /**
      * <p>If set, the custom type is set to this new value.
@@ -32,6 +38,11 @@ interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
      * @return null|FieldContainer
      */
     public function getFields();
+
+    /**
+     * @param ?string $transactionId
+     */
+    public function setTransactionId(?string $transactionId): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

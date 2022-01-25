@@ -51,6 +51,11 @@ final class StoreDraftBuilder implements Builder
     private $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingDraftCollection
+     */
+    private $productSelections;
+
+    /**
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -103,6 +108,18 @@ final class StoreDraftBuilder implements Builder
     public function getSupplyChannels()
     {
         return $this->supplyChannels;
+    }
+
+    /**
+     * <p>Set of ResourceIdentifiers of Product Selections along with settings.
+     * If <code>productSelections</code> is empty all products in the project are available in this Store.
+     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     *
+     * @return null|ProductSelectionSettingDraftCollection
+     */
+    public function getProductSelections()
+    {
+        return $this->productSelections;
     }
 
     /**
@@ -169,6 +186,17 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?ProductSelectionSettingDraftCollection $productSelections
+     * @return $this
+     */
+    public function withProductSelections(?ProductSelectionSettingDraftCollection $productSelections)
+    {
+        $this->productSelections = $productSelections;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFieldsDraft $custom
      * @return $this
      */
@@ -209,6 +237,7 @@ final class StoreDraftBuilder implements Builder
             $this->languages,
             $this->distributionChannels,
             $this->supplyChannels,
+            $this->productSelections,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }

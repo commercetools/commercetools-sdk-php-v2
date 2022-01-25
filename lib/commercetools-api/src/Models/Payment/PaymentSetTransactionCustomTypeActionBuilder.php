@@ -25,6 +25,11 @@ use stdClass;
 final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $transactionId;
+
+    /**
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -33,6 +38,14 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
+
+    /**
+     * @return null|string
+     */
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
 
     /**
      * <p>If set, the custom type is set to this new value.
@@ -53,6 +66,17 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     public function getFields()
     {
         return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
+    }
+
+    /**
+     * @param ?string $transactionId
+     * @return $this
+     */
+    public function withTransactionId(?string $transactionId)
+    {
+        $this->transactionId = $transactionId;
+
+        return $this;
     }
 
     /**
@@ -102,6 +126,7 @@ final class PaymentSetTransactionCustomTypeActionBuilder implements Builder
     public function build(): PaymentSetTransactionCustomTypeAction
     {
         return new PaymentSetTransactionCustomTypeActionModel(
+            $this->transactionId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

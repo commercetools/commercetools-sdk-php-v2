@@ -22,6 +22,7 @@ use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\Payment\PaymentReference;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -52,6 +54,11 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     protected $paymentState;
 
     /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -79,6 +86,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         ?string $comment = null,
         ?string $shipmentState = null,
         ?string $paymentState = null,
+        ?CustomFields $custom = null,
         ?DateTimeImmutable $lastModifiedAt = null,
         ?DateTimeImmutable $createdAt = null
     ) {
@@ -87,6 +95,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         $this->comment = $comment;
         $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
+        $this->custom = $custom;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->createdAt = $createdAt;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -195,6 +204,26 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -275,6 +304,14 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
     /**

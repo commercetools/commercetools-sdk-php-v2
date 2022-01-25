@@ -28,6 +28,11 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     /**
      * @var ?string
      */
+    protected $transactionId;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -40,9 +45,11 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $transactionId = null,
         ?string $name = null,
         $value = null
     ) {
+        $this->transactionId = $transactionId;
         $this->name = $name;
         $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -63,6 +70,23 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTransactionId()
+    {
+        if (is_null($this->transactionId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TRANSACTION_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->transactionId = (string) $data;
+        }
+
+        return $this->transactionId;
     }
 
     /**
@@ -99,6 +123,14 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
         return $this->value;
     }
 
+
+    /**
+     * @param ?string $transactionId
+     */
+    public function setTransactionId(?string $transactionId): void
+    {
+        $this->transactionId = $transactionId;
+    }
 
     /**
      * @param ?string $name

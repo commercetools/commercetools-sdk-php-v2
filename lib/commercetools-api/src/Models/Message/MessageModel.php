@@ -159,6 +159,10 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductPublished' => ProductPublishedMessageModel::class,
        'ProductRemovedFromCategory' => ProductRemovedFromCategoryMessageModel::class,
        'ProductRevertedStagedChanges' => ProductRevertedStagedChangesMessageModel::class,
+       'ProductSelectionCreated' => ProductSelectionCreatedMessageModel::class,
+       'ProductSelectionDeleted' => ProductSelectionDeletedMessageModel::class,
+       'ProductSelectionProductAdded' => ProductSelectionProductAddedMessageModel::class,
+       'ProductSelectionProductRemoved' => ProductSelectionProductRemovedMessageModel::class,
        'ProductSlugChanged' => ProductSlugChangedMessageModel::class,
        'ProductStateTransition' => ProductStateTransitionMessageModel::class,
        'ProductUnpublished' => ProductUnpublishedMessageModel::class,
@@ -171,6 +175,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'ReviewStateTransition' => ReviewStateTransitionMessageModel::class,
        'StoreCreated' => StoreCreatedMessageModel::class,
        'StoreDeleted' => StoreDeletedMessageModel::class,
+       'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
     ];
 
     /**

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -44,6 +46,11 @@ final class ReturnItemDraftBuilder implements Builder
      * @var ?string
      */
     private $shipmentState;
+
+    /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * @return null|int
@@ -83,6 +90,16 @@ final class ReturnItemDraftBuilder implements Builder
     public function getShipmentState()
     {
         return $this->shipmentState;
+    }
+
+    /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -140,6 +157,27 @@ final class ReturnItemDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
 
     public function build(): ReturnItemDraft
     {
@@ -148,7 +186,8 @@ final class ReturnItemDraftBuilder implements Builder
             $this->lineItemId,
             $this->customLineItemId,
             $this->comment,
-            $this->shipmentState
+            $this->shipmentState,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

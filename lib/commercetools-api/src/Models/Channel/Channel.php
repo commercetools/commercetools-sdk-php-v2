@@ -34,92 +34,98 @@ interface Channel extends BaseResource
     public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
-     * <p>The unique ID of the channel.</p>
+     * <p>Unique ID of the Channel.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Current version of the Channel.</p>
+     *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the Channel was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Channel was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>
+     * <p>User-defined unique identifier for the Channel.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The roles of this channel.
-     * Each channel must have at least one role.</p>
+     * <p>Roles of the Channel.</p>
      *
      * @return null|array
      */
     public function getRoles();
 
     /**
-     * <p>A human-readable name of the channel.</p>
+     * <p>Name of the Channel.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>A human-readable description of the channel.</p>
+     * <p>Description of the Channel.</p>
      *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>The address where this channel is located (e.g.
-     * if the channel is a physical store).</p>
+     * <p>Address where the Channel is located (for example, if the Channel is a physical store).</p>
      *
      * @return null|Address
      */
     public function getAddress();
 
     /**
-     * <p>Statistics about the review ratings taken into account for this channel.</p>
+     * <p>Statistics about the review ratings taken into account for the Channel.</p>
      *
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
 
     /**
+     * <p>Custom Fields defined for the Channel.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
-     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>
+     * <p>GeoJSON geometry object encoding the geo location of the Channel.</p>
      *
      * @return null|GeoJson
      */

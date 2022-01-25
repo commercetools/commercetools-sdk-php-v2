@@ -35,7 +35,7 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
     /**
      * @var ?ChannelResourceIdentifier
      */
-    protected $distributionChannel;
+    protected $supplyChannel;
 
 
     /**
@@ -43,10 +43,10 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?ChannelResourceIdentifier $distributionChannel = null
+        ?ChannelResourceIdentifier $supplyChannel = null
     ) {
         $this->lineItemId = $lineItemId;
-        $this->distributionChannel = $distributionChannel;
+        $this->supplyChannel = $supplyChannel;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -85,21 +85,23 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
-    public function getDistributionChannel()
+    public function getSupplyChannel()
     {
-        if (is_null($this->distributionChannel)) {
+        if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(self::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
         }
 
-        return $this->distributionChannel;
+        return $this->supplyChannel;
     }
 
 
@@ -112,10 +114,10 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
     }
 
     /**
-     * @param ?ChannelResourceIdentifier $distributionChannel
+     * @param ?ChannelResourceIdentifier $supplyChannel
      */
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
-        $this->distributionChannel = $distributionChannel;
+        $this->supplyChannel = $supplyChannel;
     }
 }
