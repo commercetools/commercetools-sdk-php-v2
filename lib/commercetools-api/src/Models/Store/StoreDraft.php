@@ -21,6 +21,7 @@ interface StoreDraft extends JsonObject
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
 
     /**
@@ -59,6 +60,15 @@ interface StoreDraft extends JsonObject
     public function getSupplyChannels();
 
     /**
+     * <p>Set of ResourceIdentifiers of Product Selections along with settings.
+     * If <code>productSelections</code> is empty all products in the project are available in this Store.
+     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     *
+     * @return null|ProductSelectionSettingDraftCollection
+     */
+    public function getProductSelections();
+
+    /**
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -87,6 +97,11 @@ interface StoreDraft extends JsonObject
      * @param ?ChannelResourceIdentifierCollection $supplyChannels
      */
     public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
+
+    /**
+     * @param ?ProductSelectionSettingDraftCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingDraftCollection $productSelections): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

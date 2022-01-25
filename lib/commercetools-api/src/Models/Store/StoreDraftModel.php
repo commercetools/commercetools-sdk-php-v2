@@ -50,6 +50,11 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingDraftCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -64,6 +69,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?array $languages = null,
         ?ChannelResourceIdentifierCollection $distributionChannels = null,
         ?ChannelResourceIdentifierCollection $supplyChannels = null,
+        ?ProductSelectionSettingDraftCollection $productSelections = null,
         ?CustomFieldsDraft $custom = null
     ) {
         $this->key = $key;
@@ -71,6 +77,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
     }
 
@@ -171,6 +178,27 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
+     * <p>Set of ResourceIdentifiers of Product Selections along with settings.
+     * If <code>productSelections</code> is empty all products in the project are available in this Store.
+     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     *
+     * @return null|ProductSelectionSettingDraftCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingDraftCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -227,6 +255,14 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingDraftCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingDraftCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
     }
 
     /**

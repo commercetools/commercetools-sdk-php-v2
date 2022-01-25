@@ -36,6 +36,8 @@ use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionReferenceBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
 use Commercetools\Api\Models\Review\ReviewReference;

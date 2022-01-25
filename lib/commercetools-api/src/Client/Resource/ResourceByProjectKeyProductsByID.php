@@ -34,6 +34,14 @@ class ResourceByProjectKeyProductsByID extends ApiResource
 
         return new ResourceByProjectKeyProductsByIDImages($args, $this->getClient());
     }
+    /**
+     */
+    public function productSelections(): ResourceByProjectKeyProductsByIDProductSelections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductsByIDProductSelections($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

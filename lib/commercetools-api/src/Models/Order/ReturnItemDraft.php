@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -49,7 +49,7 @@ interface ReturnItemDraft extends JsonObject
     /**
      * <p>Custom Fields of this return item.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -79,7 +79,7 @@ interface ReturnItemDraft extends JsonObject
     public function setShipmentState(?string $shipmentState): void;
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

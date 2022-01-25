@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -47,7 +47,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     protected $shipmentState;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -61,7 +61,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         ?string $customLineItemId = null,
         ?string $comment = null,
         ?string $shipmentState = null,
-        ?CustomFields $custom = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
@@ -159,7 +159,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     /**
      * <p>Custom Fields of this return item.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -170,7 +170,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -218,9 +218,9 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }

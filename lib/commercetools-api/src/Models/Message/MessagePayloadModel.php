@@ -100,6 +100,10 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'ProductPublished' => ProductPublishedMessagePayloadModel::class,
        'ProductRemovedFromCategory' => ProductRemovedFromCategoryMessagePayloadModel::class,
        'ProductRevertedStagedChanges' => ProductRevertedStagedChangesMessagePayloadModel::class,
+       'ProductSelectionCreated' => ProductSelectionCreatedMessagePayloadModel::class,
+       'ProductSelectionDeleted' => ProductSelectionDeletedMessagePayloadModel::class,
+       'ProductSelectionProductAdded' => ProductSelectionProductAddedMessagePayloadModel::class,
+       'ProductSelectionProductRemoved' => ProductSelectionProductRemovedMessagePayloadModel::class,
        'ProductSlugChanged' => ProductSlugChangedMessagePayloadModel::class,
        'ProductStateTransition' => ProductStateTransitionMessagePayloadModel::class,
        'ProductUnpublished' => ProductUnpublishedMessagePayloadModel::class,
@@ -113,6 +117,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'ShoppingListStoreSet' => ShoppingListStoreSetMessagePayloadModel::class,
        'StoreCreated' => StoreCreatedMessagePayloadModel::class,
        'StoreDeleted' => StoreDeletedMessagePayloadModel::class,
+       'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessagePayloadModel::class,
     ];
 
     /**

@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -108,6 +109,11 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -131,6 +137,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
         ?array $languages = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
+        ?ProductSelectionSettingCollection $productSelections = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
@@ -147,6 +154,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -424,6 +432,23 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -552,6 +577,14 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
     }
 
     /**

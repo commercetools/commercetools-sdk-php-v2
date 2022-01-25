@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsKeyByKeyProductSelections;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -45,7 +46,16 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
         }
     }
 
-
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
+    {
+        $builder = new ApiRequestBuilder();
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
+    }
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -407,6 +417,18 @@ class ResourceByProjectKeyProductsKeyByKeyTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyProductsKeyByKeyProductSelections' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyProductsKeyByKeyProductSelections {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->products()
+                        ->withKey("test_key")
+                        ->productSelections();
+                },
+                ResourceByProjectKeyProductsKeyByKeyProductSelections::class,
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
+                '/{projectKey}/products/key={key}/product-selections'
+            ]
         ];
     }
 

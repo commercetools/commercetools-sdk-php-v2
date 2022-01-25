@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsByIDImages;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductsByIDProductSelections;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -428,6 +429,18 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                 ResourceByProjectKeyProductsByIDImages::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/products/{ID}/images'
+            ],
+            'ResourceByProjectKeyProductsByIDProductSelections' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyProductsByIDProductSelections {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->products()
+                        ->withId("test_ID")
+                        ->productSelections();
+                },
+                ResourceByProjectKeyProductsByIDProductSelections::class,
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
+                '/{projectKey}/products/{ID}/product-selections'
             ]
         ];
     }

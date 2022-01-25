@@ -34,6 +34,8 @@ use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Api\Models\Product\ProductResourceIdentifierModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifier;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifierModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
@@ -97,6 +99,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'payment' => PaymentResourceIdentifierModel::class,
        'product' => ProductResourceIdentifierModel::class,
        'product-discount' => ProductDiscountResourceIdentifierModel::class,
+       'product-selection' => ProductSelectionResourceIdentifierModel::class,
        'product-type' => ProductTypeResourceIdentifierModel::class,
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,

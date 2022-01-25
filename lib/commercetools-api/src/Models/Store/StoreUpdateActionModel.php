@@ -31,14 +31,18 @@ final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdat
      */
     private static $discriminatorClasses = [
        'addDistributionChannel' => StoreAddDistributionChannelActionModel::class,
+       'addProductSelection' => StoreAddProductSelectionActionModel::class,
        'addSupplyChannel' => StoreAddSupplyChannelActionModel::class,
+       'changeProductSelectionActive' => StoreChangeProductSelectionActionModel::class,
        'removeDistributionChannel' => StoreRemoveDistributionChannelActionModel::class,
+       'removeProductSelection' => StoreRemoveProductSelectionActionModel::class,
        'removeSupplyChannel' => StoreRemoveSupplyChannelActionModel::class,
        'setCustomField' => StoreSetCustomFieldActionModel::class,
        'setCustomType' => StoreSetCustomTypeActionModel::class,
        'setDistributionChannels' => StoreSetDistributionChannelsActionModel::class,
        'setLanguages' => StoreSetLanguagesActionModel::class,
        'setName' => StoreSetNameActionModel::class,
+       'setProductSelections' => StoreSetProductSelectionsActionModel::class,
        'setSupplyChannels' => StoreSetSupplyChannelsActionModel::class,
     ];
 
