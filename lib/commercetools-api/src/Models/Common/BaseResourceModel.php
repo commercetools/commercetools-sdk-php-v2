@@ -112,6 +112,8 @@ use Commercetools\Api\Models\Message\OrderLineItemDistributionChannelSetMessage;
 use Commercetools\Api\Models\Message\OrderLineItemDistributionChannelSetMessageModel;
 use Commercetools\Api\Models\Message\OrderLineItemRemovedMessage;
 use Commercetools\Api\Models\Message\OrderLineItemRemovedMessageModel;
+use Commercetools\Api\Models\Message\OrderPaymentAddedMessage;
+use Commercetools\Api\Models\Message\OrderPaymentAddedMessageModel;
 use Commercetools\Api\Models\Message\OrderPaymentStateChangedMessage;
 use Commercetools\Api\Models\Message\OrderPaymentStateChangedMessageModel;
 use Commercetools\Api\Models\Message\OrderReturnInfoAddedMessage;
