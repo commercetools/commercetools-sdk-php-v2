@@ -59,6 +59,8 @@ final class StateAddRolesActionModel extends JsonObjectModel implements StateAdd
     }
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|array
      */
     public function getRoles()

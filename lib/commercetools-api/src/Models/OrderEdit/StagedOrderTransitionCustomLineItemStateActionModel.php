@@ -126,6 +126,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getFromState()
@@ -144,6 +146,8 @@ final class StagedOrderTransitionCustomLineItemStateActionModel extends JsonObje
     }
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getToState()

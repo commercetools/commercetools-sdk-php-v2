@@ -59,6 +59,9 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      * @return null|array
      */
     public function getRoles()

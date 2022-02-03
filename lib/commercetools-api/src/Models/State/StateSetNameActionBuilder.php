@@ -28,6 +28,9 @@ final class StateSetNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()

@@ -26,6 +26,8 @@ final class StateChangeInitialActionBuilder implements Builder
     private $initial;
 
     /**
+     * <p>Set to <code>true</code> for defining the State as initial State in a state machine and making it the first step in a workflow.</p>
+     *
      * @return null|bool
      */
     public function getInitial()

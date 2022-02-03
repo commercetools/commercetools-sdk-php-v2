@@ -73,6 +73,8 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getFromState()
@@ -81,6 +83,8 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getToState()

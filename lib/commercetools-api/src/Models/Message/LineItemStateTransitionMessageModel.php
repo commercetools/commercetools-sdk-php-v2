@@ -407,6 +407,8 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getFromState()
@@ -425,6 +427,8 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getToState()
