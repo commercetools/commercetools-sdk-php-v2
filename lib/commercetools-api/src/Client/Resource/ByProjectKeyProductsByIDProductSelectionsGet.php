@@ -10,8 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\ProductSelection\ProductSelectionPagedQueryResponse;
-use Commercetools\Api\Models\ProductSelection\ProductSelectionPagedQueryResponseModel;
+use Commercetools\Api\Models\ProductSelection\AssignedProductSelectionPagedQueryResponse;
+use Commercetools\Api\Models\ProductSelection\AssignedProductSelectionPagedQueryResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -51,7 +51,7 @@ class ByProjectKeyProductsByIDProductSelectionsGet extends ApiRequest implements
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|ProductSelectionPagedQueryResponse|T|null
+     * @return AssignedProductSelectionPagedQueryResponse|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -61,7 +61,7 @@ class ByProjectKeyProductsByIDProductSelectionsGet extends ApiRequest implements
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = ProductSelectionPagedQueryResponseModel::class;
+                    $resultType = AssignedProductSelectionPagedQueryResponseModel::class;
 
                     break;
                 case '400':
@@ -102,7 +102,7 @@ class ByProjectKeyProductsByIDProductSelectionsGet extends ApiRequest implements
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductSelectionPagedQueryResponse
+     * @return null|AssignedProductSelectionPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
