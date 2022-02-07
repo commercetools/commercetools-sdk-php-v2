@@ -100,6 +100,8 @@ final class StateBuilder implements Builder
     private $transitions;
 
     /**
+     * <p>Unique ID of the State.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -108,6 +110,8 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the State.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -116,6 +120,8 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the State was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -124,6 +130,8 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the State was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -132,7 +140,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -142,7 +150,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -152,7 +160,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A unique identifier for the state.</p>
+     * <p>User-defined unique identifier for the State.</p>
      *
      * @return null|string
      */
@@ -162,6 +170,8 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * <p>Indicates to which resource or object types the State is assigned to.</p>
+     *
      * @return null|string
      */
     public function getType()
@@ -170,7 +180,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable name of the state.</p>
+     * <p>Name of the State.</p>
      *
      * @return null|LocalizedString
      */
@@ -180,7 +190,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable description of the state.</p>
+     * <p>Description of the State.</p>
      *
      * @return null|LocalizedString
      */
@@ -190,8 +200,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>A state can be declared as an initial state for any state machine.
-     * When a workflow starts, this first state must be an <code>initial</code> state.</p>
+     * <p><code>true</code> for an initial State, the first State in a workflow.</p>
      *
      * @return null|bool
      */
@@ -201,7 +210,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>
+     * <p><code>true</code> for States that are an integral part of the <a href="ctp:api:type:Project">Project</a>. Those States cannot be deleted and their <code>key</code> cannot be changed.</p>
      *
      * @return null|bool
      */
@@ -211,6 +220,8 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * <p>Roles the State can fulfill for <a href="ctp:api:type:Review">Reviews</a> and <a href="ctp:api:type:LineItem">Line Items</a>.</p>
+     *
      * @return null|array
      */
     public function getRoles()
@@ -219,11 +230,11 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>Transitions are a way to describe possible transformations of the current state to other states of the same <code>type</code> (e.g.: <em>Initial</em> -&gt; <em>Shipped</em>).
-     * When performing a <code>transitionState</code> update action and <code>transitions</code> is set, the currently referenced state must have a transition to the new state.
-     * If <code>transitions</code> is an empty list, it means the current state is a final state and no further transitions are allowed.
-     * If <code>transitions</code> is not set, the validation is turned off.
-     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>
+     * <ul>
+     * <li>list of States of the same <code>type</code> that the current State can be transitioned to. For example, when the current State is the <em>Initial</em> State of <a href="ctp:api:type:StateTypeEnum">StateType</a> <code>OrderState</code> and this list contains the reference to the <em>Shipped</em> <code>OrderState</code>, the transition <em>Initial</em> -&gt; <em>Shipped</em> is allowed.</li>
+     * <li>if empty, no transitions are allowed from the current State, defining the current State as final for this workflow.</li>
+     * <li>if not set, the validation is turned off and the current State can be transitioned to any other State of the same <code>type</code> as the current State.</li>
+     * </ul>
      *
      * @return null|StateReferenceCollection
      */

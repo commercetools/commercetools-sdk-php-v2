@@ -59,6 +59,8 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
     }
 
     /**
+     * <p>Roles to remove from the State.</p>
+     *
      * @return null|array
      */
     public function getRoles()

@@ -26,6 +26,8 @@ final class StateRemoveRolesActionBuilder implements Builder
     private $roles;
 
     /**
+     * <p>Roles to remove from the State.</p>
+     *
      * @return null|array
      */
     public function getRoles()

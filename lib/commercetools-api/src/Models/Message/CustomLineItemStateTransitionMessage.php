@@ -37,11 +37,15 @@ interface CustomLineItemStateTransitionMessage extends Message
     public function getQuantity();
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getFromState();
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getToState();

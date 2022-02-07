@@ -17,6 +17,9 @@ interface StateSetNameAction extends StateUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();

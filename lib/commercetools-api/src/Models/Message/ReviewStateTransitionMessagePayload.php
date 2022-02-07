@@ -23,11 +23,15 @@ interface ReviewStateTransitionMessagePayload extends MessagePayload
     public const FIELD_FORCE = 'force';
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getOldState();
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getNewState();

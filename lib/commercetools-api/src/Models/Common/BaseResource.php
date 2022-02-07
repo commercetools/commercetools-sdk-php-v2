@@ -60,6 +60,7 @@ use Commercetools\Api\Models\Message\OrderLineItemAddedMessage;
 use Commercetools\Api\Models\Message\OrderLineItemDiscountSetMessage;
 use Commercetools\Api\Models\Message\OrderLineItemDistributionChannelSetMessage;
 use Commercetools\Api\Models\Message\OrderLineItemRemovedMessage;
+use Commercetools\Api\Models\Message\OrderPaymentAddedMessage;
 use Commercetools\Api\Models\Message\OrderPaymentStateChangedMessage;
 use Commercetools\Api\Models\Message\OrderReturnInfoAddedMessage;
 use Commercetools\Api\Models\Message\OrderReturnInfoSetMessage;

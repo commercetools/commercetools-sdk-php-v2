@@ -16,6 +16,8 @@ interface StateRemoveRolesAction extends StateUpdateAction
     public const FIELD_ROLES = 'roles';
 
     /**
+     * <p>Roles to remove from the State.</p>
+     *
      * @return null|array
      */
     public function getRoles();
