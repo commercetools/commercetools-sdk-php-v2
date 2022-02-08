@@ -55,6 +55,7 @@ interface Cart extends BaseResource
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_TOTAL_LINE_ITEM_QUANTITY = 'totalLineItemQuantity';
 
     /**
      * <p>The unique ID of the cart.</p>
@@ -275,6 +276,13 @@ interface Cart extends BaseResource
     public function getItemShippingAddresses();
 
     /**
+     * <p>The sum off all the <a href="ctp:api:type:LineItem">Line Items</a> quantities. Does not take <a href="ctp:api:type:CustomLineItem">Custom Line Items</a> into consideration.</p>
+     *
+     * @return null|int
+     */
+    public function getTotalLineItemQuantity();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -443,4 +451,9 @@ interface Cart extends BaseResource
      * @param ?AddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?int $totalLineItemQuantity
+     */
+    public function setTotalLineItemQuantity(?int $totalLineItemQuantity): void;
 }

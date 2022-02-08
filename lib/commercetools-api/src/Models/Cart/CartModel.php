@@ -210,6 +210,11 @@ final class CartModel extends JsonObjectModel implements Cart
      */
     protected $itemShippingAddresses;
 
+    /**
+     * @var ?int
+     */
+    protected $totalLineItemQuantity;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -248,7 +253,8 @@ final class CartModel extends JsonObjectModel implements Cart
         ?CartDiscountReferenceCollection $refusedGifts = null,
         ?string $origin = null,
         ?ShippingRateInput $shippingRateInput = null,
-        ?AddressCollection $itemShippingAddresses = null
+        ?AddressCollection $itemShippingAddresses = null,
+        ?int $totalLineItemQuantity = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -284,6 +290,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->origin = $origin;
         $this->shippingRateInput = $shippingRateInput;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->totalLineItemQuantity = $totalLineItemQuantity;
     }
 
     /**
@@ -932,6 +939,25 @@ final class CartModel extends JsonObjectModel implements Cart
         return $this->itemShippingAddresses;
     }
 
+    /**
+     * <p>The sum off all the <a href="ctp:api:type:LineItem">Line Items</a> quantities. Does not take <a href="ctp:api:type:CustomLineItem">Custom Line Items</a> into consideration.</p>
+     *
+     * @return null|int
+     */
+    public function getTotalLineItemQuantity()
+    {
+        if (is_null($this->totalLineItemQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_TOTAL_LINE_ITEM_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->totalLineItemQuantity = (int) $data;
+        }
+
+        return $this->totalLineItemQuantity;
+    }
+
 
     /**
      * @param ?string $id
@@ -1203,6 +1229,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?int $totalLineItemQuantity
+     */
+    public function setTotalLineItemQuantity(?int $totalLineItemQuantity): void
+    {
+        $this->totalLineItemQuantity = $totalLineItemQuantity;
     }
 
 
