@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfiguration;
+use Commercetools\Api\Models\Message\MessagesConfiguration;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -83,7 +83,7 @@ interface Project extends JsonObject
     public function getTrialUntil();
 
     /**
-     * @return null|MessageConfiguration
+     * @return null|MessagesConfiguration
      */
     public function getMessages();
 
@@ -153,9 +153,9 @@ interface Project extends JsonObject
     public function setTrialUntil(?string $trialUntil): void;
 
     /**
-     * @param ?MessageConfiguration $messages
+     * @param ?MessagesConfiguration $messages
      */
-    public function setMessages(?MessageConfiguration $messages): void;
+    public function setMessages(?MessagesConfiguration $messages): void;
 
     /**
      * @param ?ShippingRateInputType $shippingRateInputType

@@ -13,7 +13,7 @@ use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderCustomLineItemDiscountSetMessagePayload extends MessagePayload
+interface OrderCustomLineItemDiscountSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';

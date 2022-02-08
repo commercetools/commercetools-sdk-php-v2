@@ -177,6 +177,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'StoreCreated' => StoreCreatedMessageModel::class,
        'StoreDeleted' => StoreDeletedMessageModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
+       'null' => OrderMessageModel::class,
     ];
 
     /**

@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface DeliveryAddressSetMessage extends Message
+interface DeliveryAddressSetMessage extends OrderMessage
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_ADDRESS = 'address';

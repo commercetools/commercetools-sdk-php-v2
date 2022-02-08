@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Cart\LineItem;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderLineItemAddedMessagePayload extends MessagePayload
+interface OrderLineItemAddedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_LINE_ITEM = 'lineItem';
     public const FIELD_ADDED_QUANTITY = 'addedQuantity';

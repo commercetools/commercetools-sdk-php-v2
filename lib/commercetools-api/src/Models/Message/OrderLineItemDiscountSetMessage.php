@@ -14,7 +14,7 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderLineItemDiscountSetMessage extends Message
+interface OrderLineItemDiscountSetMessage extends OrderMessage
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';

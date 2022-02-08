@@ -12,7 +12,7 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderDiscountCodeAddedMessagePayload extends MessagePayload
+interface OrderDiscountCodeAddedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DISCOUNT_CODE = 'discountCode';
 

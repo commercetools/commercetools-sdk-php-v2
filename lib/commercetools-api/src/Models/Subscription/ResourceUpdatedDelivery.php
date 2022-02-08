@@ -12,7 +12,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
-interface ResourceUpdatedDelivery extends SubscriptionDelivery
+interface ResourceUpdatedDelivery extends DeliveryPayload
 {
     public const FIELD_VERSION = 'version';
     public const FIELD_OLD_VERSION = 'oldVersion';

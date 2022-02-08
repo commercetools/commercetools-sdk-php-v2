@@ -30,8 +30,8 @@ final class DeliveryFormatModel extends JsonObjectModel implements DeliveryForma
      *
      */
     private static $discriminatorClasses = [
-       'CloudEvents' => DeliveryCloudEventsFormatModel::class,
-       'Platform' => DeliveryPlatformFormatModel::class,
+       'CloudEvents' => CloudEventsFormatModel::class,
+       'Platform' => PlatformFormatModel::class,
     ];
 
     /**

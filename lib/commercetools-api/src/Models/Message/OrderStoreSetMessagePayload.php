@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderStoreSetMessagePayload extends MessagePayload
+interface OrderStoreSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_STORE = 'store';
 

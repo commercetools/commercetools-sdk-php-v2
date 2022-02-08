@@ -16,7 +16,7 @@ use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderLineItemRemovedMessage extends Message
+interface OrderLineItemRemovedMessage extends OrderMessage
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_REMOVED_QUANTITY = 'removedQuantity';

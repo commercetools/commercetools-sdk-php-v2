@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfigurationDraft;
-use Commercetools\Api\Models\Message\MessageConfigurationDraftModel;
+use Commercetools\Api\Models\Message\MessagesConfigurationDraft;
+use Commercetools\Api\Models\Message\MessagesConfigurationDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,7 +28,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     protected $action;
 
     /**
-     * @var ?MessageConfigurationDraft
+     * @var ?MessagesConfigurationDraft
      */
     protected $messagesConfiguration;
 
@@ -37,7 +37,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MessageConfigurationDraft $messagesConfiguration = null
+        ?MessagesConfigurationDraft $messagesConfiguration = null
     ) {
         $this->messagesConfiguration = $messagesConfiguration;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,7 +61,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     }
 
     /**
-     * @return null|MessageConfigurationDraft
+     * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration()
     {
@@ -72,7 +72,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
                 return null;
             }
 
-            $this->messagesConfiguration = MessageConfigurationDraftModel::of($data);
+            $this->messagesConfiguration = MessagesConfigurationDraftModel::of($data);
         }
 
         return $this->messagesConfiguration;
@@ -80,9 +80,9 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
 
 
     /**
-     * @param ?MessageConfigurationDraft $messagesConfiguration
+     * @param ?MessagesConfigurationDraft $messagesConfiguration
      */
-    public function setMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration): void
+    public function setMessagesConfiguration(?MessagesConfigurationDraft $messagesConfiguration): void
     {
         $this->messagesConfiguration = $messagesConfiguration;
     }

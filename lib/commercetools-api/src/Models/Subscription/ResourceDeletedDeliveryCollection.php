@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Api\Models\Subscription\SubscriptionDeliveryCollection;
+use Commercetools\Api\Models\Subscription\DeliveryPayloadCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends SubscriptionDeliveryCollection<ResourceDeletedDelivery>
+ * @extends DeliveryPayloadCollection<ResourceDeletedDelivery>
  * @method ResourceDeletedDelivery current()
  * @method ResourceDeletedDelivery end()
  * @method ResourceDeletedDelivery at($offset)
  */
-class ResourceDeletedDeliveryCollection extends SubscriptionDeliveryCollection
+class ResourceDeletedDeliveryCollection extends DeliveryPayloadCollection
 {
     /**
      * @psalm-assert ResourceDeletedDelivery $value

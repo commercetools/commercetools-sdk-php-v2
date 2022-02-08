@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfigurationDraft;
+use Commercetools\Api\Models\Message\MessagesConfigurationDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,12 +17,12 @@ interface ProjectChangeMessagesConfigurationAction extends ProjectUpdateAction
     public const FIELD_MESSAGES_CONFIGURATION = 'messagesConfiguration';
 
     /**
-     * @return null|MessageConfigurationDraft
+     * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration();
 
     /**
-     * @param ?MessageConfigurationDraft $messagesConfiguration
+     * @param ?MessagesConfigurationDraft $messagesConfiguration
      */
-    public function setMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration): void;
+    public function setMessagesConfiguration(?MessagesConfigurationDraft $messagesConfiguration): void;
 }

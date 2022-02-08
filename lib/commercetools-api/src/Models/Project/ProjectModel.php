@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfiguration;
-use Commercetools\Api\Models\Message\MessageConfigurationModel;
+use Commercetools\Api\Models\Message\MessagesConfiguration;
+use Commercetools\Api\Models\Message\MessagesConfigurationModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -63,7 +63,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     protected $trialUntil;
 
     /**
-     * @var ?MessageConfiguration
+     * @var ?MessagesConfiguration
      */
     protected $messages;
 
@@ -105,7 +105,7 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?array $languages = null,
         ?DateTimeImmutable $createdAt = null,
         ?string $trialUntil = null,
-        ?MessageConfiguration $messages = null,
+        ?MessagesConfiguration $messages = null,
         ?ShippingRateInputType $shippingRateInputType = null,
         ?ExternalOAuth $externalOAuth = null,
         ?CartsConfiguration $carts = null,
@@ -281,7 +281,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * @return null|MessageConfiguration
+     * @return null|MessagesConfiguration
      */
     public function getMessages()
     {
@@ -292,7 +292,7 @@ final class ProjectModel extends JsonObjectModel implements Project
                 return null;
             }
 
-            $this->messages = MessageConfigurationModel::of($data);
+            $this->messages = MessagesConfigurationModel::of($data);
         }
 
         return $this->messages;
@@ -454,9 +454,9 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * @param ?MessageConfiguration $messages
+     * @param ?MessagesConfiguration $messages
      */
-    public function setMessages(?MessageConfiguration $messages): void
+    public function setMessages(?MessagesConfiguration $messages): void
     {
         $this->messages = $messages;
     }

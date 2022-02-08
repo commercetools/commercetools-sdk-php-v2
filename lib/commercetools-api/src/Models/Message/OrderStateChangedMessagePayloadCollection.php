@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Message\MessagePayloadCollection;
+use Commercetools\Api\Models\Message\OrderMessagePayloadCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MessagePayloadCollection<OrderStateChangedMessagePayload>
+ * @extends OrderMessagePayloadCollection<OrderStateChangedMessagePayload>
  * @method OrderStateChangedMessagePayload current()
  * @method OrderStateChangedMessagePayload end()
  * @method OrderStateChangedMessagePayload at($offset)
  */
-class OrderStateChangedMessagePayloadCollection extends MessagePayloadCollection
+class OrderStateChangedMessagePayloadCollection extends OrderMessagePayloadCollection
 {
     /**
      * @psalm-assert OrderStateChangedMessagePayload $value

@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Order\ReturnInfo;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderReturnInfoAddedMessagePayload extends MessagePayload
+interface OrderReturnInfoAddedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_RETURN_INFO = 'returnInfo';
 

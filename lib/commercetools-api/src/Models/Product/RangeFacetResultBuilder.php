@@ -21,12 +21,12 @@ use stdClass;
 final class RangeFacetResultBuilder implements Builder
 {
     /**
-     * @var ?FacetResultRangeCollection
+     * @var ?FacetRangeCollection
      */
     private $ranges;
 
     /**
-     * @return null|FacetResultRangeCollection
+     * @return null|FacetRangeCollection
      */
     public function getRanges()
     {
@@ -34,10 +34,10 @@ final class RangeFacetResultBuilder implements Builder
     }
 
     /**
-     * @param ?FacetResultRangeCollection $ranges
+     * @param ?FacetRangeCollection $ranges
      * @return $this
      */
-    public function withRanges(?FacetResultRangeCollection $ranges)
+    public function withRanges(?FacetRangeCollection $ranges)
     {
         $this->ranges = $ranges;
 

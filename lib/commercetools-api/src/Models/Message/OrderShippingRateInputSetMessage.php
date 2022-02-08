@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderShippingRateInputSetMessage extends Message
+interface OrderShippingRateInputSetMessage extends OrderMessage
 {
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_OLD_SHIPPING_RATE_INPUT = 'oldShippingRateInput';

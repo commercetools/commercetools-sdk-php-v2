@@ -13,7 +13,7 @@ use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderEditAppliedMessage extends Message
+interface OrderEditAppliedMessage extends OrderMessage
 {
     public const FIELD_EDIT = 'edit';
     public const FIELD_RESULT = 'result';

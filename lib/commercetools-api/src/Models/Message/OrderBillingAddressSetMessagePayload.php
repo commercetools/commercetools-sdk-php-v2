@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderBillingAddressSetMessagePayload extends MessagePayload
+interface OrderBillingAddressSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_ADDRESS = 'address';
     public const FIELD_OLD_ADDRESS = 'oldAddress';

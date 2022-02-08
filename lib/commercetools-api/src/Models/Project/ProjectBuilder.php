@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfiguration;
-use Commercetools\Api\Models\Message\MessageConfigurationBuilder;
+use Commercetools\Api\Models\Message\MessagesConfiguration;
+use Commercetools\Api\Models\Message\MessagesConfigurationBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -64,7 +64,7 @@ final class ProjectBuilder implements Builder
     private $trialUntil;
 
     /**
-     * @var null|MessageConfiguration|MessageConfigurationBuilder
+     * @var null|MessagesConfiguration|MessagesConfigurationBuilder
      */
     private $messages;
 
@@ -170,11 +170,11 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @return null|MessageConfiguration
+     * @return null|MessagesConfiguration
      */
     public function getMessages()
     {
-        return $this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages;
+        return $this->messages instanceof MessagesConfigurationBuilder ? $this->messages->build() : $this->messages;
     }
 
     /**
@@ -306,10 +306,10 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @param ?MessageConfiguration $messages
+     * @param ?MessagesConfiguration $messages
      * @return $this
      */
-    public function withMessages(?MessageConfiguration $messages)
+    public function withMessages(?MessagesConfiguration $messages)
     {
         $this->messages = $messages;
 
@@ -375,7 +375,7 @@ final class ProjectBuilder implements Builder
      * @deprecated use withMessages() instead
      * @return $this
      */
-    public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
+    public function withMessagesBuilder(?MessagesConfigurationBuilder $messages)
     {
         $this->messages = $messages;
 
@@ -448,7 +448,7 @@ final class ProjectBuilder implements Builder
             $this->languages,
             $this->createdAt,
             $this->trialUntil,
-            $this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages,
+            $this->messages instanceof MessagesConfigurationBuilder ? $this->messages->build() : $this->messages,
             $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
             $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
             $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts,
