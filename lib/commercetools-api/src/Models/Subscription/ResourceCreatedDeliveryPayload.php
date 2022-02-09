@@ -12,21 +12,15 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
-interface ResourceUpdatedDelivery extends DeliveryPayload
+interface ResourceCreatedDeliveryPayload extends DeliveryPayload
 {
     public const FIELD_VERSION = 'version';
-    public const FIELD_OLD_VERSION = 'oldVersion';
     public const FIELD_MODIFIED_AT = 'modifiedAt';
 
     /**
      * @return null|int
      */
     public function getVersion();
-
-    /**
-     * @return null|int
-     */
-    public function getOldVersion();
 
     /**
      * @return null|DateTimeImmutable
@@ -37,11 +31,6 @@ interface ResourceUpdatedDelivery extends DeliveryPayload
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
-
-    /**
-     * @param ?int $oldVersion
-     */
-    public function setOldVersion(?int $oldVersion): void;
 
     /**
      * @param ?DateTimeImmutable $modifiedAt

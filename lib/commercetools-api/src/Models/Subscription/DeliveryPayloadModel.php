@@ -50,9 +50,9 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
      */
     private static $discriminatorClasses = [
        'Message' => MessageDeliveryPayloadModel::class,
-       'ResourceCreated' => ResourceCreatedDeliveryModel::class,
-       'ResourceDeleted' => ResourceDeletedDeliveryModel::class,
-       'ResourceUpdated' => ResourceUpdatedDeliveryModel::class,
+       'ResourceCreated' => ResourceCreatedDeliveryPayloadModel::class,
+       'ResourceDeleted' => ResourceDeletedDeliveryPayloadModel::class,
+       'ResourceUpdated' => ResourceUpdatedDeliveryPayloadModel::class,
     ];
 
     /**

@@ -21,9 +21,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<ResourceCreatedDelivery>
+ * @implements Builder<ResourceUpdatedDeliveryPayload>
  */
-final class ResourceCreatedDeliveryBuilder implements Builder
+final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
 {
     /**
      * @var ?string
@@ -44,6 +44,11 @@ final class ResourceCreatedDeliveryBuilder implements Builder
      * @var ?int
      */
     private $version;
+
+    /**
+     * @var ?int
+     */
+    private $oldVersion;
 
     /**
      * @var ?DateTimeImmutable
@@ -80,6 +85,14 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getOldVersion()
+    {
+        return $this->oldVersion;
     }
 
     /**
@@ -135,6 +148,17 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?int $oldVersion
+     * @return $this
+     */
+    public function withOldVersion(?int $oldVersion)
+    {
+        $this->oldVersion = $oldVersion;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $modifiedAt
      * @return $this
      */
@@ -167,18 +191,19 @@ final class ResourceCreatedDeliveryBuilder implements Builder
         return $this;
     }
 
-    public function build(): ResourceCreatedDelivery
+    public function build(): ResourceUpdatedDeliveryPayload
     {
-        return new ResourceCreatedDeliveryModel(
+        return new ResourceUpdatedDeliveryPayloadModel(
             $this->projectKey,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->version,
+            $this->oldVersion,
             $this->modifiedAt
         );
     }
 
-    public static function of(): ResourceCreatedDeliveryBuilder
+    public static function of(): ResourceUpdatedDeliveryPayloadBuilder
     {
         return new self();
     }

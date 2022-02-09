@@ -22,9 +22,9 @@ use stdClass;
 /**
  * @internal
  */
-final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements ResourceUpdatedDelivery
+final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implements ResourceCreatedDeliveryPayload
 {
-    public const DISCRIMINATOR_VALUE = 'ResourceUpdated';
+    public const DISCRIMINATOR_VALUE = 'ResourceCreated';
     /**
      * @var ?string
      */
@@ -51,11 +51,6 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     protected $version;
 
     /**
-     * @var ?int
-     */
-    protected $oldVersion;
-
-    /**
      * @var ?DateTimeImmutable
      */
     protected $modifiedAt;
@@ -69,14 +64,12 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         ?Reference $resource = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?int $version = null,
-        ?int $oldVersion = null,
         ?DateTimeImmutable $modifiedAt = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->version = $version;
-        $this->oldVersion = $oldVersion;
         $this->modifiedAt = $modifiedAt;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
@@ -169,23 +162,6 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     }
 
     /**
-     * @return null|int
-     */
-    public function getOldVersion()
-    {
-        if (is_null($this->oldVersion)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_OLD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldVersion = (int) $data;
-        }
-
-        return $this->oldVersion;
-    }
-
-    /**
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()
@@ -240,14 +216,6 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     }
 
     /**
-     * @param ?int $oldVersion
-     */
-    public function setOldVersion(?int $oldVersion): void
-    {
-        $this->oldVersion = $oldVersion;
-    }
-
-    /**
      * @param ?DateTimeImmutable $modifiedAt
      */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
@@ -260,8 +228,8 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ResourceUpdatedDelivery::FIELD_MODIFIED_AT]) && $data[ResourceUpdatedDelivery::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[ResourceUpdatedDelivery::FIELD_MODIFIED_AT] = $data[ResourceUpdatedDelivery::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ResourceCreatedDeliveryPayload::FIELD_MODIFIED_AT]) && $data[ResourceCreatedDeliveryPayload::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[ResourceCreatedDeliveryPayload::FIELD_MODIFIED_AT] = $data[ResourceCreatedDeliveryPayload::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

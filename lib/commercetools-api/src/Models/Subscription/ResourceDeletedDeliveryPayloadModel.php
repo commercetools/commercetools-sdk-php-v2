@@ -22,9 +22,9 @@ use stdClass;
 /**
  * @internal
  */
-final class ResourceCreatedDeliveryModel extends JsonObjectModel implements ResourceCreatedDelivery
+final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implements ResourceDeletedDeliveryPayload
 {
-    public const DISCRIMINATOR_VALUE = 'ResourceCreated';
+    public const DISCRIMINATOR_VALUE = 'ResourceDeleted';
     /**
      * @var ?string
      */
@@ -55,6 +55,11 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
      */
     protected $modifiedAt;
 
+    /**
+     * @var ?bool
+     */
+    protected $dataErasure;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -64,13 +69,15 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
         ?Reference $resource = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?int $version = null,
-        ?DateTimeImmutable $modifiedAt = null
+        ?DateTimeImmutable $modifiedAt = null,
+        ?bool $dataErasure = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->version = $version;
         $this->modifiedAt = $modifiedAt;
+        $this->dataErasure = $dataErasure;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -182,6 +189,23 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
         return $this->modifiedAt;
     }
 
+    /**
+     * @return null|bool
+     */
+    public function getDataErasure()
+    {
+        if (is_null($this->dataErasure)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_DATA_ERASURE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dataErasure = (bool) $data;
+        }
+
+        return $this->dataErasure;
+    }
+
 
     /**
      * @param ?string $projectKey
@@ -223,13 +247,21 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
         $this->modifiedAt = $modifiedAt;
     }
 
+    /**
+     * @param ?bool $dataErasure
+     */
+    public function setDataErasure(?bool $dataErasure): void
+    {
+        $this->dataErasure = $dataErasure;
+    }
+
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ResourceCreatedDelivery::FIELD_MODIFIED_AT]) && $data[ResourceCreatedDelivery::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[ResourceCreatedDelivery::FIELD_MODIFIED_AT] = $data[ResourceCreatedDelivery::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ResourceDeletedDeliveryPayload::FIELD_MODIFIED_AT]) && $data[ResourceDeletedDeliveryPayload::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[ResourceDeletedDeliveryPayload::FIELD_MODIFIED_AT] = $data[ResourceDeletedDeliveryPayload::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

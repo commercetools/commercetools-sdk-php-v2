@@ -21,9 +21,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<ResourceDeletedDelivery>
+ * @implements Builder<ResourceCreatedDeliveryPayload>
  */
-final class ResourceDeletedDeliveryBuilder implements Builder
+final class ResourceCreatedDeliveryPayloadBuilder implements Builder
 {
     /**
      * @var ?string
@@ -49,11 +49,6 @@ final class ResourceDeletedDeliveryBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $modifiedAt;
-
-    /**
-     * @var ?bool
-     */
-    private $dataErasure;
 
     /**
      * @return null|string
@@ -93,14 +88,6 @@ final class ResourceDeletedDeliveryBuilder implements Builder
     public function getModifiedAt()
     {
         return $this->modifiedAt;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getDataErasure()
-    {
-        return $this->dataErasure;
     }
 
     /**
@@ -159,17 +146,6 @@ final class ResourceDeletedDeliveryBuilder implements Builder
     }
 
     /**
-     * @param ?bool $dataErasure
-     * @return $this
-     */
-    public function withDataErasure(?bool $dataErasure)
-    {
-        $this->dataErasure = $dataErasure;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withResource() instead
      * @return $this
      */
@@ -191,19 +167,18 @@ final class ResourceDeletedDeliveryBuilder implements Builder
         return $this;
     }
 
-    public function build(): ResourceDeletedDelivery
+    public function build(): ResourceCreatedDeliveryPayload
     {
-        return new ResourceDeletedDeliveryModel(
+        return new ResourceCreatedDeliveryPayloadModel(
             $this->projectKey,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->version,
-            $this->modifiedAt,
-            $this->dataErasure
+            $this->modifiedAt
         );
     }
 
-    public static function of(): ResourceDeletedDeliveryBuilder
+    public static function of(): ResourceCreatedDeliveryPayloadBuilder
     {
         return new self();
     }

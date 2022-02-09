@@ -22,9 +22,9 @@ use stdClass;
 /**
  * @internal
  */
-final class ResourceDeletedDeliveryModel extends JsonObjectModel implements ResourceDeletedDelivery
+final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implements ResourceUpdatedDeliveryPayload
 {
-    public const DISCRIMINATOR_VALUE = 'ResourceDeleted';
+    public const DISCRIMINATOR_VALUE = 'ResourceUpdated';
     /**
      * @var ?string
      */
@@ -51,14 +51,14 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     protected $version;
 
     /**
+     * @var ?int
+     */
+    protected $oldVersion;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $modifiedAt;
-
-    /**
-     * @var ?bool
-     */
-    protected $dataErasure;
 
 
     /**
@@ -69,15 +69,15 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         ?Reference $resource = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?int $version = null,
-        ?DateTimeImmutable $modifiedAt = null,
-        ?bool $dataErasure = null
+        ?int $oldVersion = null,
+        ?DateTimeImmutable $modifiedAt = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->version = $version;
+        $this->oldVersion = $oldVersion;
         $this->modifiedAt = $modifiedAt;
-        $this->dataErasure = $dataErasure;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -169,6 +169,23 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     }
 
     /**
+     * @return null|int
+     */
+    public function getOldVersion()
+    {
+        if (is_null($this->oldVersion)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_OLD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldVersion = (int) $data;
+        }
+
+        return $this->oldVersion;
+    }
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()
@@ -187,23 +204,6 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         }
 
         return $this->modifiedAt;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getDataErasure()
-    {
-        if (is_null($this->dataErasure)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_DATA_ERASURE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->dataErasure = (bool) $data;
-        }
-
-        return $this->dataErasure;
     }
 
 
@@ -240,6 +240,14 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     }
 
     /**
+     * @param ?int $oldVersion
+     */
+    public function setOldVersion(?int $oldVersion): void
+    {
+        $this->oldVersion = $oldVersion;
+    }
+
+    /**
      * @param ?DateTimeImmutable $modifiedAt
      */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
@@ -247,21 +255,13 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         $this->modifiedAt = $modifiedAt;
     }
 
-    /**
-     * @param ?bool $dataErasure
-     */
-    public function setDataErasure(?bool $dataErasure): void
-    {
-        $this->dataErasure = $dataErasure;
-    }
-
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ResourceDeletedDelivery::FIELD_MODIFIED_AT]) && $data[ResourceDeletedDelivery::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[ResourceDeletedDelivery::FIELD_MODIFIED_AT] = $data[ResourceDeletedDelivery::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ResourceUpdatedDeliveryPayload::FIELD_MODIFIED_AT]) && $data[ResourceUpdatedDeliveryPayload::FIELD_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[ResourceUpdatedDeliveryPayload::FIELD_MODIFIED_AT] = $data[ResourceUpdatedDeliveryPayload::FIELD_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
         return (object) $data;
     }

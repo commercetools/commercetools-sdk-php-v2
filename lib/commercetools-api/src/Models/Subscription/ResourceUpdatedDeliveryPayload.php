@@ -12,11 +12,11 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
-interface ResourceDeletedDelivery extends DeliveryPayload
+interface ResourceUpdatedDeliveryPayload extends DeliveryPayload
 {
     public const FIELD_VERSION = 'version';
+    public const FIELD_OLD_VERSION = 'oldVersion';
     public const FIELD_MODIFIED_AT = 'modifiedAt';
-    public const FIELD_DATA_ERASURE = 'dataErasure';
 
     /**
      * @return null|int
@@ -24,14 +24,14 @@ interface ResourceDeletedDelivery extends DeliveryPayload
     public function getVersion();
 
     /**
+     * @return null|int
+     */
+    public function getOldVersion();
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt();
-
-    /**
-     * @return null|bool
-     */
-    public function getDataErasure();
 
     /**
      * @param ?int $version
@@ -39,12 +39,12 @@ interface ResourceDeletedDelivery extends DeliveryPayload
     public function setVersion(?int $version): void;
 
     /**
+     * @param ?int $oldVersion
+     */
+    public function setOldVersion(?int $oldVersion): void;
+
+    /**
      * @param ?DateTimeImmutable $modifiedAt
      */
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void;
-
-    /**
-     * @param ?bool $dataErasure
-     */
-    public function setDataErasure(?bool $dataErasure): void;
 }

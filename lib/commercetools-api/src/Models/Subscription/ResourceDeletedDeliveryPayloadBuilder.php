@@ -21,9 +21,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<ResourceUpdatedDelivery>
+ * @implements Builder<ResourceDeletedDeliveryPayload>
  */
-final class ResourceUpdatedDeliveryBuilder implements Builder
+final class ResourceDeletedDeliveryPayloadBuilder implements Builder
 {
     /**
      * @var ?string
@@ -46,14 +46,14 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     private $version;
 
     /**
-     * @var ?int
-     */
-    private $oldVersion;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $modifiedAt;
+
+    /**
+     * @var ?bool
+     */
+    private $dataErasure;
 
     /**
      * @return null|string
@@ -88,19 +88,19 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getOldVersion()
-    {
-        return $this->oldVersion;
-    }
-
-    /**
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()
     {
         return $this->modifiedAt;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getDataErasure()
+    {
+        return $this->dataErasure;
     }
 
     /**
@@ -148,23 +148,23 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
-     * @param ?int $oldVersion
-     * @return $this
-     */
-    public function withOldVersion(?int $oldVersion)
-    {
-        $this->oldVersion = $oldVersion;
-
-        return $this;
-    }
-
-    /**
      * @param ?DateTimeImmutable $modifiedAt
      * @return $this
      */
     public function withModifiedAt(?DateTimeImmutable $modifiedAt)
     {
         $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $dataErasure
+     * @return $this
+     */
+    public function withDataErasure(?bool $dataErasure)
+    {
+        $this->dataErasure = $dataErasure;
 
         return $this;
     }
@@ -191,19 +191,19 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
         return $this;
     }
 
-    public function build(): ResourceUpdatedDelivery
+    public function build(): ResourceDeletedDeliveryPayload
     {
-        return new ResourceUpdatedDeliveryModel(
+        return new ResourceDeletedDeliveryPayloadModel(
             $this->projectKey,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->version,
-            $this->oldVersion,
-            $this->modifiedAt
+            $this->modifiedAt,
+            $this->dataErasure
         );
     }
 
-    public static function of(): ResourceUpdatedDeliveryBuilder
+    public static function of(): ResourceDeletedDeliveryPayloadBuilder
     {
         return new self();
     }
