@@ -183,4 +183,17 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     {
         $this->errorByExtension = $errorByExtension;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

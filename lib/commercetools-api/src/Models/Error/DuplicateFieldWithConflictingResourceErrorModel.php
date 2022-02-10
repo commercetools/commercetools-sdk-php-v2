@@ -182,4 +182,17 @@ final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectMo
     {
         $this->conflictingResource = $conflictingResource;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

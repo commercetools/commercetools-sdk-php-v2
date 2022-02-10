@@ -154,4 +154,17 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     {
         $this->missingRole = $missingRole;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

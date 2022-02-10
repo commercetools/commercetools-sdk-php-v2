@@ -179,4 +179,17 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     {
         $this->key = $key;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }
