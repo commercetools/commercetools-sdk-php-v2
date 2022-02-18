@@ -154,7 +154,7 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>Maps to <code>Price.value</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     * <p>Maps to <code>Price.value</code>.</p>
      *
      * @return null|TypedMoney
      */

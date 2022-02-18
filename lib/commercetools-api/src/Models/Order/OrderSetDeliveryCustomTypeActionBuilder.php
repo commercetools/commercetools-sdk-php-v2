@@ -25,6 +25,11 @@ use stdClass;
 final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $deliveryId;
+
+    /**
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -33,6 +38,14 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        return $this->deliveryId;
+    }
 
     /**
      * @return null|TypeResourceIdentifier
@@ -48,6 +61,17 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     public function getFields()
     {
         return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     * @return $this
+     */
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
+
+        return $this;
     }
 
     /**
@@ -97,6 +121,7 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     public function build(): OrderSetDeliveryCustomTypeAction
     {
         return new OrderSetDeliveryCustomTypeActionModel(
+            $this->deliveryId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

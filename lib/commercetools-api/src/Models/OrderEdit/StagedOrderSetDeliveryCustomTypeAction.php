@@ -15,8 +15,14 @@ use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetDeliveryCustomTypeAction extends StagedOrderUpdateAction
 {
+    public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId();
 
     /**
      * <p>If set, the custom type is set to this new value.
@@ -32,6 +38,11 @@ interface StagedOrderSetDeliveryCustomTypeAction extends StagedOrderUpdateAction
      * @return null|mixed
      */
     public function getFields();
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

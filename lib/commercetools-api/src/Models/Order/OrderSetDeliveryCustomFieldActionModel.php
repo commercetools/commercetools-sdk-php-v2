@@ -28,6 +28,11 @@ final class OrderSetDeliveryCustomFieldActionModel extends JsonObjectModel imple
     /**
      * @var ?string
      */
+    protected $deliveryId;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -40,9 +45,11 @@ final class OrderSetDeliveryCustomFieldActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $deliveryId = null,
         ?string $name = null,
         $value = null
     ) {
+        $this->deliveryId = $deliveryId;
         $this->name = $name;
         $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -63,6 +70,23 @@ final class OrderSetDeliveryCustomFieldActionModel extends JsonObjectModel imple
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
     }
 
     /**
@@ -99,6 +123,14 @@ final class OrderSetDeliveryCustomFieldActionModel extends JsonObjectModel imple
         return $this->value;
     }
 
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
+    }
 
     /**
      * @param ?string $name

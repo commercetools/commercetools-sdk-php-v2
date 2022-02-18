@@ -30,6 +30,11 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
     protected $action;
 
     /**
+     * @var ?string
+     */
+    protected $deliveryId;
+
+    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
@@ -44,9 +49,11 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $deliveryId = null,
         ?TypeResourceIdentifier $type = null,
         ?JsonObject $fields = null
     ) {
+        $this->deliveryId = $deliveryId;
         $this->type = $type;
         $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -67,6 +74,23 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
     }
 
     /**
@@ -109,6 +133,14 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
         return $this->fields;
     }
 
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
+    }
 
     /**
      * @param ?TypeResourceIdentifier $type

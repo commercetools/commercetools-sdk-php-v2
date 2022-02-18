@@ -56,6 +56,12 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     }
 
     /**
+     * <p>amount in the smallest indivisible unit of a currency, such as</p>
+     * <ul>
+     * <li>cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as 500).</li>
+     * <li>the value in the major unit for currencies without minor units, like JPY (5 JPY is specified as 5).</li>
+     * </ul>
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -92,6 +98,8 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     }
 
     /**
+     * <p>The platform supports two different types of Money, one for amounts in cent precision and another one for sub-cent amounts up to 12 fraction digits.</p>
+     *
      * @return null|string
      */
     public function getType()
@@ -109,6 +117,8 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     }
 
     /**
+     * <p>Must be equal to the default number of fraction digits for the specified currency.</p>
+     *
      * @return null|int
      */
     public function getFractionDigits()

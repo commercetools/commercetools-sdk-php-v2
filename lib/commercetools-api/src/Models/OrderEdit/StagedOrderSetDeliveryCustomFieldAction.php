@@ -14,8 +14,14 @@ use Commercetools\Base\JsonObject;
 
 interface StagedOrderSetDeliveryCustomFieldAction extends StagedOrderUpdateAction
 {
+    public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_NAME = 'name';
     public const FIELD_VALUE = 'value';
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId();
 
     /**
      * @return null|string
@@ -26,6 +32,11 @@ interface StagedOrderSetDeliveryCustomFieldAction extends StagedOrderUpdateActio
      * @return null|mixed
      */
     public function getValue();
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void;
 
     /**
      * @param ?string $name

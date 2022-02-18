@@ -2660,7 +2660,7 @@ $request = $builder
                 ->password()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->me()->password()->reset()->post()`
+## `withProjectKey("projectKey")->me()->password()->reset()->post(null)`
 
 null
 
@@ -2674,7 +2674,7 @@ $request = $builder
                 ->me()
                 ->password()
                 ->reset()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 

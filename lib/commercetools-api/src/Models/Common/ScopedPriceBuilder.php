@@ -86,6 +86,8 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -94,6 +96,8 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getCurrentValue()

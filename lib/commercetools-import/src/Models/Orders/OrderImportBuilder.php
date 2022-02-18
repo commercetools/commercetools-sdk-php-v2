@@ -191,7 +191,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Order.totalPrice</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     * <p>Maps to <code>Order.totalPrice</code>.</p>
      *
      * @return null|TypedMoney
      */

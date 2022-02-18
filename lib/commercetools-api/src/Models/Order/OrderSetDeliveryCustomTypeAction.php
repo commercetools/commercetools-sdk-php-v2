@@ -15,8 +15,14 @@ use Commercetools\Base\JsonObject;
 
 interface OrderSetDeliveryCustomTypeAction extends OrderUpdateAction
 {
+    public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId();
 
     /**
      * @return null|TypeResourceIdentifier
@@ -27,6 +33,11 @@ interface OrderSetDeliveryCustomTypeAction extends OrderUpdateAction
      * @return null|FieldContainer
      */
     public function getFields();
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void;
 
     /**
      * @param ?TypeResourceIdentifier $type

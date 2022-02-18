@@ -25,6 +25,11 @@ use stdClass;
 final class StagedOrderSetDeliveryCustomTypeActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $deliveryId;
+
+    /**
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -33,6 +38,14 @@ final class StagedOrderSetDeliveryCustomTypeActionBuilder implements Builder
      * @var ?JsonObject
      */
     private $fields;
+
+    /**
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        return $this->deliveryId;
+    }
 
     /**
      * <p>If set, the custom type is set to this new value.
@@ -53,6 +66,17 @@ final class StagedOrderSetDeliveryCustomTypeActionBuilder implements Builder
     public function getFields()
     {
         return $this->fields;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     * @return $this
+     */
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
+
+        return $this;
     }
 
     /**
@@ -91,6 +115,7 @@ final class StagedOrderSetDeliveryCustomTypeActionBuilder implements Builder
     public function build(): StagedOrderSetDeliveryCustomTypeAction
     {
         return new StagedOrderSetDeliveryCustomTypeActionModel(
+            $this->deliveryId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields
         );
