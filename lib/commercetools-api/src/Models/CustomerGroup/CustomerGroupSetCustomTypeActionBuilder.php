@@ -35,7 +35,7 @@ final class CustomerGroupSetCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>If absent, the <a href="/../api/projects/custom-fields#custom">custom</a> type and any existing <a href="/../api/projects/custom-fields">CustomFields</a> are removed.</p>
+     * <p>If absent, the <a href="/../api/projects/custom-fields">custom</a> type and any existing <a href="/../api/projects/custom-fields">CustomFields</a> are removed.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -46,7 +46,7 @@ final class CustomerGroupSetCustomTypeActionBuilder implements Builder
 
     /**
      * <p>Valid JSON object, based on the <a href="/../api/projects/types#fielddefinition">FieldDefinitions</a> of the <a href="/../api/projects/types#type">Type</a>.
-     * Sets the <a href="/../api/projects/custom-fields#custom">custom</a> fields to this value.</p>
+     * Sets the <a href="/../api/projects/custom-fields">custom</a> fields to this value.</p>
      *
      * @return null|FieldContainer
      */

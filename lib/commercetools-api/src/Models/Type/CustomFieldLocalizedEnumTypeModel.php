@@ -59,6 +59,8 @@ final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Allowed values.</p>
+     *
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues()

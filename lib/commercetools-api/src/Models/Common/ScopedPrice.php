@@ -84,6 +84,8 @@ interface ScopedPrice extends JsonObject
     public function getDiscounted();
 
     /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();

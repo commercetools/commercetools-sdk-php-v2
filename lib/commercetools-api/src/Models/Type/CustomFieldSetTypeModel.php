@@ -59,6 +59,8 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     }
 
     /**
+     * <p>Field type of the elements in the set.</p>
+     *
      * @return null|FieldType
      */
     public function getElementType()
@@ -69,8 +71,8 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
             if (is_null($data)) {
                 return null;
             }
-            $className = FieldTypeModel::resolveDiscriminatorClass($data);
-            $this->elementType = $className::of($data);
+
+            $this->elementType = FieldTypeModel::of($data);
         }
 
         return $this->elementType;

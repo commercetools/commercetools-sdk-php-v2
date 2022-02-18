@@ -48,6 +48,8 @@ final class TypeDraftBuilder implements Builder
     private $fieldDefinitions;
 
     /**
+     * <p>User-defined unique identifier for the Type.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -56,6 +58,8 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -64,6 +68,8 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -72,7 +78,7 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
-     * <p>The IDs of the resources that can be customized with this type.</p>
+     * <p>Resources and/or data types for which the Type is defined.</p>
      *
      * @return null|array
      */
@@ -82,6 +88,8 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * <p>Defines Custom Fields.</p>
+     *
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions()

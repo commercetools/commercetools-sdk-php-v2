@@ -40,6 +40,8 @@ final class CustomerSetAddressCustomTypeActionBuilder implements Builder
     private $addressId;
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()

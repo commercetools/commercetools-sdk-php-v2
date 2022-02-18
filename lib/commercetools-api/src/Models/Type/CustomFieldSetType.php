@@ -16,6 +16,8 @@ interface CustomFieldSetType extends FieldType
     public const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**
+     * <p>Field type of the elements in the set.</p>
+     *
      * @return null|FieldType
      */
     public function getElementType();

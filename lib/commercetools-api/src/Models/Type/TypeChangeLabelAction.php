@@ -18,6 +18,8 @@ interface TypeChangeLabelAction extends TypeUpdateAction
     public const FIELD_LABEL = 'label';
 
     /**
+     * <p>Name of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
+     *
      * @return null|string
      */
     public function getFieldName();

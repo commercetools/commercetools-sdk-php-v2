@@ -33,7 +33,7 @@ final class TypeResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique ID of the referenced <a href="ctp:api:type:Type">Type</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -43,7 +43,7 @@ final class TypeResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:Type">Type</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

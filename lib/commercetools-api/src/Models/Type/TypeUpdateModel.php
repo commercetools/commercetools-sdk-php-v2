@@ -42,6 +42,9 @@ final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
     }
 
     /**
+     * <p>Expected version of the type on which the changes should be applied.
+     * If the expected version does not match the actual version, a 409 Conflict will be returned.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,8 @@ final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Type.</p>
+     *
      * @return null|TypeUpdateActionCollection
      */
     public function getActions()

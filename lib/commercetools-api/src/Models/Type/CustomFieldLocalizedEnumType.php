@@ -16,6 +16,8 @@ interface CustomFieldLocalizedEnumType extends FieldType
     public const FIELD_VALUES = 'values';
 
     /**
+     * <p>Allowed values.</p>
+     *
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues();

@@ -66,6 +66,8 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
     }
 
     /**
+     * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -83,6 +85,8 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
     }
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|CustomFieldEnumValue
      */
     public function getValue()

@@ -42,6 +42,8 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
     }
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -59,6 +61,8 @@ final class CustomFieldEnumValueModel extends JsonObjectModel implements CustomF
     }
 
     /**
+     * <p>Descriptive label of the value.</p>
+     *
      * @return null|string
      */
     public function getLabel()

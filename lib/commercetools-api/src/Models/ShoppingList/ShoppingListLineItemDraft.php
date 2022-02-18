@@ -28,6 +28,8 @@ interface ShoppingListLineItemDraft extends JsonObject
     public function getAddedAt();
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

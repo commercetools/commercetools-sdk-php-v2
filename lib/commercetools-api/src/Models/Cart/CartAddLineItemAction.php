@@ -29,6 +29,8 @@ interface CartAddLineItemAction extends CartUpdateAction
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

@@ -85,7 +85,7 @@ final class TypeBuilder implements Builder
     private $fieldDefinitions;
 
     /**
-     * <p>The unique ID of the type.</p>
+     * <p>Unique ID of the Type.</p>
      *
      * @return null|string
      */
@@ -95,7 +95,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the type.</p>
+     * <p>Current version of the Type.</p>
      *
      * @return null|int
      */
@@ -105,6 +105,8 @@ final class TypeBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Type was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -113,6 +115,8 @@ final class TypeBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Type was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -121,7 +125,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -131,7 +135,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -141,8 +145,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Identifier for the type (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier for the Type.</p>
      *
      * @return null|string
      */
@@ -152,6 +155,8 @@ final class TypeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -160,6 +165,8 @@ final class TypeBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -168,7 +175,7 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * <p>Defines for which resource(s) the type is valid.</p>
+     * <p>Resources and/or data types for which the Type is defined.</p>
      *
      * @return null|array
      */
@@ -178,6 +185,8 @@ final class TypeBuilder implements Builder
     }
 
     /**
+     * <p>Defines Custom Fields.</p>
+     *
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions()
