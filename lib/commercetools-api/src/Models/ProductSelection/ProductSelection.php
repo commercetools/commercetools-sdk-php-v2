@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -24,6 +25,7 @@ interface ProductSelection extends BaseResource
     public const FIELD_NAME = 'name';
     public const FIELD_PRODUCT_COUNT = 'productCount';
     public const FIELD_TYPE = 'type';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Unique ID of the Product Selection.</p>
@@ -98,6 +100,13 @@ interface ProductSelection extends BaseResource
     public function getType();
 
     /**
+     * <p>Custom Fields of this Product Selection.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -146,4 +155,9 @@ interface ProductSelection extends BaseResource
      * @param ?string $type
      */
     public function setType(?string $type): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 }

@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -78,6 +80,11 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
      */
     protected $type;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -92,7 +99,8 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         ?string $key = null,
         ?LocalizedString $name = null,
         ?int $productCount = null,
-        ?string $type = null
+        ?string $type = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -104,6 +112,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         $this->name = $name;
         $this->productCount = $productCount;
         $this->type = $type;
+        $this->custom = $custom;
     }
 
     /**
@@ -309,6 +318,26 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
         return $this->type;
     }
 
+    /**
+     * <p>Custom Fields of this Product Selection.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -388,6 +417,14 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     public function setType(?string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

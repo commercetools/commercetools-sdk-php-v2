@@ -21,7 +21,7 @@ interface OrderSearchRequest extends JsonObject
     /**
      * <p>The Order search query.</p>
      *
-     * @return null|string
+     * @return null|OrderSearchQuery
      */
     public function getQuery();
 
@@ -47,9 +47,9 @@ interface OrderSearchRequest extends JsonObject
     public function getOffset();
 
     /**
-     * @param ?string $query
+     * @param ?OrderSearchQuery $query
      */
-    public function setQuery(?string $query): void;
+    public function setQuery(?OrderSearchQuery $query): void;
 
     /**
      * @param ?string $sort
