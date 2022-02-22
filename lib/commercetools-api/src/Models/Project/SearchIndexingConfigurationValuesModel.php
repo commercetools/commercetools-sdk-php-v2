@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -33,7 +31,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     protected $lastModifiedAt;
 
     /**
-     * @var ?LastModifiedBy
+     * @var ?string
      */
     protected $lastModifiedBy;
 
@@ -44,7 +42,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     public function __construct(
         ?string $status = null,
         ?DateTimeImmutable $lastModifiedAt = null,
-        ?LastModifiedBy $lastModifiedBy = null
+        ?string $lastModifiedBy = null
     ) {
         $this->status = $status;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -52,7 +50,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Can be one of the following or absent. &quot;Activated&quot; or absent means that the search and suggest endpoints for the specified resource type are active. &quot;Deactivated&quot; means that the search and suggest endpoints for the specified resource type cannot be used. &quot;Indexing&quot; indicates that the search and suggest endpoints can <em>temporally</em> not be used because the search index is being re-built.</p>
+     * <p>Current status of resource indexing. Present on Projects from 1 February 2019.</p>
      *
      * @return null|string
      */
@@ -71,6 +69,8 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Date and time (UTC) the Project was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -92,20 +92,19 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-     * @return null|LastModifiedBy
+     * @return null|string
      */
     public function getLastModifiedBy()
     {
         if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?string $data */
             $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
+            $this->lastModifiedBy = (string) $data;
         }
 
         return $this->lastModifiedBy;
@@ -129,9 +128,9 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
+     * @param ?string $lastModifiedBy
      */
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setLastModifiedBy(?string $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }

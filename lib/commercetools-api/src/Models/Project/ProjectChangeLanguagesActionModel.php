@@ -59,7 +59,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>.</p>
+     * <p>New value to set. Must not be empty.</p>
      *
      * @return null|array
      */

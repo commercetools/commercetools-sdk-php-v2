@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Common\LastModifiedBy;
-use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -34,12 +32,12 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var null|LastModifiedBy|LastModifiedByBuilder
+     * @var ?string
      */
     private $lastModifiedBy;
 
     /**
-     * <p>Can be one of the following or absent. &quot;Activated&quot; or absent means that the search and suggest endpoints for the specified resource type are active. &quot;Deactivated&quot; means that the search and suggest endpoints for the specified resource type cannot be used. &quot;Indexing&quot; indicates that the search and suggest endpoints can <em>temporally</em> not be used because the search index is being re-built.</p>
+     * <p>Current status of resource indexing. Present on Projects from 1 February 2019.</p>
      *
      * @return null|string
      */
@@ -49,6 +47,8 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Project was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -57,13 +57,13 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-     * @return null|LastModifiedBy
+     * @return null|string
      */
     public function getLastModifiedBy()
     {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -89,33 +89,23 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
+     * @param ?string $lastModifiedBy
      * @return $this
      */
-    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?string $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
 
-    /**
-     * @deprecated use withLastModifiedBy() instead
-     * @return $this
-     */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
 
     public function build(): SearchIndexingConfigurationValues
     {
         return new SearchIndexingConfigurationValuesModel(
             $this->status,
             $this->lastModifiedAt,
-            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy
+            $this->lastModifiedBy
         );
     }
 

@@ -16,6 +16,8 @@ interface ProjectChangeShoppingListsConfigurationAction extends ProjectUpdateAct
     public const FIELD_SHOPPING_LISTS_CONFIGURATION = 'shoppingListsConfiguration';
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
+     *
      * @return null|ShoppingListsConfiguration
      */
     public function getShoppingListsConfiguration();

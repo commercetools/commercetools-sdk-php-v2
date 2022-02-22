@@ -26,8 +26,7 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     private $externalOAuth;
 
     /**
-     * <p>If you do not provide the <code>externalOAuth</code> field or provide a value
-     * of <code>null</code>, the update action unsets the External OAuth provider.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|ExternalOAuth
      */

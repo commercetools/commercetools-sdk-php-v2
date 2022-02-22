@@ -42,6 +42,8 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     }
 
     /**
+     * <p>URL with authorization header.</p>
+     *
      * @return null|string
      */
     public function getUrl()
@@ -59,6 +61,8 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     }
 
     /**
+     * <p>Partially hidden on retrieval.</p>
+     *
      * @return null|string
      */
     public function getAuthorizationHeader()

@@ -59,7 +59,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     }
 
     /**
-     * <p>If not set, removes existing shippingRateInputType.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|ShippingRateInputType
      */

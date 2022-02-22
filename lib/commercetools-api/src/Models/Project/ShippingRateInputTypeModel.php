@@ -44,6 +44,8 @@ final class ShippingRateInputTypeModel extends JsonObjectModel implements Shippi
     }
 
     /**
+     * <p>Can be one of the following or absent.</p>
+     *
      * @return null|string
      */
     public function getType()

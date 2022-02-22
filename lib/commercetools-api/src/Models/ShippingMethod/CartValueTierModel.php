@@ -58,6 +58,8 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     }
 
     /**
+     * <p>Can be one of the following or absent.</p>
+     *
      * @return null|string
      */
     public function getType()

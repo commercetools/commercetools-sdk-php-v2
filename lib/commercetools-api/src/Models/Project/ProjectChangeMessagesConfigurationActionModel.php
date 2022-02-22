@@ -61,6 +61,8 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     }
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     *
      * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration()

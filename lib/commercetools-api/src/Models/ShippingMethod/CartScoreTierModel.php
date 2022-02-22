@@ -65,6 +65,8 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
+     * <p>Can be one of the following or absent.</p>
+     *
      * @return null|string
      */
     public function getType()

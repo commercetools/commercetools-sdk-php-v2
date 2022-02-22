@@ -17,6 +17,8 @@ interface ProjectChangeMessagesConfigurationAction extends ProjectUpdateAction
     public const FIELD_MESSAGES_CONFIGURATION = 'messagesConfiguration';
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     *
      * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration();

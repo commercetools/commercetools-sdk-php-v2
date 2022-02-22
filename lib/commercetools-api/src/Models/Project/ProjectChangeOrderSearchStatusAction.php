@@ -16,7 +16,7 @@ interface ProjectChangeOrderSearchStatusAction extends ProjectUpdateAction
     public const FIELD_STATUS = 'status';
 
     /**
-     * <p>Activated indicates that the Order Search feature is active. Deactivated means that the namely feature is currently configured to be inactive.</p>
+     * <p>Activates or deactivates the <a href="/../api/projects/order-search">Order Search</a> feature. Activation will trigger building a search index for the Orders in the Project.</p>
      *
      * @return null|string
      */

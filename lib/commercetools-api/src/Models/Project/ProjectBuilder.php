@@ -69,6 +69,16 @@ final class ProjectBuilder implements Builder
     private $messages;
 
     /**
+     * @var null|CartsConfiguration|CartsConfigurationBuilder
+     */
+    private $carts;
+
+    /**
+     * @var null|ShoppingListsConfiguration|ShoppingListsConfigurationBuilder
+     */
+    private $shoppingLists;
+
+    /**
      * @var null|ShippingRateInputType|ShippingRateInputTypeBuilder
      */
     private $shippingRateInputType;
@@ -79,22 +89,12 @@ final class ProjectBuilder implements Builder
     private $externalOAuth;
 
     /**
-     * @var null|CartsConfiguration|CartsConfigurationBuilder
-     */
-    private $carts;
-
-    /**
      * @var null|SearchIndexingConfiguration|SearchIndexingConfigurationBuilder
      */
     private $searchIndexing;
 
     /**
-     * @var null|ShoppingListsConfiguration|ShoppingListsConfigurationBuilder
-     */
-    private $shoppingLists;
-
-    /**
-     * <p>The current version of the project.</p>
+     * <p>Current version of the Project.</p>
      *
      * @return null|int
      */
@@ -104,7 +104,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>The unique key of the project.</p>
+     * <p>User-defined unique identifier of the Project.</p>
      *
      * @return null|string
      */
@@ -114,7 +114,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>The name of the project.</p>
+     * <p>Name of the Project.</p>
      *
      * @return null|string
      */
@@ -124,7 +124,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country code of the geographic location.</p>
      *
      * @return null|array
      */
@@ -134,7 +134,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>Currency code of the country. A Project must have at least one currency.</p>
      *
      * @return null|array
      */
@@ -144,6 +144,8 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * <p>Language of the country. A Project must have at least one language.</p>
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -152,6 +154,8 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Project was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -160,7 +164,7 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>
+     * <p>Date in YYYY-MM format specifying when the trial period for the Project ends. Only present on Projects in trial period.</p>
      *
      * @return null|string
      */
@@ -170,6 +174,8 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * <p>Holds the configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     *
      * @return null|MessagesConfiguration
      */
     public function getMessages()
@@ -178,22 +184,8 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @return null|ShippingRateInputType
-     */
-    public function getShippingRateInputType()
-    {
-        return $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType;
-    }
-
-    /**
-     * @return null|ExternalOAuth
-     */
-    public function getExternalOAuth()
-    {
-        return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
-    }
-
-    /**
+     * <p>Holds the configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     *
      * @return null|CartsConfiguration
      */
     public function getCarts()
@@ -202,19 +194,43 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @return null|SearchIndexingConfiguration
-     */
-    public function getSearchIndexing()
-    {
-        return $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing;
-    }
-
-    /**
+     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature. This field may not be present on Projects created before January 2020.</p>
+     *
      * @return null|ShoppingListsConfiguration
      */
     public function getShoppingLists()
     {
         return $this->shoppingLists instanceof ShoppingListsConfigurationBuilder ? $this->shoppingLists->build() : $this->shoppingLists;
+    }
+
+    /**
+     * <p>Holds the configuration for the <a href="ctp:api:type:ShippingRatePriceTier">tiered shipping rates</a> feature.</p>
+     *
+     * @return null|ShippingRateInputType
+     */
+    public function getShippingRateInputType()
+    {
+        return $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType;
+    }
+
+    /**
+     * <p>Represents a RFC 7662 compliant <a href="https://datatracker.ietf.org/doc/html/rfc7662">OAuth 2.0 Token Introspection</a> endpoint.</p>
+     *
+     * @return null|ExternalOAuth
+     */
+    public function getExternalOAuth()
+    {
+        return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
+    }
+
+    /**
+     * <p>Controls indexing of resources to be provided on high performance read-only search endpoints.</p>
+     *
+     * @return null|SearchIndexingConfiguration
+     */
+    public function getSearchIndexing()
+    {
+        return $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing;
     }
 
     /**
@@ -317,6 +333,28 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?CartsConfiguration $carts
+     * @return $this
+     */
+    public function withCarts(?CartsConfiguration $carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShoppingListsConfiguration $shoppingLists
+     * @return $this
+     */
+    public function withShoppingLists(?ShoppingListsConfiguration $shoppingLists)
+    {
+        $this->shoppingLists = $shoppingLists;
+
+        return $this;
+    }
+
+    /**
      * @param ?ShippingRateInputType $shippingRateInputType
      * @return $this
      */
@@ -339,17 +377,6 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @param ?CartsConfiguration $carts
-     * @return $this
-     */
-    public function withCarts(?CartsConfiguration $carts)
-    {
-        $this->carts = $carts;
-
-        return $this;
-    }
-
-    /**
      * @param ?SearchIndexingConfiguration $searchIndexing
      * @return $this
      */
@@ -361,23 +388,34 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @param ?ShoppingListsConfiguration $shoppingLists
-     * @return $this
-     */
-    public function withShoppingLists(?ShoppingListsConfiguration $shoppingLists)
-    {
-        $this->shoppingLists = $shoppingLists;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withMessages() instead
      * @return $this
      */
     public function withMessagesBuilder(?MessagesConfigurationBuilder $messages)
     {
         $this->messages = $messages;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCarts() instead
+     * @return $this
+     */
+    public function withCartsBuilder(?CartsConfigurationBuilder $carts)
+    {
+        $this->carts = $carts;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withShoppingLists() instead
+     * @return $this
+     */
+    public function withShoppingListsBuilder(?ShoppingListsConfigurationBuilder $shoppingLists)
+    {
+        $this->shoppingLists = $shoppingLists;
 
         return $this;
     }
@@ -405,34 +443,12 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCarts() instead
-     * @return $this
-     */
-    public function withCartsBuilder(?CartsConfigurationBuilder $carts)
-    {
-        $this->carts = $carts;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withSearchIndexing() instead
      * @return $this
      */
     public function withSearchIndexingBuilder(?SearchIndexingConfigurationBuilder $searchIndexing)
     {
         $this->searchIndexing = $searchIndexing;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withShoppingLists() instead
-     * @return $this
-     */
-    public function withShoppingListsBuilder(?ShoppingListsConfigurationBuilder $shoppingLists)
-    {
-        $this->shoppingLists = $shoppingLists;
 
         return $this;
     }
@@ -449,11 +465,11 @@ final class ProjectBuilder implements Builder
             $this->createdAt,
             $this->trialUntil,
             $this->messages instanceof MessagesConfigurationBuilder ? $this->messages->build() : $this->messages,
+            $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts,
+            $this->shoppingLists instanceof ShoppingListsConfigurationBuilder ? $this->shoppingLists->build() : $this->shoppingLists,
             $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
             $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
-            $this->carts instanceof CartsConfigurationBuilder ? $this->carts->build() : $this->carts,
-            $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing,
-            $this->shoppingLists instanceof ShoppingListsConfigurationBuilder ? $this->shoppingLists->build() : $this->shoppingLists
+            $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing
         );
     }
 

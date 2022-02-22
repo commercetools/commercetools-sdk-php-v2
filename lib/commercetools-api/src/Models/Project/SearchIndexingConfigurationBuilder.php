@@ -31,7 +31,7 @@ final class SearchIndexingConfigurationBuilder implements Builder
     private $orders;
 
     /**
-     * <p>Configuration for endpoints serving indexed <a href="ctp:api:type:Product">Product</a> information.</p>
+     * <p>Configuration for the <a href="/../api/projects/products-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
      *
      * @return null|SearchIndexingConfigurationValues
      */

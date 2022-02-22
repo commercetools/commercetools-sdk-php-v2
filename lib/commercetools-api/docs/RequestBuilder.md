@@ -10,8 +10,7 @@ $root = new ApiRequestBuilder();
 
 ## `withProjectKey("projectKey")->get()`
 
-The Endpoint is responding a limited set of information about settings and configuration of the project.
-
+null
 
 ### Example
 ```php
@@ -24,7 +23,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->post(null)`
 
-Update project
+null
 
 ### Example
 ```php

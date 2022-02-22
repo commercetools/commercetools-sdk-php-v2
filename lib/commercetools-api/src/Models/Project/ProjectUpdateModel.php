@@ -42,6 +42,8 @@ final class ProjectUpdateModel extends JsonObjectModel implements ProjectUpdate
     }
 
     /**
+     * <p>Expected version of the Project on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +61,8 @@ final class ProjectUpdateModel extends JsonObjectModel implements ProjectUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Project.</p>
+     *
      * @return null|ProjectUpdateActionCollection
      */
     public function getActions()
