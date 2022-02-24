@@ -48,7 +48,8 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Delivery.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -58,6 +59,8 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Delivery.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()

@@ -70,7 +70,8 @@ final class MyCartSetCustomTypeActionModel extends JsonObjectModel implements My
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the MyCart with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the MyCart.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -90,6 +91,8 @@ final class MyCartSetCustomTypeActionModel extends JsonObjectModel implements My
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the MyCart.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()

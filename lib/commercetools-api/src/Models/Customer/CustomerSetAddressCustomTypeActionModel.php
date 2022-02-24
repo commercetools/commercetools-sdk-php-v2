@@ -77,7 +77,8 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the <code>address</code>.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -97,6 +98,8 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code>.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()

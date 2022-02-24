@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -40,7 +42,7 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     protected $type;
 
     /**
-     * @var ?mixed
+     * @var ?FieldContainer
      */
     protected $fields;
 
@@ -51,7 +53,7 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     public function __construct(
         ?string $parcelId = null,
         ?TypeResourceIdentifier $type = null,
-        ?JsonObject $fields = null
+        ?FieldContainer $fields = null
     ) {
         $this->parcelId = $parcelId;
         $this->type = $type;
@@ -94,8 +96,8 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     }
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Parcel with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Parcel.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -115,9 +117,9 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Parcel.</p>
      *
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields()
     {
@@ -127,7 +129,8 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
             if (is_null($data)) {
                 return null;
             }
-            $this->fields = JsonObjectModel::of($data);
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
         return $this->fields;
@@ -151,9 +154,9 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void
+    public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;
     }
