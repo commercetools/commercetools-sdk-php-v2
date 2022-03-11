@@ -66,6 +66,8 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
     }
 
     /**
+     * <p>URL to the target destination.</p>
+     *
      * @return null|string
      */
     public function getUrl()
@@ -83,6 +85,8 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
     }
 
     /**
+     * <p>Authentication methods (such as <code>Basic</code> or <code>Bearer</code>).</p>
+     *
      * @return null|HttpDestinationAuthentication
      */
     public function getAuthentication()
@@ -93,8 +97,8 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
             if (is_null($data)) {
                 return null;
             }
-            $className = HttpDestinationAuthenticationModel::resolveDiscriminatorClass($data);
-            $this->authentication = $className::of($data);
+
+            $this->authentication = HttpDestinationAuthenticationModel::of($data);
         }
 
         return $this->authentication;

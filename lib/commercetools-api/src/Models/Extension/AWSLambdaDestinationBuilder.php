@@ -36,6 +36,8 @@ final class AWSLambdaDestinationBuilder implements Builder
     private $accessSecret;
 
     /**
+     * <p>Amazon Resource Name (ARN) of the Lambda function in the format <code>arn:aws:lambda:&lt;region&gt;:&lt;accountid&gt;:function:&lt;functionName&gt;</code>.</p>
+     *
      * @return null|string
      */
     public function getArn()
@@ -44,6 +46,8 @@ final class AWSLambdaDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -52,6 +56,8 @@ final class AWSLambdaDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessSecret()

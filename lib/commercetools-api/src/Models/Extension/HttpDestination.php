@@ -17,11 +17,15 @@ interface HttpDestination extends ExtensionDestination
     public const FIELD_AUTHENTICATION = 'authentication';
 
     /**
+     * <p>URL to the target destination.</p>
+     *
      * @return null|string
      */
     public function getUrl();
 
     /**
+     * <p>Authentication methods (such as <code>Basic</code> or <code>Bearer</code>).</p>
+     *
      * @return null|HttpDestinationAuthentication
      */
     public function getAuthentication();

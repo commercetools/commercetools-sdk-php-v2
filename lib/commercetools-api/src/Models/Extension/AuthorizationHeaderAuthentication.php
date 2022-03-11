@@ -16,6 +16,8 @@ interface AuthorizationHeaderAuthentication extends HttpDestinationAuthenticatio
     public const FIELD_HEADER_VALUE = 'headerValue';
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getHeaderValue();

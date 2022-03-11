@@ -26,6 +26,8 @@ final class AzureFunctionsAuthenticationBuilder implements Builder
     private $key;
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getKey()

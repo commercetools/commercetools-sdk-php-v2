@@ -1078,7 +1078,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->post(null)`
 
-Currently, a maximum of 25 extensions can be created per project.
+null
 
 ### Example
 ```php
@@ -1092,7 +1092,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->get()`
 
-Retrieves the representation of an extension by its id.
+null
 
 ### Example
 ```php
@@ -1137,7 +1137,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->get()`
 
-Retrieves the representation of an extension by its key.
+null
 
 ### Example
 ```php

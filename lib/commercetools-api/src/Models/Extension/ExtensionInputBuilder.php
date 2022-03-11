@@ -33,6 +33,8 @@ final class ExtensionInputBuilder implements Builder
     private $resource;
 
     /**
+     * <p><code>Create</code> or <code>Update</code> request.</p>
+     *
      * @return null|string
      */
     public function getAction()
@@ -41,6 +43,8 @@ final class ExtensionInputBuilder implements Builder
     }
 
     /**
+     * <p>Expanded reference to the resource that triggered the Extension.</p>
+     *
      * @return null|Reference
      */
     public function getResource()

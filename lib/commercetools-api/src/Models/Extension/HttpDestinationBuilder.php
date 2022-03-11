@@ -31,6 +31,8 @@ final class HttpDestinationBuilder implements Builder
     private $authentication;
 
     /**
+     * <p>URL to the target destination.</p>
+     *
      * @return null|string
      */
     public function getUrl()
@@ -39,6 +41,8 @@ final class HttpDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Authentication methods (such as <code>Basic</code> or <code>Bearer</code>).</p>
+     *
      * @return null|HttpDestinationAuthentication
      */
     public function getAuthentication()

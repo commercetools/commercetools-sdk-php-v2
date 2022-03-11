@@ -59,6 +59,8 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|ExtensionDestination
      */
     public function getDestination()

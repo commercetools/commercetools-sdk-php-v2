@@ -18,16 +18,22 @@ interface AWSLambdaDestination extends ExtensionDestination
     public const FIELD_ACCESS_SECRET = 'accessSecret';
 
     /**
+     * <p>Amazon Resource Name (ARN) of the Lambda function in the format <code>arn:aws:lambda:&lt;region&gt;:&lt;accountid&gt;:function:&lt;functionName&gt;</code>.</p>
+     *
      * @return null|string
      */
     public function getArn();
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessKey();
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessSecret();

@@ -59,6 +59,8 @@ final class AuthorizationHeaderAuthenticationModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getHeaderValue()

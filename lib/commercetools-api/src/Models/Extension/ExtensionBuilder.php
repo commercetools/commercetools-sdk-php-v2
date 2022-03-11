@@ -78,6 +78,8 @@ final class ExtensionBuilder implements Builder
     private $timeoutInMs;
 
     /**
+     * <p>Unique ID of the Extension.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -86,6 +88,8 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the Extension.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -94,6 +98,8 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Extension was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -102,6 +108,8 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Extension was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -110,7 +118,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -120,7 +128,7 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -130,6 +138,9 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier for the Extension.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -138,6 +149,8 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * <p>Information necessary for the commercetools Platform to call the Extension.</p>
+     *
      * @return null|ExtensionDestination
      */
     public function getDestination()
@@ -146,6 +159,8 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
+     * <p>Describes what triggers the Extension.</p>
+     *
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()
@@ -154,8 +169,9 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * <p>The maximum time the commercetools platform waits for a response from the extension.
-     * If not present, <code>2000</code> (2 seconds) is used.</p>
+     * <p>Maximum time (in milliseconds) the commercetools Platform waits for a response from the Extension.
+     * If no timeout is provided, the default value is used for all types of Extensions.
+     * The maximum value is 10000 ms (10 seconds) for <code>payment</code> Extensions and 2000 ms (2 seconds) for all other Extensions.</p>
      *
      * @return null|int
      */

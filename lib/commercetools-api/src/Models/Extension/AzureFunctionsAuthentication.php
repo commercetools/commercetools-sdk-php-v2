@@ -16,6 +16,8 @@ interface AzureFunctionsAuthentication extends HttpDestinationAuthentication
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getKey();

@@ -59,6 +59,8 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getKey()
