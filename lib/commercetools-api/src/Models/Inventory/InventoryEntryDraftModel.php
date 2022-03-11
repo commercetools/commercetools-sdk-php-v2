@@ -30,6 +30,11 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     protected $sku;
 
     /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -60,6 +65,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
      */
     public function __construct(
         ?string $sku = null,
+        ?string $key = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?int $quantityOnStock = null,
         ?int $restockableInDays = null,
@@ -67,6 +73,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         ?CustomFieldsDraft $custom = null
     ) {
         $this->sku = $sku;
+        $this->key = $key;
         $this->supplyChannel = $supplyChannel;
         $this->quantityOnStock = $quantityOnStock;
         $this->restockableInDays = $restockableInDays;
@@ -89,6 +96,26 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         }
 
         return $this->sku;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the InventoryEntry.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -191,6 +218,14 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

@@ -63,6 +63,11 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $sku;
 
     /**
@@ -106,6 +111,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         ?DateTimeImmutable $lastModifiedAt = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null,
+        ?string $key = null,
         ?string $sku = null,
         ?ChannelReference $supplyChannel = null,
         ?int $quantityOnStock = null,
@@ -120,6 +126,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
+        $this->key = $key;
         $this->sku = $sku;
         $this->supplyChannel = $supplyChannel;
         $this->quantityOnStock = $quantityOnStock;
@@ -245,6 +252,26 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         }
 
         return $this->createdBy;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the InventoryEntry.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -431,6 +458,14 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

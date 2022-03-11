@@ -2364,6 +2364,51 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->login()->post(null)`
 
 Authenticate Customer (Sign In). Retrieves the authenticated

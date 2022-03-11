@@ -21,6 +21,7 @@ interface InventoryEntry extends BaseResource
 {
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
+    public const FIELD_KEY = 'key';
     public const FIELD_SKU = 'sku';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
@@ -64,6 +65,14 @@ interface InventoryEntry extends BaseResource
      * @return null|CreatedBy
      */
     public function getCreatedBy();
+
+    /**
+     * <p>User-defined unique identifier for the InventoryEntry.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     *
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * @return null|string
@@ -141,6 +150,11 @@ interface InventoryEntry extends BaseResource
      * @param ?CreatedBy $createdBy
      */
     public function setCreatedBy(?CreatedBy $createdBy): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?string $sku

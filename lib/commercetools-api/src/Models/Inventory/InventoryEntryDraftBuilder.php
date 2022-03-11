@@ -31,6 +31,11 @@ final class InventoryEntryDraftBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
@@ -61,6 +66,17 @@ final class InventoryEntryDraftBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the InventoryEntry.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -112,6 +128,17 @@ final class InventoryEntryDraftBuilder implements Builder
     public function withSku(?string $sku)
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -197,6 +224,7 @@ final class InventoryEntryDraftBuilder implements Builder
     {
         return new InventoryEntryDraftModel(
             $this->sku,
+            $this->key,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,
             $this->restockableInDays,

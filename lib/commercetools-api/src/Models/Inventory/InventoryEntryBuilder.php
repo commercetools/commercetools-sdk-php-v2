@@ -64,6 +64,11 @@ final class InventoryEntryBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $sku;
 
     /**
@@ -148,6 +153,17 @@ final class InventoryEntryBuilder implements Builder
     public function getCreatedBy()
     {
         return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the InventoryEntry.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -285,6 +301,17 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $sku
      * @return $this
      */
@@ -414,6 +441,7 @@ final class InventoryEntryBuilder implements Builder
             $this->lastModifiedAt,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->key,
             $this->sku,
             $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,

@@ -10,8 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\ProductSelection\ProductsInStorePagedQueryResponse;
-use Commercetools\Api\Models\ProductSelection\ProductsInStorePagedQueryResponseModel;
+use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\Inventory\InventoryEntryModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -29,26 +29,26 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
- * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
- * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet>
+ * @template-implements Expandable<ByProjectKeyInventoryKeyByKeyGet>
+ * @template-implements Errorable<ByProjectKeyInventoryKeyByKeyGet>
+ * @template-implements Deprecatable200<ByProjectKeyInventoryKeyByKeyGet>
  */
-class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
+class ByProjectKeyInventoryKeyByKeyGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function __construct(string $projectKey, string $storeKey, $body = null, array $headers = [], ClientInterface $client = null)
+    public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '{projectKey}/in-store/key={storeKey}/product-selection-assignments');
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/inventory/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|ProductsInStorePagedQueryResponse|T|null
+     * @return ErrorResponse|InventoryEntry|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -58,7 +58,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends Api
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = ProductsInStorePagedQueryResponseModel::class;
+                    $resultType = InventoryEntryModel::class;
 
                     break;
                 case '400':
@@ -99,7 +99,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends Api
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductsInStorePagedQueryResponse
+     * @return null|ErrorResponse|InventoryEntry|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -147,7 +147,7 @@ class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends Api
      *
      * @psalm-param scalar|scalar[] $expand
      */
-    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
+    public function withExpand($expand): ByProjectKeyInventoryKeyByKeyGet
     {
         return $this->withQueryParam('expand', $expand);
     }

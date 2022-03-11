@@ -36,6 +36,7 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
        'setCustomField' => InventoryEntrySetCustomFieldActionModel::class,
        'setCustomType' => InventoryEntrySetCustomTypeActionModel::class,
        'setExpectedDelivery' => InventoryEntrySetExpectedDeliveryActionModel::class,
+       'setKey' => InventoryEntrySetKeyActionModel::class,
        'setRestockableInDays' => InventoryEntrySetRestockableInDaysActionModel::class,
        'setSupplyChannel' => InventoryEntrySetSupplyChannelActionModel::class,
     ];

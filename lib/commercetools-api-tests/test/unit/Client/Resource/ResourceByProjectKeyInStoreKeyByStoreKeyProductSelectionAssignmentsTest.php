@@ -90,6 +90,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsTest ex
     public function getRequests()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productSelectionAssignments()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?expand=expand',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
