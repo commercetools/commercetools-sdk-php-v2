@@ -10,8 +10,7 @@ $root = new ApiRequestBuilder();
 
 ## `withProjectKey("projectKey")->get()`
 
-The Endpoint is responding a limited set of information about settings and configuration of the project.
-
+null
 
 ### Example
 ```php
@@ -24,7 +23,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->post(null)`
 
-Update project
+null
 
 ### Example
 ```php
@@ -1079,7 +1078,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->post(null)`
 
-Currently, a maximum of 25 extensions can be created per project.
+null
 
 ### Example
 ```php
@@ -1093,7 +1092,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->get()`
 
-Retrieves the representation of an extension by its id.
+null
 
 ### Example
 ```php
@@ -1138,7 +1137,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->get()`
 
-Retrieves the representation of an extension by its key.
+null
 
 ### Example
 ```php
@@ -2365,6 +2364,51 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->login()->post(null)`
 
 Authenticate Customer (Sign In). Retrieves the authenticated
@@ -2660,7 +2704,7 @@ $request = $builder
                 ->password()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->me()->password()->reset()->post()`
+## `withProjectKey("projectKey")->me()->password()->reset()->post(null)`
 
 null
 
@@ -2674,7 +2718,7 @@ $request = $builder
                 ->me()
                 ->password()
                 ->reset()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 

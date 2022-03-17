@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -86,7 +86,7 @@ final class MyCustomerDraftBuilder implements Builder
     private $defaultBillingAddress;
 
     /**
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -207,11 +207,11 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -363,10 +363,10 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -399,7 +399,7 @@ final class MyCustomerDraftBuilder implements Builder
      * @deprecated use withCustom() instead
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
 
@@ -421,7 +421,7 @@ final class MyCustomerDraftBuilder implements Builder
             $this->addresses,
             $this->defaultShippingAddress,
             $this->defaultBillingAddress,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->stores
         );

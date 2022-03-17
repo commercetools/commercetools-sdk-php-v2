@@ -59,6 +59,8 @@ final class ProjectChangeCartsConfigurationActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     *
      * @return null|CartsConfiguration
      */
     public function getCartsConfiguration()

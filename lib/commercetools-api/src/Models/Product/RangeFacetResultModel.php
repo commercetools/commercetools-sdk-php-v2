@@ -26,7 +26,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     protected $type;
 
     /**
-     * @var ?FacetResultRangeCollection
+     * @var ?FacetRangeCollection
      */
     protected $ranges;
 
@@ -35,7 +35,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?FacetResultRangeCollection $ranges = null
+        ?FacetRangeCollection $ranges = null
     ) {
         $this->ranges = $ranges;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -59,7 +59,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     }
 
     /**
-     * @return null|FacetResultRangeCollection
+     * @return null|FacetRangeCollection
      */
     public function getRanges()
     {
@@ -69,7 +69,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
             if (is_null($data)) {
                 return null;
             }
-            $this->ranges = FacetResultRangeCollection::fromArray($data);
+            $this->ranges = FacetRangeCollection::fromArray($data);
         }
 
         return $this->ranges;
@@ -77,9 +77,9 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
 
 
     /**
-     * @param ?FacetResultRangeCollection $ranges
+     * @param ?FacetRangeCollection $ranges
      */
-    public function setRanges(?FacetResultRangeCollection $ranges): void
+    public function setRanges(?FacetRangeCollection $ranges): void
     {
         $this->ranges = $ranges;
     }

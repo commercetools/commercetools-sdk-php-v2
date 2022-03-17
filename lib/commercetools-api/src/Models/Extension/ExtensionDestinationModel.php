@@ -30,8 +30,8 @@ final class ExtensionDestinationModel extends JsonObjectModel implements Extensi
      *
      */
     private static $discriminatorClasses = [
-       'AWSLambda' => ExtensionAWSLambdaDestinationModel::class,
-       'HTTP' => ExtensionHttpDestinationModel::class,
+       'AWSLambda' => AWSLambdaDestinationModel::class,
+       'HTTP' => HttpDestinationModel::class,
     ];
 
     /**

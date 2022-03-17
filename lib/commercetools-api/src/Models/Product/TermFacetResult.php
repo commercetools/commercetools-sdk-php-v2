@@ -40,7 +40,7 @@ interface TermFacetResult extends FacetResult
     public function getOther();
 
     /**
-     * @return null|FacetResultTermCollection
+     * @return null|FacetTermCollection
      */
     public function getTerms();
 
@@ -65,7 +65,7 @@ interface TermFacetResult extends FacetResult
     public function setOther(?int $other): void;
 
     /**
-     * @param ?FacetResultTermCollection $terms
+     * @param ?FacetTermCollection $terms
      */
-    public function setTerms(?FacetResultTermCollection $terms): void;
+    public function setTerms(?FacetTermCollection $terms): void;
 }

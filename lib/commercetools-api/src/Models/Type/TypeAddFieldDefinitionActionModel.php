@@ -59,6 +59,8 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|FieldDefinition
      */
     public function getFieldDefinition()

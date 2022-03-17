@@ -34,6 +34,8 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public const FIELD_ADDED_AT = 'addedAt';
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -78,6 +80,9 @@ interface MyCartAddLineItemAction extends MyCartUpdateAction
     public function getSupplyChannel();
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getExternalPrice();

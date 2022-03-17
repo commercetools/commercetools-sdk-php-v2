@@ -10,7 +10,7 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
-use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -104,7 +104,7 @@ interface MyCustomerDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -179,9 +179,9 @@ interface MyCustomerDraft extends JsonObject
     public function setDefaultBillingAddress(?int $defaultBillingAddress): void;
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 
     /**
      * @param ?string $locale

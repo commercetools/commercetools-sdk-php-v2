@@ -33,6 +33,8 @@ final class ProductSelectionUpdateActionModel extends JsonObjectModel implements
        'addProduct' => ProductSelectionAddProductActionModel::class,
        'changeName' => ProductSelectionChangeNameActionModel::class,
        'removeProduct' => ProductSelectionRemoveProductActionModel::class,
+       'setCustomField' => ProductSelectionSetCustomFieldActionModel::class,
+       'setCustomType' => ProductSelectionSetCustomTypeActionModel::class,
        'setKey' => ProductSelectionSetKeyActionModel::class,
     ];
 

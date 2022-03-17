@@ -16,6 +16,8 @@ interface CustomFieldReferenceType extends FieldType
     public const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**
+     * <p>Resource type the Custom Field can reference.</p>
+     *
      * @return null|string
      */
     public function getReferenceTypeId();

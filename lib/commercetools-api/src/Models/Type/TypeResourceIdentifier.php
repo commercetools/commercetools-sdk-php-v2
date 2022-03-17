@@ -14,4 +14,27 @@ use Commercetools\Base\JsonObject;
 
 interface TypeResourceIdentifier extends ResourceIdentifier
 {
+    /**
+     * <p>Unique ID of the referenced <a href="ctp:api:type:Type">Type</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     *
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * <p>Unique key of the referenced <a href="ctp:api:type:Type">Type</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     *
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }

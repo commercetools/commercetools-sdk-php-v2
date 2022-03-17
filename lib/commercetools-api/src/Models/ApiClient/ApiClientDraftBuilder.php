@@ -36,6 +36,16 @@ final class ApiClientDraftBuilder implements Builder
     private $deleteDaysAfterCreation;
 
     /**
+     * @var ?int
+     */
+    private $accessTokenValiditySeconds;
+
+    /**
+     * @var ?int
+     */
+    private $refreshTokenValiditySeconds;
+
+    /**
      * <p>Name of the API Client.</p>
      *
      * @return null|string
@@ -56,13 +66,33 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
-     * <p>If set, the client will be deleted after the specified amount of days.</p>
+     * <p>If set, the Client will be deleted after the specified amount of days.</p>
      *
      * @return null|int
      */
     public function getDeleteDaysAfterCreation()
     {
         return $this->deleteDaysAfterCreation;
+    }
+
+    /**
+     * <p>Expiration time in seconds for each access token obtained by the API Client. If not set the default value applies.</p>
+     *
+     * @return null|int
+     */
+    public function getAccessTokenValiditySeconds()
+    {
+        return $this->accessTokenValiditySeconds;
+    }
+
+    /**
+     * <p>Inactivity expiration time in seconds for each refresh token obtained by the API Client. The expiration time for refresh tokens is restarted each time the token is used. If not set the default value applies.</p>
+     *
+     * @return null|int
+     */
+    public function getRefreshTokenValiditySeconds()
+    {
+        return $this->refreshTokenValiditySeconds;
     }
 
     /**
@@ -98,13 +128,37 @@ final class ApiClientDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $accessTokenValiditySeconds
+     * @return $this
+     */
+    public function withAccessTokenValiditySeconds(?int $accessTokenValiditySeconds)
+    {
+        $this->accessTokenValiditySeconds = $accessTokenValiditySeconds;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $refreshTokenValiditySeconds
+     * @return $this
+     */
+    public function withRefreshTokenValiditySeconds(?int $refreshTokenValiditySeconds)
+    {
+        $this->refreshTokenValiditySeconds = $refreshTokenValiditySeconds;
+
+        return $this;
+    }
+
 
     public function build(): ApiClientDraft
     {
         return new ApiClientDraftModel(
             $this->name,
             $this->scope,
-            $this->deleteDaysAfterCreation
+            $this->deleteDaysAfterCreation,
+            $this->accessTokenValiditySeconds,
+            $this->refreshTokenValiditySeconds
         );
     }
 

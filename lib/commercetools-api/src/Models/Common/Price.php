@@ -34,6 +34,8 @@ interface Price extends JsonObject
     public function getId();
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue();
@@ -75,6 +77,8 @@ interface Price extends JsonObject
     public function getDiscounted();
 
     /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();

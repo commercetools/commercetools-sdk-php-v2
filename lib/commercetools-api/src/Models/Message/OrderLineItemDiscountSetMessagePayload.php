@@ -14,7 +14,7 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderLineItemDiscountSetMessagePayload extends MessagePayload
+interface OrderLineItemDiscountSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
@@ -32,6 +32,9 @@ interface OrderLineItemDiscountSetMessagePayload extends MessagePayload
     public function getDiscountedPricePerQuantity();
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getTotalPrice();

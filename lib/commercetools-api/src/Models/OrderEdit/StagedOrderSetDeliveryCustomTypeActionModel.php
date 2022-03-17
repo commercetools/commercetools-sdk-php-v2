@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -30,12 +32,17 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
     protected $action;
 
     /**
+     * @var ?string
+     */
+    protected $deliveryId;
+
+    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-     * @var ?mixed
+     * @var ?FieldContainer
      */
     protected $fields;
 
@@ -44,9 +51,11 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $deliveryId = null,
         ?TypeResourceIdentifier $type = null,
-        ?JsonObject $fields = null
+        ?FieldContainer $fields = null
     ) {
+        $this->deliveryId = $deliveryId;
         $this->type = $type;
         $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -70,8 +79,25 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
+    }
+
+    /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Delivery.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -91,9 +117,9 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Delivery.</p>
      *
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields()
     {
@@ -103,12 +129,21 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
             if (is_null($data)) {
                 return null;
             }
-            $this->fields = JsonObjectModel::of($data);
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
         return $this->fields;
     }
 
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
+    }
 
     /**
      * @param ?TypeResourceIdentifier $type
@@ -119,9 +154,9 @@ final class StagedOrderSetDeliveryCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void
+    public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;
     }

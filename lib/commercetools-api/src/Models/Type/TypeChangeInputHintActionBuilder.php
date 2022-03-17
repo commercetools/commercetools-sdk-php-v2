@@ -31,6 +31,8 @@ final class TypeChangeInputHintActionBuilder implements Builder
     private $inputHint;
 
     /**
+     * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -39,6 +41,9 @@ final class TypeChangeInputHintActionBuilder implements Builder
     }
 
     /**
+     * <p>New value to set.
+     * Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getInputHint()

@@ -17,11 +17,15 @@ interface ExternalOAuth extends JsonObject
     public const FIELD_AUTHORIZATION_HEADER = 'authorizationHeader';
 
     /**
+     * <p>URL with authorization header.</p>
+     *
      * @return null|string
      */
     public function getUrl();
 
     /**
+     * <p>Partially hidden on retrieval.</p>
+     *
      * @return null|string
      */
     public function getAuthorizationHeader();

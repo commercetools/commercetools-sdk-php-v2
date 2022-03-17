@@ -72,6 +72,9 @@ final class StagedOrderSetShippingAddressCustomTypeActionModel extends JsonObjec
     }
 
     /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>shippingAddress</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the <code>shippingAddress</code>.</p>
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -90,6 +93,8 @@ final class StagedOrderSetShippingAddressCustomTypeActionModel extends JsonObjec
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>shippingAddress</code>.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()

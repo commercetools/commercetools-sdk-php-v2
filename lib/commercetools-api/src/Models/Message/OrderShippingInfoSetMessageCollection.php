@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Message\MessageCollection;
+use Commercetools\Api\Models\Message\OrderMessageCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MessageCollection<OrderShippingInfoSetMessage>
+ * @extends OrderMessageCollection<OrderShippingInfoSetMessage>
  * @method OrderShippingInfoSetMessage current()
  * @method OrderShippingInfoSetMessage end()
  * @method OrderShippingInfoSetMessage at($offset)
  */
-class OrderShippingInfoSetMessageCollection extends MessageCollection
+class OrderShippingInfoSetMessageCollection extends OrderMessageCollection
 {
     /**
      * @psalm-assert OrderShippingInfoSetMessage $value

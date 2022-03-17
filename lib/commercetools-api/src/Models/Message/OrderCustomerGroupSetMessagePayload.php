@@ -12,7 +12,7 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderCustomerGroupSetMessagePayload extends MessagePayload
+interface OrderCustomerGroupSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';

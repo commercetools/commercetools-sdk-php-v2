@@ -85,8 +85,6 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
-     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
-     *
      * @return null|TypedMoney
      */
     public function getAmount()

@@ -16,6 +16,7 @@ interface ErrorObject extends JsonObject
     public const DISCRIMINATOR_FIELD = 'code';
     public const FIELD_CODE = 'code';
     public const FIELD_MESSAGE = 'message';
+    public const FIELD_PATTERN2 = '//';
 
     /**
      * @return null|string

@@ -28,6 +28,9 @@ interface PriceDraft extends JsonObject
     public const FIELD_DISCOUNTED = 'discounted';
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getValue();
@@ -64,6 +67,8 @@ interface PriceDraft extends JsonObject
     public function getValidUntil();
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

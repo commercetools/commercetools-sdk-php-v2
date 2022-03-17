@@ -18,6 +18,8 @@ interface DiscountedPrice extends JsonObject
     public const FIELD_DISCOUNT = 'discount';
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue();

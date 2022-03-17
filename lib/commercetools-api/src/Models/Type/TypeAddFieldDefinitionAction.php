@@ -16,6 +16,8 @@ interface TypeAddFieldDefinitionAction extends TypeUpdateAction
     public const FIELD_FIELD_DEFINITION = 'fieldDefinition';
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|FieldDefinition
      */
     public function getFieldDefinition();

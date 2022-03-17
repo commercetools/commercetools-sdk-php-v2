@@ -138,6 +138,18 @@ class ResourceByProjectKeyShippingMethodsMatchingLocationTest extends TestCase
                 'get',
                 'test_projectKey/shipping-methods/matching-location?expand=expand',
             ],
+            'ByProjectKeyShippingMethodsMatchingLocationGet_withSort' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->shippingMethods()
+                        ->matchingLocation()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                'test_projectKey/shipping-methods/matching-location?sort=sort',
+            ],
             'ByProjectKeyShippingMethodsMatchingLocationGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

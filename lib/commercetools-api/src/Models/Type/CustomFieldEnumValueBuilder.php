@@ -31,6 +31,8 @@ final class CustomFieldEnumValueBuilder implements Builder
     private $label;
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -39,6 +41,8 @@ final class CustomFieldEnumValueBuilder implements Builder
     }
 
     /**
+     * <p>Descriptive label of the value.</p>
+     *
      * @return null|string
      */
     public function getLabel()

@@ -46,7 +46,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     protected $other;
 
     /**
-     * @var ?FacetResultTermCollection
+     * @var ?FacetTermCollection
      */
     protected $terms;
 
@@ -59,7 +59,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
         ?int $missing = null,
         ?int $total = null,
         ?int $other = null,
-        ?FacetResultTermCollection $terms = null
+        ?FacetTermCollection $terms = null
     ) {
         $this->dataType = $dataType;
         $this->missing = $missing;
@@ -155,7 +155,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
-     * @return null|FacetResultTermCollection
+     * @return null|FacetTermCollection
      */
     public function getTerms()
     {
@@ -165,7 +165,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
             if (is_null($data)) {
                 return null;
             }
-            $this->terms = FacetResultTermCollection::fromArray($data);
+            $this->terms = FacetTermCollection::fromArray($data);
         }
 
         return $this->terms;
@@ -205,9 +205,9 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
-     * @param ?FacetResultTermCollection $terms
+     * @param ?FacetTermCollection $terms
      */
-    public function setTerms(?FacetResultTermCollection $terms): void
+    public function setTerms(?FacetTermCollection $terms): void
     {
         $this->terms = $terms;
     }

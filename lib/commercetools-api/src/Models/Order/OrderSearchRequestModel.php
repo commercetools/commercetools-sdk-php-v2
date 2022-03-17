@@ -20,7 +20,7 @@ use stdClass;
 final class OrderSearchRequestModel extends JsonObjectModel implements OrderSearchRequest
 {
     /**
-     * @var ?string
+     * @var ?OrderSearchQuery
      */
     protected $query;
 
@@ -44,7 +44,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $query = null,
+        ?OrderSearchQuery $query = null,
         ?string $sort = null,
         ?int $limit = null,
         ?int $offset = null
@@ -58,17 +58,18 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     /**
      * <p>The Order search query.</p>
      *
-     * @return null|string
+     * @return null|OrderSearchQuery
      */
     public function getQuery()
     {
         if (is_null($this->query)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(self::FIELD_QUERY);
             if (is_null($data)) {
                 return null;
             }
-            $this->query = (string) $data;
+
+            $this->query = OrderSearchQueryModel::of($data);
         }
 
         return $this->query;
@@ -133,9 +134,9 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
 
 
     /**
-     * @param ?string $query
+     * @param ?OrderSearchQuery $query
      */
-    public function setQuery(?string $query): void
+    public function setQuery(?OrderSearchQuery $query): void
     {
         $this->query = $query;
     }

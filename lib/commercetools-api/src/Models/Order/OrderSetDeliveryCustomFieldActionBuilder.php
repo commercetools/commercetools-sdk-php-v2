@@ -23,6 +23,11 @@ final class OrderSetDeliveryCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
+    private $deliveryId;
+
+    /**
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -33,17 +38,42 @@ final class OrderSetDeliveryCustomFieldActionBuilder implements Builder
     /**
      * @return null|string
      */
+    public function getDeliveryId()
+    {
+        return $this->deliveryId;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+     * @return null|string
+     */
     public function getName()
     {
         return $this->name;
     }
 
     /**
+     * <p>If <code>value</code> is absent or <code>null</code>, this field will be removed if it exists.
+     * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
+     * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
+     *
      * @return null|mixed
      */
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     * @return $this
+     */
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
+
+        return $this;
     }
 
     /**
@@ -72,6 +102,7 @@ final class OrderSetDeliveryCustomFieldActionBuilder implements Builder
     public function build(): OrderSetDeliveryCustomFieldAction
     {
         return new OrderSetDeliveryCustomFieldActionModel(
+            $this->deliveryId,
             $this->name,
             $this->value
         );

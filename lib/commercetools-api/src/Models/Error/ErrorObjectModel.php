@@ -155,6 +155,22 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         $this->message = $message;
     }
 
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+        if (preg_match(ErrorObject::FIELD_PATTERN2, $key) === 1) {
+            /** @psalm-var stdClass $data */
+            return JsonObjectModel::of($data);
+        }
+
+        return $data;
+    }
 
 
     /**

@@ -59,6 +59,8 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Resource type the Custom Field can reference.</p>
+     *
      * @return null|string
      */
     public function getReferenceTypeId()

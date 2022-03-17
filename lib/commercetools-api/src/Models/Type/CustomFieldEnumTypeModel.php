@@ -59,6 +59,8 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     }
 
     /**
+     * <p>Allowed values.</p>
+     *
      * @return null|CustomFieldEnumValueCollection
      */
     public function getValues()

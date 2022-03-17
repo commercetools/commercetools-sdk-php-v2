@@ -25,11 +25,16 @@ interface ShoppingListSetTextLineItemCustomTypeAction extends ShoppingListUpdate
     public function getTextLineItemId();
 
     /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the TextLineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the TextLineItem.</p>
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType();
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the TextLineItem.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields();

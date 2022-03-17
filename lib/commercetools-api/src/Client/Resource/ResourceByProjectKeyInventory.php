@@ -37,6 +37,17 @@ class ResourceByProjectKeyInventory extends ApiResource
 
         return new ResourceByProjectKeyInventoryByID($args, $this->getClient());
     }
+    /**
+     */
+    public function withKey(string $key = null): ResourceByProjectKeyInventoryKeyByKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        return new ResourceByProjectKeyInventoryKeyByKey($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

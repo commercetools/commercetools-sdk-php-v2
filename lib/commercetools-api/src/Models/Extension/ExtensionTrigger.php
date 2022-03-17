@@ -17,11 +17,15 @@ interface ExtensionTrigger extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
+     *
      * @return null|string
      */
     public function getResourceTypeId();
 
     /**
+     * <p><code>Create</code> and <code>Update</code> requests are supported.</p>
+     *
      * @return null|array
      */
     public function getActions();

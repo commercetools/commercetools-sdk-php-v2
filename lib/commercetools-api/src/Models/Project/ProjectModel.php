@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfiguration;
-use Commercetools\Api\Models\Message\MessageConfigurationModel;
+use Commercetools\Api\Models\Message\MessagesConfiguration;
+use Commercetools\Api\Models\Message\MessagesConfigurationModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -63,9 +63,19 @@ final class ProjectModel extends JsonObjectModel implements Project
     protected $trialUntil;
 
     /**
-     * @var ?MessageConfiguration
+     * @var ?MessagesConfiguration
      */
     protected $messages;
+
+    /**
+     * @var ?CartsConfiguration
+     */
+    protected $carts;
+
+    /**
+     * @var ?ShoppingListsConfiguration
+     */
+    protected $shoppingLists;
 
     /**
      * @var ?ShippingRateInputType
@@ -78,19 +88,9 @@ final class ProjectModel extends JsonObjectModel implements Project
     protected $externalOAuth;
 
     /**
-     * @var ?CartsConfiguration
-     */
-    protected $carts;
-
-    /**
      * @var ?SearchIndexingConfiguration
      */
     protected $searchIndexing;
-
-    /**
-     * @var ?ShoppingListsConfiguration
-     */
-    protected $shoppingLists;
 
 
     /**
@@ -105,12 +105,12 @@ final class ProjectModel extends JsonObjectModel implements Project
         ?array $languages = null,
         ?DateTimeImmutable $createdAt = null,
         ?string $trialUntil = null,
-        ?MessageConfiguration $messages = null,
+        ?MessagesConfiguration $messages = null,
+        ?CartsConfiguration $carts = null,
+        ?ShoppingListsConfiguration $shoppingLists = null,
         ?ShippingRateInputType $shippingRateInputType = null,
         ?ExternalOAuth $externalOAuth = null,
-        ?CartsConfiguration $carts = null,
-        ?SearchIndexingConfiguration $searchIndexing = null,
-        ?ShoppingListsConfiguration $shoppingLists = null
+        ?SearchIndexingConfiguration $searchIndexing = null
     ) {
         $this->version = $version;
         $this->key = $key;
@@ -121,15 +121,15 @@ final class ProjectModel extends JsonObjectModel implements Project
         $this->createdAt = $createdAt;
         $this->trialUntil = $trialUntil;
         $this->messages = $messages;
+        $this->carts = $carts;
+        $this->shoppingLists = $shoppingLists;
         $this->shippingRateInputType = $shippingRateInputType;
         $this->externalOAuth = $externalOAuth;
-        $this->carts = $carts;
         $this->searchIndexing = $searchIndexing;
-        $this->shoppingLists = $shoppingLists;
     }
 
     /**
-     * <p>The current version of the project.</p>
+     * <p>Current version of the Project.</p>
      *
      * @return null|int
      */
@@ -148,7 +148,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The unique key of the project.</p>
+     * <p>User-defined unique identifier of the Project.</p>
      *
      * @return null|string
      */
@@ -167,7 +167,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The name of the project.</p>
+     * <p>Name of the Project.</p>
      *
      * @return null|string
      */
@@ -186,7 +186,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country code of the geographic location.</p>
      *
      * @return null|array
      */
@@ -205,7 +205,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>Currency code of the country. A Project must have at least one currency.</p>
      *
      * @return null|array
      */
@@ -224,6 +224,8 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
+     * <p>Language of the country. A Project must have at least one language.</p>
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -241,6 +243,8 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
+     * <p>Date and time (UTC) the Project was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -262,7 +266,7 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>
+     * <p>Date in YYYY-MM format specifying when the trial period for the Project ends. Only present on Projects in trial period.</p>
      *
      * @return null|string
      */
@@ -281,7 +285,9 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * @return null|MessageConfiguration
+     * <p>Holds the configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     *
+     * @return null|MessagesConfiguration
      */
     public function getMessages()
     {
@@ -292,49 +298,15 @@ final class ProjectModel extends JsonObjectModel implements Project
                 return null;
             }
 
-            $this->messages = MessageConfigurationModel::of($data);
+            $this->messages = MessagesConfigurationModel::of($data);
         }
 
         return $this->messages;
     }
 
     /**
-     * @return null|ShippingRateInputType
-     */
-    public function getShippingRateInputType()
-    {
-        if (is_null($this->shippingRateInputType)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingRateInputType = ShippingRateInputTypeModel::of($data);
-        }
-
-        return $this->shippingRateInputType;
-    }
-
-    /**
-     * @return null|ExternalOAuth
-     */
-    public function getExternalOAuth()
-    {
-        if (is_null($this->externalOAuth)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_O_AUTH);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalOAuth = ExternalOAuthModel::of($data);
-        }
-
-        return $this->externalOAuth;
-    }
-
-    /**
+     * <p>Holds the configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
+     *
      * @return null|CartsConfiguration
      */
     public function getCarts()
@@ -353,24 +325,8 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * @return null|SearchIndexingConfiguration
-     */
-    public function getSearchIndexing()
-    {
-        if (is_null($this->searchIndexing)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SEARCH_INDEXING);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->searchIndexing = SearchIndexingConfigurationModel::of($data);
-        }
-
-        return $this->searchIndexing;
-    }
-
-    /**
+     * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature. This field may not be present on Projects created before January 2020.</p>
+     *
      * @return null|ShoppingListsConfiguration
      */
     public function getShoppingLists()
@@ -386,6 +342,66 @@ final class ProjectModel extends JsonObjectModel implements Project
         }
 
         return $this->shoppingLists;
+    }
+
+    /**
+     * <p>Holds the configuration for the <a href="ctp:api:type:ShippingRatePriceTier">tiered shipping rates</a> feature.</p>
+     *
+     * @return null|ShippingRateInputType
+     */
+    public function getShippingRateInputType()
+    {
+        if (is_null($this->shippingRateInputType)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHIPPING_RATE_INPUT_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingRateInputType = ShippingRateInputTypeModel::of($data);
+        }
+
+        return $this->shippingRateInputType;
+    }
+
+    /**
+     * <p>Represents a RFC 7662 compliant <a href="https://datatracker.ietf.org/doc/html/rfc7662">OAuth 2.0 Token Introspection</a> endpoint.</p>
+     *
+     * @return null|ExternalOAuth
+     */
+    public function getExternalOAuth()
+    {
+        if (is_null($this->externalOAuth)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_O_AUTH);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalOAuth = ExternalOAuthModel::of($data);
+        }
+
+        return $this->externalOAuth;
+    }
+
+    /**
+     * <p>Controls indexing of resources to be provided on high performance read-only search endpoints.</p>
+     *
+     * @return null|SearchIndexingConfiguration
+     */
+    public function getSearchIndexing()
+    {
+        if (is_null($this->searchIndexing)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SEARCH_INDEXING);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->searchIndexing = SearchIndexingConfigurationModel::of($data);
+        }
+
+        return $this->searchIndexing;
     }
 
 
@@ -454,11 +470,27 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * @param ?MessageConfiguration $messages
+     * @param ?MessagesConfiguration $messages
      */
-    public function setMessages(?MessageConfiguration $messages): void
+    public function setMessages(?MessagesConfiguration $messages): void
     {
         $this->messages = $messages;
+    }
+
+    /**
+     * @param ?CartsConfiguration $carts
+     */
+    public function setCarts(?CartsConfiguration $carts): void
+    {
+        $this->carts = $carts;
+    }
+
+    /**
+     * @param ?ShoppingListsConfiguration $shoppingLists
+     */
+    public function setShoppingLists(?ShoppingListsConfiguration $shoppingLists): void
+    {
+        $this->shoppingLists = $shoppingLists;
     }
 
     /**
@@ -478,27 +510,11 @@ final class ProjectModel extends JsonObjectModel implements Project
     }
 
     /**
-     * @param ?CartsConfiguration $carts
-     */
-    public function setCarts(?CartsConfiguration $carts): void
-    {
-        $this->carts = $carts;
-    }
-
-    /**
      * @param ?SearchIndexingConfiguration $searchIndexing
      */
     public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void
     {
         $this->searchIndexing = $searchIndexing;
-    }
-
-    /**
-     * @param ?ShoppingListsConfiguration $shoppingLists
-     */
-    public function setShoppingLists(?ShoppingListsConfiguration $shoppingLists): void
-    {
-        $this->shoppingLists = $shoppingLists;
     }
 
 

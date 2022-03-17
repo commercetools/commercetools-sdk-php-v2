@@ -59,7 +59,7 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionModel extends JsonOb
     }
 
     /**
-     * <p>default value is <code>false</code></p>
+     * <p>When <code>true</code>, country <em>- no state</em> Tax Rate is used as fallback. See <a href="ctp:api:type:CartsConfiguration">CartsConfiguration</a>.</p>
      *
      * @return null|bool
      */

@@ -16,7 +16,7 @@ use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderLineItemRemovedMessagePayload extends MessagePayload
+interface OrderLineItemRemovedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_REMOVED_QUANTITY = 'removedQuantity';
@@ -48,6 +48,8 @@ interface OrderLineItemRemovedMessagePayload extends MessagePayload
     public function getNewState();
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getNewTotalPrice();

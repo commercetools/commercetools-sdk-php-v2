@@ -83,8 +83,6 @@ final class PriceDraftImportBuilder implements Builder
     private $key;
 
     /**
-     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
-     *
      * @return null|TypedMoney
      */
     public function getValue()

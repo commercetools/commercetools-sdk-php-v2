@@ -31,7 +31,7 @@ final class CustomFieldsDraftBuilder implements Builder
     private $fields;
 
     /**
-     * <p>The <code>id</code> or the <code>key</code> of the type to use.</p>
+     * <p><code>id</code> or <code>key</code> of the <a href="ctp:api:type:Type">Type</a>.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -41,7 +41,7 @@ final class CustomFieldsDraftBuilder implements Builder
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type.</p>
+     * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#list-of-customizable-data-types">customized resource or data type</a>.</p>
      *
      * @return null|FieldContainer
      */

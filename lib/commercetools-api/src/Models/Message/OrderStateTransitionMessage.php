@@ -12,7 +12,7 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderStateTransitionMessage extends Message
+interface OrderStateTransitionMessage extends OrderMessage
 {
     public const FIELD_STATE = 'state';
     public const FIELD_OLD_STATE = 'oldState';

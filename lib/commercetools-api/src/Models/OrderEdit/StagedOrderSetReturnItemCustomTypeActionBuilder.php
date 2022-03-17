@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
@@ -35,7 +37,7 @@ final class StagedOrderSetReturnItemCustomTypeActionBuilder implements Builder
     private $type;
 
     /**
-     * @var ?JsonObject
+     * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
@@ -48,8 +50,8 @@ final class StagedOrderSetReturnItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the ReturnItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the ReturnItem.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -59,13 +61,13 @@ final class StagedOrderSetReturnItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the ReturnItem.</p>
      *
-     * @return null|JsonObject
+     * @return null|FieldContainer
      */
     public function getFields()
     {
-        return $this->fields;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -91,10 +93,10 @@ final class StagedOrderSetReturnItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      * @return $this
      */
-    public function withFields(?JsonObject $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -112,12 +114,23 @@ final class StagedOrderSetReturnItemCustomTypeActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withFields() instead
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): StagedOrderSetReturnItemCustomTypeAction
     {
         return new StagedOrderSetReturnItemCustomTypeActionModel(
             $this->returnItemId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
-            $this->fields
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

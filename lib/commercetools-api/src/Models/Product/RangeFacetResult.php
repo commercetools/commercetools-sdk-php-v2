@@ -16,12 +16,12 @@ interface RangeFacetResult extends FacetResult
     public const FIELD_RANGES = 'ranges';
 
     /**
-     * @return null|FacetResultRangeCollection
+     * @return null|FacetRangeCollection
      */
     public function getRanges();
 
     /**
-     * @param ?FacetResultRangeCollection $ranges
+     * @param ?FacetRangeCollection $ranges
      */
-    public function setRanges(?FacetResultRangeCollection $ranges): void;
+    public function setRanges(?FacetRangeCollection $ranges): void;
 }

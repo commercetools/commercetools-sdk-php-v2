@@ -26,9 +26,9 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     protected $type;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $fractionDigits;
+    protected $currencyCode;
 
     /**
      * @var ?int
@@ -36,9 +36,9 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     protected $centAmount;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $currencyCode;
+    protected $fractionDigits;
 
     /**
      * @psalm-var array<string, class-string<TypedMoney> >
@@ -53,17 +53,19 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $fractionDigits = null,
+        ?string $currencyCode = null,
         ?int $centAmount = null,
-        ?string $currencyCode = null
+        ?int $fractionDigits = null
     ) {
-        $this->fractionDigits = $fractionDigits;
-        $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
+        $this->centAmount = $centAmount;
+        $this->fractionDigits = $fractionDigits;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
+     * <p>The platform supports two different types of Money, one for amounts in cent precision and another one for sub-cent amounts up to 12 fraction digits.</p>
+     *
      * @return null|string
      */
     public function getType()
@@ -78,40 +80,6 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
         }
 
         return $this->type;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getFractionDigits()
-    {
-        if (is_null($this->fractionDigits)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_FRACTION_DIGITS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fractionDigits = (int) $data;
-        }
-
-        return $this->fractionDigits;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getCentAmount()
-    {
-        if (is_null($this->centAmount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_CENT_AMOUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->centAmount = (int) $data;
-        }
-
-        return $this->centAmount;
     }
 
     /**
@@ -133,13 +101,59 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
         return $this->currencyCode;
     }
 
+    /**
+     * <p>amount in the smallest indivisible unit of a currency, such as</p>
+     * <ul>
+     * <li>cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as 500).</li>
+     * <li>the value in the major unit for currencies without minor units, like JPY (5 JPY is specified as 5).</li>
+     * </ul>
+     *
+     * @return null|int
+     */
+    public function getCentAmount()
+    {
+        if (is_null($this->centAmount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_CENT_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->centAmount = (int) $data;
+        }
+
+        return $this->centAmount;
+    }
 
     /**
-     * @param ?int $fractionDigits
+     * <p>number of digits after the decimal separator</p>
+     * <ul>
+     * <li>equal to the default number of fraction digits for a currency in <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>.</li>
+     * <li>greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
+     * </ul>
+     *
+     * @return null|int
      */
-    public function setFractionDigits(?int $fractionDigits): void
+    public function getFractionDigits()
     {
-        $this->fractionDigits = $fractionDigits;
+        if (is_null($this->fractionDigits)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_FRACTION_DIGITS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fractionDigits = (int) $data;
+        }
+
+        return $this->fractionDigits;
+    }
+
+
+    /**
+     * @param ?string $currencyCode
+     */
+    public function setCurrencyCode(?string $currencyCode): void
+    {
+        $this->currencyCode = $currencyCode;
     }
 
     /**
@@ -151,11 +165,11 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
-     * @param ?string $currencyCode
+     * @param ?int $fractionDigits
      */
-    public function setCurrencyCode(?string $currencyCode): void
+    public function setFractionDigits(?int $fractionDigits): void
     {
-        $this->currencyCode = $currencyCode;
+        $this->fractionDigits = $fractionDigits;
     }
 
 

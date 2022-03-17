@@ -16,6 +16,8 @@ interface HighPrecisionMoneyDraft extends TypedMoneyDraft
     public const FIELD_PRECISE_AMOUNT = 'preciseAmount';
 
     /**
+     * <p>amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
+     *
      * @return null|int
      */
     public function getPreciseAmount();

@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -40,7 +40,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     private $parcels;
 
     /**
-     * @var null|CustomFields|CustomFieldsBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
@@ -71,11 +71,11 @@ final class OrderAddDeliveryActionBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -112,10 +112,10 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -137,7 +137,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
      * @deprecated use withCustom() instead
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
 
@@ -150,7 +150,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
             $this->items,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->parcels,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

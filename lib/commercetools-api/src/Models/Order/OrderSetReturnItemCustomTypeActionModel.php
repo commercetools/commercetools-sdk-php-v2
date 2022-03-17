@@ -94,6 +94,9 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the ReturnItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the ReturnItem.</p>
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -112,6 +115,8 @@ final class OrderSetReturnItemCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the ReturnItem.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()

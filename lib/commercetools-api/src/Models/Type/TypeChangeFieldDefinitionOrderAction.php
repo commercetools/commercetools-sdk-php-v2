@@ -16,6 +16,8 @@ interface TypeChangeFieldDefinitionOrderAction extends TypeUpdateAction
     public const FIELD_FIELD_NAMES = 'fieldNames';
 
     /**
+     * <p>Must match the set of <code>name</code>s of FieldDefinitions (up to order).</p>
+     *
      * @return null|array
      */
     public function getFieldNames();

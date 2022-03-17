@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -45,7 +45,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     protected $parcels;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -57,7 +57,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
         ?DeliveryItemCollection $items = null,
         ?BaseAddress $address = null,
         ?ParcelDraftCollection $parcels = null,
-        ?CustomFields $custom = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->items = $items;
         $this->address = $address;
@@ -138,7 +138,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -149,7 +149,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -181,9 +181,9 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }

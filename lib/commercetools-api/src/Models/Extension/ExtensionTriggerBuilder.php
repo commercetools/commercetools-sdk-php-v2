@@ -31,6 +31,8 @@ final class ExtensionTriggerBuilder implements Builder
     private $actions;
 
     /**
+     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
+     *
      * @return null|string
      */
     public function getResourceTypeId()
@@ -39,6 +41,8 @@ final class ExtensionTriggerBuilder implements Builder
     }
 
     /**
+     * <p><code>Create</code> and <code>Update</code> requests are supported.</p>
+     *
      * @return null|array
      */
     public function getActions()

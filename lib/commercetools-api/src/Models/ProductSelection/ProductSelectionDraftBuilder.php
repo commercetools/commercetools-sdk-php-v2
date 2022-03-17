@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\ProductSelection;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -33,6 +35,11 @@ final class ProductSelectionDraftBuilder implements Builder
     private $name;
 
     /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
      * <p>User-defined unique identifier for the Product Selection. You can use <code>key</code> besides <code>ID</code> to reference the Product Selection.</p>
      *
      * @return null|string
@@ -50,6 +57,16 @@ final class ProductSelectionDraftBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>Custom Fields of this Product Selection.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -75,6 +92,17 @@ final class ProductSelectionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -85,11 +113,23 @@ final class ProductSelectionDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ProductSelectionDraft
     {
         return new ProductSelectionDraftModel(
             $this->key,
-            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
+            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

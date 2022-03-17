@@ -26,6 +26,9 @@ final class TypeChangeKeyActionBuilder implements Builder
     private $key;
 
     /**
+     * <p>New value to set.
+     * Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getKey()

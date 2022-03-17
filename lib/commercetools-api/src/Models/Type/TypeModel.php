@@ -114,7 +114,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>The unique ID of the type.</p>
+     * <p>Unique ID of the Type.</p>
      *
      * @return null|string
      */
@@ -133,7 +133,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>The current version of the type.</p>
+     * <p>Current version of the Type.</p>
      *
      * @return null|int
      */
@@ -152,6 +152,8 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
+     * <p>Date and time (UTC) the Type was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -173,6 +175,8 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
+     * <p>Date and time (UTC) the Type was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -194,7 +198,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -214,7 +218,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -234,8 +238,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Identifier for the type (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier for the Type.</p>
      *
      * @return null|string
      */
@@ -254,6 +257,8 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
+     * <p>Name of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -272,6 +277,8 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
+     * <p>Description of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -290,7 +297,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Defines for which resource(s) the type is valid.</p>
+     * <p>Resources and/or data types for which the Type is defined.</p>
      *
      * @return null|array
      */
@@ -309,6 +316,8 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
+     * <p>Defines Custom Fields.</p>
+     *
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions()

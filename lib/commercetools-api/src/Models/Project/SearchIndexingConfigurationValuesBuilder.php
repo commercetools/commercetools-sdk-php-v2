@@ -39,7 +39,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * <p>Can be one of the following or absent. &quot;Activated&quot; or absent means that the search and suggest endpoints for the specified resource type are active. &quot;Deactivated&quot; means that the search and suggest endpoints for the specified resource type cannot be used. &quot;Indexing&quot; indicates that the search and suggest endpoints can <em>temporally</em> not be used because the search index is being re-built.</p>
+     * <p>Current status of resource indexing. Present on Projects from 1 February 2019.</p>
      *
      * @return null|string
      */
@@ -49,6 +49,8 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Project was last updated. Only present on Projects last modified after 1 February 2019.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -57,7 +59,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */

@@ -70,7 +70,8 @@ final class DiscountCodeSetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>If absent, the custom type and any existing CustomFields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the DiscountCode with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the DiscountCode.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -90,8 +91,7 @@ final class DiscountCodeSetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the custom fields to this value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the DiscountCode.</p>
      *
      * @return null|FieldContainer
      */

@@ -59,6 +59,8 @@ final class ProjectChangeNameActionModel extends JsonObjectModel implements Proj
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getName()

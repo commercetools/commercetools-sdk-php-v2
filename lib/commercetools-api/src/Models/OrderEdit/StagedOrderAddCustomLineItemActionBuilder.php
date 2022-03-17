@@ -68,6 +68,9 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -110,6 +113,8 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

@@ -30,15 +30,15 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     public function getAssetKey();
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
      * @return null|TypeResourceIdentifier
      */
     public function getType();
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
      * @return null|mixed
      */

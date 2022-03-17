@@ -118,4 +118,17 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     {
         $this->attribute = $attribute;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

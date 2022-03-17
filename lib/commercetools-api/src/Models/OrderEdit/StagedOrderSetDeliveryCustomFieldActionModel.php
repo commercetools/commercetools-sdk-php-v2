@@ -30,6 +30,11 @@ final class StagedOrderSetDeliveryCustomFieldActionModel extends JsonObjectModel
     /**
      * @var ?string
      */
+    protected $deliveryId;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -42,9 +47,11 @@ final class StagedOrderSetDeliveryCustomFieldActionModel extends JsonObjectModel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $deliveryId = null,
         ?string $name = null,
         $value = null
     ) {
+        $this->deliveryId = $deliveryId;
         $this->name = $name;
         $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -70,6 +77,25 @@ final class StagedOrderSetDeliveryCustomFieldActionModel extends JsonObjectModel
     /**
      * @return null|string
      */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
+    }
+
+    /**
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
+     * @return null|string
+     */
     public function getName()
     {
         if (is_null($this->name)) {
@@ -85,6 +111,10 @@ final class StagedOrderSetDeliveryCustomFieldActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>If <code>value</code> is absent or <code>null</code>, this field will be removed if it exists.
+     * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
+     * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
+     *
      * @return null|mixed
      */
     public function getValue()
@@ -101,6 +131,14 @@ final class StagedOrderSetDeliveryCustomFieldActionModel extends JsonObjectModel
         return $this->value;
     }
 
+
+    /**
+     * @param ?string $deliveryId
+     */
+    public function setDeliveryId(?string $deliveryId): void
+    {
+        $this->deliveryId = $deliveryId;
+    }
 
     /**
      * @param ?string $name

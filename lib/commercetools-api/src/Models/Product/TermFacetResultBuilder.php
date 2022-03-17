@@ -41,7 +41,7 @@ final class TermFacetResultBuilder implements Builder
     private $other;
 
     /**
-     * @var ?FacetResultTermCollection
+     * @var ?FacetTermCollection
      */
     private $terms;
 
@@ -78,7 +78,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
-     * @return null|FacetResultTermCollection
+     * @return null|FacetTermCollection
      */
     public function getTerms()
     {
@@ -130,10 +130,10 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
-     * @param ?FacetResultTermCollection $terms
+     * @param ?FacetTermCollection $terms
      * @return $this
      */
-    public function withTerms(?FacetResultTermCollection $terms)
+    public function withTerms(?FacetTermCollection $terms)
     {
         $this->terms = $terms;
 

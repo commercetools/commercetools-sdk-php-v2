@@ -26,6 +26,8 @@ final class CustomFieldReferenceTypeBuilder implements Builder
     private $referenceTypeId;
 
     /**
+     * <p>Resource type the Custom Field can reference.</p>
+     *
      * @return null|string
      */
     public function getReferenceTypeId()

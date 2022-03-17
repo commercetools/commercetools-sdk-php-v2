@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderCustomerEmailSetMessagePayload extends MessagePayload
+interface OrderCustomerEmailSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_EMAIL = 'email';
     public const FIELD_OLD_EMAIL = 'oldEmail';

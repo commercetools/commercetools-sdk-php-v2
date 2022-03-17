@@ -21,7 +21,7 @@ use stdClass;
 final class OrderSearchRequestBuilder implements Builder
 {
     /**
-     * @var ?string
+     * @var null|OrderSearchQuery|OrderSearchQueryBuilder
      */
     private $query;
 
@@ -43,11 +43,11 @@ final class OrderSearchRequestBuilder implements Builder
     /**
      * <p>The Order search query.</p>
      *
-     * @return null|string
+     * @return null|OrderSearchQuery
      */
     public function getQuery()
     {
-        return $this->query;
+        return $this->query instanceof OrderSearchQueryBuilder ? $this->query->build() : $this->query;
     }
 
     /**
@@ -81,10 +81,10 @@ final class OrderSearchRequestBuilder implements Builder
     }
 
     /**
-     * @param ?string $query
+     * @param ?OrderSearchQuery $query
      * @return $this
      */
-    public function withQuery(?string $query)
+    public function withQuery(?OrderSearchQuery $query)
     {
         $this->query = $query;
 
@@ -124,11 +124,21 @@ final class OrderSearchRequestBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withQuery() instead
+     * @return $this
+     */
+    public function withQueryBuilder(?OrderSearchQueryBuilder $query)
+    {
+        $this->query = $query;
+
+        return $this;
+    }
 
     public function build(): OrderSearchRequest
     {
         return new OrderSearchRequestModel(
-            $this->query,
+            $this->query instanceof OrderSearchQueryBuilder ? $this->query->build() : $this->query,
             $this->sort,
             $this->limit,
             $this->offset

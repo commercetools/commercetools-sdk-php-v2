@@ -32,8 +32,6 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
-     *
      * @return null|TypedMoney
      */
     public function getValue();

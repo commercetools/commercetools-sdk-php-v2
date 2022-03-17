@@ -21,17 +21,16 @@ interface FieldDefinition extends JsonObject
     public const FIELD_INPUT_HINT = 'inputHint';
 
     /**
-     * <p>Describes the type of the field.</p>
+     * <p>Data type of the Custom Field to define.</p>
      *
      * @return null|FieldType
      */
     public function getType();
 
     /**
-     * <p>The name of the field.
-     * The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
-     * The name must be unique for a given resource type ID.
-     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>
+     * <p>Name of the Custom Field to define.
+     * Must be unique for a given <a href="ctp:api:type:ResourceTypeId">ResourceTypeId</a>.
+     * In case there is a FieldDefinition with the same <code>name</code> in another <a href="ctp:api:type:Type">Type</a>, both FieldDefinitions must have the same <code>type</code>.</p>
      *
      * @return null|string
      */
@@ -45,15 +44,16 @@ interface FieldDefinition extends JsonObject
     public function getLabel();
 
     /**
-     * <p>Whether the field is required to have a value.</p>
+     * <p>Defines whether the field is required to have a value.</p>
      *
      * @return null|bool
      */
     public function getRequired();
 
     /**
-     * <p>Provides a visual representation type for this field.
-     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>
+     * <p>Must be either <code>SingleLine</code> or <code>MultiLine</code>.
+     * Defines the visual representation of the field in user interfaces like the Merchant Center.
+     * It is only relevant for string-based <a href="ctp:api:type:FieldType">FieldTypes</a> like <a href="ctp:api:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:api:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
      *
      * @return null|string
      */

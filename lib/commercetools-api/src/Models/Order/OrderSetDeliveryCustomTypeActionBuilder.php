@@ -25,6 +25,11 @@ use stdClass;
 final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $deliveryId;
+
+    /**
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -35,6 +40,17 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        return $this->deliveryId;
+    }
+
+    /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Delivery.</p>
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -43,11 +59,24 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Delivery.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()
     {
         return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
+    }
+
+    /**
+     * @param ?string $deliveryId
+     * @return $this
+     */
+    public function withDeliveryId(?string $deliveryId)
+    {
+        $this->deliveryId = $deliveryId;
+
+        return $this;
     }
 
     /**
@@ -97,6 +126,7 @@ final class OrderSetDeliveryCustomTypeActionBuilder implements Builder
     public function build(): OrderSetDeliveryCustomTypeAction
     {
         return new OrderSetDeliveryCustomTypeActionModel(
+            $this->deliveryId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
             $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );

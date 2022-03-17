@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
-interface CustomLineItemStateTransitionMessagePayload extends MessagePayload
+interface CustomLineItemStateTransitionMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_TRANSITION_DATE = 'transitionDate';

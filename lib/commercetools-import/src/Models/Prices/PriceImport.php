@@ -37,7 +37,7 @@ interface PriceImport extends ImportResource
     public const FIELD_PRODUCT = 'product';
 
     /**
-     * <p>Maps to <code>Price.value</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     * <p>Maps to <code>Price.value</code>.</p>
      *
      * @return null|TypedMoney
      */

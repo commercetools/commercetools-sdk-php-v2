@@ -61,6 +61,8 @@ final class TypeSetDescriptionActionModel extends JsonObjectModel implements Typ
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

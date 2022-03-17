@@ -16,6 +16,8 @@ interface CustomFieldEnumType extends FieldType
     public const FIELD_VALUES = 'values';
 
     /**
+     * <p>Allowed values.</p>
+     *
      * @return null|CustomFieldEnumValueCollection
      */
     public function getValues();

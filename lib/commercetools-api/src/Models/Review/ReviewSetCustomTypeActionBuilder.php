@@ -35,7 +35,8 @@ final class ReviewSetCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
-     * <p>If absent, the custom type and any existing custom fields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Review with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Review.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -45,8 +46,7 @@ final class ReviewSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type.
-     * Sets the CustomFields to this value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Review.</p>
      *
      * @return null|FieldContainer
      */

@@ -116,4 +116,17 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     {
         $this->conflictingPrices = $conflictingPrices;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }
