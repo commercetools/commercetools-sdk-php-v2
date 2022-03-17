@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -41,7 +41,7 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
@@ -61,7 +61,7 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     public function setParcels(?ParcelDraftCollection $parcels): void;
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

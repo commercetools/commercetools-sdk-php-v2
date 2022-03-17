@@ -14,8 +14,8 @@ use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -49,7 +49,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     protected $parcels;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -61,7 +61,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
         ?DeliveryItemCollection $items = null,
         ?BaseAddress $address = null,
         ?ParcelDraftCollection $parcels = null,
-        ?CustomFields $custom = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->items = $items;
         $this->address = $address;
@@ -142,7 +142,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -153,7 +153,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -185,9 +185,9 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
