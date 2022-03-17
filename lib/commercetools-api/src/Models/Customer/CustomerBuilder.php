@@ -179,6 +179,11 @@ final class CustomerBuilder implements Builder
     private $stores;
 
     /**
+     * @var ?string
+     */
+    private $authenticationMode;
+
+    /**
      * <p>The unique ID of the customer.</p>
      *
      * @return null|string
@@ -259,6 +264,8 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
+     *
      * @return null|string
      */
     public function getPassword()
@@ -442,6 +449,16 @@ final class CustomerBuilder implements Builder
     public function getStores()
     {
         return $this->stores;
+    }
+
+    /**
+     * <p>Defines whether a Customer has a password.</p>
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -764,6 +781,17 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -838,7 +866,8 @@ final class CustomerBuilder implements Builder
             $this->locale,
             $this->salutation,
             $this->key,
-            $this->stores
+            $this->stores,
+            $this->authenticationMode
         );
     }
 

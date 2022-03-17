@@ -42,6 +42,7 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
        'removeStore' => CustomerRemoveStoreActionModel::class,
        'setAddressCustomField' => CustomerSetAddressCustomFieldActionModel::class,
        'setAddressCustomType' => CustomerSetAddressCustomTypeActionModel::class,
+       'setAuthenticationMode' => CustomerSetAuthenticationModeActionModel::class,
        'setCompanyName' => CustomerSetCompanyNameActionModel::class,
        'setCustomField' => CustomerSetCustomFieldActionModel::class,
        'setCustomType' => CustomerSetCustomTypeActionModel::class,
