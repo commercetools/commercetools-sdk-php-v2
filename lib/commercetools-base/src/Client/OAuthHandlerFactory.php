@@ -9,13 +9,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use Cache\Adapter\Filesystem\FilesystemCachePool;
 use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\Filesystem;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\SimpleCache\CacheInterface;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\Simple\FilesystemCache;
 
 class OAuthHandlerFactory
 {
@@ -29,10 +28,16 @@ class OAuthHandlerFactory
             return $cache;
         }
 
-        $filesystemAdapter = new Local(getcwd());
-        $filesystem = new Filesystem($filesystemAdapter);
-        $cache = new FilesystemCachePool($filesystem);
-        
+        if (class_exists('Symfony\Component\Cache\Simple\FilesystemCache')) {
+            /** @psalm-suppress all */
+            /** @var CacheItemPoolInterface $cache */
+            $cache = new FilesystemCache('', 0, getcwd() . "/cache");
+        } else {
+            /** @psalm-suppress all */
+            /** @var CacheItemPoolInterface $cache */
+            $cache = new FilesystemAdapter('', 0, getcwd() . "/cache");
+        }
+
         return $cache;
     }
 
