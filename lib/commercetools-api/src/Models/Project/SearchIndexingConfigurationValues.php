@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -26,7 +27,7 @@ interface SearchIndexingConfigurationValues extends JsonObject
     public function getStatus();
 
     /**
-     * <p>Date and time (UTC) the Project was last updated.</p>
+     * <p>Date and time (UTC) the Project was last updated. Only present on Projects last modified after 1 February 2019.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -35,7 +36,7 @@ interface SearchIndexingConfigurationValues extends JsonObject
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-     * @return null|string
+     * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
@@ -50,7 +51,7 @@ interface SearchIndexingConfigurationValues extends JsonObject
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
     /**
-     * @param ?string $lastModifiedBy
+     * @param ?LastModifiedBy $lastModifiedBy
      */
-    public function setLastModifiedBy(?string $lastModifiedBy): void;
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
 }

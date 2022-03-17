@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -31,7 +33,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     protected $lastModifiedAt;
 
     /**
-     * @var ?string
+     * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
@@ -42,7 +44,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     public function __construct(
         ?string $status = null,
         ?DateTimeImmutable $lastModifiedAt = null,
-        ?string $lastModifiedBy = null
+        ?LastModifiedBy $lastModifiedBy = null
     ) {
         $this->status = $status;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -69,7 +71,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Date and time (UTC) the Project was last updated.</p>
+     * <p>Date and time (UTC) the Project was last updated. Only present on Projects last modified after 1 February 2019.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -94,17 +96,18 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-     * @return null|string
+     * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
     {
         if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(self::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->lastModifiedBy = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
         return $this->lastModifiedBy;
@@ -128,9 +131,9 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?string $lastModifiedBy
+     * @param ?LastModifiedBy $lastModifiedBy
      */
-    public function setLastModifiedBy(?string $lastModifiedBy): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }

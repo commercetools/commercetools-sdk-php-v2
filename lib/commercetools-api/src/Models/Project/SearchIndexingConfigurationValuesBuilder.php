@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -32,7 +34,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var ?string
+     * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
@@ -47,7 +49,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) the Project was last updated.</p>
+     * <p>Date and time (UTC) the Project was last updated. Only present on Projects last modified after 1 February 2019.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -59,11 +61,11 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-     * @return null|string
+     * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
     {
-        return $this->lastModifiedBy;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
@@ -89,23 +91,33 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     }
 
     /**
-     * @param ?string $lastModifiedBy
+     * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
-    public function withLastModifiedBy(?string $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withLastModifiedBy() instead
+     * @return $this
+     */
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
 
     public function build(): SearchIndexingConfigurationValues
     {
         return new SearchIndexingConfigurationValuesModel(
             $this->status,
             $this->lastModifiedAt,
-            $this->lastModifiedBy
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy
         );
     }
 
