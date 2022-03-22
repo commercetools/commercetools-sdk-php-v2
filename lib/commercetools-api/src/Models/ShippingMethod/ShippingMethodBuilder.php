@@ -170,7 +170,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the shipping method.</p>
+     * <p>User-specific unique identifier for the shipping method</p>
      *
      * @return null|string
      */

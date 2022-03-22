@@ -273,7 +273,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
-     * <p>User-specific unique identifier for the shipping method.</p>
+     * <p>User-specific unique identifier for the shipping method</p>
      *
      * @return null|string
      */
