@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\MapperSequence;
+use Commercetools\Api\Models\Common\MoneyCollection;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
  * @template T of TypedMoney
- * @extends MapperSequence<T>
+ * @extends MoneyCollection<T>
  * @psalm-method T current()
  * @psalm-method T end()
  * @psalm-method T at($offset)
@@ -22,7 +22,7 @@ use stdClass;
  * @method TypedMoney end()
  * @method TypedMoney at($offset)
  */
-class TypedMoneyCollection extends MapperSequence
+class TypedMoneyCollection extends MoneyCollection
 {
     /**
      * @psalm-assert T $value
