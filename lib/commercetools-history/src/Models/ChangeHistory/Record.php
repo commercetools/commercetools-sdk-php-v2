@@ -6,11 +6,12 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\Reference;
 use Commercetools\History\Models\Label\Label;
 
@@ -26,6 +27,7 @@ interface Record extends JsonObject
     public const FIELD_PREVIOUS_LABEL = 'previousLabel';
     public const FIELD_CHANGES = 'changes';
     public const FIELD_RESOURCE = 'resource';
+    public const FIELD_STORES = 'stores';
     public const FIELD_WITHOUT_CHANGES = 'withoutChanges';
 
     /**
@@ -86,11 +88,18 @@ interface Record extends JsonObject
     public function getChanges();
 
     /**
-     * <p><a href="/types#reference">Reference</a> to the changed resource.</p>
+     * <p>Reference to the changed resource.</p>
      *
      * @return null|Reference
      */
     public function getResource();
+
+    /**
+     * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getStores();
 
     /**
      * <p><code>true</code> if no change was detected.
@@ -144,6 +153,11 @@ interface Record extends JsonObject
      * @param ?Reference $resource
      */
     public function setResource(?Reference $resource): void;
+
+    /**
+     * @param ?KeyReferenceCollection $stores
+     */
+    public function setStores(?KeyReferenceCollection $stores): void;
 
     /**
      * @param ?bool $withoutChanges

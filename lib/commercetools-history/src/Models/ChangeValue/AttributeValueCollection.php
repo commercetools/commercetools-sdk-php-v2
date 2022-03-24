@@ -6,30 +6,30 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeValue;
 
 use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ErrorResponse>
- * @method ErrorResponse current()
- * @method ErrorResponse end()
- * @method ErrorResponse at($offset)
+ * @extends MapperSequence<AttributeValue>
+ * @method AttributeValue current()
+ * @method AttributeValue end()
+ * @method AttributeValue at($offset)
  */
-class ErrorResponseCollection extends MapperSequence
+class AttributeValueCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ErrorResponse $value
-     * @psalm-param ErrorResponse|stdClass $value
+     * @psalm-assert AttributeValue $value
+     * @psalm-param AttributeValue|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return ErrorResponseCollection
+     * @return AttributeValueCollection
      */
     public function add($value)
     {
-        if (!$value instanceof ErrorResponse) {
+        if (!$value instanceof AttributeValue) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -38,15 +38,15 @@ class ErrorResponseCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ErrorResponse
+     * @psalm-return callable(int):?AttributeValue
      */
     protected function mapper()
     {
-        return function (?int $index): ?ErrorResponse {
+        return function (?int $index): ?AttributeValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var ErrorResponse $data */
-                $data = ErrorResponseModel::of($data);
+                /** @var AttributeValue $data */
+                $data = AttributeValueModel::of($data);
                 $this->set($data, $index);
             }
 

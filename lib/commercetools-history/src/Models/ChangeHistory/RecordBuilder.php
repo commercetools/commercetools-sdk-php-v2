@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\Reference;
 use Commercetools\History\Models\Common\ReferenceBuilder;
 use Commercetools\History\Models\Label\Label;
@@ -69,6 +70,11 @@ final class RecordBuilder implements Builder
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
+
+    /**
+     * @var ?KeyReferenceCollection
+     */
+    private $stores;
 
     /**
      * @var ?bool
@@ -157,13 +163,23 @@ final class RecordBuilder implements Builder
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to the changed resource.</p>
+     * <p>Reference to the changed resource.</p>
      *
      * @return null|Reference
      */
     public function getResource()
     {
         return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -277,6 +293,17 @@ final class RecordBuilder implements Builder
     }
 
     /**
+     * @param ?KeyReferenceCollection $stores
+     * @return $this
+     */
+    public function withStores(?KeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
+
+        return $this;
+    }
+
+    /**
      * @param ?bool $withoutChanges
      * @return $this
      */
@@ -343,6 +370,7 @@ final class RecordBuilder implements Builder
             $this->previousLabel instanceof LabelBuilder ? $this->previousLabel->build() : $this->previousLabel,
             $this->changes,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
+            $this->stores,
             $this->withoutChanges
         );
     }

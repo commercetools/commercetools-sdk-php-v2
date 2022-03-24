@@ -6,73 +6,51 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
+use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Common\Reference;
-use Commercetools\History\Models\Common\ReferenceModel;
+use Commercetools\History\Models\Common\ReferenceBuilder;
 
 /**
- * @internal
+ * @implements Builder<ModifiedBy>
  */
-final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
+final class ModifiedByBuilder implements Builder
 {
-
+    /**
+     * @var ?string
+     */
+    private $id;
 
     /**
      * @var ?string
      */
-    protected $id;
+    private $type;
+
+    /**
+     * @var null|Reference|ReferenceBuilder
+     */
+    private $customer;
 
     /**
      * @var ?string
      */
-    protected $type;
-
-    /**
-     * @var ?Reference
-     */
-    protected $customer;
+    private $anonymousId;
 
     /**
      * @var ?string
      */
-    protected $anonymousId;
-
-    /**
-     * @var ?string
-     */
-    protected $clientId;
+    private $clientId;
 
     /**
      * @var ?bool
      */
-    protected $isPlatformClient;
-
-
-    /**
-     * @psalm-suppress MissingParamType
-     */
-    public function __construct(
-        ?string $id = null,
-        ?string $type = null,
-        ?Reference $customer = null,
-        ?string $anonymousId = null,
-        ?string $clientId = null,
-        ?bool $isPlatformClient = null
-    ) {
-        $this->id = $id;
-        $this->type = $type;
-        $this->customer = $customer;
-        $this->anonymousId = $anonymousId;
-        $this->clientId = $clientId;
-        $this->isPlatformClient = $isPlatformClient;
-
-    }
+    private $isPlatformClient;
 
     /**
      * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.
@@ -82,15 +60,6 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     public function getId()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id =  (string) $data;
-        }
-
         return $this->id;
     }
 
@@ -102,15 +71,6 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     public function getType()
     {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type =  (string) $data;
-        }
-
         return $this->type;
     }
 
@@ -124,17 +84,7 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     public function getCustomer()
     {
-        if (is_null($this->customer)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOMER);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->customer =  ReferenceModel::of($data);
-        }
-
-        return $this->customer;
+        return $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer;
     }
 
     /**
@@ -145,15 +95,6 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     public function getAnonymousId()
     {
-        if (is_null($this->anonymousId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ANONYMOUS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->anonymousId =  (string) $data;
-        }
-
         return $this->anonymousId;
     }
 
@@ -166,15 +107,6 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     public function getClientId()
     {
-        if (is_null($this->clientId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CLIENT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->clientId =  (string) $data;
-        }
-
         return $this->clientId;
     }
 
@@ -185,67 +117,100 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     public function getIsPlatformClient()
     {
-        if (is_null($this->isPlatformClient)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_IS_PLATFORM_CLIENT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isPlatformClient =  (bool) $data;
-        }
-
         return $this->isPlatformClient;
     }
 
-
     /**
      * @param ?string $id
+     * @return $this
      */
-    public function setId(?string $id): void
+    public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * @param ?string $type
+     * @return $this
      */
-    public function setType(?string $type): void
+    public function withType(?string $type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     /**
      * @param ?Reference $customer
+     * @return $this
      */
-    public function setCustomer(?Reference $customer): void
+    public function withCustomer(?Reference $customer)
     {
         $this->customer = $customer;
+
+        return $this;
     }
 
     /**
      * @param ?string $anonymousId
+     * @return $this
      */
-    public function setAnonymousId(?string $anonymousId): void
+    public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
+
+        return $this;
     }
 
     /**
      * @param ?string $clientId
+     * @return $this
      */
-    public function setClientId(?string $clientId): void
+    public function withClientId(?string $clientId)
     {
         $this->clientId = $clientId;
+
+        return $this;
     }
 
     /**
      * @param ?bool $isPlatformClient
+     * @return $this
      */
-    public function setIsPlatformClient(?bool $isPlatformClient): void
+    public function withIsPlatformClient(?bool $isPlatformClient)
     {
         $this->isPlatformClient = $isPlatformClient;
+
+        return $this;
     }
 
+    /**
+     * @deprecated use withCustomer() instead
+     * @return $this
+     */
+    public function withCustomerBuilder(?ReferenceBuilder $customer)
+    {
+        $this->customer = $customer;
 
+        return $this;
+    }
 
+    public function build(): ModifiedBy
+    {
+        return new ModifiedByModel(
+            $this->id,
+            $this->type,
+            $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer,
+            $this->anonymousId,
+            $this->clientId,
+            $this->isPlatformClient
+        );
+    }
+
+    public static function of(): ModifiedByBuilder
+    {
+        return new self();
+    }
 }

@@ -6,30 +6,30 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
 use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ErrorObject>
- * @method ErrorObject current()
- * @method ErrorObject end()
- * @method ErrorObject at($offset)
+ * @extends MapperSequence<Record>
+ * @method Record current()
+ * @method Record end()
+ * @method Record at($offset)
  */
-class ErrorObjectCollection extends MapperSequence
+class RecordCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ErrorObject $value
-     * @psalm-param ErrorObject|stdClass $value
+     * @psalm-assert Record $value
+     * @psalm-param Record|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return ErrorObjectCollection
+     * @return RecordCollection
      */
     public function add($value)
     {
-        if (!$value instanceof ErrorObject) {
+        if (!$value instanceof Record) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -38,15 +38,15 @@ class ErrorObjectCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ErrorObject
+     * @psalm-return callable(int):?Record
      */
     protected function mapper()
     {
-        return function (?int $index): ?ErrorObject {
+        return function (?int $index): ?Record {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var ErrorObject $data */
-                $data = ErrorObjectModel::of($data);
+                /** @var Record $data */
+                $data = RecordModel::of($data);
                 $this->set($data, $index);
             }
 

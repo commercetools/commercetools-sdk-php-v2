@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;

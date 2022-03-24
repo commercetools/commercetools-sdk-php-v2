@@ -6,30 +6,30 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\Common;
 
 use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<Record>
- * @method Record current()
- * @method Record end()
- * @method Record at($offset)
+ * @extends MapperSequence<FieldType>
+ * @method FieldType current()
+ * @method FieldType end()
+ * @method FieldType at($offset)
  */
-class RecordCollection extends MapperSequence
+class FieldTypeCollection extends MapperSequence
 {
     /**
-     * @psalm-assert Record $value
-     * @psalm-param Record|stdClass $value
+     * @psalm-assert FieldType $value
+     * @psalm-param FieldType|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return RecordCollection
+     * @return FieldTypeCollection
      */
     public function add($value)
     {
-        if (!$value instanceof Record) {
+        if (!$value instanceof FieldType) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -38,15 +38,15 @@ class RecordCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?Record
+     * @psalm-return callable(int):?FieldType
      */
     protected function mapper()
     {
-        return function (?int $index): ?Record {
+        return function (?int $index): ?FieldType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var Record $data */
-                $data = RecordModel::of($data);
+                /** @var FieldType $data */
+                $data = FieldTypeModel::of($data);
                 $this->set($data, $index);
             }
 

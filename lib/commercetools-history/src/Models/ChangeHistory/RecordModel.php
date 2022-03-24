@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -14,6 +14,7 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
 use Commercetools\History\Models\Change\ChangeCollection;
+use Commercetools\History\Models\Common\KeyReferenceCollection;
 use Commercetools\History\Models\Common\Reference;
 use Commercetools\History\Models\Common\ReferenceModel;
 use Commercetools\History\Models\Label\Label;
@@ -72,6 +73,11 @@ final class RecordModel extends JsonObjectModel implements Record
     protected $resource;
 
     /**
+     * @var ?KeyReferenceCollection
+     */
+    protected $stores;
+
+    /**
      * @var ?bool
      */
     protected $withoutChanges;
@@ -90,6 +96,7 @@ final class RecordModel extends JsonObjectModel implements Record
         ?Label $previousLabel = null,
         ?ChangeCollection $changes = null,
         ?Reference $resource = null,
+        ?KeyReferenceCollection $stores = null,
         ?bool $withoutChanges = null
     ) {
         $this->version = $version;
@@ -101,6 +108,7 @@ final class RecordModel extends JsonObjectModel implements Record
         $this->previousLabel = $previousLabel;
         $this->changes = $changes;
         $this->resource = $resource;
+        $this->stores = $stores;
         $this->withoutChanges = $withoutChanges;
 
     }
@@ -262,7 +270,7 @@ final class RecordModel extends JsonObjectModel implements Record
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to the changed resource.</p>
+     * <p>Reference to the changed resource.</p>
      *
      * @return null|Reference
      */
@@ -279,6 +287,25 @@ final class RecordModel extends JsonObjectModel implements Record
         }
 
         return $this->resource;
+    }
+
+    /**
+     * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores =  KeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
     }
 
     /**
@@ -372,6 +399,14 @@ final class RecordModel extends JsonObjectModel implements Record
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
+    }
+
+    /**
+     * @param ?KeyReferenceCollection $stores
+     */
+    public function setStores(?KeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     /**

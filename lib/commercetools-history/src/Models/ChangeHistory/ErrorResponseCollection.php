@@ -6,30 +6,30 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\History\Models;
+namespace Commercetools\History\Models\ChangeHistory;
 
 use Commercetools\Base\MapperSequence;
 use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ModifiedBy>
- * @method ModifiedBy current()
- * @method ModifiedBy end()
- * @method ModifiedBy at($offset)
+ * @extends MapperSequence<ErrorResponse>
+ * @method ErrorResponse current()
+ * @method ErrorResponse end()
+ * @method ErrorResponse at($offset)
  */
-class ModifiedByCollection extends MapperSequence
+class ErrorResponseCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ModifiedBy $value
-     * @psalm-param ModifiedBy|stdClass $value
+     * @psalm-assert ErrorResponse $value
+     * @psalm-param ErrorResponse|stdClass $value
      * @throws InvalidArgumentException
      *
-     * @return ModifiedByCollection
+     * @return ErrorResponseCollection
      */
     public function add($value)
     {
-        if (!$value instanceof ModifiedBy) {
+        if (!$value instanceof ErrorResponse) {
             throw new InvalidArgumentException();
         }
         $this->store($value);
@@ -38,15 +38,15 @@ class ModifiedByCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ModifiedBy
+     * @psalm-return callable(int):?ErrorResponse
      */
     protected function mapper()
     {
-        return function (?int $index): ?ModifiedBy {
+        return function (?int $index): ?ErrorResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var ModifiedBy $data */
-                $data = ModifiedByModel::of($data);
+                /** @var ErrorResponse $data */
+                $data = ErrorResponseModel::of($data);
                 $this->set($data, $index);
             }
 
