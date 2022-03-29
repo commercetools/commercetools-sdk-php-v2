@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -63,6 +65,11 @@ final class OrderFromCartDraftBuilder implements Builder
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
+
+    /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * <p>The unique id of the cart from which an order is created.</p>
@@ -138,6 +145,20 @@ final class OrderFromCartDraftBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> to be added to the Order.</p>
+     * <ul>
+     * <li>If provided, only the Custom Fields given here are added to the Order and the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are ignored.</li>
+     * <li>If not provided, the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are added to the Order automatically.</li>
+     * </ul>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -229,6 +250,17 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCart() instead
      * @return $this
      */
@@ -250,6 +282,17 @@ final class OrderFromCartDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): OrderFromCartDraft
     {
         return new OrderFromCartDraftModel(
@@ -260,7 +303,8 @@ final class OrderFromCartDraftBuilder implements Builder
             $this->paymentState,
             $this->shipmentState,
             $this->orderState,
-            $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state
+            $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

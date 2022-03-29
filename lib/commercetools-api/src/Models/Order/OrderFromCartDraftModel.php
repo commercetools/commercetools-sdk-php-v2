@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -63,6 +65,11 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      */
     protected $state;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -75,7 +82,8 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         ?string $paymentState = null,
         ?string $shipmentState = null,
         ?string $orderState = null,
-        ?StateResourceIdentifier $state = null
+        ?StateResourceIdentifier $state = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->id = $id;
         $this->cart = $cart;
@@ -85,6 +93,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         $this->shipmentState = $shipmentState;
         $this->orderState = $orderState;
         $this->state = $state;
+        $this->custom = $custom;
     }
 
     /**
@@ -237,6 +246,30 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         return $this->state;
     }
 
+    /**
+     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> to be added to the Order.</p>
+     * <ul>
+     * <li>If provided, only the Custom Fields given here are added to the Order and the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are ignored.</li>
+     * <li>If not provided, the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are added to the Order automatically.</li>
+     * </ul>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -300,5 +333,13 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

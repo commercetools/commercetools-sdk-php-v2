@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -23,6 +24,7 @@ interface OrderFromCartDraft extends JsonObject
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_ORDER_STATE = 'orderState';
     public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>The unique id of the cart from which an order is created.</p>
@@ -77,6 +79,17 @@ interface OrderFromCartDraft extends JsonObject
     public function getState();
 
     /**
+     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> to be added to the Order.</p>
+     * <ul>
+     * <li>If provided, only the Custom Fields given here are added to the Order and the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are ignored.</li>
+     * <li>If not provided, the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are added to the Order automatically.</li>
+     * </ul>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -115,4 +128,9 @@ interface OrderFromCartDraft extends JsonObject
      * @param ?StateResourceIdentifier $state
      */
     public function setState(?StateResourceIdentifier $state): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }
