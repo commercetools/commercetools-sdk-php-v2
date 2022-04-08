@@ -85,7 +85,7 @@ final class CartChangeCustomLineItemMoneyActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * <p>Draft type that stores amounts in cent precision for the specified currency.
      * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
      * @return null|Money
