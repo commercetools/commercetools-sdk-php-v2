@@ -32,7 +32,7 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $quantity;
 
@@ -55,7 +55,7 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -93,10 +93,10 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      * @return $this
      */
-    public function withQuantity(?float $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
 

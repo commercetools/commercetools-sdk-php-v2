@@ -71,7 +71,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     protected $sku;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -111,7 +111,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
@@ -260,17 +260,17 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -424,9 +424,9 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
