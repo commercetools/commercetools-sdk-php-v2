@@ -28,7 +28,7 @@ interface ItemShippingTarget extends JsonObject
      * Only positive values are allowed.
      * Using <code>0</code> as quantity is also possible in a draft object, but the element will not be present in the resulting ItemShippingDetails.</p>
      *
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -38,7 +38,7 @@ interface ItemShippingTarget extends JsonObject
     public function setAddressKey(?string $addressKey): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 }
