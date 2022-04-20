@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\Cart\Cart;
+use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\Product\SuggestionResult;
-use Commercetools\Api\Models\Product\SuggestionResultModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -29,12 +29,9 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
- * @template-implements Sortable<ByProjectKeyProductProjectionsSuggestGet>
- * @template-implements Paging<ByProjectKeyProductProjectionsSuggestGet>
- * @template-implements Errorable<ByProjectKeyProductProjectionsSuggestGet>
- * @template-implements Deprecatable200<ByProjectKeyProductProjectionsSuggestGet>
+ * @template-implements Errorable<ByProjectKeyMeCartsReplicatePost>
  */
-class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sortable, Paging, Errorable, Deprecatable200
+class ByProjectKeyMeCartsReplicatePost extends ApiRequest implements Errorable
 {
     /**
      * @param ?object|array|string $body
@@ -42,14 +39,14 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/product-projections/suggest');
-        parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/me/carts/replicate');
+        parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|SuggestionResult|T|null
+     * @return Cart|ErrorResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -58,8 +55,8 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '200':
-                    $resultType = SuggestionResultModel::class;
+                case '201':
+                    $resultType = CartModel::class;
 
                     break;
                 case '400':
@@ -100,7 +97,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|SuggestionResult
+     * @return null|Cart|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -142,68 +139,5 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $fuzzy
-     */
-    public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('fuzzy', $fuzzy);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $staged
-     */
-    public function withStaged($staged): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('staged', $staged);
-    }
-
-    /**
-     * @psalm-param string $locale
-     * @psalm-param scalar|scalar[] $searchKeywords
-     */
-    public function withSearchKeywords(string $locale, $searchKeywords): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam(sprintf('searchKeywords.%s', $locale), $searchKeywords);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $sort
-     */
-    public function withSort($sort): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('sort', $sort);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $limit
-     */
-    public function withLimit($limit): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('limit', $limit);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $offset
-     */
-    public function withOffset($offset): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('offset', $offset);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $withTotal
-     */
-    public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSuggestGet
-    {
-        return $this->withQueryParam('withTotal', $withTotal);
     }
 }

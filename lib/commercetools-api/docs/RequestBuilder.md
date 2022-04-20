@@ -2613,6 +2613,22 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->me()->carts()->replicate()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->replicate()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->me()->emailConfirm()->post()`
 
 null
