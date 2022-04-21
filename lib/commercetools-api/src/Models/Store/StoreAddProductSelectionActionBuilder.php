@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -21,27 +23,53 @@ use stdClass;
 final class StoreAddProductSelectionActionBuilder implements Builder
 {
     /**
-     * @var null|ProductSelectionSettingDraft|ProductSelectionSettingDraftBuilder
+     * @var null|ProductSelectionResourceIdentifier|ProductSelectionResourceIdentifierBuilder
      */
     private $productSelection;
 
     /**
-     * <p>A Product Selection to be added to the current Product Selections of this Store.</p>
+     * @var ?bool
+     */
+    private $active;
+
+    /**
+     * <p>Resource Identifier of a Product Selection</p>
      *
-     * @return null|ProductSelectionSettingDraft
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
     {
-        return $this->productSelection instanceof ProductSelectionSettingDraftBuilder ? $this->productSelection->build() : $this->productSelection;
+        return $this->productSelection instanceof ProductSelectionResourceIdentifierBuilder ? $this->productSelection->build() : $this->productSelection;
     }
 
     /**
-     * @param ?ProductSelectionSettingDraft $productSelection
+     * <p>If <code>true</code> all Products assigned to this Product Selection become part of the Store's assortment.</p>
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      * @return $this
      */
-    public function withProductSelection(?ProductSelectionSettingDraft $productSelection)
+    public function withProductSelection(?ProductSelectionResourceIdentifier $productSelection)
     {
         $this->productSelection = $productSelection;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $active
+     * @return $this
+     */
+    public function withActive(?bool $active)
+    {
+        $this->active = $active;
 
         return $this;
     }
@@ -50,7 +78,7 @@ final class StoreAddProductSelectionActionBuilder implements Builder
      * @deprecated use withProductSelection() instead
      * @return $this
      */
-    public function withProductSelectionBuilder(?ProductSelectionSettingDraftBuilder $productSelection)
+    public function withProductSelectionBuilder(?ProductSelectionResourceIdentifierBuilder $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -60,7 +88,8 @@ final class StoreAddProductSelectionActionBuilder implements Builder
     public function build(): StoreAddProductSelectionAction
     {
         return new StoreAddProductSelectionActionModel(
-            $this->productSelection instanceof ProductSelectionSettingDraftBuilder ? $this->productSelection->build() : $this->productSelection
+            $this->productSelection instanceof ProductSelectionResourceIdentifierBuilder ? $this->productSelection->build() : $this->productSelection,
+            $this->active
         );
     }
 

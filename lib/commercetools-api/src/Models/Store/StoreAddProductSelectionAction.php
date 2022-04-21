@@ -8,22 +8,36 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface StoreAddProductSelectionAction extends StoreUpdateAction
 {
     public const FIELD_PRODUCT_SELECTION = 'productSelection';
+    public const FIELD_ACTIVE = 'active';
 
     /**
-     * <p>A Product Selection to be added to the current Product Selections of this Store.</p>
+     * <p>Resource Identifier of a Product Selection</p>
      *
-     * @return null|ProductSelectionSettingDraft
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection();
 
     /**
-     * @param ?ProductSelectionSettingDraft $productSelection
+     * <p>If <code>true</code> all Products assigned to this Product Selection become part of the Store's assortment.</p>
+     *
+     * @return null|bool
      */
-    public function setProductSelection(?ProductSelectionSettingDraft $productSelection): void;
+    public function getActive();
+
+    /**
+     * @param ?ProductSelectionResourceIdentifier $productSelection
+     */
+    public function setProductSelection(?ProductSelectionResourceIdentifier $productSelection): void;
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void;
 }

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -26,18 +28,25 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
     protected $action;
 
     /**
-     * @var ?ProductSelectionSettingDraft
+     * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
+
+    /**
+     * @var ?bool
+     */
+    protected $active;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductSelectionSettingDraft $productSelection = null
+        ?ProductSelectionResourceIdentifier $productSelection = null,
+        ?bool $active = null
     ) {
         $this->productSelection = $productSelection;
+        $this->active = $active;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,9 +68,9 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>A Product Selection to be added to the current Product Selections of this Store.</p>
+     * <p>Resource Identifier of a Product Selection</p>
      *
-     * @return null|ProductSelectionSettingDraft
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
     {
@@ -72,18 +81,45 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->productSelection = ProductSelectionSettingDraftModel::of($data);
+            $this->productSelection = ProductSelectionResourceIdentifierModel::of($data);
         }
 
         return $this->productSelection;
     }
 
+    /**
+     * <p>If <code>true</code> all Products assigned to this Product Selection become part of the Store's assortment.</p>
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        if (is_null($this->active)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->active = (bool) $data;
+        }
+
+        return $this->active;
+    }
+
 
     /**
-     * @param ?ProductSelectionSettingDraft $productSelection
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      */
-    public function setProductSelection(?ProductSelectionSettingDraft $productSelection): void
+    public function setProductSelection(?ProductSelectionResourceIdentifier $productSelection): void
     {
         $this->productSelection = $productSelection;
+    }
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 }
