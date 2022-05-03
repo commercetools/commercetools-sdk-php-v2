@@ -21,6 +21,8 @@ interface ProductProjectionPagedSearchResponse extends JsonObject
     public const FIELD_FACETS = 'facets';
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit();
