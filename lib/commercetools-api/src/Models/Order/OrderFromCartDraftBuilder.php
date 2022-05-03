@@ -72,7 +72,7 @@ final class OrderFromCartDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The unique id of the cart from which an order is created.</p>
+     * <p>Platform-generated unique identifier of the Cart from which you can create an Order.</p>
      *
      * @return null|string
      */

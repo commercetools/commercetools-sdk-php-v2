@@ -72,7 +72,7 @@ interface Order extends BaseResource
     public const FIELD_REFUSED_GIFTS = 'refusedGifts';
 
     /**
-     * <p>The unique ID of the order.</p>
+     * <p>Platform-generated unique identifier of the Order.</p>
      *
      * @return null|string
      */

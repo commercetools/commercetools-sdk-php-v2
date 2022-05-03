@@ -90,6 +90,8 @@ final class OrderBillingAddressSetMessageBuilder implements Builder
     private $oldAddress;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -90,6 +90,8 @@ final class ProductRemovedFromCategoryMessageBuilder implements Builder
     private $staged;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -174,6 +176,8 @@ final class ProductRemovedFromCategoryMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     *
      * @return null|CategoryReference
      */
     public function getCategory()

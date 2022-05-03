@@ -102,6 +102,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     * <p>Platform-generated unique identifier of the ReturnItem.</p>
+     *
      * @return null|string
      */
     public function getId()

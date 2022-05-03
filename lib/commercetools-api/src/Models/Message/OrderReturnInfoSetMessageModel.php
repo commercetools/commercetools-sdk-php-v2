@@ -120,6 +120,8 @@ final class OrderReturnInfoSetMessageModel extends JsonObjectModel implements Or
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

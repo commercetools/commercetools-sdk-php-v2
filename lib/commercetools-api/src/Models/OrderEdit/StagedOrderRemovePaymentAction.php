@@ -18,6 +18,8 @@ interface StagedOrderRemovePaymentAction extends StagedOrderUpdateAction
     public const FIELD_PAYMENT = 'payment';
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment();

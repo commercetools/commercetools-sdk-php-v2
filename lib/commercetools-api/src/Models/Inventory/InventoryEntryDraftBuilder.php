@@ -69,8 +69,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the InventoryEntry.
-     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     * <p>User-defined unique identifier for the InventoryEntry.</p>
      *
      * @return null|string
      */

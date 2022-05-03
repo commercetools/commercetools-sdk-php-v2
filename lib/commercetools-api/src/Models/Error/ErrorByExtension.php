@@ -17,11 +17,15 @@ interface ErrorByExtension extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Platform-generated unique identifier of the Extension.</p>
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>User-defined unique identifier of the Extension.</p>
+     *
      * @return null|string
      */
     public function getKey();

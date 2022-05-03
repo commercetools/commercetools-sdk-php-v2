@@ -68,7 +68,7 @@ final class CategoryResourceIdentifierModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Channel">Category</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class CategoryResourceIdentifierModel extends JsonObjectModel implements C
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

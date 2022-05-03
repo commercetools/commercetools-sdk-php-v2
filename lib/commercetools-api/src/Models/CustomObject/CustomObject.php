@@ -24,6 +24,8 @@ interface CustomObject extends BaseResource
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>Platform-generated unique identifier of the CustomObject.</p>
+     *
      * @return null|string
      */
     public function getId();
@@ -65,6 +67,8 @@ interface CustomObject extends BaseResource
     public function getContainer();
 
     /**
+     * <p>User-defined unique identifier of the CustomObject.</p>
+     *
      * @return null|string
      */
     public function getKey();

@@ -45,6 +45,8 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     private $oldCustomerGroup;
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -53,7 +55,7 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -63,6 +65,8 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getOldCustomer()
@@ -71,7 +75,7 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

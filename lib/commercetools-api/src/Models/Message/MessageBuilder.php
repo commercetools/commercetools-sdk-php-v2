@@ -80,6 +80,8 @@ final class MessageBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

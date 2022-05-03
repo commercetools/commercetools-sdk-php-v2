@@ -33,7 +33,7 @@ final class ZoneResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -43,7 +43,7 @@ final class ZoneResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

@@ -83,6 +83,8 @@ final class CustomerTitleSetMessageBuilder implements Builder
     private $title;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

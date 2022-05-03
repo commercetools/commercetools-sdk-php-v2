@@ -119,6 +119,8 @@ final class CustomerTitleSetMessageModel extends JsonObjectModel implements Cust
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

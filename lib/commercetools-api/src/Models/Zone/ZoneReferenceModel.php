@@ -68,7 +68,7 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
      *
      * @return null|string
      */

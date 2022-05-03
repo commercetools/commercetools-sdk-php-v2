@@ -92,6 +92,8 @@ final class OrderEditAppliedMessageBuilder implements Builder
     private $result;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -176,6 +178,8 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     *
      * @return null|OrderEditReference
      */
     public function getEdit()

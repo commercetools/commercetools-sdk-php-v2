@@ -173,7 +173,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * <p>The unique ID of the category.</p>
+     * <p>Platform-generated unique identifier of the Category.</p>
      *
      * @return null|string
      */
@@ -516,7 +516,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * <p>User-specific unique identifier for the category.</p>
+     * <p>User-defined unique identifier of the Category.</p>
      *
      * @return null|string
      */

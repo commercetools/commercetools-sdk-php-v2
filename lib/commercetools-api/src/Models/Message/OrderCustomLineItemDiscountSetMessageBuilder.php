@@ -96,6 +96,8 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
     private $taxedPrice;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -180,7 +180,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>The unique ID of the cart discount.</p>
+     * <p>Platform-generated unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */
@@ -318,8 +318,7 @@ final class CartDiscountModel extends JsonObjectModel implements CartDiscount
     }
 
     /**
-     * <p>User-specific unique identifier for a cart discount.
-     * Must be unique across a project.</p>
+     * <p>User-defined unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */

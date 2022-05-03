@@ -24,6 +24,8 @@ interface Delivery extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>Platform-generated unique identifier of the Delivery.</p>
+     *
      * @return null|string
      */
     public function getId();

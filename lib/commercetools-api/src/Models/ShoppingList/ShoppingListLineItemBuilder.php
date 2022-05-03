@@ -111,6 +111,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Platform-generated unique identifier of the ShoppingListLineItem.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -143,6 +145,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType()

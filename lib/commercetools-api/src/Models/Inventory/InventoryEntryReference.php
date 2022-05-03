@@ -17,12 +17,26 @@ interface InventoryEntryReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+     * <p>Contains the representation of the expanded InventoryEntry. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for InventoryEntries.</p>
+     *
      * @return null|InventoryEntry
      */
     public function getObj();
 
     /**
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     *
+     * @return null|string
+     */
+    public function getId();
+
+    /**
      * @param ?InventoryEntry $obj
      */
     public function setObj(?InventoryEntry $obj): void;
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void;
 }

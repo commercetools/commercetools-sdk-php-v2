@@ -105,7 +105,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
-     * <p>The unique ID of the product type.</p>
+     * <p>Platform-generated unique identifier for the ProductType.</p>
      *
      * @return null|string
      */
@@ -225,8 +225,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
-     * <p>User-specific unique identifier for the product type (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier of the ProductType.</p>
      *
      * @return null|string
      */

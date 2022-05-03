@@ -90,6 +90,8 @@ final class InventoryEntryDeletedMessageBuilder implements Builder
     private $supplyChannel;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

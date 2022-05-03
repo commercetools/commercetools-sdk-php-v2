@@ -135,6 +135,8 @@ final class ProductImageAddedMessageModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

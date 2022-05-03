@@ -88,6 +88,8 @@ final class OrderShipmentStateChangedMessageBuilder implements Builder
     private $oldShipmentState;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

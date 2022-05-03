@@ -68,7 +68,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     }
 
     /**
-     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategory.</p>
+     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategories.</p>
      *
      * @return null|TaxCategory
      */

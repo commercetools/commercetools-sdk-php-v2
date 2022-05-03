@@ -217,7 +217,7 @@ final class CartBuilder implements Builder
     private $totalLineItemQuantity;
 
     /**
-     * <p>The unique ID of the cart.</p>
+     * <p>Platform-generated unique identifier of the Cart.</p>
      *
      * @return null|string
      */
@@ -253,7 +253,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier of the cart.</p>
+     * <p>User-defined unique identifier of the Cart.</p>
      *
      * @return null|string
      */

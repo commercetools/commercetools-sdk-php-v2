@@ -126,6 +126,8 @@ final class PaymentTransactionStateChangedMessageModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

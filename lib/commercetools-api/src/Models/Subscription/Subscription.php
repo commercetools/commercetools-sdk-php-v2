@@ -27,6 +27,8 @@ interface Subscription extends BaseResource
     public const FIELD_STATUS = 'status';
 
     /**
+     * <p>Platform-generated unique identifier of the Subscription.</p>
+     *
      * @return null|string
      */
     public function getId();
@@ -71,6 +73,8 @@ interface Subscription extends BaseResource
     public function getDestination();
 
     /**
+     * <p>User-defined unique identifier of the Subscription.</p>
+     *
      * @return null|string
      */
     public function getKey();

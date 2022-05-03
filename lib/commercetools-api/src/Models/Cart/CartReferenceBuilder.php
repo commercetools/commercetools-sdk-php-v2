@@ -33,7 +33,7 @@ final class CartReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
      * @return null|string
      */
@@ -43,6 +43,8 @@ final class CartReferenceBuilder implements Builder
     }
 
     /**
+     * <p>Contains the representation of the expanded Cart. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Carts.</p>
+     *
      * @return null|Cart
      */
     public function getObj()

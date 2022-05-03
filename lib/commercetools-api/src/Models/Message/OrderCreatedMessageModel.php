@@ -121,6 +121,8 @@ final class OrderCreatedMessageModel extends JsonObjectModel implements OrderCre
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

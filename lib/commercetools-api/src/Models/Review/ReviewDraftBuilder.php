@@ -82,7 +82,7 @@ final class ReviewDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-specific unique identifier for the review.</p>
+     * <p>User-defined unique identifier for the Review.</p>
      *
      * @return null|string
      */

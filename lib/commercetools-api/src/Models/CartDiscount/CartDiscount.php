@@ -38,7 +38,7 @@ interface CartDiscount extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>The unique ID of the cart discount.</p>
+     * <p>Platform-generated unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */
@@ -81,8 +81,7 @@ interface CartDiscount extends BaseResource
     public function getName();
 
     /**
-     * <p>User-specific unique identifier for a cart discount.
-     * Must be unique across a project.</p>
+     * <p>User-defined unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */

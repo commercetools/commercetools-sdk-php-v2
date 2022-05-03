@@ -112,6 +112,8 @@ final class CustomerDeletedMessageModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

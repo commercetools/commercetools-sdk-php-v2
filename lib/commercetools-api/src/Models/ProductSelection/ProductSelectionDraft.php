@@ -20,7 +20,7 @@ interface ProductSelectionDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier for the Product Selection. You can use <code>key</code> besides <code>ID</code> to reference the Product Selection.</p>
+     * <p>User-defined unique identifier for the Product Selection.</p>
      *
      * @return null|string
      */

@@ -90,6 +90,8 @@ final class OrderLineItemDistributionChannelSetMessageBuilder implements Builder
     private $distributionChannel;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

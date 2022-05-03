@@ -134,7 +134,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * <p>The unique ID of this TextLineItem.</p>
+     * <p>Platform-generated unique identifier of the TextLineItem.</p>
      *
      * @return null|string
      */

@@ -19,8 +19,7 @@ interface ExtensionDraft extends JsonObject
     public const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
 
     /**
-     * <p>User-defined unique identifier for the Extension.
-     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     * <p>User-defined unique identifier for the Extension.</p>
      *
      * @return null|string
      */

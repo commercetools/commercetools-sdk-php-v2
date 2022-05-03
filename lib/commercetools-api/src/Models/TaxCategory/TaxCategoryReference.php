@@ -17,14 +17,14 @@ interface TaxCategoryReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
-     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategory.</p>
+     * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategories.</p>
      *
      * @return null|TaxCategory
      */
     public function getObj();
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|string
      */

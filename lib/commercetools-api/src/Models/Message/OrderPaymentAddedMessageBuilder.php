@@ -85,6 +85,8 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     private $payment;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -169,6 +171,8 @@ final class OrderPaymentAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      * @return null|PaymentReference
      */
     public function getPayment()

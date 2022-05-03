@@ -64,6 +64,8 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>.</p>
+     *
      * @return null|ProductDiscountReference
      */
     public function getDiscount()

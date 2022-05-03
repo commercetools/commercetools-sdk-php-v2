@@ -26,6 +26,8 @@ final class AttributeNestedTypeBuilder implements Builder
     private $typeReference;
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     *
      * @return null|ProductTypeReference
      */
     public function getTypeReference()

@@ -108,7 +108,7 @@ final class ChannelBuilder implements Builder
     private $geoLocation;
 
     /**
-     * <p>Unique ID of the Channel.</p>
+     * <p>Platform-generated unique identifier of the Channel.</p>
      *
      * @return null|string
      */
@@ -168,7 +168,7 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the Channel.</p>
+     * <p>User-defined unique identifier of the Channel.</p>
      *
      * @return null|string
      */

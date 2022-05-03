@@ -85,6 +85,8 @@ final class OrderStoreSetMessageBuilder implements Builder
     private $store;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

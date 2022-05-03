@@ -242,8 +242,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier for the Payment.</p>
      *
      * @return null|string
      */

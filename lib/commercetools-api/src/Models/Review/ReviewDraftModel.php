@@ -115,7 +115,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     }
 
     /**
-     * <p>User-specific unique identifier for the review.</p>
+     * <p>User-defined unique identifier for the Review.</p>
      *
      * @return null|string
      */

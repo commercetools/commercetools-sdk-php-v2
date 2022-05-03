@@ -68,7 +68,7 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

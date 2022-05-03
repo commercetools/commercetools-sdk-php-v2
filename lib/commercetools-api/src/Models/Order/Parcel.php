@@ -23,6 +23,8 @@ interface Parcel extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>Platform-generated unique identifier of the Parcel.</p>
+     *
      * @return null|string
      */
     public function getId();

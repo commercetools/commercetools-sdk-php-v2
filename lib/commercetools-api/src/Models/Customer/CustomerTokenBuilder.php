@@ -52,6 +52,8 @@ final class CustomerTokenBuilder implements Builder
     private $value;
 
     /**
+     * <p>Platform-generated unique identifier of the CustomerToken.</p>
+     *
      * @return null|string
      */
     public function getId()

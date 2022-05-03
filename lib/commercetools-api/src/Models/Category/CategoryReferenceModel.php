@@ -68,7 +68,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     }
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
      *
      * @return null|string
      */
@@ -87,6 +87,8 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     }
 
     /**
+     * <p>Contains the representation of the expanded Category. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Categories.</p>
+     *
      * @return null|Category
      */
     public function getObj()

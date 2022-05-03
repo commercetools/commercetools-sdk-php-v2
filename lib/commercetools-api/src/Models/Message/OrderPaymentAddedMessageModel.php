@@ -121,6 +121,8 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -324,6 +326,8 @@ final class OrderPaymentAddedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      * @return null|PaymentReference
      */
     public function getPayment()

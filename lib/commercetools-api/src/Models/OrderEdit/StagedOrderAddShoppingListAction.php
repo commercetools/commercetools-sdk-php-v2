@@ -21,6 +21,8 @@ interface StagedOrderAddShoppingListAction extends StagedOrderUpdateAction
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
      * @return null|ShoppingListResourceIdentifier
      */
     public function getShoppingList();

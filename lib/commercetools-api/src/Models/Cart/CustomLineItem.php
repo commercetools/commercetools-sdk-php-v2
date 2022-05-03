@@ -34,7 +34,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
-     * <p>The unique ID of this CustomLineItem.</p>
+     * <p>Platform-generated unique identifier of the CustomLineItem.</p>
      *
      * @return null|string
      */

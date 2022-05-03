@@ -144,6 +144,8 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -347,6 +349,8 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -365,7 +369,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -385,6 +389,8 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getOldCustomer()
@@ -403,7 +409,7 @@ final class OrderCustomerSetMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

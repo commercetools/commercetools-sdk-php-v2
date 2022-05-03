@@ -95,6 +95,8 @@ final class ParcelMeasurementsUpdatedMessageBuilder implements Builder
     private $measurements;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

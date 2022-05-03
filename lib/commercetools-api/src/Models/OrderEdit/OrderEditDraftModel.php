@@ -75,7 +75,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     }
 
     /**
-     * <p>Unique identifier for this edit.</p>
+     * <p>User-defined unique identifier for the OrderEdit.</p>
      *
      * @return null|string
      */

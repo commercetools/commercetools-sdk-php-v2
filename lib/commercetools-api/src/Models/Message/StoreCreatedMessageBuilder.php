@@ -114,6 +114,8 @@ final class StoreCreatedMessageBuilder implements Builder
     private $custom;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

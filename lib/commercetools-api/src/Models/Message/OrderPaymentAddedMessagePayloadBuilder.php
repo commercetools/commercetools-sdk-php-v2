@@ -28,6 +28,8 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
     private $payment;
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      * @return null|PaymentReference
      */
     public function getPayment()

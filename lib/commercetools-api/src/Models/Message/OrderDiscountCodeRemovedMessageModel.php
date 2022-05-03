@@ -121,6 +121,8 @@ final class OrderDiscountCodeRemovedMessageModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -324,6 +326,8 @@ final class OrderDiscountCodeRemovedMessageModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()

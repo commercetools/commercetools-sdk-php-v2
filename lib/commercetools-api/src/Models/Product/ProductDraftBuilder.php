@@ -142,7 +142,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>User-defined unique identifier for the Product.</p>
      *
      * @return null|string
      */

@@ -49,7 +49,7 @@ final class HitModel extends JsonObjectModel implements Hit
     }
 
     /**
-     * <p>Unique ID of the Order.</p>
+     * <p>Platform-generated unique identifier of the Order.</p>
      *
      * @return null|string
      */

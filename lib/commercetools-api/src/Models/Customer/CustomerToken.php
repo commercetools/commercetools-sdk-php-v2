@@ -22,6 +22,8 @@ interface CustomerToken extends JsonObject
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>Platform-generated unique identifier of the CustomerToken.</p>
+     *
      * @return null|string
      */
     public function getId();

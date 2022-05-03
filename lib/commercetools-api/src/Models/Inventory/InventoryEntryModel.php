@@ -137,7 +137,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The unique ID of the inventory entry.</p>
+     * <p>Platform-generated unique identifier of the InventoryEntry.</p>
      *
      * @return null|string
      */
@@ -255,8 +255,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>User-defined unique identifier for the InventoryEntry.
-     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     * <p>User-defined unique identifier of the InventoryEntry.</p>
      *
      * @return null|string
      */

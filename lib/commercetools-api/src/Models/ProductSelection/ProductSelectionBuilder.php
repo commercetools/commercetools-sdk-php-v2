@@ -87,7 +87,7 @@ final class ProductSelectionBuilder implements Builder
     private $custom;
 
     /**
-     * <p>Unique ID of the Product Selection.</p>
+     * <p>Platform-generated unique identifier of the Product Selection.</p>
      *
      * @return null|string
      */
@@ -127,8 +127,7 @@ final class ProductSelectionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1/02/2019 except for events not
-     * tracked.</p>
+     * <p>Present on resources updated after 1/02/2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -138,8 +137,7 @@ final class ProductSelectionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1/02/2019 except for events not
-     * tracked.</p>
+     * <p>Present on resources created after 1/02/2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -149,7 +147,7 @@ final class ProductSelectionBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the Product Selection.</p>
+     * <p>User-defined unique identifier of the Product Selection.</p>
      *
      * @return null|string
      */

@@ -95,6 +95,8 @@ final class ParcelTrackingDataUpdatedMessageBuilder implements Builder
     private $trackingData;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

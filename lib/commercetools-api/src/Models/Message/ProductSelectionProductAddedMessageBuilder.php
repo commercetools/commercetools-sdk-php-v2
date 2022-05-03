@@ -85,6 +85,8 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
     private $product;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -169,6 +171,8 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      * @return null|ProductReference
      */
     public function getProduct()

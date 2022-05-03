@@ -36,6 +36,8 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     private $ttlMinutes;
 
     /**
+     * <p>Platform-generated unique identifier of the email token.</p>
+     *
      * @return null|string
      */
     public function getId()

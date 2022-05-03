@@ -112,9 +112,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>User-specific unique identifier for a product discount.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier for the ProductDiscount.</p>
      *
      * @return null|string
      */

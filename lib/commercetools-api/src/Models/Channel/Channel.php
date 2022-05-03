@@ -34,7 +34,7 @@ interface Channel extends BaseResource
     public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
-     * <p>Unique ID of the Channel.</p>
+     * <p>Platform-generated unique identifier of the Channel.</p>
      *
      * @return null|string
      */
@@ -76,7 +76,7 @@ interface Channel extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier for the Channel.</p>
+     * <p>User-defined unique identifier of the Channel.</p>
      *
      * @return null|string
      */

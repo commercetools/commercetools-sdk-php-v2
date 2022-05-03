@@ -135,6 +135,8 @@ final class ProductPublishedMessageModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

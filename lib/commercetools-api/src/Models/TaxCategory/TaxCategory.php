@@ -25,7 +25,7 @@ interface TaxCategory extends BaseResource
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>Unique ID of the TaxCategory.</p>
+     * <p>Platform-generated unique identifier of the TaxCategory.</p>
      *
      * @return null|string
      */
@@ -88,7 +88,7 @@ interface TaxCategory extends BaseResource
     public function getRates();
 
     /**
-     * <p>User-defined unique identifier for the TaxCategory.</p>
+     * <p>User-defined unique identifier of the TaxCategory.</p>
      *
      * @return null|string
      */

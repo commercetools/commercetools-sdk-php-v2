@@ -209,6 +209,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -92,6 +92,8 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()

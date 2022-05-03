@@ -96,7 +96,7 @@ final class ProductBuilder implements Builder
     private $reviewRatingStatistics;
 
     /**
-     * <p>The unique ID of the product.</p>
+     * <p>Platform-generated unique identifier of the Product.</p>
      *
      * @return null|string
      */
@@ -152,8 +152,8 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the product.
-     * <em>Product keys are different from product variant keys.</em></p>
+     * <p>User-defined unique identifier of the Product.
+     * <em>Product keys are different from ProductVariant keys.</em></p>
      *
      * @return null|string
      */
