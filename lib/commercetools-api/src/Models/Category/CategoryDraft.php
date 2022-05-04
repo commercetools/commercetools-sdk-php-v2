@@ -98,8 +98,7 @@ interface CategoryDraft extends JsonObject
     public function getAssets();
 
     /**
-     * <p>User-defined unique identifier for the category.
-     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.</p>
+     * <p>User-defined unique identifier for the Category.</p>
      *
      * @return null|string
      */

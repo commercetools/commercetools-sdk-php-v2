@@ -124,7 +124,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>The unique ID of the OrderEdit.</p>
+     * <p>Platform-generated unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */
@@ -244,7 +244,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-     * <p>Unique identifier for this edit.</p>
+     * <p>User-defined unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */

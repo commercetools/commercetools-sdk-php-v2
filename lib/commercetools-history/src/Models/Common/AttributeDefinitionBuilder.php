@@ -21,7 +21,7 @@ use stdClass;
 final class AttributeDefinitionBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
+     * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
@@ -61,11 +61,11 @@ final class AttributeDefinitionBuilder implements Builder
     private $isSearchable;
 
     /**
-     * @return null|JsonObject
+     * @return null|AttributeType
      */
     public function getType()
     {
-        return $this->type;
+        return $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type;
     }
 
     /**
@@ -131,10 +131,10 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $type
+     * @param ?AttributeType $type
      * @return $this
      */
-    public function withType(?JsonObject $type)
+    public function withType(?AttributeType $type)
     {
         $this->type = $type;
 
@@ -219,6 +219,17 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withType() instead
+     * @return $this
+     */
+    public function withTypeBuilder(?AttributeTypeBuilder $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLabel() instead
      * @return $this
      */
@@ -243,7 +254,7 @@ final class AttributeDefinitionBuilder implements Builder
     public function build(): AttributeDefinition
     {
         return new AttributeDefinitionModel(
-            $this->type,
+            $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
             $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->isRequired,

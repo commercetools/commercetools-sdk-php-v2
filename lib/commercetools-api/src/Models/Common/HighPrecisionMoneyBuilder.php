@@ -21,14 +21,14 @@ use stdClass;
 final class HighPrecisionMoneyBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $currencyCode;
-
-    /**
      * @var ?int
      */
     private $centAmount;
+
+    /**
+     * @var ?string
+     */
+    private $currencyCode;
 
     /**
      * @var ?int
@@ -39,16 +39,6 @@ final class HighPrecisionMoneyBuilder implements Builder
      * @var ?int
      */
     private $preciseAmount;
-
-    /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     *
-     * @return null|string
-     */
-    public function getCurrencyCode()
-    {
-        return $this->currencyCode;
-    }
 
     /**
      * <p>amount in the smallest indivisible unit of a currency, such as</p>
@@ -62,6 +52,16 @@ final class HighPrecisionMoneyBuilder implements Builder
     public function getCentAmount()
     {
         return $this->centAmount;
+    }
+
+    /**
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     *
+     * @return null|string
+     */
+    public function getCurrencyCode()
+    {
+        return $this->currencyCode;
     }
 
     /**
@@ -89,23 +89,23 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * @param ?string $currencyCode
-     * @return $this
-     */
-    public function withCurrencyCode(?string $currencyCode)
-    {
-        $this->currencyCode = $currencyCode;
-
-        return $this;
-    }
-
-    /**
      * @param ?int $centAmount
      * @return $this
      */
     public function withCentAmount(?int $centAmount)
     {
         $this->centAmount = $centAmount;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $currencyCode
+     * @return $this
+     */
+    public function withCurrencyCode(?string $currencyCode)
+    {
+        $this->currencyCode = $currencyCode;
 
         return $this;
     }
@@ -136,8 +136,8 @@ final class HighPrecisionMoneyBuilder implements Builder
     public function build(): HighPrecisionMoney
     {
         return new HighPrecisionMoneyModel(
-            $this->currencyCode,
             $this->centAmount,
+            $this->currencyCode,
             $this->fractionDigits,
             $this->preciseAmount
         );

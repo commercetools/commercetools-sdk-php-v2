@@ -95,6 +95,8 @@ final class ProductPublishedMessageBuilder implements Builder
     private $scope;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

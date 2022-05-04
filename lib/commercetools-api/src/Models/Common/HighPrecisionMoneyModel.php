@@ -21,9 +21,9 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $type;
+    protected $centAmount;
 
     /**
      * @var ?string
@@ -31,9 +31,9 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     protected $currencyCode;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $centAmount;
+    protected $type;
 
     /**
      * @var ?int
@@ -50,54 +50,16 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $currencyCode = null,
         ?int $centAmount = null,
+        ?string $currencyCode = null,
         ?int $fractionDigits = null,
         ?int $preciseAmount = null
     ) {
-        $this->currencyCode = $currencyCode;
         $this->centAmount = $centAmount;
+        $this->currencyCode = $currencyCode;
         $this->fractionDigits = $fractionDigits;
         $this->preciseAmount = $preciseAmount;
         $this->type = static::DISCRIMINATOR_VALUE;
-    }
-
-    /**
-     * <p>The platform supports two different types of Money, one for amounts in cent precision and another one for sub-cent amounts up to 12 fraction digits.</p>
-     *
-     * @return null|string
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
-    }
-
-    /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     *
-     * @return null|string
-     */
-    public function getCurrencyCode()
-    {
-        if (is_null($this->currencyCode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CURRENCY_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->currencyCode = (string) $data;
-        }
-
-        return $this->currencyCode;
     }
 
     /**
@@ -121,6 +83,44 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
         }
 
         return $this->centAmount;
+    }
+
+    /**
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     *
+     * @return null|string
+     */
+    public function getCurrencyCode()
+    {
+        if (is_null($this->currencyCode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CURRENCY_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->currencyCode = (string) $data;
+        }
+
+        return $this->currencyCode;
+    }
+
+    /**
+     * <p>The platform supports two different types of Money, one for amounts in cent precision and another one for sub-cent amounts up to 12 fraction digits.</p>
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
     }
 
     /**
@@ -167,19 +167,19 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 
 
     /**
-     * @param ?string $currencyCode
-     */
-    public function setCurrencyCode(?string $currencyCode): void
-    {
-        $this->currencyCode = $currencyCode;
-    }
-
-    /**
      * @param ?int $centAmount
      */
     public function setCentAmount(?int $centAmount): void
     {
         $this->centAmount = $centAmount;
+    }
+
+    /**
+     * @param ?string $currencyCode
+     */
+    public function setCurrencyCode(?string $currencyCode): void
+    {
+        $this->currencyCode = $currencyCode;
     }
 
     /**

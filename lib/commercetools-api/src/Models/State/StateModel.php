@@ -135,7 +135,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>Unique ID of the State.</p>
+     * <p>Platform-generated unique identifier of the State.</p>
      *
      * @return null|string
      */
@@ -259,7 +259,7 @@ final class StateModel extends JsonObjectModel implements State
     }
 
     /**
-     * <p>User-defined unique identifier for the State.</p>
+     * <p>User-defined unique identifier of the State.</p>
      *
      * @return null|string
      */

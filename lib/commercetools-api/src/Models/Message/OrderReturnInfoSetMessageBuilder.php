@@ -84,6 +84,8 @@ final class OrderReturnInfoSetMessageBuilder implements Builder
     private $returnInfo;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

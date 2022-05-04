@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -96,6 +98,11 @@ final class OrderImportDraftBuilder implements Builder
     private $orderState;
 
     /**
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
+
+    /**
      * @var ?string
      */
     private $shipmentState;
@@ -109,6 +116,11 @@ final class OrderImportDraftBuilder implements Builder
      * @var null|ShippingInfoImportDraft|ShippingInfoImportDraftBuilder
      */
     private $shippingInfo;
+
+    /**
+     * @var null|PaymentInfo|PaymentInfoBuilder
+     */
+    private $paymentInfo;
 
     /**
      * @var ?DateTimeImmutable
@@ -265,6 +277,16 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>This reference can point to a state in a custom workflow.</p>
+     *
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
      * @return null|string
      */
     public function getShipmentState()
@@ -288,6 +310,14 @@ final class OrderImportDraftBuilder implements Builder
     public function getShippingInfo()
     {
         return $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
+    }
+
+    /**
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo()
+    {
+        return $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo;
     }
 
     /**
@@ -489,6 +519,17 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $shipmentState
      * @return $this
      */
@@ -517,6 +558,17 @@ final class OrderImportDraftBuilder implements Builder
     public function withShippingInfo(?ShippingInfoImportDraft $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
+
+        return $this;
+    }
+
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     * @return $this
+     */
+    public function withPaymentInfo(?PaymentInfo $paymentInfo)
+    {
+        $this->paymentInfo = $paymentInfo;
 
         return $this;
     }
@@ -654,12 +706,34 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withShippingInfo() instead
      * @return $this
      */
     public function withShippingInfoBuilder(?ShippingInfoImportDraftBuilder $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPaymentInfo() instead
+     * @return $this
+     */
+    public function withPaymentInfoBuilder(?PaymentInfoBuilder $paymentInfo)
+    {
+        $this->paymentInfo = $paymentInfo;
 
         return $this;
     }
@@ -701,9 +775,11 @@ final class OrderImportDraftBuilder implements Builder
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->country,
             $this->orderState,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->shipmentState,
             $this->paymentState,
             $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
+            $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
             $this->completedAt,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->inventoryMode,

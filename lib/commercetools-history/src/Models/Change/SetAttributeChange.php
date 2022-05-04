@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\History\Models\ChangeValue\AttributeValue;
 
 interface SetAttributeChange extends Change
 {
@@ -36,12 +37,12 @@ interface SetAttributeChange extends Change
     public function getCatalogData();
 
     /**
-     * @return null|mixed
+     * @return null|AttributeValue
      */
     public function getPreviousValue();
 
     /**
-     * @return null|mixed
+     * @return null|AttributeValue
      */
     public function getNextValue();
 
@@ -56,12 +57,12 @@ interface SetAttributeChange extends Change
     public function setCatalogData(?string $catalogData): void;
 
     /**
-     * @param ?JsonObject $previousValue
+     * @param ?AttributeValue $previousValue
      */
-    public function setPreviousValue(?JsonObject $previousValue): void;
+    public function setPreviousValue(?AttributeValue $previousValue): void;
 
     /**
-     * @param ?JsonObject $nextValue
+     * @param ?AttributeValue $nextValue
      */
-    public function setNextValue(?JsonObject $nextValue): void;
+    public function setNextValue(?AttributeValue $nextValue): void;
 }

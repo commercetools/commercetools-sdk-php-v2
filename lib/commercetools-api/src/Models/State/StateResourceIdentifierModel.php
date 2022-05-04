@@ -68,7 +68,7 @@ final class StateResourceIdentifierModel extends JsonObjectModel implements Stat
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:State">State</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:State">State</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class StateResourceIdentifierModel extends JsonObjectModel implements Stat
     }
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:State">State</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:State">State</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

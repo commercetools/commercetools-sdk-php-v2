@@ -41,9 +41,7 @@ final class ProductTypeDraftBuilder implements Builder
     private $attributes;
 
     /**
-     * <p>User-specific unique identifier for the product type (min.
-     * 2 and max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier for the ProductType.</p>
      *
      * @return null|string
      */

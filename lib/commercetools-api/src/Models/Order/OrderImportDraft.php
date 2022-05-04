@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -34,9 +35,11 @@ interface OrderImportDraft extends JsonObject
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_ORDER_STATE = 'orderState';
+    public const FIELD_STATE = 'state';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_PAYMENT_STATE = 'paymentState';
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
+    public const FIELD_PAYMENT_INFO = 'paymentInfo';
     public const FIELD_COMPLETED_AT = 'completedAt';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
@@ -129,6 +132,13 @@ interface OrderImportDraft extends JsonObject
     public function getOrderState();
 
     /**
+     * <p>This reference can point to a state in a custom workflow.</p>
+     *
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
      * @return null|string
      */
     public function getShipmentState();
@@ -144,6 +154,11 @@ interface OrderImportDraft extends JsonObject
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo();
+
+    /**
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo();
 
     /**
      * @return null|DateTimeImmutable
@@ -251,6 +266,11 @@ interface OrderImportDraft extends JsonObject
     public function setOrderState(?string $orderState): void;
 
     /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
+
+    /**
      * @param ?string $shipmentState
      */
     public function setShipmentState(?string $shipmentState): void;
@@ -264,6 +284,11 @@ interface OrderImportDraft extends JsonObject
      * @param ?ShippingInfoImportDraft $shippingInfo
      */
     public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void;
+
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     */
+    public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
 
     /**
      * @param ?DateTimeImmutable $completedAt

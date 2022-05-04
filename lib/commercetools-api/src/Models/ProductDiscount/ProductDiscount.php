@@ -33,7 +33,7 @@ interface ProductDiscount extends BaseResource
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
-     * <p>The unique ID of the product discount</p>
+     * <p>Platform-generated unique identifier of the ProductDiscount</p>
      *
      * @return null|string
      */
@@ -76,8 +76,7 @@ interface ProductDiscount extends BaseResource
     public function getName();
 
     /**
-     * <p>User-specific unique identifier for a product discount.
-     * Must be unique across a project.</p>
+     * <p>User-defined unique identifier of the ProductDiscount.</p>
      *
      * @return null|string
      */

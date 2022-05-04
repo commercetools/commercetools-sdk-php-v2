@@ -68,7 +68,7 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
     }
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

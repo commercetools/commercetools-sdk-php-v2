@@ -59,7 +59,7 @@ interface ProductDraft extends JsonObject
     public function getSlug();
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>User-defined unique identifier for the Product.</p>
      *
      * @return null|string
      */

@@ -85,6 +85,8 @@ final class CategoryCreatedMessageBuilder implements Builder
     private $category;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

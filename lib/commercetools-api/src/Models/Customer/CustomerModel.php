@@ -177,6 +177,11 @@ final class CustomerModel extends JsonObjectModel implements Customer
      */
     protected $stores;
 
+    /**
+     * @var ?string
+     */
+    protected $authenticationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -210,7 +215,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
         ?string $locale = null,
         ?string $salutation = null,
         ?string $key = null,
-        ?StoreKeyReferenceCollection $stores = null
+        ?StoreKeyReferenceCollection $stores = null,
+        ?string $authenticationMode = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -241,10 +247,11 @@ final class CustomerModel extends JsonObjectModel implements Customer
         $this->salutation = $salutation;
         $this->key = $key;
         $this->stores = $stores;
+        $this->authenticationMode = $authenticationMode;
     }
 
     /**
-     * <p>The unique ID of the customer.</p>
+     * <p>Platform-generated unique identifier of the Customer.</p>
      *
      * @return null|string
      */
@@ -406,6 +413,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
+     *
      * @return null|string
      */
     public function getPassword()
@@ -745,9 +754,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>User-specific unique identifier for a customer.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier of the Customer.</p>
      *
      * @return null|string
      */
@@ -784,6 +791,25 @@ final class CustomerModel extends JsonObjectModel implements Customer
         }
 
         return $this->stores;
+    }
+
+    /**
+     * <p>Defines whether a Customer has a password.</p>
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
     }
 
 
@@ -1017,6 +1043,14 @@ final class CustomerModel extends JsonObjectModel implements Customer
     public function setStores(?StoreKeyReferenceCollection $stores): void
     {
         $this->stores = $stores;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 
 

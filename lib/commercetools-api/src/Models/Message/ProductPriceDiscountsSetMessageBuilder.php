@@ -83,6 +83,8 @@ final class ProductPriceDiscountsSetMessageBuilder implements Builder
     private $updatedPrices;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

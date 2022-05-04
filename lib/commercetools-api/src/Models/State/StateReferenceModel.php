@@ -68,7 +68,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:State">State</a>.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:State">State</a>.</p>
      *
      * @return null|string
      */
@@ -87,7 +87,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     }
 
     /**
-     * <p>Contains the representation of the expanded State. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for State.</p>
+     * <p>Contains the representation of the expanded State. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for States.</p>
      *
      * @return null|State
      */

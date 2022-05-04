@@ -23,6 +23,8 @@ interface UserProvidedIdentifiers extends JsonObject
     public const FIELD_CONTAINER_AND_KEY = 'containerAndKey';
 
     /**
+     * <p>User-provided unique identifier of the resource.</p>
+     *
      * @return null|string
      */
     public function getKey();

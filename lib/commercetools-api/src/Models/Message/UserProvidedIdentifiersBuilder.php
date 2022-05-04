@@ -58,6 +58,8 @@ final class UserProvidedIdentifiersBuilder implements Builder
     private $containerAndKey;
 
     /**
+     * <p>User-provided unique identifier of the resource.</p>
+     *
      * @return null|string
      */
     public function getKey()

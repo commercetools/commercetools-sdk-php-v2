@@ -68,7 +68,7 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>.</p>
      *
      * @return null|string
      */
@@ -87,6 +87,8 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>Contains the representation of the expanded ProductDiscount. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductDiscounts.</p>
+     *
      * @return null|ProductDiscount
      */
     public function getObj()

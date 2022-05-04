@@ -28,7 +28,7 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * <p>Draft type that stores amounts in cent precision for the specified currency.
      * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
      * @return null|Money
@@ -41,7 +41,7 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
     public function getName();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -80,9 +80,9 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
     public function setName(?LocalizedString $name): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 
     /**
      * @param ?string $slug

@@ -13,6 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\ChangeValue\AttributeValue;
+use Commercetools\History\Models\ChangeValue\AttributeValueModel;
 
 /**
  * @internal
@@ -37,12 +39,12 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     protected $catalogData;
 
     /**
-     * @var ?mixed
+     * @var ?AttributeValue
      */
     protected $previousValue;
 
     /**
-     * @var ?mixed
+     * @var ?AttributeValue
      */
     protected $nextValue;
 
@@ -53,8 +55,8 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     public function __construct(
         ?string $change = null,
         ?string $catalogData = null,
-        ?JsonObject $previousValue = null,
-        ?JsonObject $nextValue = null
+        ?AttributeValue $previousValue = null,
+        ?AttributeValue $nextValue = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
@@ -117,7 +119,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
-     * @return null|mixed
+     * @return null|AttributeValue
      */
     public function getPreviousValue()
     {
@@ -127,14 +129,15 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  JsonObjectModel::of($data);
+
+            $this->previousValue =  AttributeValueModel::of($data);
         }
 
         return $this->previousValue;
     }
 
     /**
-     * @return null|mixed
+     * @return null|AttributeValue
      */
     public function getNextValue()
     {
@@ -144,7 +147,8 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  JsonObjectModel::of($data);
+
+            $this->nextValue =  AttributeValueModel::of($data);
         }
 
         return $this->nextValue;
@@ -168,17 +172,17 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
-     * @param ?JsonObject $previousValue
+     * @param ?AttributeValue $previousValue
      */
-    public function setPreviousValue(?JsonObject $previousValue): void
+    public function setPreviousValue(?AttributeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
     }
 
     /**
-     * @param ?JsonObject $nextValue
+     * @param ?AttributeValue $nextValue
      */
-    public function setNextValue(?JsonObject $nextValue): void
+    public function setNextValue(?AttributeValue $nextValue): void
     {
         $this->nextValue = $nextValue;
     }

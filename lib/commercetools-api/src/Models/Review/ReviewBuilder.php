@@ -124,7 +124,7 @@ final class ReviewBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The unique ID of the review.</p>
+     * <p>Platform-generated unique identifier of the Review.</p>
      *
      * @return null|string
      */
@@ -180,7 +180,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the review.</p>
+     * <p>User-defined unique identifier of the Review.</p>
      *
      * @return null|string
      */

@@ -94,6 +94,8 @@ final class StoreProductSelectionsChangedMessageBuilder implements Builder
     private $updatedProductSelections;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

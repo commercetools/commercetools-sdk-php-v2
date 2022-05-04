@@ -56,8 +56,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
     /**
-     * <p>User-defined unique identifier for the Extension.
-     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     * <p>User-defined unique identifier for the Extension.</p>
      *
      * @return null|string
      */

@@ -79,6 +79,8 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+     * <p>User-provided unique identifier of the resource.</p>
+     *
      * @return null|string
      */
     public function getKey()

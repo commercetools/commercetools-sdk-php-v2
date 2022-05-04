@@ -83,6 +83,8 @@ final class CustomerDateOfBirthSetMessageBuilder implements Builder
     private $dateOfBirth;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

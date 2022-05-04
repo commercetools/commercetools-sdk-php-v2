@@ -10,6 +10,7 @@ namespace Commercetools\History\Models\Change;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\DateTimeImmutableCollection;
+use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValue;
 
 interface SetShippingMethodTaxAmountChange extends Change
 {
@@ -36,12 +37,12 @@ interface SetShippingMethodTaxAmountChange extends Change
     public function getTaxMode();
 
     /**
-     * @return null|mixed
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getNextValue();
 
     /**
-     * @return null|mixed
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getPreviousValue();
 
@@ -56,12 +57,12 @@ interface SetShippingMethodTaxAmountChange extends Change
     public function setTaxMode(?string $taxMode): void;
 
     /**
-     * @param ?JsonObject $nextValue
+     * @param ?ShippingMethodTaxAmountChangeValue $nextValue
      */
-    public function setNextValue(?JsonObject $nextValue): void;
+    public function setNextValue(?ShippingMethodTaxAmountChangeValue $nextValue): void;
 
     /**
-     * @param ?JsonObject $previousValue
+     * @param ?ShippingMethodTaxAmountChangeValue $previousValue
      */
-    public function setPreviousValue(?JsonObject $previousValue): void;
+    public function setPreviousValue(?ShippingMethodTaxAmountChangeValue $previousValue): void;
 }

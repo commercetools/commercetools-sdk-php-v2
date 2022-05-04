@@ -37,6 +37,8 @@ final class StagedOrderSetShippingMethodActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()

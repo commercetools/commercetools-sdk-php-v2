@@ -85,6 +85,8 @@ final class ProductSelectionDeletedMessageBuilder implements Builder
     private $name;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -135,6 +135,8 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

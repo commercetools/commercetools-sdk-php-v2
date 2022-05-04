@@ -30,6 +30,8 @@ final class StagedOrderAddPaymentActionBuilder implements Builder
     private $payment;
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

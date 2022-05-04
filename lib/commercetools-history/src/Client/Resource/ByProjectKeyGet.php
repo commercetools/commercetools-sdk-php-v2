@@ -20,10 +20,10 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\History\Models\ErrorResponse;
-use Commercetools\History\Models\ErrorResponseModel;
-use Commercetools\History\Models\RecordPagedQueryResponse;
-use Commercetools\History\Models\RecordPagedQueryResponseModel;
+use Commercetools\History\Models\ChangeHistory\ErrorResponse;
+use Commercetools\History\Models\ChangeHistory\ErrorResponseModel;
+use Commercetools\History\Models\ChangeHistory\RecordPagedQueryResponse;
+use Commercetools\History\Models\ChangeHistory\RecordPagedQueryResponseModel;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -234,6 +234,15 @@ class ByProjectKeyGet extends ApiRequest
     public function withChanges($changes): ByProjectKeyGet
     {
         return $this->withQueryParam('changes', $changes);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $stores
+     */
+    public function withStores($stores): ByProjectKeyGet
+    {
+        return $this->withQueryParam('stores', $stores);
     }
 
     /**

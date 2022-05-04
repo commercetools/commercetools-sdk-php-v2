@@ -31,7 +31,7 @@ interface Product extends BaseResource
     public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
 
     /**
-     * <p>The unique ID of the product.</p>
+     * <p>Platform-generated unique identifier of the Product.</p>
      *
      * @return null|string
      */
@@ -69,8 +69,8 @@ interface Product extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-specific unique identifier for the product.
-     * <em>Product keys are different from product variant keys.</em></p>
+     * <p>User-defined unique identifier of the Product.
+     * <em>Product keys are different from ProductVariant keys.</em></p>
      *
      * @return null|string
      */

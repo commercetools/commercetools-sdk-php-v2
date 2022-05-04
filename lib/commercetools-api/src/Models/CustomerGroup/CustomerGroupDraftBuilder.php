@@ -38,8 +38,7 @@ final class CustomerGroupDraftBuilder implements Builder
     private $custom;
 
     /**
-     * <p>User-defined unique identifier for the Customer Group.
-     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     * <p>User-defined unique identifier for the Customer Group.</p>
      *
      * @return null|string
      */

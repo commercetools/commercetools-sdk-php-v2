@@ -13,6 +13,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValue;
+use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValueModel;
 
 /**
  * @internal
@@ -37,12 +39,12 @@ final class SetShippingMethodTaxAmountChangeModel extends JsonObjectModel implem
     protected $taxMode;
 
     /**
-     * @var ?mixed
+     * @var ?ShippingMethodTaxAmountChangeValue
      */
     protected $nextValue;
 
     /**
-     * @var ?mixed
+     * @var ?ShippingMethodTaxAmountChangeValue
      */
     protected $previousValue;
 
@@ -53,8 +55,8 @@ final class SetShippingMethodTaxAmountChangeModel extends JsonObjectModel implem
     public function __construct(
         ?string $change = null,
         ?string $taxMode = null,
-        ?JsonObject $nextValue = null,
-        ?JsonObject $previousValue = null
+        ?ShippingMethodTaxAmountChangeValue $nextValue = null,
+        ?ShippingMethodTaxAmountChangeValue $previousValue = null
     ) {
         $this->change = $change;
         $this->taxMode = $taxMode;
@@ -117,7 +119,7 @@ final class SetShippingMethodTaxAmountChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|mixed
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getNextValue()
     {
@@ -127,14 +129,15 @@ final class SetShippingMethodTaxAmountChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->nextValue =  JsonObjectModel::of($data);
+
+            $this->nextValue =  ShippingMethodTaxAmountChangeValueModel::of($data);
         }
 
         return $this->nextValue;
     }
 
     /**
-     * @return null|mixed
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getPreviousValue()
     {
@@ -144,7 +147,8 @@ final class SetShippingMethodTaxAmountChangeModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->previousValue =  JsonObjectModel::of($data);
+
+            $this->previousValue =  ShippingMethodTaxAmountChangeValueModel::of($data);
         }
 
         return $this->previousValue;
@@ -168,17 +172,17 @@ final class SetShippingMethodTaxAmountChangeModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?JsonObject $nextValue
+     * @param ?ShippingMethodTaxAmountChangeValue $nextValue
      */
-    public function setNextValue(?JsonObject $nextValue): void
+    public function setNextValue(?ShippingMethodTaxAmountChangeValue $nextValue): void
     {
         $this->nextValue = $nextValue;
     }
 
     /**
-     * @param ?JsonObject $previousValue
+     * @param ?ShippingMethodTaxAmountChangeValue $previousValue
      */
-    public function setPreviousValue(?JsonObject $previousValue): void
+    public function setPreviousValue(?ShippingMethodTaxAmountChangeValue $previousValue): void
     {
         $this->previousValue = $previousValue;
     }

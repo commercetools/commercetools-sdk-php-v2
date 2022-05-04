@@ -71,6 +71,8 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>Platform-generated unique identifier of the CustomerToken.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -17,6 +17,8 @@ interface OrderPaymentAddedMessagePayload extends MessagePayload
     public const FIELD_PAYMENT = 'payment';
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      * @return null|PaymentReference
      */
     public function getPayment();

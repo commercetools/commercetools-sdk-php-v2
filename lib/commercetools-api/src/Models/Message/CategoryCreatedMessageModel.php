@@ -121,6 +121,8 @@ final class CategoryCreatedMessageModel extends JsonObjectModel implements Categ
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

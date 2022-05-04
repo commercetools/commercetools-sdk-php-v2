@@ -121,6 +121,8 @@ final class DeliveryRemovedMessageModel extends JsonObjectModel implements Deliv
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

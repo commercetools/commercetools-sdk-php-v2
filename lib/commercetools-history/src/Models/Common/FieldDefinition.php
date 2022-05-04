@@ -20,9 +20,7 @@ interface FieldDefinition extends JsonObject
     public const FIELD_INPUT_HINT = 'inputHint';
 
     /**
-     * <p>Describes the type of the field.</p>
-     *
-     * @return null|mixed
+     * @return null|FieldType
      */
     public function getType();
 
@@ -44,9 +42,9 @@ interface FieldDefinition extends JsonObject
     public function getInputHint();
 
     /**
-     * @param ?JsonObject $type
+     * @param ?FieldType $type
      */
-    public function setType(?JsonObject $type): void;
+    public function setType(?FieldType $type): void;
 
     /**
      * @param ?string $name

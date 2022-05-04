@@ -45,6 +45,7 @@ interface CustomerDraft extends JsonObject
     public const FIELD_SALUTATION = 'salutation';
     public const FIELD_KEY = 'key';
     public const FIELD_STORES = 'stores';
+    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
      * <p>String that uniquely identifies a customer.
@@ -66,6 +67,8 @@ interface CustomerDraft extends JsonObject
     public function getEmail();
 
     /**
+     * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
+     *
      * @return null|string
      */
     public function getPassword();
@@ -200,9 +203,7 @@ interface CustomerDraft extends JsonObject
     public function getSalutation();
 
     /**
-     * <p>User-specific unique identifier for a customer.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier for the Customer.</p>
      *
      * @return null|string
      */
@@ -216,6 +217,13 @@ interface CustomerDraft extends JsonObject
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();
+
+    /**
+     * <p>Defines whether a password is required for the Customer that is used for platform-internal authentication.</p>
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode();
 
     /**
      * @param ?string $customerNumber
@@ -346,4 +354,9 @@ interface CustomerDraft extends JsonObject
      * @param ?StoreResourceIdentifierCollection $stores
      */
     public function setStores(?StoreResourceIdentifierCollection $stores): void;
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void;
 }

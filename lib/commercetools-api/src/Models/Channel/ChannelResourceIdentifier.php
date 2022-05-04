@@ -15,14 +15,14 @@ use Commercetools\Base\JsonObject;
 interface ChannelResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Channel">Channel</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Channel">Channel</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:Channel">Channel</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Channel">Channel</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

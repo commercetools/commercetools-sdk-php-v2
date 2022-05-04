@@ -105,7 +105,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     }
 
     /**
-     * <p>Unique ID of the Zone.</p>
+     * <p>Platform-generated unique identifier of the Zone.</p>
      *
      * @return null|string
      */
@@ -229,7 +229,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     }
 
     /**
-     * <p>User-defined unique identifier for the Zone.</p>
+     * <p>User-defined unique identifier of the Zone.</p>
      *
      * @return null|string
      */

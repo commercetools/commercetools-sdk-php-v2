@@ -100,7 +100,7 @@ final class StateBuilder implements Builder
     private $transitions;
 
     /**
-     * <p>Unique ID of the State.</p>
+     * <p>Platform-generated unique identifier of the State.</p>
      *
      * @return null|string
      */
@@ -160,7 +160,7 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the State.</p>
+     * <p>User-defined unique identifier of the State.</p>
      *
      * @return null|string
      */

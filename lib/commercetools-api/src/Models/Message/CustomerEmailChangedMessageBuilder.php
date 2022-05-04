@@ -83,6 +83,8 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     private $email;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

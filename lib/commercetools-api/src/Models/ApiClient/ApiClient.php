@@ -25,7 +25,7 @@ interface ApiClient extends JsonObject
     public const FIELD_REFRESH_TOKEN_VALIDITY_SECONDS = 'refreshTokenValiditySeconds';
 
     /**
-     * <p>Unique ID of the API Client.
+     * <p>Platform-generated unique identifier of the API Client.
      * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
      *
      * @return null|string

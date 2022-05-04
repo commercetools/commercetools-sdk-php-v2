@@ -112,6 +112,8 @@ final class ProductUnpublishedMessageModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

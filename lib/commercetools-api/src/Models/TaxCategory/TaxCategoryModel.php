@@ -105,7 +105,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>Unique ID of the TaxCategory.</p>
+     * <p>Platform-generated unique identifier of the TaxCategory.</p>
      *
      * @return null|string
      */
@@ -286,7 +286,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>User-defined unique identifier for the TaxCategory.</p>
+     * <p>User-defined unique identifier of the TaxCategory.</p>
      *
      * @return null|string
      */

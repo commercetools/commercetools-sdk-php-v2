@@ -46,7 +46,7 @@ final class StatePagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
-     * <p>Number of results requested in the query request.</p>
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
      * @return null|int
      */

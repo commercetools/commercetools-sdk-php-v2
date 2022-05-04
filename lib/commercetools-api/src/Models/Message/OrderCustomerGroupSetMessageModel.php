@@ -128,6 +128,8 @@ final class OrderCustomerGroupSetMessageModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -331,7 +333,7 @@ final class OrderCustomerGroupSetMessageModel extends JsonObjectModel implements
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -351,7 +353,7 @@ final class OrderCustomerGroupSetMessageModel extends JsonObjectModel implements
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

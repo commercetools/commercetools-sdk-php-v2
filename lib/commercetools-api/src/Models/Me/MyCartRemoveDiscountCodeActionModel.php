@@ -61,6 +61,8 @@ final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()

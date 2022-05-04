@@ -90,6 +90,8 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     private $oldShippingRateInput;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -20,7 +20,7 @@ interface ImportSinkPagedResponse extends JsonObject
     public const FIELD_RESULTS = 'results';
 
     /**
-     * <p>The number of results requested in the query request.</p>
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
      * @return null|int
      */

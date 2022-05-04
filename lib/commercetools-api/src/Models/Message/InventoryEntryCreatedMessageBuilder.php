@@ -85,6 +85,8 @@ final class InventoryEntryCreatedMessageBuilder implements Builder
     private $inventoryEntry;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

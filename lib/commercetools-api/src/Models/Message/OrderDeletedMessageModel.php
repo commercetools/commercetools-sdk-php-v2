@@ -121,6 +121,8 @@ final class OrderDeletedMessageModel extends JsonObjectModel implements OrderDel
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -16,6 +16,7 @@ interface TaxedItemPrice extends JsonObject
 {
     public const FIELD_TOTAL_NET = 'totalNet';
     public const FIELD_TOTAL_GROSS = 'totalGross';
+    public const FIELD_TOTAL_TAX = 'totalTax';
 
     /**
      * @return null|TypedMoney
@@ -30,6 +31,13 @@ interface TaxedItemPrice extends JsonObject
     public function getTotalGross();
 
     /**
+     * <p>Platform-calculated value as subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     *
+     * @return null|TypedMoney
+     */
+    public function getTotalTax();
+
+    /**
      * @param ?TypedMoney $totalNet
      */
     public function setTotalNet(?TypedMoney $totalNet): void;
@@ -38,4 +46,9 @@ interface TaxedItemPrice extends JsonObject
      * @param ?TypedMoney $totalGross
      */
     public function setTotalGross(?TypedMoney $totalGross): void;
+
+    /**
+     * @param ?TypedMoney $totalTax
+     */
+    public function setTotalTax(?TypedMoney $totalTax): void;
 }

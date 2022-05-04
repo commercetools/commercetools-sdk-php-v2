@@ -28,6 +28,8 @@ interface ShippingMethodDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>User-defined unique identifier for the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getKey();

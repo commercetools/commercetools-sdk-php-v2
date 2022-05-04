@@ -121,6 +121,8 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

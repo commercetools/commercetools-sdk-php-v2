@@ -68,7 +68,7 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|string
      */

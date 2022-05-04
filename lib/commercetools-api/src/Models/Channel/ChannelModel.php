@@ -143,7 +143,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>Unique ID of the Channel.</p>
+     * <p>Platform-generated unique identifier of the Channel.</p>
      *
      * @return null|string
      */
@@ -267,7 +267,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * <p>User-defined unique identifier for the Channel.</p>
+     * <p>User-defined unique identifier of the Channel.</p>
      *
      * @return null|string
      */

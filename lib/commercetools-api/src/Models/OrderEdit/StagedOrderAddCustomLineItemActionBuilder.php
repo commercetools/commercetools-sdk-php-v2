@@ -43,7 +43,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     private $quantity;
 
@@ -68,7 +68,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * <p>Draft type that stores amounts in cent precision for the specified currency.
      * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
      * @return null|Money
@@ -87,7 +87,7 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
@@ -153,10 +153,10 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      * @return $this
      */
-    public function withQuantity(?float $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
 

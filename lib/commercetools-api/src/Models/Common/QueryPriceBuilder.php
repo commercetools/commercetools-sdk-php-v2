@@ -86,7 +86,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.<br />
+     * <p>Draft type that stores amounts in cent precision for the specified currency.
      * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
      * @return null|Money
@@ -107,7 +107,7 @@ final class QueryPriceBuilder implements Builder
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

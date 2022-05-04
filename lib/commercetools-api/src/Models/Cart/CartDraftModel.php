@@ -233,7 +233,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
-     * <p>User-specific unique identifier of the cart.</p>
+     * <p>User-defined unique identifier for the Cart.</p>
      *
      * @return null|string
      */

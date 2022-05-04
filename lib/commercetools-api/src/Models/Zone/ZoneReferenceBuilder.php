@@ -33,7 +33,7 @@ final class ZoneReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
+     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
      *
      * @return null|string
      */

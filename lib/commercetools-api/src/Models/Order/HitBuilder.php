@@ -36,7 +36,7 @@ final class HitBuilder implements Builder
     private $relevance;
 
     /**
-     * <p>Unique ID of the Order.</p>
+     * <p>Platform-generated unique identifier of the Order.</p>
      *
      * @return null|string
      */

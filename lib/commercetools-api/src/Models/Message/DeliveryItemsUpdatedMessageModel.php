@@ -134,6 +134,8 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

@@ -45,6 +45,8 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     private $distributionChannel;
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()

@@ -23,7 +23,17 @@ interface HighPrecisionMoneyDraft extends TypedMoneyDraft
     public function getPreciseAmount();
 
     /**
+     * @return null|int
+     */
+    public function getCentAmount();
+
+    /**
      * @param ?int $preciseAmount
      */
     public function setPreciseAmount(?int $preciseAmount): void;
+
+    /**
+     * @param ?int $centAmount
+     */
+    public function setCentAmount(?int $centAmount): void;
 }

@@ -181,7 +181,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
-     * <p>The unique ID of the discount code.</p>
+     * <p>Platform-generated unique identifier of the DiscountCode.</p>
      *
      * @return null|string
      */
@@ -335,9 +335,8 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
-     * <p>Unique identifier of this discount code.
-     * This value is added to the cart
-     * to enable the related cart discounts in the cart.</p>
+     * <p>User-defined unique identifier of the DiscountCode.
+     * It is <a href="/../api/projects/carts#add-discountcode">added to a Cart</a> to enable the related CartDiscounts in that Cart.</p>
      *
      * @return null|string
      */

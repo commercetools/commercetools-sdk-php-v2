@@ -134,6 +134,8 @@ final class StoreProductSelectionsChangedMessageModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

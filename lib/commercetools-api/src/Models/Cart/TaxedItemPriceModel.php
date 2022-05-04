@@ -31,16 +31,23 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
      */
     protected $totalGross;
 
+    /**
+     * @var ?TypedMoney
+     */
+    protected $totalTax;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?TypedMoney $totalNet = null,
-        ?TypedMoney $totalGross = null
+        ?TypedMoney $totalGross = null,
+        ?TypedMoney $totalTax = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
+        $this->totalTax = $totalTax;
     }
 
     /**
@@ -81,6 +88,26 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
         return $this->totalGross;
     }
 
+    /**
+     * <p>Platform-calculated value as subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     *
+     * @return null|TypedMoney
+     */
+    public function getTotalTax()
+    {
+        if (is_null($this->totalTax)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TOTAL_TAX);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalTax = TypedMoneyModel::of($data);
+        }
+
+        return $this->totalTax;
+    }
+
 
     /**
      * @param ?TypedMoney $totalNet
@@ -96,5 +123,13 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     public function setTotalGross(?TypedMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
+    }
+
+    /**
+     * @param ?TypedMoney $totalTax
+     */
+    public function setTotalTax(?TypedMoney $totalTax): void
+    {
+        $this->totalTax = $totalTax;
     }
 }

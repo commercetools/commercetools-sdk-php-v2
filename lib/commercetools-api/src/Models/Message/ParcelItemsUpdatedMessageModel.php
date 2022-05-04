@@ -141,6 +141,8 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

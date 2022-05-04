@@ -21,7 +21,7 @@ use stdClass;
 final class FieldDefinitionBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
+     * @var null|FieldType|FieldTypeBuilder
      */
     private $type;
 
@@ -41,13 +41,11 @@ final class FieldDefinitionBuilder implements Builder
     private $inputHint;
 
     /**
-     * <p>Describes the type of the field.</p>
-     *
-     * @return null|JsonObject
+     * @return null|FieldType
      */
     public function getType()
     {
-        return $this->type;
+        return $this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type;
     }
 
     /**
@@ -77,10 +75,10 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $type
+     * @param ?FieldType $type
      * @return $this
      */
-    public function withType(?JsonObject $type)
+    public function withType(?FieldType $type)
     {
         $this->type = $type;
 
@@ -121,6 +119,17 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * @deprecated use withType() instead
+     * @return $this
+     */
+    public function withTypeBuilder(?FieldTypeBuilder $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLabel() instead
      * @return $this
      */
@@ -134,7 +143,7 @@ final class FieldDefinitionBuilder implements Builder
     public function build(): FieldDefinition
     {
         return new FieldDefinitionModel(
-            $this->type,
+            $this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type,
             $this->name,
             $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label,
             $this->inputHint

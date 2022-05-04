@@ -22,7 +22,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
 
 
     /**
-     * @var ?mixed
+     * @var ?AttributeType
      */
     protected $type;
 
@@ -66,7 +66,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?JsonObject $type = null,
+        ?AttributeType $type = null,
         ?string $name = null,
         ?LocalizedString $label = null,
         ?bool $isRequired = null,
@@ -87,7 +87,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * @return null|mixed
+     * @return null|AttributeType
      */
     public function getType()
     {
@@ -97,7 +97,8 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  JsonObjectModel::of($data);
+
+            $this->type =  AttributeTypeModel::of($data);
         }
 
         return $this->type;
@@ -232,9 +233,9 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
 
 
     /**
-     * @param ?JsonObject $type
+     * @param ?AttributeType $type
      */
-    public function setType(?JsonObject $type): void
+    public function setType(?AttributeType $type): void
     {
         $this->type = $type;
     }

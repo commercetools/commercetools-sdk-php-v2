@@ -85,6 +85,8 @@ final class PaymentTransactionAddedMessageBuilder implements Builder
     private $transaction;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

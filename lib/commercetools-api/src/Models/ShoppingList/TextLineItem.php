@@ -41,7 +41,7 @@ interface TextLineItem extends JsonObject
     public function getDescription();
 
     /**
-     * <p>The unique ID of this TextLineItem.</p>
+     * <p>Platform-generated unique identifier of the TextLineItem.</p>
      *
      * @return null|string
      */

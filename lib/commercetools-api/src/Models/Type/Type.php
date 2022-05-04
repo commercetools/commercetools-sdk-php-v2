@@ -27,7 +27,7 @@ interface Type extends BaseResource
     public const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
-     * <p>Unique ID of the Type.</p>
+     * <p>Platform-generated unique identifier of the Type.</p>
      *
      * @return null|string
      */
@@ -69,7 +69,7 @@ interface Type extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier for the Type.</p>
+     * <p>User-defined unique identifier of the Type.</p>
      *
      * @return null|string
      */

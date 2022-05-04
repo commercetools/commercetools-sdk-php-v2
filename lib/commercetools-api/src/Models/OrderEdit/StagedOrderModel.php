@@ -351,7 +351,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
     /**
-     * <p>The unique ID of the order.</p>
+     * <p>Platform-generated unique identifier of the Order.</p>
      *
      * @return null|string
      */

@@ -85,6 +85,8 @@ final class OrderImportedMessageBuilder implements Builder
     private $order;
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

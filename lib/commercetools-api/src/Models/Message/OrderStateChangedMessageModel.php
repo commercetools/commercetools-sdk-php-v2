@@ -126,6 +126,8 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()

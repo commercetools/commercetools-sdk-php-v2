@@ -22,7 +22,7 @@ use stdClass;
 final class ItemStateModel extends JsonObjectModel implements ItemState
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -36,7 +36,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?StateReference $state = null
     ) {
         $this->quantity = $quantity;
@@ -44,17 +44,17 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -80,9 +80,9 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
 
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

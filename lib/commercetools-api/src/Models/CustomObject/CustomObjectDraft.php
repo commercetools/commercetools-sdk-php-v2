@@ -26,7 +26,7 @@ interface CustomObjectDraft extends JsonObject
     public function getContainer();
 
     /**
-     * <p>A user-defined key that is unique within the given container.</p>
+     * <p>User-defined unique identifier for the CustomObject.</p>
      *
      * @return null|string
      */

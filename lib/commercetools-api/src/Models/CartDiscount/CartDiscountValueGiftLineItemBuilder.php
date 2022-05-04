@@ -45,6 +45,8 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     private $distributionChannel;
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      * @return null|ProductReference
      */
     public function getProduct()
