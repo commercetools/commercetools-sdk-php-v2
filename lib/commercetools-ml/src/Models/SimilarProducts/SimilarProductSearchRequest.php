@@ -23,11 +23,15 @@ interface SimilarProductSearchRequest extends JsonObject
     public const FIELD_CONFIDENCE_MAX = 'confidenceMax';
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit();
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset();

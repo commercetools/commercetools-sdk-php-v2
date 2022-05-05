@@ -58,9 +58,9 @@ final class PriceDraftBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
-    private $custom;
+    private $discounted;
 
     /**
      * @var ?PriceTierDraftCollection
@@ -68,13 +68,12 @@ final class PriceDraftBuilder implements Builder
     private $tiers;
 
     /**
-     * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
-    private $discounted;
+    private $custom;
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.
-     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value of this Price.</p>
      *
      * @return null|Money
      */
@@ -84,7 +83,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Set this field if this Price is only valid for the specified country.</p>
      *
      * @return null|string
      */
@@ -94,7 +93,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */
@@ -104,7 +103,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -114,6 +113,8 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * <p>Set this field if this Price is valid only valid from the specified date and time.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -122,6 +123,8 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
+     * <p>Set this field if this Price is valid only valid until the specified date and time.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -130,16 +133,25 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Set this field to add a DiscountedPrice from an external service.</p>
+     * <p>The commercetools Platform sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
+     * The DiscountedPrice must reference a ProductDiscount with:</p>
+     * <ul>
+     * <li>The <code>isActive</code> flag set to <code>true</code>.</li>
+     * <li>A <a href="ctp:api:type:ProductDiscountValueExternal">ProductDiscountValue</a> of type <code>external</code>.</li>
+     * <li>A <code>predicate</code> that matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Price is referenced from.</li>
+     * </ul>
      *
-     * @return null|CustomFieldsDraft
+     * @return null|DiscountedPriceDraft
      */
-    public function getCustom()
+    public function getDiscounted()
     {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+        return $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
+     * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()
@@ -148,11 +160,13 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DiscountedPriceDraft
+     * <p>Custom Fields for the Price.</p>
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function getDiscounted()
+    public function getCustom()
     {
-        return $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -222,12 +236,12 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
+     * @param ?DiscountedPriceDraft $discounted
      * @return $this
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function withDiscounted(?DiscountedPriceDraft $discounted)
     {
-        $this->custom = $custom;
+        $this->discounted = $discounted;
 
         return $this;
     }
@@ -244,12 +258,12 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountedPriceDraft $discounted
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withDiscounted(?DiscountedPriceDraft $discounted)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
-        $this->discounted = $discounted;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -288,23 +302,23 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withDiscounted() instead
      * @return $this
      */
     public function withDiscountedBuilder(?DiscountedPriceDraftBuilder $discounted)
     {
         $this->discounted = $discounted;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -318,9 +332,9 @@ final class PriceDraftBuilder implements Builder
             $this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel,
             $this->validFrom,
             $this->validUntil,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted,
             $this->tiers,
-            $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

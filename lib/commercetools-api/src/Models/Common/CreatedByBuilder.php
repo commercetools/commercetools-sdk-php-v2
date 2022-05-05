@@ -43,6 +43,8 @@ final class CreatedByBuilder implements Builder
     private $anonymousId;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">APIClient</a> which created the resource.</p>
+     *
      * @return null|string
      */
     public function getClientId()
@@ -51,6 +53,8 @@ final class CreatedByBuilder implements Builder
     }
 
     /**
+     * <p><a href="/../api/client-logging#external-user-ids">External user ID</a> provided by <code>X-External-User-ID</code> HTTP Header.</p>
+     *
      * @return null|string
      */
     public function getExternalUserId()
@@ -59,7 +63,7 @@ final class CreatedByBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who created the resource using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
      *
      * @return null|CustomerReference
      */
@@ -69,6 +73,8 @@ final class CreatedByBuilder implements Builder
     }
 
     /**
+     * <p>Indicates the <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a> during which the resource was created.</p>
+     *
      * @return null|string
      */
     public function getAnonymousId()

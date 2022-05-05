@@ -97,6 +97,8 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getTypeId()

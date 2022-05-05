@@ -280,6 +280,8 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>A Reference represents a loose reference to another resource in the same commercetools Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -384,8 +386,8 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.
-     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
      * @return null|Money
      */

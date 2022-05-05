@@ -112,6 +112,8 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -129,6 +131,8 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset()

@@ -51,6 +51,8 @@ final class ReviewReferenceModel extends JsonObjectModel implements ReviewRefere
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

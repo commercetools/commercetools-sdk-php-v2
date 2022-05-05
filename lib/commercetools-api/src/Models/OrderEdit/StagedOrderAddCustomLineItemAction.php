@@ -28,14 +28,16 @@ interface StagedOrderAddCustomLineItemAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.
-     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
      * @return null|Money
      */
     public function getMoney();
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();

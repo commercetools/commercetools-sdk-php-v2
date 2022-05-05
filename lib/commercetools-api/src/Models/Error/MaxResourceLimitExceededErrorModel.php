@@ -83,6 +83,8 @@ final class MaxResourceLimitExceededErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getExceededResource()

@@ -121,6 +121,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -137,6 +139,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getProductSlug()

@@ -51,6 +51,8 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

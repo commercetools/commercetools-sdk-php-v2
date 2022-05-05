@@ -28,17 +28,17 @@ final class PagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
+    private $offset;
+
+    /**
+     * @var ?int
+     */
     private $count;
 
     /**
      * @var ?int
      */
     private $total;
-
-    /**
-     * @var ?int
-     */
-    private $offset;
 
     /**
      * @var ?BaseResourceCollection
@@ -51,6 +51,8 @@ final class PagedQueryResponseBuilder implements Builder
     private $meta;
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -59,6 +61,18 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
+     * @return null|int
+     */
+    public function getOffset()
+    {
+        return $this->offset;
+    }
+
+    /**
+     * <p>Actual number of results returned.</p>
+     *
      * @return null|int
      */
     public function getCount()
@@ -67,19 +81,17 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This field is returned by default.
+     * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     *
      * @return null|int
      */
     public function getTotal()
     {
         return $this->total;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getOffset()
-    {
-        return $this->offset;
     }
 
     /**
@@ -110,6 +122,17 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * @param ?int $offset
+     * @return $this
+     */
+    public function withOffset(?int $offset)
+    {
+        $this->offset = $offset;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $count
      * @return $this
      */
@@ -127,17 +150,6 @@ final class PagedQueryResponseBuilder implements Builder
     public function withTotal(?int $total)
     {
         $this->total = $total;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $offset
-     * @return $this
-     */
-    public function withOffset(?int $offset)
-    {
-        $this->offset = $offset;
 
         return $this;
     }
@@ -169,9 +181,9 @@ final class PagedQueryResponseBuilder implements Builder
     {
         return new PagedQueryResponseModel(
             $this->limit,
+            $this->offset,
             $this->count,
             $this->total,
-            $this->offset,
             $this->results,
             $this->meta
         );

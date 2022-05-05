@@ -58,6 +58,8 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">APIClient</a> which modified the resource.</p>
+     *
      * @return null|string
      */
     public function getClientId()
@@ -75,6 +77,8 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     }
 
     /**
+     * <p><a href="/../api/client-logging#external-user-ids">External user ID</a> provided by <code>X-External-User-ID</code> HTTP Header.</p>
+     *
      * @return null|string
      */
     public function getExternalUserId()
@@ -92,7 +96,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p>Indicates the <a href="ctp:api:type:Customer">Customer</a> who modified the resource using a token from the <a href="/authorization#password-flow">password flow</a>.</p>
      *
      * @return null|CustomerReference
      */
@@ -112,6 +116,8 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
     }
 
     /**
+     * <p>Indicates the <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a> during which the resource was modified.</p>
+     *
      * @return null|string
      */
     public function getAnonymousId()

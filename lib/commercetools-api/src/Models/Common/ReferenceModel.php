@@ -120,6 +120,8 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

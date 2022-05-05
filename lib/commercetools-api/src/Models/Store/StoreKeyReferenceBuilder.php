@@ -28,6 +28,8 @@ final class StoreKeyReferenceBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getKey()

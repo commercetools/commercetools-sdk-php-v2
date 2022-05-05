@@ -57,9 +57,9 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     protected $validUntil;
 
     /**
-     * @var ?CustomFieldsDraft
+     * @var ?DiscountedPriceDraft
      */
-    protected $custom;
+    protected $discounted;
 
     /**
      * @var ?PriceTierDraftCollection
@@ -67,9 +67,9 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     protected $tiers;
 
     /**
-     * @var ?DiscountedPriceDraft
+     * @var ?CustomFieldsDraft
      */
-    protected $discounted;
+    protected $custom;
 
 
     /**
@@ -82,9 +82,9 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         ?ChannelResourceIdentifier $channel = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
-        ?CustomFieldsDraft $custom = null,
+        ?DiscountedPriceDraft $discounted = null,
         ?PriceTierDraftCollection $tiers = null,
-        ?DiscountedPriceDraft $discounted = null
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->value = $value;
         $this->country = $country;
@@ -92,14 +92,13 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         $this->channel = $channel;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
-        $this->custom = $custom;
-        $this->tiers = $tiers;
         $this->discounted = $discounted;
+        $this->tiers = $tiers;
+        $this->custom = $custom;
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.
-     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value of this Price.</p>
      *
      * @return null|Money
      */
@@ -119,7 +118,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Set this field if this Price is only valid for the specified country.</p>
      *
      * @return null|string
      */
@@ -138,7 +137,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */
@@ -158,7 +157,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -178,6 +177,8 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
+     * <p>Set this field if this Price is valid only valid from the specified date and time.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -199,6 +200,8 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
+     * <p>Set this field if this Price is valid only valid until the specified date and time.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -220,26 +223,35 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Set this field to add a DiscountedPrice from an external service.</p>
+     * <p>The commercetools Platform sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
+     * The DiscountedPrice must reference a ProductDiscount with:</p>
+     * <ul>
+     * <li>The <code>isActive</code> flag set to <code>true</code>.</li>
+     * <li>A <a href="ctp:api:type:ProductDiscountValueExternal">ProductDiscountValue</a> of type <code>external</code>.</li>
+     * <li>A <code>predicate</code> that matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Price is referenced from.</li>
+     * </ul>
      *
-     * @return null|CustomFieldsDraft
+     * @return null|DiscountedPriceDraft
      */
-    public function getCustom()
+    public function getDiscounted()
     {
-        if (is_null($this->custom)) {
+        if (is_null($this->discounted)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_DISCOUNTED);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->custom = CustomFieldsDraftModel::of($data);
+            $this->discounted = DiscountedPriceDraftModel::of($data);
         }
 
-        return $this->custom;
+        return $this->discounted;
     }
 
     /**
+     * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()
@@ -257,21 +269,23 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * @return null|DiscountedPriceDraft
+     * <p>Custom Fields for the Price.</p>
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function getDiscounted()
+    public function getCustom()
     {
-        if (is_null($this->discounted)) {
+        if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DISCOUNTED);
+            $data = $this->raw(self::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->discounted = DiscountedPriceDraftModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
-        return $this->discounted;
+        return $this->custom;
     }
 
 
@@ -324,11 +338,11 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setCustom(?CustomFieldsDraft $custom): void
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void
     {
-        $this->custom = $custom;
+        $this->discounted = $discounted;
     }
 
     /**
@@ -340,11 +354,11 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * @param ?DiscountedPriceDraft $discounted
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setDiscounted(?DiscountedPriceDraft $discounted): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
-        $this->discounted = $discounted;
+        $this->custom = $custom;
     }
 
 

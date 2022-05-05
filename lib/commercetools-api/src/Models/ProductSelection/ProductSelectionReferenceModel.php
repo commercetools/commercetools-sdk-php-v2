@@ -51,6 +51,8 @@ final class ProductSelectionReferenceModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

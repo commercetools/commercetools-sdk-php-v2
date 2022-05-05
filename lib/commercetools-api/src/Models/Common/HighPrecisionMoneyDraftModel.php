@@ -63,6 +63,10 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
+     * <p>Amount in the smallest indivisible unit of a currency. This field is optional for high precision. If provided, it is checked for validity. Example:</p>
+     * <p>A Price of 1.015 USD can be rounded either to 1.01 USD or 1.02 USD. If it lies outside of this range, an error message stating that centAmount must be rounded correctly will be returned.</p>
+     * <p>If <code>centAmount</code> is not provided, the commercetools Platform calculates the value automatically using the default rounding mode half even.</p>
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -80,7 +84,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|string
      */
@@ -99,7 +103,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
-     * <p>The platform supports two different types of Money, one for amounts in cent precision and another one for sub-cent amounts up to 12 fraction digits.</p>
+     * <p>The commercetools Platform supports two different types of Money: one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
      *
      * @return null|string
      */
@@ -118,7 +122,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
-     * <p>Must be equal to the default number of fraction digits for the specified currency.</p>
+     * <p>Number of fraction digits for a specified high precision money. It must be greater than the default number of fraction digits for the specified currency.</p>
      *
      * @return null|int
      */
@@ -137,7 +141,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
-     * <p>amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
+     * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
      *
      * @return null|int
      */

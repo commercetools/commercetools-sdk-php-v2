@@ -27,28 +27,36 @@ interface AssetDraft extends JsonObject
     public function getSources();
 
     /**
+     * <p>Name of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
      * @return null|array
      */
     public function getTags();
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Custom Fields defined for the Asset.</p>
      *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p>User-defined unique identifier for the Asset.</p>
+     *
      * @return null|string
      */
     public function getKey();

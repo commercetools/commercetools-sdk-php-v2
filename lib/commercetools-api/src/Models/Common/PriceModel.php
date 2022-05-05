@@ -67,14 +67,14 @@ final class PriceModel extends JsonObjectModel implements Price
     protected $discounted;
 
     /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
      * @var ?PriceTierCollection
      */
     protected $tiers;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
 
 
     /**
@@ -89,8 +89,8 @@ final class PriceModel extends JsonObjectModel implements Price
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
         ?DiscountedPrice $discounted = null,
-        ?CustomFields $custom = null,
-        ?PriceTierCollection $tiers = null
+        ?PriceTierCollection $tiers = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->value = $value;
@@ -100,11 +100,13 @@ final class PriceModel extends JsonObjectModel implements Price
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
         $this->discounted = $discounted;
-        $this->custom = $custom;
         $this->tiers = $tiers;
+        $this->custom = $custom;
     }
 
     /**
+     * <p>Platform-generated unique identifier of this Price.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -122,7 +124,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p>Money value of this Price.</p>
      *
      * @return null|TypedMoney
      */
@@ -134,15 +136,15 @@ final class PriceModel extends JsonObjectModel implements Price
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
+
+            $this->value = TypedMoneyModel::of($data);
         }
 
         return $this->value;
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country for which this Price is valid.</p>
      *
      * @return null|string
      */
@@ -161,7 +163,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -181,7 +183,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
      * @return null|ChannelReference
      */
@@ -201,6 +203,8 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
+     * <p>Date and time from which this Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -222,6 +226,8 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
+     * <p>Date and time until this Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -243,6 +249,10 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
+     * <p>Is set if a <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> has been applied.
+     * If set, the commercetools Platform uses the DiscountedPrice value for the <a href="/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
+     * When a <a href="/../api/projects/productDiscounts#relative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -261,7 +271,26 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
+     *
+     * @return null|PriceTierCollection
+     */
+    public function getTiers()
+    {
+        if (is_null($this->tiers)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TIERS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tiers = PriceTierCollection::fromArray($data);
+        }
+
+        return $this->tiers;
+    }
+
+    /**
+     * <p>Custom Fields defined for the Price.</p>
      *
      * @return null|CustomFields
      */
@@ -278,23 +307,6 @@ final class PriceModel extends JsonObjectModel implements Price
         }
 
         return $this->custom;
-    }
-
-    /**
-     * @return null|PriceTierCollection
-     */
-    public function getTiers()
-    {
-        if (is_null($this->tiers)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_TIERS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->tiers = PriceTierCollection::fromArray($data);
-        }
-
-        return $this->tiers;
     }
 
 
@@ -363,19 +375,19 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-     * @param ?CustomFields $custom
-     */
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    /**
      * @param ?PriceTierCollection $tiers
      */
     public function setTiers(?PriceTierCollection $tiers): void
     {
         $this->tiers = $tiers;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
 

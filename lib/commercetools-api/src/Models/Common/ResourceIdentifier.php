@@ -42,19 +42,21 @@ interface ResourceIdentifier extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="#referencetypeid">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId();
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
      * @return null|string
      */

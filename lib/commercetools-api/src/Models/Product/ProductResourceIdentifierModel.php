@@ -51,6 +51,8 @@ final class ProductResourceIdentifierModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="#referencetypeid">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

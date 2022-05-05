@@ -42,6 +42,8 @@ interface Reference extends JsonObject
     public const FIELD_ID = 'id';
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId();

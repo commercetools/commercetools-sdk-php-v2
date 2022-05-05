@@ -51,6 +51,8 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

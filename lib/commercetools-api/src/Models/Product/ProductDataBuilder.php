@@ -79,6 +79,8 @@ final class ProductDataBuilder implements Builder
     private $searchKeywords;
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -103,6 +105,8 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -111,6 +115,8 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -119,6 +125,8 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -127,6 +135,8 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -135,6 +145,8 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()

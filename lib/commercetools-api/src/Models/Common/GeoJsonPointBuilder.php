@@ -26,6 +26,8 @@ final class GeoJsonPointBuilder implements Builder
     private $coordinates;
 
     /**
+     * <p>Longitude (stored on index <code>[0]</code>) and latitude (stored on index <code>[1]</code>) of the <a href="https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.2">Point</a>.</p>
+     *
      * @return null|array
      */
     public function getCoordinates()

@@ -51,6 +51,8 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

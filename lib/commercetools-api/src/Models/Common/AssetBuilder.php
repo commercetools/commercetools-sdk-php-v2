@@ -58,6 +58,8 @@ final class AssetBuilder implements Builder
     private $key;
 
     /**
+     * <p>Platform-generated unique identifier of the Asset.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -74,6 +76,8 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -82,6 +86,8 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -90,6 +96,8 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
      * @return null|array
      */
     public function getTags()
@@ -98,7 +106,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields defined for the Asset.</p>
      *
      * @return null|CustomFields
      */
@@ -108,6 +116,8 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Asset.</p>
+     *
      * @return null|string
      */
     public function getKey()
