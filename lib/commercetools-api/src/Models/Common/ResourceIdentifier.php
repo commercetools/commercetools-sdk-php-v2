@@ -26,6 +26,7 @@ use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
@@ -42,7 +43,7 @@ interface ResourceIdentifier extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>Type of referenced resource. If given, it must match the expected <a href="#referencetypeid">ReferenceTypeId</a> of the referenced resource.</p>
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
      *
      * @return null|string
      */

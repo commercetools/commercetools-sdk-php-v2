@@ -82,6 +82,7 @@ use Commercetools\Api\Models\ProductType\ProductType;
 use Commercetools\Api\Models\Review\Review;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
 use Commercetools\Api\Models\ShoppingList\ShoppingList;
+use Commercetools\Api\Models\StandalonePrice\StandalonePrice;
 use Commercetools\Api\Models\State\State;
 use Commercetools\Api\Models\Store\Store;
 use Commercetools\Api\Models\Subscription\Subscription;

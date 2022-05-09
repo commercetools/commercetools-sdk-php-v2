@@ -110,6 +110,11 @@ final class ProductDraftBuilder implements Builder
     private $publish;
 
     /**
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
      * <p>A predefined product type assigned to the product.
      * All products must have a product type.</p>
      *
@@ -254,6 +259,16 @@ final class ProductDraftBuilder implements Builder
     public function getPublish()
     {
         return $this->publish;
+    }
+
+    /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -433,6 +448,17 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withProductType() instead
      * @return $this
      */
@@ -582,7 +608,8 @@ final class ProductDraftBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
             $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state,
-            $this->publish
+            $this->publish,
+            $this->priceMode
         );
     }
 

@@ -44,6 +44,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifier;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -104,6 +106,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,
        'shopping-list' => ShoppingListResourceIdentifierModel::class,
+       'standalone-price' => StandalonePriceResourceIdentifierModel::class,
        'state' => StateResourceIdentifierModel::class,
        'store' => StoreResourceIdentifierModel::class,
        'tax-category' => TaxCategoryResourceIdentifierModel::class,
@@ -124,7 +127,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
-     * <p>Type of referenced resource. If given, it must match the expected <a href="#referencetypeid">ReferenceTypeId</a> of the referenced resource.</p>
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
      *
      * @return null|string
      */

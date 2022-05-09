@@ -285,6 +285,14 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKey($args, $this->getClient());
     }
+    /**
+     */
+    public function standalonePrices(): ResourceByProjectKeyStandalonePrices
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyStandalonePrices($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

@@ -46,6 +46,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReferenceModel;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceReference;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Store\StoreReference;
@@ -102,6 +104,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'review' => ReviewReferenceModel::class,
        'shipping-method' => ShippingMethodReferenceModel::class,
        'shopping-list' => ShoppingListReferenceModel::class,
+       'standalone-price' => StandalonePriceReferenceModel::class,
        'state' => StateReferenceModel::class,
        'store' => StoreReferenceModel::class,
        'tax-category' => TaxCategoryReferenceModel::class,

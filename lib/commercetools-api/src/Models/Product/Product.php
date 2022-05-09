@@ -29,6 +29,7 @@ interface Product extends BaseResource
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_STATE = 'state';
     public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
      * <p>Platform-generated unique identifier of the Product.</p>
@@ -106,6 +107,13 @@ interface Product extends BaseResource
     public function getReviewRatingStatistics();
 
     /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -164,4 +172,9 @@ interface Product extends BaseResource
      * @param ?ReviewRatingStatistics $reviewRatingStatistics
      */
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

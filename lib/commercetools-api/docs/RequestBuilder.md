@@ -4702,6 +4702,124 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->standalonePrices()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->states()->get()`
 
 null

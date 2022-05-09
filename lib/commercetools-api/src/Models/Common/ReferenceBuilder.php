@@ -46,6 +46,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceBuilder;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReferenceBuilder;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceReference;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreReference;

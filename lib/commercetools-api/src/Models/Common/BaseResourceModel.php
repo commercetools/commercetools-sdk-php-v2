@@ -156,6 +156,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingList;
 use Commercetools\Api\Models\ShoppingList\ShoppingListModel;
+use Commercetools\Api\Models\StandalonePrice\StandalonePrice;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceModel;
 use Commercetools\Api\Models\State\State;
 use Commercetools\Api\Models\State\StateModel;
 use Commercetools\Api\Models\Store\Store;
