@@ -143,7 +143,7 @@ final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectMod
     }
 
     /**
-     * <p>References to Products that are assigned to the Product Selection.</p>
+     * <p>References to Products that are assigned to the ProductSelection.</p>
      *
      * @return null|AssignedProductReferenceCollection
      */

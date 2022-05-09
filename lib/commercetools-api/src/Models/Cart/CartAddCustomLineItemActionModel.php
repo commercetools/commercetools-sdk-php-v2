@@ -184,7 +184,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */

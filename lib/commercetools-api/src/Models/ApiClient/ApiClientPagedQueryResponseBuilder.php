@@ -90,7 +90,7 @@ final class ApiClientPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>API Clients matching the query.</p>
+     * <p>APIClients matching the query.</p>
      *
      * @return null|ApiClientCollection
      */

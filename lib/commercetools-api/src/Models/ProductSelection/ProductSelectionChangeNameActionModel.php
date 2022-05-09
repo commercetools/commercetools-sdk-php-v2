@@ -61,7 +61,7 @@ final class ProductSelectionChangeNameActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>The new name to be set for the Product Selection.</p>
+     * <p>The new name to be set for the ProductSelection.</p>
      *
      * @return null|LocalizedString
      */

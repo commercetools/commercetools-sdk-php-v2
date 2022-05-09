@@ -28,28 +28,28 @@ interface ProductSelection extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Platform-generated unique identifier of the Product Selection.</p>
+     * <p>Platform-generated unique identifier of the ProductSelection.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>Current version of the Product Selection.</p>
+     * <p>Current version of the ProductSelection.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * <p>Date and time (UTC) the Product Selection was initially created.</p>
+     * <p>Date and time (UTC) the ProductSelection was initially created.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
-     * <p>Date and time (UTC) the Product Selection was last updated.</p>
+     * <p>Date and time (UTC) the ProductSelection was last updated.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -70,35 +70,35 @@ interface ProductSelection extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier of the Product Selection.</p>
+     * <p>User-defined unique identifier of the ProductSelection.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>Name of the Product Selection.</p>
+     * <p>Name of the ProductSelection.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>Number of Products that are currently assigned to this Product Selection.</p>
+     * <p>Number of Products that are currently assigned to this ProductSelection.</p>
      *
      * @return null|int
      */
     public function getProductCount();
 
     /**
-     * <p>Specifies in which way the Products are assigned to the Product Selection. Currently, the only way of doing this is to specify each Product individually. Hence, the type is fixed to <code>individual</code> for now, but we have plans to add other types in the future.</p>
+     * <p>Specifies in which way the Products are assigned to the ProductSelection. Currently, the only way of doing this is to specify each Product individually. Hence, the type is fixed to <code>individual</code> for now, but we have plans to add other types in the future.</p>
      *
      * @return null|string
      */
     public function getType();
 
     /**
-     * <p>Custom Fields of this Product Selection.</p>
+     * <p>Custom Fields of this ProductSelection.</p>
      *
      * @return null|CustomFields
      */

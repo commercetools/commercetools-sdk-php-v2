@@ -20,21 +20,21 @@ interface ProductSelectionDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-defined unique identifier for the Product Selection.</p>
+     * <p>User-defined unique identifier for the ProductSelection.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>Name of the Product Selection. Not checked for uniqueness, but distinct names are recommended.</p>
+     * <p>Name of the ProductSelection. Not checked for uniqueness, but distinct names are recommended.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>Custom Fields of this Product Selection.</p>
+     * <p>Custom Fields of this ProductSelection.</p>
      *
      * @return null|CustomFieldsDraft
      */

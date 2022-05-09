@@ -17,7 +17,7 @@ interface IndividualProductSelectionType extends ProductSelectionType
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>The name of the Product Selection which is recommended to be unique.</p>
+     * <p>The name of the ProductSelection which is recommended to be unique.</p>
      *
      * @return null|LocalizedString
      */

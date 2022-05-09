@@ -143,7 +143,7 @@ final class ApiClientPagedQueryResponseModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>API Clients matching the query.</p>
+     * <p>APIClients matching the query.</p>
      *
      * @return null|ApiClientCollection
      */

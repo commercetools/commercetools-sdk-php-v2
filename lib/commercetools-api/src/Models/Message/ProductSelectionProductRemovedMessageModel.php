@@ -328,7 +328,7 @@ final class ProductSelectionProductRemovedMessageModel extends JsonObjectModel i
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
      * @return null|ProductReference
      */

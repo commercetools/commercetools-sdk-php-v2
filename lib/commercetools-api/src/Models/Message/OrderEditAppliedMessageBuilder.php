@@ -180,7 +180,7 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
      * @return null|OrderEditReference
      */

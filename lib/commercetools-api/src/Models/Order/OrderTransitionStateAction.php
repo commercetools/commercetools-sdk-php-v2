@@ -18,7 +18,7 @@ interface OrderTransitionStateAction extends OrderUpdateAction
     public const FIELD_FORCE = 'force';
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
      * @return null|StateResourceIdentifier
      */

@@ -52,7 +52,7 @@ interface ApiClientPagedQueryResponse extends JsonObject
     public function getTotal();
 
     /**
-     * <p>API Clients matching the query.</p>
+     * <p>APIClients matching the query.</p>
      *
      * @return null|ApiClientCollection
      */

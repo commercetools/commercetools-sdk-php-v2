@@ -178,7 +178,7 @@ final class PaymentStatusStateTransitionMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
      * @return null|StateReference
      */

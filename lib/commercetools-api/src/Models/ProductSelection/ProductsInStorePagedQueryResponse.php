@@ -52,7 +52,7 @@ interface ProductsInStorePagedQueryResponse extends JsonObject
     public function getTotal();
 
     /**
-     * <p>Product Selection Assignments.</p>
+     * <p>ProductSelectionAssignments matching the query.</p>
      *
      * @return null|ProductSelectionAssignmentCollection
      */

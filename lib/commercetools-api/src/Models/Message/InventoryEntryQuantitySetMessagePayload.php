@@ -41,7 +41,7 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
     public function getNewAvailableQuantity();
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelReference
      */

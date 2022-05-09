@@ -143,7 +143,7 @@ final class ProductSelectionPagedQueryResponseModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The Product Selections matching the query.</p>
+     * <p><a href="ctp:api:type:ProductSelection">ProductSelections</a> matching the query.</p>
      *
      * @return null|ProductSelectionCollection
      */

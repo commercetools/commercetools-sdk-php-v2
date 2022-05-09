@@ -59,7 +59,7 @@ final class CustomerGroupChangeNameActionModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>New name of the Customer Group.</p>
+     * <p>New name of the CustomerGroup.</p>
      *
      * @return null|string
      */

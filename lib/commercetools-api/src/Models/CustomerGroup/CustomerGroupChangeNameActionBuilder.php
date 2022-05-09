@@ -26,7 +26,7 @@ final class CustomerGroupChangeNameActionBuilder implements Builder
     private $name;
 
     /**
-     * <p>New name of the Customer Group.</p>
+     * <p>New name of the CustomerGroup.</p>
      *
      * @return null|string
      */

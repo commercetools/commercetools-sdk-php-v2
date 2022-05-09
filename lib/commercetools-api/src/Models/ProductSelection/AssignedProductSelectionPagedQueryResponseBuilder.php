@@ -90,7 +90,7 @@ final class AssignedProductSelectionPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>References to Product Selection that are assigned to the Product.</p>
+     * <p>References to ProductSelection that are assigned to the Product.</p>
      *
      * @return null|AssignedProductSelectionCollection
      */

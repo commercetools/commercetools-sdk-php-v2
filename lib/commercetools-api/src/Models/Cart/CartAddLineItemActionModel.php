@@ -155,7 +155,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -261,7 +261,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */

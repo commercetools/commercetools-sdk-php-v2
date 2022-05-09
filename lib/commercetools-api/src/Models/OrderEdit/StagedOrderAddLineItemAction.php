@@ -42,7 +42,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function getCustom();
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -79,7 +79,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function getAddedAt();
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */

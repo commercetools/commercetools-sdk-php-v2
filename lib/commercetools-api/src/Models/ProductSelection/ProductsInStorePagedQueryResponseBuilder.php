@@ -90,7 +90,7 @@ final class ProductsInStorePagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * <p>Product Selection Assignments.</p>
+     * <p>ProductSelectionAssignments matching the query.</p>
      *
      * @return null|ProductSelectionAssignmentCollection
      */

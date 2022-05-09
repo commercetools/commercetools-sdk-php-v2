@@ -206,7 +206,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
 
     /**
      * <p>GeoJSON geometry object encoding the geo location of the Channel.
-     * Currently, only the <a href="/../api/types#point">Point</a> type is supported.</p>
+     * Currently, only the <a href="ctp:api:type:GeoJsonPoint">Point</a> type is supported.</p>
      *
      * @return null|GeoJson
      */

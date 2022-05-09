@@ -100,7 +100,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Customer Group.</p>
+     * <p>Platform-generated unique identifier of the CustomerGroup.</p>
      *
      * @return null|string
      */
@@ -119,7 +119,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Current version of the Customer Group.</p>
+     * <p>Current version of the CustomerGroup.</p>
      *
      * @return null|int
      */
@@ -138,7 +138,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Date and time (UTC) the Customer Group was initially created.</p>
+     * <p>Date and time (UTC) the CustomerGroup was initially created.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -161,7 +161,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Date and time (UTC) the Customer Group was last updated.</p>
+     * <p>Date and time (UTC) the CustomerGroup was last updated.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -224,7 +224,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>User-defined unique identifier of the Customer Group.</p>
+     * <p>User-defined unique identifier for the CustomerGroup.</p>
      *
      * @return null|string
      */
@@ -243,7 +243,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Unique name of the Customer Group.</p>
+     * <p>Unique name of the CustomerGroup.</p>
      *
      * @return null|string
      */
@@ -262,7 +262,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Custom Fields for the Customer Group.</p>
+     * <p>Custom Fields for the CustomerGroup.</p>
      *
      * @return null|CustomFields
      */

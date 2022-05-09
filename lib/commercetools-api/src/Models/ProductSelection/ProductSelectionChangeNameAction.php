@@ -17,7 +17,7 @@ interface ProductSelectionChangeNameAction extends ProductSelectionUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>The new name to be set for the Product Selection.</p>
+     * <p>The new name to be set for the ProductSelection.</p>
      *
      * @return null|LocalizedString
      */

@@ -37,7 +37,7 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
     }
 
     /**
-     * <p>Reference to a Product that is assigned to the Product Selection.</p>
+     * <p>Reference to a Product that is assigned to the ProductSelection.</p>
      *
      * @return null|ProductReference
      */
