@@ -16,6 +16,9 @@ interface ProductDiscountChangeIsActiveAction extends ProductDiscountUpdateActio
     public const FIELD_IS_ACTIVE = 'isActive';
 
     /**
+     * <p>New value to set.
+     * If set to <code>true</code>, the Discount will be applied to Product Prices.</p>
+     *
      * @return null|bool
      */
     public function getIsActive();

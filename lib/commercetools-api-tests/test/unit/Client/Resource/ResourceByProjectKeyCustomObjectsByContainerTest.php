@@ -90,6 +90,18 @@ class ResourceByProjectKeyCustomObjectsByContainerTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyCustomObjectsByContainerGet_withSort' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainer('test_container')
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                'test_projectKey/custom-objects/test_container?sort=sort',
+            ],
             'ByProjectKeyCustomObjectsByContainerGet_withWhere' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -101,6 +113,18 @@ class ResourceByProjectKeyCustomObjectsByContainerTest extends TestCase
                 },
                 'get',
                 'test_projectKey/custom-objects/test_container?where=where',
+            ],
+            'ByProjectKeyCustomObjectsByContainerGet_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainer('test_container')
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                'test_projectKey/custom-objects/test_container?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByContainerGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -114,17 +138,41 @@ class ResourceByProjectKeyCustomObjectsByContainerTest extends TestCase
                 'get',
                 'test_projectKey/custom-objects/test_container?var.varName=var.varName',
             ],
-            'ByProjectKeyCustomObjectsByContainerGet_withExpand' => [
+            'ByProjectKeyCustomObjectsByContainerGet_withLimit' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey('test_projectKey')
                         ->customObjects()
                         ->withContainer('test_container')
                         ->get()
-                        ->withExpand('expand');
+                        ->withLimit('limit');
                 },
                 'get',
-                'test_projectKey/custom-objects/test_container?expand=expand',
+                'test_projectKey/custom-objects/test_container?limit=limit',
+            ],
+            'ByProjectKeyCustomObjectsByContainerGet_withOffset' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainer('test_container')
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                'test_projectKey/custom-objects/test_container?offset=offset',
+            ],
+            'ByProjectKeyCustomObjectsByContainerGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainer('test_container')
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/custom-objects/test_container?withTotal=withTotal',
             ],
             'ByProjectKeyCustomObjectsByContainerGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

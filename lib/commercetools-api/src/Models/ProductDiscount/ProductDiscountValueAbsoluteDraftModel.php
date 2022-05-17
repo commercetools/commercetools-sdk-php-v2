@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -27,7 +27,7 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
     protected $type;
 
     /**
-     * @var ?MoneyCollection
+     * @var ?CentPrecisionMoneyDraftCollection
      */
     protected $money;
 
@@ -36,7 +36,7 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MoneyCollection $money = null
+        ?CentPrecisionMoneyDraftCollection $money = null
     ) {
         $this->money = $money;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -60,7 +60,9 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|MoneyCollection
+     * <p>Money values in different currencies. An absolute <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> will only match a price if this array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
+     *
+     * @return null|CentPrecisionMoneyDraftCollection
      */
     public function getMoney()
     {
@@ -70,7 +72,7 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->money = MoneyCollection::fromArray($data);
+            $this->money = CentPrecisionMoneyDraftCollection::fromArray($data);
         }
 
         return $this->money;
@@ -78,9 +80,9 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
 
 
     /**
-     * @param ?MoneyCollection $money
+     * @param ?CentPrecisionMoneyDraftCollection $money
      */
-    public function setMoney(?MoneyCollection $money): void
+    public function setMoney(?CentPrecisionMoneyDraftCollection $money): void
     {
         $this->money = $money;
     }

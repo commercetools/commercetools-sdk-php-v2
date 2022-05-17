@@ -17,6 +17,8 @@ interface DiscountCodeChangeCartDiscountsAction extends DiscountCodeUpdateAction
     public const FIELD_CART_DISCOUNTS = 'cartDiscounts';
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts();

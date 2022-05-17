@@ -32,11 +32,10 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements DataErasure<ByProjectKeyCustomObjectsByContainerByKeyDelete>
  * @template-implements Versioned<ByProjectKeyCustomObjectsByContainerByKeyDelete>
  * @template-implements Conflicting<ByProjectKeyCustomObjectsByContainerByKeyDelete>
- * @template-implements Expandable<ByProjectKeyCustomObjectsByContainerByKeyDelete>
  * @template-implements Errorable<ByProjectKeyCustomObjectsByContainerByKeyDelete>
  * @template-implements Deprecatable200<ByProjectKeyCustomObjectsByContainerByKeyDelete>
  */
-class ByProjectKeyCustomObjectsByContainerByKeyDelete extends ApiRequest implements DataErasure, Versioned, Conflicting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyCustomObjectsByContainerByKeyDelete extends ApiRequest implements DataErasure, Versioned, Conflicting, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -161,19 +160,19 @@ class ByProjectKeyCustomObjectsByContainerByKeyDelete extends ApiRequest impleme
 
     /**
      *
-     * @psalm-param scalar|scalar[] $dataErasure
-     */
-    public function withDataErasure($dataErasure): ByProjectKeyCustomObjectsByContainerByKeyDelete
-    {
-        return $this->withQueryParam('dataErasure', $dataErasure);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyCustomObjectsByContainerByKeyDelete
     {
         return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $dataErasure
+     */
+    public function withDataErasure($dataErasure): ByProjectKeyCustomObjectsByContainerByKeyDelete
+    {
+        return $this->withQueryParam('dataErasure', $dataErasure);
     }
 }

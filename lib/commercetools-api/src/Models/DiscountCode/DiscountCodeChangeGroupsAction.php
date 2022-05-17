@@ -16,8 +16,7 @@ interface DiscountCodeChangeGroupsAction extends DiscountCodeUpdateAction
     public const FIELD_GROUPS = 'groups';
 
     /**
-     * <p>The groups to which this discount code shall belong to.
-     * Use empty array to remove the code from all groups.</p>
+     * <p>New value to set. An empty array removes the DiscountCode from all groups.</p>
      *
      * @return null|array
      */

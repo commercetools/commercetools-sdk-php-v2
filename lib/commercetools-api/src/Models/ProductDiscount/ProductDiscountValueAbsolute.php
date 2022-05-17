@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyCollection;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,12 +17,14 @@ interface ProductDiscountValueAbsolute extends ProductDiscountValue
     public const FIELD_MONEY = 'money';
 
     /**
-     * @return null|TypedMoneyCollection
+     * <p>Money values in different currencies. An absolute <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> will only match a price if this array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
+     *
+     * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney();
 
     /**
-     * @param ?TypedMoneyCollection $money
+     * @param ?CentPrecisionMoneyCollection $money
      */
-    public function setMoney(?TypedMoneyCollection $money): void;
+    public function setMoney(?CentPrecisionMoneyCollection $money): void;
 }

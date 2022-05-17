@@ -111,7 +111,7 @@ final class ProductDiscountBuilder implements Builder
     private $validUntil;
 
     /**
-     * <p>Platform-generated unique identifier of the ProductDiscount</p>
+     * <p>Platform-generated unique identifier of the ProductDiscount.</p>
      *
      * @return null|string
      */
@@ -121,7 +121,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the product discount.</p>
+     * <p>Current version of the ProductDiscount.</p>
      *
      * @return null|int
      */
@@ -131,6 +131,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ProductDiscount was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -139,6 +141,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ProductDiscount was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -147,7 +151,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -157,7 +161,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -167,6 +171,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Name of the ProductDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -185,6 +191,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Description of the ProductDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -193,6 +201,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Type of Discount and its corresponding value.</p>
+     *
      * @return null|ProductDiscountValue
      */
     public function getValue()
@@ -201,7 +211,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>
+     * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
      * @return null|string
      */
@@ -211,9 +221,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The string contains a number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.
-     * A sortOrder must be unambiguous.</p>
+     * <p>Unique decimal value between 0 and 1 (stored as String literal) defining the order of Product Discounts to apply in case more than one is applicable and active.
+     * A Product Discount with a higher value is prioritized.</p>
      *
      * @return null|string
      */
@@ -223,7 +232,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Only active discount will be applied to product prices.</p>
+     * <p>If <code>true</code> the Product Discount is applied to Products matching the <code>predicate</code>.</p>
      *
      * @return null|bool
      */
@@ -233,8 +242,7 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>
+     * <p>References of all the resources that are addressed in the <code>predicate</code>.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -244,8 +252,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>
+     * <p>Date and time (UTC) from which the Discount is effective.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -255,8 +263,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The time from which the discount should be ineffective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
+     * <p>Date and time (UTC) until which the Discount is effective.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

@@ -31,76 +31,85 @@ interface DiscountCodeDraft extends JsonObject
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>Name of the DiscountCode.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the DiscountCode.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>User-defined unique identifier for the DiscountCode.
-     * <a href="/../api/projects/carts#add-discountcode">Add it to a Cart</a> to enable the related CartDiscounts in that Cart.</p>
+     * <p>User-defined unique identifier for the DiscountCode that can be <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.
+     * It cannot be modified after the DiscountCode is created.</p>
      *
      * @return null|string
      */
     public function getCode();
 
     /**
-     * <p>The referenced matching cart discounts can be applied to the cart once the discount code is added.
-     * The number of cart discounts in a discount code is limited to <strong>10</strong>.</p>
+     * <p>Specify the CartDiscounts the Platform applies when you add the DiscountCode to the Cart.</p>
      *
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts();
 
     /**
-     * <p>The discount code can only be applied to carts that match this predicate.</p>
+     * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
      *
      * @return null|string
      */
     public function getCartPredicate();
 
     /**
+     * <p>Only active DiscountCodes can be applied to the Cart.</p>
+     *
      * @return null|bool
      */
     public function getIsActive();
 
     /**
+     * <p>Number of times the DiscountCode can be applied.</p>
+     *
      * @return null|int
      */
     public function getMaxApplications();
 
     /**
+     * <p>Number of times the DiscountCode can be applied per Customer.</p>
+     *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer();
 
     /**
+     * <p>Custom Fields for the DiscountCode.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
-     * <p>The groups to which this discount code shall belong to.</p>
+     * <p>Groups to which the DiscountCode will belong to.</p>
      *
      * @return null|array
      */
     public function getGroups();
 
     /**
-     * <p>The time from which the discount can be applied on a cart.
-     * Before that time the code is invalid.</p>
+     * <p>Date and time (UTC) from which the DiscountCode is effective. Must be earlier than <code>validUntil</code>.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
-     * <p>The time until the discount can be applied on a cart.
-     * After that time the code is invalid.</p>
+     * <p>Date and time (UTC) until which the DiscountCode is effective. Must be later than <code>validFrom</code>.</p>
      *
      * @return null|DateTimeImmutable
      */

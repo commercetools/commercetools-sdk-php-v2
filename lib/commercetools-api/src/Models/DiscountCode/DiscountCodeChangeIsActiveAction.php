@@ -16,6 +16,8 @@ interface DiscountCodeChangeIsActiveAction extends DiscountCodeUpdateAction
     public const FIELD_IS_ACTIVE = 'isActive';
 
     /**
+     * <p>New value to set. Set to <code>true</code> to activate the DiscountCode for all matching Discounts.</p>
+     *
      * @return null|bool
      */
     public function getIsActive();

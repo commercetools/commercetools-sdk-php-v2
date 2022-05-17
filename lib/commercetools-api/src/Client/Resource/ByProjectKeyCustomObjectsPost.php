@@ -30,6 +30,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Expandable<ByProjectKeyCustomObjectsPost>
+ * @template-implements Expandable<ByProjectKeyCustomObjectsPost>
  * @template-implements Deprecatable201<ByProjectKeyCustomObjectsPost>
  * @template-implements Errorable<ByProjectKeyCustomObjectsPost>
  */

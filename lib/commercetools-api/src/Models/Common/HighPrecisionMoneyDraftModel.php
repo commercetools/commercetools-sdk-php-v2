@@ -103,8 +103,6 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
-     * <p>The commercetools Platform supports two different types of Money: one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
-     *
      * @return null|string
      */
     public function getType()

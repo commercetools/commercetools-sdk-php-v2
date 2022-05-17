@@ -60,7 +60,7 @@ final class DiscountCodeSetValidFromActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>If absent, the field with the value is removed in case a value was set before.</p>
+     * <p>Value to set that must be earlier than <code>validUntil</code>. If empty, any existing value will be removed.</p>
      *
      * @return null|DateTimeImmutable
      */

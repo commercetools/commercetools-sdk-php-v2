@@ -26,7 +26,7 @@ final class DiscountCodeSetCartPredicateActionBuilder implements Builder
     private $cartPredicate;
 
     /**
-     * <p>If the <code>cartPredicate</code> parameter is not included, the field will be emptied.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|string
      */
