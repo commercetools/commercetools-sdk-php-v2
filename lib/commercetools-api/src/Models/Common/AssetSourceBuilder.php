@@ -41,6 +41,8 @@ final class AssetSourceBuilder implements Builder
     private $contentType;
 
     /**
+     * <p>URI of the AssetSource.</p>
+     *
      * @return null|string
      */
     public function getUri()
@@ -49,6 +51,8 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the AssetSource.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -57,6 +61,8 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * <p>Width and height of the AssetSource.</p>
+     *
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -65,6 +71,8 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+     * <p>Indicates the type of content, for example <code>application/pdf</code>.</p>
+     *
      * @return null|string
      */
     public function getContentType()

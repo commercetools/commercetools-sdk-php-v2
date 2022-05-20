@@ -82,8 +82,7 @@ final class ProductsInStorePagedQueryResponseModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Offset supplied by the client or the server default.
-     * It is the number of elements skipped, not a page number.</p>
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|int
      */
@@ -144,7 +143,7 @@ final class ProductsInStorePagedQueryResponseModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Product Selection Assignments.</p>
+     * <p>ProductSelectionAssignments matching the query.</p>
      *
      * @return null|ProductSelectionAssignmentCollection
      */

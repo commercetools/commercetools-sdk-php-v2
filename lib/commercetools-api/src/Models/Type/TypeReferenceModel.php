@@ -51,6 +51,8 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

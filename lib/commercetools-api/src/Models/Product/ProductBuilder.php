@@ -96,6 +96,11 @@ final class ProductBuilder implements Builder
     private $reviewRatingStatistics;
 
     /**
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
      * <p>Platform-generated unique identifier of the Product.</p>
      *
      * @return null|string
@@ -204,6 +209,16 @@ final class ProductBuilder implements Builder
     public function getReviewRatingStatistics()
     {
         return $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics;
+    }
+
+    /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -339,6 +354,17 @@ final class ProductBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -429,7 +455,8 @@ final class ProductBuilder implements Builder
             $this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData,
             $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
-            $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics
+            $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics,
+            $this->priceMode
         );
     }
 

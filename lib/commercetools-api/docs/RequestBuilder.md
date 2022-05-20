@@ -562,9 +562,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->get()`
 
-The query endpoint allows to retrieve custom objects in a specific container or all custom objects.
-For performance reasons, it is highly advisable to query only for custom objects in a container by using
-the container field in the where predicate.
+For performance reasons, it is highly advisable to query for Custom Objects in a container by using the `container` field in the `where` predicate.
 
 
 ### Example
@@ -579,13 +577,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->post(null)`
 
-Creates a new custom object or updates an existing custom object.
-If an object with the given container/key exists,
-the object will be replaced with the new value and the version is incremented.
-If the request contains a version and an object with the given container/key exists then the version
-must match the version of the existing object. Concurrent updates for the same custom object still can result
-in a Conflict (409) even if the version is not provided.
-Fields with null values will not be saved.
+If an object with the given container/key exists, the object will be replaced with the new value and the version is incremented.
+If the request contains a version and an object with the given container/key, then the version must match the version of the existing object. Concurrent updates for the same Custom Object can result in a [409 Conflict](/../api/errors#409-conflict) even if the version is not provided.
+
+Fields with `null` values will **not be saved**.
 
 
 ### Example
@@ -615,7 +610,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->get()`
 
-Get CustomObject by container and key
+null
 
 ### Example
 ```php
@@ -630,7 +625,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->delete()`
 
-Delete CustomObject by container and key
+null
 
 ### Example
 ```php
@@ -991,7 +986,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1005,7 +1000,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->post(null)`
 
-null
+Deprecated scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1019,7 +1014,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1034,7 +1029,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->post(null)`
 
-null
+Deprecated scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1049,7 +1044,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->delete()`
 
-null
+Deprecated scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3707,7 +3702,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->matching()->post(null)`
 
-null
+This endpoint can be used to simulate which Product Discounts would be applied if a specified Product Variant had a specified Price.
+Given Product and Product Variant IDs and a Price, this endpoint will return the [ProductDiscount](ctp:api:type:ProductDiscount) that would have been applied to that Price.
+
 
 ### Example
 ```php
@@ -4699,6 +4696,124 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->standalonePrices()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
                 ->withKey("key")
                 ->delete();
 ```

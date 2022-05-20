@@ -27,8 +27,7 @@ interface ApiClientPagedQueryResponse extends JsonObject
     public function getLimit();
 
     /**
-     * <p>Offset supplied by the client or server default.
-     * It is the number of elements skipped, not a page number.</p>
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|int
      */
@@ -53,7 +52,7 @@ interface ApiClientPagedQueryResponse extends JsonObject
     public function getTotal();
 
     /**
-     * <p>API Clients matching the query.</p>
+     * <p>APIClients matching the query.</p>
      *
      * @return null|ApiClientCollection
      */

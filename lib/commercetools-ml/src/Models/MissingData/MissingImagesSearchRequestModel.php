@@ -91,6 +91,8 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -108,6 +110,8 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset()

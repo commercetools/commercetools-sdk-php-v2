@@ -46,7 +46,7 @@ final class ApiClientDraftBuilder implements Builder
     private $refreshTokenValiditySeconds;
 
     /**
-     * <p>Name of the API Client.</p>
+     * <p>Name of the APIClient.</p>
      *
      * @return null|string
      */
@@ -76,7 +76,7 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
-     * <p>Expiration time in seconds for each access token obtained by the API Client. If not set the default value applies.</p>
+     * <p>Expiration time in seconds for each access token obtained by the APIClient. If not set the default value applies.</p>
      *
      * @return null|int
      */
@@ -86,7 +86,7 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
-     * <p>Inactivity expiration time in seconds for each refresh token obtained by the API Client. The expiration time for refresh tokens is restarted each time the token is used. If not set the default value applies.</p>
+     * <p>Inactivity expiration time in seconds for each refresh token obtained by the APIClient. The expiration time for refresh tokens is restarted each time the token is used. If not set the default value applies.</p>
      *
      * @return null|int
      */

@@ -51,6 +51,8 @@ final class CartResourceIdentifierModel extends JsonObjectModel implements CartR
     }
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

@@ -19,11 +19,15 @@ interface KeyReference extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId();
 
     /**
+     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getKey();

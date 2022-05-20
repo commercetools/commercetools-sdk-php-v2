@@ -51,6 +51,8 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

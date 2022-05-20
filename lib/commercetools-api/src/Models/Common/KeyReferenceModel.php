@@ -51,6 +51,8 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -68,6 +70,8 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getKey()

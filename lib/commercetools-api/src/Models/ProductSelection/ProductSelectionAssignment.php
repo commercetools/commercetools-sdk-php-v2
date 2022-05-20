@@ -18,14 +18,14 @@ interface ProductSelectionAssignment extends JsonObject
     public const FIELD_PRODUCT_SELECTION = 'productSelection';
 
     /**
-     * <p>Reference to a Product that is assigned to the Product Selection.</p>
+     * <p>Reference to a Product that is assigned to the ProductSelection.</p>
      *
      * @return null|ProductReference
      */
     public function getProduct();
 
     /**
-     * <p>Reference to the Product Selection that this assignment is part of.</p>
+     * <p>Reference to the ProductSelection that this assignment is part of.</p>
      *
      * @return null|ProductSelectionReference
      */

@@ -27,8 +27,7 @@ interface ProductSelectionPagedQueryResponse extends JsonObject
     public function getLimit();
 
     /**
-     * <p>Offset supplied by the client or the server default.
-     * It is the number of elements skipped, not a page number.</p>
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|int
      */
@@ -53,7 +52,7 @@ interface ProductSelectionPagedQueryResponse extends JsonObject
     public function getTotal();
 
     /**
-     * <p>The Product Selections matching the query.</p>
+     * <p><a href="ctp:api:type:ProductSelection">ProductSelections</a> matching the query.</p>
      *
      * @return null|ProductSelectionCollection
      */

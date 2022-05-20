@@ -61,7 +61,7 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|LocalizedString
      */

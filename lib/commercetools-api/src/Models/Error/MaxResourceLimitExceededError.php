@@ -16,6 +16,8 @@ interface MaxResourceLimitExceededError extends ErrorObject
     public const FIELD_EXCEEDED_RESOURCE = 'exceededResource';
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getExceededResource();

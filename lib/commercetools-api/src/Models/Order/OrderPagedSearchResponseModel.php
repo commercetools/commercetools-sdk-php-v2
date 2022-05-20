@@ -75,7 +75,7 @@ final class OrderPagedSearchResponseModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * <p>Number of results skipped, used for pagination.</p>
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|int
      */
@@ -94,7 +94,7 @@ final class OrderPagedSearchResponseModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * <p>Number of results the response should contain at maximum, used for pagination.</p>
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
      * @return null|int
      */

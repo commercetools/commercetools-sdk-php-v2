@@ -44,6 +44,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifier;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -104,6 +106,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,
        'shopping-list' => ShoppingListResourceIdentifierModel::class,
+       'standalone-price' => StandalonePriceResourceIdentifierModel::class,
        'state' => StateResourceIdentifierModel::class,
        'store' => StoreResourceIdentifierModel::class,
        'tax-category' => TaxCategoryResourceIdentifierModel::class,
@@ -124,6 +127,8 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -141,7 +146,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Platform-generated unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
      * @return null|string
      */
@@ -160,7 +165,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
      * @return null|string
      */

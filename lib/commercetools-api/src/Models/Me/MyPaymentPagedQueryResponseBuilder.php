@@ -72,6 +72,8 @@ final class MyPaymentPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset()

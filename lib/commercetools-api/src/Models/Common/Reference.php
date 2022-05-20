@@ -27,6 +27,7 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
@@ -42,6 +43,8 @@ interface Reference extends JsonObject
     public const FIELD_ID = 'id';
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId();

@@ -23,65 +23,79 @@ interface PriceDraft extends JsonObject
     public const FIELD_CHANNEL = 'channel';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
-    public const FIELD_CUSTOM = 'custom';
-    public const FIELD_TIERS = 'tiers';
     public const FIELD_DISCOUNTED = 'discounted';
+    public const FIELD_TIERS = 'tiers';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.
-     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value of this Price.</p>
      *
      * @return null|Money
      */
     public function getValue();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Set this field if this Price is only valid for the specified country.</p>
      *
      * @return null|string
      */
     public function getCountry();
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel();
 
     /**
+     * <p>Set this field if this Price is valid only valid from the specified date and time.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>Set this field if this Price is valid only valid until the specified date and time.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Set this field to add a DiscountedPrice from an external service.</p>
+     * <p>The commercetools Platform sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
+     * The DiscountedPrice must reference a ProductDiscount with:</p>
+     * <ul>
+     * <li>The <code>isActive</code> flag set to <code>true</code>.</li>
+     * <li>A <a href="ctp:api:type:ProductDiscountValueExternal">ProductDiscountValue</a> of type <code>external</code>.</li>
+     * <li>A <code>predicate</code> that matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Price is referenced from.</li>
+     * </ul>
      *
-     * @return null|CustomFieldsDraft
+     * @return null|DiscountedPriceDraft
      */
-    public function getCustom();
+    public function getDiscounted();
 
     /**
+     * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers();
 
     /**
-     * @return null|DiscountedPriceDraft
+     * <p>Custom Fields for the Price.</p>
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function getDiscounted();
+    public function getCustom();
 
     /**
      * @param ?Money $value
@@ -114,9 +128,9 @@ interface PriceDraft extends JsonObject
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 
     /**
-     * @param ?CustomFieldsDraft $custom
+     * @param ?DiscountedPriceDraft $discounted
      */
-    public function setCustom(?CustomFieldsDraft $custom): void;
+    public function setDiscounted(?DiscountedPriceDraft $discounted): void;
 
     /**
      * @param ?PriceTierDraftCollection $tiers
@@ -124,7 +138,7 @@ interface PriceDraft extends JsonObject
     public function setTiers(?PriceTierDraftCollection $tiers): void;
 
     /**
-     * @param ?DiscountedPriceDraft $discounted
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setDiscounted(?DiscountedPriceDraft $discounted): void;
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

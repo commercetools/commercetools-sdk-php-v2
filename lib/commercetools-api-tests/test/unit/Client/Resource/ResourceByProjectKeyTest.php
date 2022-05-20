@@ -35,6 +35,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTypes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyReviews;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethods;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShoppingLists;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyStandalonePrices;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyStates;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyStores;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeySubscriptions;
@@ -475,6 +476,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyInStoreKeyByStoreKey::class,
                 ['projectKey' => 'test_projectKey', 'storeKey' => 'test_storeKey'],
                 '/{projectKey}/in-store/key={storeKey}'
+            ],
+            'ResourceByProjectKeyStandalonePrices' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyStandalonePrices {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->standalonePrices();
+                },
+                ResourceByProjectKeyStandalonePrices::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/standalone-prices'
             ]
         ];
     }

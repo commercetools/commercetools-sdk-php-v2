@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyCollection;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -22,12 +22,14 @@ use stdClass;
 final class ProductDiscountValueAbsoluteBuilder implements Builder
 {
     /**
-     * @var ?TypedMoneyCollection
+     * @var ?CentPrecisionMoneyCollection
      */
     private $money;
 
     /**
-     * @return null|TypedMoneyCollection
+     * <p>Money values in different currencies. An absolute <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> will only match a price if this array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
+     *
+     * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney()
     {
@@ -35,10 +37,10 @@ final class ProductDiscountValueAbsoluteBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoneyCollection $money
+     * @param ?CentPrecisionMoneyCollection $money
      * @return $this
      */
-    public function withMoney(?TypedMoneyCollection $money)
+    public function withMoney(?CentPrecisionMoneyCollection $money)
     {
         $this->money = $money;
 

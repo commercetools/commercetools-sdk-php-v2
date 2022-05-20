@@ -35,6 +35,11 @@ final class AddressDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $country;
+
+    /**
+     * @var ?string
+     */
     private $title;
 
     /**
@@ -86,11 +91,6 @@ final class AddressDraftBuilder implements Builder
      * @var ?string
      */
     private $state;
-
-    /**
-     * @var ?string
-     */
-    private $country;
 
     /**
      * @var ?string
@@ -153,6 +153,8 @@ final class AddressDraftBuilder implements Builder
     private $custom;
 
     /**
+     * <p>Unique identifier for the Address. Not recommended to set it manually since the Platform overwrites this ID when creating an Address for a <a href="ctp:api:type:Customer">Customer</a>. Use <code>key</code> instead and omit this field to let the Platform generate the ID for the Address.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -161,6 +163,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier for the Address.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -169,95 +173,7 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSalutation()
-    {
-        return $this->salutation;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getStreetName()
-    {
-        return $this->streetName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getStreetNumber()
-    {
-        return $this->streetNumber;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAdditionalStreetInfo()
-    {
-        return $this->additionalStreetInfo;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getRegion()
-    {
-        return $this->region;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -267,6 +183,118 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Title of the contact, for example 'Dr.'</p>
+     *
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
+     *
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * <p>Given name (first name) of the contact.</p>
+     *
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * <p>Family name (last name) of the contact.</p>
+     *
+     * @return null|string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * <p>Name of the street.</p>
+     *
+     * @return null|string
+     */
+    public function getStreetName()
+    {
+        return $this->streetName;
+    }
+
+    /**
+     * <p>Street number.</p>
+     *
+     * @return null|string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * <p>Further information on the street address.</p>
+     *
+     * @return null|string
+     */
+    public function getAdditionalStreetInfo()
+    {
+        return $this->additionalStreetInfo;
+    }
+
+    /**
+     * <p>Postal code.</p>
+     *
+     * @return null|string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * <p>Name of the city.</p>
+     *
+     * @return null|string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * <p>Name of the region.</p>
+     *
+     * @return null|string
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * <p>Name of the state, for example, Colorado.</p>
+     *
+     * @return null|string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * <p>Name of the company.</p>
+     *
      * @return null|string
      */
     public function getCompany()
@@ -275,6 +303,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the department.</p>
+     *
      * @return null|string
      */
     public function getDepartment()
@@ -283,6 +313,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Number or name of the building.</p>
+     *
      * @return null|string
      */
     public function getBuilding()
@@ -291,6 +323,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Number or name of the apartment.</p>
+     *
      * @return null|string
      */
     public function getApartment()
@@ -299,6 +333,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Post office box number.</p>
+     *
      * @return null|string
      */
     public function getPOBox()
@@ -307,6 +343,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Phone number of the contact.</p>
+     *
      * @return null|string
      */
     public function getPhone()
@@ -315,6 +353,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Mobile phone number of the contact.</p>
+     *
      * @return null|string
      */
     public function getMobile()
@@ -323,6 +363,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Email address of the contact.</p>
+     *
      * @return null|string
      */
     public function getEmail()
@@ -331,6 +373,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Fax number of the contact.</p>
+     *
      * @return null|string
      */
     public function getFax()
@@ -339,6 +383,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Further information on the Address.</p>
+     *
      * @return null|string
      */
     public function getAdditionalAddressInfo()
@@ -347,6 +393,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>ID for the contact used in an external system.</p>
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -355,6 +403,8 @@ final class AddressDraftBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields defined for the Address.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -380,6 +430,17 @@ final class AddressDraftBuilder implements Builder
     public function withKey(?string $key)
     {
         $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $country
+     * @return $this
+     */
+    public function withCountry(?string $country)
+    {
+        $this->country = $country;
 
         return $this;
     }
@@ -501,17 +562,6 @@ final class AddressDraftBuilder implements Builder
     public function withState(?string $state)
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $country
-     * @return $this
-     */
-    public function withCountry(?string $country)
-    {
-        $this->country = $country;
 
         return $this;
     }
@@ -664,6 +714,7 @@ final class AddressDraftBuilder implements Builder
         return new AddressDraftModel(
             $this->id,
             $this->key,
+            $this->country,
             $this->title,
             $this->salutation,
             $this->firstName,
@@ -675,7 +726,6 @@ final class AddressDraftBuilder implements Builder
             $this->city,
             $this->region,
             $this->state,
-            $this->country,
             $this->company,
             $this->department,
             $this->building,

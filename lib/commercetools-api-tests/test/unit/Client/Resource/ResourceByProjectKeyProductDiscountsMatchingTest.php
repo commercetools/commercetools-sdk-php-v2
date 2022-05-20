@@ -138,6 +138,16 @@ class ResourceByProjectKeyProductDiscountsMatchingTest extends TestCase
                 },
                 200
             ],
+            'ByProjectKeyProductDiscountsMatchingPost_404' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->matching()
+                        ->post(null);
+                },
+                404
+            ],
             'ByProjectKeyProductDiscountsMatchingPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -167,16 +177,6 @@ class ResourceByProjectKeyProductDiscountsMatchingTest extends TestCase
                         ->post(null);
                 },
                 403
-            ],
-            'ByProjectKeyProductDiscountsMatchingPost_404' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey("projectKey")
-                        ->productDiscounts()
-                        ->matching()
-                        ->post(null);
-                },
-                404
             ],
             'ByProjectKeyProductDiscountsMatchingPost_500' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

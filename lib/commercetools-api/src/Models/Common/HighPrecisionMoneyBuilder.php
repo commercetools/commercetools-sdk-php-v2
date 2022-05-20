@@ -41,10 +41,10 @@ final class HighPrecisionMoneyBuilder implements Builder
     private $preciseAmount;
 
     /**
-     * <p>amount in the smallest indivisible unit of a currency, such as</p>
+     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
      * <ul>
-     * <li>cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as 500).</li>
-     * <li>the value in the major unit for currencies without minor units, like JPY (5 JPY is specified as 5).</li>
+     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
+     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
      *
      * @return null|int
@@ -55,7 +55,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|string
      */
@@ -65,11 +65,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * <p>number of digits after the decimal separator</p>
-     * <ul>
-     * <li>equal to the default number of fraction digits for a currency in <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>.</li>
-     * <li>greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
-     * </ul>
+     * <p>Number of digits after the decimal separator, greater than the default number of fraction digits for a currency.</p>
      *
      * @return null|int
      */
@@ -79,7 +75,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * <p>amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
+     * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
      *
      * @return null|int
      */

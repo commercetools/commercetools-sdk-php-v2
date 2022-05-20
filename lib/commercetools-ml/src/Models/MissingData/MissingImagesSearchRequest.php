@@ -24,11 +24,15 @@ interface MissingImagesSearchRequest extends JsonObject
     public const FIELD_PRODUCT_TYPE_IDS = 'productTypeIds';
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit();
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset();

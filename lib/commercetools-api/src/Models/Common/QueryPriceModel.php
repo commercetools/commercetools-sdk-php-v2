@@ -105,6 +105,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p>Platform-generated unique identifier of the given Price.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -122,8 +124,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.
-     * For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Money value of the given Price.</p>
      *
      * @return null|Money
      */
@@ -143,7 +144,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country for which the given Price is valid.</p>
      *
      * @return null|string
      */
@@ -162,7 +163,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the given Price is valid.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -182,7 +183,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which the given Price is valid.</p>
      *
      * @return null|ChannelReference
      */
@@ -202,6 +203,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p>Date from which the given Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -223,6 +226,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p>Date until which the given Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -244,6 +249,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p><a href="ctp:api:type:DiscountedPrice">DiscountedPrice</a> you specify for the given Price.</p>
+     *
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
@@ -262,7 +269,7 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields for the Price.</p>
      *
      * @return null|CustomFields
      */
@@ -282,6 +289,8 @@ final class QueryPriceModel extends JsonObjectModel implements QueryPrice
     }
 
     /**
+     * <p>Price tier applied when the minimum quantity for the <a href="ctp:api:type:LineItem">LineItem</a> of a ProductVariant with the related Price is reached in a Cart.</p>
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()

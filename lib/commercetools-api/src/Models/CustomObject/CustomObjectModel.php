@@ -117,6 +117,8 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
+     * <p>Current version of the CustomObject.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -134,6 +136,8 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
+     * <p>Date and time (UTC) the CustomObject was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -155,6 +159,8 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
+     * <p>Date and time (UTC) the CustomObject was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -176,7 +182,7 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -196,7 +202,7 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -216,7 +222,7 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * <p>A namespace to group custom objects.</p>
+     * <p>Namespace to group CustomObjects.</p>
      *
      * @return null|string
      */
@@ -235,7 +241,7 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * <p>User-defined unique identifier of the CustomObject.</p>
+     * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
      *
      * @return null|string
      */
@@ -254,6 +260,10 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
+     * <p>JSON standard types Number, String, Boolean, Array, Object, and <a href="/../api/types">common API data types</a>.
+     * For values of type <a href="ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed.
+     * If the referenced object is deleted, the platform does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</p>
+     *
      * @return null|mixed
      */
     public function getValue()

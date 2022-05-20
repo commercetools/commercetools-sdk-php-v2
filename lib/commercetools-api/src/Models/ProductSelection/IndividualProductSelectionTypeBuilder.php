@@ -28,7 +28,7 @@ final class IndividualProductSelectionTypeBuilder implements Builder
     private $name;
 
     /**
-     * <p>The name of the Product Selection which is recommended to be unique.</p>
+     * <p>The name of the ProductSelection which is recommended to be unique.</p>
      *
      * @return null|LocalizedString
      */

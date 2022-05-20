@@ -20,21 +20,30 @@ interface ProductDiscountMatchQuery extends JsonObject
     public const FIELD_PRICE = 'price';
 
     /**
+     * <p>ID of the specified Product.</p>
+     *
      * @return null|string
      */
     public function getProductId();
 
     /**
+     * <p>ID of the specified Product Variant.</p>
+     *
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>Controls which <a href="/../api/projects/productProjections#current--staged">projected representation</a> is applied for the query.
+     * Set to <code>true</code> for the <code>staged</code> Product Projection of the specified Product Variant, set to <code>false</code> for the <code>current</code> one.</p>
+     *
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>Specified Price of the specified Product Variant.</p>
+     *
      * @return null|QueryPrice
      */
     public function getPrice();

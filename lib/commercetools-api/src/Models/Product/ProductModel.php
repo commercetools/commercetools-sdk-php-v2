@@ -94,6 +94,11 @@ final class ProductModel extends JsonObjectModel implements Product
      */
     protected $reviewRatingStatistics;
 
+    /**
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -110,7 +115,8 @@ final class ProductModel extends JsonObjectModel implements Product
         ?ProductCatalogData $masterData = null,
         ?TaxCategoryReference $taxCategory = null,
         ?StateReference $state = null,
-        ?ReviewRatingStatistics $reviewRatingStatistics = null
+        ?ReviewRatingStatistics $reviewRatingStatistics = null,
+        ?string $priceMode = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -124,6 +130,7 @@ final class ProductModel extends JsonObjectModel implements Product
         $this->taxCategory = $taxCategory;
         $this->state = $state;
         $this->reviewRatingStatistics = $reviewRatingStatistics;
+        $this->priceMode = $priceMode;
     }
 
     /**
@@ -360,6 +367,25 @@ final class ProductModel extends JsonObjectModel implements Product
         return $this->reviewRatingStatistics;
     }
 
+    /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
 
     /**
      * @param ?string $id
@@ -455,6 +481,14 @@ final class ProductModel extends JsonObjectModel implements Product
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
     {
         $this->reviewRatingStatistics = $reviewRatingStatistics;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 
 

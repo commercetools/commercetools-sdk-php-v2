@@ -32,14 +32,14 @@ interface OrderTransitionLineItemStateAction extends OrderUpdateAction
     public function getQuantity();
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
      * @return null|StateResourceIdentifier
      */
     public function getFromState();
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
      * @return null|StateResourceIdentifier
      */

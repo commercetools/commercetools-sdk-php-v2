@@ -53,7 +53,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * <p>User-defined unique identifier for the Product Selection.</p>
+     * <p>User-defined unique identifier for the ProductSelection.</p>
      *
      * @return null|string
      */
@@ -72,7 +72,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * <p>Name of the Product Selection. Not checked for uniqueness, but distinct names are recommended.</p>
+     * <p>Name of the ProductSelection. Not checked for uniqueness, but distinct names are recommended.</p>
      *
      * @return null|LocalizedString
      */
@@ -92,7 +92,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * <p>Custom Fields of this Product Selection.</p>
+     * <p>Custom Fields of this ProductSelection.</p>
      *
      * @return null|CustomFieldsDraft
      */

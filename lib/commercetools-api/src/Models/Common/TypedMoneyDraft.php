@@ -18,8 +18,6 @@ interface TypedMoneyDraft extends Money
     public const FIELD_FRACTION_DIGITS = 'fractionDigits';
 
     /**
-     * <p>The platform supports two different types of Money, one for amounts in cent precision and another one for sub-cent amounts up to 12 fraction digits.</p>
-     *
      * @return null|string
      */
     public function getType();

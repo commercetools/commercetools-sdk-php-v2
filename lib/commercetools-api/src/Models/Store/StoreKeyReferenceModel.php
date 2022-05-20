@@ -44,6 +44,8 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -61,6 +63,8 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     }
 
     /**
+     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getKey()

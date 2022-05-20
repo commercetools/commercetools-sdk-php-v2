@@ -16,6 +16,8 @@ interface AttributeReferenceType extends AttributeType
     public const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getReferenceTypeId();

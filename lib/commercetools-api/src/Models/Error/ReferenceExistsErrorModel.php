@@ -83,6 +83,8 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getReferencedBy()

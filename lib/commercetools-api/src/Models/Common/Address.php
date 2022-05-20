@@ -17,9 +17,23 @@ interface Address extends BaseAddress
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>Platform-generated unique identifier of the Address.</p>
+     *
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * <p>Custom Fields defined for the Address.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void;
 
     /**
      * @param ?CustomFields $custom

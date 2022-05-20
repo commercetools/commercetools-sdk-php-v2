@@ -51,6 +51,8 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()

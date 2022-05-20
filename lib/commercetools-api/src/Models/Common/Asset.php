@@ -23,6 +23,8 @@ interface Asset extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Platform-generated unique identifier of the Asset.</p>
+     *
      * @return null|string
      */
     public function getId();
@@ -33,28 +35,36 @@ interface Asset extends JsonObject
     public function getSources();
 
     /**
+     * <p>Name of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
      * @return null|array
      */
     public function getTags();
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields defined for the Asset.</p>
      *
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+     * <p>User-defined unique identifier of the Asset.</p>
+     *
      * @return null|string
      */
     public function getKey();

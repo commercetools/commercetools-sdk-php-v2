@@ -68,7 +68,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
      *
      * @return null|CategoryReference
      */
