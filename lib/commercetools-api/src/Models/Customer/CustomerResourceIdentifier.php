@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface CustomerResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

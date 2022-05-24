@@ -78,7 +78,7 @@ final class QueryPriceBuilder implements Builder
     private $tiers;
 
     /**
-     * <p>Platform-generated unique identifier of the given Price.</p>
+     * <p>Unique identifier of the given Price.</p>
      *
      * @return null|string
      */

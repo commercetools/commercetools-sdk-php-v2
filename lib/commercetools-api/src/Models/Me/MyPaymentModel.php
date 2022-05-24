@@ -93,7 +93,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>Platform-generated unique identifier of the MyPayment.</p>
+     * <p>Unique identifier of the MyPayment.</p>
      *
      * @return null|string
      */

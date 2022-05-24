@@ -27,7 +27,7 @@ interface Type extends BaseResource
     public const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
-     * <p>Platform-generated unique identifier of the Type.</p>
+     * <p>Unique identifier of the Type.</p>
      *
      * @return null|string
      */

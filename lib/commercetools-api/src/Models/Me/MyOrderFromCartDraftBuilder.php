@@ -31,7 +31,7 @@ final class MyOrderFromCartDraftBuilder implements Builder
     private $version;
 
     /**
-     * <p>Platform-generated unique identifier of the Cart from which the Platform creates an Order.</p>
+     * <p>Unique identifier of the Cart that initiates an Order creation.</p>
      *
      * @return null|string
      */

@@ -31,7 +31,7 @@ interface InventoryEntry extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Platform-generated unique identifier of the InventoryEntry.</p>
+     * <p>Unique identifier of the InventoryEntry.</p>
      *
      * @return null|string
      */

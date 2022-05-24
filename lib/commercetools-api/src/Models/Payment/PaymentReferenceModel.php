@@ -70,7 +70,7 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
      * @return null|string
      */

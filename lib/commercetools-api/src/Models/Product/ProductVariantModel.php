@@ -119,7 +119,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>Platform-generated sequential and unique identifier of the ProductVariant within the Product.</p>
+     * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
      *
      * @return null|int
      */

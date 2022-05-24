@@ -33,7 +33,7 @@ final class ProductDiscountResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

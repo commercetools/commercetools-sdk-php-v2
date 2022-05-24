@@ -101,7 +101,7 @@ final class ProductBuilder implements Builder
     private $priceMode;
 
     /**
-     * <p>Platform-generated unique identifier of the Product.</p>
+     * <p>Unique identifier of the Product.</p>
      *
      * @return null|string
      */

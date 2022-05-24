@@ -29,7 +29,7 @@ interface ProductVariantPatch extends JsonObject
 
     /**
      * <p>Maps to <code>ProductVariant.attributes</code>.
-     * The referenced attribute must be defined in an already existing <a href="/../api/projects/productTypes#producttype">ProductType</a> in the commercetools Project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
+     * The referenced attribute must be defined in an already existing <a href="/../api/projects/productTypes#producttype">ProductType</a> in the Project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
      *
      * @return null|Attributes
      */

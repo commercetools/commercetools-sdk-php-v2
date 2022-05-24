@@ -79,7 +79,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Asset.</p>
+     * <p>Unique identifier of the Asset.</p>
      *
      * @return null|string
      */

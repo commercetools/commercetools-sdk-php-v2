@@ -73,7 +73,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Parcel.</p>
+     * <p>Unique identifier of the Parcel.</p>
      *
      * @return null|string
      */

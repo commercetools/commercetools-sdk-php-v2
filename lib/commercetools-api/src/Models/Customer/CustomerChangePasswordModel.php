@@ -56,7 +56,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Customer.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
      * @return null|string
      */

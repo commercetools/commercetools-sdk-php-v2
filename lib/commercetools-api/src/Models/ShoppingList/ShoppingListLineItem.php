@@ -48,7 +48,7 @@ interface ShoppingListLineItem extends JsonObject
     public function getDeactivatedAt();
 
     /**
-     * <p>Platform-generated unique identifier of the ShoppingListLineItem.</p>
+     * <p>Unique identifier of the ShoppingListLineItem.</p>
      *
      * @return null|string
      */

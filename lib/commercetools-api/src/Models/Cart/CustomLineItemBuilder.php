@@ -97,7 +97,7 @@ final class CustomLineItemBuilder implements Builder
     private $shippingDetails;
 
     /**
-     * <p>Platform-generated unique identifier of the CustomLineItem.</p>
+     * <p>Unique identifier of the CustomLineItem.</p>
      *
      * @return null|string
      */

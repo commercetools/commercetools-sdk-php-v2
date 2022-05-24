@@ -40,7 +40,7 @@ interface StandalonePriceDraft extends JsonObject
     public function getKey();
 
     /**
-     * <p>Specifies to which <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Platform associates this Price.
+     * <p>Specifies to which <a href="ctp:api:type:ProductVariant">ProductVariant</a> the API associates this Price.
      * It is not validated to exist in product variants.</p>
      *
      * @return null|string

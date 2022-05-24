@@ -111,7 +111,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Platform-generated unique identifier of the ShoppingListLineItem.</p>
+     * <p>Unique identifier of the ShoppingListLineItem.</p>
      *
      * @return null|string
      */

@@ -178,7 +178,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     }
 
     /**
-     * <p>Specify the CartDiscounts the Platform applies when you add the DiscountCode to the Cart.</p>
+     * <p>Specify what CartDiscounts the API applies when you add the DiscountCode to the Cart.</p>
      *
      * @return null|CartDiscountResourceIdentifierCollection
      */

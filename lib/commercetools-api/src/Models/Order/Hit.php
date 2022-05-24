@@ -18,7 +18,7 @@ interface Hit extends JsonObject
     public const FIELD_RELEVANCE = 'relevance';
 
     /**
-     * <p>Platform-generated unique identifier of the Order.</p>
+     * <p>Unique identifier of the Order.</p>
      *
      * @return null|string
      */

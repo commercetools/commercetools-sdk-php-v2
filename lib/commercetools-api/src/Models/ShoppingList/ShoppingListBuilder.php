@@ -121,7 +121,7 @@ final class ShoppingListBuilder implements Builder
     private $store;
 
     /**
-     * <p>Platform-generated unique identifier of the ShoppingList.</p>
+     * <p>Unique identifier of the ShoppingList.</p>
      *
      * @return null|string
      */

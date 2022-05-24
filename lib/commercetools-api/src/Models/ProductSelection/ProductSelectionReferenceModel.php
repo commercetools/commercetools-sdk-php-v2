@@ -70,7 +70,7 @@ final class ProductSelectionReferenceModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ProductSelection">ProductSelection</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductSelection">ProductSelection</a>.</p>
      *
      * @return null|string
      */

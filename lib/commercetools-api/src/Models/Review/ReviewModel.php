@@ -171,7 +171,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Review.</p>
+     * <p>Unique identifier of the Review.</p>
      *
      * @return null|string
      */

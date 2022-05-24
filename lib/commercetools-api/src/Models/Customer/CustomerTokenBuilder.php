@@ -52,7 +52,7 @@ final class CustomerTokenBuilder implements Builder
     private $value;
 
     /**
-     * <p>Platform-generated unique identifier of the CustomerToken.</p>
+     * <p>Unique identifier of the CustomerToken.</p>
      *
      * @return null|string
      */

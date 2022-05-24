@@ -31,7 +31,7 @@ final class ErrorByExtensionBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the Extension.</p>
+     * <p>Unique identifier of the Extension.</p>
      *
      * @return null|string
      */

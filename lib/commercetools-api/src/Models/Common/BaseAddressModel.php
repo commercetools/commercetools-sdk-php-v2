@@ -203,7 +203,7 @@ final class BaseAddressModel extends JsonObjectModel implements BaseAddress
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Address.</p>
+     * <p>Unique identifier of the Address.</p>
      *
      * @return null|string
      */

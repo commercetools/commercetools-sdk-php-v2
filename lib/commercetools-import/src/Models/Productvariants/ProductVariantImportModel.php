@@ -146,7 +146,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <p>Maps to <code>ProductVariant.attributes</code>.
-     * The referenced attribute must be defined in an already existing ProductType in the commercetools project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
+     * The referenced attribute must be defined in an already existing ProductType in the project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
      *
      * @return null|AttributeCollection
      */
@@ -205,7 +205,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     /**
      * <p>If <code>publish</code> is set to either <code>true</code> or <code>false</code>, both staged and current projections are set to the same value provided by the import data.
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
-     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product in the platform, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
+     * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
      * @return null|bool
      */

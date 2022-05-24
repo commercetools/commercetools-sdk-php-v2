@@ -130,7 +130,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * <p>Platform-generated unique identifier of the CustomLineItem.</p>
+     * <p>Unique identifier of the CustomLineItem.</p>
      *
      * @return null|string
      */

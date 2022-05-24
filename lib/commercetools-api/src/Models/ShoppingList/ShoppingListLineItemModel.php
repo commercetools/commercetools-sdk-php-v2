@@ -176,7 +176,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * <p>Platform-generated unique identifier of the ShoppingListLineItem.</p>
+     * <p>Unique identifier of the ShoppingListLineItem.</p>
      *
      * @return null|string
      */

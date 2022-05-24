@@ -165,7 +165,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     }
 
     /**
-     * <p>Platform-generated unique identifier of the StandalonePrice.</p>
+     * <p>Unique identifier of the StandalonePrice.</p>
      *
      * @return null|string
      */
@@ -471,7 +471,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     }
 
     /**
-     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the Platform uses the <code>discounted</code> value for the <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
+     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
      * @return null|DiscountedPrice

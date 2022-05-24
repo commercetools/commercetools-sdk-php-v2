@@ -24,7 +24,7 @@ interface ReviewReference extends Reference
     public function getObj();
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Review">Review</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Review">Review</a>.</p>
      *
      * @return null|string
      */

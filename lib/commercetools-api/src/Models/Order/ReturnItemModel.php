@@ -102,7 +102,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
-     * <p>Platform-generated unique identifier of the ReturnItem.</p>
+     * <p>Unique identifier of the ReturnItem.</p>
      *
      * @return null|string
      */

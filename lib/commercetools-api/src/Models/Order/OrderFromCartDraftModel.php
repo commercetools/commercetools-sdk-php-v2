@@ -97,7 +97,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Cart from which you can create an Order.</p>
+     * <p>Unique identifier of the Cart from which you can create an Order.</p>
      *
      * @return null|string
      */

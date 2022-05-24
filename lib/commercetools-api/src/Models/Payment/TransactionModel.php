@@ -82,7 +82,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Transaction.</p>
+     * <p>Unique identifier of the Transaction.</p>
      *
      * @return null|string
      */

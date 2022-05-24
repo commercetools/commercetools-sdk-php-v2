@@ -33,7 +33,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
      * @return null|string
      */

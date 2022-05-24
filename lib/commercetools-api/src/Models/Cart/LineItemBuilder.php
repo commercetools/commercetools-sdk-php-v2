@@ -149,7 +149,7 @@ final class LineItemBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * <p>Platform-generated unique identifier of the LineItem.</p>
+     * <p>Unique identifier of the LineItem.</p>
      *
      * @return null|string
      */

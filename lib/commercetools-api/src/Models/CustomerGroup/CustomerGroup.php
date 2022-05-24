@@ -25,7 +25,7 @@ interface CustomerGroup extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Platform-generated unique identifier of the CustomerGroup.</p>
+     * <p>Unique identifier of the CustomerGroup.</p>
      *
      * @return null|string
      */

@@ -33,7 +33,7 @@ final class TypeReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
      * @return null|string
      */

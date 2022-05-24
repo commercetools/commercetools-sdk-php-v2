@@ -28,7 +28,7 @@ interface ProductSelection extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Platform-generated unique identifier of the ProductSelection.</p>
+     * <p>Unique identifier of the ProductSelection.</p>
      *
      * @return null|string
      */

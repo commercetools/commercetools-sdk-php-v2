@@ -69,7 +69,7 @@ final class LineItemReturnItemBuilder implements Builder
     private $lineItemId;
 
     /**
-     * <p>Platform-generated unique identifier of the ReturnItem.</p>
+     * <p>Unique identifier of the ReturnItem.</p>
      *
      * @return null|string
      */

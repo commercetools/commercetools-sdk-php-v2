@@ -38,7 +38,7 @@ interface CartDiscount extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Platform-generated unique identifier of the CartDiscount.</p>
+     * <p>Unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */
@@ -146,8 +146,7 @@ interface CartDiscount extends BaseResource
     public function getRequiresDiscountCode();
 
     /**
-     * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>
+     * <p>The references of all the resources that are addressed in the predicate.</p>
      *
      * @return null|ReferenceCollection
      */

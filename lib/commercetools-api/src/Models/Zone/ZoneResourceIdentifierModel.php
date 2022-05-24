@@ -70,7 +70,7 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

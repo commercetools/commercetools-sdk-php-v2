@@ -37,7 +37,7 @@ interface Category extends BaseResource
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>Platform-generated unique identifier of the Category.</p>
+     * <p>Unique identifier of the Category.</p>
      *
      * @return null|string
      */

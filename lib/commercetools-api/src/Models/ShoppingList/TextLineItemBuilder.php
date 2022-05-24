@@ -82,7 +82,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Platform-generated unique identifier of the TextLineItem.</p>
+     * <p>Unique identifier of the TextLineItem.</p>
      *
      * @return null|string
      */

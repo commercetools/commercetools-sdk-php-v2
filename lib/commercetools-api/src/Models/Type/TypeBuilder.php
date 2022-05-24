@@ -85,7 +85,7 @@ final class TypeBuilder implements Builder
     private $fieldDefinitions;
 
     /**
-     * <p>Platform-generated unique identifier of the Type.</p>
+     * <p>Unique identifier of the Type.</p>
      *
      * @return null|string
      */

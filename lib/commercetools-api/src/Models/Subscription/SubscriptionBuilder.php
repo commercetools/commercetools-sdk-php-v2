@@ -88,7 +88,7 @@ final class SubscriptionBuilder implements Builder
     private $status;
 
     /**
-     * <p>Platform-generated unique identifier of the Subscription.</p>
+     * <p>Unique identifier of the Subscription.</p>
      *
      * @return null|string
      */

@@ -33,7 +33,7 @@ final class ProductTypeReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
      * @return null|string
      */

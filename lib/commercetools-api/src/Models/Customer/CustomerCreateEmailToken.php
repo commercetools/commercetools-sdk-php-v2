@@ -18,7 +18,7 @@ interface CustomerCreateEmailToken extends JsonObject
     public const FIELD_TTL_MINUTES = 'ttlMinutes';
 
     /**
-     * <p>Platform-generated unique identifier of the email token.</p>
+     * <p>Unique identifier of the email token.</p>
      *
      * @return null|string
      */

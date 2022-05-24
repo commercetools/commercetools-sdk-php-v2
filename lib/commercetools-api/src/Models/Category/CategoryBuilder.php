@@ -128,7 +128,7 @@ final class CategoryBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the Category.</p>
+     * <p>Unique identifier of the Category.</p>
      *
      * @return null|string
      */

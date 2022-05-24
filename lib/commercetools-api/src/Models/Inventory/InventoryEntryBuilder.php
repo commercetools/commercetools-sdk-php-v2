@@ -102,7 +102,7 @@ final class InventoryEntryBuilder implements Builder
     private $custom;
 
     /**
-     * <p>Platform-generated unique identifier of the InventoryEntry.</p>
+     * <p>Unique identifier of the InventoryEntry.</p>
      *
      * @return null|string
      */
