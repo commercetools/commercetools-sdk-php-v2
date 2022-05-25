@@ -26,6 +26,8 @@ final class CartDiscountChangeTargetActionBuilder implements Builder
     private $target;
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|CartDiscountTarget
      */
     public function getTarget()

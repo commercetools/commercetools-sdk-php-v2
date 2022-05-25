@@ -17,7 +17,8 @@ interface CartDiscountSetValidFromAction extends CartDiscountUpdateAction
     public const FIELD_VALID_FROM = 'validFrom';
 
     /**
-     * <p>If absent, the field with the value is removed in case a value was set before.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
      *
      * @return null|DateTimeImmutable
      */

@@ -16,6 +16,8 @@ interface CartDiscountLineItemsTarget extends CartDiscountTarget
     public const FIELD_PREDICATE = 'predicate';
 
     /**
+     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
+     *
      * @return null|string
      */
     public function getPredicate();

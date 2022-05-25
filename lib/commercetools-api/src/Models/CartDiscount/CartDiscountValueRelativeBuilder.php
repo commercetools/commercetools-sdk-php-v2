@@ -26,6 +26,8 @@ final class CartDiscountValueRelativeBuilder implements Builder
     private $permyriad;
 
     /**
+     * <p>Fraction (per ten thousand) the price is reduced by. For example, <code>1000</code> will result in a 10% price reduction.</p>
+     *
      * @return null|int
      */
     public function getPermyriad()

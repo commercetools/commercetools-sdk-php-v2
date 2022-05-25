@@ -28,6 +28,8 @@ final class CartDiscountChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()

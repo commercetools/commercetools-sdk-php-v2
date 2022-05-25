@@ -26,6 +26,9 @@ final class CartDiscountChangeIsActiveActionBuilder implements Builder
     private $isActive;
 
     /**
+     * <p>New value to set.
+     * If set to <code>true</code>, the Discount will be applied to the Cart.</p>
+     *
      * @return null|bool
      */
     public function getIsActive()

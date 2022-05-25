@@ -45,7 +45,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     private $distributionChannel;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Reference to a Product.</p>
      *
      * @return null|ProductReference
      */
@@ -55,6 +55,8 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -63,7 +65,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The channel must have the role <code>InventorySupply</code></p>
+     * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
      *
      * @return null|ChannelReference
      */
@@ -73,7 +75,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     }
 
     /**
-     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
      *
      * @return null|ChannelReference
      */

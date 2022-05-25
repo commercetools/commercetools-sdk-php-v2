@@ -59,6 +59,8 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getStackingMode()

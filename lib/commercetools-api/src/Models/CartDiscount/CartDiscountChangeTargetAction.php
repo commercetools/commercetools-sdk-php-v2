@@ -16,6 +16,8 @@ interface CartDiscountChangeTargetAction extends CartDiscountUpdateAction
     public const FIELD_TARGET = 'target';
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|CartDiscountTarget
      */
     public function getTarget();
