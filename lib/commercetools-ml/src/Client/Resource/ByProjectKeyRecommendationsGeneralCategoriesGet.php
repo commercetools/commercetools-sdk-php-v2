@@ -71,7 +71,7 @@ class ByProjectKeyRecommendationsGeneralCategoriesGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|GeneralCategoryRecommendationPagedQueryResponse|JsonObject
+     * @return null|T|GeneralCategoryRecommendationPagedQueryResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

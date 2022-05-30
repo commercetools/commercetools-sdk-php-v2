@@ -102,7 +102,7 @@ class ByProjectKeyDiscountCodesGet extends ApiRequest implements Expandable, Sor
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|DiscountCodePagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|DiscountCodePagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -102,7 +102,7 @@ class ByProjectKeyChannelsGet extends ApiRequest implements Expandable, Sortable
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ChannelPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|ChannelPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

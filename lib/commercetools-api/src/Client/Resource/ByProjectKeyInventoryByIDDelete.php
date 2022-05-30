@@ -105,7 +105,7 @@ class ByProjectKeyInventoryByIDDelete extends ApiRequest implements Versioned, C
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|InventoryEntry|JsonObject
+     * @return null|T|ErrorResponse|InventoryEntry|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

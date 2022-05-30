@@ -105,7 +105,7 @@ class ByProjectKeyCustomObjectsByContainerByKeyDelete extends ApiRequest impleme
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CustomObject|ErrorResponse|JsonObject
+     * @return null|T|CustomObject|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

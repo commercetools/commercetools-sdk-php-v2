@@ -102,7 +102,7 @@ class ByProjectKeyProductTypesGet extends ApiRequest implements Expandable, Sort
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductTypePagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|ProductTypePagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -102,7 +102,7 @@ class ByProjectKeyTaxCategoriesGet extends ApiRequest implements Expandable, Sor
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|TaxCategoryPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|TaxCategoryPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -98,7 +98,7 @@ class ByProjectKeyShippingMethodsMatchingOrdereditGet extends ApiRequest impleme
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

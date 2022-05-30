@@ -105,7 +105,7 @@ class ByProjectKeyTypesByIDDelete extends ApiRequest implements Versioned, Confl
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Type
+     * @return null|T|ErrorResponse|JsonObject|Type
      */
     public function execute(array $options = [], string $resultType = null)
     {

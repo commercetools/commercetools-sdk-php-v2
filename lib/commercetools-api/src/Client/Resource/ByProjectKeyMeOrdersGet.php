@@ -102,7 +102,7 @@ class ByProjectKeyMeOrdersGet extends ApiRequest implements Expandable, Sortable
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|OrderPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|OrderPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

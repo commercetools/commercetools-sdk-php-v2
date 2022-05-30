@@ -102,7 +102,7 @@ class ByProjectKeyOrdersEditsGet extends ApiRequest implements Expandable, Sorta
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|OrderEditPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|OrderEditPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

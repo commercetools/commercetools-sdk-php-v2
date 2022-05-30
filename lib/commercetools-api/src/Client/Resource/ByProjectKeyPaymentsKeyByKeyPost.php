@@ -104,7 +104,7 @@ class ByProjectKeyPaymentsKeyByKeyPost extends ApiRequest implements Conflicting
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Payment
+     * @return null|T|ErrorResponse|JsonObject|Payment
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -99,7 +99,7 @@ class ByProjectKeyMePaymentsByIDGet extends ApiRequest implements Expandable, Er
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|MyPayment
+     * @return null|T|ErrorResponse|JsonObject|MyPayment
      */
     public function execute(array $options = [], string $resultType = null)
     {

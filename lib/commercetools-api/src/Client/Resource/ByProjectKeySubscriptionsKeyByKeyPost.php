@@ -104,7 +104,7 @@ class ByProjectKeySubscriptionsKeyByKeyPost extends ApiRequest implements Confli
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Subscription
+     * @return null|T|ErrorResponse|JsonObject|Subscription
      */
     public function execute(array $options = [], string $resultType = null)
     {

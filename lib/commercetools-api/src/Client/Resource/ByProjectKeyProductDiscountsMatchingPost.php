@@ -103,7 +103,7 @@ class ByProjectKeyProductDiscountsMatchingPost extends ApiRequest implements Err
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|NoMatchingProductDiscountFoundError|ProductDiscount
+     * @return null|T|ErrorResponse|JsonObject|NoMatchingProductDiscountFoundError|ProductDiscount
      */
     public function execute(array $options = [], string $resultType = null)
     {

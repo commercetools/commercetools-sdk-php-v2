@@ -102,7 +102,7 @@ class ByProjectKeyCartDiscountsGet extends ApiRequest implements Expandable, Sor
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CartDiscountPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|CartDiscountPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -102,7 +102,7 @@ class ByProjectKeyProductsKeyByKeyProductSelectionsGet extends ApiRequest implem
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|AssignedProductSelectionPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|AssignedProductSelectionPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -102,7 +102,7 @@ class ByProjectKeyStandalonePricesGet extends ApiRequest implements Expandable, 
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|StandalonePricePagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|StandalonePricePagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

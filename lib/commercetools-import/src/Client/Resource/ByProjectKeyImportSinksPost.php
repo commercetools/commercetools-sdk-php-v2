@@ -77,7 +77,7 @@ class ByProjectKeyImportSinksPost extends ApiRequest implements SecuredByManageI
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|ImportSink|JsonObject
+     * @return null|T|ErrorResponse|ImportSink|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

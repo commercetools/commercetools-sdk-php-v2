@@ -104,7 +104,7 @@ class ByProjectKeyOrdersByIDPost extends ApiRequest implements Conflicting, Expa
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Order
+     * @return null|T|ErrorResponse|JsonObject|Order
      */
     public function execute(array $options = [], string $resultType = null)
     {

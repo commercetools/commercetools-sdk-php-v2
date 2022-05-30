@@ -99,7 +99,7 @@ class ByProjectKeyProductDiscountsByIDGet extends ApiRequest implements Expandab
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductDiscount
+     * @return null|T|ErrorResponse|JsonObject|ProductDiscount
      */
     public function execute(array $options = [], string $resultType = null)
     {

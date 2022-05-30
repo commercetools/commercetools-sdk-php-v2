@@ -92,7 +92,7 @@ class ByProjectKeyOrdersSearchHead extends ApiRequest implements Errorable, Depr
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject
+     * @return null|T|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

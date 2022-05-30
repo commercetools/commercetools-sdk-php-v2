@@ -71,7 +71,7 @@ class ByProjectKeyImageSearchConfigGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImageSearchConfigResponse|JsonObject
+     * @return null|T|ImageSearchConfigResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

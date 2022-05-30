@@ -77,7 +77,7 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|JsonObject|Product
+     * @return null|T|JsonObject|Product
      */
     public function execute(array $options = [], string $resultType = null)
     {
