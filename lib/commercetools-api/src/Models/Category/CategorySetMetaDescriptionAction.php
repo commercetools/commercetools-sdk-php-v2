@@ -17,6 +17,8 @@ interface CategorySetMetaDescriptionAction extends CategoryUpdateAction
     public const FIELD_META_DESCRIPTION = 'metaDescription';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription();

@@ -114,7 +114,7 @@ final class ShippingMethodBuilder implements Builder
     private $custom;
 
     /**
-     * <p>Platform-generated unique identifier of the ShippingMethod.</p>
+     * <p>Unique identifier of the ShippingMethod.</p>
      *
      * @return null|string
      */

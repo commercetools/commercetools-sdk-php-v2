@@ -85,7 +85,7 @@ final class ProductSelectionDeletedMessageBuilder implements Builder
     private $name;
 
     /**
-     * <p>Platform-generated unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message.</p>
      *
      * @return null|string
      */
@@ -147,7 +147,7 @@ final class ProductSelectionDeletedMessageBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same commercetools Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
      * @return null|Reference
      */
@@ -173,7 +173,7 @@ final class ProductSelectionDeletedMessageBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */

@@ -115,7 +115,7 @@ final class PaymentBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the Payment.</p>
+     * <p>Unique identifier of the Payment.</p>
      *
      * @return null|string
      */

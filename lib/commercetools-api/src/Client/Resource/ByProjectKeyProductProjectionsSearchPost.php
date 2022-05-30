@@ -100,7 +100,7 @@ class ByProjectKeyProductProjectionsSearchPost extends ApiRequest implements Err
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductProjectionPagedSearchResponse
+     * @return null|T|ErrorResponse|JsonObject|ProductProjectionPagedSearchResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

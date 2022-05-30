@@ -71,7 +71,7 @@ class ByProjectKeyInStoreKeyByStoreKeyMePost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|Customer|JsonObject
+     * @return null|T|Customer|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

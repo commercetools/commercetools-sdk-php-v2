@@ -30,7 +30,7 @@ interface State extends BaseResource
     public const FIELD_TRANSITIONS = 'transitions';
 
     /**
-     * <p>Platform-generated unique identifier of the State.</p>
+     * <p>Unique identifier of the State.</p>
      *
      * @return null|string
      */

@@ -16,7 +16,7 @@ interface CartDiscountChangeCartPredicateAction extends CartDiscountUpdateAction
     public const FIELD_CART_PREDICATE = 'cartPredicate';
 
     /**
-     * <p>A valid Cart predicate.</p>
+     * <p>New value to set.</p>
      *
      * @return null|string
      */

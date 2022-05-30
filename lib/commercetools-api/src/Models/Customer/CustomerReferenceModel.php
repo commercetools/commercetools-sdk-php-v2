@@ -70,7 +70,7 @@ final class CustomerReferenceModel extends JsonObjectModel implements CustomerRe
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
      * @return null|string
      */

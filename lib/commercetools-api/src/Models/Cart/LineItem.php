@@ -47,7 +47,7 @@ interface LineItem extends JsonObject
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
-     * <p>Platform-generated unique identifier of the LineItem.</p>
+     * <p>Unique identifier of the LineItem.</p>
      *
      * @return null|string
      */

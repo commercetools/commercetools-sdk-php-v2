@@ -371,7 +371,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -385,7 +386,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->post(null)`
 
-Creating a category produces the CategoryCreated message.
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
+Creating a Category produces the [CategoryCreatedMessage](/../api/message-types#categorycreatedmessage).
+
 
 ### Example
 ```php
@@ -399,7 +403,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -414,7 +419,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->post(null)`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -429,7 +435,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->delete()`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -444,7 +451,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -459,7 +467,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -474,7 +483,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->delete()`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -1226,7 +1236,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
 Returns a cart by its ID from a specific Store.
-If the cart exists in the commercetools project but does not have the store field,
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 The cart may not contain up-to-date prices, discounts etc.
 If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
@@ -1247,7 +1257,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
 Updates a cart in the store specified by {storeKey}.
-If the cart exists in the commercetools project but does not have the store field,
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -1283,7 +1293,7 @@ $request = $builder
 
 Retrieves the active cart of the customer that has been modified most recently in a specific Store.
 
-If the cart exists in the commercetools project but does not have the store field, or the store field
+If the cart exists in the project but does not have the store field, or the store field
 references a different store, this method returns a ResourceNotFound error.
 
 The cart may not contain up-to-date prices, discounts etc. If you want to ensure they're up-to-date,
@@ -1305,7 +1315,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
 Returns a cart by its key from a specific Store.
-If the cart exists in the commercetools project but does not have the store field,
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 The cart may not contain up-to-date prices, discounts etc.
 If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
@@ -1326,7 +1336,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
 Updates a cart in the store specified by {storeKey}.
-If the cart exists in the commercetools project but does not have the store field,
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -1416,7 +1426,7 @@ $request = $builder
 
 Returns a customer by its ID from a specific Store.
 It also considers customers that do not have the stores field.
-If the customer exists in the commercetools project but the stores field references different stores,
+If the customer exists in the project but the stores field references different stores,
 this method returns a ResourceNotFound error.
 
 
@@ -1435,7 +1445,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
 Updates a customer in the store specified by {storeKey}.
-If the customer exists in the commercetools project but the stores field references a different store,
+If the customer exists in the project but the stores field references a different store,
 this method returns a ResourceNotFound error.
 
 
@@ -1519,7 +1529,7 @@ $request = $builder
 
 Returns a customer by its Key from a specific Store.
 It also considers customers that do not have the stores field.
-If the customer exists in the commercetools project but the stores field references different stores,
+If the customer exists in the project but the stores field references different stores,
 this method returns a ResourceNotFound error.
 
 
@@ -1537,7 +1547,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->post(null)`
 
-If the customer exists in the commercetools project but the stores field references a different store,
+If the customer exists in the project but the stores field references a different store,
 this method returns a ResourceNotFound error.
 
 
@@ -2095,7 +2105,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->get()`
 
 Returns an order by its ID from a specific Store.
-If the order exists in the commercetools project but does not have the store field,
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -2114,7 +2124,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
 Updates an order in the store specified by {storeKey}.
-If the order exists in the commercetools project but does not have the store field,
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -2150,7 +2160,7 @@ $request = $builder
 
 Returns an order by its order number from a specific Store.
 
-If the order exists in the commercetools project but does not have the store field,
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
 it should be provided in URL-encoded format.
@@ -2171,7 +2181,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
 Updates an order in the store specified by {storeKey}.
-If the order exists in the commercetools project but does not have the store field,
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
 it should be provided in URL-encoded format.

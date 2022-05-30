@@ -33,7 +33,7 @@ final class CategoryReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
      *
      * @return null|string
      */

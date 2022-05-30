@@ -19,11 +19,15 @@ interface CategorySetAssetCustomFieldAction extends CategoryUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();

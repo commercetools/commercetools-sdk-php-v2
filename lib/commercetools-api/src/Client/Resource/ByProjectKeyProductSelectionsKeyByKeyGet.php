@@ -99,7 +99,7 @@ class ByProjectKeyProductSelectionsKeyByKeyGet extends ApiRequest implements Exp
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductSelection
+     * @return null|T|ErrorResponse|JsonObject|ProductSelection
      */
     public function execute(array $options = [], string $resultType = null)
     {

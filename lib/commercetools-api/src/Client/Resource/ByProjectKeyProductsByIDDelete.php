@@ -106,7 +106,7 @@ class ByProjectKeyProductsByIDDelete extends ApiRequest implements PriceSelectin
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Product
+     * @return null|T|ErrorResponse|JsonObject|Product
      */
     public function execute(array $options = [], string $resultType = null)
     {

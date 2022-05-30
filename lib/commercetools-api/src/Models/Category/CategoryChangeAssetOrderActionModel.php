@@ -59,6 +59,8 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>New value to set. Must contain all Asset <code>id</code>s.</p>
+     *
      * @return null|array
      */
     public function getAssetOrder()

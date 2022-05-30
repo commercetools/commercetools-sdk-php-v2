@@ -61,6 +61,8 @@ final class CategorySetDescriptionActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

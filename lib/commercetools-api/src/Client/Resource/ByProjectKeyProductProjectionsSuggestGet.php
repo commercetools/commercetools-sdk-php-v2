@@ -100,7 +100,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest implements Sor
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|SuggestionResult
+     * @return null|T|ErrorResponse|JsonObject|SuggestionResult
      */
     public function execute(array $options = [], string $resultType = null)
     {

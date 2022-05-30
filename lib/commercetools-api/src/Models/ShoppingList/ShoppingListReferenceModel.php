@@ -70,7 +70,7 @@ final class ShoppingListReferenceModel extends JsonObjectModel implements Shoppi
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
      * @return null|string
      */

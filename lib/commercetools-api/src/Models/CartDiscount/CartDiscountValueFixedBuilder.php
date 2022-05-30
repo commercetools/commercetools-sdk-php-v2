@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyCollection;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -22,12 +22,14 @@ use stdClass;
 final class CartDiscountValueFixedBuilder implements Builder
 {
     /**
-     * @var ?TypedMoneyCollection
+     * @var ?CentPrecisionMoneyCollection
      */
     private $money;
 
     /**
-     * @return null|TypedMoneyCollection
+     * <p>Cent precision money values in different currencies.</p>
+     *
+     * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney()
     {
@@ -35,10 +37,10 @@ final class CartDiscountValueFixedBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoneyCollection $money
+     * @param ?CentPrecisionMoneyCollection $money
      * @return $this
      */
-    public function withMoney(?TypedMoneyCollection $money)
+    public function withMoney(?CentPrecisionMoneyCollection $money)
     {
         $this->money = $money;
 

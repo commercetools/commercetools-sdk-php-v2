@@ -103,7 +103,7 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|ProductPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

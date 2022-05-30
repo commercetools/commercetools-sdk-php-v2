@@ -71,7 +71,7 @@ interface PriceDraft extends JsonObject
 
     /**
      * <p>Set this field to add a DiscountedPrice from an external service.</p>
-     * <p>The commercetools Platform sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
+     * <p>The API sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
      * The DiscountedPrice must reference a ProductDiscount with:</p>
      * <ul>
      * <li>The <code>isActive</code> flag set to <code>true</code>.</li>

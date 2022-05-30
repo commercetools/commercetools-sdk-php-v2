@@ -105,7 +105,7 @@ class ByProjectKeyOrdersEditsByIDDelete extends ApiRequest implements Versioned,
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|OrderEdit
+     * @return null|T|ErrorResponse|JsonObject|OrderEdit
      */
     public function execute(array $options = [], string $resultType = null)
     {

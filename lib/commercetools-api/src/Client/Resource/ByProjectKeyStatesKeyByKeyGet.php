@@ -99,7 +99,7 @@ class ByProjectKeyStatesKeyByKeyGet extends ApiRequest implements Expandable, Er
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|State
+     * @return null|T|ErrorResponse|JsonObject|State
      */
     public function execute(array $options = [], string $resultType = null)
     {

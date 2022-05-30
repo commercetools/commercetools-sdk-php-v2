@@ -146,7 +146,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
+     * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
      * @return null|string
      */

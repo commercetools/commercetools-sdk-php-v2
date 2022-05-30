@@ -58,7 +58,7 @@ final class AssetBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the Asset.</p>
+     * <p>Unique identifier of the Asset.</p>
      *
      * @return null|string
      */

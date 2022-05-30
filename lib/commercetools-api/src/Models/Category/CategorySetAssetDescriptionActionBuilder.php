@@ -38,6 +38,8 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     private $description;
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -46,6 +48,8 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -54,6 +58,8 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

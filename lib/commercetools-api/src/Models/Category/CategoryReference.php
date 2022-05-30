@@ -24,7 +24,7 @@ interface CategoryReference extends Reference
     public function getObj();
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
      *
      * @return null|string
      */

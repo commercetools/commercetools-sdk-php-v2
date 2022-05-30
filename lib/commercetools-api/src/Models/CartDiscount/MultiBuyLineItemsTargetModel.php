@@ -87,7 +87,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
-     * <p>A valid line item target predicate. The discount will be applied to line items that are matched by the predicate.</p>
+     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>. The Discount will be applied to Line Items that are matched by the predicate.</p>
      *
      * @return null|string
      */
@@ -106,7 +106,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
+     * <p>Number of Line Items to be present in order to trigger an application of this Discount.</p>
      *
      * @return null|int
      */
@@ -125,7 +125,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
+     * <p>Number of Line Items that are discounted per application of this Discount.</p>
      *
      * @return null|int
      */
@@ -144,7 +144,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
-     * <p>Maximum number of applications of this discount.</p>
+     * <p>Maximum number of times this Discount can be applied.</p>
      *
      * @return null|int
      */
@@ -163,6 +163,8 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
+     * <p>Discounts particular Line Items only according to the SelectionMode.</p>
+     *
      * @return null|string
      */
     public function getSelectionMode()

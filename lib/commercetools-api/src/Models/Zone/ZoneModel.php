@@ -105,7 +105,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Zone.</p>
+     * <p>Unique identifier of the Zone.</p>
      *
      * @return null|string
      */

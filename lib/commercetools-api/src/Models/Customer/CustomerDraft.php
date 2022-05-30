@@ -219,7 +219,7 @@ interface CustomerDraft extends JsonObject
     public function getStores();
 
     /**
-     * <p>Defines whether a password is required for the Customer that is used for platform-internal authentication.</p>
+     * <p>Defines whether a password field is a required field for the Customer.</p>
      *
      * @return null|string
      */

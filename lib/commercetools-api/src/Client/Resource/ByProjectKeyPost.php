@@ -77,7 +77,7 @@ class ByProjectKeyPost extends ApiRequest implements Conflicting
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Project
+     * @return null|T|ErrorResponse|JsonObject|Project
      */
     public function execute(array $options = [], string $resultType = null)
     {

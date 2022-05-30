@@ -19,16 +19,22 @@ interface CategoryChangeAssetNameAction extends CategoryUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();

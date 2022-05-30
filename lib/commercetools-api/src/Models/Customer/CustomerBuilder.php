@@ -184,7 +184,7 @@ final class CustomerBuilder implements Builder
     private $authenticationMode;
 
     /**
-     * <p>Platform-generated unique identifier of the Customer.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
      * @return null|string
      */

@@ -99,7 +99,7 @@ class ByProjectKeyMeShoppingListsPost extends ApiRequest implements Expandable, 
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ShoppingList
+     * @return null|T|ErrorResponse|JsonObject|ShoppingList
      */
     public function execute(array $options = [], string $resultType = null)
     {

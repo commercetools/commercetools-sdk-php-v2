@@ -114,7 +114,7 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Type.</p>
+     * <p>Unique identifier of the Type.</p>
      *
      * @return null|string
      */

@@ -116,7 +116,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     }
 
     /**
-     * <p>Platform-generated unique identifier of the ProductSelection.</p>
+     * <p>Unique identifier of the ProductSelection.</p>
      *
      * @return null|string
      */

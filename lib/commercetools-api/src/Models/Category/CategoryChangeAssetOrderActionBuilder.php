@@ -26,6 +26,8 @@ final class CategoryChangeAssetOrderActionBuilder implements Builder
     private $assetOrder;
 
     /**
+     * <p>New value to set. Must contain all Asset <code>id</code>s.</p>
+     *
      * @return null|array
      */
     public function getAssetOrder()

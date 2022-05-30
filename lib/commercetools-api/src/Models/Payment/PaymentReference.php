@@ -24,7 +24,7 @@ interface PaymentReference extends Reference
     public function getObj();
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
      * @return null|string
      */

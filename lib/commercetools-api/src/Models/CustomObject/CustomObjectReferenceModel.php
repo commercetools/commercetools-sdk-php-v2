@@ -70,7 +70,7 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:CustomObject">CustomObject</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomObject">CustomObject</a>.</p>
      *
      * @return null|string
      */

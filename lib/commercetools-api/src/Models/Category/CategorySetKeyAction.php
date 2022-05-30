@@ -16,9 +16,7 @@ interface CategorySetKeyAction extends CategoryUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>User-defined unique identifier for the category.
-     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.
-     * If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|string
      */

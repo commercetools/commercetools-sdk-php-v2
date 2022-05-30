@@ -59,6 +59,8 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
+     *
      * @return null|string
      */
     public function getPredicate()

@@ -102,7 +102,7 @@ class ByProjectKeyReviewsGet extends ApiRequest implements Expandable, Sortable,
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ReviewPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|ReviewPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

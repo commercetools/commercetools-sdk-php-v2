@@ -26,7 +26,7 @@ final class CartDiscountChangeCartPredicateActionBuilder implements Builder
     private $cartPredicate;
 
     /**
-     * <p>A valid Cart predicate.</p>
+     * <p>New value to set.</p>
      *
      * @return null|string
      */

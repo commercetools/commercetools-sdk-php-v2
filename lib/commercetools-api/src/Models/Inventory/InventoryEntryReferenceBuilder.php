@@ -33,7 +33,7 @@ final class InventoryEntryReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
      *
      * @return null|string
      */

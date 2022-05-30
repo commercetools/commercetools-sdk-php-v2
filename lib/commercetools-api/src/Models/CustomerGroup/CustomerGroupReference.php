@@ -24,7 +24,7 @@ interface CustomerGroupReference extends Reference
     public function getObj();
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|string
      */

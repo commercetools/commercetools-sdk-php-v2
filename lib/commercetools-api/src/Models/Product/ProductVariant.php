@@ -32,7 +32,7 @@ interface ProductVariant extends JsonObject
     public const FIELD_SCOPED_PRICE_DISCOUNTED = 'scopedPriceDiscounted';
 
     /**
-     * <p>Platform-generated sequential and unique identifier of the ProductVariant within the Product.</p>
+     * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
      *
      * @return null|int
      */

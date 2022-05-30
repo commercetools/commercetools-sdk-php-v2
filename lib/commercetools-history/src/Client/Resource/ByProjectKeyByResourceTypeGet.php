@@ -93,7 +93,7 @@ class ByProjectKeyByResourceTypeGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|RecordPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|RecordPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

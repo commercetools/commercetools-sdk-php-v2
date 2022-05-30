@@ -33,7 +33,7 @@ final class TaxCategoryReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|string
      */

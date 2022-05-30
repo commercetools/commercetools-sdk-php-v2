@@ -105,7 +105,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>Platform-generated unique identifier of the TaxCategory.</p>
+     * <p>Unique identifier of the TaxCategory.</p>
      *
      * @return null|string
      */
@@ -267,7 +267,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * <p>Tax rates and subrates of states and countries. Each TaxRate in the array has a unique ID assigned by the platform.</p>
+     * <p>Tax rates and subrates of states and countries. Each TaxRate in the array has a unique ID.</p>
      *
      * @return null|TaxRateCollection
      */

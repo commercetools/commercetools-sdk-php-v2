@@ -25,7 +25,7 @@ interface Extension extends BaseResource
     public const FIELD_TIMEOUT_IN_MS = 'timeoutInMs';
 
     /**
-     * <p>Platform-generated unique identifier of the Extension.</p>
+     * <p>Unique identifier of the Extension.</p>
      *
      * @return null|string
      */
@@ -74,7 +74,7 @@ interface Extension extends BaseResource
     public function getKey();
 
     /**
-     * <p>Information necessary for the commercetools Platform to call the Extension.</p>
+     * <p>The configuration for the Extension, including its type, location and authentication details.</p>
      *
      * @return null|ExtensionDestination
      */
@@ -88,7 +88,7 @@ interface Extension extends BaseResource
     public function getTriggers();
 
     /**
-     * <p>Maximum time (in milliseconds) the commercetools Platform waits for a response from the Extension.
+     * <p>Maximum time (in milliseconds) that the Extension can respond within.
      * If no timeout is provided, the default value is used for all types of Extensions.
      * The maximum value is 10000 ms (10 seconds) for <code>payment</code> Extensions and 2000 ms (2 seconds) for all other Extensions.</p>
      *

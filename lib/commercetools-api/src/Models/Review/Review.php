@@ -38,7 +38,7 @@ interface Review extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Platform-generated unique identifier of the Review.</p>
+     * <p>Unique identifier of the Review.</p>
      *
      * @return null|string
      */

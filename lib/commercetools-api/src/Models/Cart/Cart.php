@@ -58,7 +58,7 @@ interface Cart extends BaseResource
     public const FIELD_TOTAL_LINE_ITEM_QUANTITY = 'totalLineItemQuantity';
 
     /**
-     * <p>Platform-generated unique identifier of the Cart.</p>
+     * <p>Unique identifier of the Cart.</p>
      *
      * @return null|string
      */

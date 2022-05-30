@@ -29,7 +29,7 @@ interface QueryPrice extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
-     * <p>Platform-generated unique identifier of the given Price.</p>
+     * <p>Unique identifier of the given Price.</p>
      *
      * @return null|string
      */

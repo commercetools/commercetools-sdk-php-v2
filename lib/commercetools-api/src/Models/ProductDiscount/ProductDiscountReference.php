@@ -24,7 +24,7 @@ interface ProductDiscountReference extends Reference
     public function getObj();
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>.</p>
      *
      * @return null|string
      */

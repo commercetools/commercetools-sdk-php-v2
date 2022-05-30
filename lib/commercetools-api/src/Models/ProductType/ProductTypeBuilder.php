@@ -78,7 +78,7 @@ final class ProductTypeBuilder implements Builder
     private $attributes;
 
     /**
-     * <p>Platform-generated unique identifier for the ProductType.</p>
+     * <p>Unique identifier for the ProductType.</p>
      *
      * @return null|string
      */

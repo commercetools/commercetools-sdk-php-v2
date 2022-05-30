@@ -294,7 +294,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Cart.</p>
+     * <p>Unique identifier of the Cart.</p>
      *
      * @return null|string
      */

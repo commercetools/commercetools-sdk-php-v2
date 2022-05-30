@@ -105,7 +105,7 @@ class ByProjectKeyShippingMethodsKeyByKeyDelete extends ApiRequest implements Ve
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ShippingMethod
+     * @return null|T|ErrorResponse|JsonObject|ShippingMethod
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -251,7 +251,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
-     * The value is not identical to the actual array of update actions that was sent to the platform and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
+     * The value is not identical to the actual array of update actions sent and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
      * @return null|ChangeCollection
      */

@@ -108,7 +108,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */
@@ -163,7 +163,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */
@@ -183,7 +183,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */
@@ -203,7 +203,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */
@@ -223,7 +223,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */
@@ -243,7 +243,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * <p>JSON object where the keys are of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>, and the values are the corresponding strings used for that language.</p>
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
      * @return null|LocalizedString
      */

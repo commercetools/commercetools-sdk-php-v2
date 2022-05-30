@@ -100,7 +100,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     }
 
     /**
-     * <p>Platform-generated unique identifier of the CustomerGroup.</p>
+     * <p>Unique identifier of the CustomerGroup.</p>
      *
      * @return null|string
      */

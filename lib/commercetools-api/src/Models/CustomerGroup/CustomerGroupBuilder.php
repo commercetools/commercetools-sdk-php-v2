@@ -75,7 +75,7 @@ final class CustomerGroupBuilder implements Builder
     private $custom;
 
     /**
-     * <p>Platform-generated unique identifier of the CustomerGroup.</p>
+     * <p>Unique identifier of the CustomerGroup.</p>
      *
      * @return null|string
      */

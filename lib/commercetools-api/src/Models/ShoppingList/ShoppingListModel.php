@@ -162,7 +162,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>Platform-generated unique identifier of the ShoppingList.</p>
+     * <p>Unique identifier of the ShoppingList.</p>
      *
      * @return null|string
      */

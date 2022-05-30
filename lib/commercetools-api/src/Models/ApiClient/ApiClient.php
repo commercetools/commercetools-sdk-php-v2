@@ -25,8 +25,7 @@ interface ApiClient extends JsonObject
     public const FIELD_REFRESH_TOKEN_VALIDITY_SECONDS = 'refreshTokenValiditySeconds';
 
     /**
-     * <p>Platform-generated unique identifier of the APIClient.
-     * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>The OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -40,7 +39,7 @@ interface ApiClient extends JsonObject
     public function getName();
 
     /**
-     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
      *
      * @return null|string
      */
@@ -48,14 +47,14 @@ interface ApiClient extends JsonObject
 
     /**
      * <p>Only shown once in the response of creating the APIClient.
-     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|string
      */
     public function getSecret();
 
     /**
-     * <p>Date of the last day this APIClient was used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>Date of the last day this APIClient was used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|DateTimeImmutable
      */

@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface ShoppingListResourceIdentifier extends ResourceIdentifier
 {
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ShoppingList">ShoppingList</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ShoppingList">ShoppingList</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

@@ -81,7 +81,7 @@ class ByProjectKeyProductVariantsImportSinkKeyByImportSinkKeyImportOperationsByI
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|ImportOperation|JsonObject
+     * @return null|T|ErrorResponse|ImportOperation|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

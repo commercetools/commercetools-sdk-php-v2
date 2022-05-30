@@ -93,7 +93,7 @@ final class OrderEditBuilder implements Builder
     private $comment;
 
     /**
-     * <p>Platform-generated unique identifier of the OrderEdit.</p>
+     * <p>Unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */

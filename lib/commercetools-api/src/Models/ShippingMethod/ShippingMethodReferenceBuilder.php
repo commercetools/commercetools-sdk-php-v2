@@ -33,7 +33,7 @@ final class ShippingMethodReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
      *
      * @return null|string
      */

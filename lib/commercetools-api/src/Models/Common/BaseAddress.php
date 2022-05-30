@@ -40,7 +40,7 @@ interface BaseAddress extends JsonObject
     public const FIELD_EXTERNAL_ID = 'externalId';
 
     /**
-     * <p>Platform-generated unique identifier of the Address.</p>
+     * <p>Unique identifier of the Address.</p>
      *
      * @return null|string
      */

@@ -102,7 +102,7 @@ class ByProjectKeyApiClientsGet extends ApiRequest implements Expandable, Sortab
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ApiClientPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|ApiClientPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -70,7 +70,7 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     }
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Product">Product</a>.</p>
      *
      * @return null|string
      */

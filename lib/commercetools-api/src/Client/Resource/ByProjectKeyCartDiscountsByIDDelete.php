@@ -105,7 +105,7 @@ class ByProjectKeyCartDiscountsByIDDelete extends ApiRequest implements Versione
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CartDiscount|ErrorResponse|JsonObject
+     * @return null|T|CartDiscount|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -102,7 +102,7 @@ class ByProjectKeyZonesGet extends ApiRequest implements Expandable, Sortable, P
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ZonePagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|ZonePagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

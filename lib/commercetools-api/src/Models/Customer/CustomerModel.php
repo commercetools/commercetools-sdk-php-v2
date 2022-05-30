@@ -251,7 +251,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Customer.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
      * @return null|string
      */

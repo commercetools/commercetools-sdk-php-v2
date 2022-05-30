@@ -49,7 +49,7 @@ interface Customer extends BaseResource
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
-     * <p>Platform-generated unique identifier of the Customer.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
      * @return null|string
      */

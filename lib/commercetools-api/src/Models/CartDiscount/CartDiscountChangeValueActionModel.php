@@ -59,6 +59,8 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|CartDiscountValueDraft
      */
     public function getValue()

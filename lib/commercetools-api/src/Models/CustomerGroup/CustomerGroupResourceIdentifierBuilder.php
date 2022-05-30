@@ -33,7 +33,7 @@ final class CustomerGroupResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Platform-generated unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

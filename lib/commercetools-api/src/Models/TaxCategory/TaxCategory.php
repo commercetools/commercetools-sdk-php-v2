@@ -25,7 +25,7 @@ interface TaxCategory extends BaseResource
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>Platform-generated unique identifier of the TaxCategory.</p>
+     * <p>Unique identifier of the TaxCategory.</p>
      *
      * @return null|string
      */
@@ -81,7 +81,7 @@ interface TaxCategory extends BaseResource
     public function getDescription();
 
     /**
-     * <p>Tax rates and subrates of states and countries. Each TaxRate in the array has a unique ID assigned by the platform.</p>
+     * <p>Tax rates and subrates of states and countries. Each TaxRate in the array has a unique ID.</p>
      *
      * @return null|TaxRateCollection
      */

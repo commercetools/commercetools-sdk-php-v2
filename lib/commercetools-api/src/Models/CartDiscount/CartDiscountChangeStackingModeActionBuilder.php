@@ -26,6 +26,8 @@ final class CartDiscountChangeStackingModeActionBuilder implements Builder
     private $stackingMode;
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getStackingMode()

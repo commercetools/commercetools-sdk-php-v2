@@ -17,6 +17,8 @@ interface CartDiscountChangeNameAction extends CartDiscountUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();

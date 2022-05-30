@@ -97,7 +97,7 @@ class ByProjectKeyOrdersSearchPost extends ApiRequest implements Errorable
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|OrderPagedSearchResponse
+     * @return null|T|ErrorResponse|JsonObject|OrderPagedSearchResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

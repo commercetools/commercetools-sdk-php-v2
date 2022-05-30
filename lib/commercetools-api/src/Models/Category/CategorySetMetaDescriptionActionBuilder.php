@@ -28,6 +28,8 @@ final class CategorySetMetaDescriptionActionBuilder implements Builder
     private $metaDescription;
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()

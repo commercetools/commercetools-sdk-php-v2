@@ -31,7 +31,7 @@ interface TaxedItemPrice extends JsonObject
     public function getTotalGross();
 
     /**
-     * <p>Platform-calculated value as subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
      *
      * @return null|TypedMoney
      */

@@ -134,7 +134,7 @@ final class ProductModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Platform-generated unique identifier of the Product.</p>
+     * <p>Unique identifier of the Product.</p>
      *
      * @return null|string
      */

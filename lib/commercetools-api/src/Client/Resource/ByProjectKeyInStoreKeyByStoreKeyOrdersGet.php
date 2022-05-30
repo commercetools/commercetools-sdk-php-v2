@@ -102,7 +102,7 @@ class ByProjectKeyInStoreKeyByStoreKeyOrdersGet extends ApiRequest implements Ex
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|OrderPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|OrderPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {

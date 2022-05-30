@@ -97,7 +97,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCustomersEmailConfirmPost extends ApiReque
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|Customer|ErrorResponse|JsonObject
+     * @return null|T|Customer|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
