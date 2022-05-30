@@ -17,6 +17,8 @@ interface CategorySetMetaTitleAction extends CategoryUpdateAction
     public const FIELD_META_TITLE = 'metaTitle';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle();

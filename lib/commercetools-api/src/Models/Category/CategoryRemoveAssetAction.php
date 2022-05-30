@@ -17,11 +17,15 @@ interface CategoryRemoveAssetAction extends CategoryUpdateAction
     public const FIELD_ASSET_KEY = 'assetKey';
 
     /**
+     * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();

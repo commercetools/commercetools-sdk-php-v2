@@ -16,6 +16,8 @@ interface CategoryChangeAssetOrderAction extends CategoryUpdateAction
     public const FIELD_ASSET_ORDER = 'assetOrder';
 
     /**
+     * <p>New value to set. Must contain all Asset <code>id</code>s.</p>
+     *
      * @return null|array
      */
     public function getAssetOrder();

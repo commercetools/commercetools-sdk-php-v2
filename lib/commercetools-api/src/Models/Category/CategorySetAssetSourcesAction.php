@@ -19,16 +19,22 @@ interface CategorySetAssetSourcesAction extends CategoryUpdateAction
     public const FIELD_SOURCES = 'sources';
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+     * <p>Must not be empty. At least one entry is required.</p>
+     *
      * @return null|AssetSourceCollection
      */
     public function getSources();

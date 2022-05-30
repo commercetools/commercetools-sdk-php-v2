@@ -61,6 +61,8 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()

@@ -371,7 +371,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -385,7 +386,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->post(null)`
 
-Creating a category produces the CategoryCreated message.
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
+Creating a Category produces the [CategoryCreatedMessage](/../api/message-types#categorycreatedmessage).
+
 
 ### Example
 ```php
@@ -399,7 +403,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -414,7 +419,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->post(null)`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -429,7 +435,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->delete()`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -444,7 +451,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -459,7 +467,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -474,7 +483,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->delete()`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php

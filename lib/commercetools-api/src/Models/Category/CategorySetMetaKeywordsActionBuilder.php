@@ -28,6 +28,8 @@ final class CategorySetMetaKeywordsActionBuilder implements Builder
     private $metaKeywords;
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()

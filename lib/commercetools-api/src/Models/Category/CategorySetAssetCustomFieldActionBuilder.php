@@ -41,6 +41,8 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -49,6 +51,8 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey()

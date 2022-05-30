@@ -59,6 +59,8 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>New value to set. Must be a decimal value between 0 and 1.</p>
+     *
      * @return null|string
      */
     public function getOrderHint()

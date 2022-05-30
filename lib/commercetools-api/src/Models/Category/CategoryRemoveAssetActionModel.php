@@ -66,6 +66,8 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     }
 
     /**
+     * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -83,6 +85,8 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     }
 
     /**
+     * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey()

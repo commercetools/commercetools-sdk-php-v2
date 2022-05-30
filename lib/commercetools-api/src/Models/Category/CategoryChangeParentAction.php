@@ -16,6 +16,8 @@ interface CategoryChangeParentAction extends CategoryUpdateAction
     public const FIELD_PARENT = 'parent';
 
     /**
+     * <p>New value to set as parent.</p>
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getParent();

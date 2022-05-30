@@ -75,6 +75,8 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -92,6 +94,8 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -109,6 +113,8 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()

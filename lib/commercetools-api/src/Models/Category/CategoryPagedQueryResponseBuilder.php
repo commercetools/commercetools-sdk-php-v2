@@ -28,17 +28,17 @@ final class CategoryPagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
+    private $offset;
+
+    /**
+     * @var ?int
+     */
     private $count;
 
     /**
      * @var ?int
      */
     private $total;
-
-    /**
-     * @var ?int
-     */
-    private $offset;
 
     /**
      * @var ?CategoryCollection
@@ -56,22 +56,6 @@ final class CategoryPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|int
@@ -82,6 +66,32 @@ final class CategoryPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This field is returned by default.
+     * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Category">Category</a> matching the query.</p>
+     *
      * @return null|CategoryCollection
      */
     public function getResults()
@@ -96,6 +106,17 @@ final class CategoryPagedQueryResponseBuilder implements Builder
     public function withLimit(?int $limit)
     {
         $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $offset
+     * @return $this
+     */
+    public function withOffset(?int $offset)
+    {
+        $this->offset = $offset;
 
         return $this;
     }
@@ -123,17 +144,6 @@ final class CategoryPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @param ?int $offset
-     * @return $this
-     */
-    public function withOffset(?int $offset)
-    {
-        $this->offset = $offset;
-
-        return $this;
-    }
-
-    /**
      * @param ?CategoryCollection $results
      * @return $this
      */
@@ -149,9 +159,9 @@ final class CategoryPagedQueryResponseBuilder implements Builder
     {
         return new CategoryPagedQueryResponseModel(
             $this->limit,
+            $this->offset,
             $this->count,
             $this->total,
-            $this->offset,
             $this->results
         );
     }

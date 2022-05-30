@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -20,11 +21,15 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();
@@ -40,7 +45,7 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields();
 
@@ -60,7 +65,7 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     public function setType(?TypeResourceIdentifier $type): void;
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void;
+    public function setFields(?FieldContainer $fields): void;
 }

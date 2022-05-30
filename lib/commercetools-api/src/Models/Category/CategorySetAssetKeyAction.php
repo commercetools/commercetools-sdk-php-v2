@@ -17,13 +17,14 @@ interface CategorySetAssetKeyAction extends CategoryUpdateAction
     public const FIELD_ASSET_KEY = 'assetKey';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
-     * <p>User-defined identifier for the asset.
-     * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|string
      */
