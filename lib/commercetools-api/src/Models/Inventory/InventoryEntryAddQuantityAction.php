@@ -16,6 +16,8 @@ interface InventoryEntryAddQuantityAction extends InventoryEntryUpdateAction
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p>Value to add to <code>quantityOnStock</code>.</p>
+     *
      * @return null|int
      */
     public function getQuantity();

@@ -59,6 +59,8 @@ final class InventoryEntryAddQuantityActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value to add to <code>quantityOnStock</code>.</p>
+     *
      * @return null|int
      */
     public function getQuantity()

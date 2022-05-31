@@ -26,6 +26,8 @@ final class InventoryEntryChangeQuantityActionBuilder implements Builder
     private $quantity;
 
     /**
+     * <p>Value to set for <code>quantityOnStock</code>.</p>
+     *
      * @return null|int
      */
     public function getQuantity()

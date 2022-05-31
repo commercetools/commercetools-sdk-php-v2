@@ -59,6 +59,8 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value to remove from <code>quantityOnStock</code>.</p>
+     *
      * @return null|int
      */
     public function getQuantity()
