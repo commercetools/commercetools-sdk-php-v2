@@ -16,6 +16,8 @@ interface InventoryEntrySetRestockableInDaysAction extends InventoryEntryUpdateA
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|int
      */
     public function getRestockableInDays();

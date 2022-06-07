@@ -25,6 +25,8 @@ interface InventoryEntryDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku();
@@ -37,27 +39,35 @@ interface InventoryEntryDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>Overall amount of stock.</p>
+     *
      * @return null|int
      */
     public function getQuantityOnStock();
 
     /**
+     * <p>How often the InventoryEntry is restocked (in days).</p>
+     *
      * @return null|int
      */
     public function getRestockableInDays();
 
     /**
+     * <p>Date and time of the next restock.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields of the InventoryEntry.</p>
      *
      * @return null|CustomFieldsDraft
      */

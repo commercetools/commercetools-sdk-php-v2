@@ -38,16 +38,22 @@ interface InventoryEntry extends BaseResource
     public function getId();
 
     /**
+     * <p>Current version of the InventoryEntry.</p>
+     *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the InventoryEntry was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the InventoryEntry was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -74,48 +80,50 @@ interface InventoryEntry extends BaseResource
     public function getKey();
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku();
 
     /**
-     * <p>Connection to a particular supplier.</p>
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
      *
      * @return null|ChannelReference
      */
     public function getSupplyChannel();
 
     /**
-     * <p>Overall amount of stock.
-     * (available + reserved)</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
      *
      * @return null|int
      */
     public function getQuantityOnStock();
 
     /**
-     * <p>Available amount of stock.
-     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
      *
      * @return null|int
      */
     public function getAvailableQuantity();
 
     /**
-     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>
+     * <p>How often the InventoryEntry is restocked (in days).</p>
      *
      * @return null|int
      */
     public function getRestockableInDays();
 
     /**
-     * <p>The date and time of the next restock.</p>
+     * <p>Date and time of the next restock.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();
 
     /**
+     * <p>Custom Fields of the InventoryEntry.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
