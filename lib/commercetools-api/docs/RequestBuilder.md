@@ -2438,7 +2438,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
-null
+Produces the [InventoryEntryCreatedMessage](ctp:api:type:InventoryEntryCreatedMessage).
 
 ### Example
 ```php
@@ -2482,7 +2482,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->delete()`
 
-null
+Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
 
 ### Example
 ```php
@@ -2527,7 +2527,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withKey("key")->delete()`
 
-null
+Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
 
 ### Example
 ```php

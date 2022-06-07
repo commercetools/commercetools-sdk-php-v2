@@ -26,6 +26,8 @@ final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
     private $restockableInDays;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|int
      */
     public function getRestockableInDays()

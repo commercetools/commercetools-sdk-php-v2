@@ -26,6 +26,8 @@ final class InventoryEntryRemoveQuantityActionBuilder implements Builder
     private $quantity;
 
     /**
+     * <p>Value to remove from <code>quantityOnStock</code>.</p>
+     *
      * @return null|int
      */
     public function getQuantity()
