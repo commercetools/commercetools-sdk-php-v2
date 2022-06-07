@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+  <file src="lib/commercetools-api/src/Client/BaseAuthConfig.php">
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="lib/commercetools-api/src/Models/Message/OrderMessageModel.php">
+    <MixedAssignment occurrences="1">
+      <code>$this-&gt;type</code>
+    </MixedAssignment>
+    <UndefinedConstant occurrences="1">
+      <code>static::DISCRIMINATOR_VALUE</code>
+    </UndefinedConstant>
+  </file>
+  <file src="lib/commercetools-api/src/Models/Message/OrderMessagePayloadModel.php">
+    <MixedAssignment occurrences="1">
+      <code>$this-&gt;type</code>
+    </MixedAssignment>
+    <UndefinedConstant occurrences="1">
+      <code>static::DISCRIMINATOR_VALUE</code>
+    </UndefinedConstant>
+  </file>
+  <file src="lib/commercetools-api/src/Models/Payment/PaymentUpdateActionModel.php">
+    <MixedPropertyTypeCoercion occurrences="1"/>
+    <UndefinedClass occurrences="4">
+      <code>PaymentSetAmountPaidActionModel</code>
+      <code>PaymentSetAmountRefundedActionModel</code>
+      <code>PaymentSetAuthorizationActionModel</code>
+      <code>PaymentSetExternalIdActionModel</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/commercetools-api/src/Models/ProductType/ProductTypeUpdateActionModel.php">
+    <MixedPropertyTypeCoercion occurrences="1"/>
+    <UndefinedClass occurrences="1">
+      <code>ProductTypeChangeAttributeOrderActionModel</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/commercetools-api/src/Models/Project/ProjectUpdateActionModel.php">
+    <MixedPropertyTypeCoercion occurrences="1"/>
+    <UndefinedClass occurrences="1">
+      <code>ProjectChangeMessagesEnabledActionModel</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/commercetools-api/src/Models/Type/TypeUpdateActionModel.php">
+    <MixedPropertyTypeCoercion occurrences="1"/>
+    <UndefinedClass occurrences="1">
+      <code>TypeChangeFieldDefinitionLabelActionModel</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/commercetools-base/src/Base/BaseJsonObject.php">
+    <InvalidAttribute occurrences="1">
+      <code>\ReturnTypeWillChange</code>
+    </InvalidAttribute>
+  </file>
+  <file src="lib/commercetools-base/src/Base/CMap.php">
+    <InvalidAttribute occurrences="5">
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+    </InvalidAttribute>
+  </file>
+  <file src="lib/commercetools-base/src/Base/CSequence.php">
+    <InvalidAttribute occurrences="5">
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+      <code>\ReturnTypeWillChange</code>
+    </InvalidAttribute>
+  </file>
+  <file src="lib/commercetools-base/src/Base/JsonObjectModel.php">
+    <ParamNameMismatch occurrences="1">
+      <code>$callback</code>
+    </ParamNameMismatch>
+  </file>
+  <file src="lib/commercetools-base/src/Base/MapperIterator.php">
+    <InvalidAttribute occurrences="1">
+      <code>\ReturnTypeWillChange</code>
+    </InvalidAttribute>
+  </file>
+  <file src="lib/commercetools-base/src/Base/MapperMap.php">
+    <UnsafeGenericInstantiation occurrences="2">
+      <code>new static($data)</code>
+      <code>new static($t)</code>
+    </UnsafeGenericInstantiation>
+  </file>
+  <file src="lib/commercetools-base/src/Base/MapperScalarSequence.php">
+    <UnsafeGenericInstantiation occurrences="2">
+      <code>new static($data)</code>
+      <code>new static()</code>
+    </UnsafeGenericInstantiation>
+  </file>
+  <file src="lib/commercetools-base/src/Base/MapperSequence.php">
+    <InvalidAttribute occurrences="1">
+      <code>\ReturnTypeWillChange</code>
+    </InvalidAttribute>
+    <UnsafeGenericInstantiation occurrences="2">
+      <code>new static($data)</code>
+      <code>new static()</code>
+    </UnsafeGenericInstantiation>
+  </file>
+  <file src="lib/commercetools-base/src/Client/ApiRequest.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>$headers</code>
+    </InvalidScalarArgument>
+    <UnusedForeachValue occurrences="1">
+      <code>$value</code>
+    </UnusedForeachValue>
+  </file>
+  <file src="lib/commercetools-base/src/Client/CacheValidator.php">
+    <UndefinedClass occurrences="1">
+      <code>FilesystemCache</code>
+    </UndefinedClass>
+  </file>
+  <file src="lib/commercetools-base/src/Client/CachedTokenProvider.php">
+    <UnusedVariable occurrences="1">
+      <code>$item</code>
+    </UnusedVariable>
+  </file>
+  <file src="lib/commercetools-base/src/Client/ClientFactory.php">
+    <MixedArrayAssignment occurrences="2">
+      <code>$options['headers']['accept-encoding']</code>
+      <code>$options['headers']['user-agent']</code>
+    </MixedArrayAssignment>
+  </file>
+  <file src="lib/commercetools-base/src/Client/MiddlewareFactory.php">
+    <UnusedClosureParam occurrences="1">
+      <code>$request</code>
+    </UnusedClosureParam>
+  </file>
+  <file src="lib/commercetools-import/src/Client/BaseAuthConfig.php">
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="lib/commercetools-ml/src/Client/BaseAuthConfig.php">
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="src/Base/MapperArraySequence.php">
+    <UnsafeGenericInstantiation occurrences="1">
+      <code>new static($data)</code>
+    </UnsafeGenericInstantiation>
+  </file>
+  <file src="src/Client/ImportRequestBuilder.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>Resource\ResourceByProjectKeyInventories</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;with()-&gt;inventories()</code>
+    </MixedReturnStatement>
+    <UndefinedClass occurrences="1">
+      <code>Resource\ResourceByProjectKeyInventories</code>
+    </UndefinedClass>
+    <UndefinedMethod occurrences="1">
+      <code>inventories</code>
+    </UndefinedMethod>
+  </file>
+</files>
