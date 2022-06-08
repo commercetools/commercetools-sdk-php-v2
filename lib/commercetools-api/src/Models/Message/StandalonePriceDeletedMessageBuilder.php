@@ -14,10 +14,6 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
-use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
-use Commercetools\Api\Models\OrderEdit\OrderEditAppliedBuilder;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -27,9 +23,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<OrderEditAppliedMessage>
+ * @implements Builder<StandalonePriceDeletedMessage>
  */
-final class OrderEditAppliedMessageBuilder implements Builder
+final class StandalonePriceDeletedMessageBuilder implements Builder
 {
     /**
      * @var ?string
@@ -80,16 +76,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
-
-    /**
-     * @var null|OrderEditReference|OrderEditReferenceBuilder
-     */
-    private $edit;
-
-    /**
-     * @var null|OrderEditApplied|OrderEditAppliedBuilder
-     */
-    private $result;
 
     /**
      * <p>Unique identifier of the Message.</p>
@@ -177,24 +163,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
-     *
-     * @return null|OrderEditReference
-     */
-    public function getEdit()
-    {
-        return $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit;
-    }
-
-    /**
-     * @return null|OrderEditApplied
-     */
-    public function getResult()
-    {
-        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
     }
 
     /**
@@ -308,28 +276,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?OrderEditReference $edit
-     * @return $this
-     */
-    public function withEdit(?OrderEditReference $edit)
-    {
-        $this->edit = $edit;
-
-        return $this;
-    }
-
-    /**
-     * @param ?OrderEditApplied $result
-     * @return $this
-     */
-    public function withResult(?OrderEditApplied $result)
-    {
-        $this->result = $result;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -373,31 +319,9 @@ final class OrderEditAppliedMessageBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withEdit() instead
-     * @return $this
-     */
-    public function withEditBuilder(?OrderEditReferenceBuilder $edit)
+    public function build(): StandalonePriceDeletedMessage
     {
-        $this->edit = $edit;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withResult() instead
-     * @return $this
-     */
-    public function withResultBuilder(?OrderEditAppliedBuilder $result)
-    {
-        $this->result = $result;
-
-        return $this;
-    }
-
-    public function build(): OrderEditAppliedMessage
-    {
-        return new OrderEditAppliedMessageModel(
+        return new StandalonePriceDeletedMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -407,13 +331,11 @@ final class OrderEditAppliedMessageBuilder implements Builder
             $this->sequenceNumber,
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
-            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit,
-            $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result
+            $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers
         );
     }
 
-    public static function of(): OrderEditAppliedMessageBuilder
+    public static function of(): StandalonePriceDeletedMessageBuilder
     {
         return new self();
     }

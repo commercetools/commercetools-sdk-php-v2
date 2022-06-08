@@ -10,14 +10,12 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
+use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Api\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
-use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
-use Commercetools\Api\Models\OrderEdit\OrderEditAppliedBuilder;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -27,9 +25,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<OrderEditAppliedMessage>
+ * @implements Builder<StandalonePriceDiscountSetMessage>
  */
-final class OrderEditAppliedMessageBuilder implements Builder
+final class StandalonePriceDiscountSetMessageBuilder implements Builder
 {
     /**
      * @var ?string
@@ -82,14 +80,9 @@ final class OrderEditAppliedMessageBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var null|OrderEditReference|OrderEditReferenceBuilder
+     * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
-    private $edit;
-
-    /**
-     * @var null|OrderEditApplied|OrderEditAppliedBuilder
-     */
-    private $result;
+    private $discounted;
 
     /**
      * <p>Unique identifier of the Message.</p>
@@ -180,21 +173,13 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
      *
-     * @return null|OrderEditReference
+     * @return null|DiscountedPrice
      */
-    public function getEdit()
+    public function getDiscounted()
     {
-        return $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit;
-    }
-
-    /**
-     * @return null|OrderEditApplied
-     */
-    public function getResult()
-    {
-        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
@@ -308,23 +293,12 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?OrderEditReference $edit
+     * @param ?DiscountedPrice $discounted
      * @return $this
      */
-    public function withEdit(?OrderEditReference $edit)
+    public function withDiscounted(?DiscountedPrice $discounted)
     {
-        $this->edit = $edit;
-
-        return $this;
-    }
-
-    /**
-     * @param ?OrderEditApplied $result
-     * @return $this
-     */
-    public function withResult(?OrderEditApplied $result)
-    {
-        $this->result = $result;
+        $this->discounted = $discounted;
 
         return $this;
     }
@@ -374,30 +348,19 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @deprecated use withEdit() instead
+     * @deprecated use withDiscounted() instead
      * @return $this
      */
-    public function withEditBuilder(?OrderEditReferenceBuilder $edit)
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
     {
-        $this->edit = $edit;
+        $this->discounted = $discounted;
 
         return $this;
     }
 
-    /**
-     * @deprecated use withResult() instead
-     * @return $this
-     */
-    public function withResultBuilder(?OrderEditAppliedBuilder $result)
+    public function build(): StandalonePriceDiscountSetMessage
     {
-        $this->result = $result;
-
-        return $this;
-    }
-
-    public function build(): OrderEditAppliedMessage
-    {
-        return new OrderEditAppliedMessageModel(
+        return new StandalonePriceDiscountSetMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -408,12 +371,11 @@ final class OrderEditAppliedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit,
-            $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result
+            $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted
         );
     }
 
-    public static function of(): OrderEditAppliedMessageBuilder
+    public static function of(): StandalonePriceDiscountSetMessageBuilder
     {
         return new self();
     }

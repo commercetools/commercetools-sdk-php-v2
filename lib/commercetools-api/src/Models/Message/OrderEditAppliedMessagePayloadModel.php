@@ -70,7 +70,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
      * @return null|OrderEditReference
      */

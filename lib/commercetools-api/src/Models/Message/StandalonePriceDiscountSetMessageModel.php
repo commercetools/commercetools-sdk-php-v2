@@ -10,14 +10,12 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Api\Models\Common\DiscountedPriceModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
-use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,9 +26,9 @@ use stdClass;
 /**
  * @internal
  */
-final class OrderEditAppliedMessageModel extends JsonObjectModel implements OrderEditAppliedMessage
+final class StandalonePriceDiscountSetMessageModel extends JsonObjectModel implements StandalonePriceDiscountSetMessage
 {
-    public const DISCRIMINATOR_VALUE = 'OrderEditApplied';
+    public const DISCRIMINATOR_VALUE = 'StandalonePriceDiscountSet';
     /**
      * @var ?string
      */
@@ -87,14 +85,9 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
     protected $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?OrderEditReference
+     * @var ?DiscountedPrice
      */
-    protected $edit;
-
-    /**
-     * @var ?OrderEditApplied
-     */
-    protected $result;
+    protected $discounted;
 
 
     /**
@@ -111,8 +104,7 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?OrderEditReference $edit = null,
-        ?OrderEditApplied $result = null
+        ?DiscountedPrice $discounted = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -124,8 +116,7 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->edit = $edit;
-        $this->result = $result;
+        $this->discounted = $discounted;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -337,41 +328,23 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
      *
-     * @return null|OrderEditReference
+     * @return null|DiscountedPrice
      */
-    public function getEdit()
+    public function getDiscounted()
     {
-        if (is_null($this->edit)) {
+        if (is_null($this->discounted)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EDIT);
+            $data = $this->raw(self::FIELD_DISCOUNTED);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->edit = OrderEditReferenceModel::of($data);
+            $this->discounted = DiscountedPriceModel::of($data);
         }
 
-        return $this->edit;
-    }
-
-    /**
-     * @return null|OrderEditApplied
-     */
-    public function getResult()
-    {
-        if (is_null($this->result)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_RESULT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->result = OrderEditAppliedModel::of($data);
-        }
-
-        return $this->result;
+        return $this->discounted;
     }
 
 
@@ -456,19 +429,11 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
     }
 
     /**
-     * @param ?OrderEditReference $edit
+     * @param ?DiscountedPrice $discounted
      */
-    public function setEdit(?OrderEditReference $edit): void
+    public function setDiscounted(?DiscountedPrice $discounted): void
     {
-        $this->edit = $edit;
-    }
-
-    /**
-     * @param ?OrderEditApplied $result
-     */
-    public function setResult(?OrderEditApplied $result): void
-    {
-        $this->result = $result;
+        $this->discounted = $discounted;
     }
 
 

@@ -29,16 +29,23 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
      */
     protected $actions;
 
+    /**
+     * @var ?string
+     */
+    protected $condition;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $resourceTypeId = null,
-        ?array $actions = null
+        ?array $actions = null,
+        ?string $condition = null
     ) {
         $this->resourceTypeId = $resourceTypeId;
         $this->actions = $actions;
+        $this->condition = $condition;
     }
 
     /**
@@ -79,6 +86,25 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
         return $this->actions;
     }
 
+    /**
+     * <p>Valid <a href="/../api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
+     *
+     * @return null|string
+     */
+    public function getCondition()
+    {
+        if (is_null($this->condition)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CONDITION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->condition = (string) $data;
+        }
+
+        return $this->condition;
+    }
+
 
     /**
      * @param ?string $resourceTypeId
@@ -94,5 +120,13 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     public function setActions(?array $actions): void
     {
         $this->actions = $actions;
+    }
+
+    /**
+     * @param ?string $condition
+     */
+    public function setCondition(?string $condition): void
+    {
+        $this->condition = $condition;
     }
 }

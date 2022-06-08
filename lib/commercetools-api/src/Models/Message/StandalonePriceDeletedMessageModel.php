@@ -14,10 +14,6 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
-use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,9 +24,9 @@ use stdClass;
 /**
  * @internal
  */
-final class OrderEditAppliedMessageModel extends JsonObjectModel implements OrderEditAppliedMessage
+final class StandalonePriceDeletedMessageModel extends JsonObjectModel implements StandalonePriceDeletedMessage
 {
-    public const DISCRIMINATOR_VALUE = 'OrderEditApplied';
+    public const DISCRIMINATOR_VALUE = 'StandalonePriceDeleted';
     /**
      * @var ?string
      */
@@ -86,16 +82,6 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
      */
     protected $resourceUserProvidedIdentifiers;
 
-    /**
-     * @var ?OrderEditReference
-     */
-    protected $edit;
-
-    /**
-     * @var ?OrderEditApplied
-     */
-    protected $result;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -110,9 +96,7 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         ?int $sequenceNumber = null,
         ?Reference $resource = null,
         ?int $resourceVersion = null,
-        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?OrderEditReference $edit = null,
-        ?OrderEditApplied $result = null
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -124,8 +108,6 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->edit = $edit;
-        $this->result = $result;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -336,44 +318,6 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
         return $this->resourceUserProvidedIdentifiers;
     }
 
-    /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
-     *
-     * @return null|OrderEditReference
-     */
-    public function getEdit()
-    {
-        if (is_null($this->edit)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_EDIT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->edit = OrderEditReferenceModel::of($data);
-        }
-
-        return $this->edit;
-    }
-
-    /**
-     * @return null|OrderEditApplied
-     */
-    public function getResult()
-    {
-        if (is_null($this->result)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_RESULT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->result = OrderEditAppliedModel::of($data);
-        }
-
-        return $this->result;
-    }
-
 
     /**
      * @param ?string $id
@@ -453,22 +397,6 @@ final class OrderEditAppliedMessageModel extends JsonObjectModel implements Orde
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @param ?OrderEditReference $edit
-     */
-    public function setEdit(?OrderEditReference $edit): void
-    {
-        $this->edit = $edit;
-    }
-
-    /**
-     * @param ?OrderEditApplied $result
-     */
-    public function setResult(?OrderEditApplied $result): void
-    {
-        $this->result = $result;
     }
 
 
