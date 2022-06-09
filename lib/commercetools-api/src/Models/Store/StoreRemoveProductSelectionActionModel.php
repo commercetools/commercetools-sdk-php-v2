@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
-use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,7 +28,7 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?ResourceIdentifier
+     * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
 
@@ -37,7 +37,7 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ResourceIdentifier $productSelection = null
+        ?ProductSelectionResourceIdentifier $productSelection = null
     ) {
         $this->productSelection = $productSelection;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -61,9 +61,9 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>A Product Selection to be removed from the current Product Selections of this Store.</p>
+     * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
-     * @return null|ResourceIdentifier
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
     {
@@ -73,8 +73,8 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $className = ResourceIdentifierModel::resolveDiscriminatorClass($data);
-            $this->productSelection = $className::of($data);
+
+            $this->productSelection = ProductSelectionResourceIdentifierModel::of($data);
         }
 
         return $this->productSelection;
@@ -82,9 +82,9 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
 
 
     /**
-     * @param ?ResourceIdentifier $productSelection
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      */
-    public function setProductSelection(?ResourceIdentifier $productSelection): void
+    public function setProductSelection(?ProductSelectionResourceIdentifier $productSelection): void
     {
         $this->productSelection = $productSelection;
     }

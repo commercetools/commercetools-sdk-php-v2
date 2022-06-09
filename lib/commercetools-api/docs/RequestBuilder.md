@@ -4725,7 +4725,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->post(null)`
 
-null
+Produces the [StandalonePriceCreatedMessage](ctp:api:type:StandalonePriceCreatedMessage).
+
 
 ### Example
 ```php
@@ -4769,7 +4770,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
 
-null
+Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+
 
 ### Example
 ```php
@@ -4814,7 +4816,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
 
-null
+Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+
 
 ### Example
 ```php

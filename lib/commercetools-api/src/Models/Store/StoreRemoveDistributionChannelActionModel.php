@@ -61,6 +61,8 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Value to remove. ResourceIdentifier of a Channel with the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

@@ -44,7 +44,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>Reference to a Product Selection</p>
+     * <p>Reference to a ProductSelection.</p>
      *
      * @return null|ProductSelectionReference
      */
@@ -64,7 +64,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * <p>If <code>true</code> all Products assigned to this Product Selection are part of the Store's assortment.</p>
+     * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
      *
      * @return null|bool
      */

@@ -17,6 +17,8 @@ interface StoreAddDistributionChannelAction extends StoreUpdateAction
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+     * <p>Value to append. Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannelError</a> error.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();

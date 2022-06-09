@@ -26,7 +26,11 @@ final class StoreSetProductSelectionsActionBuilder implements Builder
     private $productSelections;
 
     /**
-     * <p>The total of Product Selections to be set for this Store.</p>
+     * <p>Value to set.</p>
+     * <ul>
+     * <li>If provided, Product Selections for which <code>active</code> is set to <code>true</code> are available in the Store.</li>
+     * <li>If not provided or provided as empty array, the action removes all Product Selections from this Store, meaning all Products in the <a href="ctp:api:type:Project">Project</a> are available in this Store.</li>
+     * </ul>
      *
      * @return null|ProductSelectionSettingDraftCollection
      */

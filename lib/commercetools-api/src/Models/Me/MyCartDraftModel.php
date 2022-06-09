@@ -384,6 +384,8 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     *
      * @return null|StoreKeyReference
      */
     public function getStore()

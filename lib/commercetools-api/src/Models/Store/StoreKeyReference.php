@@ -14,4 +14,15 @@ use Commercetools\Base\JsonObject;
 
 interface StoreKeyReference extends KeyReference
 {
+    /**
+     * <p>Unique and immutable key of the referenced <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 }

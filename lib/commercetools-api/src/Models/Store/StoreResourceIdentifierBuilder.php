@@ -33,7 +33,7 @@ final class StoreResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
+     * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -43,7 +43,7 @@ final class StoreResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
+     * <p>Unique key of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

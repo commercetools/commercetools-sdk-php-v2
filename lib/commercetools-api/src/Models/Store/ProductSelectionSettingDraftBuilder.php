@@ -33,7 +33,7 @@ final class ProductSelectionSettingDraftBuilder implements Builder
     private $active;
 
     /**
-     * <p>Resource Identifier of a Product Selection</p>
+     * <p>Resource Identifier of a ProductSelection.</p>
      *
      * @return null|ProductSelectionResourceIdentifier
      */
@@ -43,7 +43,7 @@ final class ProductSelectionSettingDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code> all Products assigned to this Product Selection become part of the Store's assortment.</p>
+     * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
      * @return null|bool
      */

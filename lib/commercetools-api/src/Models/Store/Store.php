@@ -31,84 +31,96 @@ interface Store extends BaseResource
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>Unique ID of the Store.</p>
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Current version of the Store.</p>
+     *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the Store was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Store was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>User-specific unique identifier for the store.
-     * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>
+     * <p>User-defined unique and immutable identifier for the Store.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The name of the store</p>
+     * <p>Name of the Store.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Languages configured for the Store.</p>
+     *
      * @return null|array
      */
     public function getLanguages();
 
     /**
-     * <p>Set of References to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Product Distribution Channels allowed for the Store.</p>
      *
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels();
 
     /**
-     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     * <p>Inventory Supply Channels allowed for the Store.</p>
      *
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels();
 
     /**
-     * <p>Set of References to Product Selections along with settings.
-     * If <code>productSelections</code> is empty all products in the project are available in this Store.
-     * If <code>productSelections</code> is not empty but there exists no <code>active</code> Product Selection then no Product is available in this Store.</p>
+     * <p>Controls availability of Products for this Store via active Product Selections.</p>
+     * <ul>
+     * <li>If empty all Products in the <a href="ctp:api:type:Project">Project</a> are available in this Store.</li>
+     * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
+     * </ul>
      *
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections();
 
     /**
+     * <p>Custom fields for the Store.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
