@@ -96,7 +96,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("test_projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 'post',
                 'test_projectKey/me/email/confirm',
@@ -119,7 +119,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 }
             ]
         ];
@@ -128,13 +128,23 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
     public function getRequestBuilderResponses()
     {
         return [
+            'ByProjectKeyMeEmailConfirmPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->emailConfirm()
+                        ->post(null);
+                },
+                200
+            ],
             'ByProjectKeyMeEmailConfirmPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 400
             ],
@@ -144,7 +154,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 401
             ],
@@ -154,7 +164,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 403
             ],
@@ -164,7 +174,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 404
             ],
@@ -174,7 +184,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 500
             ],
@@ -184,7 +194,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 502
             ],
@@ -194,7 +204,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 503
             ],
@@ -204,7 +214,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->withProjectKey("projectKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 599
             ]

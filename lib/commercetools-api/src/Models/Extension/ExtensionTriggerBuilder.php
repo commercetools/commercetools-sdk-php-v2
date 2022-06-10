@@ -31,6 +31,11 @@ final class ExtensionTriggerBuilder implements Builder
     private $actions;
 
     /**
+     * @var ?string
+     */
+    private $condition;
+
+    /**
      * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
      *
      * @return null|string
@@ -48,6 +53,16 @@ final class ExtensionTriggerBuilder implements Builder
     public function getActions()
     {
         return $this->actions;
+    }
+
+    /**
+     * <p>Valid <a href="/../api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
+     *
+     * @return null|string
+     */
+    public function getCondition()
+    {
+        return $this->condition;
     }
 
     /**
@@ -72,12 +87,24 @@ final class ExtensionTriggerBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $condition
+     * @return $this
+     */
+    public function withCondition(?string $condition)
+    {
+        $this->condition = $condition;
+
+        return $this;
+    }
+
 
     public function build(): ExtensionTrigger
     {
         return new ExtensionTriggerModel(
             $this->resourceTypeId,
-            $this->actions
+            $this->actions,
+            $this->condition
         );
     }
 
