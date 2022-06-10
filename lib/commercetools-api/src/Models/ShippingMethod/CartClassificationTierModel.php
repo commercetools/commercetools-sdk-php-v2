@@ -77,6 +77,8 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+     * <p><code>key</code> of a <a href="/projects/project#cartclassificationtype">CartClassificationType</a>.</p>
+     *
      * @return null|string
      */
     public function getValue()
@@ -94,8 +96,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Fixed shipping rate Price for a CartClassification.</p>
      *
      * @return null|Money
      */
@@ -115,6 +116,8 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+     * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
+     *
      * @return null|bool
      */
     public function getIsMatching()

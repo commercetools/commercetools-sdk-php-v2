@@ -17,6 +17,8 @@ interface ShippingMethodRemoveZoneAction extends ShippingMethodUpdateAction
     public const FIELD_ZONE = 'zone';
 
     /**
+     * <p>Value to remove from <code>zoneRates</code>.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone();

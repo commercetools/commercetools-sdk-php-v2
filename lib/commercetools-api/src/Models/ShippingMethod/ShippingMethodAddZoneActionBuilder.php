@@ -28,6 +28,8 @@ final class ShippingMethodAddZoneActionBuilder implements Builder
     private $zone;
 
     /**
+     * <p>Value to add to <code>zoneRates</code>.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()

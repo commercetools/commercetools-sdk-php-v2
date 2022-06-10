@@ -68,6 +68,8 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p><a href="ctp:api:type:Zone">Zone</a> to which the ShippingRate should be added.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()
@@ -86,6 +88,8 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Value to add to <code>shippingRates</code>.</p>
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()

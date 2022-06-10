@@ -124,7 +124,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the shipping method.</p>
+     * <p>Current version of the ShippingMethod.</p>
      *
      * @return null|int
      */
@@ -134,6 +134,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ShippingMethod was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -142,6 +144,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ShippingMethod was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -180,6 +184,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Name of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -188,6 +194,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Localized name of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedName()
@@ -196,6 +204,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Description of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getDescription()
@@ -204,6 +214,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Localized description of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()
@@ -212,6 +224,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> of all ZoneRates of the ShippingMethod.</p>
+     *
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -220,6 +234,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific Zones.</p>
+     *
      * @return null|ZoneRateCollection
      */
     public function getZoneRates()
@@ -228,7 +244,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>One shipping method in a project can be default.</p>
+     * <p>If <code>true</code> this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
      * @return null|bool
      */
@@ -238,7 +254,7 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>
+     * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
      * @return null|string
      */
@@ -248,6 +264,8 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the ShippingMethod.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
