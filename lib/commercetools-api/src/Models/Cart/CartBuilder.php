@@ -345,7 +345,7 @@ final class CartBuilder implements Builder
 
     /**
      * <p>Not set until the shipping address is set.
-     * Will be set automatically in the <code>Platform</code> TaxMode.
+     * Will be set automatically in <code>Composable Commerce</code> TaxMode.
      * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
      *
      * @return null|TaxedPrice
