@@ -119,6 +119,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'StandalonePriceCreated' => StandalonePriceCreatedMessagePayloadModel::class,
        'StandalonePriceDeleted' => StandalonePriceDeletedMessagePayloadModel::class,
        'StandalonePriceDiscountSet' => StandalonePriceDiscountSetMessagePayloadModel::class,
+       'StandalonePriceExternalDiscountSet' => StandalonePriceExternalDiscountSetMessagePayloadModel::class,
        'StandalonePriceValueChanged' => StandalonePriceValueChangedMessagePayloadModel::class,
        'StoreCreated' => StoreCreatedMessagePayloadModel::class,
        'StoreDeleted' => StoreDeletedMessagePayloadModel::class,

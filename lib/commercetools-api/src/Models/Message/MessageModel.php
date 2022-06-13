@@ -177,6 +177,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'StandalonePriceCreated' => StandalonePriceCreatedMessageModel::class,
        'StandalonePriceDeleted' => StandalonePriceDeletedMessageModel::class,
        'StandalonePriceDiscountSet' => StandalonePriceDiscountSetMessageModel::class,
+       'StandalonePriceExternalDiscountSet' => StandalonePriceExternalDiscountSetMessageModel::class,
        'StandalonePriceValueChanged' => StandalonePriceValueChangedMessageModel::class,
        'StoreCreated' => StoreCreatedMessageModel::class,
        'StoreDeleted' => StoreDeletedMessageModel::class,

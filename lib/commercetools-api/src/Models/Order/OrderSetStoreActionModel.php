@@ -61,6 +61,8 @@ final class OrderSetStoreActionModel extends JsonObjectModel implements OrderSet
     }
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
+     *
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

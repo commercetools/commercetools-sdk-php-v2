@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,14 +17,14 @@ interface StoreRemoveProductSelectionAction extends StoreUpdateAction
     public const FIELD_PRODUCT_SELECTION = 'productSelection';
 
     /**
-     * <p>A Product Selection to be removed from the current Product Selections of this Store.</p>
+     * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
-     * @return null|ResourceIdentifier
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection();
 
     /**
-     * @param ?ResourceIdentifier $productSelection
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      */
-    public function setProductSelection(?ResourceIdentifier $productSelection): void;
+    public function setProductSelection(?ProductSelectionResourceIdentifier $productSelection): void;
 }

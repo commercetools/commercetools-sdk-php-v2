@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -18,23 +18,23 @@ interface StoreChangeProductSelectionAction extends StoreUpdateAction
     public const FIELD_ACTIVE = 'active';
 
     /**
-     * <p>A current Product Selection of this Store that is to be activated or deactivated.</p>
+     * <p>Current Product Selection of the Store to be activated or deactivated.</p>
      *
-     * @return null|ResourceIdentifier
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection();
 
     /**
-     * <p>If <code>true</code> all Products assigned to the Product Selection become part of the Store's assortment.</p>
+     * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
      * @return null|bool
      */
     public function getActive();
 
     /**
-     * @param ?ResourceIdentifier $productSelection
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      */
-    public function setProductSelection(?ResourceIdentifier $productSelection): void;
+    public function setProductSelection(?ProductSelectionResourceIdentifier $productSelection): void;
 
     /**
      * @param ?bool $active

@@ -17,6 +17,8 @@ interface CustomerAddStoreAction extends CustomerUpdateAction
     public const FIELD_STORE = 'store';
 
     /**
+     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
+     *
      * @return null|StoreResourceIdentifier
      */
     public function getStore();

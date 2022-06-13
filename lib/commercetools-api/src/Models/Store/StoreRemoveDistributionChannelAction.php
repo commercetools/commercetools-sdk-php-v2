@@ -17,6 +17,8 @@ interface StoreRemoveDistributionChannelAction extends StoreUpdateAction
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+     * <p>Value to remove. ResourceIdentifier of a Channel with the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
