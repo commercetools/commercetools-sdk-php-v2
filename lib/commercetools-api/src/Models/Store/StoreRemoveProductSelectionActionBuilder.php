@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
-use Commercetools\Api\Models\Common\ResourceIdentifierBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -23,25 +23,25 @@ use stdClass;
 final class StoreRemoveProductSelectionActionBuilder implements Builder
 {
     /**
-     * @var null|ResourceIdentifier|ResourceIdentifierBuilder
+     * @var null|ProductSelectionResourceIdentifier|ProductSelectionResourceIdentifierBuilder
      */
     private $productSelection;
 
     /**
-     * <p>A Product Selection to be removed from the current Product Selections of this Store.</p>
+     * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
-     * @return null|ResourceIdentifier
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
     {
-        return $this->productSelection instanceof ResourceIdentifierBuilder ? $this->productSelection->build() : $this->productSelection;
+        return $this->productSelection instanceof ProductSelectionResourceIdentifierBuilder ? $this->productSelection->build() : $this->productSelection;
     }
 
     /**
-     * @param ?ResourceIdentifier $productSelection
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      * @return $this
      */
-    public function withProductSelection(?ResourceIdentifier $productSelection)
+    public function withProductSelection(?ProductSelectionResourceIdentifier $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -52,7 +52,7 @@ final class StoreRemoveProductSelectionActionBuilder implements Builder
      * @deprecated use withProductSelection() instead
      * @return $this
      */
-    public function withProductSelectionBuilder(?ResourceIdentifierBuilder $productSelection)
+    public function withProductSelectionBuilder(?ProductSelectionResourceIdentifierBuilder $productSelection)
     {
         $this->productSelection = $productSelection;
 
@@ -62,7 +62,7 @@ final class StoreRemoveProductSelectionActionBuilder implements Builder
     public function build(): StoreRemoveProductSelectionAction
     {
         return new StoreRemoveProductSelectionActionModel(
-            $this->productSelection instanceof ResourceIdentifierBuilder ? $this->productSelection->build() : $this->productSelection
+            $this->productSelection instanceof ProductSelectionResourceIdentifierBuilder ? $this->productSelection->build() : $this->productSelection
         );
     }
 

@@ -18,14 +18,14 @@ interface ProductSelectionSetting extends JsonObject
     public const FIELD_ACTIVE = 'active';
 
     /**
-     * <p>Reference to a Product Selection</p>
+     * <p>Reference to a ProductSelection.</p>
      *
      * @return null|ProductSelectionReference
      */
     public function getProductSelection();
 
     /**
-     * <p>If <code>true</code> all Products assigned to this Product Selection are part of the Store's assortment.</p>
+     * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
      *
      * @return null|bool
      */

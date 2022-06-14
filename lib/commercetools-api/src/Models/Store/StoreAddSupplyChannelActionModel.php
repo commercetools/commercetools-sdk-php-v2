@@ -61,6 +61,8 @@ final class StoreAddSupplyChannelActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

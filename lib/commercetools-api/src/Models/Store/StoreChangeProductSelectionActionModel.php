@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Api\Models\Common\ResourceIdentifier;
-use Commercetools\Api\Models\Common\ResourceIdentifierModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,7 +28,7 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?ResourceIdentifier
+     * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
 
@@ -42,7 +42,7 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ResourceIdentifier $productSelection = null,
+        ?ProductSelectionResourceIdentifier $productSelection = null,
         ?bool $active = null
     ) {
         $this->productSelection = $productSelection;
@@ -68,9 +68,9 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>A current Product Selection of this Store that is to be activated or deactivated.</p>
+     * <p>Current Product Selection of the Store to be activated or deactivated.</p>
      *
-     * @return null|ResourceIdentifier
+     * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
     {
@@ -80,15 +80,15 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $className = ResourceIdentifierModel::resolveDiscriminatorClass($data);
-            $this->productSelection = $className::of($data);
+
+            $this->productSelection = ProductSelectionResourceIdentifierModel::of($data);
         }
 
         return $this->productSelection;
     }
 
     /**
-     * <p>If <code>true</code> all Products assigned to the Product Selection become part of the Store's assortment.</p>
+     * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
      * @return null|bool
      */
@@ -108,9 +108,9 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
 
 
     /**
-     * @param ?ResourceIdentifier $productSelection
+     * @param ?ProductSelectionResourceIdentifier $productSelection
      */
-    public function setProductSelection(?ResourceIdentifier $productSelection): void
+    public function setProductSelection(?ProductSelectionResourceIdentifier $productSelection): void
     {
         $this->productSelection = $productSelection;
     }

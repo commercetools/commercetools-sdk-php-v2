@@ -97,7 +97,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("test_storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 'post',
                 'test_projectKey/in-store/key=test_storeKey/me/email/confirm',
@@ -121,7 +121,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 }
             ]
         ];
@@ -130,6 +130,17 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
     public function getRequestBuilderResponses()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmPost_200' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->emailConfirm()
+                        ->post(null);
+                },
+                200
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmPost_400' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -137,7 +148,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 400
             ],
@@ -148,7 +159,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 401
             ],
@@ -159,7 +170,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 403
             ],
@@ -170,7 +181,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 404
             ],
@@ -181,7 +192,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 500
             ],
@@ -192,7 +203,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 502
             ],
@@ -203,7 +214,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 503
             ],
@@ -214,7 +225,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmTest extends TestCas
                         ->inStoreKeyWithStoreKeyValue("storeKey")
                         ->me()
                         ->emailConfirm()
-                        ->post();
+                        ->post(null);
                 },
                 599
             ]

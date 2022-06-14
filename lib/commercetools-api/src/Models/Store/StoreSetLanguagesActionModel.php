@@ -59,6 +59,9 @@ final class StoreSetLanguagesActionModel extends JsonObjectModel implements Stor
     }
 
     /**
+     * <p>Value to set.
+     * Any attempt to use languages other than the ones defined in the <a href="ctp:api:type:Project">Project</a> will fail with a <a href="ctp:api:type:ProjectNotConfiguredForLanguagesError">ProjectNotConfiguredForLanguages</a> error.</p>
+     *
      * @return null|array
      */
     public function getLanguages()

@@ -1804,7 +1804,7 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->emailConfirm()->post()`
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->emailConfirm()->post(null)`
 
 null
 
@@ -1818,7 +1818,7 @@ $request = $builder
                 ->inStoreKeyWithStoreKeyValue("storeKey")
                 ->me()
                 ->emailConfirm()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->login()->post(null)`
 
@@ -2760,7 +2760,7 @@ $request = $builder
                 ->replicate()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->me()->emailConfirm()->post()`
+## `withProjectKey("projectKey")->me()->emailConfirm()->post(null)`
 
 null
 
@@ -2773,7 +2773,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->emailConfirm()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->login()->post(null)`
 
@@ -4725,7 +4725,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->post(null)`
 
-null
+Produces the [StandalonePriceCreatedMessage](ctp:api:type:StandalonePriceCreatedMessage).
+
 
 ### Example
 ```php
@@ -4769,7 +4770,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
 
-null
+Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+
 
 ### Example
 ```php
@@ -4814,7 +4816,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
 
-null
+Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+
 
 ### Example
 ```php

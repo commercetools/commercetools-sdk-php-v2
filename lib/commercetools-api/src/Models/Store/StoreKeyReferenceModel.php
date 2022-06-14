@@ -63,7 +63,7 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     }
 
     /**
-     * <p>User-defined unique and immutable key of the referenced resource.</p>
+     * <p>Unique and immutable key of the referenced <a href="ctp:api:type:Store">Store</a>.</p>
      *
      * @return null|string
      */
