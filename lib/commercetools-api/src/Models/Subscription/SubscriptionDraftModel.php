@@ -63,6 +63,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Change notifications to be subscribed to. Either <code>messages</code> or <code>changes</code> must be set.</p>
+     *
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -80,6 +82,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Message queue to which the notifications are to be sent.</p>
+     *
      * @return null|Destination
      */
     public function getDestination()
@@ -117,6 +121,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Messages to be subscribed to. Either <code>messages</code> or <code>changes</code> must be set.</p>
+     *
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -134,6 +140,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Format in which the payload is delivered. When not provided, the <a href="ctp:api:type:PlatformFormat">PlatformFormat</a> is selected by default.</p>
+     *
      * @return null|DeliveryFormat
      */
     public function getFormat()

@@ -31,6 +31,8 @@ final class PayloadNotIncludedBuilder implements Builder
     private $payloadType;
 
     /**
+     * <p>Reason the payload is not included.</p>
+     *
      * @return null|string
      */
     public function getReason()
@@ -39,6 +41,8 @@ final class PayloadNotIncludedBuilder implements Builder
     }
 
     /**
+     * <p>Value of the <code>type</code> field in the original payload.</p>
+     *
      * @return null|string
      */
     public function getPayloadType()

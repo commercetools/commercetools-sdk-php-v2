@@ -42,6 +42,8 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     }
 
     /**
+     * <p>Reason the payload is not included.</p>
+     *
      * @return null|string
      */
     public function getReason()
@@ -59,6 +61,8 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     }
 
     /**
+     * <p>Value of the <code>type</code> field in the original payload.</p>
+     *
      * @return null|string
      */
     public function getPayloadType()

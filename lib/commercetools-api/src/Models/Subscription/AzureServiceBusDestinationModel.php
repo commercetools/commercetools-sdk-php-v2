@@ -59,6 +59,8 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     }
 
     /**
+     * <p>SharedAccessKey is partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getConnectionString()

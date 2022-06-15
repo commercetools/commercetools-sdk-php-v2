@@ -73,6 +73,8 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -90,6 +92,8 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessSecret()
@@ -107,6 +111,8 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
+     * <p>Amazon Resource Name (ARN) of the topic.</p>
+     *
      * @return null|string
      */
     public function getTopicArn()

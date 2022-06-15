@@ -66,6 +66,8 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>ID of the Project that contains the Pub/Sub topic.</p>
+     *
      * @return null|string
      */
     public function getProjectId()
@@ -83,6 +85,8 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Name of the topic.</p>
+     *
      * @return null|string
      */
     public function getTopic()

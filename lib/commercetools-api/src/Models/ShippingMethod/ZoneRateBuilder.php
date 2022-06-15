@@ -33,6 +33,8 @@ final class ZoneRateBuilder implements Builder
     private $shippingRates;
 
     /**
+     * <p><a href="ctp:api:type:Zone">Zone</a> for which the shipping rates are valid.</p>
+     *
      * @return null|ZoneReference
      */
     public function getZone()
@@ -41,7 +43,7 @@ final class ZoneRateBuilder implements Builder
     }
 
     /**
-     * <p>The array does not contain two shipping rates with the same currency.</p>
+     * <p>Shipping rates defined per currency.</p>
      *
      * @return null|ShippingRateCollection
      */

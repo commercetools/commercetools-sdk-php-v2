@@ -31,7 +31,7 @@ final class EventBridgeDestinationBuilder implements Builder
     private $accountId;
 
     /**
-     * <p>AWS region of the Subscriptions that receives the events.</p>
+     * <p>AWS region that receives the events.</p>
      *
      * @return null|string
      */
@@ -41,7 +41,7 @@ final class EventBridgeDestinationBuilder implements Builder
     }
 
     /**
-     * <p>ID of the AWS account that receives events.</p>
+     * <p>ID of the AWS account that receives the events.</p>
      *
      * @return null|string
      */

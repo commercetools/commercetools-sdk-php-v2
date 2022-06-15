@@ -76,6 +76,9 @@ final class MessageDeliveryPayloadBuilder implements Builder
     private $payloadNotIncluded;
 
     /**
+     * <p>Key of the Project.
+     * Useful if the destination receives events from multiple Projects.</p>
+     *
      * @return null|string
      */
     public function getProjectKey()
@@ -84,7 +87,7 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p>Reference to the resource that triggered the message.</p>
      *
      * @return null|Reference
      */
@@ -94,6 +97,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the resource.</p>
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -102,6 +107,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Unique ID of the message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -110,6 +117,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -118,6 +127,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the resource was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -126,6 +137,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the resource was last modified.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -134,6 +147,9 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Used to ensure all messages of the resource are processed in correct order.
+     * The <code>sequenceNumber</code> of the next message of the resource is a successor of the <code>sequenceNumber</code> of the current message.</p>
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -142,6 +158,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Version of the resource on which the change was performed.</p>
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -150,6 +168,8 @@ final class MessageDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>If the payload does not fit into the size limit of your message queue, the <code>payloadNotIncluded</code> field is present.</p>
+     *
      * @return null|PayloadNotIncluded
      */
     public function getPayloadNotIncluded()

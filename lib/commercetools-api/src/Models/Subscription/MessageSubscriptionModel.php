@@ -59,6 +59,9 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     }
 
     /**
+     * <p>Must contain valid message types for the resource. For example, for resource type <code>product</code> the message type <code>ProductPublished</code> is valid.
+     * If no <code>types</code> of messages are given, the Subscription will receive all messages for this resource.</p>
+     *
      * @return null|array
      */
     public function getTypes()

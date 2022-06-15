@@ -80,6 +80,8 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -97,6 +99,8 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessSecret()
@@ -114,6 +118,8 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>URL of the Amazon SQS queue.</p>
+     *
      * @return null|string
      */
     public function getQueueUrl()
@@ -131,6 +137,8 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p><a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">AWS Region</a> the message queue is located in.</p>
+     *
      * @return null|string
      */
     public function getRegion()

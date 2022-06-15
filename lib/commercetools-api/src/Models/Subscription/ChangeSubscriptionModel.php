@@ -35,6 +35,8 @@ final class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSub
     }
 
     /**
+     * <p>Type of resource.</p>
+     *
      * @return null|string
      */
     public function getResourceTypeId()

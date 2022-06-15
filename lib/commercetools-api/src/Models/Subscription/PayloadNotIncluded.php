@@ -17,11 +17,15 @@ interface PayloadNotIncluded extends JsonObject
     public const FIELD_PAYLOAD_TYPE = 'payloadType';
 
     /**
+     * <p>Reason the payload is not included.</p>
+     *
      * @return null|string
      */
     public function getReason();
 
     /**
+     * <p>Value of the <code>type</code> field in the original payload.</p>
+     *
      * @return null|string
      */
     public function getPayloadType();

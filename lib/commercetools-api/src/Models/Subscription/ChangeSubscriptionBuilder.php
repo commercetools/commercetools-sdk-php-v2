@@ -26,6 +26,8 @@ final class ChangeSubscriptionBuilder implements Builder
     private $resourceTypeId;
 
     /**
+     * <p>Type of resource.</p>
+     *
      * @return null|string
      */
     public function getResourceTypeId()

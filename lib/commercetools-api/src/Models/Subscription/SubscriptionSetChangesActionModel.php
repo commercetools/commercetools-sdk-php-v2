@@ -59,6 +59,8 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Value to set. Can only be unset if <code>messages</code> is set.</p>
+     *
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()

@@ -26,6 +26,8 @@ final class CloudEventsFormatBuilder implements Builder
     private $cloudEventsVersion;
 
     /**
+     * <p>Currently fixed to version 1.0.</p>
+     *
      * @return null|string
      */
     public function getCloudEventsVersion()

@@ -36,6 +36,8 @@ final class SnsDestinationBuilder implements Builder
     private $topicArn;
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -44,6 +46,8 @@ final class SnsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      * @return null|string
      */
     public function getAccessSecret()
@@ -52,6 +56,8 @@ final class SnsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Amazon Resource Name (ARN) of the topic.</p>
+     *
      * @return null|string
      */
     public function getTopicArn()

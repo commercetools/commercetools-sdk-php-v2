@@ -89,7 +89,7 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * <p>Contains the representation of the expanded Review. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ShippingMethods.</p>
+     * <p>Contains the representation of the expanded ShippingMethod. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ShippingMethods.</p>
      *
      * @return null|ShippingMethod
      */

@@ -17,8 +17,6 @@ interface ShippingRateInputType extends JsonObject
     public const FIELD_TYPE = 'type';
 
     /**
-     * <p>Can be one of the following or absent.</p>
-     *
      * @return null|string
      */
     public function getType();

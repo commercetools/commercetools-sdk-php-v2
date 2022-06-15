@@ -56,6 +56,9 @@ final class ResourceDeletedDeliveryPayloadBuilder implements Builder
     private $dataErasure;
 
     /**
+     * <p>Key of the Project.
+     * Useful if the destination receives events from multiple Projects.</p>
+     *
      * @return null|string
      */
     public function getProjectKey()
@@ -64,7 +67,7 @@ final class ResourceDeletedDeliveryPayloadBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p>Reference to the resource that triggered the message.</p>
      *
      * @return null|Reference
      */
@@ -74,6 +77,8 @@ final class ResourceDeletedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the resource.</p>
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -82,6 +87,8 @@ final class ResourceDeletedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -90,6 +97,8 @@ final class ResourceDeletedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the resource was last deleted.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()
@@ -98,6 +107,8 @@ final class ResourceDeletedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+     * <p><code>true</code> if the <code>dataErasure</code> <a href="/../api/general-concepts#data-erasure-of-personal-data">parameter</a> on the <code>DELETE</code> request was set to <code>true</code>.</p>
+     *
      * @return null|bool
      */
     public function getDataErasure()
