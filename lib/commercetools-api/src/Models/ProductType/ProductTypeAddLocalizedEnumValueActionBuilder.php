@@ -31,6 +31,8 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     private $value;
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -39,6 +41,8 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|AttributeLocalizedEnumValue
      */
     public function getValue()

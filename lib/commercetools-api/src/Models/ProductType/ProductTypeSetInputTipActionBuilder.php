@@ -33,6 +33,8 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     private $inputTip;
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -41,7 +43,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|LocalizedString
      */

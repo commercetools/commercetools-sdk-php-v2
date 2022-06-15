@@ -66,6 +66,8 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -83,6 +85,8 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
     }
 
     /**
+     * <p><code>None</code></p>
+     *
      * @return null|string
      */
     public function getNewValue()

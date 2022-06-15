@@ -26,7 +26,7 @@ final class AttributeReferenceTypeBuilder implements Builder
     private $referenceTypeId;
 
     /**
-     * <p>supported resource type identifiers:</p>
+     * <p>Name of the resource type that the value should reference.</p>
      *
      * @return null|string
      */

@@ -18,16 +18,22 @@ interface ProductTypeChangeEnumKeyAction extends ProductTypeUpdateAction
     public const FIELD_NEW_KEY = 'newKey';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p>Existing Key to be changed.</p>
+     *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>New Key to be set.</p>
+     *
      * @return null|string
      */
     public function getNewKey();

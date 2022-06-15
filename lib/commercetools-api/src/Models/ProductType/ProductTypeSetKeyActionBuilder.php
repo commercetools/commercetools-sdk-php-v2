@@ -26,7 +26,7 @@ final class ProductTypeSetKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|string
      */

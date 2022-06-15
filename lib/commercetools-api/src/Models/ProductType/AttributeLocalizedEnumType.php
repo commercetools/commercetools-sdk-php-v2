@@ -16,6 +16,8 @@ interface AttributeLocalizedEnumType extends AttributeType
     public const FIELD_VALUES = 'values';
 
     /**
+     * <p>Available values that can be assigned to Products.</p>
+     *
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues();

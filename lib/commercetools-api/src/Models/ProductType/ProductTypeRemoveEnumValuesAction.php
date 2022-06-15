@@ -17,11 +17,15 @@ interface ProductTypeRemoveEnumValuesAction extends ProductTypeUpdateAction
     public const FIELD_KEYS = 'keys';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p>Keys of <a href="ctp:api:type:AttributeEnumType">AttributeEnumType</a> or <a href="ctp:api:type:AttributeLocalizedEnumType">AttributeLocalizedEnumType</a> to remove.</p>
+     *
      * @return null|array
      */
     public function getKeys();

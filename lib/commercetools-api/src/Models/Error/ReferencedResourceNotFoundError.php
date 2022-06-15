@@ -18,7 +18,7 @@ interface ReferencedResourceNotFoundError extends ErrorObject
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>supported resource type identifiers:</p>
+     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
      * @return null|string
      */

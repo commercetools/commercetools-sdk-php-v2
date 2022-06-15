@@ -61,6 +61,8 @@ final class ShippingMethodRemoveZoneActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to remove from <code>zoneRates</code>.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()

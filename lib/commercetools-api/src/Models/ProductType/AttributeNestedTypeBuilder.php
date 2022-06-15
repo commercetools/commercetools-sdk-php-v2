@@ -26,7 +26,7 @@ final class AttributeNestedTypeBuilder implements Builder
     private $typeReference;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     * <p>Attributes that can be stored as nested Attributes of the current Attribute.</p>
      *
      * @return null|ProductTypeReference
      */

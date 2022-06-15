@@ -83,7 +83,7 @@ final class MaxResourceLimitExceededErrorModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>supported resource type identifiers:</p>
+     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
      * @return null|string
      */

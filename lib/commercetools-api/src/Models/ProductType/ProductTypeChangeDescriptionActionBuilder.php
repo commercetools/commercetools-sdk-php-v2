@@ -26,6 +26,8 @@ final class ProductTypeChangeDescriptionActionBuilder implements Builder
     private $description;
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getDescription()

@@ -16,7 +16,7 @@ interface MaxResourceLimitExceededError extends ErrorObject
     public const FIELD_EXCEEDED_RESOURCE = 'exceededResource';
 
     /**
-     * <p>supported resource type identifiers:</p>
+     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
      * @return null|string
      */

@@ -17,11 +17,15 @@ interface ProductTypeChangeInputHintAction extends ProductTypeUpdateAction
     public const FIELD_NEW_VALUE = 'newValue';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p><code>SingleLine</code> or <code>MultiLine</code></p>
+     *
      * @return null|string
      */
     public function getNewValue();

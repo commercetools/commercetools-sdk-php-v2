@@ -59,6 +59,8 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     }
 
     /**
+     * <p>Available values that can be assigned to Products.</p>
+     *
      * @return null|AttributePlainEnumValueCollection
      */
     public function getValues()
