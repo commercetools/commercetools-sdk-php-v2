@@ -2282,7 +2282,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart in a given Store.
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
+This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 
 ### Example
 ```php
@@ -4548,7 +4551,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart.
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
+This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 
 ### Example
 ```php
@@ -4563,7 +4569,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location).
+If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
+Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
+If the `currency` parameter is given, exactly one ShippingRate will contain it.
+
 
 ### Example
 ```php
@@ -4578,7 +4588,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location) for an [OrderEdit](/projects/order-edits).
+In case the OrderEdit preview cannot be created an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is raised.
+
 
 ### Example
 ```php

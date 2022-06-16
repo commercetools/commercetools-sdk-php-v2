@@ -17,6 +17,8 @@ interface ShippingMethodAddZoneAction extends ShippingMethodUpdateAction
     public const FIELD_ZONE = 'zone';
 
     /**
+     * <p>Value to add to <code>zoneRates</code>.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone();

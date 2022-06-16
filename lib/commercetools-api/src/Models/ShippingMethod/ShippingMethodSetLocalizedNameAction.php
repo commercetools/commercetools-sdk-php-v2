@@ -17,6 +17,8 @@ interface ShippingMethodSetLocalizedNameAction extends ShippingMethodUpdateActio
     public const FIELD_LOCALIZED_NAME = 'localizedName';
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedName();

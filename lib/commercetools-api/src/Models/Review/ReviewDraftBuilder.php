@@ -92,8 +92,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>If set, this value must be unique among reviews.
-     * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code> and <code>product's id</code>.</p>
+     * <p>If set, this value must be unique among Reviews.
+     * For example, if you want to have only one Review per Customer and per Product, you can set the value to Customer <code>id</code> + Product <code>id</code>.</p>
      *
      * @return null|string
      */
@@ -103,6 +103,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
+     *
      * @return null|string
      */
     public function getLocale()
@@ -111,6 +113,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the author.</p>
+     *
      * @return null|string
      */
     public function getAuthorName()
@@ -119,6 +123,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Title of the Review.</p>
+     *
      * @return null|string
      */
     public function getTitle()
@@ -127,6 +133,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Content of the Review.</p>
+     *
      * @return null|string
      */
     public function getText()
@@ -135,8 +143,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies the target of the review.
-     * Can be a Product or a Channel</p>
+     * <p>Identifies the target of the Review.
+     * Can be a Product or a Channel.</p>
      *
      * @return null|JsonObject
      */
@@ -146,6 +154,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>State of the Review. Used for approval processes, see <a href="/../tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -154,10 +164,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>Number between -100 and 100 included.
-     * Rating of the targeted object, like a product.
-     * This rating can represent the number of stars, or a percentage, or a like (+1)/dislike (-1)
-     * A rating is used in the ratings statistics of the targeted object, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.</p>
+     * <p>Rating of the targeted Product or Channel.
+     * This rating can represent the number of stars, a percentage, or a like (+1)/dislike (-1).
+     * A rating is used in the ratings statistics of the targeted object, unless the Review is in a State that does not have the role <code>ReviewIncludedInStatistics</code>.</p>
      *
      * @return null|int
      */
@@ -167,7 +176,7 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>The customer who created the review.</p>
+     * <p>Customer who created the review.</p>
      *
      * @return null|CustomerResourceIdentifier
      */
@@ -177,6 +186,8 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Review.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
