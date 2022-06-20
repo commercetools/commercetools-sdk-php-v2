@@ -3181,7 +3181,7 @@ $request = $builder
 
 Creates an order from a Cart.
 The cart must have a shipping address set before creating an order.
-When using Platforme TaxMode, the shipping address is used for tax calculation.
+When using Platform TaxMode, the shipping address is used for tax calculation.
 
 
 ### Example
