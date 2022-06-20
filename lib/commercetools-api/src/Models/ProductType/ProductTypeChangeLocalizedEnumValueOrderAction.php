@@ -17,11 +17,15 @@ interface ProductTypeChangeLocalizedEnumValueOrderAction extends ProductTypeUpda
     public const FIELD_VALUES = 'values';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p>Values must be equal to the values of the Attribute enum values (except for the order). If not, an <a href="/errors#product-types-400-enum-values-must-match">EnumValuesMustMatch</a> error code will be returned.</p>
+     *
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues();

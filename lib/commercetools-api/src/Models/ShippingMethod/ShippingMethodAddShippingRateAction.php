@@ -18,11 +18,15 @@ interface ShippingMethodAddShippingRateAction extends ShippingMethodUpdateAction
     public const FIELD_SHIPPING_RATE = 'shippingRate';
 
     /**
+     * <p><a href="ctp:api:type:Zone">Zone</a> to which the ShippingRate should be added.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone();
 
     /**
+     * <p>Value to add to <code>shippingRates</code>.</p>
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();

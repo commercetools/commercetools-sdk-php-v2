@@ -123,6 +123,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p>Name of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -140,6 +142,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p>Localized name of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedName()
@@ -158,6 +162,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p>Description of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getDescription()
@@ -175,6 +181,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p>Localized description of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()
@@ -193,6 +201,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> for all ZoneRates of the ShippingMethod.</p>
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -211,6 +221,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific zones.</p>
+     *
      * @return null|ZoneRateDraftCollection
      */
     public function getZoneRates()
@@ -228,7 +240,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
-     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>
+     * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
      * @return null|bool
      */
@@ -247,7 +259,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
-     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>
+     * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
      * @return null|string
      */
@@ -266,6 +278,8 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
+     * <p>Custom Fields for the ShippingMethod.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

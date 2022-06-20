@@ -16,6 +16,8 @@ interface ProductTypeChangeNameAction extends ProductTypeUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getName();

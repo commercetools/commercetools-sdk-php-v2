@@ -28,6 +28,8 @@ final class ShippingMethodChangeTaxCategoryActionBuilder implements Builder
     private $taxCategory;
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()

@@ -66,6 +66,8 @@ final class ProductTypeChangePlainEnumValueLabelActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -83,6 +85,8 @@ final class ProductTypeChangePlainEnumValueLabelActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>New value to set. Must be different from the existing value.</p>
+     *
      * @return null|AttributePlainEnumValue
      */
     public function getNewValue()

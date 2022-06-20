@@ -33,6 +33,8 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     private $label;
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -41,7 +43,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>New value to set. Must not be empty.</p>
      *
      * @return null|LocalizedString
      */

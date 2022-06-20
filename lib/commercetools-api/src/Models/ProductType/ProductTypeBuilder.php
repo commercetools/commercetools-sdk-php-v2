@@ -78,7 +78,7 @@ final class ProductTypeBuilder implements Builder
     private $attributes;
 
     /**
-     * <p>Unique identifier for the ProductType.</p>
+     * <p>Unique identifier of the ProductType.</p>
      *
      * @return null|string
      */
@@ -88,7 +88,7 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the product type.</p>
+     * <p>Current version of the ProductType.</p>
      *
      * @return null|int
      */
@@ -98,6 +98,8 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ProductType was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -106,6 +108,8 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Channel was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -144,6 +148,8 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
+     * <p>Name of the ProductType.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -152,6 +158,8 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
+     * <p>Description of the ProductType.</p>
+     *
      * @return null|string
      */
     public function getDescription()
@@ -160,6 +168,8 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
+     * <p>Attributes specified for the ProductType.</p>
+     *
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

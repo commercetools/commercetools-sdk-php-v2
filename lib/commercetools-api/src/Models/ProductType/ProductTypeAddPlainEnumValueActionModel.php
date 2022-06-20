@@ -66,6 +66,8 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -83,6 +85,8 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|AttributePlainEnumValue
      */
     public function getValue()

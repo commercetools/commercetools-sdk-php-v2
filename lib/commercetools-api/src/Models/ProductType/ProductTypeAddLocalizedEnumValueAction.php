@@ -17,11 +17,15 @@ interface ProductTypeAddLocalizedEnumValueAction extends ProductTypeUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|AttributeLocalizedEnumValue
      */
     public function getValue();

@@ -23,7 +23,7 @@ use stdClass;
 final class CartScoreTierBuilder implements Builder
 {
     /**
-     * @var ?float
+     * @var ?int
      */
     private $score;
 
@@ -43,7 +43,9 @@ final class CartScoreTierBuilder implements Builder
     private $isMatching;
 
     /**
-     * @return null|float
+     * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../tutorials/shipping-rate">Using Tiered Shipping Rates</a> for details and examples.</p>
+     *
+     * @return null|int
      */
     public function getScore()
     {
@@ -51,8 +53,7 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Defines a fixed price for the <code>score</code>.</p>
      *
      * @return null|Money
      */
@@ -62,6 +63,8 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * <p>Dynamically calculates a Price for a range of scores.</p>
+     *
      * @return null|PriceFunction
      */
     public function getPriceFunction()
@@ -70,6 +73,8 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
+     * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
+     *
      * @return null|bool
      */
     public function getIsMatching()
@@ -78,10 +83,10 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
-     * @param ?float $score
+     * @param ?int $score
      * @return $this
      */
-    public function withScore(?float $score)
+    public function withScore(?int $score)
     {
         $this->score = $score;
 

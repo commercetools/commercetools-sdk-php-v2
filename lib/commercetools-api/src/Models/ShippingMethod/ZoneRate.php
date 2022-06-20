@@ -18,12 +18,14 @@ interface ZoneRate extends JsonObject
     public const FIELD_SHIPPING_RATES = 'shippingRates';
 
     /**
+     * <p><a href="ctp:api:type:Zone">Zone</a> for which the shipping rates are valid.</p>
+     *
      * @return null|ZoneReference
      */
     public function getZone();
 
     /**
-     * <p>The array does not contain two shipping rates with the same currency.</p>
+     * <p>Shipping rates defined per currency.</p>
      *
      * @return null|ShippingRateCollection
      */
