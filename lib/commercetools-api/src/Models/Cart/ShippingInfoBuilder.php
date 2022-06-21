@@ -120,7 +120,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
+     * <p>Will be set automatically in the <code>Platform</code> TaxMode, once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
      * @return null|TaxRate

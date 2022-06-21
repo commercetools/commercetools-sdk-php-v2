@@ -2,7 +2,7 @@
   "name": "commercetools/commercetools-sdk",
   "license": "MIT",
   "type": "library",
-  "description": "The official PHP SDK to the commercetools eCommerce APIs",
+  "description": "The official PHP SDK for the commercetools Composable Commerce APIs",
   "autoload": {
     "psr-4": {
       "Commercetools\\Api\\": [
