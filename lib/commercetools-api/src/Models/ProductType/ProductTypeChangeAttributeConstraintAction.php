@@ -17,11 +17,15 @@ interface ProductTypeChangeAttributeConstraintAction extends ProductTypeUpdateAc
     public const FIELD_NEW_VALUE = 'newValue';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p><code>None</code></p>
+     *
      * @return null|string
      */
     public function getNewValue();

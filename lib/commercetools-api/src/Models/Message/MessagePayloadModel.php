@@ -105,6 +105,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'ProductSelectionDeleted' => ProductSelectionDeletedMessagePayloadModel::class,
        'ProductSelectionProductAdded' => ProductSelectionProductAddedMessagePayloadModel::class,
        'ProductSelectionProductRemoved' => ProductSelectionProductRemovedMessagePayloadModel::class,
+       'ProductSelectionVariantSelectionChanged' => ProductSelectionVariantSelectionChangedMessagePayloadModel::class,
        'ProductSlugChanged' => ProductSlugChangedMessagePayloadModel::class,
        'ProductStateTransition' => ProductStateTransitionMessagePayloadModel::class,
        'ProductUnpublished' => ProductUnpublishedMessagePayloadModel::class,

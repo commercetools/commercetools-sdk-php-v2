@@ -26,7 +26,7 @@ final class ProductTypeRemoveAttributeDefinitionActionBuilder implements Builder
     private $name;
 
     /**
-     * <p>The name of the attribute to remove.</p>
+     * <p>Name of the Attribute to remove.</p>
      *
      * @return null|string
      */

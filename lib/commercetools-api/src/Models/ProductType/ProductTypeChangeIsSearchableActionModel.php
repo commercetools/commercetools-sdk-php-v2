@@ -66,6 +66,8 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -83,6 +85,8 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Determines whether the Attribute's values can be used in full-text search queries, filters, and facets. See <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> for details.</p>
+     *
      * @return null|bool
      */
     public function getIsSearchable()

@@ -20,32 +20,37 @@ interface CartScoreTier extends ShippingRatePriceTier
     public const FIELD_IS_MATCHING = 'isMatching';
 
     /**
-     * @return null|float
+     * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../tutorials/shipping-rate">Using Tiered Shipping Rates</a> for details and examples.</p>
+     *
+     * @return null|int
      */
     public function getScore();
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Defines a fixed price for the <code>score</code>.</p>
      *
      * @return null|Money
      */
     public function getPrice();
 
     /**
+     * <p>Dynamically calculates a Price for a range of scores.</p>
+     *
      * @return null|PriceFunction
      */
     public function getPriceFunction();
 
     /**
+     * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
+     *
      * @return null|bool
      */
     public function getIsMatching();
 
     /**
-     * @param ?float $score
+     * @param ?int $score
      */
-    public function setScore(?float $score): void;
+    public function setScore(?int $score): void;
 
     /**
      * @param ?Money $price

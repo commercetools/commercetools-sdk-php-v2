@@ -59,6 +59,7 @@ use Commercetools\Api\Models\Message\ProductSelectionCreatedMessage;
 use Commercetools\Api\Models\Message\ProductSelectionDeletedMessage;
 use Commercetools\Api\Models\Message\ProductSelectionProductAddedMessage;
 use Commercetools\Api\Models\Message\ProductSelectionProductRemovedMessage;
+use Commercetools\Api\Models\Message\ProductSelectionVariantSelectionChangedMessage;
 use Commercetools\Api\Models\Message\ProductSlugChangedMessage;
 use Commercetools\Api\Models\Message\ProductStateTransitionMessage;
 use Commercetools\Api\Models\Message\ProductUnpublishedMessage;

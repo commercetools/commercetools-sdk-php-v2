@@ -17,6 +17,8 @@ interface ShippingMethodSetLocalizedDescriptionAction extends ShippingMethodUpda
     public const FIELD_LOCALIZED_DESCRIPTION = 'localizedDescription';
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription();

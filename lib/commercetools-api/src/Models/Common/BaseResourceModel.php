@@ -110,6 +110,8 @@ use Commercetools\Api\Models\Message\ProductSelectionProductAddedMessage;
 use Commercetools\Api\Models\Message\ProductSelectionProductAddedMessageModel;
 use Commercetools\Api\Models\Message\ProductSelectionProductRemovedMessage;
 use Commercetools\Api\Models\Message\ProductSelectionProductRemovedMessageModel;
+use Commercetools\Api\Models\Message\ProductSelectionVariantSelectionChangedMessage;
+use Commercetools\Api\Models\Message\ProductSelectionVariantSelectionChangedMessageModel;
 use Commercetools\Api\Models\Message\ProductSlugChangedMessage;
 use Commercetools\Api\Models\Message\ProductSlugChangedMessageModel;
 use Commercetools\Api\Models\Message\ProductStateTransitionMessage;

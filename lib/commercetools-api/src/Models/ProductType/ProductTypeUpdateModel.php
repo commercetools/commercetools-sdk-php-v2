@@ -42,6 +42,8 @@ final class ProductTypeUpdateModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
+     * <p>Expected version of the ProductType on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +61,8 @@ final class ProductTypeUpdateModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
+     * <p>Update actions to be performed on the ProductType.</p>
+     *
      * @return null|ProductTypeUpdateActionCollection
      */
     public function getActions()

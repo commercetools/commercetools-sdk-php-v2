@@ -36,6 +36,8 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     private $newKey;
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -44,6 +46,8 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>Existing key to be changed.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -52,6 +56,8 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>New key to be set.</p>
+     *
      * @return null|string
      */
     public function getNewKey()

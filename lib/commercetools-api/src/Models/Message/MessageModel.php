@@ -164,6 +164,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductSelectionDeleted' => ProductSelectionDeletedMessageModel::class,
        'ProductSelectionProductAdded' => ProductSelectionProductAddedMessageModel::class,
        'ProductSelectionProductRemoved' => ProductSelectionProductRemovedMessageModel::class,
+       'ProductSelectionVariantSelectionChanged' => ProductSelectionVariantSelectionChangedMessageModel::class,
        'ProductSlugChanged' => ProductSlugChangedMessageModel::class,
        'ProductStateTransition' => ProductStateTransitionMessageModel::class,
        'ProductUnpublished' => ProductUnpublishedMessageModel::class,

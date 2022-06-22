@@ -61,6 +61,8 @@ final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()

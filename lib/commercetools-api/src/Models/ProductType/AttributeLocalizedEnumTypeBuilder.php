@@ -26,6 +26,8 @@ final class AttributeLocalizedEnumTypeBuilder implements Builder
     private $values;
 
     /**
+     * <p>Available values that can be assigned to Products.</p>
+     *
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues()

@@ -59,7 +59,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     }
 
     /**
-     * <p>The name of the attribute to remove.</p>
+     * <p>Name of the Attribute to remove.</p>
      *
      * @return null|string
      */

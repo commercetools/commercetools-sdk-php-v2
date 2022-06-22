@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface ProductSelectionAddProductAction extends ProductSelectionUpdateAction
 {
     public const FIELD_PRODUCT = 'product';
+    public const FIELD_VARIANT_SELECTION = 'variantSelection';
 
     /**
      * <p>ResourceIdentifier to Product</p>
@@ -24,7 +25,20 @@ interface ProductSelectionAddProductAction extends ProductSelectionUpdateAction
     public function getProduct();
 
     /**
+     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
+     * If not supplied all Variants are deemed to be included.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection();
+
+    /**
      * @param ?ProductResourceIdentifier $product
      */
     public function setProduct(?ProductResourceIdentifier $product): void;
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     */
+    public function setVariantSelection(?ProductVariantSelection $variantSelection): void;
 }

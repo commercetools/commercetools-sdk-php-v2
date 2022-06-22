@@ -26,6 +26,8 @@ final class ProductTypeChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getName()
