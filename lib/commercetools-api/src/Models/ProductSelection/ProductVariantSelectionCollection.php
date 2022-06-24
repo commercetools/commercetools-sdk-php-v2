@@ -13,7 +13,11 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ProductVariantSelection>
+ * @template T of ProductVariantSelection
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T end()
+ * @psalm-method T at($offset)
  * @method ProductVariantSelection current()
  * @method ProductVariantSelection end()
  * @method ProductVariantSelection at($offset)
@@ -21,8 +25,8 @@ use stdClass;
 class ProductVariantSelectionCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ProductVariantSelection $value
-     * @psalm-param ProductVariantSelection|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ProductVariantSelectionCollection
@@ -38,14 +42,14 @@ class ProductVariantSelectionCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ProductVariantSelection
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (?int $index): ?ProductVariantSelection {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var ProductVariantSelection $data */
+                /** @var T $data */
                 $data = ProductVariantSelectionModel::of($data);
                 $this->set($data, $index);
             }
