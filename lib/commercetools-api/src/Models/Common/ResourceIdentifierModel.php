@@ -34,6 +34,8 @@ use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Api\Models\Product\ProductResourceIdentifierModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifier;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifierModel;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
@@ -42,6 +44,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifier;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -97,10 +101,12 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'payment' => PaymentResourceIdentifierModel::class,
        'product' => ProductResourceIdentifierModel::class,
        'product-discount' => ProductDiscountResourceIdentifierModel::class,
+       'product-selection' => ProductSelectionResourceIdentifierModel::class,
        'product-type' => ProductTypeResourceIdentifierModel::class,
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,
        'shopping-list' => ShoppingListResourceIdentifierModel::class,
+       'standalone-price' => StandalonePriceResourceIdentifierModel::class,
        'state' => StateResourceIdentifierModel::class,
        'store' => StoreResourceIdentifierModel::class,
        'tax-category' => TaxCategoryResourceIdentifierModel::class,
@@ -121,6 +127,8 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -138,7 +146,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
      * @return null|string
      */
@@ -157,7 +165,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
      * @return null|string
      */

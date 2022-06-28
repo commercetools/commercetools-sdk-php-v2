@@ -51,6 +51,8 @@ final class StoreReferenceModel extends JsonObjectModel implements StoreReferenc
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -68,7 +70,7 @@ final class StoreReferenceModel extends JsonObjectModel implements StoreReferenc
     }
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>.</p>
      *
      * @return null|string
      */
@@ -87,6 +89,8 @@ final class StoreReferenceModel extends JsonObjectModel implements StoreReferenc
     }
 
     /**
+     * <p>Contains the representation of the expanded Store. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Stores.</p>
+     *
      * @return null|Store
      */
     public function getObj()

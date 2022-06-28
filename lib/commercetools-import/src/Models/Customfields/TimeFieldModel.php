@@ -92,6 +92,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

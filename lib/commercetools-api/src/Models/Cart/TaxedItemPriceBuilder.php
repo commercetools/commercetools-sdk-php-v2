@@ -33,6 +33,11 @@ final class TaxedItemPriceBuilder implements Builder
     private $totalGross;
 
     /**
+     * @var null|TypedMoney|TypedMoneyBuilder
+     */
+    private $totalTax;
+
+    /**
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -48,6 +53,16 @@ final class TaxedItemPriceBuilder implements Builder
     public function getTotalGross()
     {
         return $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross;
+    }
+
+    /**
+     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     *
+     * @return null|TypedMoney
+     */
+    public function getTotalTax()
+    {
+        return $this->totalTax instanceof TypedMoneyBuilder ? $this->totalTax->build() : $this->totalTax;
     }
 
     /**
@@ -68,6 +83,17 @@ final class TaxedItemPriceBuilder implements Builder
     public function withTotalGross(?TypedMoney $totalGross)
     {
         $this->totalGross = $totalGross;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TypedMoney $totalTax
+     * @return $this
+     */
+    public function withTotalTax(?TypedMoney $totalTax)
+    {
+        $this->totalTax = $totalTax;
 
         return $this;
     }
@@ -94,11 +120,23 @@ final class TaxedItemPriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withTotalTax() instead
+     * @return $this
+     */
+    public function withTotalTaxBuilder(?TypedMoneyBuilder $totalTax)
+    {
+        $this->totalTax = $totalTax;
+
+        return $this;
+    }
+
     public function build(): TaxedItemPrice
     {
         return new TaxedItemPriceModel(
             $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet,
-            $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross
+            $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross,
+            $this->totalTax instanceof TypedMoneyBuilder ? $this->totalTax->build() : $this->totalTax
         );
     }
 

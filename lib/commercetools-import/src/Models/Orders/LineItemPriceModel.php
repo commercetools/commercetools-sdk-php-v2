@@ -103,7 +103,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     }
 
     /**
-     * <p>Maps to <code>Price.value</code>. TypedMoney is what is called BaseMoney in the HTTP API.</p>
+     * <p>Maps to <code>Price.value</code>.</p>
      *
      * @return null|TypedMoney
      */
@@ -360,6 +360,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

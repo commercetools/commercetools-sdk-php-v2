@@ -32,11 +32,15 @@ interface OrderTransitionCustomLineItemStateAction extends OrderUpdateAction
     public function getQuantity();
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getFromState();
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getToState();

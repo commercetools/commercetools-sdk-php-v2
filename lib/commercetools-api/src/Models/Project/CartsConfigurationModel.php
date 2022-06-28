@@ -20,48 +20,29 @@ use stdClass;
 final class CartsConfigurationModel extends JsonObjectModel implements CartsConfiguration
 {
     /**
-     * @var ?bool
-     */
-    protected $countryTaxRateFallbackEnabled;
-
-    /**
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
+
+    /**
+     * @var ?bool
+     */
+    protected $countryTaxRateFallbackEnabled;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $countryTaxRateFallbackEnabled = null,
-        ?int $deleteDaysAfterLastModification = null
+        ?int $deleteDaysAfterLastModification = null,
+        ?bool $countryTaxRateFallbackEnabled = null
     ) {
-        $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
     }
 
     /**
-     * <p>if country - no state tax rate fallback should be used when a shipping address state is not explicitly covered in the rates lists of all tax categories of a cart line items. Default value 'false'</p>
-     *
-     * @return null|bool
-     */
-    public function getCountryTaxRateFallbackEnabled()
-    {
-        if (is_null($this->countryTaxRateFallbackEnabled)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_COUNTRY_TAX_RATE_FALLBACK_ENABLED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->countryTaxRateFallbackEnabled = (bool) $data;
-        }
-
-        return $this->countryTaxRateFallbackEnabled;
-    }
-
-    /**
-     * <p>The default value for the deleteDaysAfterLastModification parameter of the CartDraft. Initially set to 90 for projects created after December 2019.</p>
+     * <p>Default value for the <code>deleteDaysAfterLastModification</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a>. This field may not be present on Projects created before January 2020.</p>
      *
      * @return null|int
      */
@@ -79,14 +60,25 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
         return $this->deleteDaysAfterLastModification;
     }
 
-
     /**
-     * @param ?bool $countryTaxRateFallbackEnabled
+     * <p>Indicates if country <em>- no state</em> Tax Rate fallback should be used when a shipping address state is not explicitly covered in the rates lists of all Tax Categories of a Cart Line Items. This field may not be present on Projects created before June 2020.</p>
+     *
+     * @return null|bool
      */
-    public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void
+    public function getCountryTaxRateFallbackEnabled()
     {
-        $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
+        if (is_null($this->countryTaxRateFallbackEnabled)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_COUNTRY_TAX_RATE_FALLBACK_ENABLED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->countryTaxRateFallbackEnabled = (bool) $data;
+        }
+
+        return $this->countryTaxRateFallbackEnabled;
     }
+
 
     /**
      * @param ?int $deleteDaysAfterLastModification
@@ -94,5 +86,13 @@ final class CartsConfigurationModel extends JsonObjectModel implements CartsConf
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+    }
+
+    /**
+     * @param ?bool $countryTaxRateFallbackEnabled
+     */
+    public function setCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled): void
+    {
+        $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
     }
 }

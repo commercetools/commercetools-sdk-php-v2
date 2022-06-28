@@ -88,11 +88,18 @@ final class StoreBuilder implements Builder
     private $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    private $productSelections;
+
+    /**
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+     * <p>Unique ID of the Store.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -101,6 +108,8 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the Store.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -109,6 +118,8 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Store was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -117,6 +128,8 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Store was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -125,7 +138,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -135,7 +148,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -145,9 +158,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the store.
-     * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>
+     * <p>User-defined unique and immutable identifier for the Store.</p>
      *
      * @return null|string
      */
@@ -157,7 +168,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>The name of the store</p>
+     * <p>Name of the Store.</p>
      *
      * @return null|LocalizedString
      */
@@ -167,6 +178,8 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * <p>Languages configured for the Store.</p>
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -175,7 +188,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>Set of References to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Product Distribution Channels allowed for the Store.</p>
      *
      * @return null|ChannelReferenceCollection
      */
@@ -185,7 +198,7 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     * <p>Inventory Supply Channels allowed for the Store.</p>
      *
      * @return null|ChannelReferenceCollection
      */
@@ -195,6 +208,22 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * <p>Controls availability of Products for this Store via active Product Selections.</p>
+     * <ul>
+     * <li>If empty all Products in the <a href="ctp:api:type:Project">Project</a> are available in this Store.</li>
+     * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
+     * </ul>
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        return $this->productSelections;
+    }
+
+    /**
+     * <p>Custom fields for the Store.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -324,6 +353,17 @@ final class StoreBuilder implements Builder
     }
 
     /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     * @return $this
+     */
+    public function withProductSelections(?ProductSelectionSettingCollection $productSelections)
+    {
+        $this->productSelections = $productSelections;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -392,6 +432,7 @@ final class StoreBuilder implements Builder
             $this->languages,
             $this->distributionChannels,
             $this->supplyChannels,
+            $this->productSelections,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

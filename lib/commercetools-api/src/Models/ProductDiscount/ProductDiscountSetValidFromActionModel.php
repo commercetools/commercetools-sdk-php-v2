@@ -60,8 +60,9 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -93,6 +94,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

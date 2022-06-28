@@ -98,7 +98,7 @@ class ByProjectKeyApiClientsByIDGet extends ApiRequest implements Errorable, Dep
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ApiClient|ErrorResponse|JsonObject
+     * @return null|T|ApiClient|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

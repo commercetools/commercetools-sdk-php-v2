@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
@@ -95,6 +97,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $orderState;
 
     /**
+     * @var ?StateReference
+     */
+    protected $state;
+
+    /**
      * @var ?string
      */
     protected $shipmentState;
@@ -108,6 +115,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * @var ?ShippingInfoImportDraft
      */
     protected $shippingInfo;
+
+    /**
+     * @var ?PaymentInfo
+     */
+    protected $paymentInfo;
 
     /**
      * @var ?DateTimeImmutable
@@ -161,9 +173,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         ?CustomerGroupResourceIdentifier $customerGroup = null,
         ?string $country = null,
         ?string $orderState = null,
+        ?StateReference $state = null,
         ?string $shipmentState = null,
         ?string $paymentState = null,
         ?ShippingInfoImportDraft $shippingInfo = null,
+        ?PaymentInfo $paymentInfo = null,
         ?DateTimeImmutable $completedAt = null,
         ?CustomFieldsDraft $custom = null,
         ?string $inventoryMode = null,
@@ -184,9 +198,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->customerGroup = $customerGroup;
         $this->country = $country;
         $this->orderState = $orderState;
+        $this->state = $state;
         $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
         $this->shippingInfo = $shippingInfo;
+        $this->paymentInfo = $paymentInfo;
         $this->completedAt = $completedAt;
         $this->custom = $custom;
         $this->inventoryMode = $inventoryMode;
@@ -429,6 +445,26 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+     * <p>This reference can point to a state in a custom workflow.</p>
+     *
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
      * @return null|string
      */
     public function getShipmentState()
@@ -480,6 +516,24 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         }
 
         return $this->shippingInfo;
+    }
+
+    /**
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo()
+    {
+        if (is_null($this->paymentInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PAYMENT_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->paymentInfo = PaymentInfoModel::of($data);
+        }
+
+        return $this->paymentInfo;
     }
 
     /**
@@ -715,6 +769,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
+    }
+
+    /**
      * @param ?string $shipmentState
      */
     public function setShipmentState(?string $shipmentState): void
@@ -736,6 +798,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
+    }
+
+    /**
+     * @param ?PaymentInfo $paymentInfo
+     */
+    public function setPaymentInfo(?PaymentInfo $paymentInfo): void
+    {
+        $this->paymentInfo = $paymentInfo;
     }
 
     /**
@@ -795,6 +865,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

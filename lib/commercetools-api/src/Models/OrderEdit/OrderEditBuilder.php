@@ -93,7 +93,7 @@ final class OrderEditBuilder implements Builder
     private $comment;
 
     /**
-     * <p>The unique ID of the OrderEdit.</p>
+     * <p>Unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */
@@ -149,7 +149,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
-     * <p>Unique identifier for this edit.</p>
+     * <p>User-defined unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */

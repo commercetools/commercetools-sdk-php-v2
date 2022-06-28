@@ -68,16 +68,18 @@ final class PriceBuilder implements Builder
     private $discounted;
 
     /**
-     * @var null|CustomFields|CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
      * @var ?PriceTierCollection
      */
     private $tiers;
 
     /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Unique identifier of this Price.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -86,6 +88,8 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p>Money value of this Price.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -94,7 +98,7 @@ final class PriceBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country for which this Price is valid.</p>
      *
      * @return null|string
      */
@@ -104,7 +108,7 @@ final class PriceBuilder implements Builder
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -114,6 +118,8 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -122,6 +128,8 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p>Date and time from which this Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -130,6 +138,8 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p>Date and time until this Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -138,6 +148,10 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p>Is set if a <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> has been applied.
+     * If set, the API uses the DiscountedPrice value for the <a href="/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
+     * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -146,19 +160,23 @@ final class PriceBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
+     * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
     {
         return $this->tiers;
+    }
+
+    /**
+     * <p>Custom Fields defined for the Price.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -250,23 +268,23 @@ final class PriceBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFields $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
      * @param ?PriceTierCollection $tiers
      * @return $this
      */
     public function withTiers(?PriceTierCollection $tiers)
     {
         $this->tiers = $tiers;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -337,8 +355,8 @@ final class PriceBuilder implements Builder
             $this->validFrom,
             $this->validUntil,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->tiers
+            $this->tiers,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

@@ -21,44 +21,59 @@ interface StoreDraft extends JsonObject
     public const FIELD_LANGUAGES = 'languages';
     public const FIELD_DISTRIBUTION_CHANNELS = 'distributionChannels';
     public const FIELD_SUPPLY_CHANNELS = 'supplyChannels';
+    public const FIELD_PRODUCT_SELECTIONS = 'productSelections';
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>User-specific unique identifier for the store.
-     * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>
+     * <p>User-defined unique and immutable identifier for the Store.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The name of the store</p>
+     * <p>Name of the Store.</p>
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
+     *
      * @return null|array
      */
     public function getLanguages();
 
     /**
-     * <p>Set of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>ResourceIdentifier to a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getDistributionChannels();
 
     /**
-     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     * <p>ResourceIdentifier to a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getSupplyChannels();
 
     /**
+     * <p>Controls availability of Products for this Store via active Product Selections.</p>
+     * <ul>
+     * <li>Leave empty if all Products in the <a href="ctp:api:type:Project">Project</a> should be available in this Store.</li>
+     * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
+     * </ul>
+     *
+     * @return null|ProductSelectionSettingDraftCollection
+     */
+    public function getProductSelections();
+
+    /**
+     * <p>Custom fields for the Store.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -87,6 +102,11 @@ interface StoreDraft extends JsonObject
      * @param ?ChannelResourceIdentifierCollection $supplyChannels
      */
     public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void;
+
+    /**
+     * @param ?ProductSelectionSettingDraftCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingDraftCollection $productSelections): void;
 
     /**
      * @param ?CustomFieldsDraft $custom

@@ -36,6 +36,8 @@ interface ShoppingListLineItem extends JsonObject
     public function getAddedAt();
 
     /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
@@ -46,11 +48,15 @@ interface ShoppingListLineItem extends JsonObject
     public function getDeactivatedAt();
 
     /**
+     * <p>Unique identifier of the ShoppingListLineItem.</p>
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
@@ -61,11 +67,15 @@ interface ShoppingListLineItem extends JsonObject
     public function getProductId();
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getProductSlug();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType();

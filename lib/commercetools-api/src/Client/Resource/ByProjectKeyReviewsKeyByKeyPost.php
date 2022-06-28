@@ -104,7 +104,7 @@ class ByProjectKeyReviewsKeyByKeyPost extends ApiRequest implements Conflicting,
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|Review
+     * @return null|T|ErrorResponse|JsonObject|Review
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -49,6 +49,8 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getTypeId()

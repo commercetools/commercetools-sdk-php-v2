@@ -119,6 +119,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
+     *
      * @return null|int
      */
     public function getId()
@@ -153,6 +155,9 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>User-defined unique identifier of the ProductVariant.
+     * <em>ProductVariant keys are different from Product keys.</em></p>
+     *
      * @return null|string
      */
     public function getKey()

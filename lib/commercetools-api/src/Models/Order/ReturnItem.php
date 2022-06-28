@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -21,10 +22,13 @@ interface ReturnItem extends JsonObject
     public const FIELD_COMMENT = 'comment';
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
     public const FIELD_PAYMENT_STATE = 'paymentState';
+    public const FIELD_CUSTOM = 'custom';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
+     * <p>Unique identifier of the ReturnItem.</p>
+     *
      * @return null|string
      */
     public function getId();
@@ -53,6 +57,13 @@ interface ReturnItem extends JsonObject
      * @return null|string
      */
     public function getPaymentState();
+
+    /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom();
 
     /**
      * @return null|DateTimeImmutable
@@ -88,6 +99,11 @@ interface ReturnItem extends JsonObject
      * @param ?string $paymentState
      */
     public function setPaymentState(?string $paymentState): void;
+
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void;
 
     /**
      * @param ?DateTimeImmutable $lastModifiedAt

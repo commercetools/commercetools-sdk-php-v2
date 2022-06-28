@@ -33,6 +33,8 @@ final class DiscountedPriceBuilder implements Builder
     private $discount;
 
     /**
+     * <p>Money value of the discounted price.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -41,6 +43,8 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductDiscount">ProductDiscount</a> related to the discounted price.</p>
+     *
      * @return null|ProductDiscountReference
      */
     public function getDiscount()

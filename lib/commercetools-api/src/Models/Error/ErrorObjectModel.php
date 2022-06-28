@@ -48,6 +48,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'DuplicateField' => DuplicateFieldErrorModel::class,
        'DuplicateFieldWithConflictingResource' => DuplicateFieldWithConflictingResourceErrorModel::class,
        'DuplicatePriceScope' => DuplicatePriceScopeErrorModel::class,
+       'DuplicateStandalonePriceScope' => DuplicateStandalonePriceScopeErrorModel::class,
        'DuplicateVariantValues' => DuplicateVariantValuesErrorModel::class,
        'EditPreviewFailed' => EditPreviewFailedErrorModel::class,
        'EnumKeyAlreadyExists' => EnumKeyAlreadyExistsErrorModel::class,
@@ -79,6 +80,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'ObjectNotFound' => ObjectNotFoundErrorModel::class,
        'OutOfStock' => OutOfStockErrorModel::class,
        'OverCapacity' => OverCapacityErrorModel::class,
+       'OverlappingStandalonePriceValidity' => OverlappingStandalonePriceValidityErrorModel::class,
        'PendingOperation' => PendingOperationErrorModel::class,
        'PriceChanged' => PriceChangedErrorModel::class,
        'ProjectNotConfiguredForLanguages' => ProjectNotConfiguredForLanguagesErrorModel::class,
@@ -155,6 +157,22 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         $this->message = $message;
     }
 
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+        if (preg_match(ErrorObject::FIELD_PATTERN2, $key) === 1) {
+            /** @psalm-var stdClass $data */
+            return JsonObjectModel::of($data);
+        }
+
+        return $data;
+    }
 
 
     /**

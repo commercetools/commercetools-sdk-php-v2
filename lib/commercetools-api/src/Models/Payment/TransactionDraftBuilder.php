@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -47,6 +49,11 @@ final class TransactionDraftBuilder implements Builder
      * @var ?string
      */
     private $state;
+
+    /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * <p>The time at which the transaction took place.</p>
@@ -96,6 +103,16 @@ final class TransactionDraftBuilder implements Builder
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -154,12 +171,34 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAmount() instead
      * @return $this
      */
     public function withAmountBuilder(?MoneyBuilder $amount)
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -171,7 +210,8 @@ final class TransactionDraftBuilder implements Builder
             $this->type,
             $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount,
             $this->interactionId,
-            $this->state
+            $this->state,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

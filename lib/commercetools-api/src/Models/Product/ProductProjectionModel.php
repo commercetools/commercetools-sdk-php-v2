@@ -778,6 +778,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

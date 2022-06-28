@@ -34,6 +34,7 @@ interface ProductDraft extends JsonObject
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_STATE = 'state';
     public const FIELD_PUBLISH = 'publish';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
      * <p>A predefined product type assigned to the product.
@@ -59,7 +60,7 @@ interface ProductDraft extends JsonObject
     public function getSlug();
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>User-defined unique identifier for the Product.</p>
      *
      * @return null|string
      */
@@ -133,6 +134,13 @@ interface ProductDraft extends JsonObject
      * @return null|bool
      */
     public function getPublish();
+
+    /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode();
 
     /**
      * @param ?ProductTypeResourceIdentifier $productType
@@ -213,4 +221,9 @@ interface ProductDraft extends JsonObject
      * @param ?bool $publish
      */
     public function setPublish(?bool $publish): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

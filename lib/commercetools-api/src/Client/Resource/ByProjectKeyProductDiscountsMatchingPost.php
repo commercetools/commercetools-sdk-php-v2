@@ -10,6 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\Error\NoMatchingProductDiscountFoundError;
+use Commercetools\Api\Models\Error\NoMatchingProductDiscountFoundErrorModel;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscount;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountModel;
 use Commercetools\Base\JsonObject;
@@ -46,7 +48,7 @@ class ByProjectKeyProductDiscountsMatchingPost extends ApiRequest implements Err
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|ProductDiscount|T|null
+     * @return ErrorResponse|JsonObject|NoMatchingProductDiscountFoundError|ProductDiscount|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -57,6 +59,10 @@ class ByProjectKeyProductDiscountsMatchingPost extends ApiRequest implements Err
             switch ($response->getStatusCode()) {
                 case '200':
                     $resultType = ProductDiscountModel::class;
+
+                    break;
+                case '404':
+                    $resultType = NoMatchingProductDiscountFoundErrorModel::class;
 
                     break;
                 case '400':
@@ -97,7 +103,7 @@ class ByProjectKeyProductDiscountsMatchingPost extends ApiRequest implements Err
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ProductDiscount
+     * @return null|T|ErrorResponse|JsonObject|NoMatchingProductDiscountFoundError|ProductDiscount
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -26,6 +26,8 @@ final class CustomFieldLocalizedEnumTypeBuilder implements Builder
     private $values;
 
     /**
+     * <p>Allowed values.</p>
+     *
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues()

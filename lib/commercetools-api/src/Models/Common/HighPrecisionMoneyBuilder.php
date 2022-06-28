@@ -23,11 +23,6 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @var ?int
      */
-    private $fractionDigits;
-
-    /**
-     * @var ?int
-     */
     private $centAmount;
 
     /**
@@ -38,17 +33,20 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @var ?int
      */
+    private $fractionDigits;
+
+    /**
+     * @var ?int
+     */
     private $preciseAmount;
 
     /**
-     * @return null|int
-     */
-    public function getFractionDigits()
-    {
-        return $this->fractionDigits;
-    }
-
-    /**
+     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
+     * <ul>
+     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
+     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
+     * </ul>
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -57,7 +55,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|string
      */
@@ -67,22 +65,23 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
+     * <p>Number of digits after the decimal separator, greater than the default number of fraction digits for a currency.</p>
+     *
+     * @return null|int
+     */
+    public function getFractionDigits()
+    {
+        return $this->fractionDigits;
+    }
+
+    /**
+     * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
+     *
      * @return null|int
      */
     public function getPreciseAmount()
     {
         return $this->preciseAmount;
-    }
-
-    /**
-     * @param ?int $fractionDigits
-     * @return $this
-     */
-    public function withFractionDigits(?int $fractionDigits)
-    {
-        $this->fractionDigits = $fractionDigits;
-
-        return $this;
     }
 
     /**
@@ -108,6 +107,17 @@ final class HighPrecisionMoneyBuilder implements Builder
     }
 
     /**
+     * @param ?int $fractionDigits
+     * @return $this
+     */
+    public function withFractionDigits(?int $fractionDigits)
+    {
+        $this->fractionDigits = $fractionDigits;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $preciseAmount
      * @return $this
      */
@@ -122,9 +132,9 @@ final class HighPrecisionMoneyBuilder implements Builder
     public function build(): HighPrecisionMoney
     {
         return new HighPrecisionMoneyModel(
-            $this->fractionDigits,
             $this->centAmount,
             $this->currencyCode,
+            $this->fractionDigits,
             $this->preciseAmount
         );
     }

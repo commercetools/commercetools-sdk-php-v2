@@ -59,6 +59,8 @@ final class ChannelAddRolesActionModel extends JsonObjectModel implements Channe
     }
 
     /**
+     * <p>Value to append to the array.</p>
+     *
      * @return null|array
      */
     public function getRoles()

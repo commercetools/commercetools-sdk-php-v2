@@ -60,6 +60,8 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts()

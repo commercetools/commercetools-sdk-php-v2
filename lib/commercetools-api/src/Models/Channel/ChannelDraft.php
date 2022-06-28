@@ -26,40 +26,53 @@ interface ChannelDraft extends JsonObject
     public const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
+     * <p>User-defined unique identifier for the Channel.</p>
+     *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>If not specified, then channel will get InventorySupply role by default</p>
+     * <p>Roles of the Channel.
+     * Each channel must have at least one role.
+     * If not specified, then <code>InventorySupply</code> is assigned by default.</p>
      *
      * @return null|array
      */
     public function getRoles();
 
     /**
+     * <p>Name of the Channel.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the Channel.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Address where the Channel is located.</p>
+     *
      * @return null|BaseAddress
      */
     public function getAddress();
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom fields defined for the Channel.</p>
      *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p>GeoJSON geometry object encoding the geo location of the Channel.
+     * Currently, only the <a href="ctp:api:type:GeoJsonPoint">Point</a> type is supported.</p>
+     *
      * @return null|GeoJson
      */
     public function getGeoLocation();

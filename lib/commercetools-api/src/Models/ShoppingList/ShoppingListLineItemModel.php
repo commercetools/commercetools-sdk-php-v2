@@ -135,6 +135,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -174,6 +176,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>Unique identifier of the ShoppingListLineItem.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -191,6 +195,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -226,6 +232,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -244,6 +252,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -403,6 +413,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

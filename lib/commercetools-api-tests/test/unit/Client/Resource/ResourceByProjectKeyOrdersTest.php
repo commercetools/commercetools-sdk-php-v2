@@ -13,6 +13,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersEdits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersImport;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersOrderNumberByOrderNumber;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersSearch;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -261,6 +262,17 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 ResourceByProjectKeyOrdersByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/orders/{ID}'
+            ],
+            'ResourceByProjectKeyOrdersSearch' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersSearch {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->orders()
+                        ->search();
+                },
+                ResourceByProjectKeyOrdersSearch::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/orders/search'
             ]
         ];
     }

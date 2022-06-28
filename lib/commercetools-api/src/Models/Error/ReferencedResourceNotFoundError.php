@@ -18,6 +18,8 @@ interface ReferencedResourceNotFoundError extends ErrorObject
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getTypeId();

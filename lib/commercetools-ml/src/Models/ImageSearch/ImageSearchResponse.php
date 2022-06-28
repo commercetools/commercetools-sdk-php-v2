@@ -26,7 +26,7 @@ interface ImageSearchResponse extends JsonObject
     public function getCount();
 
     /**
-     * <p>The offset into the results matching the query. An offset of 0 is the default value indicating that no results should be skipped.</p>
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|float
      */

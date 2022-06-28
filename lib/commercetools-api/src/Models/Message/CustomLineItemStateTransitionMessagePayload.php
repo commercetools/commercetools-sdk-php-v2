@@ -13,7 +13,7 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
-interface CustomLineItemStateTransitionMessagePayload extends MessagePayload
+interface CustomLineItemStateTransitionMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     public const FIELD_TRANSITION_DATE = 'transitionDate';
@@ -37,11 +37,15 @@ interface CustomLineItemStateTransitionMessagePayload extends MessagePayload
     public function getQuantity();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getFromState();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateReference
      */
     public function getToState();

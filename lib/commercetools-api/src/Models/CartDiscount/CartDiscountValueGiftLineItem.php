@@ -21,24 +21,28 @@ interface CartDiscountValueGiftLineItem extends CartDiscountValue
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+     * <p>Reference to a Product.</p>
+     *
      * @return null|ProductReference
      */
     public function getProduct();
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
+     *
      * @return null|int
      */
     public function getVariantId();
 
     /**
-     * <p>The channel must have the role <code>InventorySupply</code></p>
+     * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
      *
      * @return null|ChannelReference
      */
     public function getSupplyChannel();
 
     /**
-     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
      *
      * @return null|ChannelReference
      */

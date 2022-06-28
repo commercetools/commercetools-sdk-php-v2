@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -16,6 +17,7 @@ interface ParcelDraft extends JsonObject
     public const FIELD_MEASUREMENTS = 'measurements';
     public const FIELD_TRACKING_DATA = 'trackingData';
     public const FIELD_ITEMS = 'items';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|ParcelMeasurements
@@ -35,6 +37,13 @@ interface ParcelDraft extends JsonObject
     public function getItems();
 
     /**
+     * <p>Custom Fields of this parcel.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?ParcelMeasurements $measurements
      */
     public function setMeasurements(?ParcelMeasurements $measurements): void;
@@ -48,4 +57,9 @@ interface ParcelDraft extends JsonObject
      * @param ?DeliveryItemCollection $items
      */
     public function setItems(?DeliveryItemCollection $items): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

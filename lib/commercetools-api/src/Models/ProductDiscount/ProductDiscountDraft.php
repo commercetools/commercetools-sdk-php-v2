@@ -26,62 +26,66 @@ interface ProductDiscountDraft extends JsonObject
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>Name of the ProductDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>User-specific unique identifier for a product discount.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier for the ProductDiscount.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Description of the ProductDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+     * <p>Type of Discount and its corresponding value.</p>
+     *
      * @return null|ProductDiscountValueDraft
      */
     public function getValue();
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>
+     * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
      * @return null|string
      */
     public function getPredicate();
 
     /**
-     * <p>The string must contain a decimal number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>
+     * <p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.
+     * The value must be <strong>unique</strong> among all ProductDiscounts in the <a href="ctp:api:type:Project">Project</a>.</p>
      *
      * @return null|string
      */
     public function getSortOrder();
 
     /**
-     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>
+     * <p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
      *
      * @return null|bool
      */
     public function getIsActive();
 
     /**
-     * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>
+     * <p>Date and time (UTC) from which the Discount is effective.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
-     * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
+     * <p>Date and time (UTC) until which the Discount is effective.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

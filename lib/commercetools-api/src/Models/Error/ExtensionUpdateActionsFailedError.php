@@ -19,6 +19,8 @@ interface ExtensionUpdateActionsFailedError extends ErrorObject
     public const FIELD_ERROR_BY_EXTENSION = 'errorByExtension';
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedMessage();

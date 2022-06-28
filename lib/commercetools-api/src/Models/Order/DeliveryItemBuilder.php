@@ -31,6 +31,8 @@ final class DeliveryItemBuilder implements Builder
     private $quantity;
 
     /**
+     * <p>Unique identifier of the DeliveryItem.</p>
+     *
      * @return null|string
      */
     public function getId()

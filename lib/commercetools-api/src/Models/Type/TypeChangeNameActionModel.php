@@ -61,6 +61,9 @@ final class TypeChangeNameActionModel extends JsonObjectModel implements TypeCha
     }
 
     /**
+     * <p>New value to set.
+     * Must not be empty.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()

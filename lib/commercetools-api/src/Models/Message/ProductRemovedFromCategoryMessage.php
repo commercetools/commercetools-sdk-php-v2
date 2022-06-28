@@ -18,6 +18,8 @@ interface ProductRemovedFromCategoryMessage extends Message
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     *
      * @return null|CategoryReference
      */
     public function getCategory();

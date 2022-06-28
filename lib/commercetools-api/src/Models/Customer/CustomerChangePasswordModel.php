@@ -56,6 +56,8 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Unique identifier of the Customer.</p>
+     *
      * @return null|string
      */
     public function getId()

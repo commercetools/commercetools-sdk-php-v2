@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\BaseAddress;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,6 +18,7 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public const FIELD_ITEMS = 'items';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_PARCELS = 'parcels';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * @return null|DeliveryItemCollection
@@ -34,6 +36,13 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public function getParcels();
 
     /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?DeliveryItemCollection $items
      */
     public function setItems(?DeliveryItemCollection $items): void;
@@ -47,4 +56,9 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
      * @param ?ParcelDraftCollection $parcels
      */
     public function setParcels(?ParcelDraftCollection $parcels): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

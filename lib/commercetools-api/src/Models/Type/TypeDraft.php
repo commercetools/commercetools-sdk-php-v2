@@ -21,28 +21,36 @@ interface TypeDraft extends JsonObject
     public const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
+     * <p>User-defined unique identifier for the Type.</p>
+     *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Name of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>The IDs of the resources that can be customized with this type.</p>
+     * <p>Resources and/or data types for which the Type is defined.</p>
      *
      * @return null|array
      */
     public function getResourceTypeIds();
 
     /**
+     * <p>Defines Custom Fields.</p>
+     *
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions();

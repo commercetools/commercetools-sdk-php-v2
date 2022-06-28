@@ -51,8 +51,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * <p>User-defined unique identifier for the Customer Group.
-     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
+     * <p>User-defined unique identifier for the CustomerGroup.</p>
      *
      * @return null|string
      */
@@ -91,7 +90,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     }
 
     /**
-     * <p>Custom Fields for the Customer Group.</p>
+     * <p>Custom Fields for the CustomerGroup.</p>
      *
      * @return null|CustomFieldsDraft
      */

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -38,6 +40,11 @@ final class OrderAddDeliveryActionBuilder implements Builder
     private $parcels;
 
     /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -59,6 +66,16 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function getParcels()
     {
         return $this->parcels;
+    }
+
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -95,6 +112,17 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAddress() instead
      * @return $this
      */
@@ -105,12 +133,24 @@ final class OrderAddDeliveryActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): OrderAddDeliveryAction
     {
         return new OrderAddDeliveryActionModel(
             $this->items,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
-            $this->parcels
+            $this->parcels,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

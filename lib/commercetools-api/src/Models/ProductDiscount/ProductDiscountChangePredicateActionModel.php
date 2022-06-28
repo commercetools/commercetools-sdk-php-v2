@@ -59,7 +59,7 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     }
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>
+     * <p>New value to set. Must be a valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
      * @return null|string
      */

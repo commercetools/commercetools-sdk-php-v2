@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -42,6 +44,11 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
      */
     protected $interactionId;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -50,12 +57,14 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
         ?DateTimeImmutable $timestamp = null,
         ?string $type = null,
         ?Money $amount = null,
-        ?string $interactionId = null
+        ?string $interactionId = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->timestamp = $timestamp;
         $this->type = $type;
         $this->amount = $amount;
         $this->interactionId = $interactionId;
+        $this->custom = $custom;
     }
 
     /**
@@ -142,6 +151,26 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
         return $this->interactionId;
     }
 
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?DateTimeImmutable $timestamp
@@ -175,7 +204,16 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
         $this->interactionId = $interactionId;
     }
 
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
 
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

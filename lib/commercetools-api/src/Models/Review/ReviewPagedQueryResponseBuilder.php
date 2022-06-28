@@ -46,6 +46,8 @@ final class ReviewPagedQueryResponseBuilder implements Builder
     private $results;
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -70,6 +72,8 @@ final class ReviewPagedQueryResponseBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset()

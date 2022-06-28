@@ -147,4 +147,17 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     {
         $this->extensionKey = $extensionKey;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

@@ -30,10 +30,11 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Expandable<ByProjectKeyShippingMethodsMatchingLocationGet>
+ * @template-implements Sortable<ByProjectKeyShippingMethodsMatchingLocationGet>
  * @template-implements Errorable<ByProjectKeyShippingMethodsMatchingLocationGet>
  * @template-implements Deprecatable200<ByProjectKeyShippingMethodsMatchingLocationGet>
  */
-class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
+class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest implements Expandable, Sortable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -99,7 +100,7 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest implemen
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|ShippingMethodPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -177,5 +178,14 @@ class ByProjectKeyShippingMethodsMatchingLocationGet extends ApiRequest implemen
     public function withExpand($expand): ByProjectKeyShippingMethodsMatchingLocationGet
     {
         return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyShippingMethodsMatchingLocationGet
+    {
+        return $this->withQueryParam('sort', $sort);
     }
 }

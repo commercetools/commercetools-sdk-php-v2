@@ -16,6 +16,9 @@ interface CartDiscountChangeRequiresDiscountCodeAction extends CartDiscountUpdat
     public const FIELD_REQUIRES_DISCOUNT_CODE = 'requiresDiscountCode';
 
     /**
+     * <p>New value to set.
+     * If set to <code>true</code>, the Discount can only be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
      * @return null|bool
      */
     public function getRequiresDiscountCode();

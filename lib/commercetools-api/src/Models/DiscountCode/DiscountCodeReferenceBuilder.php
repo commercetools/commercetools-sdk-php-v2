@@ -33,7 +33,7 @@ final class DiscountCodeReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
      * @return null|string
      */
@@ -43,6 +43,8 @@ final class DiscountCodeReferenceBuilder implements Builder
     }
 
     /**
+     * <p>Contains the representation of the expanded DiscountCode. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountCodes.</p>
+     *
      * @return null|DiscountCode
      */
     public function getObj()

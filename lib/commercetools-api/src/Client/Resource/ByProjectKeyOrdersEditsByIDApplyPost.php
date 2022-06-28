@@ -10,6 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\OrderEdit\OrderEdit;
+use Commercetools\Api\Models\OrderEdit\OrderEditModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Client\ApiRequest;
@@ -44,7 +46,7 @@ class ByProjectKeyOrdersEditsByIDApplyPost extends ApiRequest implements Errorab
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @return ErrorResponse|JsonObject|T|null
+     * @return ErrorResponse|JsonObject|OrderEdit|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -53,6 +55,10 @@ class ByProjectKeyOrdersEditsByIDApplyPost extends ApiRequest implements Errorab
         }
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
+                case '200':
+                    $resultType = OrderEditModel::class;
+
+                    break;
                 case '400':
                     $resultType = ErrorResponseModel::class;
 
@@ -91,7 +97,7 @@ class ByProjectKeyOrdersEditsByIDApplyPost extends ApiRequest implements Errorab
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject
+     * @return null|T|ErrorResponse|JsonObject|OrderEdit
      */
     public function execute(array $options = [], string $resultType = null)
     {

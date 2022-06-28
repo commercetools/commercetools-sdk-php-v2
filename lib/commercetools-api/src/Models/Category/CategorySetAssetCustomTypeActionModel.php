@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Category;
 
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -43,7 +45,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     protected $type;
 
     /**
-     * @var ?mixed
+     * @var ?FieldContainer
      */
     protected $fields;
 
@@ -55,7 +57,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
         ?string $assetId = null,
         ?string $assetKey = null,
         ?TypeResourceIdentifier $type = null,
-        ?JsonObject $fields = null
+        ?FieldContainer $fields = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
@@ -82,6 +84,8 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -99,6 +103,8 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -116,8 +122,8 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>If set, the custom type is set to this new value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -137,9 +143,9 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>If set, the custom fields are set to this new value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields()
     {
@@ -149,7 +155,8 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
             if (is_null($data)) {
                 return null;
             }
-            $this->fields = JsonObjectModel::of($data);
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
         return $this->fields;
@@ -181,9 +188,9 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void
+    public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;
     }

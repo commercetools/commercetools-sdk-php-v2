@@ -83,4 +83,17 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     {
         $this->message = $message;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

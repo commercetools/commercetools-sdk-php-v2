@@ -20,15 +20,14 @@ interface ImportContainerPagedResponse extends JsonObject
     public const FIELD_RESULTS = 'results';
 
     /**
-     * <p>The number of results requested in the query request.</p>
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
      * @return null|int
      */
     public function getLimit();
 
     /**
-     * <p>The number of elements skipped, not a page number.
-     * Supplied by the client or the server default.</p>
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
      * @return null|int
      */

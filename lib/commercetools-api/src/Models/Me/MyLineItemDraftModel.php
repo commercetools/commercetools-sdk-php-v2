@@ -346,6 +346,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

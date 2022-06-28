@@ -20,35 +20,36 @@ interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
     public const FIELD_SELECTION_MODE = 'selectionMode';
 
     /**
-     * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are
-     * matched by the predicate.</p>
+     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItems target predicate</a>. The Discount will be applied to Custom Line Items that are matched by the predicate.</p>
      *
      * @return null|string
      */
     public function getPredicate();
 
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
+     * <p>Number of Custom Line Items to be present in order to trigger an application of this Discount.</p>
      *
      * @return null|int
      */
     public function getTriggerQuantity();
 
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
+     * <p>Number of Custom Line Items that are discounted per application of this Discount.</p>
      *
      * @return null|int
      */
     public function getDiscountedQuantity();
 
     /**
-     * <p>Maximum number of applications of this discount.</p>
+     * <p>Maximum number of times this Discount can be applied.</p>
      *
      * @return null|int
      */
     public function getMaxOccurrence();
 
     /**
+     * <p>Discounts particular Line Items only according to the SelectionMode.</p>
+     *
      * @return null|string
      */
     public function getSelectionMode();

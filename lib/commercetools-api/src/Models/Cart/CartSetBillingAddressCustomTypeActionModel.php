@@ -70,6 +70,9 @@ final class CartSetBillingAddressCustomTypeActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>billingAddress</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the <code>billingAddress</code>.</p>
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -88,6 +91,8 @@ final class CartSetBillingAddressCustomTypeActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>billingAddress</code>.</p>
+     *
      * @return null|FieldContainer
      */
     public function getFields()

@@ -30,7 +30,7 @@ interface OrderEdit extends BaseResource
     public const FIELD_COMMENT = 'comment';
 
     /**
-     * <p>The unique ID of the OrderEdit.</p>
+     * <p>Unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */
@@ -68,7 +68,7 @@ interface OrderEdit extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>Unique identifier for this edit.</p>
+     * <p>User-defined unique identifier of the OrderEdit.</p>
      *
      * @return null|string
      */

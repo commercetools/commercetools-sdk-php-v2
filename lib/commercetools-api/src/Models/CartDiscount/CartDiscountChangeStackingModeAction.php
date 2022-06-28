@@ -16,6 +16,8 @@ interface CartDiscountChangeStackingModeAction extends CartDiscountUpdateAction
     public const FIELD_STACKING_MODE = 'stackingMode';
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getStackingMode();

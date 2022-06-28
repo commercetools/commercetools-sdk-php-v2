@@ -26,6 +26,8 @@ final class ProductDiscountChangeValueActionBuilder implements Builder
     private $value;
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|ProductDiscountValueDraft
      */
     public function getValue()

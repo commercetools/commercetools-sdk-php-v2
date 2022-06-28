@@ -27,17 +27,17 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     /**
      * @var ?int
      */
+    protected $offset;
+
+    /**
+     * @var ?int
+     */
     protected $count;
 
     /**
      * @var ?int
      */
     protected $total;
-
-    /**
-     * @var ?int
-     */
-    protected $offset;
 
     /**
      * @var ?ProductDiscountCollection
@@ -50,19 +50,21 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
      */
     public function __construct(
         ?int $limit = null,
+        ?int $offset = null,
         ?int $count = null,
         ?int $total = null,
-        ?int $offset = null,
         ?ProductDiscountCollection $results = null
     ) {
         $this->limit = $limit;
+        $this->offset = $offset;
         $this->count = $count;
         $this->total = $total;
-        $this->offset = $offset;
         $this->results = $results;
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -80,40 +82,8 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        if (is_null($this->count)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->count = (int) $data;
-        }
-
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        if (is_null($this->total)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_TOTAL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->total = (int) $data;
-        }
-
-        return $this->total;
-    }
-
-    /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      * @return null|int
      */
     public function getOffset()
@@ -131,6 +101,50 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Actual number of results returned.</p>
+     *
+     * @return null|int
+     */
+    public function getCount()
+    {
+        if (is_null($this->count)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->count = (int) $data;
+        }
+
+        return $this->count;
+    }
+
+    /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This field is returned by default.
+     * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     *
+     * @return null|int
+     */
+    public function getTotal()
+    {
+        if (is_null($this->total)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_TOTAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->total = (int) $data;
+        }
+
+        return $this->total;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ProductDiscount">ProductDiscounts</a> matching the query.</p>
+     *
      * @return null|ProductDiscountCollection
      */
     public function getResults()
@@ -157,6 +171,14 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     }
 
     /**
+     * @param ?int $offset
+     */
+    public function setOffset(?int $offset): void
+    {
+        $this->offset = $offset;
+    }
+
+    /**
      * @param ?int $count
      */
     public function setCount(?int $count): void
@@ -170,14 +192,6 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     public function setTotal(?int $total): void
     {
         $this->total = $total;
-    }
-
-    /**
-     * @param ?int $offset
-     */
-    public function setOffset(?int $offset): void
-    {
-        $this->offset = $offset;
     }
 
     /**

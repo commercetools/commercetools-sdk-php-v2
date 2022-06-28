@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
-use Commercetools\Api\Models\Type\CustomFields;
-use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -85,7 +85,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     protected $defaultBillingAddress;
 
     /**
-     * @var ?CustomFields
+     * @var ?CustomFieldsDraft
      */
     protected $custom;
 
@@ -116,7 +116,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         ?BaseAddressCollection $addresses = null,
         ?int $defaultShippingAddress = null,
         ?int $defaultBillingAddress = null,
-        ?CustomFields $custom = null,
+        ?CustomFieldsDraft $custom = null,
         ?string $locale = null,
         ?StoreResourceIdentifierCollection $stores = null
     ) {
@@ -356,7 +356,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     /**
      * <p>The custom fields.</p>
      *
-     * @return null|CustomFields
+     * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
@@ -367,7 +367,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
         return $this->custom;
@@ -505,9 +505,9 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * @param ?CustomFields $custom
+     * @param ?CustomFieldsDraft $custom
      */
-    public function setCustom(?CustomFields $custom): void
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
@@ -529,6 +529,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

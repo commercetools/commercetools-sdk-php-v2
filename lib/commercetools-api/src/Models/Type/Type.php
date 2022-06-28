@@ -27,69 +27,78 @@ interface Type extends BaseResource
     public const FIELD_FIELD_DEFINITIONS = 'fieldDefinitions';
 
     /**
-     * <p>The unique ID of the type.</p>
+     * <p>Unique identifier of the Type.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the type.</p>
+     * <p>Current version of the Type.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the Type was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Type was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
-     * <p>Identifier for the type (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier of the Type.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Name of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the Type.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>Defines for which resource(s) the type is valid.</p>
+     * <p>Resources and/or data types for which the Type is defined.</p>
      *
      * @return null|array
      */
     public function getResourceTypeIds();
 
     /**
+     * <p>Defines Custom Fields.</p>
+     *
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions();

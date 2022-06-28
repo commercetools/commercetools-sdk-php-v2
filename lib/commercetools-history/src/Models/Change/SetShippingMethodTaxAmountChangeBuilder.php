@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValue;
+use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValueBuilder;
 
 /**
  * @implements Builder<SetShippingMethodTaxAmountChange>
@@ -31,12 +33,12 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     private $taxMode;
 
     /**
-     * @var ?JsonObject
+     * @var null|ShippingMethodTaxAmountChangeValue|ShippingMethodTaxAmountChangeValueBuilder
      */
     private $nextValue;
 
     /**
-     * @var ?JsonObject
+     * @var null|ShippingMethodTaxAmountChangeValue|ShippingMethodTaxAmountChangeValueBuilder
      */
     private $previousValue;
 
@@ -59,19 +61,19 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getNextValue()
     {
-        return $this->nextValue;
+        return $this->nextValue instanceof ShippingMethodTaxAmountChangeValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getPreviousValue()
     {
-        return $this->previousValue;
+        return $this->previousValue instanceof ShippingMethodTaxAmountChangeValueBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
@@ -97,10 +99,10 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $nextValue
+     * @param ?ShippingMethodTaxAmountChangeValue $nextValue
      * @return $this
      */
-    public function withNextValue(?JsonObject $nextValue)
+    public function withNextValue(?ShippingMethodTaxAmountChangeValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
@@ -108,24 +110,45 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $previousValue
+     * @param ?ShippingMethodTaxAmountChangeValue $previousValue
      * @return $this
      */
-    public function withPreviousValue(?JsonObject $previousValue)
+    public function withPreviousValue(?ShippingMethodTaxAmountChangeValue $previousValue)
     {
         $this->previousValue = $previousValue;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?ShippingMethodTaxAmountChangeValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?ShippingMethodTaxAmountChangeValueBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
 
     public function build(): SetShippingMethodTaxAmountChange
     {
         return new SetShippingMethodTaxAmountChangeModel(
             $this->change,
             $this->taxMode,
-            $this->nextValue,
-            $this->previousValue
+            $this->nextValue instanceof ShippingMethodTaxAmountChangeValueBuilder ? $this->nextValue->build() : $this->nextValue,
+            $this->previousValue instanceof ShippingMethodTaxAmountChangeValueBuilder ? $this->previousValue->build() : $this->previousValue
         );
     }
 

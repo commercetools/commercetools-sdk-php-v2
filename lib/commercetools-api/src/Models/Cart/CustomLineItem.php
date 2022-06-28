@@ -34,7 +34,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
-     * <p>The unique ID of this CustomLineItem.</p>
+     * <p>Unique identifier of the CustomLineItem.</p>
      *
      * @return null|string
      */
@@ -98,7 +98,7 @@ interface CustomLineItem extends JsonObject
     public function getTaxCategory();
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
+     * <p>Will be set automatically in the <code>Platform</code> TaxMode, once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
      * @return null|TaxRate

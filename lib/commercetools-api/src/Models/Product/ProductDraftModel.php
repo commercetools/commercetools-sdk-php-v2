@@ -108,6 +108,11 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      */
     protected $publish;
 
+    /**
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -128,7 +133,8 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?SearchKeywords $searchKeywords = null,
         ?StateResourceIdentifier $state = null,
-        ?bool $publish = null
+        ?bool $publish = null,
+        ?string $priceMode = null
     ) {
         $this->productType = $productType;
         $this->name = $name;
@@ -146,6 +152,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
         $this->publish = $publish;
+        $this->priceMode = $priceMode;
     }
 
     /**
@@ -211,7 +218,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
-     * <p>User-specific unique identifier for the product.</p>
+     * <p>User-defined unique identifier for the Product.</p>
      *
      * @return null|string
      */
@@ -451,6 +458,25 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         return $this->publish;
     }
 
+    /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
 
     /**
      * @param ?ProductTypeResourceIdentifier $productType
@@ -578,5 +604,13 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }

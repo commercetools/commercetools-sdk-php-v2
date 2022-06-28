@@ -70,6 +70,8 @@ final class MyPaymentBuilder implements Builder
     private $custom;
 
     /**
+     * <p>Unique identifier of the MyPayment.</p>
+     *
      * @return null|string
      */
     public function getId()

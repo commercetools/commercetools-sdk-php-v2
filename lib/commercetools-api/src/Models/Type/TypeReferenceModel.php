@@ -51,6 +51,8 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     }
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -68,7 +70,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     }
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
      * @return null|string
      */
@@ -87,6 +89,9 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     }
 
     /**
+     * <p>Contains the representation of the expanded Type.
+     * Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Types.</p>
+     *
      * @return null|Type
      */
     public function getObj()

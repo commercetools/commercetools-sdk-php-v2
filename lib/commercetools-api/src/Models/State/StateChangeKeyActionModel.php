@@ -59,6 +59,9 @@ final class StateChangeKeyActionModel extends JsonObjectModel implements StateCh
     }
 
     /**
+     * <p>New value to set.
+     * Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getKey()

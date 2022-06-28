@@ -23,11 +23,6 @@ final class CentPrecisionMoneyBuilder implements Builder
     /**
      * @var ?int
      */
-    private $fractionDigits;
-
-    /**
-     * @var ?int
-     */
     private $centAmount;
 
     /**
@@ -36,14 +31,17 @@ final class CentPrecisionMoneyBuilder implements Builder
     private $currencyCode;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getFractionDigits()
-    {
-        return $this->fractionDigits;
-    }
+    private $fractionDigits;
 
     /**
+     * <p>Amount in the smallest indivisible unit of a currency, such as:</p>
+     * <ul>
+     * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
+     * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
+     * </ul>
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -52,7 +50,7 @@ final class CentPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
      * @return null|string
      */
@@ -62,14 +60,13 @@ final class CentPrecisionMoneyBuilder implements Builder
     }
 
     /**
-     * @param ?int $fractionDigits
-     * @return $this
+     * <p>The number of default fraction digits for the given currency, like <code>2</code> for EUR or <code>0</code> for JPY.</p>
+     *
+     * @return null|int
      */
-    public function withFractionDigits(?int $fractionDigits)
+    public function getFractionDigits()
     {
-        $this->fractionDigits = $fractionDigits;
-
-        return $this;
+        return $this->fractionDigits;
     }
 
     /**
@@ -94,13 +91,24 @@ final class CentPrecisionMoneyBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $fractionDigits
+     * @return $this
+     */
+    public function withFractionDigits(?int $fractionDigits)
+    {
+        $this->fractionDigits = $fractionDigits;
+
+        return $this;
+    }
+
 
     public function build(): CentPrecisionMoney
     {
         return new CentPrecisionMoneyModel(
-            $this->fractionDigits,
             $this->centAmount,
-            $this->currencyCode
+            $this->currencyCode,
+            $this->fractionDigits
         );
     }
 

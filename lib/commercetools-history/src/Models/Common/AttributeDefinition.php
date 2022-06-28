@@ -24,7 +24,7 @@ interface AttributeDefinition extends JsonObject
     public const FIELD_IS_SEARCHABLE = 'isSearchable';
 
     /**
-     * @return null|mixed
+     * @return null|AttributeType
      */
     public function getType();
 
@@ -70,9 +70,9 @@ interface AttributeDefinition extends JsonObject
     public function getIsSearchable();
 
     /**
-     * @param ?JsonObject $type
+     * @param ?AttributeType $type
      */
-    public function setType(?JsonObject $type): void;
+    public function setType(?AttributeType $type): void;
 
     /**
      * @param ?string $name

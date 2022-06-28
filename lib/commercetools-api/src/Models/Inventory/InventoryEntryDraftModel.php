@@ -30,6 +30,11 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     protected $sku;
 
     /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -60,6 +65,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
      */
     public function __construct(
         ?string $sku = null,
+        ?string $key = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?int $quantityOnStock = null,
         ?int $restockableInDays = null,
@@ -67,6 +73,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         ?CustomFieldsDraft $custom = null
     ) {
         $this->sku = $sku;
+        $this->key = $key;
         $this->supplyChannel = $supplyChannel;
         $this->quantityOnStock = $quantityOnStock;
         $this->restockableInDays = $restockableInDays;
@@ -75,6 +82,8 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku()
@@ -92,6 +101,27 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
+     * <p>User-defined unique identifier for the InventoryEntry.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -110,6 +140,8 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
+     * <p>Overall amount of stock.</p>
+     *
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -127,6 +159,8 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
+     * <p>How often the InventoryEntry is restocked (in days).</p>
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -144,6 +178,8 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
+     * <p>Date and time of the next restock.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -165,7 +201,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields of the InventoryEntry.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -191,6 +227,14 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**
@@ -234,6 +278,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

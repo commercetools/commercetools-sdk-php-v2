@@ -17,6 +17,8 @@ interface DeliveryItem extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p>Unique identifier of the DeliveryItem.</p>
+     *
      * @return null|string
      */
     public function getId();

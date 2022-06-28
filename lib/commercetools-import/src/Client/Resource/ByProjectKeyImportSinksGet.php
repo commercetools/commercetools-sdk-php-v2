@@ -71,7 +71,7 @@ class ByProjectKeyImportSinksGet extends ApiRequest implements SecuredByViewImpo
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImportSinkPagedResponse|JsonObject
+     * @return null|T|ImportSinkPagedResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

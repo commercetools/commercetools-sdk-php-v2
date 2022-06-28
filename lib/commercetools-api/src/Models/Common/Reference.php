@@ -22,10 +22,12 @@ use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\Payment\PaymentReference;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
@@ -41,6 +43,8 @@ interface Reference extends JsonObject
     public const FIELD_ID = 'id';
 
     /**
+     * <p>Type of referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId();

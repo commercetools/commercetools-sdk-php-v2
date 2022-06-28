@@ -28,6 +28,9 @@ final class StateSetDescriptionActionBuilder implements Builder
     private $description;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

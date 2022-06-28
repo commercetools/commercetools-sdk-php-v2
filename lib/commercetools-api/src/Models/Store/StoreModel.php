@@ -87,6 +87,11 @@ final class StoreModel extends JsonObjectModel implements Store
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -107,6 +112,7 @@ final class StoreModel extends JsonObjectModel implements Store
         ?array $languages = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
+        ?ProductSelectionSettingCollection $productSelections = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
@@ -120,10 +126,13 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
     }
 
     /**
+     * <p>Unique ID of the Store.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -141,6 +150,8 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Current version of the Store.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -158,6 +169,8 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Date and time (UTC) the Store was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -179,6 +192,8 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Date and time (UTC) the Store was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -200,7 +215,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -220,7 +235,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -240,9 +255,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>User-specific unique identifier for the store.
-     * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>
+     * <p>User-defined unique and immutable identifier for the Store.</p>
      *
      * @return null|string
      */
@@ -261,7 +274,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>The name of the store</p>
+     * <p>Name of the Store.</p>
      *
      * @return null|LocalizedString
      */
@@ -281,6 +294,8 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Languages configured for the Store.</p>
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -298,7 +313,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>Set of References to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>Product Distribution Channels allowed for the Store.</p>
      *
      * @return null|ChannelReferenceCollection
      */
@@ -317,7 +332,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     * <p>Inventory Supply Channels allowed for the Store.</p>
      *
      * @return null|ChannelReferenceCollection
      */
@@ -336,6 +351,31 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * <p>Controls availability of Products for this Store via active Product Selections.</p>
+     * <ul>
+     * <li>If empty all Products in the <a href="ctp:api:type:Project">Project</a> are available in this Store.</li>
+     * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
+     * </ul>
+     *
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
+     * <p>Custom fields for the Store.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -443,6 +483,14 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
+    }
+
+    /**
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void
@@ -451,6 +499,7 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

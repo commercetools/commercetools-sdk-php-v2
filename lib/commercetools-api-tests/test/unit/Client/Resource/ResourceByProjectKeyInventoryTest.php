@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInventoryByID;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInventoryKeyByKey;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -225,6 +226,17 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                 ResourceByProjectKeyInventoryByID::class,
                 ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
                 '/{projectKey}/inventory/{ID}'
+            ],
+            'ResourceByProjectKeyInventoryKeyByKey' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInventoryKeyByKey {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inventory()
+                        ->withKey("test_key");
+                },
+                ResourceByProjectKeyInventoryKeyByKey::class,
+                ['projectKey' => 'test_projectKey', 'key' => 'test_key'],
+                '/{projectKey}/inventory/key={key}'
             ]
         ];
     }

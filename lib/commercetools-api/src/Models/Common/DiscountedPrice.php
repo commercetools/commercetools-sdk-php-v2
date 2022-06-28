@@ -18,11 +18,15 @@ interface DiscountedPrice extends JsonObject
     public const FIELD_DISCOUNT = 'discount';
 
     /**
+     * <p>Money value of the discounted price.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue();
 
     /**
+     * <p><a href="ctp:api:type:ProductDiscount">ProductDiscount</a> related to the discounted price.</p>
+     *
      * @return null|ProductDiscountReference
      */
     public function getDiscount();

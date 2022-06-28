@@ -33,7 +33,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|string
      */
@@ -43,7 +43,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded Customer Group. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Customer Groups.</p>
+     * <p>Contains the representation of the expanded CustomerGroup. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomerGroups.</p>
      *
      * @return null|CustomerGroup
      */

@@ -26,7 +26,7 @@ final class ProjectChangeCurrenciesActionBuilder implements Builder
     private $currencies;
 
     /**
-     * <p>A three-digit currency code as per currency code.</p>
+     * <p>New value to set. Must not be empty.</p>
      *
      * @return null|array
      */

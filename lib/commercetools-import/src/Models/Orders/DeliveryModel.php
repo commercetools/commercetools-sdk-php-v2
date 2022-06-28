@@ -197,6 +197,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

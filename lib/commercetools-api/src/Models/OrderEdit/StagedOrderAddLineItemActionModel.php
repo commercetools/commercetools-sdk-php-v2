@@ -71,7 +71,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     protected $sku;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -111,7 +111,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         ?string $productId = null,
         ?int $variantId = null,
         ?string $sku = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?Money $externalPrice = null,
@@ -151,6 +151,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -169,6 +171,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -256,17 +260,17 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -294,6 +298,8 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -312,6 +318,9 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getExternalPrice()
@@ -415,9 +424,9 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
@@ -463,6 +472,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

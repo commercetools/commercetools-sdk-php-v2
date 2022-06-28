@@ -71,7 +71,7 @@ class ByProjectKeyImportSummariesImportSinkKeyByImportSinkKeyGet extends ApiRequ
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImportSummary|JsonObject
+     * @return null|T|ImportSummary|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

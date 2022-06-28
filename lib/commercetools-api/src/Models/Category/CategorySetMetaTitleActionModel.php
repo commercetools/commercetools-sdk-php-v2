@@ -61,6 +61,8 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()

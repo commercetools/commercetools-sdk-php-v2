@@ -153,7 +153,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
-     * <p>The unique ID of the shipping method.</p>
+     * <p>Unique identifier of the ShippingMethod.</p>
      *
      * @return null|string
      */
@@ -273,7 +273,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
-     * <p>User-specific unique identifier for the shipping method.</p>
+     * <p>User-defined unique identifier of the ShippingMethod.</p>
      *
      * @return null|string
      */
@@ -582,6 +582,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

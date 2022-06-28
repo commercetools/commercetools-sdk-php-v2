@@ -126,6 +126,7 @@ final class TimeAttributeModel extends JsonObjectModel implements TimeAttribute
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

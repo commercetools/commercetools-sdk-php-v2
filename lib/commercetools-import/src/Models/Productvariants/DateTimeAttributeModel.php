@@ -126,6 +126,7 @@ final class DateTimeAttributeModel extends JsonObjectModel implements DateTimeAt
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

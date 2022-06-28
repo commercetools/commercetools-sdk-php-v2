@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -46,11 +47,18 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     private $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    private $productSelections;
+
+    /**
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -83,6 +91,16 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        return $this->productSelections;
+    }
+
+    /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -135,6 +153,17 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     * @return $this
+     */
+    public function withProductSelections(?ProductSelectionSettingCollection $productSelections)
+    {
+        $this->productSelections = $productSelections;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -174,6 +203,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
             $this->languages,
             $this->distributionChannels,
             $this->supplyChannels,
+            $this->productSelections,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }

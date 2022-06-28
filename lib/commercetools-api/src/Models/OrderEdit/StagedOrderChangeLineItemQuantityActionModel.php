@@ -37,7 +37,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     protected $lineItemId;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -57,7 +57,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null
     ) {
@@ -103,23 +103,26 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
     }
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getExternalPrice()
@@ -165,9 +168,9 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

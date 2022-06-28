@@ -289,7 +289,20 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->validityCheckTime = $validityCheckTime;
     }
 
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
 
+        return $data;
+    }
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

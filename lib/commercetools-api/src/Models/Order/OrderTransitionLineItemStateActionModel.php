@@ -124,6 +124,8 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getFromState()
@@ -142,6 +144,8 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
      * @return null|StateResourceIdentifier
      */
     public function getToState()
@@ -222,6 +226,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

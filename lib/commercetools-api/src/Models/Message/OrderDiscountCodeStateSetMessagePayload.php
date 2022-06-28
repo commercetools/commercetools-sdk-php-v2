@@ -12,13 +12,15 @@ use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderDiscountCodeStateSetMessagePayload extends MessagePayload
+interface OrderDiscountCodeStateSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DISCOUNT_CODE = 'discountCode';
     public const FIELD_STATE = 'state';
     public const FIELD_OLD_STATE = 'oldState';
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     *
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode();

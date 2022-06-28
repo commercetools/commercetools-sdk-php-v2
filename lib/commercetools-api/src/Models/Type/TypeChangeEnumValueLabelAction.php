@@ -17,11 +17,16 @@ interface TypeChangeEnumValueLabelAction extends TypeUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
+     *
      * @return null|string
      */
     public function getFieldName();
 
     /**
+     * <p>New value to set.
+     * Must not be empty.</p>
+     *
      * @return null|CustomFieldEnumValue
      */
     public function getValue();

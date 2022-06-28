@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Order\Order;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderCreatedMessagePayload extends MessagePayload
+interface OrderCreatedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_ORDER = 'order';
 

@@ -64,6 +64,9 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -72,6 +75,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -96,7 +101,7 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -106,6 +111,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

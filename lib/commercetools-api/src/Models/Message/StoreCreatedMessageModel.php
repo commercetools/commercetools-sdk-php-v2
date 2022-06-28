@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -108,6 +109,11 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -131,6 +137,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
         ?array $languages = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
+        ?ProductSelectionSettingCollection $productSelections = null,
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
@@ -147,11 +154,14 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
+     * <p>Unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -285,6 +295,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -355,6 +367,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -424,6 +438,25 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -555,6 +588,14 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
+    }
+
+    /**
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void
@@ -563,6 +604,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

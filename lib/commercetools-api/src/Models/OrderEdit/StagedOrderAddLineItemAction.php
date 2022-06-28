@@ -35,11 +35,15 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
@@ -65,7 +69,7 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function getSku();
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity();
 
@@ -75,11 +79,16 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function getAddedAt();
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getExternalPrice();
@@ -125,9 +134,9 @@ interface StagedOrderAddLineItemAction extends StagedOrderUpdateAction
     public function setSku(?string $sku): void;
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void;
+    public function setQuantity(?int $quantity): void;
 
     /**
      * @param ?DateTimeImmutable $addedAt

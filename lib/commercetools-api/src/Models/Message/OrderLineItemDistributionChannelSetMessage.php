@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderLineItemDistributionChannelSetMessage extends Message
+interface OrderLineItemDistributionChannelSetMessage extends OrderMessage
 {
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
@@ -23,6 +23,8 @@ interface OrderLineItemDistributionChannelSetMessage extends Message
     public function getLineItemId();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelReference
      */
     public function getDistributionChannel();

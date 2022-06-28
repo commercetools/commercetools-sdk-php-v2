@@ -28,6 +28,8 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     private $geoLocation;
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|GeoJson
      */
     public function getGeoLocation()

@@ -22,6 +22,7 @@ class MapperIterator extends \IteratorIterator
         $this->mapper = $mapper;
     }
 
+    #[\ReturnTypeWillChange]
     public function current()
     {
         /** @psalm-suppress MixedReturnStatement */

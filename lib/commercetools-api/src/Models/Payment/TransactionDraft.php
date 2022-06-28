@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -20,6 +21,7 @@ interface TransactionDraft extends JsonObject
     public const FIELD_AMOUNT = 'amount';
     public const FIELD_INTERACTION_ID = 'interactionId';
     public const FIELD_STATE = 'state';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>The time at which the transaction took place.</p>
@@ -57,6 +59,13 @@ interface TransactionDraft extends JsonObject
     public function getState();
 
     /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
      * @param ?DateTimeImmutable $timestamp
      */
     public function setTimestamp(?DateTimeImmutable $timestamp): void;
@@ -80,4 +89,9 @@ interface TransactionDraft extends JsonObject
      * @param ?string $state
      */
     public function setState(?string $state): void;
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void;
 }

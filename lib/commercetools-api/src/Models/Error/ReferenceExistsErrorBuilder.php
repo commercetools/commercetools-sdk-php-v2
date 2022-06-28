@@ -39,6 +39,8 @@ final class ReferenceExistsErrorBuilder implements Builder
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getReferencedBy()

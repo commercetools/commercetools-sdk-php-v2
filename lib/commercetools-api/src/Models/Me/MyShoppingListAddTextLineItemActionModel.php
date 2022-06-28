@@ -92,6 +92,8 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -110,6 +112,8 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -166,6 +170,8 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -225,6 +231,7 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -87,6 +87,8 @@ final class StagedOrderSetLineItemDistributionChannelActionModel extends JsonObj
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

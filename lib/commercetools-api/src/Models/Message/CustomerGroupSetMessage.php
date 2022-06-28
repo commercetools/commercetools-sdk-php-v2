@@ -17,7 +17,7 @@ interface CustomerGroupSetMessage extends Message
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

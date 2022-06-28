@@ -97,7 +97,7 @@ class ByProjectKeyInStoreKeyByStoreKeyLoginPost extends ApiRequest implements Er
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CustomerSignInResult|ErrorResponse|JsonObject
+     * @return null|T|CustomerSignInResult|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

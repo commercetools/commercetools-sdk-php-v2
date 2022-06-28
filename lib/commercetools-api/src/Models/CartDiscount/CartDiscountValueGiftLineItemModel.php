@@ -84,6 +84,8 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Reference to a Product.</p>
+     *
      * @return null|ProductReference
      */
     public function getProduct()
@@ -102,6 +104,8 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -119,7 +123,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>The channel must have the role <code>InventorySupply</code></p>
+     * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
      *
      * @return null|ChannelReference
      */
@@ -139,7 +143,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
      *
      * @return null|ChannelReference
      */

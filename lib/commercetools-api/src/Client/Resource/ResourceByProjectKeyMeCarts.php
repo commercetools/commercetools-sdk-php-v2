@@ -48,6 +48,14 @@ class ResourceByProjectKeyMeCarts extends ApiResource
 
         return new ResourceByProjectKeyMeCartsByID($args, $this->getClient());
     }
+    /**
+     */
+    public function replicate(): ResourceByProjectKeyMeCartsReplicate
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMeCartsReplicate($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

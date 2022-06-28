@@ -134,7 +134,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-     * <p>The unique ID of this TextLineItem.</p>
+     * <p>Unique identifier of the TextLineItem.</p>
      *
      * @return null|string
      */
@@ -237,6 +237,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

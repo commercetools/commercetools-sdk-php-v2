@@ -59,6 +59,8 @@ final class ProductDiscountChangeValueActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|ProductDiscountValueDraft
      */
     public function getValue()

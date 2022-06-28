@@ -212,7 +212,12 @@ final class CartBuilder implements Builder
     private $itemShippingAddresses;
 
     /**
-     * <p>The unique ID of the cart.</p>
+     * @var ?int
+     */
+    private $totalLineItemQuantity;
+
+    /**
+     * <p>Unique identifier of the Cart.</p>
      *
      * @return null|string
      */
@@ -248,7 +253,7 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier of the cart.</p>
+     * <p>User-defined unique identifier of the Cart.</p>
      *
      * @return null|string
      */
@@ -529,6 +534,16 @@ final class CartBuilder implements Builder
     public function getItemShippingAddresses()
     {
         return $this->itemShippingAddresses;
+    }
+
+    /**
+     * <p>The sum off all the <a href="ctp:api:type:LineItem">Line Items</a> quantities. Does not take <a href="ctp:api:type:CustomLineItem">Custom Line Items</a> into consideration.</p>
+     *
+     * @return null|int
+     */
+    public function getTotalLineItemQuantity()
+    {
+        return $this->totalLineItemQuantity;
     }
 
     /**
@@ -906,6 +921,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?int $totalLineItemQuantity
+     * @return $this
+     */
+    public function withTotalLineItemQuantity(?int $totalLineItemQuantity)
+    {
+        $this->totalLineItemQuantity = $totalLineItemQuantity;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -1073,7 +1099,8 @@ final class CartBuilder implements Builder
             $this->refusedGifts,
             $this->origin,
             $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
-            $this->itemShippingAddresses
+            $this->itemShippingAddresses,
+            $this->totalLineItemQuantity
         );
     }
 

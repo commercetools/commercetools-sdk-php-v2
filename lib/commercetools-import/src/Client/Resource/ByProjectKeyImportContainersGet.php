@@ -71,7 +71,7 @@ class ByProjectKeyImportContainersGet extends ApiRequest implements SecuredByVie
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImportContainerPagedResponse|JsonObject
+     * @return null|T|ImportContainerPagedResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

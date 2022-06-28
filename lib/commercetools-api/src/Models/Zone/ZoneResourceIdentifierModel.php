@@ -51,6 +51,8 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
     }
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -68,7 +70,7 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
     }
 
     /**
-     * <p>Unique ID of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +89,7 @@ final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneR
     }
 
     /**
-     * <p>Unique key of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

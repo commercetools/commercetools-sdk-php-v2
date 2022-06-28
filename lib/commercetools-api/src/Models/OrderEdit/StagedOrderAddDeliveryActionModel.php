@@ -14,6 +14,8 @@ use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -46,6 +48,11 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
      */
     protected $parcels;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -53,11 +60,13 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function __construct(
         ?DeliveryItemCollection $items = null,
         ?BaseAddress $address = null,
-        ?ParcelDraftCollection $parcels = null
+        ?ParcelDraftCollection $parcels = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->items = $items;
         $this->address = $address;
         $this->parcels = $parcels;
+        $this->custom = $custom;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -130,6 +139,26 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
         return $this->parcels;
     }
 
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?DeliveryItemCollection $items
@@ -153,5 +182,13 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     public function setParcels(?ParcelDraftCollection $parcels): void
     {
         $this->parcels = $parcels;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

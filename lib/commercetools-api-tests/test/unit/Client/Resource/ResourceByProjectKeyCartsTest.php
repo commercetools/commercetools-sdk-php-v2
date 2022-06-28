@@ -104,17 +104,6 @@ class ResourceByProjectKeyCartsTest extends TestCase
     public function getRequests()
     {
         return [
-            'ByProjectKeyCartsGet_withCustomerId' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->carts()
-                        ->get()
-                        ->withCustomerId('customerId');
-                },
-                'get',
-                'test_projectKey/carts?customerId=customerId',
-            ],
             'ByProjectKeyCartsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

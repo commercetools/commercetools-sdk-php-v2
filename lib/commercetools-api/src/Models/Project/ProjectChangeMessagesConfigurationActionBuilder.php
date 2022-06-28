@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Api\Models\Message\MessageConfigurationDraft;
-use Commercetools\Api\Models\Message\MessageConfigurationDraftBuilder;
+use Commercetools\Api\Models\Message\MessagesConfigurationDraft;
+use Commercetools\Api\Models\Message\MessagesConfigurationDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -23,23 +23,25 @@ use stdClass;
 final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
 {
     /**
-     * @var null|MessageConfigurationDraft|MessageConfigurationDraftBuilder
+     * @var null|MessagesConfigurationDraft|MessagesConfigurationDraftBuilder
      */
     private $messagesConfiguration;
 
     /**
-     * @return null|MessageConfigurationDraft
+     * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
+     *
+     * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration()
     {
-        return $this->messagesConfiguration instanceof MessageConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration;
+        return $this->messagesConfiguration instanceof MessagesConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration;
     }
 
     /**
-     * @param ?MessageConfigurationDraft $messagesConfiguration
+     * @param ?MessagesConfigurationDraft $messagesConfiguration
      * @return $this
      */
-    public function withMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration)
+    public function withMessagesConfiguration(?MessagesConfigurationDraft $messagesConfiguration)
     {
         $this->messagesConfiguration = $messagesConfiguration;
 
@@ -50,7 +52,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
      * @deprecated use withMessagesConfiguration() instead
      * @return $this
      */
-    public function withMessagesConfigurationBuilder(?MessageConfigurationDraftBuilder $messagesConfiguration)
+    public function withMessagesConfigurationBuilder(?MessagesConfigurationDraftBuilder $messagesConfiguration)
     {
         $this->messagesConfiguration = $messagesConfiguration;
 
@@ -60,7 +62,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     public function build(): ProjectChangeMessagesConfigurationAction
     {
         return new ProjectChangeMessagesConfigurationActionModel(
-            $this->messagesConfiguration instanceof MessageConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration
+            $this->messagesConfiguration instanceof MessagesConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration
         );
     }
 

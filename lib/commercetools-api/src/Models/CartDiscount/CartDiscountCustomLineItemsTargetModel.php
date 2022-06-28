@@ -59,6 +59,8 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
+     *
      * @return null|string
      */
     public function getPredicate()

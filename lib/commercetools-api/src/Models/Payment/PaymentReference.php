@@ -17,12 +17,26 @@ interface PaymentReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+     * <p>Contains the representation of the expanded Payment. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Payments.</p>
+     *
      * @return null|Payment
      */
     public function getObj();
 
     /**
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
+     * @return null|string
+     */
+    public function getId();
+
+    /**
      * @param ?Payment $obj
      */
     public function setObj(?Payment $obj): void;
+
+    /**
+     * @param ?string $id
+     */
+    public function setId(?string $id): void;
 }

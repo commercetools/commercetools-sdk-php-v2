@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -49,6 +51,13 @@ final class DeliveryBuilder implements Builder
     private $address;
 
     /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -89,6 +98,16 @@ final class DeliveryBuilder implements Builder
     public function getAddress()
     {
         return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+    }
+
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -147,12 +166,34 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAddress() instead
      * @return $this
      */
     public function withAddressBuilder(?AddressBuilder $address)
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -164,7 +205,8 @@ final class DeliveryBuilder implements Builder
             $this->createdAt,
             $this->items,
             $this->parcels,
-            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address
+            $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

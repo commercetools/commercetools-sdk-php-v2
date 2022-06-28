@@ -162,7 +162,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>The unique ID of the shopping list.</p>
+     * <p>Unique identifier of the ShoppingList.</p>
      *
      * @return null|string
      */
@@ -355,7 +355,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>
+     * <p>User-defined unique identifier of the ShoppingList.</p>
      *
      * @return null|string
      */
@@ -622,6 +622,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

@@ -34,6 +34,8 @@ use Commercetools\Api\Models\Product\ProductResourceIdentifier;
 use Commercetools\Api\Models\Product\ProductResourceIdentifierBuilder;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifier;
 use Commercetools\Api\Models\ProductDiscount\ProductDiscountResourceIdentifierBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier;
+use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierBuilder;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierBuilder;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
@@ -42,6 +44,8 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierBuilder;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifier;
+use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifierBuilder;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
@@ -75,7 +79,7 @@ final class ResourceIdentifierBuilder implements Builder
     private $key;
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
      * @return null|string
      */
@@ -85,7 +89,7 @@ final class ResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
      * @return null|string
      */

@@ -20,10 +20,10 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\History\Models\ErrorResponse;
-use Commercetools\History\Models\ErrorResponseModel;
-use Commercetools\History\Models\RecordPagedQueryResponse;
-use Commercetools\History\Models\RecordPagedQueryResponseModel;
+use Commercetools\History\Models\ChangeHistory\ErrorResponse;
+use Commercetools\History\Models\ChangeHistory\ErrorResponseModel;
+use Commercetools\History\Models\ChangeHistory\RecordPagedQueryResponse;
+use Commercetools\History\Models\ChangeHistory\RecordPagedQueryResponseModel;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -93,7 +93,7 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|RecordPagedQueryResponse
+     * @return null|T|ErrorResponse|JsonObject|RecordPagedQueryResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -216,6 +216,15 @@ class ByProjectKeyByResourceTypeByIDGet extends ApiRequest
     public function withChanges($changes): ByProjectKeyByResourceTypeByIDGet
     {
         return $this->withQueryParam('changes', $changes);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $stores
+     */
+    public function withStores($stores): ByProjectKeyByResourceTypeByIDGet
+    {
+        return $this->withQueryParam('stores', $stores);
     }
 
     /**

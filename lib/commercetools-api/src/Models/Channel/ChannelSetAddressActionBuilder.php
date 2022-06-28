@@ -28,6 +28,8 @@ final class ChannelSetAddressActionBuilder implements Builder
     private $address;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|BaseAddress
      */
     public function getAddress()

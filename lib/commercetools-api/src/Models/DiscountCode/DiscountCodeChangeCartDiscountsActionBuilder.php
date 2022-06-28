@@ -27,6 +27,8 @@ final class DiscountCodeChangeCartDiscountsActionBuilder implements Builder
     private $cartDiscounts;
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts()

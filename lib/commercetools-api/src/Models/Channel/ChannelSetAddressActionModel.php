@@ -61,6 +61,8 @@ final class ChannelSetAddressActionModel extends JsonObjectModel implements Chan
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|BaseAddress
      */
     public function getAddress()

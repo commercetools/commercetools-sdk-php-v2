@@ -86,6 +86,8 @@ final class CategoryDraftBuilder implements Builder
     private $key;
 
     /**
+     * <p>Name of the Category.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -94,10 +96,9 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>human-readable identifier usually used as deep-link URL to the related category.
-     * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
-     * Maximum size is 256.
-     * <strong>Must be unique across a project!</strong> The same category can have the same slug for different languages.</p>
+     * <p>User-defined identifier used as a deep-link URL to the related Category.
+     * A Category can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>.
+     * Valid slugs must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
      * @return null|LocalizedString
      */
@@ -107,6 +108,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Category.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -115,8 +118,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>A category that is the parent of this category in the category tree.
-     * The parent can be set by its ID or by its key.</p>
+     * <p>Parent Category of the Category.
+     * The parent can be set by its <code>id</code> or <code>key</code>.</p>
      *
      * @return null|CategoryResourceIdentifier
      */
@@ -126,8 +129,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>An attribute as base for a custom category order in one level.
-     * A random value will be assigned by API if not set.</p>
+     * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.
+     * If not set, a random value will be assigned.</p>
      *
      * @return null|string
      */
@@ -137,6 +140,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -145,6 +150,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Category used by external search engines for improved search engine performance.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -153,6 +160,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Category used by external search engines for improved search engine performance.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -161,6 +170,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Keywords related to the Category for improved search engine performance.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -169,7 +180,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the Category.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -179,6 +190,8 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Media related to the Category.</p>
+     *
      * @return null|AssetDraftCollection
      */
     public function getAssets()
@@ -187,8 +200,7 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the category.
-     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.</p>
+     * <p>User-defined unique identifier for the Category.</p>
      *
      * @return null|string
      */

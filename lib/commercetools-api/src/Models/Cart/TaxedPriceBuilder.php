@@ -38,6 +38,11 @@ final class TaxedPriceBuilder implements Builder
     private $taxPortions;
 
     /**
+     * @var null|TypedMoney|TypedMoneyBuilder
+     */
+    private $totalTax;
+
+    /**
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -61,6 +66,16 @@ final class TaxedPriceBuilder implements Builder
     public function getTaxPortions()
     {
         return $this->taxPortions;
+    }
+
+    /**
+     * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
+     *
+     * @return null|TypedMoney
+     */
+    public function getTotalTax()
+    {
+        return $this->totalTax instanceof TypedMoneyBuilder ? $this->totalTax->build() : $this->totalTax;
     }
 
     /**
@@ -97,6 +112,17 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+     * @param ?TypedMoney $totalTax
+     * @return $this
+     */
+    public function withTotalTax(?TypedMoney $totalTax)
+    {
+        $this->totalTax = $totalTax;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withTotalNet() instead
      * @return $this
      */
@@ -118,12 +144,24 @@ final class TaxedPriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withTotalTax() instead
+     * @return $this
+     */
+    public function withTotalTaxBuilder(?TypedMoneyBuilder $totalTax)
+    {
+        $this->totalTax = $totalTax;
+
+        return $this;
+    }
+
     public function build(): TaxedPrice
     {
         return new TaxedPriceModel(
             $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet,
             $this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross,
-            $this->taxPortions
+            $this->taxPortions,
+            $this->totalTax instanceof TypedMoneyBuilder ? $this->totalTax->build() : $this->totalTax
         );
     }
 

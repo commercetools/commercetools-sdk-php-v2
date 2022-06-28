@@ -119,6 +119,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Unique identifier of the Subscription.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -270,6 +272,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>User-defined unique identifier of the Subscription.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -436,6 +440,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

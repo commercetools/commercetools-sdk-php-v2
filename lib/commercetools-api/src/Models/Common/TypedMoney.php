@@ -11,48 +11,32 @@ namespace Commercetools\Api\Models\Common;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface TypedMoney extends JsonObject
+interface TypedMoney extends Money
 {
     public const DISCRIMINATOR_FIELD = 'type';
     public const FIELD_TYPE = 'type';
     public const FIELD_FRACTION_DIGITS = 'fractionDigits';
-    public const FIELD_CENT_AMOUNT = 'centAmount';
-    public const FIELD_CURRENCY_CODE = 'currencyCode';
 
     /**
+     * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
+     *
      * @return null|string
      */
     public function getType();
 
     /**
+     * <p>Number of digits after the decimal separator:</p>
+     * <ul>
+     * <li>Equal to the default number of fraction digits for a currency in <a href="ctp:api:type:CentPrecisionMoney">CentPrecisionMoney</a>.</li>
+     * <li>Greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
+     * </ul>
+     *
      * @return null|int
      */
     public function getFractionDigits();
 
     /**
-     * @return null|int
-     */
-    public function getCentAmount();
-
-    /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     *
-     * @return null|string
-     */
-    public function getCurrencyCode();
-
-    /**
      * @param ?int $fractionDigits
      */
     public function setFractionDigits(?int $fractionDigits): void;
-
-    /**
-     * @param ?int $centAmount
-     */
-    public function setCentAmount(?int $centAmount): void;
-
-    /**
-     * @param ?string $currencyCode
-     */
-    public function setCurrencyCode(?string $currencyCode): void;
 }

@@ -59,6 +59,8 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getReferenceTypeId()

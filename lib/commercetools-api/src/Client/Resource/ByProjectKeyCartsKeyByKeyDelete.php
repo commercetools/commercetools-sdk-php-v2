@@ -106,7 +106,7 @@ class ByProjectKeyCartsKeyByKeyDelete extends ApiRequest implements DataErasure,
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|Cart|ErrorResponse|JsonObject
+     * @return null|T|Cart|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

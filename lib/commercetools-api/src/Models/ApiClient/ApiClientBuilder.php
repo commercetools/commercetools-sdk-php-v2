@@ -57,8 +57,17 @@ final class ApiClientBuilder implements Builder
     private $createdAt;
 
     /**
-     * <p>Unique ID of the API client.
-     * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * @var ?int
+     */
+    private $accessTokenValiditySeconds;
+
+    /**
+     * @var ?int
+     */
+    private $refreshTokenValiditySeconds;
+
+    /**
+     * <p>The OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -68,7 +77,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>Name of the API Client.</p>
+     * <p>Name of the APIClient.</p>
      *
      * @return null|string
      */
@@ -78,7 +87,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
      *
      * @return null|string
      */
@@ -88,8 +97,8 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>Only shown once in the response of creating the API Client.
-     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>Only shown once in the response of creating the APIClient.
+     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -99,7 +108,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>Date of the last day this API Client was used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>Date of the last day this APIClient was used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -109,7 +118,7 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>If set, the client will be deleted on (or shortly after) this point in time.</p>
+     * <p>If set, the Client will be deleted on (or shortly after) this point in time.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -119,13 +128,33 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * <p>Date and time (UTC) the API Client was initially created.</p>
+     * <p>Date and time (UTC) the APIClient was initially created at.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * <p>Expiration time in seconds for each access token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
+     *
+     * @return null|int
+     */
+    public function getAccessTokenValiditySeconds()
+    {
+        return $this->accessTokenValiditySeconds;
+    }
+
+    /**
+     * <p>Inactivity expiration time in seconds for each refresh token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
+     *
+     * @return null|int
+     */
+    public function getRefreshTokenValiditySeconds()
+    {
+        return $this->refreshTokenValiditySeconds;
     }
 
     /**
@@ -205,6 +234,28 @@ final class ApiClientBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?int $accessTokenValiditySeconds
+     * @return $this
+     */
+    public function withAccessTokenValiditySeconds(?int $accessTokenValiditySeconds)
+    {
+        $this->accessTokenValiditySeconds = $accessTokenValiditySeconds;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $refreshTokenValiditySeconds
+     * @return $this
+     */
+    public function withRefreshTokenValiditySeconds(?int $refreshTokenValiditySeconds)
+    {
+        $this->refreshTokenValiditySeconds = $refreshTokenValiditySeconds;
+
+        return $this;
+    }
+
 
     public function build(): ApiClient
     {
@@ -215,7 +266,9 @@ final class ApiClientBuilder implements Builder
             $this->secret,
             $this->lastUsedAt,
             $this->deleteAt,
-            $this->createdAt
+            $this->createdAt,
+            $this->accessTokenValiditySeconds,
+            $this->refreshTokenValiditySeconds
         );
     }
 

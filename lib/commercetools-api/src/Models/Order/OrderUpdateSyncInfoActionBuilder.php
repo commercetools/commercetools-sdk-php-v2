@@ -39,6 +39,8 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     private $syncedAt;
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()

@@ -16,6 +16,9 @@ interface StateSetRolesAction extends StateUpdateAction
     public const FIELD_ROLES = 'roles';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      * @return null|array
      */
     public function getRoles();

@@ -78,7 +78,7 @@ final class ZoneBuilder implements Builder
     private $locations;
 
     /**
-     * <p>Unique ID of the Zone.</p>
+     * <p>Unique identifier of the Zone.</p>
      *
      * @return null|string
      */
@@ -138,7 +138,7 @@ final class ZoneBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the Zone.</p>
+     * <p>User-defined unique identifier of the Zone.</p>
      *
      * @return null|string
      */

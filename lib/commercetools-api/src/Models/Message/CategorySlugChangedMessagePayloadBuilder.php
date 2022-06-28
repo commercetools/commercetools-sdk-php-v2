@@ -33,6 +33,8 @@ final class CategorySlugChangedMessagePayloadBuilder implements Builder
     private $oldSlug;
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -41,6 +43,8 @@ final class CategorySlugChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getOldSlug()

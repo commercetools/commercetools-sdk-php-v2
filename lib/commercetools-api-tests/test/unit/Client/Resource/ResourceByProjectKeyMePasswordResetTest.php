@@ -97,7 +97,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 'post',
                 'test_projectKey/me/password/reset',
@@ -121,7 +121,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 }
             ]
         ];
@@ -137,7 +137,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 200
             ],
@@ -148,7 +148,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 400
             ],
@@ -159,7 +159,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 401
             ],
@@ -170,7 +170,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 403
             ],
@@ -181,7 +181,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 404
             ],
@@ -192,7 +192,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 500
             ],
@@ -203,7 +203,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 502
             ],
@@ -214,7 +214,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 503
             ],
@@ -225,7 +225,7 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
                         ->me()
                         ->password()
                         ->reset()
-                        ->post();
+                        ->post(null);
                 },
                 599
             ]

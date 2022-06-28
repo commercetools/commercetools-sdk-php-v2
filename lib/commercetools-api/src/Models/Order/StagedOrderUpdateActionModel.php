@@ -98,6 +98,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldA
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomFieldActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryAddressCustomTypeActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;
@@ -126,6 +130,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetOrderNumberAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetOrderNumberActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetOrderTotalTaxAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetOrderTotalTaxActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelItemsActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelMeasurementsAction;
@@ -134,6 +142,10 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetParcelTrackingDataActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnInfoActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomFieldAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomFieldActionModel;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomTypeAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnItemCustomTypeActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnPaymentStateAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnPaymentStateActionModel;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetReturnShipmentStateAction;
@@ -233,6 +245,8 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setDeliveryAddress' => StagedOrderSetDeliveryAddressActionModel::class,
        'setDeliveryAddressCustomField' => StagedOrderSetDeliveryAddressCustomFieldActionModel::class,
        'setDeliveryAddressCustomType' => StagedOrderSetDeliveryAddressCustomTypeActionModel::class,
+       'setDeliveryCustomField' => StagedOrderSetDeliveryCustomFieldActionModel::class,
+       'setDeliveryCustomType' => StagedOrderSetDeliveryCustomTypeActionModel::class,
        'setDeliveryItems' => StagedOrderSetDeliveryItemsActionModel::class,
        'setItemShippingAddressCustomField' => StagedOrderSetItemShippingAddressCustomFieldActionModel::class,
        'setItemShippingAddressCustomType' => StagedOrderSetItemShippingAddressCustomTypeActionModel::class,
@@ -247,10 +261,14 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
        'setLocale' => StagedOrderSetLocaleActionModel::class,
        'setOrderNumber' => StagedOrderSetOrderNumberActionModel::class,
        'setOrderTotalTax' => StagedOrderSetOrderTotalTaxActionModel::class,
+       'setParcelCustomField' => StagedOrderSetParcelCustomFieldActionModel::class,
+       'setParcelCustomType' => StagedOrderSetParcelCustomTypeActionModel::class,
        'setParcelItems' => StagedOrderSetParcelItemsActionModel::class,
        'setParcelMeasurements' => StagedOrderSetParcelMeasurementsActionModel::class,
        'setParcelTrackingData' => StagedOrderSetParcelTrackingDataActionModel::class,
        'setReturnInfo' => StagedOrderSetReturnInfoActionModel::class,
+       'setReturnItemCustomField' => StagedOrderSetReturnItemCustomFieldActionModel::class,
+       'setReturnItemCustomType' => StagedOrderSetReturnItemCustomTypeActionModel::class,
        'setReturnPaymentState' => StagedOrderSetReturnPaymentStateActionModel::class,
        'setReturnShipmentState' => StagedOrderSetReturnShipmentStateActionModel::class,
        'setShippingAddress' => StagedOrderSetShippingAddressActionModel::class,

@@ -12,20 +12,20 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderCustomerGroupSetMessagePayload extends MessagePayload
+interface OrderCustomerGroupSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

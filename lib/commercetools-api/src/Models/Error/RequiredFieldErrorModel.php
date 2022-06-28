@@ -115,4 +115,17 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     {
         $this->field = $field;
     }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
+    }
 }

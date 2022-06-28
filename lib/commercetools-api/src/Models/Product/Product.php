@@ -29,9 +29,10 @@ interface Product extends BaseResource
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_STATE = 'state';
     public const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
-     * <p>The unique ID of the product.</p>
+     * <p>Unique identifier of the Product.</p>
      *
      * @return null|string
      */
@@ -69,8 +70,8 @@ interface Product extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-specific unique identifier for the product.
-     * <em>Product keys are different from product variant keys.</em></p>
+     * <p>User-defined unique identifier of the Product.
+     * <em>Product keys are different from ProductVariant keys.</em></p>
      *
      * @return null|string
      */
@@ -104,6 +105,13 @@ interface Product extends BaseResource
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
+
+    /**
+     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     *
+     * @return null|string
+     */
+    public function getPriceMode();
 
     /**
      * @param ?string $id
@@ -164,4 +172,9 @@ interface Product extends BaseResource
      * @param ?ReviewRatingStatistics $reviewRatingStatistics
      */
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

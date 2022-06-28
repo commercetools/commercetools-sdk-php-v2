@@ -122,6 +122,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -140,6 +142,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     *
      * @return null|TypedMoney
      */
     public function getCurrentValue()
@@ -158,7 +162,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
      * @return null|string
      */
@@ -177,7 +181,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -197,6 +201,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -275,6 +281,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -374,6 +382,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

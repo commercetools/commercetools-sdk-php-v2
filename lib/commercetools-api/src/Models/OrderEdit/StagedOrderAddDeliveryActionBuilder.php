@@ -14,6 +14,8 @@ use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelDraftCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -42,6 +44,11 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     private $parcels;
 
     /**
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -63,6 +70,16 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     public function getParcels()
     {
         return $this->parcels;
+    }
+
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -99,6 +116,17 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFieldsDraft $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAddress() instead
      * @return $this
      */
@@ -109,12 +137,24 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): StagedOrderAddDeliveryAction
     {
         return new StagedOrderAddDeliveryActionModel(
             $this->items,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
-            $this->parcels
+            $this->parcels,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

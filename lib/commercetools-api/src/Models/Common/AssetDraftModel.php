@@ -89,6 +89,8 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
+     * <p>Name of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -107,6 +109,8 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
+     * <p>Description of the Asset.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -125,6 +129,8 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
      * @return null|array
      */
     public function getTags()
@@ -142,6 +148,8 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
+     * <p>Custom Fields defined for the Asset.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -160,6 +168,8 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
+     * <p>User-defined unique identifier for the Asset.</p>
+     *
      * @return null|string
      */
     public function getKey()

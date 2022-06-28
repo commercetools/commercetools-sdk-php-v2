@@ -70,6 +70,8 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()

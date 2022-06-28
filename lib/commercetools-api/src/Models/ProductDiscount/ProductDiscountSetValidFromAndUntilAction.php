@@ -18,13 +18,16 @@ interface ProductDiscountSetValidFromAndUntilAction extends ProductDiscountUpdat
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>Value to set.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
-     * <p>The timeframe for which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
+     * <p>Value to set.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

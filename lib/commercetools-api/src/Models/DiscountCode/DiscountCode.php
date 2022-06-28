@@ -39,81 +39,91 @@ interface DiscountCode extends BaseResource
     public const FIELD_APPLICATION_VERSION = 'applicationVersion';
 
     /**
-     * <p>The unique ID of the discount code.</p>
+     * <p>Unique identifier of the DiscountCode.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Current version of the DiscountCode.</p>
+     *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the DiscountCode was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the DiscountCode was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>Name of the DiscountCode.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Description of the DiscountCode.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>Unique identifier of this discount code.
-     * This value is added to the cart
-     * to enable the related cart discounts in the cart.</p>
+     * <p>User-defined unique identifier of the DiscountCode <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
      * @return null|string
      */
     public function getCode();
 
     /**
-     * <p>The referenced matching cart discounts can be applied to the cart once the DiscountCode is added.</p>
+     * <p>Reference to CartDiscounts that can be applied to the Cart once the DiscountCode is applied.</p>
      *
      * @return null|CartDiscountReferenceCollection
      */
     public function getCartDiscounts();
 
     /**
-     * <p>The discount code can only be applied to carts that match this predicate.</p>
+     * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
      *
      * @return null|string
      */
     public function getCartPredicate();
 
     /**
+     * <p>Indicates if the DiscountCode is active and can be applied to the Cart.</p>
+     *
      * @return null|bool
      */
     public function getIsActive();
 
     /**
-     * <p>The platform will generate this array from the cart predicate.
+     * <p>Array generated from the Cart predicate.
      * It contains the references of all the resources that are addressed in the predicate.</p>
      *
      * @return null|ReferenceCollection
@@ -121,52 +131,52 @@ interface DiscountCode extends BaseResource
     public function getReferences();
 
     /**
-     * <p>The discount code can only be applied <code>maxApplications</code> times.</p>
+     * <p>Number of times the DiscountCode can be applied.
+     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
      *
      * @return null|int
      */
     public function getMaxApplications();
 
     /**
-     * <p>The discount code can only be applied <code>maxApplicationsPerCustomer</code> times per customer.</p>
+     * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported).
+     * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
      *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer();
 
     /**
+     * <p>Custom Fields of the DiscountCode.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
-     * <p>The groups to which this discount code belong.</p>
+     * <p>Groups to which the DiscountCode belongs to.</p>
      *
      * @return null|array
      */
     public function getGroups();
 
     /**
-     * <p>The time from which the discount can be applied on a cart.
-     * Before that time the code is invalid.</p>
+     * <p>Date and time (UTC) from which the DiscountCode is effective.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
-     * <p>The time until the discount can be applied on a cart.
-     * After that time the code is invalid.</p>
+     * <p>Date and time (UTC) until which the DiscountCode is effective.</p>
      *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
-     * <p>Used for the internal platform only and registers the reservation of use of a discount code.
-     * Its value is managed by the platform.
-     * It can change at any time due to internal and external factors.
-     * It should not be used in customer logic.</p>
+     * <p>Used and managed by the API and must not be used in customer logic.
+     * The value can change at any time due to internal and external factors.</p>
      *
      * @return null|int
      */

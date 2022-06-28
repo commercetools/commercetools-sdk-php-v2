@@ -71,7 +71,7 @@ class ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportOperationsGet extend
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImportOperationPagedResponse|JsonObject
+     * @return null|T|ImportOperationPagedResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

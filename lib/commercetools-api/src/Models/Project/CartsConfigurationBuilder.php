@@ -21,27 +21,17 @@ use stdClass;
 final class CartsConfigurationBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $countryTaxRateFallbackEnabled;
-
-    /**
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
-     * <p>if country - no state tax rate fallback should be used when a shipping address state is not explicitly covered in the rates lists of all tax categories of a cart line items. Default value 'false'</p>
-     *
-     * @return null|bool
+     * @var ?bool
      */
-    public function getCountryTaxRateFallbackEnabled()
-    {
-        return $this->countryTaxRateFallbackEnabled;
-    }
+    private $countryTaxRateFallbackEnabled;
 
     /**
-     * <p>The default value for the deleteDaysAfterLastModification parameter of the CartDraft. Initially set to 90 for projects created after December 2019.</p>
+     * <p>Default value for the <code>deleteDaysAfterLastModification</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a>. This field may not be present on Projects created before January 2020.</p>
      *
      * @return null|int
      */
@@ -51,14 +41,13 @@ final class CartsConfigurationBuilder implements Builder
     }
 
     /**
-     * @param ?bool $countryTaxRateFallbackEnabled
-     * @return $this
+     * <p>Indicates if country <em>- no state</em> Tax Rate fallback should be used when a shipping address state is not explicitly covered in the rates lists of all Tax Categories of a Cart Line Items. This field may not be present on Projects created before June 2020.</p>
+     *
+     * @return null|bool
      */
-    public function withCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled)
+    public function getCountryTaxRateFallbackEnabled()
     {
-        $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
-
-        return $this;
+        return $this->countryTaxRateFallbackEnabled;
     }
 
     /**
@@ -72,12 +61,23 @@ final class CartsConfigurationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?bool $countryTaxRateFallbackEnabled
+     * @return $this
+     */
+    public function withCountryTaxRateFallbackEnabled(?bool $countryTaxRateFallbackEnabled)
+    {
+        $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
+
+        return $this;
+    }
+
 
     public function build(): CartsConfiguration
     {
         return new CartsConfigurationModel(
-            $this->countryTaxRateFallbackEnabled,
-            $this->deleteDaysAfterLastModification
+            $this->deleteDaysAfterLastModification,
+            $this->countryTaxRateFallbackEnabled
         );
     }
 

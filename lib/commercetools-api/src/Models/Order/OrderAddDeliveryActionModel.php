@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressModel;
+use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -42,6 +44,11 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
      */
     protected $parcels;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -49,11 +56,13 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     public function __construct(
         ?DeliveryItemCollection $items = null,
         ?BaseAddress $address = null,
-        ?ParcelDraftCollection $parcels = null
+        ?ParcelDraftCollection $parcels = null,
+        ?CustomFieldsDraft $custom = null
     ) {
         $this->items = $items;
         $this->address = $address;
         $this->parcels = $parcels;
+        $this->custom = $custom;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -126,6 +135,26 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
         return $this->parcels;
     }
 
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?DeliveryItemCollection $items
@@ -149,5 +178,13 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     public function setParcels(?ParcelDraftCollection $parcels): void
     {
         $this->parcels = $parcels;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

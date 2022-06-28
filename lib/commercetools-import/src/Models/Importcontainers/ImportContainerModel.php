@@ -210,6 +210,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

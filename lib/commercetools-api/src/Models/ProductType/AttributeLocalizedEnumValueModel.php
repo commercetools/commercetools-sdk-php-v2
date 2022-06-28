@@ -61,6 +61,8 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLabel()

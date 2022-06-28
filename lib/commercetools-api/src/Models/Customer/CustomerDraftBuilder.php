@@ -160,6 +160,11 @@ final class CustomerDraftBuilder implements Builder
     private $stores;
 
     /**
+     * @var ?string
+     */
+    private $authenticationMode;
+
+    /**
      * <p>String that uniquely identifies a customer.
      * It can be used to create more human-readable (in contrast to ID) identifier for the customer.
      * It should be <strong>unique</strong> across a project.
@@ -185,6 +190,8 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
+     *
      * @return null|string
      */
     public function getPassword()
@@ -385,9 +392,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for a customer.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier for the Customer.</p>
      *
      * @return null|string
      */
@@ -406,6 +411,16 @@ final class CustomerDraftBuilder implements Builder
     public function getStores()
     {
         return $this->stores;
+    }
+
+    /**
+     * <p>Defines whether a password field is a required field for the Customer.</p>
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -695,6 +710,17 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAnonymousCart() instead
      * @return $this
      */
@@ -755,7 +781,8 @@ final class CustomerDraftBuilder implements Builder
             $this->locale,
             $this->salutation,
             $this->key,
-            $this->stores
+            $this->stores,
+            $this->authenticationMode
         );
     }
 

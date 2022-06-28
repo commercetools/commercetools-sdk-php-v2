@@ -104,7 +104,7 @@ class ByProjectKeyTaxCategoriesKeyByKeyPost extends ApiRequest implements Confli
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject|TaxCategory
+     * @return null|T|ErrorResponse|JsonObject|TaxCategory
      */
     public function execute(array $options = [], string $resultType = null)
     {

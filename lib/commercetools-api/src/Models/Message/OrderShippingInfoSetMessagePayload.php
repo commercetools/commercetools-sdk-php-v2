@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderShippingInfoSetMessagePayload extends MessagePayload
+interface OrderShippingInfoSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
     public const FIELD_OLD_SHIPPING_INFO = 'oldShippingInfo';

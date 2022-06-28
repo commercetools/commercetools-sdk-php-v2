@@ -23,6 +23,8 @@ interface InventoryEntryDeletedMessagePayload extends MessagePayload
     public function getSku();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelReference
      */
     public function getSupplyChannel();

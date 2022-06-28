@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Order\Delivery;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface DeliveryRemovedMessagePayload extends MessagePayload
+interface DeliveryRemovedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DELIVERY = 'delivery';
 

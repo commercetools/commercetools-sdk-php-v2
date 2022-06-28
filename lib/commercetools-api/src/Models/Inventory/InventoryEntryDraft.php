@@ -17,6 +17,7 @@ use DateTimeImmutable;
 interface InventoryEntryDraft extends JsonObject
 {
     public const FIELD_SKU = 'sku';
+    public const FIELD_KEY = 'key';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
@@ -24,32 +25,49 @@ interface InventoryEntryDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>User-defined unique identifier for the InventoryEntry.</p>
+     *
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>Overall amount of stock.</p>
+     *
      * @return null|int
      */
     public function getQuantityOnStock();
 
     /**
+     * <p>How often the InventoryEntry is restocked (in days).</p>
+     *
      * @return null|int
      */
     public function getRestockableInDays();
 
     /**
+     * <p>Date and time of the next restock.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields of the InventoryEntry.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -59,6 +77,11 @@ interface InventoryEntryDraft extends JsonObject
      * @param ?string $sku
      */
     public function setSku(?string $sku): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?ChannelResourceIdentifier $supplyChannel

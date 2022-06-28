@@ -17,7 +17,7 @@ interface ProductRemovePriceAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>ID of the <a href="#price">Price</a></p>
+     * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
      *
      * @return null|string
      */

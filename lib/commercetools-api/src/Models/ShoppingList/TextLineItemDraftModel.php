@@ -207,6 +207,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

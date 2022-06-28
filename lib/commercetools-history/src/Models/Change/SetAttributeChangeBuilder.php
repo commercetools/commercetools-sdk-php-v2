@@ -14,6 +14,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use stdClass;
+use Commercetools\History\Models\ChangeValue\AttributeValue;
+use Commercetools\History\Models\ChangeValue\AttributeValueBuilder;
 
 /**
  * @implements Builder<SetAttributeChange>
@@ -31,12 +33,12 @@ final class SetAttributeChangeBuilder implements Builder
     private $catalogData;
 
     /**
-     * @var ?JsonObject
+     * @var null|AttributeValue|AttributeValueBuilder
      */
     private $previousValue;
 
     /**
-     * @var ?JsonObject
+     * @var null|AttributeValue|AttributeValueBuilder
      */
     private $nextValue;
 
@@ -59,19 +61,19 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|AttributeValue
      */
     public function getPreviousValue()
     {
-        return $this->previousValue;
+        return $this->previousValue instanceof AttributeValueBuilder ? $this->previousValue->build() : $this->previousValue;
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|AttributeValue
      */
     public function getNextValue()
     {
-        return $this->nextValue;
+        return $this->nextValue instanceof AttributeValueBuilder ? $this->nextValue->build() : $this->nextValue;
     }
 
     /**
@@ -97,10 +99,10 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $previousValue
+     * @param ?AttributeValue $previousValue
      * @return $this
      */
-    public function withPreviousValue(?JsonObject $previousValue)
+    public function withPreviousValue(?AttributeValue $previousValue)
     {
         $this->previousValue = $previousValue;
 
@@ -108,24 +110,45 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
-     * @param ?JsonObject $nextValue
+     * @param ?AttributeValue $nextValue
      * @return $this
      */
-    public function withNextValue(?JsonObject $nextValue)
+    public function withNextValue(?AttributeValue $nextValue)
     {
         $this->nextValue = $nextValue;
 
         return $this;
     }
 
+    /**
+     * @deprecated use withPreviousValue() instead
+     * @return $this
+     */
+    public function withPreviousValueBuilder(?AttributeValueBuilder $previousValue)
+    {
+        $this->previousValue = $previousValue;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withNextValue() instead
+     * @return $this
+     */
+    public function withNextValueBuilder(?AttributeValueBuilder $nextValue)
+    {
+        $this->nextValue = $nextValue;
+
+        return $this;
+    }
 
     public function build(): SetAttributeChange
     {
         return new SetAttributeChangeModel(
             $this->change,
             $this->catalogData,
-            $this->previousValue,
-            $this->nextValue
+            $this->previousValue instanceof AttributeValueBuilder ? $this->previousValue->build() : $this->previousValue,
+            $this->nextValue instanceof AttributeValueBuilder ? $this->nextValue->build() : $this->nextValue
         );
     }
 

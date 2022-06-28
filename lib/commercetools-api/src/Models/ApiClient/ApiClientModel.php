@@ -55,6 +55,16 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
      */
     protected $createdAt;
 
+    /**
+     * @var ?int
+     */
+    protected $accessTokenValiditySeconds;
+
+    /**
+     * @var ?int
+     */
+    protected $refreshTokenValiditySeconds;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -66,7 +76,9 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         ?string $secret = null,
         ?DateTimeImmutable $lastUsedAt = null,
         ?DateTimeImmutable $deleteAt = null,
-        ?DateTimeImmutable $createdAt = null
+        ?DateTimeImmutable $createdAt = null,
+        ?int $accessTokenValiditySeconds = null,
+        ?int $refreshTokenValiditySeconds = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -75,11 +87,12 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         $this->lastUsedAt = $lastUsedAt;
         $this->deleteAt = $deleteAt;
         $this->createdAt = $createdAt;
+        $this->accessTokenValiditySeconds = $accessTokenValiditySeconds;
+        $this->refreshTokenValiditySeconds = $refreshTokenValiditySeconds;
     }
 
     /**
-     * <p>Unique ID of the API client.
-     * This is the OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>The OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -98,7 +111,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>Name of the API Client.</p>
+     * <p>Name of the APIClient.</p>
      *
      * @return null|string
      */
@@ -117,7 +130,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtaining an access token</a>.</p>
+     * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
      *
      * @return null|string
      */
@@ -136,8 +149,8 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>Only shown once in the response of creating the API Client.
-     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>Only shown once in the response of creating the APIClient.
+     * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|string
      */
@@ -156,7 +169,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>Date of the last day this API Client was used to <a href="/../api/authorization#requesting-an-access-token-using-commercetools-oauth-20-server">obtain an access token</a>.</p>
+     * <p>Date of the last day this APIClient was used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -179,7 +192,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>If set, the client will be deleted on (or shortly after) this point in time.</p>
+     * <p>If set, the Client will be deleted on (or shortly after) this point in time.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -202,7 +215,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     }
 
     /**
-     * <p>Date and time (UTC) the API Client was initially created.</p>
+     * <p>Date and time (UTC) the APIClient was initially created at.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -222,6 +235,44 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         }
 
         return $this->createdAt;
+    }
+
+    /**
+     * <p>Expiration time in seconds for each access token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
+     *
+     * @return null|int
+     */
+    public function getAccessTokenValiditySeconds()
+    {
+        if (is_null($this->accessTokenValiditySeconds)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_ACCESS_TOKEN_VALIDITY_SECONDS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->accessTokenValiditySeconds = (int) $data;
+        }
+
+        return $this->accessTokenValiditySeconds;
+    }
+
+    /**
+     * <p>Inactivity expiration time in seconds for each refresh token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
+     *
+     * @return null|int
+     */
+    public function getRefreshTokenValiditySeconds()
+    {
+        if (is_null($this->refreshTokenValiditySeconds)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_REFRESH_TOKEN_VALIDITY_SECONDS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->refreshTokenValiditySeconds = (int) $data;
+        }
+
+        return $this->refreshTokenValiditySeconds;
     }
 
 
@@ -281,7 +332,24 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @param ?int $accessTokenValiditySeconds
+     */
+    public function setAccessTokenValiditySeconds(?int $accessTokenValiditySeconds): void
+    {
+        $this->accessTokenValiditySeconds = $accessTokenValiditySeconds;
+    }
 
+    /**
+     * @param ?int $refreshTokenValiditySeconds
+     */
+    public function setRefreshTokenValiditySeconds(?int $refreshTokenValiditySeconds): void
+    {
+        $this->refreshTokenValiditySeconds = $refreshTokenValiditySeconds;
+    }
+
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

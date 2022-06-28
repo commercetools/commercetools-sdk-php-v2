@@ -49,6 +49,8 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Unique identifier of the email token.</p>
+     *
      * @return null|string
      */
     public function getId()

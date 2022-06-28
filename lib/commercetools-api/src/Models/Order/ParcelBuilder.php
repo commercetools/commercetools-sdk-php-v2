@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -47,6 +49,13 @@ final class ParcelBuilder implements Builder
     private $items;
 
     /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Unique identifier of the Parcel.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -86,6 +95,16 @@ final class ParcelBuilder implements Builder
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * <p>Custom Fields of this parcel.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -144,6 +163,17 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMeasurements() instead
      * @return $this
      */
@@ -165,6 +195,17 @@ final class ParcelBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): Parcel
     {
         return new ParcelModel(
@@ -172,7 +213,8 @@ final class ParcelBuilder implements Builder
             $this->createdAt,
             $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
             $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
-            $this->items
+            $this->items,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
         );
     }
 

@@ -10,8 +10,7 @@ $root = new ApiRequestBuilder();
 
 ## `withProjectKey("projectKey")->get()`
 
-The Endpoint is responding a limited set of information about settings and configuration of the project.
-
+null
 
 ### Example
 ```php
@@ -24,7 +23,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->post(null)`
 
-Update project
+null
 
 ### Example
 ```php
@@ -372,7 +371,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -386,7 +386,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->post(null)`
 
-Creating a category produces the CategoryCreated message.
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
+Creating a Category produces the [CategoryCreatedMessage](/../api/message-types#categorycreatedmessage).
+
 
 ### Example
 ```php
@@ -400,7 +403,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -415,7 +419,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->post(null)`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -430,7 +435,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withId("ID")->delete()`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -445,7 +451,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->get()`
 
-null
+Either the [scope](/../api/scopes) `view_products:{projectKey}` or `view_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -460,7 +467,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -475,7 +483,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->withKey("key")->delete()`
 
-null
+Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
 
 ### Example
 ```php
@@ -563,9 +572,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->get()`
 
-The query endpoint allows to retrieve custom objects in a specific container or all custom objects.
-For performance reasons, it is highly advisable to query only for custom objects in a container by using
-the container field in the where predicate.
+For performance reasons, it is highly advisable to query for Custom Objects in a container by using the `container` field in the `where` predicate.
 
 
 ### Example
@@ -580,13 +587,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->post(null)`
 
-Creates a new custom object or updates an existing custom object.
-If an object with the given container/key exists,
-the object will be replaced with the new value and the version is incremented.
-If the request contains a version and an object with the given container/key exists then the version
-must match the version of the existing object. Concurrent updates for the same custom object still can result
-in a Conflict (409) even if the version is not provided.
-Fields with null values will not be saved.
+If an object with the given container/key exists, the object will be replaced with the new value and the version is incremented.
+If the request contains a version and an object with the given container/key, then the version must match the version of the existing object. Concurrent updates for the same Custom Object can result in a [409 Conflict](/../api/errors#409-conflict) even if the version is not provided.
+
+Fields with `null` values will **not be saved**.
 
 
 ### Example
@@ -616,7 +620,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->get()`
 
-Get CustomObject by container and key
+null
 
 ### Example
 ```php
@@ -631,7 +635,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withContainerAndKey("container", "key")->delete()`
 
-Delete CustomObject by container and key
+null
 
 ### Example
 ```php
@@ -992,7 +996,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1006,7 +1010,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->post(null)`
 
-null
+Deprecated scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1020,7 +1024,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1035,7 +1039,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->post(null)`
 
-null
+Deprecated scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1050,7 +1054,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->discountCodes()->withId("ID")->delete()`
 
-null
+Deprecated scope: `manage_orders:{projectKey}`
 
 ### Example
 ```php
@@ -1079,7 +1083,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->post(null)`
 
-Currently, a maximum of 25 extensions can be created per project.
+null
 
 ### Example
 ```php
@@ -1093,7 +1097,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->get()`
 
-Retrieves the representation of an extension by its id.
+null
 
 ### Example
 ```php
@@ -1138,7 +1142,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->get()`
 
-Retrieves the representation of an extension by its key.
+null
 
 ### Example
 ```php
@@ -1197,7 +1201,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Queries carts in a specific Store. The {storeKey} path parameter maps to a Store's key.
+Queries carts in a specific Store.
 
 ### Example
 ```php
@@ -1212,7 +1216,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-Creates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
+Creates a cart in the store specified by {storeKey}.
 When using this endpoint the cart's store field is always set to the store specified in the path parameter.
 Creating a cart can fail with an InvalidOperation if the referenced shipping method
 in the CartDraft has a predicate which does not match the cart.
@@ -1231,8 +1235,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
-Returns a cart by its ID from a specific Store. The {storeKey} path parameter maps to a Store's key.
-If the cart exists in the commercetools project but does not have the store field,
+Returns a cart by its ID from a specific Store.
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 The cart may not contain up-to-date prices, discounts etc.
 If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
@@ -1252,8 +1256,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
-If the cart exists in the commercetools project but does not have the store field,
+Updates a cart in the store specified by {storeKey}.
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -1288,9 +1292,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withCustomerId("customerId")->get()`
 
 Retrieves the active cart of the customer that has been modified most recently in a specific Store.
-The {storeKey} path parameter maps to a Store's key.
 
-If the cart exists in the commercetools project but does not have the store field, or the store field
+If the cart exists in the project but does not have the store field, or the store field
 references a different store, this method returns a ResourceNotFound error.
 
 The cart may not contain up-to-date prices, discounts etc. If you want to ensure they're up-to-date,
@@ -1311,8 +1314,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
-Returns a cart by its key from a specific Store. The {storeKey} path parameter maps to a Store's key.
-If the cart exists in the commercetools project but does not have the store field,
+Returns a cart by its key from a specific Store.
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 The cart may not contain up-to-date prices, discounts etc.
 If you want to ensure they're up-to-date, send an Update request with the Recalculate update action instead.
@@ -1332,8 +1335,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
-Updates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
-If the cart exists in the commercetools project but does not have the store field,
+Updates a cart in the store specified by {storeKey}.
+If the cart exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -1398,7 +1401,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->post(null)`
 
-Creates a customer in a specific Store. The {storeKey} path parameter maps to a Store's key.
+Creates a customer in a specific Store.
 When using this endpoint, if omitted,
 the customer's stores field is set to the store specified in the path parameter.
 If an anonymous cart is passed in as when using this method,
@@ -1421,9 +1424,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->get()`
 
-Returns a customer by its ID from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns a customer by its ID from a specific Store.
 It also considers customers that do not have the stores field.
-If the customer exists in the commercetools project but the stores field references different stores,
+If the customer exists in the project but the stores field references different stores,
 this method returns a ResourceNotFound error.
 
 
@@ -1441,8 +1444,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
-Updates a customer in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
-If the customer exists in the commercetools project but the stores field references a different store,
+Updates a customer in the store specified by {storeKey}.
+If the customer exists in the project but the stores field references a different store,
 this method returns a ResourceNotFound error.
 
 
@@ -1524,9 +1527,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->get()`
 
-Returns a customer by its Key from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Returns a customer by its Key from a specific Store.
 It also considers customers that do not have the stores field.
-If the customer exists in the commercetools project but the stores field references different stores,
+If the customer exists in the project but the stores field references different stores,
 this method returns a ResourceNotFound error.
 
 
@@ -1544,7 +1547,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->post(null)`
 
-If the customer exists in the commercetools project but the stores field references a different store,
+If the customer exists in the project but the stores field references a different store,
 this method returns a ResourceNotFound error.
 
 
@@ -1657,6 +1660,51 @@ $request = $builder
                 ->login()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->post(null)`
+
+Update my customer in a store
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->delete()`
+
+Delete my Customer in a store
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->delete();
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->activeCart()->get()`
 
 null
@@ -1756,6 +1804,38 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->emailConfirm()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->emailConfirm()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->login()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->login()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->get()`
 
 null
@@ -1804,6 +1884,39 @@ $request = $builder
                 ->orders()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->password()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->reset()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->password()
+                ->reset()
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->get()`
 
@@ -1939,9 +2052,25 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->signup()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->me()
+                ->signup()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->get()`
 
-Queries orders in a specific Store. The {storeKey} path parameter maps to a Store's key.
+Queries orders in a specific Store.
 
 ### Example
 ```php
@@ -1956,7 +2085,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
-Creates an order from a Cart from a specific Store. The {storeKey} path parameter maps to a Store's key.
+Creates an order from a Cart from a specific Store.
 When using this endpoint the orders's store field is always set to the store specified in the path parameter.
 The cart must have a shipping address set before creating an order. When using the Platform TaxMode,
 the shipping address is used for tax calculation.
@@ -1975,8 +2104,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->get()`
 
-Returns an order by its ID from a specific Store. The {storeKey} path parameter maps to a Store's key.
-If the order exists in the commercetools project but does not have the store field,
+Returns an order by its ID from a specific Store.
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -1994,8 +2123,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
-Updates an order in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
-If the order exists in the commercetools project but does not have the store field,
+Updates an order in the store specified by {storeKey}.
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 
 
@@ -2030,8 +2159,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->get()`
 
 Returns an order by its order number from a specific Store.
-The {storeKey} path parameter maps to a Store's key.
-If the order exists in the commercetools project but does not have the store field,
+
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
 it should be provided in URL-encoded format.
@@ -2051,8 +2180,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Updates an order in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store's key.
-If the order exists in the commercetools project but does not have the store field,
+Updates an order in the store specified by {storeKey}.
+If the order exists in the project but does not have the store field,
 or the store field references a different store, this method returns a ResourceNotFound error.
 In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
 it should be provided in URL-encoded format.
@@ -2085,6 +2214,71 @@ $request = $builder
                 ->orders()
                 ->withOrderNumber("orderNumber")
                 ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->get()`
+
+You can use the product projections query endpoint to get the current or staged representations of Products.
+When used with an API client that has the view_published_products:{projectKey} scope,
+this endpoint only returns published (current) product projections.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
+
+Gets the current or staged representation of a product by its ID from a specific Store.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
+
+Gets the current or staged representation of a product by its ID from a specific Store.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productProjections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
+
+Queries Product Selection assignments in a specific Store.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->productSelectionAssignments()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
@@ -2244,7 +2438,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
-null
+Produces the [InventoryEntryCreatedMessage](ctp:api:type:InventoryEntryCreatedMessage).
 
 ### Example
 ```php
@@ -2288,7 +2482,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->delete()`
 
-null
+Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
 
 ### Example
 ```php
@@ -2299,6 +2493,51 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->inventory()
                 ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inventory()->withKey("key")->delete()`
+
+Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inventory()
+                ->withKey("key")
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->login()->post(null)`
@@ -2505,7 +2744,23 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->me()->emailConfirm()->post()`
+## `withProjectKey("projectKey")->me()->carts()->replicate()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->carts()
+                ->replicate()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->emailConfirm()->post(null)`
 
 null
 
@@ -2518,7 +2773,7 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->me()
                 ->emailConfirm()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->login()->post(null)`
 
@@ -2596,7 +2851,7 @@ $request = $builder
                 ->password()
                 ->post(null);
 ```
-## `withProjectKey("projectKey")->me()->password()->reset()->post()`
+## `withProjectKey("projectKey")->me()->password()->reset()->post(null)`
 
 null
 
@@ -2610,7 +2865,7 @@ $request = $builder
                 ->me()
                 ->password()
                 ->reset()
-                ->post();
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->me()->payments()->get()`
 
@@ -2926,7 +3181,7 @@ $request = $builder
 
 Creates an order from a Cart.
 The cart must have a shipping address set before creating an order.
-When using the Platform TaxMode, the shipping address is used for tax calculation.
+When using Platform TaxMode, the shipping address is used for tax calculation.
 
 
 ### Example
@@ -3189,6 +3444,36 @@ $request = $builder
                 ->withOrderNumber("orderNumber")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->orders()->search()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->search()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->orders()->search()->head()`
+
+Checks whether a search index for the Project's Orders exists.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->search()
+                ->head();
+```
 ## `withProjectKey("projectKey")->payments()->get()`
 
 null
@@ -3427,7 +3712,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productDiscounts()->matching()->post(null)`
 
-null
+This endpoint can be used to simulate which Product Discounts would be applied if a specified Product Variant had a specified Price.
+Given Product and Product Variant IDs and a Price, this endpoint will return the [ProductDiscount](ctp:api:type:ProductDiscount) that would have been applied to that Price.
+
 
 ### Example
 ```php
@@ -3536,6 +3823,156 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->productProjections()
                 ->suggest()
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->delete()`
+
+Deletion will only succeed if the Product Selection is not assigned to any [Store](/../api/projects/stores#store).
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->productSelections()->withId("ID")->products()->get()`
+
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withId("ID")
+                ->products()
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->delete()`
+
+Deletion will only succeed if the Product Selection is not assigned to any [Store](/../api/projects/stores#store).
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->productSelections()->withKey("key")->products()->get()`
+
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productSelections()
+                ->withKey("key")
+                ->products()
                 ->get();
 ```
 ## `withProjectKey("projectKey")->productTypes()->get()`
@@ -3781,6 +4218,22 @@ $request = $builder
                 ->images()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->products()->withId("ID")->productSelections()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->withId("ID")
+                ->productSelections()
+                ->get();
+```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
 Gets the full representation of a product by Key.
@@ -3840,6 +4293,22 @@ $request = $builder
                 ->products()
                 ->withKey("key")
                 ->delete();
+```
+## `withProjectKey("projectKey")->products()->withKey("key")->productSelections()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->products()
+                ->withKey("key")
+                ->productSelections()
+                ->get();
 ```
 ## `withProjectKey("projectKey")->reviews()->get()`
 
@@ -4237,6 +4706,127 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->standalonePrices()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->post(null)`
+
+Produces the [StandalonePriceCreatedMessage](ctp:api:type:StandalonePriceCreatedMessage).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
+
+Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
+
+Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->standalonePrices()
                 ->withKey("key")
                 ->delete();
 ```

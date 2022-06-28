@@ -77,7 +77,7 @@ class ByProjectKeyOrderPatchesImportContainersByImportContainerKeyPost extends A
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|ImportResponse|JsonObject
+     * @return null|T|ErrorResponse|ImportResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

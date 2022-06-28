@@ -33,6 +33,8 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     private $staged;
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     *
      * @return null|CategoryReference
      */
     public function getCategory()

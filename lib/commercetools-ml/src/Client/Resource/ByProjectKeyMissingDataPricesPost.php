@@ -71,7 +71,7 @@ class ByProjectKeyMissingDataPricesPost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|JsonObject|TaskToken
+     * @return null|T|JsonObject|TaskToken
      */
     public function execute(array $options = [], string $resultType = null)
     {

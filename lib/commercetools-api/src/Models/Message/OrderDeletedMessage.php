@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Order\Order;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderDeletedMessage extends Message
+interface OrderDeletedMessage extends OrderMessage
 {
     public const FIELD_ORDER = 'order';
 

@@ -35,6 +35,8 @@ interface Payment extends BaseResource
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>Unique identifier of the Payment.</p>
+     *
      * @return null|string
      */
     public function getId();
@@ -132,8 +134,7 @@ interface Payment extends BaseResource
     public function getCustom();
 
     /**
-     * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier of the Payment.</p>
      *
      * @return null|string
      */

@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -51,6 +52,11 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -64,12 +70,14 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
         ?array $languages = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
+        ?ProductSelectionSettingCollection $productSelections = null,
         ?CustomFields $custom = null
     ) {
         $this->name = $name;
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -92,6 +100,8 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -161,6 +171,25 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+     * @return null|ProductSelectionSettingCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
+     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -209,6 +238,14 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     public function setSupplyChannels(?ChannelReferenceCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
     }
 
     /**

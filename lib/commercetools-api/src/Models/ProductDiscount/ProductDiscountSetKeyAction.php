@@ -16,8 +16,7 @@ interface ProductDiscountSetKeyAction extends ProductDiscountUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>The key to set.
-     * If you provide a <code>null</code> value or do not set this field at all, the existing <code>key</code> field is removed.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
      * @return null|string
      */

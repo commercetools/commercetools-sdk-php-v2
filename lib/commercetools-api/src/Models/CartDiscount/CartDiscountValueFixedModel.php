@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\TypedMoneyCollection;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -27,7 +27,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
     protected $type;
 
     /**
-     * @var ?TypedMoneyCollection
+     * @var ?CentPrecisionMoneyCollection
      */
     protected $money;
 
@@ -36,7 +36,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoneyCollection $money = null
+        ?CentPrecisionMoneyCollection $money = null
     ) {
         $this->money = $money;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -60,7 +60,9 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
     }
 
     /**
-     * @return null|TypedMoneyCollection
+     * <p>Cent precision money values in different currencies.</p>
+     *
+     * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney()
     {
@@ -70,7 +72,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
             if (is_null($data)) {
                 return null;
             }
-            $this->money = TypedMoneyCollection::fromArray($data);
+            $this->money = CentPrecisionMoneyCollection::fromArray($data);
         }
 
         return $this->money;
@@ -78,9 +80,9 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
 
 
     /**
-     * @param ?TypedMoneyCollection $money
+     * @param ?CentPrecisionMoneyCollection $money
      */
-    public function setMoney(?TypedMoneyCollection $money): void
+    public function setMoney(?CentPrecisionMoneyCollection $money): void
     {
         $this->money = $money;
     }

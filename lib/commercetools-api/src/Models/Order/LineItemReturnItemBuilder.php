@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -47,6 +49,11 @@ final class LineItemReturnItemBuilder implements Builder
     private $paymentState;
 
     /**
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
@@ -62,6 +69,8 @@ final class LineItemReturnItemBuilder implements Builder
     private $lineItemId;
 
     /**
+     * <p>Unique identifier of the ReturnItem.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -99,6 +108,16 @@ final class LineItemReturnItemBuilder implements Builder
     public function getPaymentState()
     {
         return $this->paymentState;
+    }
+
+    /**
+     * <p>Custom Fields of this return item.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -181,6 +200,17 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @param ?DateTimeImmutable $lastModifiedAt
      * @return $this
      */
@@ -213,6 +243,16 @@ final class LineItemReturnItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
 
     public function build(): LineItemReturnItem
     {
@@ -222,6 +262,7 @@ final class LineItemReturnItemBuilder implements Builder
             $this->comment,
             $this->shipmentState,
             $this->paymentState,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->lastModifiedAt,
             $this->createdAt,
             $this->lineItemId

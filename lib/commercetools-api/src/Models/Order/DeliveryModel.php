@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -47,6 +49,11 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
      */
     protected $address;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -56,16 +63,20 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
         ?DateTimeImmutable $createdAt = null,
         ?DeliveryItemCollection $items = null,
         ?ParcelCollection $parcels = null,
-        ?Address $address = null
+        ?Address $address = null,
+        ?CustomFields $custom = null
     ) {
         $this->id = $id;
         $this->createdAt = $createdAt;
         $this->items = $items;
         $this->parcels = $parcels;
         $this->address = $address;
+        $this->custom = $custom;
     }
 
     /**
+     * <p>Unique identifier of the Delivery.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -158,6 +169,26 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
         return $this->address;
     }
 
+    /**
+     * <p>Custom Fields for the Transaction.</p>
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $id
@@ -199,7 +230,16 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
         $this->address = $address;
     }
 
+    /**
+     * @param ?CustomFields $custom
+     */
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
 
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

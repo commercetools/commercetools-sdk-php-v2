@@ -126,18 +126,6 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                 'delete',
                 'test_projectKey/custom-objects/test_container/test_key?version=version',
             ],
-            'ByProjectKeyCustomObjectsByContainerByKeyDelete_withDataErasure' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->customObjects()
-                        ->withContainerAndKey('test_container', 'test_key')
-                        ->delete()
-                        ->withDataErasure('dataErasure');
-                },
-                'delete',
-                'test_projectKey/custom-objects/test_container/test_key?dataErasure=dataErasure',
-            ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -149,6 +137,18 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                 },
                 'delete',
                 'test_projectKey/custom-objects/test_container/test_key?expand=expand',
+            ],
+            'ByProjectKeyCustomObjectsByContainerByKeyDelete_withDataErasure' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->customObjects()
+                        ->withContainerAndKey('test_container', 'test_key')
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                'test_projectKey/custom-objects/test_container/test_key?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

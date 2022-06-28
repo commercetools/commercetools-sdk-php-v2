@@ -115,6 +115,8 @@ final class PaymentBuilder implements Builder
     private $key;
 
     /**
+     * <p>Unique identifier of the Payment.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -257,8 +259,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier of the Payment.</p>
      *
      * @return null|string
      */

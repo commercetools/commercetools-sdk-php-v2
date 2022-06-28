@@ -27,7 +27,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
 
     /**
      * @psalm-var array<string, class-string<OrderUpdateAction> >
-     *
+     * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
        'addDelivery' => OrderAddDeliveryActionModel::class,
@@ -57,6 +57,8 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setDeliveryAddress' => OrderSetDeliveryAddressActionModel::class,
        'setDeliveryAddressCustomField' => OrderSetDeliveryAddressCustomFieldActionModel::class,
        'setDeliveryAddressCustomType' => OrderSetDeliveryAddressCustomTypeActionModel::class,
+       'setDeliveryCustomField' => OrderSetDeliveryCustomFieldActionModel::class,
+       'setDeliveryCustomType' => OrderSetDeliveryCustomTypeActionModel::class,
        'setDeliveryItems' => OrderSetDeliveryItemsActionModel::class,
        'setItemShippingAddressCustomField' => OrderSetItemShippingAddressCustomFieldActionModel::class,
        'setItemShippingAddressCustomType' => OrderSetItemShippingAddressCustomTypeActionModel::class,
@@ -65,10 +67,14 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
        'setLineItemShippingDetails' => OrderSetLineItemShippingDetailsActionModel::class,
        'setLocale' => OrderSetLocaleActionModel::class,
        'setOrderNumber' => OrderSetOrderNumberActionModel::class,
+       'setParcelCustomField' => OrderSetParcelCustomFieldActionModel::class,
+       'setParcelCustomType' => OrderSetParcelCustomTypeActionModel::class,
        'setParcelItems' => OrderSetParcelItemsActionModel::class,
        'setParcelMeasurements' => OrderSetParcelMeasurementsActionModel::class,
        'setParcelTrackingData' => OrderSetParcelTrackingDataActionModel::class,
        'setReturnInfo' => OrderSetReturnInfoActionModel::class,
+       'setReturnItemCustomField' => OrderSetReturnItemCustomFieldActionModel::class,
+       'setReturnItemCustomType' => OrderSetReturnItemCustomTypeActionModel::class,
        'setReturnPaymentState' => OrderSetReturnPaymentStateActionModel::class,
        'setReturnShipmentState' => OrderSetReturnShipmentStateActionModel::class,
        'setShippingAddress' => OrderSetShippingAddressActionModel::class,

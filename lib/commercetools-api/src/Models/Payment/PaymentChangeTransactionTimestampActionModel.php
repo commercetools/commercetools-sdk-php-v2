@@ -122,6 +122,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

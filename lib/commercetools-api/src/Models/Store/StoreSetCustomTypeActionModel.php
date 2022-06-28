@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Type\FieldContainer;
+use Commercetools\Api\Models\Type\FieldContainerModel;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -33,7 +35,7 @@ final class StoreSetCustomTypeActionModel extends JsonObjectModel implements Sto
     protected $type;
 
     /**
-     * @var ?mixed
+     * @var ?FieldContainer
      */
     protected $fields;
 
@@ -43,7 +45,7 @@ final class StoreSetCustomTypeActionModel extends JsonObjectModel implements Sto
      */
     public function __construct(
         ?TypeResourceIdentifier $type = null,
-        ?JsonObject $fields = null
+        ?FieldContainer $fields = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
@@ -68,8 +70,8 @@ final class StoreSetCustomTypeActionModel extends JsonObjectModel implements Sto
     }
 
     /**
-     * <p>If set, the custom type is reset to this value.
-     * If absent, the custom type and any existing custom fields are removed.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Store with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the Store.</p>
      *
      * @return null|TypeResourceIdentifier
      */
@@ -89,10 +91,9 @@ final class StoreSetCustomTypeActionModel extends JsonObjectModel implements Sto
     }
 
     /**
-     * <p>A valid JSON object, based on the FieldDefinitions of the Type
-     * Sets the custom field to this value.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Store.</p>
      *
-     * @return null|mixed
+     * @return null|FieldContainer
      */
     public function getFields()
     {
@@ -102,7 +103,8 @@ final class StoreSetCustomTypeActionModel extends JsonObjectModel implements Sto
             if (is_null($data)) {
                 return null;
             }
-            $this->fields = JsonObjectModel::of($data);
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
         return $this->fields;
@@ -118,9 +120,9 @@ final class StoreSetCustomTypeActionModel extends JsonObjectModel implements Sto
     }
 
     /**
-     * @param ?JsonObject $fields
+     * @param ?FieldContainer $fields
      */
-    public function setFields(?JsonObject $fields): void
+    public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;
     }

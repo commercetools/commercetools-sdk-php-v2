@@ -15,16 +15,28 @@ interface ExtensionTrigger extends JsonObject
 {
     public const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
     public const FIELD_ACTIONS = 'actions';
+    public const FIELD_CONDITION = 'condition';
 
     /**
+     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
+     *
      * @return null|string
      */
     public function getResourceTypeId();
 
     /**
+     * <p><code>Create</code> and <code>Update</code> requests are supported.</p>
+     *
      * @return null|array
      */
     public function getActions();
+
+    /**
+     * <p>Valid <a href="/../api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
+     *
+     * @return null|string
+     */
+    public function getCondition();
 
     /**
      * @param ?string $resourceTypeId
@@ -35,4 +47,9 @@ interface ExtensionTrigger extends JsonObject
      * @param ?array $actions
      */
     public function setActions(?array $actions): void;
+
+    /**
+     * @param ?string $condition
+     */
+    public function setCondition(?string $condition): void;
 }

@@ -64,6 +64,11 @@ final class InventoryEntryBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $sku;
 
     /**
@@ -97,7 +102,7 @@ final class InventoryEntryBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The unique ID of the inventory entry.</p>
+     * <p>Unique identifier of the InventoryEntry.</p>
      *
      * @return null|string
      */
@@ -107,6 +112,8 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the InventoryEntry.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -115,6 +122,8 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the InventoryEntry was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -123,6 +132,8 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the InventoryEntry was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -151,6 +162,18 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the InventoryEntry.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku()
@@ -159,7 +182,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Connection to a particular supplier.</p>
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
      *
      * @return null|ChannelReference
      */
@@ -169,8 +192,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Overall amount of stock.
-     * (available + reserved)</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
      *
      * @return null|int
      */
@@ -180,8 +202,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Available amount of stock.
-     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
      *
      * @return null|int
      */
@@ -191,7 +212,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>
+     * <p>How often the InventoryEntry is restocked (in days).</p>
      *
      * @return null|int
      */
@@ -201,7 +222,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>The date and time of the next restock.</p>
+     * <p>Date and time of the next restock.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -211,6 +232,8 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the InventoryEntry.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -280,6 +303,17 @@ final class InventoryEntryBuilder implements Builder
     public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -414,6 +448,7 @@ final class InventoryEntryBuilder implements Builder
             $this->lastModifiedAt,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
+            $this->key,
             $this->sku,
             $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,

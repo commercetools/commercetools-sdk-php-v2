@@ -67,6 +67,7 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
        'setMetaDescription' => ProductSetMetaDescriptionActionModel::class,
        'setMetaKeywords' => ProductSetMetaKeywordsActionModel::class,
        'setMetaTitle' => ProductSetMetaTitleActionModel::class,
+       'setPriceMode' => ProductSetPriceModeActionModel::class,
        'setPrices' => ProductSetPricesActionModel::class,
        'setProductPriceCustomField' => ProductSetProductPriceCustomFieldActionModel::class,
        'setProductPriceCustomType' => ProductSetProductPriceCustomTypeActionModel::class,

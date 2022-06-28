@@ -88,8 +88,6 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
-     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
-     *
      * @return null|TypedMoneyCollection
      */
     public function getValue()

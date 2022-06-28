@@ -50,6 +50,11 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     protected $supplyChannels;
 
     /**
+     * @var ?ProductSelectionSettingDraftCollection
+     */
+    protected $productSelections;
+
+    /**
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -64,6 +69,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?array $languages = null,
         ?ChannelResourceIdentifierCollection $distributionChannels = null,
         ?ChannelResourceIdentifierCollection $supplyChannels = null,
+        ?ProductSelectionSettingDraftCollection $productSelections = null,
         ?CustomFieldsDraft $custom = null
     ) {
         $this->key = $key;
@@ -71,13 +77,13 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         $this->languages = $languages;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
+        $this->productSelections = $productSelections;
         $this->custom = $custom;
     }
 
     /**
-     * <p>User-specific unique identifier for the store.
-     * The <code>key</code> is mandatory and immutable.
-     * It is used to reference the store.</p>
+     * <p>User-defined unique and immutable identifier for the Store.
+     * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
      *
      * @return null|string
      */
@@ -96,7 +102,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>The name of the store</p>
+     * <p>Name of the Store.</p>
      *
      * @return null|LocalizedString
      */
@@ -116,6 +122,8 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
+     * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -133,7 +141,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>Set of ResourceIdentifiers to a Channel with <code>ProductDistribution</code> role</p>
+     * <p>ResourceIdentifier to a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
@@ -152,7 +160,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>Set of ResourceIdentifiers of Channels with <code>InventorySupply</code> role</p>
+     * <p>ResourceIdentifier to a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
      * @return null|ChannelResourceIdentifierCollection
      */
@@ -171,6 +179,31 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
+     * <p>Controls availability of Products for this Store via active Product Selections.</p>
+     * <ul>
+     * <li>Leave empty if all Products in the <a href="ctp:api:type:Project">Project</a> should be available in this Store.</li>
+     * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
+     * </ul>
+     *
+     * @return null|ProductSelectionSettingDraftCollection
+     */
+    public function getProductSelections()
+    {
+        if (is_null($this->productSelections)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SELECTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productSelections = ProductSelectionSettingDraftCollection::fromArray($data);
+        }
+
+        return $this->productSelections;
+    }
+
+    /**
+     * <p>Custom fields for the Store.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -227,6 +260,14 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setSupplyChannels(?ChannelResourceIdentifierCollection $supplyChannels): void
     {
         $this->supplyChannels = $supplyChannels;
+    }
+
+    /**
+     * @param ?ProductSelectionSettingDraftCollection $productSelections
+     */
+    public function setProductSelections(?ProductSelectionSettingDraftCollection $productSelections): void
+    {
+        $this->productSelections = $productSelections;
     }
 
     /**

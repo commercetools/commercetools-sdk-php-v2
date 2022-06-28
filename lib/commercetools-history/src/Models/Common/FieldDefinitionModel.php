@@ -22,7 +22,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
 
 
     /**
-     * @var ?mixed
+     * @var ?FieldType
      */
     protected $type;
 
@@ -46,7 +46,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?JsonObject $type = null,
+        ?FieldType $type = null,
         ?string $name = null,
         ?LocalizedString $label = null,
         ?string $inputHint = null
@@ -59,9 +59,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
     /**
-     * <p>Describes the type of the field.</p>
-     *
-     * @return null|mixed
+     * @return null|FieldType
      */
     public function getType()
     {
@@ -71,7 +69,8 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
             if (is_null($data)) {
                 return null;
             }
-            $this->type =  JsonObjectModel::of($data);
+
+            $this->type =  FieldTypeModel::of($data);
         }
 
         return $this->type;
@@ -133,9 +132,9 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
 
 
     /**
-     * @param ?JsonObject $type
+     * @param ?FieldType $type
      */
-    public function setType(?JsonObject $type): void
+    public function setType(?FieldType $type): void
     {
         $this->type = $type;
     }

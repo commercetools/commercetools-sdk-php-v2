@@ -29,55 +29,71 @@ interface QueryPrice extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
+     * <p>Unique identifier of the given Price.</p>
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Money value of the given Price.</p>
+     *
      * @return null|Money
      */
     public function getValue();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country for which the given Price is valid.</p>
      *
      * @return null|string
      */
     public function getCountry();
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the given Price is valid.</p>
      *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
+     * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which the given Price is valid.</p>
+     *
      * @return null|ChannelReference
      */
     public function getChannel();
 
     /**
+     * <p>Date from which the given Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>Date until which the given Price is valid.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
+     * <p><a href="ctp:api:type:DiscountedPrice">DiscountedPrice</a> you specify for the given Price.</p>
+     *
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
 
     /**
+     * <p>Custom Fields for the Price.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+     * <p>Price tier applied when the minimum quantity for the <a href="ctp:api:type:LineItem">LineItem</a> of a ProductVariant with the related Price is reached in a Cart.</p>
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers();

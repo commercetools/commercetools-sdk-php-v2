@@ -30,11 +30,14 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Query<ByProjectKeyCustomObjectsByContainerGet>
+ * @template-implements Paging<ByProjectKeyCustomObjectsByContainerGet>
+ * @template-implements Expandable<ByProjectKeyCustomObjectsByContainerGet>
+ * @template-implements Sortable<ByProjectKeyCustomObjectsByContainerGet>
  * @template-implements Expandable<ByProjectKeyCustomObjectsByContainerGet>
  * @template-implements Errorable<ByProjectKeyCustomObjectsByContainerGet>
  * @template-implements Deprecatable200<ByProjectKeyCustomObjectsByContainerGet>
  */
-class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest implements Query, Expandable, Errorable, Deprecatable200
+class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest implements Query, Paging, Expandable, Sortable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -100,7 +103,7 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest implements Quer
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CustomObjectPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|CustomObjectPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -146,11 +149,29 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest implements Quer
 
     /**
      *
+     * @psalm-param scalar|scalar[] $sort
+     */
+    public function withSort($sort): ByProjectKeyCustomObjectsByContainerGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $where
      */
     public function withWhere($where): ByProjectKeyCustomObjectsByContainerGet
     {
         return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyCustomObjectsByContainerGet
+    {
+        return $this->withQueryParam('expand', $expand);
     }
 
     /**
@@ -164,10 +185,28 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest implements Quer
 
     /**
      *
-     * @psalm-param scalar|scalar[] $expand
+     * @psalm-param scalar|scalar[] $limit
      */
-    public function withExpand($expand): ByProjectKeyCustomObjectsByContainerGet
+    public function withLimit($limit): ByProjectKeyCustomObjectsByContainerGet
     {
-        return $this->withQueryParam('expand', $expand);
+        return $this->withQueryParam('limit', $limit);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $offset
+     */
+    public function withOffset($offset): ByProjectKeyCustomObjectsByContainerGet
+    {
+        return $this->withQueryParam('offset', $offset);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyCustomObjectsByContainerGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
     }
 }

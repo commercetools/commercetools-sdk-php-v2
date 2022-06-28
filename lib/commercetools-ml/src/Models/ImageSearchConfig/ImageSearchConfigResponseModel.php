@@ -100,6 +100,7 @@ final class ImageSearchConfigResponseModel extends JsonObjectModel implements Im
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

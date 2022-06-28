@@ -40,6 +40,8 @@ final class CartAddShoppingListActionBuilder implements Builder
     private $distributionChannel;
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
      * @return null|ShoppingListResourceIdentifier
      */
     public function getShoppingList()
@@ -48,6 +50,8 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -56,6 +60,8 @@ final class CartAddShoppingListActionBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

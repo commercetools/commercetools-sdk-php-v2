@@ -108,6 +108,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -161,6 +163,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -179,6 +183,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -197,6 +203,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -215,6 +223,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -233,6 +243,8 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()

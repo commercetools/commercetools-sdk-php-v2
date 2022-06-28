@@ -158,6 +158,11 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      */
     protected $stores;
 
+    /**
+     * @var ?string
+     */
+    protected $authenticationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -188,7 +193,8 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         ?string $locale = null,
         ?string $salutation = null,
         ?string $key = null,
-        ?StoreResourceIdentifierCollection $stores = null
+        ?StoreResourceIdentifierCollection $stores = null,
+        ?string $authenticationMode = null
     ) {
         $this->customerNumber = $customerNumber;
         $this->email = $email;
@@ -216,6 +222,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->salutation = $salutation;
         $this->key = $key;
         $this->stores = $stores;
+        $this->authenticationMode = $authenticationMode;
     }
 
     /**
@@ -262,6 +269,8 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+     * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
+     *
      * @return null|string
      */
     public function getPassword()
@@ -667,9 +676,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
-     * <p>User-specific unique identifier for a customer.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier for the Customer.</p>
      *
      * @return null|string
      */
@@ -706,6 +713,25 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         }
 
         return $this->stores;
+    }
+
+    /**
+     * <p>Defines whether a password field is a required field for the Customer.</p>
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
     }
 
 
@@ -917,7 +943,16 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->stores = $stores;
     }
 
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
+    }
 
+
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

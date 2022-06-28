@@ -44,8 +44,6 @@ final class MoneySetAttributeBuilder implements Builder
     }
 
     /**
-     * <p>TypedMoney is what is called BaseMoney in the HTTP API.</p>
-     *
      * @return null|TypedMoneyCollection
      */
     public function getValue()

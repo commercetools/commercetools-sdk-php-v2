@@ -164,6 +164,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function productSelections(): ResourceByProjectKeyProductSelections
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyProductSelections($args, $this->getClient());
+    }
+    /**
+     */
     public function productTypes(): ResourceByProjectKeyProductTypes
     {
         $args = $this->getArgs();
@@ -276,6 +284,14 @@ class ResourceByProjectKey extends ApiResource
         }
 
         return new ResourceByProjectKeyInStoreKeyByStoreKey($args, $this->getClient());
+    }
+    /**
+     */
+    public function standalonePrices(): ResourceByProjectKeyStandalonePrices
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyStandalonePrices($args, $this->getClient());
     }
 
     /**

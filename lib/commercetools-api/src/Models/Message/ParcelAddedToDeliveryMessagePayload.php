@@ -13,7 +13,7 @@ use Commercetools\Api\Models\Order\Parcel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ParcelAddedToDeliveryMessagePayload extends MessagePayload
+interface ParcelAddedToDeliveryMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DELIVERY = 'delivery';
     public const FIELD_PARCEL = 'parcel';

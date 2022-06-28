@@ -12,7 +12,7 @@ use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ParcelMeasurementsUpdatedMessagePayload extends MessagePayload
+interface ParcelMeasurementsUpdatedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_PARCEL_ID = 'parcelId';

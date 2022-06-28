@@ -83,6 +83,8 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getReferencedBy()
@@ -114,5 +116,18 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     public function setReferencedBy(?string $referencedBy): void
     {
         $this->referencedBy = $referencedBy;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
     }
 }

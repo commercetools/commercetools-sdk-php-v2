@@ -16,6 +16,8 @@ interface ProductDiscountChangeValueAction extends ProductDiscountUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|ProductDiscountValueDraft
      */
     public function getValue();

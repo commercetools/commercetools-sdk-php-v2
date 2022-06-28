@@ -99,7 +99,7 @@ class ByProjectKeyChannelsByIDGet extends ApiRequest implements Expandable, Erro
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|Channel|ErrorResponse|JsonObject
+     * @return null|T|Channel|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

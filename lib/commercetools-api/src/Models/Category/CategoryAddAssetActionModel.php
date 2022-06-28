@@ -68,6 +68,8 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     }
 
     /**
+     * <p>Value to append.</p>
+     *
      * @return null|AssetDraft
      */
     public function getAsset()
@@ -86,7 +88,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     }
 
     /**
-     * <p>When specified, the value might be <code>0</code> and should be lower than the total of the assets list.</p>
+     * <p>Position in the array at which the Asset should be put. When specified, the value must be between <code>0</code> and the total number of Assets minus <code>1</code>.</p>
      *
      * @return null|int
      */

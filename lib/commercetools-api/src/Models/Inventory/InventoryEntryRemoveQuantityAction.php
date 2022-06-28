@@ -16,6 +16,8 @@ interface InventoryEntryRemoveQuantityAction extends InventoryEntryUpdateAction
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+     * <p>Value to remove from <code>quantityOnStock</code>.</p>
+     *
      * @return null|int
      */
     public function getQuantity();

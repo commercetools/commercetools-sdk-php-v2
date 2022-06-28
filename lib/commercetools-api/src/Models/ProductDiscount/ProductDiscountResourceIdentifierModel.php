@@ -51,6 +51,8 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -68,7 +70,7 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Unique ID of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */
@@ -87,7 +89,7 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>Unique key of the referenced resource. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
      * @return null|string
      */

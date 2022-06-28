@@ -102,7 +102,7 @@ class ByProjectKeyCustomObjectsGet extends ApiRequest implements Expandable, Sor
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CustomObjectPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|CustomObjectPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

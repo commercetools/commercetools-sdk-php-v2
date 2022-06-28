@@ -48,7 +48,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     protected $name;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $quantity;
 
@@ -79,7 +79,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function __construct(
         ?Money $money = null,
         ?LocalizedString $name = null,
-        ?float $quantity = null,
+        ?int $quantity = null,
         ?string $slug = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?CustomFieldsDraft $custom = null,
@@ -113,6 +113,9 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
+     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -131,6 +134,8 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -149,17 +154,17 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|float
+     * @return null|int
      */
     public function getQuantity()
     {
         if (is_null($this->quantity)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (float) $data;
+            $this->quantity = (int) $data;
         }
 
         return $this->quantity;
@@ -183,7 +188,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -203,6 +208,8 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -256,9 +263,9 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?float $quantity
+     * @param ?int $quantity
      */
-    public function setQuantity(?float $quantity): void
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }

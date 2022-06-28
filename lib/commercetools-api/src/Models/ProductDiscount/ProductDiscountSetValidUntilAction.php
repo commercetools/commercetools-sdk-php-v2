@@ -17,8 +17,9 @@ interface ProductDiscountSetValidUntilAction extends ProductDiscountUpdateAction
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
-     * <p>The time from which the discount should be ineffective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */

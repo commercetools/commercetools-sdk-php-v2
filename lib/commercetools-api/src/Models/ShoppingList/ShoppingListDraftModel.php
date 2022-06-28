@@ -188,7 +188,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * <p>User-specific unique identifier for the shopping list.</p>
+     * <p>User-defined unique identifier for the ShoppingList.</p>
      *
      * @return null|string
      */

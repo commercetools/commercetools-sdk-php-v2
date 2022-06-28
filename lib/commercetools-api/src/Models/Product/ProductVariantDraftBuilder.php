@@ -62,6 +62,9 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier for the ProductVariant.
+     * <em>ProductVariant keys are different from Product keys.</em></p>
+     *
      * @return null|string
      */
     public function getKey()

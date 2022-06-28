@@ -71,6 +71,8 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>Unique identifier of the CustomerToken.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -234,6 +236,7 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

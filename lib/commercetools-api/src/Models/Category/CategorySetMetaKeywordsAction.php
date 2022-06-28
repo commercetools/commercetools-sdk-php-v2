@@ -17,6 +17,8 @@ interface CategorySetMetaKeywordsAction extends CategoryUpdateAction
     public const FIELD_META_KEYWORDS = 'metaKeywords';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords();

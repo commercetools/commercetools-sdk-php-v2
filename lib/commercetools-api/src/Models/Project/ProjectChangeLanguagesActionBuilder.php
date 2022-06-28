@@ -26,7 +26,7 @@ final class ProjectChangeLanguagesActionBuilder implements Builder
     private $languages;
 
     /**
-     * <p>.</p>
+     * <p>New value to set. Must not be empty.</p>
      *
      * @return null|array
      */

@@ -44,6 +44,8 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     }
 
     /**
+     * <p>Money value of the discounted price.</p>
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -54,14 +56,16 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
+
+            $this->value = TypedMoneyModel::of($data);
         }
 
         return $this->value;
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductDiscount">ProductDiscount</a> related to the discounted price.</p>
+     *
      * @return null|ProductDiscountReference
      */
     public function getDiscount()

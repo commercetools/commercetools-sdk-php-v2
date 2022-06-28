@@ -31,6 +31,8 @@ final class ErrorByExtensionBuilder implements Builder
     private $key;
 
     /**
+     * <p>Unique identifier of the Extension.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -39,6 +41,8 @@ final class ErrorByExtensionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Extension.</p>
+     *
      * @return null|string
      */
     public function getKey()

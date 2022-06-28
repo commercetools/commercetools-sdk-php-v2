@@ -33,7 +33,7 @@ final class StateReferenceBuilder implements Builder
     private $obj;
 
     /**
-     * <p>Unique ID of the referenced resource.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:State">State</a>.</p>
      *
      * @return null|string
      */
@@ -43,6 +43,8 @@ final class StateReferenceBuilder implements Builder
     }
 
     /**
+     * <p>Contains the representation of the expanded State. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for States.</p>
+     *
      * @return null|State
      */
     public function getObj()

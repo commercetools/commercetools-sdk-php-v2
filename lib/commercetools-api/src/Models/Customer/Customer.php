@@ -46,9 +46,10 @@ interface Customer extends BaseResource
     public const FIELD_SALUTATION = 'salutation';
     public const FIELD_KEY = 'key';
     public const FIELD_STORES = 'stores';
+    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
-     * <p>The unique ID of the customer.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
      * @return null|string
      */
@@ -104,6 +105,8 @@ interface Customer extends BaseResource
     public function getEmail();
 
     /**
+     * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
+     *
      * @return null|string
      */
     public function getPassword();
@@ -209,9 +212,7 @@ interface Customer extends BaseResource
     public function getSalutation();
 
     /**
-     * <p>User-specific unique identifier for a customer.
-     * Must be unique across a project.
-     * The field can be reset using the Set Key UpdateAction</p>
+     * <p>User-defined unique identifier of the Customer.</p>
      *
      * @return null|string
      */
@@ -225,6 +226,13 @@ interface Customer extends BaseResource
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();
+
+    /**
+     * <p>Defines whether a Customer has a password.</p>
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode();
 
     /**
      * @param ?string $id
@@ -370,4 +378,9 @@ interface Customer extends BaseResource
      * @param ?StoreKeyReferenceCollection $stores
      */
     public function setStores(?StoreKeyReferenceCollection $stores): void;
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void;
 }

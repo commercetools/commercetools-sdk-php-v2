@@ -23,6 +23,8 @@ interface TypedMoneyDraft extends Money
     public function getType();
 
     /**
+     * <p>Must be equal to the default number of fraction digits for the specified currency.</p>
+     *
      * @return null|int
      */
     public function getFractionDigits();

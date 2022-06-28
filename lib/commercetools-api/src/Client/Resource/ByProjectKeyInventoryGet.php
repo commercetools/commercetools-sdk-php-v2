@@ -102,7 +102,7 @@ class ByProjectKeyInventoryGet extends ApiRequest implements Expandable, Sortabl
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|InventoryPagedQueryResponse|JsonObject
+     * @return null|T|ErrorResponse|InventoryPagedQueryResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

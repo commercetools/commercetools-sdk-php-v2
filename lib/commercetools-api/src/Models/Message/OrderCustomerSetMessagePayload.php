@@ -13,7 +13,7 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderCustomerSetMessagePayload extends MessagePayload
+interface OrderCustomerSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -21,24 +21,28 @@ interface OrderCustomerSetMessagePayload extends MessagePayload
     public const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getCustomer();
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
      * @return null|CustomerReference
      */
     public function getOldCustomer();
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */

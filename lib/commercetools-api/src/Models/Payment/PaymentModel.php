@@ -179,6 +179,8 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+     * <p>Unique identifier of the Payment.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -471,8 +473,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
-     * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).</p>
+     * <p>User-defined unique identifier of the Payment.</p>
      *
      * @return null|string
      */
@@ -620,6 +621,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

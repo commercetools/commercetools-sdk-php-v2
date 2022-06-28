@@ -130,6 +130,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'OrderLineItemDiscountSet' => OrderLineItemDiscountSetMessageModel::class,
        'OrderLineItemDistributionChannelSet' => OrderLineItemDistributionChannelSetMessageModel::class,
        'OrderLineItemRemoved' => OrderLineItemRemovedMessageModel::class,
+       'OrderPaymentAdded' => OrderPaymentAddedMessageModel::class,
        'OrderPaymentStateChanged' => OrderPaymentStateChangedMessageModel::class,
        'OrderReturnShipmentStateChanged' => OrderReturnShipmentStateChangedMessageModel::class,
        'OrderShipmentStateChanged' => OrderShipmentStateChangedMessageModel::class,
@@ -159,6 +160,10 @@ final class MessageModel extends JsonObjectModel implements Message
        'ProductPublished' => ProductPublishedMessageModel::class,
        'ProductRemovedFromCategory' => ProductRemovedFromCategoryMessageModel::class,
        'ProductRevertedStagedChanges' => ProductRevertedStagedChangesMessageModel::class,
+       'ProductSelectionCreated' => ProductSelectionCreatedMessageModel::class,
+       'ProductSelectionDeleted' => ProductSelectionDeletedMessageModel::class,
+       'ProductSelectionProductAdded' => ProductSelectionProductAddedMessageModel::class,
+       'ProductSelectionProductRemoved' => ProductSelectionProductRemovedMessageModel::class,
        'ProductSlugChanged' => ProductSlugChangedMessageModel::class,
        'ProductStateTransition' => ProductStateTransitionMessageModel::class,
        'ProductUnpublished' => ProductUnpublishedMessageModel::class,
@@ -169,8 +174,15 @@ final class MessageModel extends JsonObjectModel implements Message
        'ReviewCreated' => ReviewCreatedMessageModel::class,
        'ReviewRatingSet' => ReviewRatingSetMessageModel::class,
        'ReviewStateTransition' => ReviewStateTransitionMessageModel::class,
+       'StandalonePriceCreated' => StandalonePriceCreatedMessageModel::class,
+       'StandalonePriceDeleted' => StandalonePriceDeletedMessageModel::class,
+       'StandalonePriceDiscountSet' => StandalonePriceDiscountSetMessageModel::class,
+       'StandalonePriceExternalDiscountSet' => StandalonePriceExternalDiscountSetMessageModel::class,
+       'StandalonePriceValueChanged' => StandalonePriceValueChangedMessageModel::class,
        'StoreCreated' => StoreCreatedMessageModel::class,
        'StoreDeleted' => StoreDeletedMessageModel::class,
+       'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
+       'null' => OrderMessageModel::class,
     ];
 
     /**
@@ -202,6 +214,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Unique identifier of the Message.</p>
+     *
      * @return null|string
      */
     public function getId()
@@ -335,6 +349,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -486,6 +502,7 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

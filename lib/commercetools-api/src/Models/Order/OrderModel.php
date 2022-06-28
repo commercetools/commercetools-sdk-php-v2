@@ -349,7 +349,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>The unique ID of the order.</p>
+     * <p>Unique identifier of the Order.</p>
      *
      * @return null|string
      */
@@ -914,8 +914,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * <p>The sequence number of the last order message produced by changes to this order.
-     * <code>0</code> means, that no messages were created yet.</p>
+     * <p>Internal-only field.</p>
      *
      * @return null|int
      */
@@ -1448,6 +1447,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

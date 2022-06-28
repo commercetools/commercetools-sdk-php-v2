@@ -59,6 +59,8 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()

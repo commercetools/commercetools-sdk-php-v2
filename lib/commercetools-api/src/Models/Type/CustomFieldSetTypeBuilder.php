@@ -26,6 +26,8 @@ final class CustomFieldSetTypeBuilder implements Builder
     private $elementType;
 
     /**
+     * <p>Field type of the elements in the set.</p>
+     *
      * @return null|FieldType
      */
     public function getElementType()

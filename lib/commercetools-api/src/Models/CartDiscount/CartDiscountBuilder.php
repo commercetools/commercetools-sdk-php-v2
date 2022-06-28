@@ -133,7 +133,7 @@ final class CartDiscountBuilder implements Builder
     private $custom;
 
     /**
-     * <p>The unique ID of the cart discount.</p>
+     * <p>Unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */
@@ -143,7 +143,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the cart discount.</p>
+     * <p>Current version of the CartDiscount.</p>
      *
      * @return null|int
      */
@@ -153,6 +153,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) for the CartDiscount was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -161,6 +163,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) for the CartDiscount was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -169,7 +173,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -179,7 +183,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -189,6 +193,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Name of the CartDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -197,8 +203,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>User-specific unique identifier for a cart discount.
-     * Must be unique across a project.</p>
+     * <p>User-defined unique identifier of the CartDiscount.</p>
      *
      * @return null|string
      */
@@ -208,6 +213,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Description of the CartDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -216,6 +223,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Effect of the CartDiscount.</p>
+     *
      * @return null|CartDiscountValue
      */
     public function getValue()
@@ -224,7 +233,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>A valid Cart predicate.</p>
+     * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
      * @return null|string
      */
@@ -234,7 +243,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
+     * <p>Sets a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a>. Empty if <code>value</code> has type <code>giftLineItem</code>.</p>
      *
      * @return null|CartDiscountTarget
      */
@@ -244,10 +253,10 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The string must contain a number between 0 and 1.
-     * All matching cart discounts are applied to a cart in the order defined by this field.
-     * A discount with greater sort order is prioritized higher than a discount with lower sort order.
-     * The sort order is unambiguous among all cart discounts.</p>
+     * <p>Value between <code>0</code> and <code>1</code>.
+     * All matching CartDiscounts are applied to a Cart in the order defined by this field.
+     * A Discount with a higher sortOrder is prioritized.
+     * The sort order is unambiguous among all CartDiscounts.</p>
      *
      * @return null|string
      */
@@ -257,7 +266,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Only active discount can be applied to the cart.</p>
+     * <p>Indicates if the CartDiscount is active and can be applied to the Cart.</p>
      *
      * @return null|bool
      */
@@ -267,6 +276,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) from which the Discount is effective.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -275,6 +286,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) until which the Discount is effective.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -283,7 +296,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>States whether the discount can only be used in a connection with a DiscountCode.</p>
+     * <p>Indicates if the Discount can be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
      * @return null|bool
      */
@@ -293,8 +306,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>
+     * <p>References of all resources that are addressed in the predicate.
+     * The API generates this array from the predicate.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -304,8 +317,7 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-     * Defaults to Stacking.</p>
+     * <p>Indicates whether the application of the CartDiscount causes other discounts to be ignored.</p>
      *
      * @return null|string
      */
@@ -315,6 +327,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the CartDiscount.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()

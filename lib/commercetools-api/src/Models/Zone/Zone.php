@@ -25,7 +25,7 @@ interface Zone extends BaseResource
     public const FIELD_LOCATIONS = 'locations';
 
     /**
-     * <p>Unique ID of the Zone.</p>
+     * <p>Unique identifier of the Zone.</p>
      *
      * @return null|string
      */
@@ -67,7 +67,7 @@ interface Zone extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>User-defined unique identifier for the Zone.</p>
+     * <p>User-defined unique identifier of the Zone.</p>
      *
      * @return null|string
      */

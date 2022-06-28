@@ -43,6 +43,8 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     }
 
     /**
+     * <p>Can be one of the following or absent.</p>
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +62,8 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     }
 
     /**
+     * <p>The classification items that can be used for specifiying any <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     *
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues()

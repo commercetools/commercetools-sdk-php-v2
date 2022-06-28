@@ -97,6 +97,8 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -178,5 +180,18 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
     }
 }

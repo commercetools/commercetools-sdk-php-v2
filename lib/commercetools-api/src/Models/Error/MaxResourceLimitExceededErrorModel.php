@@ -83,6 +83,8 @@ final class MaxResourceLimitExceededErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>supported resource type identifiers:</p>
+     *
      * @return null|string
      */
     public function getExceededResource()
@@ -114,5 +116,18 @@ final class MaxResourceLimitExceededErrorModel extends JsonObjectModel implement
     public function setExceededResource(?string $exceededResource): void
     {
         $this->exceededResource = $exceededResource;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
     }
 }

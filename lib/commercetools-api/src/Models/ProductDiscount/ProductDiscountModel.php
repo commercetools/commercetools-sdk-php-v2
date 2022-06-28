@@ -150,7 +150,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>The unique ID of the product discount</p>
+     * <p>Unique identifier of the ProductDiscount.</p>
      *
      * @return null|string
      */
@@ -169,7 +169,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>The current version of the product discount.</p>
+     * <p>Current version of the ProductDiscount.</p>
      *
      * @return null|int
      */
@@ -188,6 +188,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
+     * <p>Date and time (UTC) the ProductDiscount was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -209,6 +211,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
+     * <p>Date and time (UTC) the ProductDiscount was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -230,7 +234,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|LastModifiedBy
      */
@@ -250,7 +254,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      * @return null|CreatedBy
      */
@@ -270,6 +274,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
+     * <p>Name of the ProductDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -288,8 +294,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>User-specific unique identifier for a product discount.
-     * Must be unique across a project.</p>
+     * <p>User-defined unique identifier of the ProductDiscount.</p>
      *
      * @return null|string
      */
@@ -308,6 +313,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
+     * <p>Description of the ProductDiscount.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -326,6 +333,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
+     * <p>Type of Discount and its corresponding value.</p>
+     *
      * @return null|ProductDiscountValue
      */
     public function getValue()
@@ -344,7 +353,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>A valid ProductDiscount Predicate.</p>
+     * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
      * @return null|string
      */
@@ -363,9 +372,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>The string contains a number between 0 and 1.
-     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.
-     * A sortOrder must be unambiguous.</p>
+     * <p>Unique decimal value between 0 and 1 (stored as String literal) defining the order of Product Discounts to apply in case more than one is applicable and active.
+     * A Product Discount with a higher value is prioritized.</p>
      *
      * @return null|string
      */
@@ -384,7 +392,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>Only active discount will be applied to product prices.</p>
+     * <p>If <code>true</code> the Product Discount is applied to Products matching the <code>predicate</code>.</p>
      *
      * @return null|bool
      */
@@ -403,8 +411,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>The platform will generate this array from the predicate.
-     * It contains the references of all the resources that are addressed in the predicate.</p>
+     * <p>References of all the resources that are addressed in the <code>predicate</code>.</p>
      *
      * @return null|ReferenceCollection
      */
@@ -423,8 +430,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>The time from which the discount should be effective.
-     * Please take Eventual Consistency into account for calculated product discount values.</p>
+     * <p>Date and time (UTC) from which the Discount is effective.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -447,8 +454,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * <p>The time from which the discount should be ineffective.
-     * Please take Eventual Consistency into account for calculated undiscounted values.</p>
+     * <p>Date and time (UTC) until which the Discount is effective.
+     * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -600,6 +607,7 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

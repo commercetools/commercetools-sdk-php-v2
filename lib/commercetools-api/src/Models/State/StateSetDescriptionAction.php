@@ -17,6 +17,9 @@ interface StateSetDescriptionAction extends StateUpdateAction
     public const FIELD_DESCRIPTION = 'description';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();

@@ -35,6 +35,8 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     private $result;
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     *
      * @return null|OrderEditReference
      */
     public function getEdit()

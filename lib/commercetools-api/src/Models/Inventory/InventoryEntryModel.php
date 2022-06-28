@@ -63,6 +63,11 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $sku;
 
     /**
@@ -106,6 +111,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         ?DateTimeImmutable $lastModifiedAt = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null,
+        ?string $key = null,
         ?string $sku = null,
         ?ChannelReference $supplyChannel = null,
         ?int $quantityOnStock = null,
@@ -120,6 +126,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
+        $this->key = $key;
         $this->sku = $sku;
         $this->supplyChannel = $supplyChannel;
         $this->quantityOnStock = $quantityOnStock;
@@ -130,7 +137,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The unique ID of the inventory entry.</p>
+     * <p>Unique identifier of the InventoryEntry.</p>
      *
      * @return null|string
      */
@@ -149,6 +156,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>Current version of the InventoryEntry.</p>
+     *
      * @return null|int
      */
     public function getVersion()
@@ -166,6 +175,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>Date and time (UTC) the InventoryEntry was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -187,6 +198,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>Date and time (UTC) the InventoryEntry was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -248,6 +261,27 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>User-defined unique identifier of the InventoryEntry.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku()
@@ -265,7 +299,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Connection to a particular supplier.</p>
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
      *
      * @return null|ChannelReference
      */
@@ -285,8 +319,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Overall amount of stock.
-     * (available + reserved)</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
      *
      * @return null|int
      */
@@ -305,8 +338,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>Available amount of stock.
-     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
      *
      * @return null|int
      */
@@ -325,7 +357,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>
+     * <p>How often the InventoryEntry is restocked (in days).</p>
      *
      * @return null|int
      */
@@ -344,7 +376,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * <p>The date and time of the next restock.</p>
+     * <p>Date and time of the next restock.</p>
      *
      * @return null|DateTimeImmutable
      */
@@ -367,6 +399,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>Custom Fields of the InventoryEntry.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -434,6 +468,14 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
      * @param ?string $sku
      */
     public function setSku(?string $sku): void
@@ -490,6 +532,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

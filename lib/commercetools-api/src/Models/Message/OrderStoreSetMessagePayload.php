@@ -12,11 +12,13 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderStoreSetMessagePayload extends MessagePayload
+interface OrderStoreSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_STORE = 'store';
 
     /**
+     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     *
      * @return null|StoreKeyReference
      */
     public function getStore();

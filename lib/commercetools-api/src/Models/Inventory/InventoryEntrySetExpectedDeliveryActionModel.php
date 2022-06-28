@@ -60,6 +60,8 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -90,6 +92,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

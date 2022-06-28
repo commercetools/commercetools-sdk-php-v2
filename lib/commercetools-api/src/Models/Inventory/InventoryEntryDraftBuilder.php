@@ -31,6 +31,11 @@ final class InventoryEntryDraftBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
@@ -56,6 +61,8 @@ final class InventoryEntryDraftBuilder implements Builder
     private $custom;
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
+     *
      * @return null|string
      */
     public function getSku()
@@ -64,6 +71,18 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier for the InventoryEntry.</p>
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -72,6 +91,8 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Overall amount of stock.</p>
+     *
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -80,6 +101,8 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * <p>How often the InventoryEntry is restocked (in days).</p>
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -88,6 +111,8 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
+     * <p>Date and time of the next restock.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -96,7 +121,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields of the InventoryEntry.</p>
      *
      * @return null|CustomFieldsDraft
      */
@@ -112,6 +137,17 @@ final class InventoryEntryDraftBuilder implements Builder
     public function withSku(?string $sku)
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -197,6 +233,7 @@ final class InventoryEntryDraftBuilder implements Builder
     {
         return new InventoryEntryDraftModel(
             $this->sku,
+            $this->key,
             $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->quantityOnStock,
             $this->restockableInDays,

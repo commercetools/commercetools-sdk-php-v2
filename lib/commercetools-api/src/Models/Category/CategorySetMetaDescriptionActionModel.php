@@ -61,6 +61,8 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()

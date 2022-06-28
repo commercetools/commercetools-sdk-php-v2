@@ -93,6 +93,8 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
+     * <p>Unique identifier of the MyPayment.</p>
+     *
      * @return null|string
      */
     public function getId()

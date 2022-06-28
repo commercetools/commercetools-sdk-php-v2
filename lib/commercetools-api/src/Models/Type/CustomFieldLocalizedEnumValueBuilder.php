@@ -33,6 +33,8 @@ final class CustomFieldLocalizedEnumValueBuilder implements Builder
     private $label;
 
     /**
+     * <p>Key of the value used as a programmatic identifier.</p>
+     *
      * @return null|string
      */
     public function getKey()
@@ -41,6 +43,8 @@ final class CustomFieldLocalizedEnumValueBuilder implements Builder
     }
 
     /**
+     * <p>Descriptive localized label of the value.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLabel()

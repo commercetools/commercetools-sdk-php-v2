@@ -190,7 +190,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-     * <p><a href="/types#reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
      * @return null|CustomerGroupReference
      */
@@ -210,6 +210,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -282,5 +284,18 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function by(string $key)
+    {
+        $data = $this->raw($key);
+        if (is_null($data)) {
+            return null;
+        }
+
+        return $data;
     }
 }

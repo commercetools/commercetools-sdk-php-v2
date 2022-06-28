@@ -33,6 +33,8 @@ final class CartSetShippingMethodActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()

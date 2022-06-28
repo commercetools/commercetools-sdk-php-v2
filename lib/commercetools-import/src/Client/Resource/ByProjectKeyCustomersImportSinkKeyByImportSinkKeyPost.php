@@ -71,7 +71,7 @@ class ByProjectKeyCustomersImportSinkKeyByImportSinkKeyPost extends ApiRequest i
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ImportResponse|JsonObject
+     * @return null|T|ImportResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

@@ -84,6 +84,8 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>ResourceIdentifier of a Product.</p>
+     *
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()
@@ -102,6 +104,8 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -119,7 +123,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The channel must have the role <code>InventorySupply</code></p>
+     * <p>Channel must have the role <code>InventorySupply</code>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */
@@ -139,7 +143,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The channel must have the role <code>ProductDistribution</code></p>
+     * <p>Channel must have the role <code>ProductDistribution</code>.</p>
      *
      * @return null|ChannelResourceIdentifier
      */

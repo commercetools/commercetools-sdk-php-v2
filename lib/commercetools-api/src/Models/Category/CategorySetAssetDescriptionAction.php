@@ -19,16 +19,22 @@ interface CategorySetAssetDescriptionAction extends CategoryUpdateAction
     public const FIELD_DESCRIPTION = 'description';
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getDescription();

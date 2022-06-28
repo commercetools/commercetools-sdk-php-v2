@@ -171,7 +171,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>The unique ID of the review.</p>
+     * <p>Unique identifier of the Review.</p>
      *
      * @return null|string
      */
@@ -291,7 +291,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>User-specific unique identifier for the review.</p>
+     * <p>User-defined unique identifier of the Review.</p>
      *
      * @return null|string
      */
@@ -689,6 +689,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

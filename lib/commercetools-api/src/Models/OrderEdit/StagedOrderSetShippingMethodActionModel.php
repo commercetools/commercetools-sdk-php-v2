@@ -72,6 +72,8 @@ final class StagedOrderSetShippingMethodActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()

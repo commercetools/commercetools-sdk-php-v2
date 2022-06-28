@@ -49,6 +49,11 @@ final class LineItemBuilder implements Builder
     private $productId;
 
     /**
+     * @var ?string
+     */
+    private $productKey;
+
+    /**
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -144,7 +149,7 @@ final class LineItemBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * <p>The unique ID of this LineItem.</p>
+     * <p>Unique identifier of the LineItem.</p>
      *
      * @return null|string
      */
@@ -159,6 +164,17 @@ final class LineItemBuilder implements Builder
     public function getProductId()
     {
         return $this->productId;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
+     * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
+     *
+     * @return null|string
+     */
+    public function getProductKey()
+    {
+        return $this->productKey;
     }
 
     /**
@@ -204,8 +220,8 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * <p>The price of a line item is selected from the prices array of the product variant.
-     * If the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
+     * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
+     * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
      * @return null|Price
      */
@@ -268,7 +284,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
+     * <p>Will be set automatically in the <code>Platform</code> TaxMode, once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
      * @return null|TaxRate
@@ -373,6 +389,17 @@ final class LineItemBuilder implements Builder
     public function withProductId(?string $productId)
     {
         $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $productKey
+     * @return $this
+     */
+    public function withProductKey(?string $productKey)
+    {
+        $this->productKey = $productKey;
 
         return $this;
     }
@@ -723,6 +750,7 @@ final class LineItemBuilder implements Builder
         return new LineItemModel(
             $this->id,
             $this->productId,
+            $this->productKey,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug,
             $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,

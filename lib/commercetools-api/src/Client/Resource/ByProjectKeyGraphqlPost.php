@@ -97,7 +97,7 @@ class ByProjectKeyGraphqlPost extends ApiRequest implements Errorable
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|GraphQLResponse|JsonObject
+     * @return null|T|ErrorResponse|GraphQLResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

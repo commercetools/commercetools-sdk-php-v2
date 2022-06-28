@@ -31,6 +31,8 @@ final class ExternalOAuthBuilder implements Builder
     private $authorizationHeader;
 
     /**
+     * <p>URL with authorization header.</p>
+     *
      * @return null|string
      */
     public function getUrl()
@@ -39,6 +41,8 @@ final class ExternalOAuthBuilder implements Builder
     }
 
     /**
+     * <p>Partially hidden on retrieval.</p>
+     *
      * @return null|string
      */
     public function getAuthorizationHeader()

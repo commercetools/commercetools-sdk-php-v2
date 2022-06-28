@@ -351,7 +351,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
     /**
-     * <p>The unique ID of the order.</p>
+     * <p>Unique identifier of the Order.</p>
      *
      * @return null|string
      */
@@ -916,8 +916,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
     /**
-     * <p>The sequence number of the last order message produced by changes to this order.
-     * <code>0</code> means, that no messages were created yet.</p>
+     * <p>Internal-only field.</p>
      *
      * @return null|int
      */
@@ -1450,6 +1449,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

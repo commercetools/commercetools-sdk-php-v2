@@ -135,6 +135,7 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
     }
 
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $data = $this->toArray();

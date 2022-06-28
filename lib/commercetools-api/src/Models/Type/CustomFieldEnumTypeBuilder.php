@@ -26,6 +26,8 @@ final class CustomFieldEnumTypeBuilder implements Builder
     private $values;
 
     /**
+     * <p>Allowed values.</p>
+     *
      * @return null|CustomFieldEnumValueCollection
      */
     public function getValues()

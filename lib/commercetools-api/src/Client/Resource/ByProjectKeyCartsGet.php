@@ -102,7 +102,7 @@ class ByProjectKeyCartsGet extends ApiRequest implements Expandable, Sortable, P
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|CartPagedQueryResponse|ErrorResponse|JsonObject
+     * @return null|T|CartPagedQueryResponse|ErrorResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {
@@ -144,15 +144,6 @@ class ByProjectKeyCartsGet extends ApiRequest implements Expandable, Sortable, P
                 throw $e;
             }
         );
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $customerId
-     */
-    public function withCustomerId($customerId): ByProjectKeyCartsGet
-    {
-        return $this->withQueryParam('customerId', $customerId);
     }
 
     /**

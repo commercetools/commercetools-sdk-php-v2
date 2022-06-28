@@ -19,25 +19,31 @@ interface CustomObjectDraft extends JsonObject
     public const FIELD_VERSION = 'version';
 
     /**
-     * <p>A namespace to group custom objects.</p>
+     * <p>Namespace to group CustomObjects.</p>
      *
      * @return null|string
      */
     public function getContainer();
 
     /**
-     * <p>A user-defined key that is unique within the given container.</p>
+     * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
      *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>JSON standard types Number, String, Boolean, Array, Object, and <a href="/../api/types">common API data types</a>.
+     * For values of type <a href="ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed.
+     * If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</p>
+     *
      * @return null|mixed
      */
     public function getValue();
 
     /**
+     * <p>Current version of the CustomObject.</p>
+     *
      * @return null|int
      */
     public function getVersion();

@@ -262,7 +262,7 @@ final class StagedOrderBuilder implements Builder
     private $refusedGifts;
 
     /**
-     * <p>The unique ID of the order.</p>
+     * <p>Unique identifier of the Order.</p>
      *
      * @return null|string
      */
@@ -535,8 +535,7 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
-     * <p>The sequence number of the last order message produced by changes to this order.
-     * <code>0</code> means, that no messages were created yet.</p>
+     * <p>Internal-only field.</p>
      *
      * @return null|int
      */

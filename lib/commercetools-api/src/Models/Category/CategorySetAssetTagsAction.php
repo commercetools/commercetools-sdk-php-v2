@@ -18,16 +18,22 @@ interface CategorySetAssetTagsAction extends CategoryUpdateAction
     public const FIELD_TAGS = 'tags';
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
      * @return null|array
      */
     public function getTags();

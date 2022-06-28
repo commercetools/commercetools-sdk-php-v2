@@ -27,17 +27,17 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     /**
      * @var ?int
      */
+    protected $offset;
+
+    /**
+     * @var ?int
+     */
     protected $count;
 
     /**
      * @var ?int
      */
     protected $total;
-
-    /**
-     * @var ?int
-     */
-    protected $offset;
 
     /**
      * @var ?BaseResourceCollection
@@ -55,21 +55,23 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
      */
     public function __construct(
         ?int $limit = null,
+        ?int $offset = null,
         ?int $count = null,
         ?int $total = null,
-        ?int $offset = null,
         ?BaseResourceCollection $results = null,
         ?JsonObject $meta = null
     ) {
         $this->limit = $limit;
+        $this->offset = $offset;
         $this->count = $count;
         $this->total = $total;
-        $this->offset = $offset;
         $this->results = $results;
         $this->meta = $meta;
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
+     *
      * @return null|int
      */
     public function getLimit()
@@ -87,6 +89,27 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
     /**
+     * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
+     * @return null|int
+     */
+    public function getOffset()
+    {
+        if (is_null($this->offset)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_OFFSET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->offset = (int) $data;
+        }
+
+        return $this->offset;
+    }
+
+    /**
+     * <p>Actual number of results returned.</p>
+     *
      * @return null|int
      */
     public function getCount()
@@ -104,6 +127,12 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
     /**
+     * <p>Total number of results matching the query.
+     * This number is an estimation that is not <a href="/../api/general-concepts#strong-consistency">strongly consistent</a>.
+     * This field is returned by default.
+     * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
+     * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
+     *
      * @return null|int
      */
     public function getTotal()
@@ -118,23 +147,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
         }
 
         return $this->total;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getOffset()
-    {
-        if (is_null($this->offset)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_OFFSET);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->offset = (int) $data;
-        }
-
-        return $this->offset;
     }
 
     /**
@@ -181,6 +193,14 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
     /**
+     * @param ?int $offset
+     */
+    public function setOffset(?int $offset): void
+    {
+        $this->offset = $offset;
+    }
+
+    /**
      * @param ?int $count
      */
     public function setCount(?int $count): void
@@ -194,14 +214,6 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     public function setTotal(?int $total): void
     {
         $this->total = $total;
-    }
-
-    /**
-     * @param ?int $offset
-     */
-    public function setOffset(?int $offset): void
-    {
-        $this->offset = $offset;
     }
 
     /**
