@@ -7,6 +7,7 @@ use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\MiddlewareFactory;
+use Commercetools\Client\OAuthHandlerFactory;
 use Commercetools\Core\Client\ClientFactory;
 use Commercetools\Core\Config as ConfigV1;
 use Commercetools\Exception\ServiceUnavailableException;
@@ -19,6 +20,10 @@ use Psr\Http\Message\ResponseInterface;
 
 class Retry extends MigrationService implements MigrationInterface
 {
+    public const CLIENT_ID = 'my_client_id';
+    public const CLIENT_SECRET = 'my_client_secret';
+    public const PROJECT_KEY = 'my_project_key';
+
     public function v1()
     {
         $config = ConfigV1::fromArray([
@@ -60,19 +65,22 @@ class Retry extends MigrationService implements MigrationInterface
 
     public function v2()
     {
-        $clientId = 'my_client_id';
-        $clientSecret = 'my_client_secret';
-        $projectKey = 'my_project_key';
-
         $middlewares = [];
         $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries = 3);
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
-        $client = \Commercetools\Client\ClientFactory::of()->createGuzzleClient(new ConfigV2(), $authConfig, null, $middlewares);
+
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
+        $client = ClientFactory::of()->createGuzzleClientForHandler(
+            new ConfigV2(),
+            OAuthHandlerFactory::ofAuthConfig($authConfig),
+            null,
+            $middlewares
+        );
+
         $apiRequestBuilder = new ApiRequestBuilder($client);
-        $request = $apiRequestBuilder->withProjectKey($projectKey)->get();
+        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
 
-        $client = $request->execute();
+        $result = $request->execute();
 
-        return $client;
+        return $result;
     }
 }

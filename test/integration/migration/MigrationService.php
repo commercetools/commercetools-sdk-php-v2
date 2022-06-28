@@ -10,6 +10,7 @@ use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Client;
 use Commercetools\Core\Config;
 use Commercetools\Core\Helper\Uuid;
+use Commercetools\Exception\InvalidArgumentException;
 
 class MigrationService
 {
@@ -18,6 +19,21 @@ class MigrationService
     public const CLIENT_ID = 'my_client_id';
     public const CLIENT_SECRET = 'my_client_secret';
     public const PROJECT_KEY = 'my_project_key';
+
+    private $oAuth;
+    private $api;
+    private $clientId;
+    private $secret;
+    private $project;
+
+    public function __construct(string $clientId, string $secret, string $project)
+    {
+        $this->oAuth = self::OAUTH_URL;
+        $this->api = self::API_URL;
+        $this->clientId = $clientId;
+        $this->secret = $secret;
+        $this->project = $project;
+    }
 
     public function uniqueString(): string
     {
@@ -38,14 +54,14 @@ class MigrationService
     }
 
     /**
-     * @throws \Commercetools\Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function builderV2(): ApiRequestBuilder
     {
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->secret));
 
         $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3]), $authConfig);
 
-        return new ApiRequestBuilder(self::PROJECT_KEY, $client);
+        return new ApiRequestBuilder($this->project, $client);
     }
 }

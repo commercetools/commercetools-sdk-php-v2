@@ -13,6 +13,7 @@ class Header extends MigrationService implements MigrationInterface
         /** @var CategoryDraft $categoryDraft */
         $request = RequestBuilder::of()->categories()->create($categoryDraft);
         $response = $client->execute($request)->withHeader('foo', 'bar');
+
         return $request->mapFromResponse($response);
     }
 

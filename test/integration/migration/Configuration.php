@@ -32,7 +32,7 @@ class Configuration extends MigrationService implements MigrationInterface
     public function v2()
     {
         $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
-        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(), $authConfig);
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3]), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
 
