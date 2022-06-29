@@ -18,8 +18,8 @@ This guide helps developers to migrate from the version 1.x to the version 2.x o
 <a id="client-configuration-and-creation"></a>
 ### Client Configuration and Creation
 To setup the Client, in the 1.x we use the **Config** class to add the config data and then the **Client** class to create the Client from the Config.
-In the 2.x the **ClientCredentialsConfig** class sets up the config data and the **ClientFactory** creates the client.
-The benefit of the 2.x, is that through the **ClientFactory** class, there is the possibility to easily setup the available Middlewares such as: the **LOGGER**, the **RETRY**, the **HEADER** as it will be mentioned in the [Retry](#retry) section.
+In the 2.x the **ClientCredentialsConfig** class sets up the config data such as *clientId* and *clientSecret* and the **ClientFactory** creates the client.
+The benefit of the 2.x, is that through the **ClientFactory** class, there is the possibility to easily set up the available Middlewares such as: the **LOGGER**, the **RETRY**, the **HEADER**, as it will be mentioned in the [Retry](#retry) section.
 
 1.x
 ```php
@@ -39,7 +39,7 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
         $response = $client->execute($request);
 ```
 2.x
-*For the rest of the Guideline this part below will be replaced with* **$builder = $this->builder();** 
+*For the rest of the *Migration Guideline* this part below will be replaced with* **$builder = $this->builder();** 
 ```php
         $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
         $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
@@ -55,7 +55,7 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
 
 <a id="timout-setting"></a>
 ### Timeout Setting
-In both versions is the **execute()** method which sets the timeout.
+In both versions is the **execute()** method which sets the timeout. In alternative, the 2.x version is able to set the timeout from the creation of the client through **ClientFactory** (the example is below).
 
 1.x
 ```php
@@ -69,10 +69,19 @@ In both versions is the **execute()** method which sets the timeout.
         $request = $this->builder()->with()->categories()->get();
         $response = $request->execute($options);
 ```
+The setup of the timeout in the **ClientFactory**: the default value for the timeout is "60", see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
+```php
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
+        $apiRequestBuilder = new ApiRequestBuilder($client);
+        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
+        $client = $request->execute();
+```
 
 <a id="headers"></a>
 ### Headers
 To set *Headers*, in the 1.x it is possible in the **execute()** method itself and in the 2.x, it can be directly set during the building request with the *withHeader* method.
+Like as the [timeout](#timeout-setting), in alternative, the 2.x version is able to set the headers from the creation of the client through **ClientFactory** (the example is below).
 
 1.x
 ```php
@@ -88,6 +97,14 @@ To set *Headers*, in the 1.x it is possible in the **execute()** method itself a
         $builder = $this->builder();
         $request = $builder->with()->categories()->get()->withHeader("foo", "bar");
         $result = $request->execute();
+```
+The setup of the headers in the **ClientFactory**: the default value for the headers is an empty array, see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
+```php
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'headers' => ["foo" => "bar"]]), $authConfig);
+        $apiRequestBuilder = new ApiRequestBuilder($client);
+        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
+        $response = $request->execute();
 ```
 
 <a id="retry"></a>
@@ -163,10 +180,16 @@ As can be seen below, the setters are being replaced by the *with* methods.
                                 ->withExternalId("externalId")
                                 ->build();
 ```
+
 <a id="create-command"></a>
 ### Create Command
 In the 2.x, we replaced the **RequestBuilder** class with **ApiRequestBuilder** to build the request (see [Client Configuration and Creation](#client-configuration-and-creation) section). 
-There are not dedicated methods to build a request, like in this case the *create* method, but to have a request it needs to have a draft to build and which is passed into the *post()* method.
+There are not dedicated methods to build a request, like in this case the *create* method, but to have a request, it needs to have a draft to build and which is passed into the *post()* method.
+In details:
+- Call the **with()** method from the ApiRequestBuilder, it will get the Project Key, 
+- Choose the Resource/Endpoint/Domain to call in this case is */categories* (the method to call is **categories()**)
+- Call the method **post()** and passing in it the draft object (in this case the CategoryDraft) to create a request (in this case **ByProjectKeyCategoriesPost** request).
+- Run the **execute()** method to create a new object (in this case a new Category object)
 
 Here below the differences between the two versions:
 
@@ -210,7 +233,7 @@ The main difference is how to build the request, as explained in the [Create Com
 ```php
         $builder = $this->builder();
         /** @var CategoryDraft $categoryDraft */
-        $categoryDraft = json_decode(file_get_contents(__DIR__ . "/categoryDraft.json"));
+        $categoryDraft = CategoryDraftModel::fromArray(json_decode(file_get_contents(__DIR__ . "/categoryDraft.json"), true));
 
         $request = $builder->with()->categories()->post($categoryDraft);
         $result = $request->execute();
@@ -218,7 +241,15 @@ The main difference is how to build the request, as explained in the [Create Com
 
 <a id="update-command"></a>
 ### Update Command
-Like the [Create Command](#create-command), there are not dedicated classes for the *Update Command* like in the 1.x the **update** method, but it's substantial, the use of the **UpdateBuilder** to create the type of update action to apply in the **post** method.
+Like the [Create Command](#create-command), there are not dedicate methods to build a request, like in this case the *update* method.
+So to create this kind of requests, like the example below:
+- Create the Action Model object, instantiating the related class to update the property and set the related property that it needs to be changed, in this case the class is *CategoryChangeNameActionModel*,
+- Create the Update Action Collection from the Action Model that can be used to have multiple update actions to be applied using the *add()* method, in this case it's used the *CategoryUpdateActionCollection*,
+- Create the Update Builder object, having the version (using *withVersion()* method) from the object that has to be modified and passing the collection of Actions through the method *withActions()*   
+- Now the creation of the request:
+  - follow the first 2 points of the [Create Command](#create-command)
+  - Call the *withId() or withKey()* methods to select the object to update,
+  - Call the *post()* method where passing the Update Builder object, in this case *CategoryUpdateBuilder*.
 
 Here the differences:
 
@@ -256,7 +287,13 @@ Here the differences:
 
 <a id="query-getbyid"></a>
 ### Query - GetById
-In case of *Query by Id* action, the 2.x is not so different from the previous cases, except that, it uses the **get** method in the request before the other ways to filter the query request.
+The *Query by Id* command is slightly different compared to the [Create Command](#create-command) and to the [Update Command](#update-command).
+Here how to create the related request:
+- follow the first 2 points of the [Create Command](#create-command)
+- call the *withId()* method to select the Id that we are looking for,
+- call the *get()* method to retrieve the related object of our request, which in the case below is *ByProjectKeyCategoriesByIDGet* object,
+- then it's possible to add other kind of filters such as *withExpand()*, of course if the API allows
+
 
 1.x
 ```php

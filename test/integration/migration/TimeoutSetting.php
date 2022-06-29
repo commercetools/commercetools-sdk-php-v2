@@ -2,14 +2,16 @@
 
 namespace Commercetools\IntegrationTest\migration;
 
+use Commercetools\Api\Client\ClientCredentialsConfig;
+use Commercetools\Api\Client\Config as ConfigV2;
+use Commercetools\Client\ApiRequestBuilder;
+use Commercetools\Client\ClientCredentials;
+use Commercetools\Client\ClientFactory;
 use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Exception\InvalidArgumentException;
 
 class TimeoutSetting extends MigrationService implements MigrationInterface
 {
-    public const CLIENT_ID = 'my_client_id';
-    public const CLIENT_SECRET = 'my_client_secret';
-    public const PROJECT_KEY = 'my_project_key';
 
     public function v1()
     {
@@ -27,6 +29,17 @@ class TimeoutSetting extends MigrationService implements MigrationInterface
         $options = ['timeout' => '45'];
         $request = $service->builderV2()->with()->categories()->get();
         $response = $request->execute($options);
+
+        return $response;
+    }
+
+    public function v2TimoutSetsAtClientLevel()
+    {
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
+        $apiRequestBuilder = new ApiRequestBuilder(self::PROJECT_KEY, $client);
+        $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
+        $response = $request->execute();
 
         return $response;
     }

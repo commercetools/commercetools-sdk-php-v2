@@ -6,9 +6,10 @@ use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
 use Commercetools\Client\ClientCredentials;
+use Commercetools\Client\ClientFactory as ClientFactoryV2;
 use Commercetools\Client\MiddlewareFactory;
 use Commercetools\Client\OAuthHandlerFactory;
-use Commercetools\Core\Client\ClientFactory;
+use Commercetools\Core\Client\ClientFactory as ClientFactoryV1;
 use Commercetools\Core\Config as ConfigV1;
 use Commercetools\Exception\ServiceUnavailableException;
 use GuzzleHttp\Exception\ServerException;
@@ -20,10 +21,6 @@ use Psr\Http\Message\ResponseInterface;
 
 class Retry extends MigrationService implements MigrationInterface
 {
-    public const CLIENT_ID = 'my_client_id';
-    public const CLIENT_SECRET = 'my_client_secret';
-    public const PROJECT_KEY = 'my_project_key';
-
     public function v1()
     {
         $config = ConfigV1::fromArray([
@@ -58,7 +55,7 @@ class Retry extends MigrationService implements MigrationInterface
             ]
         ];
         $config->setClientOptions($clientOptions);
-        $client = ClientFactory::of()->createClient($config, new Logger('testV1'));
+        $client = ClientFactoryV1::of()->createClient($config, new Logger('testV1'));
 
         return $client;
     }
@@ -69,7 +66,7 @@ class Retry extends MigrationService implements MigrationInterface
         $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries = 3);
 
         $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
-        $client = ClientFactory::of()->createGuzzleClientForHandler(
+        $client = ClientFactoryV2::of()->createGuzzleClientForHandler(
             new ConfigV2(),
             OAuthHandlerFactory::ofAuthConfig($authConfig),
             null,
@@ -77,7 +74,7 @@ class Retry extends MigrationService implements MigrationInterface
         );
 
         $apiRequestBuilder = new ApiRequestBuilder($client);
-        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
+        $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
 
         $result = $request->execute();
 

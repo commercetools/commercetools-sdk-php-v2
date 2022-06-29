@@ -3,6 +3,7 @@
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Models\Category\CategoryDraft as CategoryDraftV2;
+use Commercetools\Api\Models\Category\CategoryDraftModel;
 use Commercetools\Core\Builder\Request\RequestBuilder;
 use Commercetools\Core\Model\Category\CategoryDraft as CategoryDraftV1;
 
@@ -24,7 +25,7 @@ class CreateFromJson extends MigrationService implements MigrationInterface
     {
         $builder = $this->builderV2();
         /** @var CategoryDraftV2 $categoryDraft */
-        $categoryDraft = json_decode(file_get_contents(__DIR__ . "/categoryDraft.json"));
+        $categoryDraft = CategoryDraftModel::fromArray(json_decode(file_get_contents(__DIR__ . "/categoryDraft.json"), true));
 
         $request = $builder->with()->categories()->post($categoryDraft);
 

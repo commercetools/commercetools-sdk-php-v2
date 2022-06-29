@@ -22,6 +22,7 @@ class ApiTestCase extends TestCase
      */
     private static $client;
     private static $projectKey;
+
     public function getApiClient()
     {
         if (is_null(self::$client)) {
@@ -45,6 +46,7 @@ class ApiTestCase extends TestCase
         }
         return self::$client;
     }
+
     public function getApiBuilder()
     {
         $client = $this->getApiClient();
