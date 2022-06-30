@@ -26,13 +26,11 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
         $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
         $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
         $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-        
         $config = Config::fromArray([
             'client_id' => $clientId,
             'client_secret' => $clientSecret,
             'project' => $projectKey
         ]);
-
         $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
         $client = Client::ofConfig($config);
         $request = RequestBuilder::of()->project()->get();
@@ -44,10 +42,8 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
         $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
         $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
         $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
         $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3]), $authConfig);
-
         $apiRequest = new ApiRequestBuilder($client);
         $request = $apiRequest->withProjectKey($projectKey)->get();
         $response = $request->execute();
@@ -111,7 +107,7 @@ The setup of the headers in the **ClientFactory**: the default value for the hea
 ### Retry
 In the 1.x, the *Retry* is handled through the client options, so with multidimensional array. And then, the creation of the Client, which here below there is another way to build it.
 
-The 2.x is better structured because through the **MiddlewareFactory** is possible to set a middleware array through the **createRetryNAMiddleware** method, that helps in this case, to setup the *Retry*.
+The 2.x is instead, through the **MiddlewareFactory**, it is possible to set a middleware array through the **createRetryNAMiddleware()** method, which helps in this case, to set up the *Retry*.
 
 1.x
 ```php
@@ -141,7 +137,6 @@ The 2.x is better structured because through the **MiddlewareFactory** is possib
         
         $middlewares = [];
         $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries = 3);
-
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
         $client = ClientFactory::of()->createGuzzleClientForHandler(
             new ConfigV2(),
@@ -149,7 +144,6 @@ The 2.x is better structured because through the **MiddlewareFactory** is possib
             null,
             $middlewares
         );
-
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($projectKey)->get();
 
@@ -158,8 +152,8 @@ The 2.x is better structured because through the **MiddlewareFactory** is possib
 
 <a id="draft-builder"></a>
 ### Draft Builder
-About the *DraftBuilder* the main difference is that in the 2.x we introduced the **build** method to create objects, in this case the *DraftBuilder* object.
-As can be seen below, the setters are being replaced by the *with* methods. 
+About the *DraftBuilder* the main difference is that in the 2.x we introduced the **build()** method to create objects (in this case the *DraftBuilder* object).
+As can be seen below, the setters are being replaced by the *withXxx()* methods. 
 
 1.x
 ```php
@@ -218,13 +212,12 @@ Here below the differences between the two versions:
 
 <a id="create-from-json"></a>
 ### Create From Json
-The main difference is how to build the request, as explained in the [Create Command](#create-command).
+The main difference is how to build the request, as explained in the [Create Command](#create-command) and the usage of *CategoryDraftModel* class to create the draft from the Json file.
 
 1.x
 ```php
         $client = $this->client();
         $categoryDraft = CategoryDraft::fromArray(json_decode(file_get_contents(__DIR__ . "/categoryDraft.json")));
-
         $request = RequestBuilder::of()->categories()->create($categoryDraft);
         $response = $this->execute($client, $request);
         $result = $request->mapFromResponse($response);
@@ -256,7 +249,6 @@ Here the differences:
 1.x
 ```php
         $client = $this->client();
-
         /** @var Category $category */
         $request = RequestBuilder::of()->categories()->update($category)
                     ->addAction(
@@ -270,7 +262,6 @@ Here the differences:
 2.x
 ```php
         $builder = $this->builder();
-
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
         $updateAction = new CategoryChangeNameActionModel();
         $updateAction->setName($newName);
@@ -292,8 +283,7 @@ Here how to create the related request:
 - follow the first 2 points of the [Create Command](#create-command)
 - call the *withId()* method to select the Id that we are looking for,
 - call the *get()* method to retrieve the related object of our request, which in the case below is *ByProjectKeyCategoriesByIDGet* object,
-- then it's possible to add other kind of filters such as *withExpand()*, of course if the API allows
-
+- then it's possible to add other kind of filters such as *withExpand()*, of course it depends about the structure of our APIs.
 
 1.x
 ```php
@@ -313,20 +303,24 @@ Here how to create the related request:
 
 <a id="query"></a>
 ### Query
-Here another example to query the request using lambda expressions. You may immediately notice that the structure does not change comparing to the other requests.
+Here another example to retrieve an object from the request. In the 2.x version, there is the possibility to use just the *withWhere()* method or the best option is filtering it using the static parameters with the help of *withWhere()->withPredicateVar()* methods. 
 
 1.x
 ```php
         $client = $this->client();
-
         $request = RequestBuilder::of()->categories()->query()->where('id = :id');
         $response = $this->execute($client, $request);
         $result = $request->mapFromResponse($response);
-
 ```
 2.x
 ```php
         $builder = $this->builder();
-        $request = $builder->with()->categories()->get()->withWhere('id = :id')->withPredicateVar("id", "id123");
+        $request = $builder->with()->categories()->get()->withWhere(sprintf("id=\"%s\"", $category->getId()));
+        $result = $request->execute();
+```
+or using the predicates:
+```php
+        $builder = $this->builder();
+        $request = $builder->with()->categories()->get()->withWhere("key = :inputKey")->withPredicateVar("inputKey", $category->getKey());
         $result = $request->execute();
 ```

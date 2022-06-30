@@ -45,7 +45,17 @@ class MigrationTest extends ApiTestCase
         assertEquals($client->getKey(), $this->projectKey);
     }
 
-    public function testClientWithTimeout()
+    public function testTimeout()
+    {
+        $service = new MigrationService($this->clientId, $this->clientSecret, $this->projectKey);
+        $options = ['timeout' => '45'];
+        $request = $service->builderV2()->with()->categories()->get();
+        $response = $request->execute($options);
+
+        assertInstanceOf(CategoryPagedQueryResponse::class, $response);
+    }
+
+    public function testSetTimoutAtClientLevel()
     {
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
         $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
@@ -57,7 +67,39 @@ class MigrationTest extends ApiTestCase
         assertEquals($client->getConfig('timeout'), 45);
     }
 
-    public function testClientWithHeaders()
+    public function testRetry()
+    {
+        $maxRetries = 3;
+        $middlewares = [];
+        $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
+
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
+        $client = ClientFactory::of()->createGuzzleClientForHandler(
+            new ConfigV2(),
+            OAuthHandlerFactory::ofAuthConfig($authConfig),
+            null,
+            $middlewares
+        );
+
+        $apiRequestBuilder = new ApiRequestBuilder($client);
+        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
+        $response = $request->execute();
+
+        assertEquals($response->getKey(), $this->projectKey);
+    }
+
+    public function testHeaders()
+    {
+        $service = new MigrationService($this->clientId, $this->clientSecret, $this->projectKey);
+        $builder = $service->builderV2();
+        $request = $builder->with()->categories()->get();
+
+        $result = $request->withHeader("foo", "bar");
+
+        assertEquals($result->getHeader("foo"), [0 => "bar"]);
+    }
+
+    public function testSetHeadersAtClientLevel()
     {
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
         $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'headers' => ["foo" => "bar"]]), $authConfig);
@@ -65,9 +107,10 @@ class MigrationTest extends ApiTestCase
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $response = $request->execute();
 
-        assertEquals($response->getKey(), $this->projectKey);
+        assertEquals($this->projectKey, $response->getKey());
         assertEquals($client->getConfig('headers')['foo'], 'bar');
     }
+
 
     public function testCreateCommand()
     {
@@ -75,15 +118,15 @@ class MigrationTest extends ApiTestCase
         $builder = $service->builderV2();
         $key = 'KEY' . $service->uniqueString();
         $categoryDraft = CategoryDraftBuilder::of()
-            ->withName(LocalizedStringBuilder::of()->put('en', $service->uniqueString())->build())
-            ->withSlug(LocalizedStringBuilder::of()->put('en', $service->uniqueString())->build())
-            ->withKey($key)
-            ->build();
+                            ->withName(LocalizedStringBuilder::of()->put('en', $service->uniqueString())->build())
+                            ->withSlug(LocalizedStringBuilder::of()->put('en', $service->uniqueString())->build())
+                            ->withKey($key)
+                            ->build();
 
         $request = $builder->with()->categories()->post($categoryDraft);
         $category = $request->execute();
 
-        assertEquals($category->getKey(), $key);
+        assertEquals($key, $category->getKey());
     }
 
     public function testCreateFromJson()
@@ -96,7 +139,7 @@ class MigrationTest extends ApiTestCase
         $request = $builder->with()->categories()->post($categoryDraft);
         $category = $request->execute();
 
-        assertEquals($category->getKey(), "KEYtest-119aab2c-cfa9-4c4e-be23-836185584dara");
+        assertEquals("KEYtest-119aab2c-cfa9-4c4e-be23-836185584dara", $category->getKey());
     }
 
     public function testUpdateCommand()
@@ -131,37 +174,6 @@ class MigrationTest extends ApiTestCase
         assertEquals($categoryUpdated->getName(), $newName);
     }
 
-    public function testTimeout()
-    {
-        $service = new MigrationService($this->clientId, $this->clientSecret, $this->projectKey);
-        $options = ['timeout' => '45'];
-        $request = $service->builderV2()->with()->categories()->get();
-        $response = $request->execute($options);
-
-        assertInstanceOf(CategoryPagedQueryResponse::class, $response);
-    }
-
-    public function testRetry()
-    {
-        $maxRetries = 3;
-        $middlewares = [];
-        $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
-
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
-        $client = ClientFactory::of()->createGuzzleClientForHandler(
-            new ConfigV2(),
-            OAuthHandlerFactory::ofAuthConfig($authConfig),
-            null,
-            $middlewares
-        );
-
-        $apiRequestBuilder = new ApiRequestBuilder($client);
-        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
-        $response = $request->execute();
-
-        assertEquals($response->getKey(), $this->projectKey);
-
-    }
 
     public function testQuery()
     {
@@ -178,21 +190,15 @@ class MigrationTest extends ApiTestCase
         $request = $builder->with()->categories()->post($categoryDraft);
         $category = $request->execute();
 
-        $request = $builder->with()->categories()->get()->withWhere("id=" . "\"" . $category->getId() . "\"");
-        $result = $request->execute();
+        $request = $builder->with()->categories()->get()->withWhere(sprintf("id=\"%s\"", $category->getId()));
+        $resultWithWhere = $request->execute();
 
-        assertEquals($category->getId(), $result->getResults()->current()->getId());
-    }
+        assertEquals($category->getId(), $resultWithWhere->getResults()->current()->getId());
 
-    public function testHeader()
-    {
-        $service = new MigrationService($this->clientId, $this->clientSecret, $this->projectKey);
-        $builder = $service->builderV2();
-        $request = $builder->with()->categories()->get();
+        $request = $builder->with()->categories()->get()->withWhere("key = :inputKey")->withPredicateVar("inputKey", $key);
+        $resultWithPredicateVar = $request->execute();
 
-        $result = $request->withHeader("foo", "bar");
-
-        assertEquals($result->getHeader("foo"), [0 => "bar"]);
+        assertEquals($category->getKey(), $resultWithPredicateVar->getResults()->current()->getKey());
     }
 
     public function testGetById()
@@ -212,9 +218,8 @@ class MigrationTest extends ApiTestCase
 
         /** @var CategoryBuilder $category */
         $request = $builder->with()->categories()->withId($category->getId())->get()->withExpand('parent');
-
         $result = $request->execute();
 
-        assertEquals($result->getId(), $category->getId());
+        assertEquals($category->getId(), $result->getId());
     }
 }
