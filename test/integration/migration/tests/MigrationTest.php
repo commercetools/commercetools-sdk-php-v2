@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Commercetools\IntegrationTest\migration\tests;
-
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\ClientCredentialsConfig;
@@ -26,7 +24,6 @@ use Commercetools\IntegrationTest\migration\MigrationService;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertInstanceOf;
 use function PHPUnit\Framework\assertNotSame;
-
 
 class MigrationTest extends ApiTestCase
 {

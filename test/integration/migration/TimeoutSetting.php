@@ -12,7 +12,6 @@ use Commercetools\Exception\InvalidArgumentException;
 
 class TimeoutSetting extends MigrationService implements MigrationInterface
 {
-
     public function v1()
     {
         $client = $this->clientV1();
