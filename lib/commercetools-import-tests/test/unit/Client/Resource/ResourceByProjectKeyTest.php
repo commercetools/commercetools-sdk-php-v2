@@ -17,8 +17,7 @@ use Commercetools\Import\Client\Resource\ResourceByProjectKeyCategories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyCustomers;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportContainers;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportOperations;
-use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSinks;
-use Commercetools\Import\Client\Resource\ResourceByProjectKeyImportSummaries;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyInventories;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyOrderPatches;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyOrders;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyPrices;
@@ -65,26 +64,6 @@ class ResourceByProjectKeyTest extends TestCase
     public function getResources()
     {
         return [
-            'ResourceByProjectKeyImportSinks' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyImportSinks {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->importSinks();
-                },
-                ResourceByProjectKeyImportSinks::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/import-sinks'
-            ],
-            'ResourceByProjectKeyImportSummaries' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyImportSummaries {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->importSummaries();
-                },
-                ResourceByProjectKeyImportSummaries::class,
-                ['projectKey' => 'test_projectKey'],
-                '/{projectKey}/import-summaries'
-            ],
             'ResourceByProjectKeyImportContainers' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyImportContainers {
                     return $builder
@@ -204,6 +183,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyCustomers::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/customers'
+            ],
+            'ResourceByProjectKeyInventories' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyInventories {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->inventories();
+                },
+                ResourceByProjectKeyInventories::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/inventories'
             ]
         ];
     }

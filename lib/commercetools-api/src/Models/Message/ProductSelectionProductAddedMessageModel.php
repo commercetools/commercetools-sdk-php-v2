@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelection;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelectionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -89,6 +91,11 @@ final class ProductSelectionProductAddedMessageModel extends JsonObjectModel imp
      */
     protected $product;
 
+    /**
+     * @var ?ProductVariantSelection
+     */
+    protected $variantSelection;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -104,7 +111,8 @@ final class ProductSelectionProductAddedMessageModel extends JsonObjectModel imp
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?ProductReference $product = null
+        ?ProductReference $product = null,
+        ?ProductVariantSelection $variantSelection = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -117,6 +125,7 @@ final class ProductSelectionProductAddedMessageModel extends JsonObjectModel imp
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->product = $product;
+        $this->variantSelection = $variantSelection;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -347,6 +356,26 @@ final class ProductSelectionProductAddedMessageModel extends JsonObjectModel imp
         return $this->product;
     }
 
+    /**
+     * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        if (is_null($this->variantSelection)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_VARIANT_SELECTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->variantSelection = $className::of($data);
+        }
+
+        return $this->variantSelection;
+    }
+
 
     /**
      * @param ?string $id
@@ -434,6 +463,14 @@ final class ProductSelectionProductAddedMessageModel extends JsonObjectModel imp
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     */
+    public function setVariantSelection(?ProductVariantSelection $variantSelection): void
+    {
+        $this->variantSelection = $variantSelection;
     }
 
 

@@ -32,14 +32,21 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
      */
     protected $product;
 
+    /**
+     * @var ?ProductVariantSelection
+     */
+    protected $variantSelection;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductResourceIdentifier $product = null
+        ?ProductResourceIdentifier $product = null,
+        ?ProductVariantSelection $variantSelection = null
     ) {
         $this->product = $product;
+        $this->variantSelection = $variantSelection;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -80,6 +87,27 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
         return $this->product;
     }
 
+    /**
+     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
+     * If not supplied all Variants are deemed to be included.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        if (is_null($this->variantSelection)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_VARIANT_SELECTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->variantSelection = $className::of($data);
+        }
+
+        return $this->variantSelection;
+    }
+
 
     /**
      * @param ?ProductResourceIdentifier $product
@@ -87,5 +115,13 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
     public function setProduct(?ProductResourceIdentifier $product): void
     {
         $this->product = $product;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     */
+    public function setVariantSelection(?ProductVariantSelection $variantSelection): void
+    {
+        $this->variantSelection = $variantSelection;
     }
 }

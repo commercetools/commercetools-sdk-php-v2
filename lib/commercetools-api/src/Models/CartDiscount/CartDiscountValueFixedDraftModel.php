@@ -61,7 +61,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
 
     /**
      * <p>Money values in different currencies.
-     * A fixed Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$.</p>
+     * A fixed Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10��� and 15$, the matching ��� price will be discounted by 10��� and the matching $ price will be discounted to 15$.</p>
      *
      * @return null|MoneyCollection
      */

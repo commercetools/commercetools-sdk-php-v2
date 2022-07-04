@@ -14,7 +14,6 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductVariantPatchesImportContainers;
-use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -63,17 +62,6 @@ class ResourceByProjectKeyProductVariantPatchesTest extends TestCase
                 ResourceByProjectKeyProductVariantPatchesImportContainers::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-variant-patches/import-containers'
-            ],
-            'ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->productVariantPatches()
-                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey");
-                },
-                ResourceByProjectKeyProductVariantPatchesImportSinkKeyByImportSinkKey::class,
-                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey'],
-                '/{projectKey}/product-variant-patches/importSinkKey={importSinkKey}'
             ]
         ];
     }

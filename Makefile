@@ -85,6 +85,7 @@ generate_history_test: install_deps
 
 prettify: install_deps
 	php -dmemory_limit=-1 vendor/bin/ecs check --output-format=summaryOnly --fix
+	php -dmemory_limit=-1 vendor/bin/ecs check --fix
 
 analyse: install_deps prettify
 	vendor/bin/psalm --threads=$(CPUS)

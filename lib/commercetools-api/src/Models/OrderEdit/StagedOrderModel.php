@@ -37,6 +37,8 @@ use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Order\PaymentInfoModel;
 use Commercetools\Api\Models\Order\ReturnInfoCollection;
 use Commercetools\Api\Models\Order\SyncInfoCollection;
+use Commercetools\Api\Models\Quote\QuoteReference;
+use Commercetools\Api\Models\Quote\QuoteReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReference;
@@ -216,6 +218,11 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     protected $cart;
 
     /**
+     * @var ?QuoteReference
+     */
+    protected $quote;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -297,6 +304,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         ?DiscountCodeInfoCollection $discountCodes = null,
         ?int $lastMessageSequenceNumber = null,
         ?CartReference $cart = null,
+        ?QuoteReference $quote = null,
         ?CustomFields $custom = null,
         ?PaymentInfo $paymentInfo = null,
         ?string $locale = null,
@@ -339,6 +347,7 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
         $this->discountCodes = $discountCodes;
         $this->lastMessageSequenceNumber = $lastMessageSequenceNumber;
         $this->cart = $cart;
+        $this->quote = $quote;
         $this->custom = $custom;
         $this->paymentInfo = $paymentInfo;
         $this->locale = $locale;
@@ -956,6 +965,26 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     }
 
     /**
+     * <p>Set when this order was created from a quote.</p>
+     *
+     * @return null|QuoteReference
+     */
+    public function getQuote()
+    {
+        if (is_null($this->quote)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_QUOTE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->quote = QuoteReferenceModel::of($data);
+        }
+
+        return $this->quote;
+    }
+
+    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -1374,6 +1403,14 @@ final class StagedOrderModel extends JsonObjectModel implements StagedOrder
     public function setCart(?CartReference $cart): void
     {
         $this->cart = $cart;
+    }
+
+    /**
+     * @param ?QuoteReference $quote
+     */
+    public function setQuote(?QuoteReference $quote): void
+    {
+        $this->quote = $quote;
     }
 
     /**

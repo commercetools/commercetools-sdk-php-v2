@@ -36,6 +36,7 @@ final class ProductSelectionUpdateActionModel extends JsonObjectModel implements
        'setCustomField' => ProductSelectionSetCustomFieldActionModel::class,
        'setCustomType' => ProductSelectionSetCustomTypeActionModel::class,
        'setKey' => ProductSelectionSetKeyActionModel::class,
+       'setVariantSelection' => ProductSelectionSetVariantSelectionActionModel::class,
     ];
 
     /**

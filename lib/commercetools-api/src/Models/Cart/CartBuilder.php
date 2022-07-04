@@ -172,6 +172,11 @@ final class CartBuilder implements Builder
     private $discountCodes;
 
     /**
+     * @var ?DirectDiscountCollection
+     */
+    private $directDiscounts;
+
+    /**
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -456,6 +461,14 @@ final class CartBuilder implements Builder
     public function getDiscountCodes()
     {
         return $this->discountCodes;
+    }
+
+    /**
+     * @return null|DirectDiscountCollection
+     */
+    public function getDirectDiscounts()
+    {
+        return $this->directDiscounts;
     }
 
     /**
@@ -833,6 +846,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?DirectDiscountCollection $directDiscounts
+     * @return $this
+     */
+    public function withDirectDiscounts(?DirectDiscountCollection $directDiscounts)
+    {
+        $this->directDiscounts = $directDiscounts;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -1092,6 +1116,7 @@ final class CartBuilder implements Builder
             $this->country,
             $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo,
             $this->discountCodes,
+            $this->directDiscounts,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
             $this->locale,

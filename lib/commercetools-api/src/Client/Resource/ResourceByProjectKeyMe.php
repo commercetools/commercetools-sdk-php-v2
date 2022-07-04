@@ -92,6 +92,14 @@ class ResourceByProjectKeyMe extends ApiResource
     }
     /**
      */
+    public function quoteRequests(): ResourceByProjectKeyMeQuoteRequests
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMeQuoteRequests($args, $this->getClient());
+    }
+    /**
+     */
     public function shoppingLists(): ResourceByProjectKeyMeShoppingLists
     {
         $args = $this->getArgs();

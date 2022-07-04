@@ -33,16 +33,4 @@ class ResourceByProjectKeyOrderPatches extends ApiResource
 
         return new ResourceByProjectKeyOrderPatchesImportContainers($args, $this->getClient());
     }
-    /**
-     * @deprecated
-     */
-    public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($importSinkKey)) {
-            $args['importSinkKey'] = $importSinkKey;
-        }
-
-        return new ResourceByProjectKeyOrderPatchesImportSinkKeyByImportSinkKey($args, $this->getClient());
-    }
 }
