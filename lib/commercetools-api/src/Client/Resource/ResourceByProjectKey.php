@@ -180,6 +180,30 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function quotes(): ResourceByProjectKeyQuotes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyQuotes($args, $this->getClient());
+    }
+    /**
+     */
+    public function quoteRequests(): ResourceByProjectKeyQuoteRequests
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyQuoteRequests($args, $this->getClient());
+    }
+    /**
+     */
+    public function stagedQuotes(): ResourceByProjectKeyStagedQuotes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyStagedQuotes($args, $this->getClient());
+    }
+    /**
+     */
     public function reviews(): ResourceByProjectKeyReviews
     {
         $args = $this->getArgs();

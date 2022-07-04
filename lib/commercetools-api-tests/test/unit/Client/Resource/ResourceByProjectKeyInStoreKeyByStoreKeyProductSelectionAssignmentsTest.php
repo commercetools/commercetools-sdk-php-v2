@@ -90,6 +90,42 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsTest ex
     public function getRequests()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withLimit' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productSelectionAssignments()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?limit=limit',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withOffset' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productSelectionAssignments()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?offset=offset',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withWithTotal' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productSelectionAssignments()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-selection-assignments?withTotal=withTotal',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

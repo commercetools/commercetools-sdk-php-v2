@@ -47,15 +47,4 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjections extends ApiReso
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByID($args, $this->getClient());
     }
-
-    /**
-     * @psalm-param ?object|array|string $body
-     * @psalm-param array<string, scalar|scalar[]> $headers
-     */
-    public function get($body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsGet
-    {
-        $args = $this->getArgs();
-
-        return new ByProjectKeyInStoreKeyByStoreKeyProductProjectionsGet($args['projectKey'], $args['storeKey'], $body, $headers, $this->getClient());
-    }
 }

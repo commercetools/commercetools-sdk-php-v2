@@ -28,6 +28,11 @@ final class ProductSelectionAddProductActionBuilder implements Builder
     private $product;
 
     /**
+     * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
+     */
+    private $variantSelection;
+
+    /**
      * <p>ResourceIdentifier to Product</p>
      *
      * @return null|ProductResourceIdentifier
@@ -38,12 +43,34 @@ final class ProductSelectionAddProductActionBuilder implements Builder
     }
 
     /**
+     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
+     * If not supplied all Variants are deemed to be included.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
+    }
+
+    /**
      * @param ?ProductResourceIdentifier $product
      * @return $this
      */
     public function withProduct(?ProductResourceIdentifier $product)
     {
         $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     * @return $this
+     */
+    public function withVariantSelection(?ProductVariantSelection $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
 
         return $this;
     }
@@ -59,10 +86,22 @@ final class ProductSelectionAddProductActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantSelection() instead
+     * @return $this
+     */
+    public function withVariantSelectionBuilder(?ProductVariantSelectionBuilder $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
     public function build(): ProductSelectionAddProductAction
     {
         return new ProductSelectionAddProductActionModel(
-            $this->product instanceof ProductResourceIdentifierBuilder ? $this->product->build() : $this->product
+            $this->product instanceof ProductResourceIdentifierBuilder ? $this->product->build() : $this->product,
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
         );
     }
 

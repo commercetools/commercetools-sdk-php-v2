@@ -14,7 +14,6 @@ use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
 use Commercetools\Import\Client\ImportRequestBuilder;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductTypesImportContainers;
-use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -63,17 +62,6 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                 ResourceByProjectKeyProductTypesImportContainers::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-types/import-containers'
-            ],
-            'ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey' => [
-                function (ImportRequestBuilder $builder): ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey {
-                    return $builder
-                        ->withProjectKeyValue("test_projectKey")
-                        ->productTypes()
-                        ->importSinkKeyWithImportSinkKeyValue("test_importSinkKey");
-                },
-                ResourceByProjectKeyProductTypesImportSinkKeyByImportSinkKey::class,
-                ['projectKey' => 'test_projectKey', 'importSinkKey' => 'test_importSinkKey'],
-                '/{projectKey}/product-types/importSinkKey={importSinkKey}'
             ]
         ];
     }

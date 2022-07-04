@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelection;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelectionBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,6 +30,11 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
     private $product;
 
     /**
+     * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
+     */
+    private $variantSelection;
+
+    /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
      * @return null|ProductReference
@@ -38,12 +45,33 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
+    }
+
+    /**
      * @param ?ProductReference $product
      * @return $this
      */
     public function withProduct(?ProductReference $product)
     {
         $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     * @return $this
+     */
+    public function withVariantSelection(?ProductVariantSelection $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
 
         return $this;
     }
@@ -59,10 +87,22 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantSelection() instead
+     * @return $this
+     */
+    public function withVariantSelectionBuilder(?ProductVariantSelectionBuilder $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
     public function build(): ProductSelectionProductAddedMessagePayload
     {
         return new ProductSelectionProductAddedMessagePayloadModel(
-            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
         );
     }
 

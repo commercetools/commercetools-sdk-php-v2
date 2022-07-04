@@ -16,6 +16,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeLogin;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeOrders;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePassword;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePayments;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeQuoteRequests;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeShoppingLists;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeSignup;
 use Commercetools\Base\JsonObject;
@@ -321,6 +322,17 @@ class ResourceByProjectKeyMeTest extends TestCase
                 ResourceByProjectKeyMePayments::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/payments'
+            ],
+            'ResourceByProjectKeyMeQuoteRequests' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeQuoteRequests {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->quoteRequests();
+                },
+                ResourceByProjectKeyMeQuoteRequests::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/me/quote-requests'
             ],
             'ResourceByProjectKeyMeShoppingLists' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeShoppingLists {

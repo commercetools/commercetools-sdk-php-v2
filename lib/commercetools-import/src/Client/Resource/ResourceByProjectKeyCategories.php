@@ -33,16 +33,4 @@ class ResourceByProjectKeyCategories extends ApiResource
 
         return new ResourceByProjectKeyCategoriesImportContainers($args, $this->getClient());
     }
-    /**
-     * @deprecated
-     */
-    public function importSinkKeyWithImportSinkKeyValue(string $importSinkKey = null): ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKey
-    {
-        $args = $this->getArgs();
-        if (!is_null($importSinkKey)) {
-            $args['importSinkKey'] = $importSinkKey;
-        }
-
-        return new ResourceByProjectKeyCategoriesImportSinkKeyByImportSinkKey($args, $this->getClient());
-    }
 }

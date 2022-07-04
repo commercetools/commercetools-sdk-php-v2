@@ -26,7 +26,12 @@ final class AssignedProductSelectionBuilder implements Builder
     private $productSelection;
 
     /**
-     * <p>Reference to the ProductSelection that this assignment is part of.</p>
+     * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
+     */
+    private $variantSelection;
+
+    /**
+     * <p>Reference to the Product Selection that this assignment is part of.</p>
      *
      * @return null|ProductSelectionReference
      */
@@ -36,12 +41,33 @@ final class AssignedProductSelectionBuilder implements Builder
     }
 
     /**
+     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
+    }
+
+    /**
      * @param ?ProductSelectionReference $productSelection
      * @return $this
      */
     public function withProductSelection(?ProductSelectionReference $productSelection)
     {
         $this->productSelection = $productSelection;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     * @return $this
+     */
+    public function withVariantSelection(?ProductVariantSelection $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
 
         return $this;
     }
@@ -57,10 +83,22 @@ final class AssignedProductSelectionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantSelection() instead
+     * @return $this
+     */
+    public function withVariantSelectionBuilder(?ProductVariantSelectionBuilder $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
     public function build(): AssignedProductSelection
     {
         return new AssignedProductSelectionModel(
-            $this->productSelection instanceof ProductSelectionReferenceBuilder ? $this->productSelection->build() : $this->productSelection
+            $this->productSelection instanceof ProductSelectionReferenceBuilder ? $this->productSelection->build() : $this->productSelection,
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
         );
     }
 

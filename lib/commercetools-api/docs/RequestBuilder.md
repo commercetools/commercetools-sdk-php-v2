@@ -2215,24 +2215,6 @@ $request = $builder
                 ->withOrderNumber("orderNumber")
                 ->delete();
 ```
-## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->get()`
-
-Use this endpoint to get the current or staged projection of [Products](ctp:api:type:Product) in the Store specified by `storeKey`.
-When used with an [API Client](ctp:api:type:ApiClient) that has the `view_published_products:{projectKey}` scope,
-this endpoint only returns published (current) Product Projections.
-
-
-### Example
-```php
-use Commercetools\Api\Client\ApiRequestBuilder;
-
-$builder =  new ApiRequestBuilder();
-$request = $builder
-                ->withProjectKey("projectKey")
-                ->inStoreKeyWithStoreKeyValue("storeKey")
-                ->productProjections()
-                ->get();
-```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
 Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID from the specified Store.
@@ -2268,6 +2250,12 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productSelectionAssignments()->get()`
 
 Queries Product Selection assignments in a specific Store.
+
+The response will include duplicate Products whenever more than one active Product Selection of the Store
+includes a Product. To make clear through which Product Selection a Product is available in the Store
+the response contains assignments including both the Product and the Product Selection.
+Only Products of Product Selections that are activated in Store will be returned.
+
 
 ### Example
 ```php
@@ -2996,6 +2984,132 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->me()->quoteRequests()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->quoteRequests()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quoteRequests()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->get()`
 
 null
@@ -3184,7 +3298,7 @@ $request = $builder
 
 Creates an order from a Cart.
 The cart must have a shipping address set before creating an order.
-When using Platform TaxMode, the shipping address is used for tax calculation.
+When using the Platform TaxMode, the shipping address is used for tax calculation.
 
 
 ### Example
@@ -4313,6 +4427,242 @@ $request = $builder
                 ->productSelections()
                 ->get();
 ```
+## `withProjectKey("projectKey")->quoteRequests()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->get();
+```
+## `withProjectKey("projectKey")->quoteRequests()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->quoteRequests()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->quoteRequests()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quoteRequests()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->quotes()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->get();
+```
+## `withProjectKey("projectKey")->quotes()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->quotes()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->quotes()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->quotes()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->quotes()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->quotes()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->quotes()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->quotes()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->reviews()->get()`
 
 null
@@ -4718,6 +5068,124 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->shoppingLists()
+                ->withKey("key")
+                ->delete();
+```
+## `withProjectKey("projectKey")->stagedQuotes()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->get();
+```
+## `withProjectKey("projectKey")->stagedQuotes()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->stagedQuotes()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->stagedQuotes()
                 ->withKey("key")
                 ->delete();
 ```

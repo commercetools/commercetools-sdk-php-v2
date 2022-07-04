@@ -15,16 +15,30 @@ use Commercetools\Base\JsonObject;
 interface AssignedProductReference extends JsonObject
 {
     public const FIELD_PRODUCT = 'product';
+    public const FIELD_VARIANT_SELECTION = 'variantSelection';
 
     /**
-     * <p>Reference to a Product that is assigned to the ProductSelection.</p>
+     * <p>Reference to a Product that is assigned to the Product Selection.</p>
      *
      * @return null|ProductReference
      */
     public function getProduct();
 
     /**
+     * <p>The Variants of the Product that are included, or excluded, from the Product Selection.
+     * In absence of this field, all Variants are deemed to be included.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection();
+
+    /**
      * @param ?ProductReference $product
      */
     public function setProduct(?ProductReference $product): void;
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     */
+    public function setVariantSelection(?ProductVariantSelection $variantSelection): void;
 }
