@@ -17,6 +17,8 @@ interface ShippingMethodChangeTaxCategoryAction extends ShippingMethodUpdateActi
     public const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**
+     * <p>Value to set.</p>
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();

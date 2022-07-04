@@ -59,6 +59,8 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>Value to append to <code>attributes</code>.</p>
+     *
      * @return null|AttributeDefinitionDraft
      */
     public function getAttribute()

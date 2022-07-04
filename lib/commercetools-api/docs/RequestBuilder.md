@@ -1216,10 +1216,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-Creates a cart in the store specified by {storeKey}.
-When using this endpoint the cart's store field is always set to the store specified in the path parameter.
-Creating a cart can fail with an InvalidOperation if the referenced shipping method
-in the CartDraft has a predicate which does not match the cart.
+Creates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
+When using this endpoint the Cart's `store` field is always set to the store specified in the path parameter.
+Creating a Cart can fail with an [InvalidOperationError](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod)
+in the [CartDraft](ctp:api:type:CartDraft) has a predicate which does not match the Cart.
 
 
 ### Example
@@ -1256,9 +1256,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Updates a cart in the store specified by {storeKey}.
-If the cart exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
+Updates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
+If the Cart exists in the Project but does not have the store field,
+or the `store` field references a different Store, this method returns a [ResourceNotFoundError](ctp:api:type:ResourceNotFoundError).
 
 
 ### Example
@@ -1335,9 +1335,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->post(null)`
 
-Updates a cart in the store specified by {storeKey}.
-If the cart exists in the project but does not have the store field,
-or the store field references a different store, this method returns a ResourceNotFound error.
+Updates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
+If the Cart exists in the Project but does not have the store field,
+or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFound) error.
 
 
 ### Example
@@ -2217,9 +2217,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->get()`
 
-You can use the product projections query endpoint to get the current or staged representations of Products.
-When used with an API client that has the view_published_products:{projectKey} scope,
-this endpoint only returns published (current) product projections.
+Use this endpoint to get the current or staged projection of [Products](ctp:api:type:Product) in the Store specified by `storeKey`.
+When used with an [API Client](ctp:api:type:ApiClient) that has the `view_published_products:{projectKey}` scope,
+this endpoint only returns published (current) Product Projections.
 
 
 ### Example
@@ -2235,7 +2235,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withId("ID")->get()`
 
-Gets the current or staged representation of a product by its ID from a specific Store.
+Gets the current or staged representation of a [Product](ctp:api:type:Product) by its ID from the specified Store.
 
 ### Example
 ```php
@@ -2251,7 +2251,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->productProjections()->withKey("key")->get()`
 
-Gets the current or staged representation of a product by its ID from a specific Store.
+Gets the current or staged representation of a [Product](ctp:api:type:Product) by its key from the specified Store.
 
 ### Example
 ```php
@@ -2282,7 +2282,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart in a given Store.
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
+This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 
 ### Example
 ```php
@@ -4548,7 +4551,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingCart()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the shipping address of the given Cart.
+Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`.
+This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
+
 
 ### Example
 ```php
@@ -4563,7 +4569,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingLocation()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location).
+If the `currency` parameter is given, then the ShippingMethods must also have a rate defined in the specified currency.
+Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
+If the `currency` parameter is given, exactly one ShippingRate will contain it.
+
 
 ### Example
 ```php
@@ -4578,7 +4588,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-null
+Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location) for an [OrderEdit](/projects/order-edits).
+In case the OrderEdit preview cannot be created an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is raised.
+
 
 ### Example
 ```php

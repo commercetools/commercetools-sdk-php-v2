@@ -86,7 +86,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>Describes the type of the attribute.</p>
+     * <p>Describes the Type of the Attribute.</p>
      *
      * @return null|AttributeType
      */
@@ -106,10 +106,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>The unique name of the attribute used in the API.
-     * The name must be between two and 256 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
-     * When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types, otherwise an AttributeDefinitionAlreadyExists error code will be returned.
-     * An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>
+     * <p>User-defined name of the Attribute that is unique within the <a href="ctp:api:type:Project">Project</a>.</p>
      *
      * @return null|string
      */
@@ -128,7 +125,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>A human-readable label for the attribute.</p>
+     * <p>Human-readable label for the Attribute.</p>
      *
      * @return null|LocalizedString
      */
@@ -148,7 +145,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>Whether the attribute is required to have a value.</p>
+     * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
      * @return null|bool
      */
@@ -167,7 +164,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>Describes how an attribute or a set of attributes should be validated across all variants of a product.</p>
+     * <p>Specifies how Attributes are validated across all variants of a Product.</p>
      *
      * @return null|string
      */
@@ -186,7 +183,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>Additional information about the attribute that aids content managers when setting product details.</p>
+     * <p>Provides additional Attribute information to aid content managers configure Product details.</p>
      *
      * @return null|LocalizedString
      */
@@ -206,9 +203,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>Provides a visual representation type for this attribute.
-     * only relevant for text-based attribute types
-     * like TextType and LocalizableTextType.</p>
+     * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
      *
      * @return null|string
      */
@@ -227,12 +222,11 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>Whether the attribute's values should generally be enabled in product search.
-     * This determines whether the value is stored in products for matching terms in the context of full-text search queries  and can be used in facets &amp; filters as part of product search queries.
-     * The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there.
-     * The max size of a searchable field is <strong>restricted to 10922 characters</strong>.
-     * This constraint is enforced at both product creation and product update.
-     * If the length of the input exceeds the maximum size an InvalidField error is returned.</p>
+     * <p>If <code>true</code>, the Attribute's values are available for the <a href="/../api/projects/products-search">Product Projections Search API</a> for use in full-text search queries, filters, and facets.</p>
+     * <p>Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
+     * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
+     * This constraint is enforced at both <a href="/../api/projects/products#create-a-product">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
+     * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidFieldError</a> is returned.</p>
      *
      * @return null|bool
      */

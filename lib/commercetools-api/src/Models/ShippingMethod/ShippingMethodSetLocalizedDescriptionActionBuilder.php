@@ -28,6 +28,8 @@ final class ShippingMethodSetLocalizedDescriptionActionBuilder implements Builde
     private $localizedDescription;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()

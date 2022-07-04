@@ -59,6 +59,8 @@ final class ShippingMethodChangeNameActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to set. Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getName()

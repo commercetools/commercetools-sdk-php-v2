@@ -105,7 +105,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
-     * <p>Unique identifier for the ProductType.</p>
+     * <p>Unique identifier of the ProductType.</p>
      *
      * @return null|string
      */
@@ -124,7 +124,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
-     * <p>The current version of the product type.</p>
+     * <p>Current version of the ProductType.</p>
      *
      * @return null|int
      */
@@ -143,6 +143,8 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
+     * <p>Date and time (UTC) the ProductType was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -164,6 +166,8 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
+     * <p>Date and time (UTC) the Channel was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -244,6 +248,8 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
+     * <p>Name of the ProductType.</p>
+     *
      * @return null|string
      */
     public function getName()
@@ -261,6 +267,8 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
+     * <p>Description of the ProductType.</p>
+     *
      * @return null|string
      */
     public function getDescription()
@@ -278,6 +286,8 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     }
 
     /**
+     * <p>Attributes specified for the ProductType.</p>
+     *
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

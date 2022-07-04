@@ -18,11 +18,15 @@ interface ShippingMethodRemoveShippingRateAction extends ShippingMethodUpdateAct
     public const FIELD_SHIPPING_RATE = 'shippingRate';
 
     /**
+     * <p><a href="ctp:api:type:Zone">Zone</a> from which the ShippingRate should be removed.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone();
 
     /**
+     * <p>Value to remove from <code>shippingRates</code>.</p>
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();

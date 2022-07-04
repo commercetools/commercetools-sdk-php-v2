@@ -26,7 +26,7 @@ final class ShippingMethodChangeIsDefaultActionBuilder implements Builder
     private $isDefault;
 
     /**
-     * <p>Only one ShippingMethod in a project can be default.</p>
+     * <p>Value to set. Only one ShippingMethod can be default in a <a href="ctp:api:type:Project">Project</a>.</p>
      *
      * @return null|bool
      */

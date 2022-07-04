@@ -26,6 +26,8 @@ final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
     private $attribute;
 
     /**
+     * <p>Value to append to <code>attributes</code>.</p>
+     *
      * @return null|AttributeDefinitionDraft
      */
     public function getAttribute()

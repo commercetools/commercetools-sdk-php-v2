@@ -16,7 +16,7 @@ interface ReferenceExistsError extends ErrorObject
     public const FIELD_REFERENCED_BY = 'referencedBy';
 
     /**
-     * <p>supported resource type identifiers:</p>
+     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
      * @return null|string
      */

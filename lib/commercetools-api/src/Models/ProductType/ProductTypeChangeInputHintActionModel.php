@@ -66,6 +66,8 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -83,6 +85,8 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><code>SingleLine</code> or <code>MultiLine</code></p>
+     *
      * @return null|string
      */
     public function getNewValue()

@@ -28,6 +28,8 @@ final class ShippingMethodRemoveZoneActionBuilder implements Builder
     private $zone;
 
     /**
+     * <p>Value to remove from <code>zoneRates</code>.</p>
+     *
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()

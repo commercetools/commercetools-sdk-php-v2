@@ -38,6 +38,8 @@ final class ShippingRateDraftBuilder implements Builder
     private $tiers;
 
     /**
+     * <p>Money value of the ShippingRate.</p>
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -46,9 +48,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>The shipping is free if the order total (the sum of line item prices) exceeds the freeAbove value.
-     * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
-     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>
+     * <p>Shipping is free if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
      * @return null|Money
      */
@@ -58,7 +58,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
-     * <p>A list of shipping rate price tiers.</p>
+     * <p>Price tiers for the ShippingRate.</p>
      *
      * @return null|ShippingRatePriceTierCollection
      */
