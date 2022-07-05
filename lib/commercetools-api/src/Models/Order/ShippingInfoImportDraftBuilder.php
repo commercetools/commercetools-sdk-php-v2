@@ -61,7 +61,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     private $shippingMethod;
 
     /**
-     * @var ?DeliveryCollection
+     * @var ?DeliveryDraftCollection
      */
     private $deliveries;
 
@@ -130,7 +130,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
     {
@@ -222,10 +222,10 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      * @return $this
      */
-    public function withDeliveries(?DeliveryCollection $deliveries)
+    public function withDeliveries(?DeliveryDraftCollection $deliveries)
     {
         $this->deliveries = $deliveries;
 

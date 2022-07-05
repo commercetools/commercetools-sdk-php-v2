@@ -65,7 +65,7 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries();
 
@@ -112,9 +112,9 @@ interface ShippingInfoImportDraft extends JsonObject
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      */
-    public function setDeliveries(?DeliveryCollection $deliveries): void;
+    public function setDeliveries(?DeliveryDraftCollection $deliveries): void;
 
     /**
      * @param ?DiscountedLineItemPriceDraft $discountedPrice

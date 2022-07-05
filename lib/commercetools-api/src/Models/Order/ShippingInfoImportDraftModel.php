@@ -60,7 +60,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     protected $shippingMethod;
 
     /**
-     * @var ?DeliveryCollection
+     * @var ?DeliveryDraftCollection
      */
     protected $deliveries;
 
@@ -85,7 +85,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
         ?TaxRate $taxRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
-        ?DeliveryCollection $deliveries = null,
+        ?DeliveryDraftCollection $deliveries = null,
         ?DiscountedLineItemPriceDraft $discountedPrice = null,
         ?string $shippingMethodState = null
     ) {
@@ -214,7 +214,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
-     * @return null|DeliveryCollection
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
     {
@@ -224,7 +224,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
             if (is_null($data)) {
                 return null;
             }
-            $this->deliveries = DeliveryCollection::fromArray($data);
+            $this->deliveries = DeliveryDraftCollection::fromArray($data);
         }
 
         return $this->deliveries;
@@ -317,9 +317,9 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      */
-    public function setDeliveries(?DeliveryCollection $deliveries): void
+    public function setDeliveries(?DeliveryDraftCollection $deliveries): void
     {
         $this->deliveries = $deliveries;
     }
