@@ -24,21 +24,25 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
 
     public const DISCRIMINATOR_VALUE = 'SetLocalizedDescriptionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     /**
      * <p>Shape of the action for <code>setDescription</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class SetLocalizedDescriptionChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

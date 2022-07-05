@@ -23,31 +23,37 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
 
     public const DISCRIMINATOR_VALUE = 'SetPricesChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?string
      */
     protected $variant;
 
     /**
+
      * @var ?PriceCollection
      */
     protected $previousValue;
 
     /**
+
      * @var ?PriceCollection
      */
     protected $nextValue;
@@ -72,6 +78,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -91,6 +98,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     /**
      * <p>Update action for <code>setPrices</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -108,6 +116,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -125,6 +134,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -142,6 +152,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getPreviousValue()
@@ -159,6 +170,7 @@ final class SetPricesChangeModel extends JsonObjectModel implements SetPricesCha
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getNextValue()

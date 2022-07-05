@@ -20,21 +20,25 @@ use stdClass;
 final class OrderSearchRequestModel extends JsonObjectModel implements OrderSearchRequest
 {
     /**
+
      * @var ?OrderSearchQuery
      */
     protected $query;
 
     /**
+
      * @var ?string
      */
     protected $sort;
 
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $offset;
@@ -58,6 +62,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     /**
      * <p>The Order search query.</p>
      *
+
      * @return null|OrderSearchQuery
      */
     public function getQuery()
@@ -78,6 +83,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     /**
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
+
      * @return null|string
      */
     public function getSort()
@@ -97,6 +103,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     /**
      * <p>The maximum number of search results to be returned.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -116,6 +123,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     /**
      * <p>The number of search results to be skipped in the response for pagination.</p>
      *
+
      * @return null|int
      */
     public function getOffset()

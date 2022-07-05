@@ -26,21 +26,25 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'updateSyncInfo';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $syncedAt;
@@ -61,6 +65,7 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -80,6 +85,7 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -98,6 +104,7 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()
@@ -115,6 +122,7 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt()

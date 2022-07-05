@@ -27,26 +27,31 @@ interface StoreCreatedMessage extends Message
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|array
      */
     public function getLanguages();
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels();
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels();
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections();
@@ -54,6 +59,7 @@ interface StoreCreatedMessage extends Message
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

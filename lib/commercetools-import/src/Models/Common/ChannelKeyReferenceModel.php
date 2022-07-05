@@ -21,11 +21,13 @@ final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelK
 {
     public const DISCRIMINATOR_VALUE = 'channel';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelK
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class ChannelKeyReferenceModel extends JsonObjectModel implements ChannelK
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

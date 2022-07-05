@@ -19,6 +19,7 @@ interface ReturnInfo extends JsonObject
     public const FIELD_RETURN_DATE = 'returnDate';
 
     /**
+
      * @return null|ReturnItemDraftCollection
      */
     public function getItems();
@@ -26,6 +27,7 @@ interface ReturnInfo extends JsonObject
     /**
      * <p>Maps to <code>ReturnInfo.returnTrackingId</code></p>
      *
+
      * @return null|string
      */
     public function getReturnTrackingId();
@@ -33,6 +35,7 @@ interface ReturnInfo extends JsonObject
     /**
      * <p>Maps to <code>ReturnInfo.returnDate</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getReturnDate();

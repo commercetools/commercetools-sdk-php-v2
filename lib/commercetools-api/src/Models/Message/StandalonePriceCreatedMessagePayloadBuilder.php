@@ -23,6 +23,7 @@ use stdClass;
 final class StandalonePriceCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|StandalonePrice|StandalonePriceBuilder
      */
     private $standalonePrice;
@@ -30,6 +31,7 @@ final class StandalonePriceCreatedMessagePayloadBuilder implements Builder
     /**
      * <p>The Standalone Price as it was created.</p>
      *
+
      * @return null|StandalonePrice
      */
     public function getStandalonePrice()

@@ -23,6 +23,7 @@ use stdClass;
 final class OrderSetStoreActionBuilder implements Builder
 {
     /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
@@ -30,6 +31,7 @@ final class OrderSetStoreActionBuilder implements Builder
     /**
      * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

@@ -22,26 +22,31 @@ interface Delivery extends JsonObject
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();

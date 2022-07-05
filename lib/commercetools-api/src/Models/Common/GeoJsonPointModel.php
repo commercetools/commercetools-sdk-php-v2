@@ -21,11 +21,13 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
 {
     public const DISCRIMINATOR_VALUE = 'Point';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $coordinates;
@@ -42,6 +44,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class GeoJsonPointModel extends JsonObjectModel implements GeoJsonPoint
     /**
      * <p>Longitude (stored on index <code>[0]</code>) and latitude (stored on index <code>[1]</code>) of the <a href="https://datatracker.ietf.org/doc/html/rfc7946#section-3.1.2">Point</a>.</p>
      *
+
      * @return null|array
      */
     public function getCoordinates()

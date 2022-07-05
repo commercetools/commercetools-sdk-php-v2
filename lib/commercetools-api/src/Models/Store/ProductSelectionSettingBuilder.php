@@ -23,11 +23,13 @@ use stdClass;
 final class ProductSelectionSettingBuilder implements Builder
 {
     /**
+
      * @var null|ProductSelectionReference|ProductSelectionReferenceBuilder
      */
     private $productSelection;
 
     /**
+
      * @var ?bool
      */
     private $active;
@@ -35,6 +37,7 @@ final class ProductSelectionSettingBuilder implements Builder
     /**
      * <p>Reference to a ProductSelection.</p>
      *
+
      * @return null|ProductSelectionReference
      */
     public function getProductSelection()
@@ -45,6 +48,7 @@ final class ProductSelectionSettingBuilder implements Builder
     /**
      * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
      *
+
      * @return null|bool
      */
     public function getActive()

@@ -21,11 +21,13 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class TypeChangeKeyActionModel extends JsonObjectModel implements TypeChan
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getKey()

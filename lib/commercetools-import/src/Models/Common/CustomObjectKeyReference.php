@@ -16,6 +16,7 @@ interface CustomObjectKeyReference extends KeyReference
     public const FIELD_CONTAINER = 'container';
 
     /**
+
      * @return null|string
      */
     public function getContainer();

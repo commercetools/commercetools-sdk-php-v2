@@ -21,11 +21,13 @@ final class CartDiscountChangeIsActiveActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeIsActive';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?bool
      */
     protected $isActive;
@@ -42,6 +44,7 @@ final class CartDiscountChangeIsActiveActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class CartDiscountChangeIsActiveActionModel extends JsonObjectModel implem
      * <p>New value to set.
      * If set to <code>true</code>, the Discount will be applied to the Cart.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive()

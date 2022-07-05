@@ -23,16 +23,19 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'ProductVariantDeleted';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
+
      * @var ?array
      */
     protected $removedImageUrls;
@@ -51,6 +54,7 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -86,6 +91,7 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()

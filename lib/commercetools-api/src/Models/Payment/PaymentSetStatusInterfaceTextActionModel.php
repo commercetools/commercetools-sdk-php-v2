@@ -21,11 +21,13 @@ final class PaymentSetStatusInterfaceTextActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setStatusInterfaceText';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $interfaceText;
@@ -42,6 +44,7 @@ final class PaymentSetStatusInterfaceTextActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class PaymentSetStatusInterfaceTextActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getInterfaceText()

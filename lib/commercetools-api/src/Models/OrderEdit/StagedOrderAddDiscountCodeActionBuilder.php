@@ -23,11 +23,13 @@ use stdClass;
 final class StagedOrderAddDiscountCodeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $code;
 
     /**
+
      * @return null|string
      */
     public function getCode()

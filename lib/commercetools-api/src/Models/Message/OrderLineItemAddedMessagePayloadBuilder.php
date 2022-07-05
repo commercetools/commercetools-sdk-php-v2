@@ -23,16 +23,19 @@ use stdClass;
 final class OrderLineItemAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|LineItem|LineItemBuilder
      */
     private $lineItem;
 
     /**
+
      * @var ?int
      */
     private $addedQuantity;
 
     /**
+
      * @return null|LineItem
      */
     public function getLineItem()
@@ -41,6 +44,7 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getAddedQuantity()

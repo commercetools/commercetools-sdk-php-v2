@@ -21,11 +21,13 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setSalutation';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $salutation;
@@ -42,6 +44,7 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getSalutation()

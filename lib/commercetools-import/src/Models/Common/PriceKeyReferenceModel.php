@@ -21,11 +21,13 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
 {
     public const DISCRIMINATOR_VALUE = 'price';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class PriceKeyReferenceModel extends JsonObjectModel implements PriceKeyRe
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

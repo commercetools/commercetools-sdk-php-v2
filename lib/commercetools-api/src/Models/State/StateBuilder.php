@@ -30,71 +30,85 @@ use stdClass;
 final class StateBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?bool
      */
     private $initial;
 
     /**
+
      * @var ?bool
      */
     private $builtIn;
 
     /**
+
      * @var ?array
      */
     private $roles;
 
     /**
+
      * @var ?StateReferenceCollection
      */
     private $transitions;
@@ -102,6 +116,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Unique identifier of the State.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -112,6 +127,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Current version of the State.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -122,6 +138,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Date and time (UTC) the State was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -132,6 +149,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Date and time (UTC) the State was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -142,6 +160,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -152,6 +171,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -162,6 +182,7 @@ final class StateBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the State.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -172,6 +193,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Indicates to which resource or object types the State is assigned to.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -182,6 +204,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Name of the State.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -192,6 +215,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Description of the State.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -202,6 +226,7 @@ final class StateBuilder implements Builder
     /**
      * <p><code>true</code> for an initial State, the first State in a workflow.</p>
      *
+
      * @return null|bool
      */
     public function getInitial()
@@ -212,6 +237,7 @@ final class StateBuilder implements Builder
     /**
      * <p><code>true</code> for States that are an integral part of the <a href="ctp:api:type:Project">Project</a>. Those States cannot be deleted and their <code>key</code> cannot be changed.</p>
      *
+
      * @return null|bool
      */
     public function getBuiltIn()
@@ -222,6 +248,7 @@ final class StateBuilder implements Builder
     /**
      * <p>Roles the State can fulfill for <a href="ctp:api:type:Review">Reviews</a> and <a href="ctp:api:type:LineItem">Line Items</a>.</p>
      *
+
      * @return null|array
      */
     public function getRoles()
@@ -236,6 +263,7 @@ final class StateBuilder implements Builder
      * <li>if not set, the validation is turned off and the current State can be transitioned to any other State of the same <code>type</code> as the current State.</li>
      * </ul>
      *
+
      * @return null|StateReferenceCollection
      */
     public function getTransitions()

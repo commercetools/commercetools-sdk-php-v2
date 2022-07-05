@@ -21,11 +21,13 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, the existing key, if any, will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

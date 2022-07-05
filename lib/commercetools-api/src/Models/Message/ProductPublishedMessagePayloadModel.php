@@ -23,21 +23,25 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'ProductPublished';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $removedImageUrls;
 
     /**
+
      * @var ?ProductProjection
      */
     protected $productProjection;
 
     /**
+
      * @var ?string
      */
     protected $scope;
@@ -58,6 +62,7 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -75,6 +80,7 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -92,6 +98,7 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|ProductProjection
      */
     public function getProductProjection()
@@ -110,6 +117,7 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getScope()

@@ -23,36 +23,43 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setAssetDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
@@ -79,6 +86,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -96,6 +104,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -113,6 +122,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -130,6 +140,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -147,6 +158,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -164,6 +176,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -181,6 +194,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()

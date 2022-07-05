@@ -21,16 +21,19 @@ use stdClass;
 final class CustomerCreateEmailTokenBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?int
      */
     private $ttlMinutes;
@@ -38,6 +41,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     /**
      * <p>Unique identifier of the email token.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -46,6 +50,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -54,6 +59,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getTtlMinutes()

@@ -21,16 +21,19 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteStateChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $stagedQuoteState;
 
     /**
+
      * @var ?string
      */
     protected $oldStagedQuoteState;
@@ -49,6 +52,7 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -87,6 +92,7 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getOldStagedQuoteState()

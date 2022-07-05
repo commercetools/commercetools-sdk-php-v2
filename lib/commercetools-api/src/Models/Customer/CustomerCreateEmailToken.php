@@ -20,16 +20,19 @@ interface CustomerCreateEmailToken extends JsonObject
     /**
      * <p>Unique identifier of the email token.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|int
      */
     public function getTtlMinutes();

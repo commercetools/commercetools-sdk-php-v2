@@ -24,36 +24,43 @@ use stdClass;
 final class ShoppingListLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -64,6 +71,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -72,6 +80,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -80,6 +89,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -88,6 +98,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -96,6 +107,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

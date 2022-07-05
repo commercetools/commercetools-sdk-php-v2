@@ -23,11 +23,13 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductSelectionType
      */
     protected $productSelection;
@@ -44,6 +46,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|ProductSelectionType
      */
     public function getProductSelection()

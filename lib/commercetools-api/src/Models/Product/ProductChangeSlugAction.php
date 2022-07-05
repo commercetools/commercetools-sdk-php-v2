@@ -22,11 +22,13 @@ interface ProductChangeSlugAction extends ProductUpdateAction
      * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
      * Maximum size is <code>256</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

@@ -21,11 +21,13 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
 {
     public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
@@ -42,6 +44,7 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     }
 
     /**
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()

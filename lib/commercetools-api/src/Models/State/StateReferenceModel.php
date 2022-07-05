@@ -23,16 +23,19 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
 {
     public const DISCRIMINATOR_VALUE = 'state';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?State
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class StateReferenceModel extends JsonObjectModel implements StateReferenc
     /**
      * <p>Contains the representation of the expanded State. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for States.</p>
      *
+
      * @return null|State
      */
     public function getObj()

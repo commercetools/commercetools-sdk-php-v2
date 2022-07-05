@@ -23,16 +23,19 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setMetaKeywords';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -86,6 +91,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -21,11 +21,13 @@ use stdClass;
 final class GeneralCategoryRecommendationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $categoryName;
 
     /**
+
      * @var ?float
      */
     private $confidence;
@@ -33,6 +35,7 @@ final class GeneralCategoryRecommendationBuilder implements Builder
     /**
      * <p>An English category name that is recommended for a product.</p>
      *
+
      * @return null|string
      */
     public function getCategoryName()
@@ -43,6 +46,7 @@ final class GeneralCategoryRecommendationBuilder implements Builder
     /**
      * <p>Probability score for the category recommendation.</p>
      *
+
      * @return null|float
      */
     public function getConfidence()

@@ -21,26 +21,31 @@ use stdClass;
 final class ReservationBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $owner;
 
     /**
+
      * @var ?string
      */
     private $createdAt;
 
     /**
+
      * @var ?string
      */
     private $checkoutStartedAt;
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -49,6 +54,7 @@ final class ReservationBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getOwner()
@@ -57,6 +63,7 @@ final class ReservationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()
@@ -65,6 +72,7 @@ final class ReservationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCheckoutStartedAt()

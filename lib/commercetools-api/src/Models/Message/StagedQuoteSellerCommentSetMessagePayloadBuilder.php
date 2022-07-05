@@ -21,11 +21,13 @@ use stdClass;
 final class StagedQuoteSellerCommentSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sellerComment;
 
     /**
+
      * @return null|string
      */
     public function getSellerComment()

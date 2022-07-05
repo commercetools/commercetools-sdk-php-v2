@@ -19,6 +19,7 @@ interface Location extends JsonObject
     /**
      * <p>Country code of the geographic location.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -26,6 +27,7 @@ interface Location extends JsonObject
     /**
      * <p>State within the country.</p>
      *
+
      * @return null|string
      */
     public function getState();

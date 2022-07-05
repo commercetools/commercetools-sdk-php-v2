@@ -20,11 +20,13 @@ use stdClass;
 final class ItemShippingTargetModel extends JsonObjectModel implements ItemShippingTarget
 {
     /**
+
      * @var ?string
      */
     protected $addressKey;
 
     /**
+
      * @var ?float
      */
     protected $quantity;
@@ -44,6 +46,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     /**
      * <p>Maps to <code>ItemShippingTarget.addressKey</code>.</p>
      *
+
      * @return null|string
      */
     public function getAddressKey()
@@ -63,6 +66,7 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
     /**
      * <p>Maps to <code>ItemShippingTarget.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity()

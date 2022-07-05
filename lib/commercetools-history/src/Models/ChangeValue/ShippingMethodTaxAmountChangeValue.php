@@ -20,6 +20,7 @@ interface ShippingMethodTaxAmountChangeValue extends JsonObject
     public const FIELD_TAX_RATE = 'taxRate';
 
     /**
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
@@ -27,6 +28,7 @@ interface ShippingMethodTaxAmountChangeValue extends JsonObject
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate();

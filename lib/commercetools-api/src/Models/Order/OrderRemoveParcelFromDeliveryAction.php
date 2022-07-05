@@ -16,6 +16,7 @@ interface OrderRemoveParcelFromDeliveryAction extends OrderUpdateAction
     public const FIELD_PARCEL_ID = 'parcelId';
 
     /**
+
      * @return null|string
      */
     public function getParcelId();

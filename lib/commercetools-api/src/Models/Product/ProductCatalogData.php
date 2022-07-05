@@ -19,21 +19,25 @@ interface ProductCatalogData extends JsonObject
     public const FIELD_HAS_STAGED_CHANGES = 'hasStagedChanges';
 
     /**
+
      * @return null|bool
      */
     public function getPublished();
 
     /**
+
      * @return null|ProductData
      */
     public function getCurrent();
 
     /**
+
      * @return null|ProductData
      */
     public function getStaged();
 
     /**
+
      * @return null|bool
      */
     public function getHasStagedChanges();

@@ -20,6 +20,7 @@ interface CustomFieldLocalizedEnumValue extends JsonObject
     /**
      * <p>Key of the value used as a programmatic identifier.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -27,6 +28,7 @@ interface CustomFieldLocalizedEnumValue extends JsonObject
     /**
      * <p>Descriptive localized label of the value.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();

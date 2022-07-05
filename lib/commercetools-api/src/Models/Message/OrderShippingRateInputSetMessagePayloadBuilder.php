@@ -23,16 +23,19 @@ use stdClass;
 final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
     /**
+
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $oldShippingRateInput;
 
     /**
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -41,6 +44,7 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingRateInput
      */
     public function getOldShippingRateInput()

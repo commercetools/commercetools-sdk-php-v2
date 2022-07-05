@@ -21,11 +21,13 @@ final class StagedQuoteSellerCommentSetMessagePayloadModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteSellerCommentSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $sellerComment;
@@ -42,6 +44,7 @@ final class StagedQuoteSellerCommentSetMessagePayloadModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class StagedQuoteSellerCommentSetMessagePayloadModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getSellerComment()

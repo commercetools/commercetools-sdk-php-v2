@@ -23,41 +23,49 @@ use stdClass;
 final class AttributeDefinitionBuilder implements Builder
 {
     /**
+
      * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @var ?bool
      */
     private $isRequired;
 
     /**
+
      * @var ?string
      */
     private $attributeConstraint;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
     /**
+
      * @var ?string
      */
     private $inputHint;
 
     /**
+
      * @var ?bool
      */
     private $isSearchable;
@@ -65,6 +73,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>Describes the Type of the Attribute.</p>
      *
+
      * @return null|AttributeType
      */
     public function getType()
@@ -75,6 +84,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>User-defined name of the Attribute that is unique within the <a href="ctp:api:type:Project">Project</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -85,6 +95,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>Human-readable label for the Attribute.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -95,6 +106,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsRequired()
@@ -105,6 +117,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>Specifies how Attributes are validated across all variants of a Product.</p>
      *
+
      * @return null|string
      */
     public function getAttributeConstraint()
@@ -115,6 +128,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>Provides additional Attribute information to aid content managers configure Product details.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip()
@@ -125,6 +139,7 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
      *
+
      * @return null|string
      */
     public function getInputHint()
@@ -139,6 +154,7 @@ final class AttributeDefinitionBuilder implements Builder
      * This constraint is enforced at both <a href="/../api/projects/products#create-a-product">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
      * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidFieldError</a> is returned.</p>
      *
+
      * @return null|bool
      */
     public function getIsSearchable()

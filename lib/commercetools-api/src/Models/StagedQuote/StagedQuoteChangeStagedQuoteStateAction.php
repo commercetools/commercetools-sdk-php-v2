@@ -18,6 +18,7 @@ interface StagedQuoteChangeStagedQuoteStateAction extends StagedQuoteUpdateActio
     /**
      * <p>The new quote staged state to be set for the Quote Staged.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState();

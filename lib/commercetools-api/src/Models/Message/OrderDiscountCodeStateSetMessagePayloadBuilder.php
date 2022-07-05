@@ -23,16 +23,19 @@ use stdClass;
 final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|DiscountCodeReference|DiscountCodeReferenceBuilder
      */
     private $discountCode;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?string
      */
     private $oldState;
@@ -40,6 +43,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()
@@ -48,6 +52,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()
@@ -56,6 +61,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOldState()

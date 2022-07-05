@@ -22,11 +22,13 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
 {
     public const DISCRIMINATOR_VALUE = 'order';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?OrderImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
     /**
      * <p>The order import resources of this request.</p>
      *
+
      * @return null|OrderImportCollection
      */
     public function getResources()

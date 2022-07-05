@@ -21,11 +21,13 @@ final class ProductSetKeyActionModel extends JsonObjectModel implements ProductS
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class ProductSetKeyActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class ProductSetKeyActionModel extends JsonObjectModel implements ProductS
      * <p>User-specific unique identifier for the product.
      * If left blank or set to <code>null</code>, the product key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

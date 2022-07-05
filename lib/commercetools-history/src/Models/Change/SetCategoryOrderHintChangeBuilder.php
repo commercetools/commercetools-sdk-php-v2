@@ -23,26 +23,31 @@ use Commercetools\History\Models\Common\CategoryOrderHintsBuilder;
 final class SetCategoryOrderHintChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var ?string
      */
     private $categoryId;
 
     /**
+
      * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $nextValue;
@@ -50,6 +55,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setCategoryOrderHint</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -66,6 +73,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCategoryId()
@@ -74,6 +82,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getPreviousValue()
@@ -82,6 +91,7 @@ final class SetCategoryOrderHintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getNextValue()

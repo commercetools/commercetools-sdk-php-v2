@@ -21,11 +21,13 @@ use stdClass;
 final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressId;
 
     /**
+
      * @var ?string
      */
     private $addressKey;
@@ -33,6 +35,7 @@ final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
     /**
      * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>
      *
+
      * @return null|string
      */
     public function getAddressId()
@@ -41,6 +44,7 @@ final class CustomerSetDefaultShippingAddressActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAddressKey()

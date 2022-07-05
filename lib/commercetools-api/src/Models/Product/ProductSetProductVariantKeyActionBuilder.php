@@ -21,26 +21,31 @@ use stdClass;
 final class ProductSetProductVariantKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -49,6 +54,7 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -59,6 +65,7 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     /**
      * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -67,6 +74,7 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

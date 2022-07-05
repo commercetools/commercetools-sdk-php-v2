@@ -23,21 +23,25 @@ use stdClass;
 final class ProductPublishedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $removedImageUrls;
 
     /**
+
      * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
 
     /**
+
      * @var ?string
      */
     private $scope;
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -46,6 +50,7 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductProjection
      */
     public function getProductProjection()
@@ -54,6 +59,7 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getScope()

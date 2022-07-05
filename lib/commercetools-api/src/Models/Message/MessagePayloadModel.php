@@ -21,6 +21,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -151,6 +152,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

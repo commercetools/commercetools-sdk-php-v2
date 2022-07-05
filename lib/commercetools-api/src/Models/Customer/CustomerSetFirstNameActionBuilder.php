@@ -21,11 +21,13 @@ use stdClass;
 final class CustomerSetFirstNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @return null|string
      */
     public function getFirstName()

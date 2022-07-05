@@ -21,11 +21,13 @@ use stdClass;
 final class CustomFieldEnumValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $label;
@@ -33,6 +35,7 @@ final class CustomFieldEnumValueBuilder implements Builder
     /**
      * <p>Key of the value used as a programmatic identifier.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -43,6 +46,7 @@ final class CustomFieldEnumValueBuilder implements Builder
     /**
      * <p>Descriptive label of the value.</p>
      *
+
      * @return null|string
      */
     public function getLabel()

@@ -21,6 +21,7 @@ use stdClass;
 final class ExtensionSetTimeoutInMsActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $timeoutInMs;
@@ -32,6 +33,7 @@ final class ExtensionSetTimeoutInMsActionBuilder implements Builder
      * <p>This limit can be increased per Project after we review the performance impact.
      * Please contact our support via the <a href="https://support.commercetools.com/">Support Portal</a> and provide the Region, Project key, and use case.</p>
      *
+
      * @return null|int
      */
     public function getTimeoutInMs()

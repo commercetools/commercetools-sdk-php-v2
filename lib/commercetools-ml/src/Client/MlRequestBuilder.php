@@ -13,6 +13,9 @@ use Commercetools\Client\ApiResource;
 use Commercetools\Ml\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
 
+/**
+ *
+ */
 class MlRequestBuilder extends ApiResource
 {
     /**

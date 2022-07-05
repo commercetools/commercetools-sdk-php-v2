@@ -20,26 +20,31 @@ use stdClass;
 final class SubscriptionDraftModel extends JsonObjectModel implements SubscriptionDraft
 {
     /**
+
      * @var ?ChangeSubscriptionCollection
      */
     protected $changes;
 
     /**
+
      * @var ?Destination
      */
     protected $destination;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
 
     /**
+
      * @var ?DeliveryFormat
      */
     protected $format;
@@ -63,6 +68,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -80,6 +86,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+
      * @return null|Destination
      */
     public function getDestination()
@@ -100,6 +107,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     /**
      * <p>User-defined unique identifier for the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -117,6 +125,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -134,6 +143,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+
      * @return null|DeliveryFormat
      */
     public function getFormat()

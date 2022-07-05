@@ -19,6 +19,7 @@ interface ItemShippingTarget extends JsonObject
     /**
      * <p>Maps to <code>ItemShippingTarget.addressKey</code>.</p>
      *
+
      * @return null|string
      */
     public function getAddressKey();
@@ -26,6 +27,7 @@ interface ItemShippingTarget extends JsonObject
     /**
      * <p>Maps to <code>ItemShippingTarget.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity();

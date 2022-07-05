@@ -19,6 +19,7 @@ interface HttpDestination extends ExtensionDestination
     /**
      * <p>URL to the target destination.</p>
      *
+
      * @return null|string
      */
     public function getUrl();
@@ -26,6 +27,7 @@ interface HttpDestination extends ExtensionDestination
     /**
      * <p>Authentication methods (such as <code>Basic</code> or <code>Bearer</code>).</p>
      *
+
      * @return null|HttpDestinationAuthentication
      */
     public function getAuthentication();

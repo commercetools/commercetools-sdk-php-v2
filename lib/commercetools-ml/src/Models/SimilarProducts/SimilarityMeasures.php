@@ -22,6 +22,7 @@ interface SimilarityMeasures extends JsonObject
     /**
      * <p>Importance of the <code>name</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getName();
@@ -29,6 +30,7 @@ interface SimilarityMeasures extends JsonObject
     /**
      * <p>Importance of the <code>description</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getDescription();
@@ -36,6 +38,7 @@ interface SimilarityMeasures extends JsonObject
     /**
      * <p>Importance of the <code>description</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getAttribute();
@@ -43,6 +46,7 @@ interface SimilarityMeasures extends JsonObject
     /**
      * <p>Importance of the number of product variants in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getVariantCount();
@@ -50,6 +54,7 @@ interface SimilarityMeasures extends JsonObject
     /**
      * <p>Importance of the <code>price</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getPrice();

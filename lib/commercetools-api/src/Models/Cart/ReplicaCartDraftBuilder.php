@@ -21,16 +21,19 @@ use stdClass;
 final class ReplicaCartDraftBuilder implements Builder
 {
     /**
+
      * @var ?JsonObject
      */
     private $reference;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|JsonObject
      */
     public function getReference()
@@ -41,6 +44,7 @@ final class ReplicaCartDraftBuilder implements Builder
     /**
      * <p>User-specific unique identifier of the cart.</p>
      *
+
      * @return null|string
      */
     public function getKey()

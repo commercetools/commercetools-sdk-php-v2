@@ -18,6 +18,7 @@ interface InventoryEntryDeletedMessagePayload extends MessagePayload
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
+
      * @return null|string
      */
     public function getSku();
@@ -25,6 +26,7 @@ interface InventoryEntryDeletedMessagePayload extends MessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel();

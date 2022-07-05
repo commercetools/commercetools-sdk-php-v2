@@ -26,26 +26,31 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetParcelMeasurementsChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ParcelChangeValue
      */
     protected $parcel;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $nextValue;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setParcelMeasurements</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -122,6 +130,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getPreviousValue()

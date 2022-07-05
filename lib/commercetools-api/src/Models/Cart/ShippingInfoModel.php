@@ -31,51 +31,61 @@ use stdClass;
 final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
 {
     /**
+
      * @var ?string
      */
     protected $shippingMethodName;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $price;
 
     /**
+
      * @var ?ShippingRate
      */
     protected $shippingRate;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
 
     /**
+
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
     /**
+
      * @var ?ShippingMethodReference
      */
     protected $shippingMethod;
 
     /**
+
      * @var ?DeliveryCollection
      */
     protected $deliveries;
 
     /**
+
      * @var ?DiscountedLineItemPrice
      */
     protected $discountedPrice;
 
     /**
+
      * @var ?string
      */
     protected $shippingMethodState;
@@ -109,6 +119,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     }
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName()
@@ -128,6 +139,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     /**
      * <p>Determined based on the ShippingRate and its tiered prices, and either the sum of LineItem prices or the <code>shippingRateInput</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getPrice()
@@ -148,6 +160,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     /**
      * <p>The shipping rate used to determine the price.</p>
      *
+
      * @return null|ShippingRate
      */
     public function getShippingRate()
@@ -168,6 +181,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -189,6 +203,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -207,6 +222,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -227,6 +243,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     /**
      * <p>Not set if custom shipping method is used.</p>
      *
+
      * @return null|ShippingMethodReference
      */
     public function getShippingMethod()
@@ -247,6 +264,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
+
      * @return null|DeliveryCollection
      */
     public function getDeliveries()
@@ -264,6 +282,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     }
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getDiscountedPrice()
@@ -284,6 +303,7 @@ final class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
     /**
      * <p>Indicates whether the ShippingMethod referenced in this ShippingInfo is allowed for the cart or not.</p>
      *
+
      * @return null|string
      */
     public function getShippingMethodState()

@@ -21,26 +21,31 @@ interface Asset extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|string
      */
     public function getKey();

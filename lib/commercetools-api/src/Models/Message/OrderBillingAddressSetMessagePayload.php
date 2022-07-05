@@ -18,11 +18,13 @@ interface OrderBillingAddressSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_ADDRESS = 'oldAddress';
 
     /**
+
      * @return null|Address
      */
     public function getAddress();
 
     /**
+
      * @return null|Address
      */
     public function getOldAddress();

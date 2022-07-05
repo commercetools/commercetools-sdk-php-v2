@@ -21,6 +21,7 @@ final class CartScoreTypeModel extends JsonObjectModel implements CartScoreType
 {
     public const DISCRIMINATOR_VALUE = 'CartScore';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class CartScoreTypeModel extends JsonObjectModel implements CartScoreType
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

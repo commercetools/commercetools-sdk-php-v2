@@ -17,11 +17,13 @@ interface OrderSetDeliveryItemsAction extends OrderUpdateAction
     public const FIELD_ITEMS = 'items';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();

@@ -18,6 +18,7 @@ interface ExtensionChangeTriggersAction extends ExtensionUpdateAction
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers();

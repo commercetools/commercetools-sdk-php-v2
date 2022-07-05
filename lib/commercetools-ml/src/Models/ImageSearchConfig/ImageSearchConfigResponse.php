@@ -20,11 +20,13 @@ interface ImageSearchConfigResponse extends JsonObject
     /**
      * <p>The image search activation status.</p>
      *
+
      * @return null|string
      */
     public function getStatus();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();

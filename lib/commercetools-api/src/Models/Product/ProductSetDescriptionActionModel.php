@@ -23,16 +23,19 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -86,6 +91,7 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

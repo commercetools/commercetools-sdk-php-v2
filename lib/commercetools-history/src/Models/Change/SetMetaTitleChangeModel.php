@@ -24,21 +24,25 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
 
     public const DISCRIMINATOR_VALUE = 'SetMetaTitleChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     /**
      * <p>Shape of the action for <code>setMetaTitle</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class SetMetaTitleChangeModel extends JsonObjectModel implements SetMetaTi
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

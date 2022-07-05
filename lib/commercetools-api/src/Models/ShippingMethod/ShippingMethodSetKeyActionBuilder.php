@@ -21,6 +21,7 @@ use stdClass;
 final class ShippingMethodSetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -28,6 +29,7 @@ final class ShippingMethodSetKeyActionBuilder implements Builder
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, the existing key, if any, will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

@@ -27,31 +27,37 @@ use stdClass;
 final class StoreCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?array
      */
     private $languages;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     private $distributionChannels;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     private $supplyChannels;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $productSelections;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -59,6 +65,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -67,6 +74,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getLanguages()
@@ -75,6 +83,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -83,6 +92,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
@@ -91,6 +101,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -101,6 +112,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

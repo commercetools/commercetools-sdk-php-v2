@@ -18,6 +18,7 @@ interface ReplicaCartDraft extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|mixed
      */
     public function getReference();
@@ -25,6 +26,7 @@ interface ReplicaCartDraft extends JsonObject
     /**
      * <p>User-specific unique identifier of the cart.</p>
      *
+
      * @return null|string
      */
     public function getKey();

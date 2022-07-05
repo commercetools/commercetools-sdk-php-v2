@@ -18,6 +18,7 @@ interface CartSetLineItemDistributionChannelAction extends CartUpdateAction
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
@@ -25,6 +26,7 @@ interface CartSetLineItemDistributionChannelAction extends CartUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();

@@ -18,16 +18,19 @@ interface GraphQLRequest extends JsonObject
     public const FIELD_VARIABLES = 'variables';
 
     /**
+
      * @return null|string
      */
     public function getQuery();
 
     /**
+
      * @return null|string
      */
     public function getOperationName();
 
     /**
+
      * @return null|GraphQLVariablesMap
      */
     public function getVariables();

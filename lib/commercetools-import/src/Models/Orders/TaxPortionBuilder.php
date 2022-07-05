@@ -23,21 +23,25 @@ use stdClass;
 final class TaxPortionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?float
      */
     private $rate;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amount;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -46,6 +50,7 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getRate()
@@ -54,6 +59,7 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getAmount()

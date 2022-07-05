@@ -21,6 +21,7 @@ interface CategorySetAssetSourcesAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId();
@@ -28,6 +29,7 @@ interface CategorySetAssetSourcesAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey();
@@ -35,6 +37,7 @@ interface CategorySetAssetSourcesAction extends CategoryUpdateAction
     /**
      * <p>Must not be empty. At least one entry is required.</p>
      *
+
      * @return null|AssetSourceCollection
      */
     public function getSources();

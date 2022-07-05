@@ -22,6 +22,7 @@ final class LabelModel extends JsonObjectModel implements Label
 
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -50,6 +51,7 @@ final class LabelModel extends JsonObjectModel implements Label
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

@@ -22,6 +22,7 @@ use stdClass;
 final class CategoryImportRequestBuilder implements Builder
 {
     /**
+
      * @var ?CategoryImportCollection
      */
     private $resources;
@@ -29,6 +30,7 @@ final class CategoryImportRequestBuilder implements Builder
     /**
      * <p>The category import resources of this request.</p>
      *
+
      * @return null|CategoryImportCollection
      */
     public function getResources()

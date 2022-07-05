@@ -29,46 +29,55 @@ use stdClass;
 final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
@@ -102,6 +111,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Unique identifier of the CustomerGroup.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -121,6 +131,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Current version of the CustomerGroup.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -140,6 +151,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Date and time (UTC) the CustomerGroup was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -163,6 +175,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Date and time (UTC) the CustomerGroup was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -186,6 +199,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -206,6 +220,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -226,6 +241,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>User-defined unique identifier for the CustomerGroup.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -245,6 +261,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Unique name of the CustomerGroup.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -264,6 +281,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     /**
      * <p>Custom Fields for the CustomerGroup.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

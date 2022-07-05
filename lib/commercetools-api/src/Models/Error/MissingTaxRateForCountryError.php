@@ -18,16 +18,19 @@ interface MissingTaxRateForCountryError extends ErrorObject
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|string
      */
     public function getTaxCategoryId();
 
     /**
+
      * @return null|string
      */
     public function getCountry();
 
     /**
+
      * @return null|string
      */
     public function getState();

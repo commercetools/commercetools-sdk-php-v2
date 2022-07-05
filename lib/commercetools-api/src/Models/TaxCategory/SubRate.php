@@ -19,11 +19,13 @@ interface SubRate extends JsonObject
     /**
      * <p>Name of the SubRate.</p>
      *
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|float
      */
     public function getAmount();

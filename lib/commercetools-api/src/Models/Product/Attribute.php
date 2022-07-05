@@ -17,6 +17,7 @@ interface Attribute extends JsonObject
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|string
      */
     public function getName();
@@ -24,6 +25,7 @@ interface Attribute extends JsonObject
     /**
      * <p>A valid JSON value, based on an AttributeDefinition.</p>
      *
+
      * @return null|mixed
      */
     public function getValue();

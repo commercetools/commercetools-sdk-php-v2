@@ -20,11 +20,13 @@ use stdClass;
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
     /**
+
      * @var ?string
      */
     protected $text;
 
     /**
+
      * @var ?SuggestTokenizer
      */
     protected $suggestTokenizer;
@@ -42,6 +44,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
+
      * @return null|string
      */
     public function getText()
@@ -59,6 +62,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
+
      * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer()

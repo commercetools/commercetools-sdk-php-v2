@@ -23,21 +23,25 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $addressId;
 
     /**
+
      * @var ?string
      */
     protected $addressKey;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -58,6 +62,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -75,6 +80,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAddressId()
@@ -92,6 +98,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAddressKey()
@@ -109,6 +116,7 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

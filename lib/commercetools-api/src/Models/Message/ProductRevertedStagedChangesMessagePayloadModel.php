@@ -21,11 +21,13 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $removedImageUrls;
@@ -42,6 +44,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()

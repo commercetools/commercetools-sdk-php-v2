@@ -20,26 +20,31 @@ use stdClass;
 final class ReviewPagedQueryResponseModel extends JsonObjectModel implements ReviewPagedQueryResponse
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?ReviewCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class ReviewPagedQueryResponseModel extends JsonObjectModel implements Rev
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -82,6 +88,7 @@ final class ReviewPagedQueryResponseModel extends JsonObjectModel implements Rev
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -99,6 +106,7 @@ final class ReviewPagedQueryResponseModel extends JsonObjectModel implements Rev
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -118,6 +126,7 @@ final class ReviewPagedQueryResponseModel extends JsonObjectModel implements Rev
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -135,6 +144,7 @@ final class ReviewPagedQueryResponseModel extends JsonObjectModel implements Rev
     }
 
     /**
+
      * @return null|ReviewCollection
      */
     public function getResults()

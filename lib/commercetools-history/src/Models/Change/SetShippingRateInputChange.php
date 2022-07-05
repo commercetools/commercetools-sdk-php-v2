@@ -20,6 +20,7 @@ interface SetShippingRateInputChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,16 +28,19 @@ interface SetShippingRateInputChange extends Change
     /**
      * <p>Update action for <code>setShippingRateInput</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

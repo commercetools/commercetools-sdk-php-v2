@@ -21,6 +21,7 @@ interface InvalidFieldError extends ErrorObject
     /**
      * <p>The name of the field.</p>
      *
+
      * @return null|string
      */
     public function getField();
@@ -28,6 +29,7 @@ interface InvalidFieldError extends ErrorObject
     /**
      * <p>The invalid value.</p>
      *
+
      * @return null|mixed
      */
     public function getInvalidValue();
@@ -35,11 +37,13 @@ interface InvalidFieldError extends ErrorObject
     /**
      * <p>The set of allowed values for the field, if any.</p>
      *
+
      * @return null|array
      */
     public function getAllowedValues();
 
     /**
+
      * @return null|int
      */
     public function getResourceIndex();

@@ -22,26 +22,31 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
 {
     public const DISCRIMINATOR_VALUE = 'setPrices';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     protected $prices;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -64,6 +69,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -81,6 +87,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -98,6 +105,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -115,6 +123,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -132,6 +141,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

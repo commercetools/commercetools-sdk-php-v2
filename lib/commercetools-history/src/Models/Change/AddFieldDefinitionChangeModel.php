@@ -24,16 +24,19 @@ final class AddFieldDefinitionChangeModel extends JsonObjectModel implements Add
 
     public const DISCRIMINATOR_VALUE = 'AddFieldDefinitionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?FieldDefinition
      */
     protected $nextValue;
@@ -52,6 +55,7 @@ final class AddFieldDefinitionChangeModel extends JsonObjectModel implements Add
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class AddFieldDefinitionChangeModel extends JsonObjectModel implements Add
     /**
      * <p>Update action for <code>addFieldDefinition</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +93,7 @@ final class AddFieldDefinitionChangeModel extends JsonObjectModel implements Add
     }
 
     /**
+
      * @return null|FieldDefinition
      */
     public function getNextValue()

@@ -34,11 +34,13 @@ interface ProductVariant extends JsonObject
     /**
      * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
      *
+
      * @return null|int
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
@@ -47,51 +49,61 @@ interface ProductVariant extends JsonObject
      * <p>User-defined unique identifier of the ProductVariant.
      * <em>ProductVariant keys are different from Product keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|PriceCollection
      */
     public function getPrices();
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+
      * @return null|Price
      */
     public function getPrice();
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets();
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getAvailability();
 
     /**
+
      * @return null|bool
      */
     public function getIsMatchingVariant();
 
     /**
+
      * @return null|ScopedPrice
      */
     public function getScopedPrice();
 
     /**
+
      * @return null|bool
      */
     public function getScopedPriceDiscounted();

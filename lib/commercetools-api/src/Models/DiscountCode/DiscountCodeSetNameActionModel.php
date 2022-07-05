@@ -23,11 +23,13 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
 {
     public const DISCRIMINATOR_VALUE = 'setName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class DiscountCodeSetNameActionModel extends JsonObjectModel implements Di
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

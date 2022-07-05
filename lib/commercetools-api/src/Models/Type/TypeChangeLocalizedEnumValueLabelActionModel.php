@@ -21,16 +21,19 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueLabel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?CustomFieldLocalizedEnumValue
      */
     protected $value;
@@ -49,6 +52,7 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -88,6 +93,7 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|CustomFieldLocalizedEnumValue
      */
     public function getValue()

@@ -21,36 +21,43 @@ use stdClass;
 final class TaxRateBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?float
      */
     private $amount;
 
     /**
+
      * @var ?bool
      */
     private $includedInPrice;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?SubRateCollection
      */
     private $subRates;
@@ -59,6 +66,7 @@ final class TaxRateBuilder implements Builder
      * <p>Present if the TaxRate is part of a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.
      * Absent for external TaxRates in <a href="ctp:api:type:LineItem">LineItem</a>, <a href="ctp:api:type:CustomLineItem">CustomLineItem</a>, and <a href="ctp:api:type:ShippingInfo">ShippingInfo</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -69,6 +77,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>Name of the TaxRate.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -79,6 +88,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>Tax rate. If subrates are used, the amount must be the sum of all subrates.</p>
      *
+
      * @return null|float
      */
     public function getAmount()
@@ -89,6 +99,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>If <code>true</code>, tax is included in <a href="ctp:api:type:Price">Prices</a> and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
      *
+
      * @return null|bool
      */
     public function getIncludedInPrice()
@@ -99,6 +110,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>Country in which the tax rate is applied in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -109,6 +121,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>State within the country, such as Texas in the United States.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -119,6 +132,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>Used to calculate the <a href="/../api/projects/carts#taxedprice">taxPortions</a> field in a Cart or Order. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes).</p>
      *
+
      * @return null|SubRateCollection
      */
     public function getSubRates()

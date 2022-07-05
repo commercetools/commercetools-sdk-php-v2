@@ -21,16 +21,19 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
 {
     public const DISCRIMINATOR_VALUE = 'ReferenceExists';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $referencedBy;
@@ -49,6 +52,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -66,6 +70,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -85,6 +90,7 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
+
      * @return null|string
      */
     public function getReferencedBy()

@@ -21,11 +21,13 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'Classification';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class ClassificationShippingRateInputDraftModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

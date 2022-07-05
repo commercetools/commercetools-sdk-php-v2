@@ -21,11 +21,13 @@ use stdClass;
 final class MyOrderFromCartDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
@@ -33,6 +35,7 @@ final class MyOrderFromCartDraftBuilder implements Builder
     /**
      * <p>Unique identifier of the Cart that initiates an Order creation.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -41,6 +44,7 @@ final class MyOrderFromCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()

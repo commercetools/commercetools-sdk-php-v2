@@ -26,26 +26,31 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
 
     public const DISCRIMINATOR_VALUE = 'SetAssetDescriptionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     /**
      * <p>Update action for <code>setAssetDescription</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -122,6 +130,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

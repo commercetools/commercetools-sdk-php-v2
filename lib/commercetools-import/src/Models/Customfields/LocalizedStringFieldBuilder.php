@@ -23,6 +23,7 @@ use stdClass;
 final class LocalizedStringFieldBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $value;
@@ -35,6 +36,7 @@ final class LocalizedStringFieldBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getValue()

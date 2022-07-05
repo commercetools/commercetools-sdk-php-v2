@@ -39,6 +39,7 @@ interface Category extends BaseResource
     /**
      * <p>Unique identifier of the Category.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -46,6 +47,7 @@ interface Category extends BaseResource
     /**
      * <p>Current version of the Category.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -53,6 +55,7 @@ interface Category extends BaseResource
     /**
      * <p>Date and time (UTC) the Category was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -60,6 +63,7 @@ interface Category extends BaseResource
     /**
      * <p>Date and time (UTC) the Category was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -67,6 +71,7 @@ interface Category extends BaseResource
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -74,6 +79,7 @@ interface Category extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -81,6 +87,7 @@ interface Category extends BaseResource
     /**
      * <p>Name of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -91,6 +98,7 @@ interface Category extends BaseResource
      * Valid slugs match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.
      * For <a href="/../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in a Project.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
@@ -98,6 +106,7 @@ interface Category extends BaseResource
     /**
      * <p>Description of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -105,6 +114,7 @@ interface Category extends BaseResource
     /**
      * <p>Contains the parent path towards the root Category.</p>
      *
+
      * @return null|CategoryReferenceCollection
      */
     public function getAncestors();
@@ -112,6 +122,7 @@ interface Category extends BaseResource
     /**
      * <p>Parent Category of this Category.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getParent();
@@ -119,6 +130,7 @@ interface Category extends BaseResource
     /**
      * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.</p>
      *
+
      * @return null|string
      */
     public function getOrderHint();
@@ -126,6 +138,7 @@ interface Category extends BaseResource
     /**
      * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
      *
+
      * @return null|string
      */
     public function getExternalId();
@@ -133,6 +146,7 @@ interface Category extends BaseResource
     /**
      * <p>Name of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
@@ -140,6 +154,7 @@ interface Category extends BaseResource
     /**
      * <p>Description of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
@@ -147,6 +162,7 @@ interface Category extends BaseResource
     /**
      * <p>Keywords related to the Category for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
@@ -154,6 +170,7 @@ interface Category extends BaseResource
     /**
      * <p>Custom Fields for the Category.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -161,6 +178,7 @@ interface Category extends BaseResource
     /**
      * <p>Media related to the Category.</p>
      *
+
      * @return null|AssetCollection
      */
     public function getAssets();
@@ -168,6 +186,7 @@ interface Category extends BaseResource
     /**
      * <p>User-defined unique identifier of the Category.</p>
      *
+
      * @return null|string
      */
     public function getKey();

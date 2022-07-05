@@ -18,6 +18,7 @@ interface CustomerGroupChangeNameAction extends CustomerGroupUpdateAction
     /**
      * <p>New name of the CustomerGroup.</p>
      *
+
      * @return null|string
      */
     public function getName();

@@ -20,11 +20,13 @@ use stdClass;
 final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel implements DiscountedLineItemPriceForQuantity
 {
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?DiscountedLineItemPrice
      */
     protected $discountedPrice;
@@ -42,6 +44,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -59,6 +62,7 @@ final class DiscountedLineItemPriceForQuantityModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getDiscountedPrice()

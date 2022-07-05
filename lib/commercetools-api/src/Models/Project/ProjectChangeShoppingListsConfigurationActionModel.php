@@ -21,11 +21,13 @@ final class ProjectChangeShoppingListsConfigurationActionModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'changeShoppingListsConfiguration';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ShoppingListsConfiguration
      */
     protected $shoppingListsConfiguration;
@@ -42,6 +44,7 @@ final class ProjectChangeShoppingListsConfigurationActionModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProjectChangeShoppingListsConfigurationActionModel extends JsonObjec
     /**
      * <p>Configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
+
      * @return null|ShoppingListsConfiguration
      */
     public function getShoppingListsConfiguration()

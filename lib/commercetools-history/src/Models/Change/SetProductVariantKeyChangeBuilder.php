@@ -21,21 +21,25 @@ use stdClass;
 final class SetProductVariantKeyChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
@@ -43,6 +47,7 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setProductVariantKey</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -51,6 +56,7 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -59,6 +65,7 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -67,6 +74,7 @@ final class SetProductVariantKeyChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

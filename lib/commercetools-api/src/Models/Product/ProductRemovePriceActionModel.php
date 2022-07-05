@@ -21,16 +21,19 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'removePrice';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $priceId;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -49,6 +52,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     /**
      * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
      *
+
      * @return null|string
      */
     public function getPriceId()
@@ -85,6 +90,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

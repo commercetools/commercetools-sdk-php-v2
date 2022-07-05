@@ -36,66 +36,79 @@ use stdClass;
 final class ProductBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var null|ProductCatalogData|ProductCatalogDataBuilder
      */
     private $masterData;
 
     /**
+
      * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
+
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $reviewRatingStatistics;
 
     /**
+
      * @var ?string
      */
     private $priceMode;
@@ -103,6 +116,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>Unique identifier of the Product.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -113,6 +127,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>The current version of the product.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -121,6 +136,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -129,6 +145,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -139,6 +156,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -149,6 +167,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -160,6 +179,7 @@ final class ProductBuilder implements Builder
      * <p>User-defined unique identifier of the Product.
      * <em>Product keys are different from ProductVariant keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -168,6 +188,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -178,6 +199,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>The product data in the master catalog.</p>
      *
+
      * @return null|ProductCatalogData
      */
     public function getMasterData()
@@ -186,6 +208,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -194,6 +217,7 @@ final class ProductBuilder implements Builder
     }
 
     /**
+
      * @return null|StateReference
      */
     public function getState()
@@ -204,6 +228,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>Statistics about the review ratings taken into account for this product.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()
@@ -214,6 +239,7 @@ final class ProductBuilder implements Builder
     /**
      * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
      *
+
      * @return null|string
      */
     public function getPriceMode()

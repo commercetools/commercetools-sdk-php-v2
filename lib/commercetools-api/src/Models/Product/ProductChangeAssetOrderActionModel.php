@@ -21,26 +21,31 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeAssetOrder';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?array
      */
     protected $assetOrder;
@@ -63,6 +68,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -80,6 +86,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -97,6 +104,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -114,6 +122,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -131,6 +140,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|array
      */
     public function getAssetOrder()

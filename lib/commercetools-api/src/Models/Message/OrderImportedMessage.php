@@ -17,6 +17,7 @@ interface OrderImportedMessage extends OrderMessage
     public const FIELD_ORDER = 'order';
 
     /**
+
      * @return null|Order
      */
     public function getOrder();

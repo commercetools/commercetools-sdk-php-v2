@@ -26,81 +26,97 @@ use stdClass;
 final class MyCustomerDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $middleName;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
 
     /**
+
      * @var ?string
      */
     private $companyName;
 
     /**
+
      * @var ?string
      */
     private $vatId;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     private $addresses;
 
     /**
+
      * @var ?int
      */
     private $defaultShippingAddress;
 
     /**
+
      * @var ?int
      */
     private $defaultBillingAddress;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -109,6 +125,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPassword()
@@ -117,6 +134,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()
@@ -125,6 +143,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()
@@ -133,6 +152,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getMiddleName()
@@ -141,6 +161,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()
@@ -149,6 +170,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -157,6 +179,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCompanyName()
@@ -165,6 +188,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVatId()
@@ -175,6 +199,7 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getAddresses()
@@ -186,6 +211,7 @@ final class MyCustomerDraftBuilder implements Builder
      * <p>The index of the address in the addresses array.
      * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress()
@@ -197,6 +223,7 @@ final class MyCustomerDraftBuilder implements Builder
      * <p>The index of the address in the addresses array.
      * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress()
@@ -207,6 +234,7 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -215,6 +243,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -223,6 +252,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()

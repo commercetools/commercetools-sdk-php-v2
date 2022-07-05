@@ -21,11 +21,13 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
 {
     public const DISCRIMINATOR_VALUE = 'AzureServiceBus';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $connectionString;
@@ -42,6 +44,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     }
 
     /**
+
      * @return null|string
      */
     public function getConnectionString()

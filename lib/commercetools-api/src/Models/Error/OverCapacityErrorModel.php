@@ -21,11 +21,13 @@ final class OverCapacityErrorModel extends JsonObjectModel implements OverCapaci
 {
     public const DISCRIMINATOR_VALUE = 'OverCapacity';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class OverCapacityErrorModel extends JsonObjectModel implements OverCapaci
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class OverCapacityErrorModel extends JsonObjectModel implements OverCapaci
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

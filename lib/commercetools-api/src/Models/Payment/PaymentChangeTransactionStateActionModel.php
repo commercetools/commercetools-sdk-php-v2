@@ -21,16 +21,19 @@ final class PaymentChangeTransactionStateActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'changeTransactionState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $transactionId;
 
     /**
+
      * @var ?string
      */
     protected $state;
@@ -49,6 +52,7 @@ final class PaymentChangeTransactionStateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class PaymentChangeTransactionStateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -83,6 +88,7 @@ final class PaymentChangeTransactionStateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getState()

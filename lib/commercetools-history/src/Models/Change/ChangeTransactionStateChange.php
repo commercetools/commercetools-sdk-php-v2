@@ -22,26 +22,31 @@ interface ChangeTransactionStateChange extends Change
     /**
      * <p>Update action for <code>changeTransactionState</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|TransactionChangeValue
      */
     public function getTransaction();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();

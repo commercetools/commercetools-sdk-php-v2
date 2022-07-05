@@ -21,21 +21,25 @@ use stdClass;
 final class AssetSourceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $uri;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|AssetDimensions|AssetDimensionsBuilder
      */
     private $dimensions;
 
     /**
+
      * @var ?string
      */
     private $contentType;
@@ -43,6 +47,7 @@ final class AssetSourceBuilder implements Builder
     /**
      * <p>URI of the AssetSource.</p>
      *
+
      * @return null|string
      */
     public function getUri()
@@ -53,6 +58,7 @@ final class AssetSourceBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the AssetSource.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -63,6 +69,7 @@ final class AssetSourceBuilder implements Builder
     /**
      * <p>Width and height of the AssetSource.</p>
      *
+
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -73,6 +80,7 @@ final class AssetSourceBuilder implements Builder
     /**
      * <p>Indicates the type of content, for example <code>application/pdf</code>.</p>
      *
+
      * @return null|string
      */
     public function getContentType()

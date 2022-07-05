@@ -17,11 +17,13 @@ interface ChangeTargetLineItemsChangeValue extends ChangeTargetChangeValue
     public const FIELD_PREDICATE = 'predicate';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getPredicate();

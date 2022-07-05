@@ -19,6 +19,7 @@ interface AddDeliveryChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface AddDeliveryChange extends Change
     /**
      * <p>Update action for <code>addDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|DeliveryChangeValue
      */
     public function getNextValue();
 
     /**
+
      * @return null|DeliveryChangeValue
      */
     public function getPreviousValue();

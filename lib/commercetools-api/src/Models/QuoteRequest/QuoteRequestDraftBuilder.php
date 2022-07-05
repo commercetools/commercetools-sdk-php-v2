@@ -25,26 +25,31 @@ use stdClass;
 final class QuoteRequestDraftBuilder implements Builder
 {
     /**
+
      * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
      */
     private $cart;
 
     /**
+
      * @var ?int
      */
     private $cartVersion;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -52,6 +57,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart()
@@ -62,6 +68,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>Current version of the referenced Cart.</p>
      *
+
      * @return null|int
      */
     public function getCartVersion()
@@ -72,6 +79,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the QuoteRequest.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -82,6 +90,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>Text message included in the request.</p>
      *
+
      * @return null|string
      */
     public function getComment()
@@ -92,6 +101,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>Custom Fields to be added to the Quote Request.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

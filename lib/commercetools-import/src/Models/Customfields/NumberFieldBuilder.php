@@ -21,11 +21,13 @@ use stdClass;
 final class NumberFieldBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $value;
 
     /**
+
      * @return null|float
      */
     public function getValue()

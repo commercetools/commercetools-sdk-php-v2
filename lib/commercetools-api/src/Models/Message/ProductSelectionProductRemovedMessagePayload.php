@@ -19,6 +19,7 @@ interface ProductSelectionProductRemovedMessagePayload extends MessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct();

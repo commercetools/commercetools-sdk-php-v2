@@ -18,16 +18,19 @@ interface OrderLabel extends Label
     public const FIELD_ORDER_NUMBER = 'orderNumber';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail();
 
     /**
+
      * @return null|string
      */
     public function getOrderNumber();

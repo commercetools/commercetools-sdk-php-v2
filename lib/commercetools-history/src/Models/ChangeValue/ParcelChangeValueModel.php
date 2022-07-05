@@ -22,11 +22,13 @@ final class ParcelChangeValueModel extends JsonObjectModel implements ParcelChan
 
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $createdAt;
@@ -45,6 +47,7 @@ final class ParcelChangeValueModel extends JsonObjectModel implements ParcelChan
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -62,6 +65,7 @@ final class ParcelChangeValueModel extends JsonObjectModel implements ParcelChan
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()

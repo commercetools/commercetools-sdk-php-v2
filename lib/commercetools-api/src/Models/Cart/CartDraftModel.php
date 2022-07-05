@@ -31,126 +31,151 @@ use stdClass;
 final class CartDraftModel extends JsonObjectModel implements CartDraft
 {
     /**
+
      * @var ?string
      */
     protected $currency;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $customerId;
 
     /**
+
      * @var ?string
      */
     protected $customerEmail;
 
     /**
+
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
+
      * @var ?string
      */
     protected $anonymousId;
 
     /**
+
      * @var ?StoreResourceIdentifier
      */
     protected $store;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?string
      */
     protected $taxRoundingMode;
 
     /**
+
      * @var ?string
      */
     protected $taxCalculationMode;
 
     /**
+
      * @var ?LineItemDraftCollection
      */
     protected $lineItems;
 
     /**
+
      * @var ?CustomLineItemDraftCollection
      */
     protected $customLineItems;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $shippingAddress;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $billingAddress;
 
     /**
+
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRateForShippingMethod;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $locale;
 
     /**
+
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?string
      */
     protected $origin;
 
     /**
+
      * @var ?ShippingRateInputDraft
      */
     protected $shippingRateInput;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
+
      * @var ?array
      */
     protected $discountCodes;
@@ -216,6 +241,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency()
@@ -235,6 +261,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>User-defined unique identifier for the Cart.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -254,6 +281,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>Id of an existing Customer.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId()
@@ -271,6 +299,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -291,6 +320,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * <p>Will be set automatically when the <code>customerId</code> is set and the customer is a member of a customer group.
      * Can be set explicitly when no <code>customerId</code> is present.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -311,6 +341,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>Assigns the new cart to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -331,6 +362,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * <p>Assigns the new cart to the store.
      * The store assignment can not be modified.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()
@@ -351,6 +383,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -370,6 +403,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -389,6 +423,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The default tax mode is <code>Platform</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode()
@@ -408,6 +443,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The default tax rounding mode is <code>HalfEven</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -427,6 +463,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The default tax calculation mode is <code>LineItemLevel</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -444,6 +481,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
+
      * @return null|LineItemDraftCollection
      */
     public function getLineItems()
@@ -461,6 +499,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
+
      * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems()
@@ -480,6 +519,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
+
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -498,6 +538,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -516,6 +557,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -536,6 +578,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>An external tax rate can be set for the <code>shippingMethod</code> if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRateForShippingMethod()
@@ -556,6 +599,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -576,6 +620,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>Must be one of the languages supported for this project</p>
      *
+
      * @return null|string
      */
     public function getLocale()
@@ -596,6 +641,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -615,6 +661,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The default origin is <code>Customer</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()
@@ -638,6 +685,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
      *
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()
@@ -662,6 +710,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -681,6 +730,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     /**
      * <p>The code of existing DiscountCodes.</p>
      *
+
      * @return null|array
      */
     public function getDiscountCodes()

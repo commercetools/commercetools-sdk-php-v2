@@ -22,31 +22,37 @@ use stdClass;
 final class CustomerTokenBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $customerId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $expiresAt;
 
     /**
+
      * @var ?string
      */
     private $value;
@@ -54,6 +60,7 @@ final class CustomerTokenBuilder implements Builder
     /**
      * <p>Unique identifier of the CustomerToken.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -62,6 +69,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -70,6 +78,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -78,6 +87,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerId()
@@ -86,6 +96,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt()
@@ -94,6 +105,7 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getValue()

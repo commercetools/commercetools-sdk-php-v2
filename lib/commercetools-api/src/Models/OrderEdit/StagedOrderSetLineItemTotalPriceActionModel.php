@@ -25,16 +25,19 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemTotalPrice';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
@@ -53,6 +56,7 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -87,6 +92,7 @@ final class StagedOrderSetLineItemTotalPriceActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()

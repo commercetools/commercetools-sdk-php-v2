@@ -21,31 +21,37 @@ use stdClass;
 final class ProductProjectionPagedSearchResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?ProductProjectionCollection
      */
     private $results;
 
     /**
+
      * @var null|FacetResults|FacetResultsBuilder
      */
     private $facets;
@@ -53,6 +59,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -61,6 +68,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -69,6 +77,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -79,6 +88,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -87,6 +97,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductProjectionCollection
      */
     public function getResults()
@@ -95,6 +106,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|FacetResults
      */
     public function getFacets()

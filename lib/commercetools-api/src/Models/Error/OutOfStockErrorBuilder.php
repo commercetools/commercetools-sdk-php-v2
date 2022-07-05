@@ -21,21 +21,25 @@ use stdClass;
 final class OutOfStockErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?array
      */
     private $lineItems;
 
     /**
+
      * @var ?array
      */
     private $skus;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -44,6 +48,7 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getLineItems()
@@ -52,6 +57,7 @@ final class OutOfStockErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getSkus()

@@ -22,6 +22,7 @@ interface CartScoreTier extends ShippingRatePriceTier
     /**
      * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../tutorials/shipping-rate">Using Tiered Shipping Rates</a> for details and examples.</p>
      *
+
      * @return null|int
      */
     public function getScore();
@@ -29,6 +30,7 @@ interface CartScoreTier extends ShippingRatePriceTier
     /**
      * <p>Defines a fixed price for the <code>score</code>.</p>
      *
+
      * @return null|Money
      */
     public function getPrice();
@@ -36,6 +38,7 @@ interface CartScoreTier extends ShippingRatePriceTier
     /**
      * <p>Dynamically calculates a Price for a range of scores.</p>
      *
+
      * @return null|PriceFunction
      */
     public function getPriceFunction();
@@ -43,6 +46,7 @@ interface CartScoreTier extends ShippingRatePriceTier
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching();

@@ -27,6 +27,7 @@ interface Zone extends BaseResource
     /**
      * <p>Unique identifier of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -34,6 +35,7 @@ interface Zone extends BaseResource
     /**
      * <p>Current version of the Zone.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -41,6 +43,7 @@ interface Zone extends BaseResource
     /**
      * <p>Date and time (UTC) the Zone was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -48,6 +51,7 @@ interface Zone extends BaseResource
     /**
      * <p>Date and time (UTC) the Zone was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -55,6 +59,7 @@ interface Zone extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -62,6 +67,7 @@ interface Zone extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -69,6 +75,7 @@ interface Zone extends BaseResource
     /**
      * <p>User-defined unique identifier of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -76,6 +83,7 @@ interface Zone extends BaseResource
     /**
      * <p>Name of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -83,6 +91,7 @@ interface Zone extends BaseResource
     /**
      * <p>Description of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getDescription();
@@ -90,6 +99,7 @@ interface Zone extends BaseResource
     /**
      * <p>List of locations that belong to the Zone.</p>
      *
+
      * @return null|LocationCollection
      */
     public function getLocations();

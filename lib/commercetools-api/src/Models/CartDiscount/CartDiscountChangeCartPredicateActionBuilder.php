@@ -21,6 +21,7 @@ use stdClass;
 final class CartDiscountChangeCartPredicateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $cartPredicate;
@@ -28,6 +29,7 @@ final class CartDiscountChangeCartPredicateActionBuilder implements Builder
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate()

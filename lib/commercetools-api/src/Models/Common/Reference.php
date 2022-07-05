@@ -48,6 +48,7 @@ interface Reference extends JsonObject
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId();
@@ -55,6 +56,7 @@ interface Reference extends JsonObject
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId();

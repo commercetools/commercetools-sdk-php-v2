@@ -23,11 +23,13 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setOrderNumber';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $orderNumber;
@@ -44,6 +46,7 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderNumber()

@@ -19,16 +19,19 @@ interface CustomerChangeAddressAction extends CustomerUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|string
      */
     public function getAddressId();
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();

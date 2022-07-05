@@ -22,11 +22,13 @@ use Commercetools\History\Models\Common\MoneyCollection;
 final class ChangeValueAbsoluteChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?MoneyCollection
      */
     private $money;
 
     /**
+
      * @return null|MoneyCollection
      */
     public function getMoney()

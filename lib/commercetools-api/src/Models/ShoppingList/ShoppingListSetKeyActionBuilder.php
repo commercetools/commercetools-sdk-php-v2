@@ -21,6 +21,7 @@ use stdClass;
 final class ShoppingListSetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -28,6 +29,7 @@ final class ShoppingListSetKeyActionBuilder implements Builder
     /**
      * <p>User-specific unique identifier for the shopping list.</p>
      *
+
      * @return null|string
      */
     public function getKey()

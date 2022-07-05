@@ -22,11 +22,13 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setExpectedDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $expectedDelivery;
@@ -43,6 +45,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()

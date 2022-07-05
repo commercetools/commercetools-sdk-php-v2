@@ -21,11 +21,13 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setPredicate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $predicate;
@@ -42,6 +44,7 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
     /**
      * <p>A valid <a href="/projects/predicates#cart-predicates">Cart predicate</a>. If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()

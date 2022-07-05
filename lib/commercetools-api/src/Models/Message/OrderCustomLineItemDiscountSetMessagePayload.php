@@ -20,16 +20,19 @@ interface OrderCustomLineItemDiscountSetMessagePayload extends OrderMessagePaylo
     public const FIELD_TAXED_PRICE = 'taxedPrice';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();

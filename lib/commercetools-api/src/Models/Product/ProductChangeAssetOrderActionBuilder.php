@@ -21,26 +21,31 @@ use stdClass;
 final class ProductChangeAssetOrderActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?array
      */
     private $assetOrder;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -49,6 +54,7 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -57,6 +63,7 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -65,6 +72,7 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getAssetOrder()

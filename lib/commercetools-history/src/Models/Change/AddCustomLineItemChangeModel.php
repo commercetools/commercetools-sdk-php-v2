@@ -24,21 +24,25 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
 
     public const DISCRIMINATOR_VALUE = 'AddCustomLineItemChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?CustomLineItem
      */
     protected $nextValue;
 
     /**
+
      * @var ?CustomLineItem
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     /**
      * <p>Update action for adding and removing custom line items</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class AddCustomLineItemChangeModel extends JsonObjectModel implements AddC
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getPreviousValue()

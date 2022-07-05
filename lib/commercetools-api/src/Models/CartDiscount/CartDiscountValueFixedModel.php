@@ -22,11 +22,13 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
 {
     public const DISCRIMINATOR_VALUE = 'fixed';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CentPrecisionMoneyCollection
      */
     protected $money;
@@ -43,6 +45,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class CartDiscountValueFixedModel extends JsonObjectModel implements CartD
     /**
      * <p>Cent precision money values in different currencies.</p>
      *
+
      * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney()

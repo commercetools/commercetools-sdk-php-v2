@@ -26,31 +26,37 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemDiscountedPriceChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+
      * @var ?string
      */
     protected $variant;
 
     /**
+
      * @var ?DiscountedLineItemPrice
      */
     protected $nextValue;
 
     /**
+
      * @var ?DiscountedLineItemPrice
      */
     protected $previousValue;
@@ -75,6 +81,7 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -94,6 +101,7 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>setLineItemDiscountedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -111,6 +119,7 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -129,6 +138,7 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -146,6 +156,7 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getNextValue()
@@ -164,6 +175,7 @@ final class SetLineItemDiscountedPriceChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getPreviousValue()

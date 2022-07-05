@@ -28,66 +28,79 @@ use stdClass;
 final class LineItemDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $externalPrice;
 
     /**
+
      * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -96,6 +109,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -104,6 +118,7 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -115,6 +130,7 @@ final class LineItemDraftBuilder implements Builder
      * <p>The amount of a <code>LineItem</code>in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -126,6 +142,7 @@ final class LineItemDraftBuilder implements Builder
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -139,6 +156,7 @@ final class LineItemDraftBuilder implements Builder
      * The provided channel should have
      * the InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -150,6 +168,7 @@ final class LineItemDraftBuilder implements Builder
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -160,6 +179,7 @@ final class LineItemDraftBuilder implements Builder
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -170,6 +190,7 @@ final class LineItemDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -180,6 +201,7 @@ final class LineItemDraftBuilder implements Builder
     /**
      * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
      *
+
      * @return null|Money
      */
     public function getExternalPrice()
@@ -190,6 +212,7 @@ final class LineItemDraftBuilder implements Builder
     /**
      * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
      *
+
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()
@@ -200,6 +223,7 @@ final class LineItemDraftBuilder implements Builder
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

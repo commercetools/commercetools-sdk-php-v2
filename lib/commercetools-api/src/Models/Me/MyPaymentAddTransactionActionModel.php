@@ -23,11 +23,13 @@ final class MyPaymentAddTransactionActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'addTransaction';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?TransactionDraft
      */
     protected $transaction;
@@ -44,6 +46,7 @@ final class MyPaymentAddTransactionActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class MyPaymentAddTransactionActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|TransactionDraft
      */
     public function getTransaction()

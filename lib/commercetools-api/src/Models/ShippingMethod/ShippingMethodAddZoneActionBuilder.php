@@ -23,6 +23,7 @@ use stdClass;
 final class ShippingMethodAddZoneActionBuilder implements Builder
 {
     /**
+
      * @var null|ZoneResourceIdentifier|ZoneResourceIdentifierBuilder
      */
     private $zone;
@@ -30,6 +31,7 @@ final class ShippingMethodAddZoneActionBuilder implements Builder
     /**
      * <p>Value to add to <code>zoneRates</code>.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()

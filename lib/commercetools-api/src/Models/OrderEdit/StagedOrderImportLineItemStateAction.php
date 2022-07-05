@@ -19,11 +19,13 @@ interface StagedOrderImportLineItemStateAction extends StagedOrderUpdateAction
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();

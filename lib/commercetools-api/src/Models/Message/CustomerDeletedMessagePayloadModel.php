@@ -21,6 +21,7 @@ final class CustomerDeletedMessagePayloadModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'CustomerDeleted';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class CustomerDeletedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

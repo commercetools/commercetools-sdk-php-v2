@@ -19,11 +19,13 @@ interface ParcelAddedToDeliveryMessagePayload extends OrderMessagePayload
     public const FIELD_PARCEL = 'parcel';
 
     /**
+
      * @return null|Delivery
      */
     public function getDelivery();
 
     /**
+
      * @return null|Parcel
      */
     public function getParcel();

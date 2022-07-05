@@ -23,26 +23,31 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
 {
     public const DISCRIMINATOR_VALUE = 'CartClassification';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $value;
 
     /**
+
      * @var ?Money
      */
     protected $price;
 
     /**
+
      * @var ?ShippingRatePriceTierCollection
      */
     protected $tiers;
 
     /**
+
      * @var ?bool
      */
     protected $isMatching;
@@ -65,6 +70,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -82,6 +88,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+
      * @return null|string
      */
     public function getValue()
@@ -99,6 +106,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -117,6 +125,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()
@@ -134,6 +143,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsMatching()

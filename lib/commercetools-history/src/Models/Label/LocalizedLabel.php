@@ -18,11 +18,13 @@ interface LocalizedLabel extends Label
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getValue();

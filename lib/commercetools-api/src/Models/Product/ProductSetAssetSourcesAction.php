@@ -22,31 +22,37 @@ interface ProductSetAssetSourcesAction extends ProductUpdateAction
     public const FIELD_SOURCES = 'sources';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|string
      */
     public function getAssetId();
 
     /**
+
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources();

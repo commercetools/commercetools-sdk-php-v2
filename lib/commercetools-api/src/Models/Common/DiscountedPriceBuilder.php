@@ -23,11 +23,13 @@ use stdClass;
 final class DiscountedPriceBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var null|ProductDiscountReference|ProductDiscountReferenceBuilder
      */
     private $discount;
@@ -35,6 +37,7 @@ final class DiscountedPriceBuilder implements Builder
     /**
      * <p>Money value of the discounted price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -45,6 +48,7 @@ final class DiscountedPriceBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ProductDiscount">ProductDiscount</a> related to the discounted price.</p>
      *
+
      * @return null|ProductDiscountReference
      */
     public function getDiscount()

@@ -17,6 +17,7 @@ interface PaymentTransactionAddedMessage extends Message
     public const FIELD_TRANSACTION = 'transaction';
 
     /**
+
      * @return null|Transaction
      */
     public function getTransaction();

@@ -21,11 +21,13 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
 {
     public const DISCRIMINATOR_VALUE = 'InvalidSubject';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

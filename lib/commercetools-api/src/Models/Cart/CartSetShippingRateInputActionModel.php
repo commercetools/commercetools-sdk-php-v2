@@ -21,11 +21,13 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setShippingRateInput';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ShippingRateInputDraft
      */
     protected $shippingRateInput;
@@ -42,6 +44,7 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -64,6 +67,7 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
      *
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()

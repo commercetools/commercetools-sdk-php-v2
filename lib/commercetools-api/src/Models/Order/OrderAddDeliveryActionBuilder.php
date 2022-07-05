@@ -25,26 +25,31 @@ use stdClass;
 final class OrderAddDeliveryActionBuilder implements Builder
 {
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @var ?ParcelDraftCollection
      */
     private $parcels;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -53,6 +58,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -61,6 +67,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelDraftCollection
      */
     public function getParcels()
@@ -71,6 +78,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

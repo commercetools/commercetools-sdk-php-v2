@@ -23,11 +23,13 @@ final class MyShoppingListSetDescriptionActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
@@ -44,6 +46,7 @@ final class MyShoppingListSetDescriptionActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class MyShoppingListSetDescriptionActionModel extends JsonObjectModel impl
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()

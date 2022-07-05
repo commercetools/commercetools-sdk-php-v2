@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\TextLineItemBuilder;
 final class AddTextLineItemChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TextLineItem|TextLineItemBuilder
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -41,6 +44,7 @@ final class AddTextLineItemChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItem
      */
     public function getNextValue()

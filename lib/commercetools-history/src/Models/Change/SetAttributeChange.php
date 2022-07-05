@@ -20,6 +20,7 @@ interface SetAttributeChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetAttributeChange extends Change
     /**
      * <p>Update action for <code>setAttribute</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|AttributeValue
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|AttributeValue
      */
     public function getNextValue();

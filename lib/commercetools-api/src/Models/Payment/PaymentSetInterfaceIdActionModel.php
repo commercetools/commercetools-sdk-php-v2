@@ -21,11 +21,13 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setInterfaceId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $interfaceId;
@@ -42,6 +44,7 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getInterfaceId()

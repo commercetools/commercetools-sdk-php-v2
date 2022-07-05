@@ -22,36 +22,43 @@ use stdClass;
 final class UserProvidedIdentifiersModel extends JsonObjectModel implements UserProvidedIdentifiers
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+
      * @var ?string
      */
     protected $customerNumber;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?ContainerAndKey
      */
     protected $containerAndKey;
@@ -81,6 +88,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * <p>User-provided unique identifier of the resource.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -98,6 +106,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()
@@ -115,6 +124,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -132,6 +142,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerNumber()
@@ -149,6 +160,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -168,6 +180,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -188,6 +201,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * <p>Custom Objects are grouped into containers, which can be used like namespaces. Within a given container, a user-defined key can be used to uniquely identify resources.</p>
      *
+
      * @return null|ContainerAndKey
      */
     public function getContainerAndKey()

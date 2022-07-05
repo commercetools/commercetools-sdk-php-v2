@@ -24,16 +24,19 @@ final class AddTextLineItemChangeModel extends JsonObjectModel implements AddTex
 
     public const DISCRIMINATOR_VALUE = 'AddTextLineItemChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?TextLineItem
      */
     protected $nextValue;
@@ -52,6 +55,7 @@ final class AddTextLineItemChangeModel extends JsonObjectModel implements AddTex
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -69,6 +73,7 @@ final class AddTextLineItemChangeModel extends JsonObjectModel implements AddTex
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -86,6 +91,7 @@ final class AddTextLineItemChangeModel extends JsonObjectModel implements AddTex
     }
 
     /**
+
      * @return null|TextLineItem
      */
     public function getNextValue()

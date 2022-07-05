@@ -20,11 +20,13 @@ use stdClass;
 final class CustomerEmailVerifyModel extends JsonObjectModel implements CustomerEmailVerify
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?string
      */
     protected $tokenValue;
@@ -42,6 +44,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,7 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     }
 
     /**
+
      * @return null|string
      */
     public function getTokenValue()

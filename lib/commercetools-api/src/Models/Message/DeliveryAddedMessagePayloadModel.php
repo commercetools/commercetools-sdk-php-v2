@@ -23,11 +23,13 @@ final class DeliveryAddedMessagePayloadModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Delivery
      */
     protected $delivery;
@@ -44,6 +46,7 @@ final class DeliveryAddedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class DeliveryAddedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|Delivery
      */
     public function getDelivery()

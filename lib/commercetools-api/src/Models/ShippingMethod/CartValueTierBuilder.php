@@ -23,16 +23,19 @@ use stdClass;
 final class CartValueTierBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $minimumCentAmount;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var ?bool
      */
     private $isMatching;
@@ -40,6 +43,7 @@ final class CartValueTierBuilder implements Builder
     /**
      * <p>Minimum total price of a Cart for which a shipping rate applies.</p>
      *
+
      * @return null|int
      */
     public function getMinimumCentAmount()
@@ -50,6 +54,7 @@ final class CartValueTierBuilder implements Builder
     /**
      * <p>Fixed shipping rate Price for a CartValue.</p>
      *
+
      * @return null|Money
      */
     public function getPrice()
@@ -60,6 +65,7 @@ final class CartValueTierBuilder implements Builder
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching()

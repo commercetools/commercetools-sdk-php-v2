@@ -21,16 +21,19 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'QuoteStateChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $quoteState;
 
     /**
+
      * @var ?string
      */
     protected $oldQuoteState;
@@ -49,6 +52,7 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * <p>Predefined states tracking the status of the Quote.</p>
      *
+
      * @return null|string
      */
     public function getQuoteState()
@@ -87,6 +92,7 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * <p>Predefined states tracking the status of the Quote.</p>
      *
+
      * @return null|string
      */
     public function getOldQuoteState()

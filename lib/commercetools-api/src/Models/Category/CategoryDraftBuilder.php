@@ -26,61 +26,73 @@ use stdClass;
 final class CategoryDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $parent;
 
     /**
+
      * @var ?string
      */
     private $orderHint;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?AssetDraftCollection
      */
     private $assets;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -88,6 +100,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Name of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -100,6 +113,7 @@ final class CategoryDraftBuilder implements Builder
      * A Category can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>.
      * Valid slugs must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -110,6 +124,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Description of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -121,6 +136,7 @@ final class CategoryDraftBuilder implements Builder
      * <p>Parent Category of the Category.
      * The parent can be set by its <code>id</code> or <code>key</code>.</p>
      *
+
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()
@@ -132,6 +148,7 @@ final class CategoryDraftBuilder implements Builder
      * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.
      * If not set, a random value will be assigned.</p>
      *
+
      * @return null|string
      */
     public function getOrderHint()
@@ -142,6 +159,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -152,6 +170,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Name of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -162,6 +181,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Description of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -172,6 +192,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Keywords related to the Category for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -182,6 +203,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Custom Fields for the Category.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -192,6 +214,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>Media related to the Category.</p>
      *
+
      * @return null|AssetDraftCollection
      */
     public function getAssets()
@@ -202,6 +225,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Category.</p>
      *
+
      * @return null|string
      */
     public function getKey()

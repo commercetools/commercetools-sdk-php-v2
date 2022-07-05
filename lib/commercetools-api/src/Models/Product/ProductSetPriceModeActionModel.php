@@ -21,11 +21,13 @@ final class ProductSetPriceModeActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setPriceMode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $priceMode;
@@ -42,6 +44,7 @@ final class ProductSetPriceModeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProductSetPriceModeActionModel extends JsonObjectModel implements Pr
     /**
      * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
      *
+
      * @return null|string
      */
     public function getPriceMode()

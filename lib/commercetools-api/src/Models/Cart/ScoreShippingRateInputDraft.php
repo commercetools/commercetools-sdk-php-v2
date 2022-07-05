@@ -16,6 +16,7 @@ interface ScoreShippingRateInputDraft extends ShippingRateInputDraft
     public const FIELD_SCORE = 'score';
 
     /**
+
      * @return null|float
      */
     public function getScore();

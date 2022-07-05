@@ -21,11 +21,13 @@ final class ProductDiscountChangeIsActiveActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'changeIsActive';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?bool
      */
     protected $isActive;
@@ -42,6 +44,7 @@ final class ProductDiscountChangeIsActiveActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class ProductDiscountChangeIsActiveActionModel extends JsonObjectModel imp
      * <p>New value to set.
      * If set to <code>true</code>, the Discount will be applied to Product Prices.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive()

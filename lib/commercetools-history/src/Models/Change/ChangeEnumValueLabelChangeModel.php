@@ -22,31 +22,37 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
 
     public const DISCRIMINATOR_VALUE = 'ChangeEnumValueLabelChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?string
      */
     protected $valueKey;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
@@ -71,6 +77,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -90,6 +97,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     /**
      * <p>Update action for <code>changeEnumValueLabel</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -109,6 +117,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -128,6 +137,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     /**
      * <p>Key of the values that was updated</p>
      *
+
      * @return null|string
      */
     public function getValueKey()
@@ -145,6 +155,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -162,6 +173,7 @@ final class ChangeEnumValueLabelChangeModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

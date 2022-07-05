@@ -18,11 +18,13 @@ interface ProductSetMetaKeywordsAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

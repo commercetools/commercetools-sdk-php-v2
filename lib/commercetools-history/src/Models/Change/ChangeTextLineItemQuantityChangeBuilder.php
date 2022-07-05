@@ -23,26 +23,31 @@ use Commercetools\History\Models\ChangeValue\TextLineItemValueBuilder;
 final class ChangeTextLineItemQuantityChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TextLineItemValue|TextLineItemValueBuilder
      */
     private $textLineItem;
 
     /**
+
      * @var ?int
      */
     private $previousValue;
 
     /**
+
      * @var ?int
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -51,6 +56,7 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -59,6 +65,7 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()
@@ -67,6 +74,7 @@ final class ChangeTextLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()

@@ -34,46 +34,55 @@ interface MyCustomerDraft extends JsonObject
     public const FIELD_STORES = 'stores';
 
     /**
+
      * @return null|string
      */
     public function getEmail();
 
     /**
+
      * @return null|string
      */
     public function getPassword();
 
     /**
+
      * @return null|string
      */
     public function getFirstName();
 
     /**
+
      * @return null|string
      */
     public function getLastName();
 
     /**
+
      * @return null|string
      */
     public function getMiddleName();
 
     /**
+
      * @return null|string
      */
     public function getTitle();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();
 
     /**
+
      * @return null|string
      */
     public function getCompanyName();
 
     /**
+
      * @return null|string
      */
     public function getVatId();
@@ -81,6 +90,7 @@ interface MyCustomerDraft extends JsonObject
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getAddresses();
@@ -89,6 +99,7 @@ interface MyCustomerDraft extends JsonObject
      * <p>The index of the address in the addresses array.
      * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress();
@@ -97,6 +108,7 @@ interface MyCustomerDraft extends JsonObject
      * <p>The index of the address in the addresses array.
      * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress();
@@ -104,16 +116,19 @@ interface MyCustomerDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();

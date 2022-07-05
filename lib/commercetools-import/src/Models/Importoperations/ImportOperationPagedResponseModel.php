@@ -20,26 +20,31 @@ use stdClass;
 final class ImportOperationPagedResponseModel extends JsonObjectModel implements ImportOperationPagedResponse
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?ImportOperationCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -84,6 +90,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -103,6 +110,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount()
@@ -122,6 +130,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The total number of import operations matching the query.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -141,6 +150,7 @@ final class ImportOperationPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The array of Import Operations matching the query.</p>
      *
+
      * @return null|ImportOperationCollection
      */
     public function getResults()

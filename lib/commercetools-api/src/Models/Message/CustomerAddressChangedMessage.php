@@ -17,6 +17,7 @@ interface CustomerAddressChangedMessage extends Message
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|Address
      */
     public function getAddress();

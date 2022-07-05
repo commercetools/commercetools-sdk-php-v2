@@ -18,6 +18,7 @@ interface StagedOrderSetShippingMethodTaxRateAction extends StagedOrderUpdateAct
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();

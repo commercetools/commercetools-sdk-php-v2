@@ -21,46 +21,55 @@ use stdClass;
 final class ReturnItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var ?string
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $createdAt;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -69,6 +78,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -77,6 +87,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +96,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -93,6 +105,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -101,6 +114,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -109,6 +123,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLastModifiedAt()
@@ -117,6 +132,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()

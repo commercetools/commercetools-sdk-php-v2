@@ -18,6 +18,7 @@ interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|string
      */
     public function getTransactionId();
@@ -26,6 +27,7 @@ interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
      * <p>description: |
      * Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -35,6 +37,7 @@ interface PaymentSetTransactionCustomFieldAction extends PaymentUpdateAction
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue();

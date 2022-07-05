@@ -20,16 +20,19 @@ interface RemoveAddressChange extends Change
     /**
      * <p>Update action for <code>removeAddress</code> action.</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue();

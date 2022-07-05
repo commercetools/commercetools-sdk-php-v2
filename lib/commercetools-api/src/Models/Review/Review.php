@@ -40,6 +40,7 @@ interface Review extends BaseResource
     /**
      * <p>Unique identifier of the Review.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -47,16 +48,19 @@ interface Review extends BaseResource
     /**
      * <p>The current version of the review.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -64,6 +68,7 @@ interface Review extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -71,6 +76,7 @@ interface Review extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -78,31 +84,37 @@ interface Review extends BaseResource
     /**
      * <p>User-defined unique identifier of the Review.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|string
      */
     public function getUniquenessValue();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|string
      */
     public function getAuthorName();
 
     /**
+
      * @return null|string
      */
     public function getTitle();
 
     /**
+
      * @return null|string
      */
     public function getText();
@@ -111,6 +123,7 @@ interface Review extends BaseResource
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
+
      * @return null|mixed
      */
     public function getTarget();
@@ -120,6 +133,7 @@ interface Review extends BaseResource
      * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
      * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>
      *
+
      * @return null|bool
      */
     public function getIncludedInStatistics();
@@ -127,11 +141,13 @@ interface Review extends BaseResource
     /**
      * <p>Number between -100 and 100 included.</p>
      *
+
      * @return null|int
      */
     public function getRating();
 
     /**
+
      * @return null|StateReference
      */
     public function getState();
@@ -139,11 +155,13 @@ interface Review extends BaseResource
     /**
      * <p>The customer who created the review.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();

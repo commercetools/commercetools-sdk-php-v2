@@ -21,11 +21,13 @@ use stdClass;
 final class MyCustomerSetSalutationActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+
      * @return null|string
      */
     public function getSalutation()

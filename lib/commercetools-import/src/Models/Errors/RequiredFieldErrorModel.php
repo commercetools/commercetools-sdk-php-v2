@@ -21,16 +21,19 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
 {
     public const DISCRIMINATOR_VALUE = 'RequiredField';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $field;
@@ -49,6 +52,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -66,6 +70,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -85,6 +90,7 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     /**
      * <p>The name of the field.</p>
      *
+
      * @return null|string
      */
     public function getField()

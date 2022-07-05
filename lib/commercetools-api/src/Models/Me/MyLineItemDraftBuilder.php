@@ -28,51 +28,61 @@ use stdClass;
 final class MyLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -81,6 +91,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -89,6 +100,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -100,6 +112,7 @@ final class MyLineItemDraftBuilder implements Builder
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -112,6 +125,7 @@ final class MyLineItemDraftBuilder implements Builder
      * inventory entries that should be reserved.
      * The provided channel should have the InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -123,6 +137,7 @@ final class MyLineItemDraftBuilder implements Builder
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -133,6 +148,7 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -143,6 +159,7 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -151,6 +168,7 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()

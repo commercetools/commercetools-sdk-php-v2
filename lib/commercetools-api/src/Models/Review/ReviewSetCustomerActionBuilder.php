@@ -23,6 +23,7 @@ use stdClass;
 final class ReviewSetCustomerActionBuilder implements Builder
 {
     /**
+
      * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
@@ -31,6 +32,7 @@ final class ReviewSetCustomerActionBuilder implements Builder
      * <p>The customer who created the review.
      * If <code>customer</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

@@ -16,6 +16,7 @@ interface CustomerEmailChangedMessage extends Message
     public const FIELD_EMAIL = 'email';
 
     /**
+
      * @return null|string
      */
     public function getEmail();

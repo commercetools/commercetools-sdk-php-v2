@@ -23,16 +23,19 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
 {
     public const DISCRIMINATOR_VALUE = 'order-edit';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?OrderEdit
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class OrderEditReferenceModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>Contains the representation of the expanded OrderEdit. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for OrderEdits.</p>
      *
+
      * @return null|OrderEdit
      */
     public function getObj()

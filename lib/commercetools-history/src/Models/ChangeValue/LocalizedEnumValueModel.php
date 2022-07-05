@@ -24,11 +24,13 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
 
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $label;
@@ -47,6 +49,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -64,6 +67,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()

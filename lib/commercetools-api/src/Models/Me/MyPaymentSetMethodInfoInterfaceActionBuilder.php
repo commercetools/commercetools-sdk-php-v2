@@ -21,11 +21,13 @@ use stdClass;
 final class MyPaymentSetMethodInfoInterfaceActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $interface;
 
     /**
+
      * @return null|string
      */
     public function getInterface()

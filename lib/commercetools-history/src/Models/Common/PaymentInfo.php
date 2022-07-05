@@ -17,6 +17,7 @@ interface PaymentInfo extends JsonObject
     public const FIELD_PAYMENTS = 'payments';
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPayments();

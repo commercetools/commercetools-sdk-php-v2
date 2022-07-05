@@ -24,26 +24,31 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
 
     public const DISCRIMINATOR_VALUE = 'giftLineItem';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Reference
      */
     protected $product;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?Reference
      */
     protected $supplyChannel;
 
     /**
+
      * @var ?Reference
      */
     protected $distributionChannel;
@@ -66,6 +71,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -83,6 +89,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|Reference
      */
     public function getProduct()
@@ -101,6 +108,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -118,6 +126,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|Reference
      */
     public function getSupplyChannel()
@@ -136,6 +145,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|Reference
      */
     public function getDistributionChannel()

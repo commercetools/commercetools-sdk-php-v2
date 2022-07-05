@@ -24,21 +24,25 @@ final class SetAddressChangeModel extends JsonObjectModel implements SetAddressC
 
     public const DISCRIMINATOR_VALUE = 'SetAddressChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Address
      */
     protected $nextValue;
 
     /**
+
      * @var ?Address
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class SetAddressChangeModel extends JsonObjectModel implements SetAddressC
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetAddressChangeModel extends JsonObjectModel implements SetAddressC
     /**
      * <p>Update action for <code>setAddress</code> action.</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetAddressChangeModel extends JsonObjectModel implements SetAddressC
     }
 
     /**
+
      * @return null|Address
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class SetAddressChangeModel extends JsonObjectModel implements SetAddressC
     }
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue()

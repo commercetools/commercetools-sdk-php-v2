@@ -21,6 +21,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -65,6 +66,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

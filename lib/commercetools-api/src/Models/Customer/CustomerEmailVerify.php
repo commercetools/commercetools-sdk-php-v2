@@ -17,11 +17,13 @@ interface CustomerEmailVerify extends JsonObject
     public const FIELD_TOKEN_VALUE = 'tokenValue';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|string
      */
     public function getTokenValue();

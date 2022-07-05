@@ -21,16 +21,19 @@ final class EnumAttributeModel extends JsonObjectModel implements EnumAttribute
 {
     public const DISCRIMINATOR_VALUE = 'enum';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $value;
@@ -53,6 +56,7 @@ final class EnumAttributeModel extends JsonObjectModel implements EnumAttribute
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -70,6 +74,7 @@ final class EnumAttributeModel extends JsonObjectModel implements EnumAttribute
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +92,7 @@ final class EnumAttributeModel extends JsonObjectModel implements EnumAttribute
     }
 
     /**
+
      * @return null|string
      */
     public function getValue()

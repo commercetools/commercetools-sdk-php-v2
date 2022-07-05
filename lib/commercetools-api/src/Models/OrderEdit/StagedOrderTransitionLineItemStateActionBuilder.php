@@ -26,31 +26,37 @@ use stdClass;
 final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $fromState;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $toState;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $actualTransitionDate;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -59,6 +65,7 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -69,6 +76,7 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getFromState()
@@ -79,6 +87,7 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getToState()
@@ -87,6 +96,7 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate()

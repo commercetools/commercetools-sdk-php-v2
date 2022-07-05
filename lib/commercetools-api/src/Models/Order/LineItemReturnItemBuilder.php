@@ -24,46 +24,55 @@ use stdClass;
 final class LineItemReturnItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
@@ -71,6 +80,7 @@ final class LineItemReturnItemBuilder implements Builder
     /**
      * <p>Unique identifier of the ReturnItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -79,6 +89,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -87,6 +98,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -95,6 +107,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -103,6 +116,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -113,6 +127,7 @@ final class LineItemReturnItemBuilder implements Builder
     /**
      * <p>Custom Fields of this return item.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -121,6 +136,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -129,6 +145,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -137,6 +154,7 @@ final class LineItemReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()

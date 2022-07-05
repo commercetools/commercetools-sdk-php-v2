@@ -21,6 +21,7 @@ use stdClass;
 final class OrderEditSetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -28,6 +29,7 @@ final class OrderEditSetKeyActionBuilder implements Builder
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getKey()

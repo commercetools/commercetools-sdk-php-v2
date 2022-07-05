@@ -21,6 +21,7 @@ final class StagedQuoteUpdateActionModel extends JsonObjectModel implements Stag
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -46,6 +47,7 @@ final class StagedQuoteUpdateActionModel extends JsonObjectModel implements Stag
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

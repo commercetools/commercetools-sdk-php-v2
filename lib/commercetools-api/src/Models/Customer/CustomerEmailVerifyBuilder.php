@@ -21,16 +21,19 @@ use stdClass;
 final class CustomerEmailVerifyBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?string
      */
     private $tokenValue;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class CustomerEmailVerifyBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTokenValue()

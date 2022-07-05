@@ -20,21 +20,25 @@ use stdClass;
 final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategoryDraft
 {
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $description;
 
     /**
+
      * @var ?TaxRateDraftCollection
      */
     protected $rates;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -58,6 +62,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Name of the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -77,6 +82,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Description of the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -96,6 +102,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Tax rates and subrates of states and countries.</p>
      *
+
      * @return null|TaxRateDraftCollection
      */
     public function getRates()
@@ -115,6 +122,7 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>User-defined unique identifier for the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getKey()

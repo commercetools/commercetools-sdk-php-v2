@@ -23,16 +23,19 @@ use stdClass;
 final class ProductChangePriceActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
     /**
+
      * @var ?bool
      */
     private $staged;
@@ -40,6 +43,7 @@ final class ProductChangePriceActionBuilder implements Builder
     /**
      * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
      *
+
      * @return null|string
      */
     public function getPriceId()
@@ -48,6 +52,7 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceDraft
      */
     public function getPrice()
@@ -56,6 +61,7 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -16,6 +16,7 @@ interface SubscriptionSetChangesAction extends SubscriptionUpdateAction
     public const FIELD_CHANGES = 'changes';
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();

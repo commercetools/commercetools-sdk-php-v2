@@ -25,16 +25,19 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'OrderEditApplied';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?OrderEditReference
      */
     protected $edit;
 
     /**
+
      * @var ?OrderEditApplied
      */
     protected $result;
@@ -53,6 +56,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -72,6 +76,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
+
      * @return null|OrderEditReference
      */
     public function getEdit()
@@ -90,6 +95,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|OrderEditApplied
      */
     public function getResult()

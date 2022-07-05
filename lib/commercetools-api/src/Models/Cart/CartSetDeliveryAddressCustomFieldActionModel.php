@@ -21,21 +21,25 @@ final class CartSetDeliveryAddressCustomFieldActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setDeliveryAddressCustomField';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
@@ -56,6 +60,7 @@ final class CartSetDeliveryAddressCustomFieldActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class CartSetDeliveryAddressCustomFieldActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -92,6 +98,7 @@ final class CartSetDeliveryAddressCustomFieldActionModel extends JsonObjectModel
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -113,6 +120,7 @@ final class CartSetDeliveryAddressCustomFieldActionModel extends JsonObjectModel
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

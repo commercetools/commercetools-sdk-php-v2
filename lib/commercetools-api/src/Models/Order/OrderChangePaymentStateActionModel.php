@@ -21,11 +21,13 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changePaymentState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
@@ -42,6 +44,7 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()

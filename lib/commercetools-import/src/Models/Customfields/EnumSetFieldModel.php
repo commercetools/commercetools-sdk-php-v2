@@ -21,11 +21,13 @@ final class EnumSetFieldModel extends JsonObjectModel implements EnumSetField
 {
     public const DISCRIMINATOR_VALUE = 'EnumSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $value;
@@ -44,6 +46,7 @@ final class EnumSetFieldModel extends JsonObjectModel implements EnumSetField
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class EnumSetFieldModel extends JsonObjectModel implements EnumSetField
     }
 
     /**
+
      * @return null|array
      */
     public function getValue()

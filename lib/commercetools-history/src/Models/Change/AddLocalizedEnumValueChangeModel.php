@@ -24,26 +24,31 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'AddLocalizedEnumValueChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?LocalizedEnumValue
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>addLocalizedEnumValue</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -123,6 +131,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -140,6 +149,7 @@ final class AddLocalizedEnumValueChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|LocalizedEnumValue
      */
     public function getNextValue()

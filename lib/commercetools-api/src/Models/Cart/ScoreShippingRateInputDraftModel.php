@@ -21,11 +21,13 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'Score';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?float
      */
     protected $score;
@@ -42,6 +44,7 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|float
      */
     public function getScore()

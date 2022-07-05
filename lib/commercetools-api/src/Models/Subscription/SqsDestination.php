@@ -19,21 +19,25 @@ interface SqsDestination extends Destination
     public const FIELD_REGION = 'region';
 
     /**
+
      * @return null|string
      */
     public function getAccessKey();
 
     /**
+
      * @return null|string
      */
     public function getAccessSecret();
 
     /**
+
      * @return null|string
      */
     public function getQueueUrl();
 
     /**
+
      * @return null|string
      */
     public function getRegion();

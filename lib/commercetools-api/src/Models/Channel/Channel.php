@@ -36,6 +36,7 @@ interface Channel extends BaseResource
     /**
      * <p>Unique identifier of the Channel.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -43,6 +44,7 @@ interface Channel extends BaseResource
     /**
      * <p>Current version of the Channel.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -50,6 +52,7 @@ interface Channel extends BaseResource
     /**
      * <p>Date and time (UTC) the Channel was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -57,6 +60,7 @@ interface Channel extends BaseResource
     /**
      * <p>Date and time (UTC) the Channel was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -64,6 +68,7 @@ interface Channel extends BaseResource
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -71,6 +76,7 @@ interface Channel extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -78,6 +84,7 @@ interface Channel extends BaseResource
     /**
      * <p>User-defined unique identifier of the Channel.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -85,6 +92,7 @@ interface Channel extends BaseResource
     /**
      * <p>Roles of the Channel.</p>
      *
+
      * @return null|array
      */
     public function getRoles();
@@ -92,6 +100,7 @@ interface Channel extends BaseResource
     /**
      * <p>Name of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -99,6 +108,7 @@ interface Channel extends BaseResource
     /**
      * <p>Description of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -106,6 +116,7 @@ interface Channel extends BaseResource
     /**
      * <p>Address where the Channel is located (for example, if the Channel is a physical store).</p>
      *
+
      * @return null|Address
      */
     public function getAddress();
@@ -113,6 +124,7 @@ interface Channel extends BaseResource
     /**
      * <p>Statistics about the review ratings taken into account for the Channel.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
@@ -120,6 +132,7 @@ interface Channel extends BaseResource
     /**
      * <p>Custom Fields defined for the Channel.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -127,6 +140,7 @@ interface Channel extends BaseResource
     /**
      * <p>GeoJSON geometry object encoding the geo location of the Channel.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation();

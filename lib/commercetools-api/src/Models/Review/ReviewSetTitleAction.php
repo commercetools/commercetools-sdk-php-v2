@@ -18,6 +18,7 @@ interface ReviewSetTitleAction extends ReviewUpdateAction
     /**
      * <p>If <code>title</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getTitle();

@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\MoneyBuilder;
 final class ChangeAmountPlannedChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class ChangeAmountPlannedChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class ChangeAmountPlannedChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()

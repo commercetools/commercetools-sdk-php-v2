@@ -21,16 +21,19 @@ use stdClass;
 final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $oldEmail;
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -39,6 +42,7 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOldEmail()

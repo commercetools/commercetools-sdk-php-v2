@@ -20,26 +20,31 @@ use stdClass;
 final class MissingImagesPagedQueryResultModel extends JsonObjectModel implements MissingImagesPagedQueryResult
 {
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?MissingImagesCollection
      */
     protected $results;
 
     /**
+
      * @var ?MissingImagesMeta
      */
     protected $meta;
@@ -63,6 +68,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -80,6 +86,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -99,6 +106,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -116,6 +124,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|MissingImagesCollection
      */
     public function getResults()
@@ -133,6 +142,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|MissingImagesMeta
      */
     public function getMeta()

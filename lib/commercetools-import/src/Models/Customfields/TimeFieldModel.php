@@ -22,11 +22,13 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
 {
     public const DISCRIMINATOR_VALUE = 'Time';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $value;
@@ -45,6 +47,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class TimeFieldModel extends JsonObjectModel implements TimeField
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValue()

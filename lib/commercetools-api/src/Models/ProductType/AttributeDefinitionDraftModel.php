@@ -22,41 +22,49 @@ use stdClass;
 final class AttributeDefinitionDraftModel extends JsonObjectModel implements AttributeDefinitionDraft
 {
     /**
+
      * @var ?AttributeType
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $label;
 
     /**
+
      * @var ?bool
      */
     protected $isRequired;
 
     /**
+
      * @var ?string
      */
     protected $attributeConstraint;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $inputTip;
 
     /**
+
      * @var ?string
      */
     protected $inputHint;
 
     /**
+
      * @var ?bool
      */
     protected $isSearchable;
@@ -88,6 +96,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     /**
      * <p>Describes the Type of the Attribute.</p>
      *
+
      * @return null|AttributeType
      */
     public function getType()
@@ -110,6 +119,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
      * When using the same <code>name</code> for an Attribute in multiple ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes. Otherwise an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExistsError</a> will be returned.
      * An exception to this are the values of an <code>enum</code> or <code>lenum</code> Type and sets thereof.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -129,6 +139,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     /**
      * <p>Human-readable label for the Attribute.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -149,6 +160,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     /**
      * <p>Set to <code>true</code> if the Attribute is required to have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsRequired()
@@ -168,6 +180,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     /**
      * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.</p>
      *
+
      * @return null|string
      */
     public function getAttributeConstraint()
@@ -187,6 +200,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     /**
      * <p>Provides additional information about the Attribute that aids content managers when setting Product details.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip()
@@ -207,6 +221,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     /**
      * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
      *
+
      * @return null|string
      */
     public function getInputHint()
@@ -230,6 +245,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
      * This constraint is enforced at both Product creation and Product update.
      * If the length of the input exceeds the maximum size, an InvalidField error is returned.</p>
      *
+
      * @return null|bool
      */
     public function getIsSearchable()

@@ -21,21 +21,25 @@ use stdClass;
 final class FacetTermBuilder implements Builder
 {
     /**
+
      * @var null|mixed|mixed
      */
     private $term;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $productCount;
 
     /**
+
      * @return null|mixed
      */
     public function getTerm()
@@ -44,6 +48,7 @@ final class FacetTermBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -52,6 +57,7 @@ final class FacetTermBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getProductCount()

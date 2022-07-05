@@ -23,16 +23,19 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'addProductSelection';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
 
     /**
+
      * @var ?bool
      */
     protected $active;
@@ -51,6 +54,7 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
     /**
      * <p>Product Selection to add to the Store either activated or deactivated.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
@@ -90,6 +95,7 @@ final class StoreAddProductSelectionActionModel extends JsonObjectModel implemen
     /**
      * <p>Set to <code>true</code> to make all Products assigned to the referenced Product Selection available in the Store.</p>
      *
+
      * @return null|bool
      */
     public function getActive()

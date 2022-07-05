@@ -33,66 +33,79 @@ use stdClass;
 final class StoreBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?array
      */
     private $languages;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     private $distributionChannels;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     private $supplyChannels;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $productSelections;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -100,6 +113,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Unique ID of the Store.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -110,6 +124,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Current version of the Store.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -120,6 +135,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Store was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -130,6 +146,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Store was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -140,6 +157,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -150,6 +168,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -160,6 +179,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>User-defined unique and immutable identifier for the Store.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -170,6 +190,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Name of the Store.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -180,6 +201,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Languages configured for the Store.</p>
      *
+
      * @return null|array
      */
     public function getLanguages()
@@ -190,6 +212,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Product Distribution Channels allowed for the Store.</p>
      *
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -200,6 +223,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Inventory Supply Channels allowed for the Store.</p>
      *
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
@@ -214,6 +238,7 @@ final class StoreBuilder implements Builder
      * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
      * </ul>
      *
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -224,6 +249,7 @@ final class StoreBuilder implements Builder
     /**
      * <p>Custom fields for the Store.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

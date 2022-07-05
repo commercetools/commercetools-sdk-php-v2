@@ -23,11 +23,13 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'CustomerCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Customer
      */
     protected $customer;
@@ -44,6 +46,7 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|Customer
      */
     public function getCustomer()

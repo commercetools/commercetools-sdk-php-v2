@@ -21,11 +21,13 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
 {
     public const DISCRIMINATOR_VALUE = 'shipping-method';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

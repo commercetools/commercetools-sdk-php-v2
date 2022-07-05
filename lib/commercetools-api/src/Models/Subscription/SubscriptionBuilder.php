@@ -28,61 +28,73 @@ use stdClass;
 final class SubscriptionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?ChangeSubscriptionCollection
      */
     private $changes;
 
     /**
+
      * @var null|Destination|DestinationBuilder
      */
     private $destination;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     private $messages;
 
     /**
+
      * @var null|DeliveryFormat|DeliveryFormatBuilder
      */
     private $format;
 
     /**
+
      * @var ?string
      */
     private $status;
@@ -90,6 +102,7 @@ final class SubscriptionBuilder implements Builder
     /**
      * <p>Unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -98,6 +111,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -106,6 +120,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -114,6 +129,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -124,6 +140,7 @@ final class SubscriptionBuilder implements Builder
     /**
      * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -134,6 +151,7 @@ final class SubscriptionBuilder implements Builder
     /**
      * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -142,6 +160,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -150,6 +169,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|Destination
      */
     public function getDestination()
@@ -160,6 +180,7 @@ final class SubscriptionBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -168,6 +189,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -176,6 +198,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryFormat
      */
     public function getFormat()
@@ -184,6 +207,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getStatus()

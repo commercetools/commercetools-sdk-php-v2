@@ -21,11 +21,13 @@ use stdClass;
 final class StandalonePriceUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?StandalonePriceUpdateActionCollection
      */
     private $actions;
@@ -33,6 +35,7 @@ final class StandalonePriceUpdateBuilder implements Builder
     /**
      * <p>Expected version of the StandalonePrice on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -43,6 +46,7 @@ final class StandalonePriceUpdateBuilder implements Builder
     /**
      * <p>Update actions to be performed on the StandalonePrice.</p>
      *
+
      * @return null|StandalonePriceUpdateActionCollection
      */
     public function getActions()

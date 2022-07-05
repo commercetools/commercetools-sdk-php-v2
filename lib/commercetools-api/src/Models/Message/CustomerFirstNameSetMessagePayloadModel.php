@@ -21,11 +21,13 @@ final class CustomerFirstNameSetMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'CustomerFirstNameSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $firstName;
@@ -42,6 +44,7 @@ final class CustomerFirstNameSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class CustomerFirstNameSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()

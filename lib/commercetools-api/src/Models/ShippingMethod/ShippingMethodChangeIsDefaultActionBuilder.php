@@ -21,6 +21,7 @@ use stdClass;
 final class ShippingMethodChangeIsDefaultActionBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $isDefault;
@@ -28,6 +29,7 @@ final class ShippingMethodChangeIsDefaultActionBuilder implements Builder
     /**
      * <p>Value to set. Only one ShippingMethod can be default in a <a href="ctp:api:type:Project">Project</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsDefault()

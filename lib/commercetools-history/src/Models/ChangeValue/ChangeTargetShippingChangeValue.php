@@ -16,6 +16,7 @@ interface ChangeTargetShippingChangeValue extends ChangeTargetChangeValue
 
 
     /**
+
      * @return null|string
      */
     public function getType();

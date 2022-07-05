@@ -18,6 +18,7 @@ interface SimilarProductSearchRequestMeta extends JsonObject
     /**
      * <p>The SimilarityMeasures used in this search.</p>
      *
+
      * @return null|SimilarityMeasures
      */
     public function getSimilarityMeasures();

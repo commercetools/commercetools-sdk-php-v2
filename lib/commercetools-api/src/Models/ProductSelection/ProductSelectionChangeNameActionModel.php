@@ -23,11 +23,13 @@ final class ProductSelectionChangeNameActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class ProductSelectionChangeNameActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ProductSelectionChangeNameActionModel extends JsonObjectModel implem
     /**
      * <p>The new name to be set for the ProductSelection.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

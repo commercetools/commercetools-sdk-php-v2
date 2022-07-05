@@ -34,101 +34,121 @@ use stdClass;
 final class DiscountCodeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?string
      */
     private $code;
 
     /**
+
      * @var ?CartDiscountReferenceCollection
      */
     private $cartDiscounts;
 
     /**
+
      * @var ?string
      */
     private $cartPredicate;
 
     /**
+
      * @var ?bool
      */
     private $isActive;
 
     /**
+
      * @var ?ReferenceCollection
      */
     private $references;
 
     /**
+
      * @var ?int
      */
     private $maxApplications;
 
     /**
+
      * @var ?int
      */
     private $maxApplicationsPerCustomer;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?array
      */
     private $groups;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var ?int
      */
     private $applicationVersion;
@@ -136,6 +156,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Unique identifier of the DiscountCode.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -146,6 +167,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Current version of the DiscountCode.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -156,6 +178,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Date and time (UTC) the DiscountCode was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -166,6 +189,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Date and time (UTC) the DiscountCode was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -176,6 +200,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -186,6 +211,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -196,6 +222,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Name of the DiscountCode.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -206,6 +233,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Description of the DiscountCode.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -216,6 +244,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the DiscountCode <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
+
      * @return null|string
      */
     public function getCode()
@@ -226,6 +255,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Reference to CartDiscounts that can be applied to the Cart once the DiscountCode is applied.</p>
      *
+
      * @return null|CartDiscountReferenceCollection
      */
     public function getCartDiscounts()
@@ -236,6 +266,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate()
@@ -246,6 +277,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Indicates if the DiscountCode is active and can be applied to the Cart.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive()
@@ -257,6 +289,7 @@ final class DiscountCodeBuilder implements Builder
      * <p>Array generated from the Cart predicate.
      * It contains the references of all the resources that are addressed in the predicate.</p>
      *
+
      * @return null|ReferenceCollection
      */
     public function getReferences()
@@ -268,6 +301,7 @@ final class DiscountCodeBuilder implements Builder
      * <p>Number of times the DiscountCode can be applied.
      * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplications()
@@ -279,6 +313,7 @@ final class DiscountCodeBuilder implements Builder
      * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported).
      * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer()
@@ -289,6 +324,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Custom Fields of the DiscountCode.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -299,6 +335,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Groups to which the DiscountCode belongs to.</p>
      *
+
      * @return null|array
      */
     public function getGroups()
@@ -309,6 +346,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Date and time (UTC) from which the DiscountCode is effective.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -319,6 +357,7 @@ final class DiscountCodeBuilder implements Builder
     /**
      * <p>Date and time (UTC) until which the DiscountCode is effective.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -330,6 +369,7 @@ final class DiscountCodeBuilder implements Builder
      * <p>Used and managed by the API and must not be used in customer logic.
      * The value can change at any time due to internal and external factors.</p>
      *
+
      * @return null|int
      */
     public function getApplicationVersion()

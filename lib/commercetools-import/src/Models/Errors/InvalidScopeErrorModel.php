@@ -21,11 +21,13 @@ final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidSco
 {
     public const DISCRIMINATOR_VALUE = 'invalid_scope';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidSco
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InvalidScopeErrorModel extends JsonObjectModel implements InvalidSco
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

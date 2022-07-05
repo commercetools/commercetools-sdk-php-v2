@@ -23,11 +23,13 @@ use stdClass;
 final class OrderImportedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Order|OrderBuilder
      */
     private $order;
 
     /**
+
      * @return null|Order
      */
     public function getOrder()

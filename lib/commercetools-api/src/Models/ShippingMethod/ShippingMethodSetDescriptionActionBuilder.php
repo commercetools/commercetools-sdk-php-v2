@@ -21,6 +21,7 @@ use stdClass;
 final class ShippingMethodSetDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $description;
@@ -28,6 +29,7 @@ final class ShippingMethodSetDescriptionActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getDescription()

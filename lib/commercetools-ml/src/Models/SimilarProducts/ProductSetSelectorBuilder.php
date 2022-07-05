@@ -21,31 +21,37 @@ use stdClass;
 final class ProductSetSelectorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $projectKey;
 
     /**
+
      * @var ?array
      */
     private $productIds;
 
     /**
+
      * @var ?array
      */
     private $productTypeIds;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?bool
      */
     private $includeVariants;
 
     /**
+
      * @var ?int
      */
     private $productSetLimit;
@@ -53,6 +59,7 @@ final class ProductSetSelectorBuilder implements Builder
     /**
      * <p>The project containing the project set.</p>
      *
+
      * @return null|string
      */
     public function getProjectKey()
@@ -63,6 +70,7 @@ final class ProductSetSelectorBuilder implements Builder
     /**
      * <p>An array of Product IDs to compare. If unspecified, no Product ID filter is applied.</p>
      *
+
      * @return null|array
      */
     public function getProductIds()
@@ -73,6 +81,7 @@ final class ProductSetSelectorBuilder implements Builder
     /**
      * <p>An array of product type IDs. Only products with product types in this array are compared. If unspecified, no product type filter is applied.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds()
@@ -83,6 +92,7 @@ final class ProductSetSelectorBuilder implements Builder
     /**
      * <p>Specifies use of staged or current product data.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -93,6 +103,7 @@ final class ProductSetSelectorBuilder implements Builder
     /**
      * <p>Specifies use of product variants. If set to <code>true</code>, all product variants are compared, not just the master variant.</p>
      *
+
      * @return null|bool
      */
     public function getIncludeVariants()
@@ -103,6 +114,7 @@ final class ProductSetSelectorBuilder implements Builder
     /**
      * <p>Maximum number of products to check (if unspecified, all products are considered). Note that the maximum number of product comparisons between two productSets is 20,000,000. This limit cannot be exceeded. If you need a higher limit, contact https://support.commercetools.com</p>
      *
+
      * @return null|int
      */
     public function getProductSetLimit()

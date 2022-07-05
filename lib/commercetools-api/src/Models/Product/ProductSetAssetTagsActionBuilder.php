@@ -21,36 +21,43 @@ use stdClass;
 final class ProductSetAssetTagsActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var ?array
      */
     private $tags;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -59,6 +66,7 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -67,6 +75,7 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -75,6 +84,7 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -83,6 +93,7 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -91,6 +102,7 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getTags()

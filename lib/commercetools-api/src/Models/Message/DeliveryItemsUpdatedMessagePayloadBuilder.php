@@ -22,21 +22,25 @@ use stdClass;
 final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $oldItems;
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -45,6 +49,7 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -53,6 +58,7 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()

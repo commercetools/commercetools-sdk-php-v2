@@ -23,11 +23,13 @@ final class CustomerRemoveStoreActionModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = 'removeStore';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -44,6 +46,7 @@ final class CustomerRemoveStoreActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class CustomerRemoveStoreActionModel extends JsonObjectModel implements Cu
     /**
      * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

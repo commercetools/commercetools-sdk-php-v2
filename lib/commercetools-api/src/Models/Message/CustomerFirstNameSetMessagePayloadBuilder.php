@@ -21,11 +21,13 @@ use stdClass;
 final class CustomerFirstNameSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @return null|string
      */
     public function getFirstName()

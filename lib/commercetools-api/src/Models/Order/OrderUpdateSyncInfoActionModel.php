@@ -24,21 +24,25 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
 {
     public const DISCRIMINATOR_VALUE = 'updateSyncInfo';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $syncedAt;
@@ -59,6 +63,7 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -78,6 +83,7 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -96,6 +102,7 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()
@@ -113,6 +120,7 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt()

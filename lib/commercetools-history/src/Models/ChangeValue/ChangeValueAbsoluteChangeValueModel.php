@@ -23,11 +23,13 @@ final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'absolute';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?MoneyCollection
      */
     protected $money;
@@ -44,6 +46,7 @@ final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class ChangeValueAbsoluteChangeValueModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|MoneyCollection
      */
     public function getMoney()

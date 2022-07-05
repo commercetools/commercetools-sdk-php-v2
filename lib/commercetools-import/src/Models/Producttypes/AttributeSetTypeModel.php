@@ -21,11 +21,13 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
 {
     public const DISCRIMINATOR_VALUE = 'set';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?AttributeType
      */
     protected $elementType;
@@ -42,6 +44,7 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -59,6 +62,7 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     }
 
     /**
+
      * @return null|AttributeType
      */
     public function getElementType()

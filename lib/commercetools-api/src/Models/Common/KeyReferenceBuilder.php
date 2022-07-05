@@ -23,6 +23,7 @@ use stdClass;
 final class KeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -30,6 +31,7 @@ final class KeyReferenceBuilder implements Builder
     /**
      * <p>User-defined unique and immutable key of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getKey()

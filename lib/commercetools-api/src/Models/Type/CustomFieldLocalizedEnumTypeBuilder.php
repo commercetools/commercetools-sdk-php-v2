@@ -21,6 +21,7 @@ use stdClass;
 final class CustomFieldLocalizedEnumTypeBuilder implements Builder
 {
     /**
+
      * @var ?CustomFieldLocalizedEnumValueCollection
      */
     private $values;
@@ -28,6 +29,7 @@ final class CustomFieldLocalizedEnumTypeBuilder implements Builder
     /**
      * <p>Allowed values.</p>
      *
+
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues()

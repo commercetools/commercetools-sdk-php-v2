@@ -21,16 +21,19 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'lenum-set';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $value;
@@ -53,6 +56,7 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -70,6 +74,7 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +92,7 @@ final class LocalizableEnumSetAttributeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|array
      */
     public function getValue()

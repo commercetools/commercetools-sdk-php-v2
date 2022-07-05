@@ -21,31 +21,37 @@ use stdClass;
 final class MissingImagesPagedQueryResultBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?MissingImagesCollection
      */
     private $results;
 
     /**
+
      * @var null|MissingImagesMeta|MissingImagesMetaBuilder
      */
     private $meta;
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -54,6 +60,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -64,6 +71,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -72,6 +80,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+
      * @return null|MissingImagesCollection
      */
     public function getResults()
@@ -80,6 +89,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
+
      * @return null|MissingImagesMeta
      */
     public function getMeta()

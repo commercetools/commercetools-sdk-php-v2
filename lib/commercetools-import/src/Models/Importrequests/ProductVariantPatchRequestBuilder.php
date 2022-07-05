@@ -22,6 +22,7 @@ use stdClass;
 final class ProductVariantPatchRequestBuilder implements Builder
 {
     /**
+
      * @var ?ProductVariantPatchCollection
      */
     private $patches;
@@ -29,6 +30,7 @@ final class ProductVariantPatchRequestBuilder implements Builder
     /**
      * <p>The product variant patches of this request.</p>
      *
+
      * @return null|ProductVariantPatchCollection
      */
     public function getPatches()

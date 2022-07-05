@@ -22,6 +22,7 @@ interface ImportContainerPagedResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -29,6 +30,7 @@ interface ImportContainerPagedResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
@@ -36,6 +38,7 @@ interface ImportContainerPagedResponse extends JsonObject
     /**
      * <p>The actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount();
@@ -43,6 +46,7 @@ interface ImportContainerPagedResponse extends JsonObject
     /**
      * <p>The total number of results matching the query.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -50,6 +54,7 @@ interface ImportContainerPagedResponse extends JsonObject
     /**
      * <p>The array of Import Containers matching the query.</p>
      *
+
      * @return null|ImportContainerCollection
      */
     public function getResults();

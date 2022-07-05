@@ -18,6 +18,7 @@ interface PaymentSetMethodInfoMethodAction extends PaymentUpdateAction
     /**
      * <p>If not provided, the method is unset.</p>
      *
+
      * @return null|string
      */
     public function getMethod();

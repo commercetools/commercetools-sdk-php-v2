@@ -21,121 +21,145 @@ use stdClass;
 final class CustomerAddressBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $streetName;
 
     /**
+
      * @var ?string
      */
     private $streetNumber;
 
     /**
+
      * @var ?string
      */
     private $additionalStreetInfo;
 
     /**
+
      * @var ?string
      */
     private $postalCode;
 
     /**
+
      * @var ?string
      */
     private $city;
 
     /**
+
      * @var ?string
      */
     private $region;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $company;
 
     /**
+
      * @var ?string
      */
     private $department;
 
     /**
+
      * @var ?string
      */
     private $building;
 
     /**
+
      * @var ?string
      */
     private $apartment;
 
     /**
+
      * @var ?string
      */
     private $pOBox;
 
     /**
+
      * @var ?string
      */
     private $phone;
 
     /**
+
      * @var ?string
      */
     private $mobile;
 
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $fax;
 
     /**
+
      * @var ?string
      */
     private $additionalAddressInfo;
 
     /**
+
      * @var ?string
      */
     private $externalId;
@@ -144,6 +168,7 @@ final class CustomerAddressBuilder implements Builder
      * <p>User-defined identifier for the address.
      * Must follow the pattern <code>[a-zA-Z0-9_-]{2,256}</code> and must be unique per customer.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -152,6 +177,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()
@@ -160,6 +186,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSalutation()
@@ -168,6 +195,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()
@@ -176,6 +204,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()
@@ -184,6 +213,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getStreetName()
@@ -192,6 +222,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getStreetNumber()
@@ -200,6 +231,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAdditionalStreetInfo()
@@ -208,6 +240,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPostalCode()
@@ -216,6 +249,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCity()
@@ -224,6 +258,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getRegion()
@@ -232,6 +267,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()
@@ -242,6 +278,7 @@ final class CustomerAddressBuilder implements Builder
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -250,6 +287,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCompany()
@@ -258,6 +296,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getDepartment()
@@ -266,6 +305,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getBuilding()
@@ -274,6 +314,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getApartment()
@@ -282,6 +323,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPOBox()
@@ -290,6 +332,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPhone()
@@ -298,6 +341,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getMobile()
@@ -306,6 +350,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -314,6 +359,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getFax()
@@ -322,6 +368,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAdditionalAddressInfo()
@@ -330,6 +377,7 @@ final class CustomerAddressBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()

@@ -25,26 +25,31 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
+
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+
      * @var ?CustomerReference
      */
     protected $oldCustomer;
 
     /**
+
      * @var ?CustomerGroupReference
      */
     protected $oldCustomerGroup;
@@ -67,6 +72,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -86,6 +92,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -106,6 +113,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -126,6 +134,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getOldCustomer()
@@ -146,6 +155,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup()

@@ -24,21 +24,25 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
 
     public const DISCRIMINATOR_VALUE = 'SetShippingInfoPriceChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Money
      */
     protected $nextValue;
 
     /**
+
      * @var ?Money
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
     /**
      * <p>Update action for <code>setShippingInfoPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class SetShippingInfoPriceChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()

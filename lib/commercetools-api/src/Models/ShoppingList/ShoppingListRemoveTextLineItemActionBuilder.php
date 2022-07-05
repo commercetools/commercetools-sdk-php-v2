@@ -21,16 +21,19 @@ use stdClass;
 final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $textLineItemId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @return null|string
      */
     public function getTextLineItemId()
@@ -39,6 +42,7 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

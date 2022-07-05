@@ -23,16 +23,19 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'PaymentStatusStateTransition';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?StateReference
      */
     protected $state;
 
     /**
+
      * @var ?bool
      */
     protected $force;
@@ -51,6 +54,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +74,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getState()
@@ -88,6 +93,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

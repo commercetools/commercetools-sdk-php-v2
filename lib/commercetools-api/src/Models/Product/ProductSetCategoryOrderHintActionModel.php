@@ -21,21 +21,25 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setCategoryOrderHint';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $categoryId;
 
     /**
+
      * @var ?string
      */
     protected $orderHint;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -56,6 +60,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getCategoryId()
@@ -90,6 +96,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderHint()
@@ -107,6 +114,7 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

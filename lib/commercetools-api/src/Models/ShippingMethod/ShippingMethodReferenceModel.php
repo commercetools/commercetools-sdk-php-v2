@@ -23,16 +23,19 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
 {
     public const DISCRIMINATOR_VALUE = 'shipping-method';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?ShippingMethod
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     /**
      * <p>Contains the representation of the expanded ShippingMethod. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ShippingMethods.</p>
      *
+
      * @return null|ShippingMethod
      */
     public function getObj()

@@ -23,16 +23,19 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'ProductDeleted';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $removedImageUrls;
 
     /**
+
      * @var ?ProductProjection
      */
     protected $currentProjection;
@@ -51,6 +54,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -85,6 +90,7 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|ProductProjection
      */
     public function getCurrentProjection()

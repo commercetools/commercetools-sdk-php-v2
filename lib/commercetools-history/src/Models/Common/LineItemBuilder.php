@@ -21,56 +21,67 @@ use stdClass;
 final class LineItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addedAt;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $productSlug;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Variant|VariantBuilder
      */
     private $variant;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|string
      */
     public function getAddedAt()
@@ -79,6 +90,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -87,6 +99,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -95,6 +108,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -103,6 +117,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -111,6 +126,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -119,6 +135,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getProductType()
@@ -127,6 +144,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -135,6 +153,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|Variant
      */
     public function getVariant()
@@ -143,6 +162,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

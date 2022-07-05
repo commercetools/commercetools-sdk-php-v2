@@ -24,21 +24,25 @@ final class TransitionStateChangeModel extends JsonObjectModel implements Transi
 
     public const DISCRIMINATOR_VALUE = 'TransitionStateChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Reference
      */
     protected $previousValue;
 
     /**
+
      * @var ?Reference
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class TransitionStateChangeModel extends JsonObjectModel implements Transi
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class TransitionStateChangeModel extends JsonObjectModel implements Transi
     /**
      * <p>Shape of the action for <code>transitionState</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class TransitionStateChangeModel extends JsonObjectModel implements Transi
     }
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class TransitionStateChangeModel extends JsonObjectModel implements Transi
     }
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue()

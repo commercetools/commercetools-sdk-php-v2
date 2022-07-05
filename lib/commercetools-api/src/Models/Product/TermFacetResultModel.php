@@ -21,31 +21,37 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
 {
     public const DISCRIMINATOR_VALUE = 'terms';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $dataType;
 
     /**
+
      * @var ?int
      */
     protected $missing;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?int
      */
     protected $other;
 
     /**
+
      * @var ?FacetTermCollection
      */
     protected $terms;
@@ -70,6 +76,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +94,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
+
      * @return null|string
      */
     public function getDataType()
@@ -104,6 +112,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
+
      * @return null|int
      */
     public function getMissing()
@@ -121,6 +130,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -138,6 +148,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
+
      * @return null|int
      */
     public function getOther()
@@ -155,6 +166,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
+
      * @return null|FacetTermCollection
      */
     public function getTerms()

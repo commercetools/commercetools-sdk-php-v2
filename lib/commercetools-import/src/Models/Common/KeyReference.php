@@ -18,6 +18,7 @@ interface KeyReference extends JsonObject
     public const FIELD_TYPE_ID = 'typeId';
 
     /**
+
      * @return null|string
      */
     public function getKey();
@@ -25,6 +26,7 @@ interface KeyReference extends JsonObject
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId();

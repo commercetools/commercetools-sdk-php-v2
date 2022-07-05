@@ -23,11 +23,13 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setCountry';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $country;
@@ -44,6 +46,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getCountry()

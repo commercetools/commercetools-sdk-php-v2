@@ -25,16 +25,19 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setShippingMethod';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -53,6 +56,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -72,6 +76,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
      *
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -90,6 +95,7 @@ final class MyCartSetShippingMethodActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

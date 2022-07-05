@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class FieldDefinitionOrderValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -41,6 +44,7 @@ final class FieldDefinitionOrderValueBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()

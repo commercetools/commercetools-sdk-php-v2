@@ -23,11 +23,13 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionDeleted';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

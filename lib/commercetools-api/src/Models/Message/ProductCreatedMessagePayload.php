@@ -17,6 +17,7 @@ interface ProductCreatedMessagePayload extends MessagePayload
     public const FIELD_PRODUCT_PROJECTION = 'productProjection';
 
     /**
+
      * @return null|ProductProjection
      */
     public function getProductProjection();

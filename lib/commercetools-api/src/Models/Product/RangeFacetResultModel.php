@@ -21,11 +21,13 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
 {
     public const DISCRIMINATOR_VALUE = 'range';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?FacetRangeCollection
      */
     protected $ranges;
@@ -42,6 +44,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     }
 
     /**
+
      * @return null|FacetRangeCollection
      */
     public function getRanges()

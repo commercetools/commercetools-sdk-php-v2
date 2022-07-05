@@ -23,21 +23,25 @@ use stdClass;
 final class ProductImageAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var null|Image|ImageBuilder
      */
     private $image;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -46,6 +50,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|Image
      */
     public function getImage()
@@ -54,6 +59,7 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

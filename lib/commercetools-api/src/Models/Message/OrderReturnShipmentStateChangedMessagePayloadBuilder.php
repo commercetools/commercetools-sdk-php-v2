@@ -21,16 +21,19 @@ use stdClass;
 final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $returnItemId;
 
     /**
+
      * @var ?string
      */
     private $returnShipmentState;
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId()
@@ -39,6 +42,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Buil
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnShipmentState()

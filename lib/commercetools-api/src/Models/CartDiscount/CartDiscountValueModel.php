@@ -21,6 +21,7 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -45,6 +46,7 @@ final class CartDiscountValueModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

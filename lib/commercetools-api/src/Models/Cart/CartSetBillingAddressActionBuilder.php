@@ -23,11 +23,13 @@ use stdClass;
 final class CartSetBillingAddressActionBuilder implements Builder
 {
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

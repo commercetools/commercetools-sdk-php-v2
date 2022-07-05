@@ -23,11 +23,13 @@ use stdClass;
 final class MoneyFieldBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue()

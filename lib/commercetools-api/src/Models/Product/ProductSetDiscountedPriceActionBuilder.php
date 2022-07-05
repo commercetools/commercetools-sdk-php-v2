@@ -23,21 +23,25 @@ use stdClass;
 final class ProductSetDiscountedPriceActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
     private $discounted;
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -46,6 +50,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -54,6 +59,7 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()

@@ -23,21 +23,25 @@ use stdClass;
 final class CustomerChangeAddressActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressId;
 
     /**
+
      * @var ?string
      */
     private $addressKey;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @return null|string
      */
     public function getAddressId()
@@ -46,6 +50,7 @@ final class CustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAddressKey()
@@ -54,6 +59,7 @@ final class CustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

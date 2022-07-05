@@ -18,11 +18,13 @@ interface OrderCustomLineItemRemovedMessage extends OrderMessage
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getCustomLineItem();

@@ -25,11 +25,13 @@ use stdClass;
 final class StagedOrderUpdateItemShippingAddressActionBuilder implements Builder
 {
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

@@ -18,6 +18,7 @@ interface HighPrecisionMoneyDraft extends TypedMoneyDraft
     /**
      * <p>Number of fraction digits for a specified high precision money. It must be greater than the default number of fraction digits for the specified currency.</p>
      *
+
      * @return null|int
      */
     public function getFractionDigits();
@@ -25,6 +26,7 @@ interface HighPrecisionMoneyDraft extends TypedMoneyDraft
     /**
      * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
      *
+
      * @return null|int
      */
     public function getPreciseAmount();
@@ -34,6 +36,7 @@ interface HighPrecisionMoneyDraft extends TypedMoneyDraft
      * <p>A Price of 1.015 USD can be rounded either to 1.01 USD or 1.02 USD. If it lies outside of this range, an error message stating that centAmount must be rounded correctly will be returned.</p>
      * <p>If <code>centAmount</code> is not provided, the API calculates the value automatically using the default rounding mode half even.</p>
      *
+
      * @return null|int
      */
     public function getCentAmount();

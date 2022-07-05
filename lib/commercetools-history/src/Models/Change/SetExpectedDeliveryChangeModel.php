@@ -22,21 +22,25 @@ final class SetExpectedDeliveryChangeModel extends JsonObjectModel implements Se
 
     public const DISCRIMINATOR_VALUE = 'SetExpectedDeliveryChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class SetExpectedDeliveryChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class SetExpectedDeliveryChangeModel extends JsonObjectModel implements Se
     /**
      * <p>Shape of the action for <code>setExpectedDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class SetExpectedDeliveryChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class SetExpectedDeliveryChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

@@ -33,111 +33,133 @@ use stdClass;
 final class OrderImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @var null|CustomerKeyReference|CustomerKeyReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var ?string
      */
     private $customerEmail;
 
     /**
+
      * @var ?LineItemImportDraftCollection
      */
     private $lineItems;
 
     /**
+
      * @var ?CustomLineItemDraftCollection
      */
     private $customLineItems;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
     /**
+
      * @var null|CustomerGroupKeyReference|CustomerGroupKeyReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var null|ShippingInfoImportDraft|ShippingInfoImportDraftBuilder
      */
     private $shippingInfo;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $completedAt;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $inventoryMode;
 
     /**
+
      * @var ?string
      */
     private $taxRoundingMode;
 
     /**
+
      * @var ?string
      */
     private $taxCalculationMode;
 
     /**
+
      * @var ?string
      */
     private $origin;
 
     /**
+
      * @var ?AddressCollection
      */
     private $itemShippingAddresses;
@@ -145,6 +167,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -153,6 +176,7 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomerKeyReference
      */
     public function getCustomer()
@@ -163,6 +187,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.customerEmail</code>.</p>
      *
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -173,6 +198,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.lineItems</code>.</p>
      *
+
      * @return null|LineItemImportDraftCollection
      */
     public function getLineItems()
@@ -183,6 +209,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.customLineItems</code></p>
      *
+
      * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems()
@@ -193,6 +220,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.totalPrice</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -203,6 +231,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.taxedPrice</code>.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -213,6 +242,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.shippingAddress</code>.</p>
      *
+
      * @return null|Address
      */
     public function getShippingAddress()
@@ -223,6 +253,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.billingAddress</code>.</p>
      *
+
      * @return null|Address
      */
     public function getBillingAddress()
@@ -233,6 +264,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.customerGroup</code>.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -243,6 +275,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.country</code>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -253,6 +286,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.orderState</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderState()
@@ -263,6 +297,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.shipmentState</code>.</p>
      *
+
      * @return null|string
      */
     public function getShipmentState()
@@ -273,6 +308,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.paymentState</code>.</p>
      *
+
      * @return null|string
      */
     public function getPaymentState()
@@ -283,6 +319,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.shippingInfo</code>.</p>
      *
+
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo()
@@ -293,6 +330,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.completedAt</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt()
@@ -303,6 +341,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.custom</code>.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()
@@ -313,6 +352,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.inventoryMode</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -323,6 +363,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.taxRoundingMode</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -333,6 +374,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.taxCalculationMode</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -343,6 +385,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.origin</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()
@@ -353,6 +396,7 @@ final class OrderImportBuilder implements Builder
     /**
      * <p>Maps to <code>Order.itemShippingAddresses</code>.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()

@@ -18,6 +18,7 @@ interface CustomerSetVatIdAction extends CustomerUpdateAction
     /**
      * <p>If not defined, the vat Id is unset.</p>
      *
+
      * @return null|string
      */
     public function getVatId();

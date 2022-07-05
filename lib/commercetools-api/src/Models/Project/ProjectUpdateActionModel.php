@@ -21,6 +21,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -36,7 +37,6 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'changeCurrencies' => ProjectChangeCurrenciesActionModel::class,
        'changeLanguages' => ProjectChangeLanguagesActionModel::class,
        'changeMessagesConfiguration' => ProjectChangeMessagesConfigurationActionModel::class,
-       'changeMessagesEnabled' => ProjectChangeMessagesEnabledActionModel::class,
        'changeName' => ProjectChangeNameActionModel::class,
        'changeOrderSearchStatus' => ProjectChangeOrderSearchStatusActionModel::class,
        'changeProductSearchIndexingEnabled' => ProjectChangeProductSearchIndexingEnabledActionModel::class,
@@ -54,6 +54,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

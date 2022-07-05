@@ -26,26 +26,31 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemTotalPriceChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+
      * @var ?Money
      */
     protected $nextValue;
 
     /**
+
      * @var ?Money
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setLineItemTotalPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -122,6 +130,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()

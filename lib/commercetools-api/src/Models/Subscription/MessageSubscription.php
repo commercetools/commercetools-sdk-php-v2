@@ -17,11 +17,13 @@ interface MessageSubscription extends JsonObject
     public const FIELD_TYPES = 'types';
 
     /**
+
      * @return null|string
      */
     public function getResourceTypeId();
 
     /**
+
      * @return null|array
      */
     public function getTypes();

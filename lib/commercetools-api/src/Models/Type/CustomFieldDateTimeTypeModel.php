@@ -21,6 +21,7 @@ final class CustomFieldDateTimeTypeModel extends JsonObjectModel implements Cust
 {
     public const DISCRIMINATOR_VALUE = 'DateTime';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class CustomFieldDateTimeTypeModel extends JsonObjectModel implements Cust
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

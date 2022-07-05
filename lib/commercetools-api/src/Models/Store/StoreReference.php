@@ -19,6 +19,7 @@ interface StoreReference extends Reference
     /**
      * <p>Contains the representation of the expanded Store. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Stores.</p>
      *
+
      * @return null|Store
      */
     public function getObj();
@@ -26,6 +27,7 @@ interface StoreReference extends Reference
     /**
      * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

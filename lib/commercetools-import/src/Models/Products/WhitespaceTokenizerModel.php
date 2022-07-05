@@ -21,6 +21,7 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
 {
     public const DISCRIMINATOR_VALUE = 'whitespace';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

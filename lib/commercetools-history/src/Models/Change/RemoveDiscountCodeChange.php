@@ -18,6 +18,7 @@ interface RemoveDiscountCodeChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface RemoveDiscountCodeChange extends Change
     /**
      * <p>Update action for <code>removeDiscountCode</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|DiscountCodeInfo
      */
     public function getPreviousValue();

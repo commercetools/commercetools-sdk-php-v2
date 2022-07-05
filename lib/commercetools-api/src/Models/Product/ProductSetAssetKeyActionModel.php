@@ -21,31 +21,37 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'setAssetKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
@@ -70,6 +76,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -87,6 +94,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -104,6 +112,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -121,6 +130,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -138,6 +148,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -158,6 +169,7 @@ final class ProductSetAssetKeyActionModel extends JsonObjectModel implements Pro
      * <p>User-defined identifier for the asset.
      * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()

@@ -22,6 +22,7 @@ interface TaxedPrice extends JsonObject
     /**
      * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalNet();
@@ -29,6 +30,7 @@ interface TaxedPrice extends JsonObject
     /**
      * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross();
@@ -36,6 +38,7 @@ interface TaxedPrice extends JsonObject
     /**
      * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
      *
+
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions();
@@ -43,6 +46,7 @@ interface TaxedPrice extends JsonObject
     /**
      * <p>Maps to <code>TaxedPrice.totalTax</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalTax();

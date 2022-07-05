@@ -20,6 +20,7 @@ interface CategoryUpdate extends JsonObject
      * <p>Expected version of the Category on which the changes should be applied.
      * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -27,6 +28,7 @@ interface CategoryUpdate extends JsonObject
     /**
      * <p>Update actions to be performed on the Category.</p>
      *
+
      * @return null|CategoryUpdateActionCollection
      */
     public function getActions();

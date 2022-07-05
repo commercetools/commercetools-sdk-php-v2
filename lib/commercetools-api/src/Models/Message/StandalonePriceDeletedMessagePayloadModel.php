@@ -21,6 +21,7 @@ final class StandalonePriceDeletedMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceDeleted';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class StandalonePriceDeletedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

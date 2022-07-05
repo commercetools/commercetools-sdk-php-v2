@@ -19,6 +19,7 @@ interface ShippingMethodChangeTaxCategoryAction extends ShippingMethodUpdateActi
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();

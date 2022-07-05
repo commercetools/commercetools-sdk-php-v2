@@ -23,6 +23,7 @@ use stdClass;
 final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
 {
     /**
+
      * @var null|MessagesConfigurationDraft|MessagesConfigurationDraftBuilder
      */
     private $messagesConfiguration;
@@ -30,6 +31,7 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     /**
      * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
      *
+
      * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration()

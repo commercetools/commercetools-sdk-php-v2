@@ -23,11 +23,13 @@ final class CustomerAddressAddedMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'CustomerAddressAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Address
      */
     protected $address;
@@ -44,6 +46,7 @@ final class CustomerAddressAddedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class CustomerAddressAddedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()

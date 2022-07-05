@@ -24,41 +24,49 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = 'addVariant';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     protected $prices;
 
     /**
+
      * @var ?ImageCollection
      */
     protected $images;
 
     /**
+
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?AssetCollection
      */
     protected $assets;
@@ -87,6 +95,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -104,6 +113,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -121,6 +131,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -138,6 +149,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -155,6 +167,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -172,6 +185,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -189,6 +203,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -206,6 +221,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets()

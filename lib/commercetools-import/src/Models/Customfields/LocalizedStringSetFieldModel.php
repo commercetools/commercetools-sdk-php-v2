@@ -22,11 +22,13 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedStringSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedStringCollection
      */
     protected $value;
@@ -45,6 +47,7 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
     }
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getValue()

@@ -21,6 +21,7 @@ final class ImageSearchConfigUpdateActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -42,6 +43,7 @@ final class ImageSearchConfigUpdateActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

@@ -25,11 +25,13 @@ interface Asset extends JsonObject
      * <p>User-defined identifier for the asset.
      * Asset keys are unique inside their container (a product variant or a category).</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources();
@@ -42,6 +44,7 @@ interface Asset extends JsonObject
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -54,11 +57,13 @@ interface Asset extends JsonObject
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|array
      */
     public function getTags();
@@ -66,6 +71,7 @@ interface Asset extends JsonObject
     /**
      * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();

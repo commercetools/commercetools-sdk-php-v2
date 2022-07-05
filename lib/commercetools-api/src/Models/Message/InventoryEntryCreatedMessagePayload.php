@@ -17,6 +17,7 @@ interface InventoryEntryCreatedMessagePayload extends MessagePayload
     public const FIELD_INVENTORY_ENTRY = 'inventoryEntry';
 
     /**
+
      * @return null|InventoryEntry
      */
     public function getInventoryEntry();

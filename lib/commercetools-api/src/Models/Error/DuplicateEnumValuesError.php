@@ -16,6 +16,7 @@ interface DuplicateEnumValuesError extends ErrorObject
     public const FIELD_DUPLICATES = 'duplicates';
 
     /**
+
      * @return null|array
      */
     public function getDuplicates();

@@ -23,11 +23,13 @@ use stdClass;
 final class CustomerCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Customer|CustomerBuilder
      */
     private $customer;
 
     /**
+
      * @return null|Customer
      */
     public function getCustomer()

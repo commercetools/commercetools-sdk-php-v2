@@ -23,36 +23,43 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'ProductPriceExternalDiscountSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $variantKey;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $priceId;
 
     /**
+
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -79,6 +86,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -96,6 +104,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -113,6 +122,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getVariantKey()
@@ -130,6 +140,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -147,6 +158,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -164,6 +176,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -182,6 +195,7 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

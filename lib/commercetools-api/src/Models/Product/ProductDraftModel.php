@@ -29,86 +29,103 @@ use stdClass;
 final class ProductDraftModel extends JsonObjectModel implements ProductDraft
 {
     /**
+
      * @var ?ProductTypeResourceIdentifier
      */
     protected $productType;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?CategoryResourceIdentifierCollection
      */
     protected $categories;
 
     /**
+
      * @var ?CategoryOrderHints
      */
     protected $categoryOrderHints;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
+
      * @var ?ProductVariantDraft
      */
     protected $masterVariant;
 
     /**
+
      * @var ?ProductVariantDraftCollection
      */
     protected $variants;
 
     /**
+
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
+
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
 
     /**
+
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
+
      * @var ?bool
      */
     protected $publish;
 
     /**
+
      * @var ?string
      */
     protected $priceMode;
@@ -159,6 +176,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      * <p>A predefined product type assigned to the product.
      * All products must have a product type.</p>
      *
+
      * @return null|ProductTypeResourceIdentifier
      */
     public function getProductType()
@@ -177,6 +195,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -200,6 +219,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      * Slugs have a maximum size of 256.
      * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -220,6 +240,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     /**
      * <p>User-defined unique identifier for the Product.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -237,6 +258,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -257,6 +279,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     /**
      * <p>Categories assigned to the product.</p>
      *
+
      * @return null|CategoryResourceIdentifierCollection
      */
     public function getCategories()
@@ -274,6 +297,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -292,6 +316,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -310,6 +335,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -328,6 +354,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -349,6 +376,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
      * <p>The master product variant.
      * Required if the <code>variants</code> array has product variants.</p>
      *
+
      * @return null|ProductVariantDraft
      */
     public function getMasterVariant()
@@ -369,6 +397,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     /**
      * <p>An array of related product variants.</p>
      *
+
      * @return null|ProductVariantDraftCollection
      */
     public function getVariants()
@@ -386,6 +415,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -404,6 +434,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -422,6 +453,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     }
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -442,6 +474,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     /**
      * <p>If <code>true</code>, the product is published immediately.</p>
      *
+
      * @return null|bool
      */
     public function getPublish()
@@ -461,6 +494,7 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
     /**
      * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
      *
+
      * @return null|string
      */
     public function getPriceMode()

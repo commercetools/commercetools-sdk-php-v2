@@ -23,16 +23,19 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'ProductStateTransition';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?StateReference
      */
     protected $state;
 
     /**
+
      * @var ?bool
      */
     protected $force;
@@ -51,6 +54,7 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +74,7 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getState()
@@ -88,6 +93,7 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

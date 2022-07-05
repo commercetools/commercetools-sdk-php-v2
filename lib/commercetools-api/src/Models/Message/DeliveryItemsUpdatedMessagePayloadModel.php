@@ -22,21 +22,25 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryItemsUpdated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $oldItems;
@@ -57,6 +61,7 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -74,6 +79,7 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -91,6 +97,7 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -108,6 +115,7 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()

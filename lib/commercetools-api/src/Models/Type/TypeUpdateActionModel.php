@@ -21,6 +21,7 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -35,7 +36,6 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
        'addLocalizedEnumValue' => TypeAddLocalizedEnumValueActionModel::class,
        'changeEnumValueLabel' => TypeChangeEnumValueLabelActionModel::class,
        'changeEnumValueOrder' => TypeChangeEnumValueOrderActionModel::class,
-       'changeFieldDefinitionLabel' => TypeChangeFieldDefinitionLabelActionModel::class,
        'changeFieldDefinitionOrder' => TypeChangeFieldDefinitionOrderActionModel::class,
        'changeInputHint' => TypeChangeInputHintActionModel::class,
        'changeKey' => TypeChangeKeyActionModel::class,
@@ -56,6 +56,7 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

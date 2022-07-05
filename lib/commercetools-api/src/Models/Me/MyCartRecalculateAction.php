@@ -16,6 +16,7 @@ interface MyCartRecalculateAction extends MyCartUpdateAction
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData();

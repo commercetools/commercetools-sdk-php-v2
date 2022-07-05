@@ -33,6 +33,7 @@ interface ReviewDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Review.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -41,26 +42,31 @@ interface ReviewDraft extends JsonObject
      * <p>If set, this value must be unique among reviews.
      * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code> and <code>product's id</code>.</p>
      *
+
      * @return null|string
      */
     public function getUniquenessValue();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|string
      */
     public function getAuthorName();
 
     /**
+
      * @return null|string
      */
     public function getTitle();
 
     /**
+
      * @return null|string
      */
     public function getText();
@@ -69,11 +75,13 @@ interface ReviewDraft extends JsonObject
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
+
      * @return null|mixed
      */
     public function getTarget();
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState();
@@ -84,6 +92,7 @@ interface ReviewDraft extends JsonObject
      * This rating can represent the number of stars, or a percentage, or a like (+1)/dislike (-1)
      * A rating is used in the ratings statistics of the targeted object, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.</p>
      *
+
      * @return null|int
      */
     public function getRating();
@@ -91,11 +100,13 @@ interface ReviewDraft extends JsonObject
     /**
      * <p>The customer who created the review.</p>
      *
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();
 
     /**
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

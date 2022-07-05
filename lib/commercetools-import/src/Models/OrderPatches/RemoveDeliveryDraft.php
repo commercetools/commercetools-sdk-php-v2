@@ -16,6 +16,7 @@ interface RemoveDeliveryDraft extends JsonObject
     public const FIELD_ID = 'id';
 
     /**
+
      * @return null|string
      */
     public function getId();

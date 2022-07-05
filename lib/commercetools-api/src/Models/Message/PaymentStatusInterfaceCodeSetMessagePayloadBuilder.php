@@ -21,16 +21,19 @@ use stdClass;
 final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $paymentId;
 
     /**
+
      * @var ?string
      */
     private $interfaceCode;
 
     /**
+
      * @return null|string
      */
     public function getPaymentId()
@@ -39,6 +42,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     }
 
     /**
+
      * @return null|string
      */
     public function getInterfaceCode()

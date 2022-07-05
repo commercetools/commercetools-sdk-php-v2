@@ -51,6 +51,7 @@ interface Customer extends BaseResource
     /**
      * <p>Unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -58,16 +59,19 @@ interface Customer extends BaseResource
     /**
      * <p>The current version of the customer.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -75,6 +79,7 @@ interface Customer extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -82,6 +87,7 @@ interface Customer extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -91,6 +97,7 @@ interface Customer extends BaseResource
      * It should be unique across a project.
      * Once the field was set it cannot be changed anymore.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber();
@@ -100,6 +107,7 @@ interface Customer extends BaseResource
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
      * For more information, see Email uniquenes.</p>
      *
+
      * @return null|string
      */
     public function getEmail();
@@ -107,41 +115,49 @@ interface Customer extends BaseResource
     /**
      * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword();
 
     /**
+
      * @return null|string
      */
     public function getFirstName();
 
     /**
+
      * @return null|string
      */
     public function getLastName();
 
     /**
+
      * @return null|string
      */
     public function getMiddleName();
 
     /**
+
      * @return null|string
      */
     public function getTitle();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();
 
     /**
+
      * @return null|string
      */
     public function getCompanyName();
 
     /**
+
      * @return null|string
      */
     public function getVatId();
@@ -149,6 +165,7 @@ interface Customer extends BaseResource
     /**
      * <p>The addresses have unique IDs in the addresses list</p>
      *
+
      * @return null|AddressCollection
      */
     public function getAddresses();
@@ -156,6 +173,7 @@ interface Customer extends BaseResource
     /**
      * <p>The address ID in the addresses list</p>
      *
+
      * @return null|string
      */
     public function getDefaultShippingAddressId();
@@ -163,6 +181,7 @@ interface Customer extends BaseResource
     /**
      * <p>The IDs from the addresses list which are used as shipping addresses</p>
      *
+
      * @return null|array
      */
     public function getShippingAddressIds();
@@ -170,6 +189,7 @@ interface Customer extends BaseResource
     /**
      * <p>The address ID in the addresses list</p>
      *
+
      * @return null|string
      */
     public function getDefaultBillingAddressId();
@@ -177,36 +197,43 @@ interface Customer extends BaseResource
     /**
      * <p>The IDs from the addresses list which are used as billing addresses</p>
      *
+
      * @return null|array
      */
     public function getBillingAddressIds();
 
     /**
+
      * @return null|bool
      */
     public function getIsEmailVerified();
 
     /**
+
      * @return null|string
      */
     public function getExternalId();
 
     /**
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|string
      */
     public function getSalutation();
@@ -214,6 +241,7 @@ interface Customer extends BaseResource
     /**
      * <p>User-defined unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -223,6 +251,7 @@ interface Customer extends BaseResource
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
      * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
+
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();
@@ -230,6 +259,7 @@ interface Customer extends BaseResource
     /**
      * <p>Defines whether a Customer has a password.</p>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode();

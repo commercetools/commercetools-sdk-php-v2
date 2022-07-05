@@ -23,11 +23,13 @@ use stdClass;
 final class ProductStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
+
      * @var ?bool
      */
     private $force;
@@ -35,6 +37,7 @@ final class ProductStateTransitionMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getState()
@@ -43,6 +46,7 @@ final class ProductStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

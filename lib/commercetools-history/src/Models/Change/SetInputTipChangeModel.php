@@ -24,26 +24,31 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
 
     public const DISCRIMINATOR_VALUE = 'SetInputTipChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -66,6 +71,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     /**
      * <p>Update action for <code>setInputTip</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     /**
      * <p>The name of the updated attribute.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -121,6 +129,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -139,6 +148,7 @@ final class SetInputTipChangeModel extends JsonObjectModel implements SetInputTi
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

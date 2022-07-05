@@ -17,11 +17,13 @@ interface DiscountedLineItemPriceForQuantity extends JsonObject
     public const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getDiscountedPrice();

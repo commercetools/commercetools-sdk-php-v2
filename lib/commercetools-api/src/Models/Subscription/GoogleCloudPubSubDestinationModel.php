@@ -21,16 +21,19 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'GoogleCloudPubSub';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $projectId;
 
     /**
+
      * @var ?string
      */
     protected $topic;
@@ -49,6 +52,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getProjectId()
@@ -83,6 +88,7 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getTopic()

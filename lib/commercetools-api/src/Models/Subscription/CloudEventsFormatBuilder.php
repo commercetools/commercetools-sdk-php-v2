@@ -21,11 +21,13 @@ use stdClass;
 final class CloudEventsFormatBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $cloudEventsVersion;
 
     /**
+
      * @return null|string
      */
     public function getCloudEventsVersion()

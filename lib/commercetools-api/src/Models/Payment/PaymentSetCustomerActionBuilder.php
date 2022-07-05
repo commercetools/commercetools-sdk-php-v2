@@ -23,6 +23,7 @@ use stdClass;
 final class PaymentSetCustomerActionBuilder implements Builder
 {
     /**
+
      * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
@@ -30,6 +31,7 @@ final class PaymentSetCustomerActionBuilder implements Builder
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

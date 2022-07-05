@@ -22,6 +22,7 @@ final class CustomShippingMethodChangeValueModel extends JsonObjectModel impleme
 
 
     /**
+
      * @var ?string
      */
     protected $name;
@@ -38,6 +39,7 @@ final class CustomShippingMethodChangeValueModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

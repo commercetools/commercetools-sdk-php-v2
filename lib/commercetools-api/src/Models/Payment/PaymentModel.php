@@ -34,106 +34,127 @@ use stdClass;
 final class PaymentModel extends JsonObjectModel implements Payment
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
+
      * @var ?string
      */
     protected $anonymousId;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?string
      */
     protected $interfaceId;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $amountPlanned;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $amountAuthorized;
 
     /**
+
      * @var ?string
      */
     protected $authorizedUntil;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $amountPaid;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $amountRefunded;
 
     /**
+
      * @var ?PaymentMethodInfo
      */
     protected $paymentMethodInfo;
 
     /**
+
      * @var ?PaymentStatus
      */
     protected $paymentStatus;
 
     /**
+
      * @var ?TransactionCollection
      */
     protected $transactions;
 
     /**
+
      * @var ?CustomFieldsCollection
      */
     protected $interfaceInteractions;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -181,6 +202,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>Unique identifier of the Payment.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -198,6 +220,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -215,6 +238,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -236,6 +260,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -259,6 +284,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -279,6 +305,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -299,6 +326,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -319,6 +347,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -340,6 +369,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceId()
@@ -360,6 +390,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getAmountPlanned()
@@ -378,6 +409,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -396,6 +428,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+
      * @return null|PaymentStatus
      */
     public function getPaymentStatus()
@@ -416,6 +449,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
      *
+
      * @return null|TransactionCollection
      */
     public function getTransactions()
@@ -438,6 +472,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
      * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
      * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
      *
+
      * @return null|CustomFieldsCollection
      */
     public function getInterfaceInteractions()
@@ -455,6 +490,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -475,6 +511,7 @@ final class PaymentModel extends JsonObjectModel implements Payment
     /**
      * <p>User-defined unique identifier of the Payment.</p>
      *
+
      * @return null|string
      */
     public function getKey()

@@ -19,21 +19,25 @@ interface ProductChangeAssetOrderAction extends ProductUpdateAction
     public const FIELD_ASSET_ORDER = 'assetOrder';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|array
      */
     public function getAssetOrder();

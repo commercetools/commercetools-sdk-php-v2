@@ -21,16 +21,19 @@ final class ProductTypeChangePlainEnumValueLabelActionModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'changePlainEnumValueLabel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?AttributePlainEnumValue
      */
     protected $newValue;
@@ -49,6 +52,7 @@ final class ProductTypeChangePlainEnumValueLabelActionModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductTypeChangePlainEnumValueLabelActionModel extends JsonObjectMo
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -87,6 +92,7 @@ final class ProductTypeChangePlainEnumValueLabelActionModel extends JsonObjectMo
     /**
      * <p>New value to set. Must be different from the existing value.</p>
      *
+
      * @return null|AttributePlainEnumValue
      */
     public function getNewValue()

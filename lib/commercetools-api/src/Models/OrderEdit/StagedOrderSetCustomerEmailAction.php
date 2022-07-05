@@ -17,6 +17,7 @@ interface StagedOrderSetCustomerEmailAction extends StagedOrderUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+
      * @return null|string
      */
     public function getEmail();

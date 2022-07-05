@@ -21,6 +21,7 @@ interface MyQuoteRequestDraft extends JsonObject
     /**
      * <p>ResourceIdentifier to the Cart from which this quote request is created.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart();
@@ -28,6 +29,7 @@ interface MyQuoteRequestDraft extends JsonObject
     /**
      * <p>Current version of the Cart.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -35,6 +37,7 @@ interface MyQuoteRequestDraft extends JsonObject
     /**
      * <p>Text message included in the request.</p>
      *
+
      * @return null|string
      */
     public function getComment();

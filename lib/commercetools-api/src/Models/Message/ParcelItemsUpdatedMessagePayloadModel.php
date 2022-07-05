@@ -22,26 +22,31 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'ParcelItemsUpdated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $oldItems;
@@ -64,6 +69,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -81,6 +87,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -98,6 +105,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -115,6 +123,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -132,6 +141,7 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()

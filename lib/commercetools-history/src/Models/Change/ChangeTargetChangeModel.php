@@ -24,21 +24,25 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
 
     public const DISCRIMINATOR_VALUE = 'ChangeTargetChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ChangeTargetChangeValue
      */
     protected $nextValue;
 
     /**
+
      * @var ?ChangeTargetChangeValue
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     /**
      * <p>Update action for <code>changeTarget</code> on cart discounts</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     }
 
     /**
+
      * @return null|ChangeTargetChangeValue
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class ChangeTargetChangeModel extends JsonObjectModel implements ChangeTar
     }
 
     /**
+
      * @return null|ChangeTargetChangeValue
      */
     public function getPreviousValue()

@@ -20,21 +20,25 @@ interface ReturnItemDraft extends JsonObject
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
+
      * @return null|float
      */
     public function getQuantity();
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|string
      */
     public function getComment();
@@ -42,6 +46,7 @@ interface ReturnItemDraft extends JsonObject
     /**
      * <p>Maps to <code>ReturnItem.shipmentState</code></p>
      *
+
      * @return null|string
      */
     public function getShipmentState();

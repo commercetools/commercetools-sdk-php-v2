@@ -23,26 +23,31 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
 
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?int
      */
     private $nextValue;
 
     /**
+
      * @var ?int
      */
     private $previousValue;
@@ -50,6 +55,7 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeCustomLineItemQuantity</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -66,6 +73,7 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -74,6 +82,7 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()
@@ -82,6 +91,7 @@ final class ChangeCustomLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()

@@ -28,61 +28,73 @@ use stdClass;
 final class ProductVariantBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?PriceCollection
      */
     private $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $price;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @var null|ProductVariantAvailability|ProductVariantAvailabilityBuilder
      */
     private $availability;
 
     /**
+
      * @var ?bool
      */
     private $isMatchingVariant;
 
     /**
+
      * @var null|ScopedPrice|ScopedPriceBuilder
      */
     private $scopedPrice;
 
     /**
+
      * @var ?bool
      */
     private $scopedPriceDiscounted;
@@ -90,6 +102,7 @@ final class ProductVariantBuilder implements Builder
     /**
      * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
      *
+
      * @return null|int
      */
     public function getId()
@@ -98,6 +111,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -109,6 +123,7 @@ final class ProductVariantBuilder implements Builder
      * <p>User-defined unique identifier of the ProductVariant.
      * <em>ProductVariant keys are different from Product keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -117,6 +132,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getPrices()
@@ -125,6 +141,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -133,6 +150,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|Price
      */
     public function getPrice()
@@ -141,6 +159,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -149,6 +168,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -157,6 +177,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getAvailability()
@@ -165,6 +186,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsMatchingVariant()
@@ -173,6 +195,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|ScopedPrice
      */
     public function getScopedPrice()
@@ -181,6 +204,7 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getScopedPriceDiscounted()

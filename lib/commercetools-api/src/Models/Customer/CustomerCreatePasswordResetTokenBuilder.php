@@ -21,16 +21,19 @@ use stdClass;
 final class CustomerCreatePasswordResetTokenBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?int
      */
     private $ttlMinutes;
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -39,6 +42,7 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getTtlMinutes()

@@ -21,21 +21,25 @@ interface ChangeValueChange extends Change
     /**
      * <p>Update action for <code>changeValue</code> on cart discounts and product discounts</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|ChangeValueChangeValue
      */
     public function getNextValue();
 
     /**
+
      * @return null|ChangeValueChangeValue
      */
     public function getPreviousValue();

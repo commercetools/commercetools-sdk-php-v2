@@ -21,16 +21,19 @@ use stdClass;
 final class PaymentTransactionStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $transactionId;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -39,6 +42,7 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     }
 
     /**
+
      * @return null|string
      */
     public function getState()

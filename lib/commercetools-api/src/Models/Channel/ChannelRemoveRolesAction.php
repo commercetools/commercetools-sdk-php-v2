@@ -18,6 +18,7 @@ interface ChannelRemoveRolesAction extends ChannelUpdateAction
     /**
      * <p>Value to remove from the array.</p>
      *
+
      * @return null|array
      */
     public function getRoles();

@@ -17,6 +17,7 @@ interface StagedOrderChangeTaxCalculationModeAction extends StagedOrderUpdateAct
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
 
     /**
+
      * @return null|string
      */
     public function getTaxCalculationMode();

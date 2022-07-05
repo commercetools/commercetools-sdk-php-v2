@@ -19,6 +19,7 @@ interface InventoryEntrySetExpectedDeliveryAction extends InventoryEntryUpdateAc
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();

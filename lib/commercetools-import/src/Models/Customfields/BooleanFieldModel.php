@@ -21,11 +21,13 @@ final class BooleanFieldModel extends JsonObjectModel implements BooleanField
 {
     public const DISCRIMINATOR_VALUE = 'Boolean';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?bool
      */
     protected $value;
@@ -44,6 +46,7 @@ final class BooleanFieldModel extends JsonObjectModel implements BooleanField
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class BooleanFieldModel extends JsonObjectModel implements BooleanField
     }
 
     /**
+
      * @return null|bool
      */
     public function getValue()

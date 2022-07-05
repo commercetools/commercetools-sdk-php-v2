@@ -24,26 +24,31 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'SetShippingMethodTaxRateChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?TaxRate
      */
     protected $nextValue;
 
     /**
+
      * @var ?TaxRate
      */
     protected $previousValue;
@@ -66,6 +71,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     /**
      * <p>Update action for <code>setShippingMethodTaxRate</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -121,6 +129,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()
@@ -141,6 +150,7 @@ final class SetShippingMethodTaxRateChangeModel extends JsonObjectModel implemen
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()

@@ -21,6 +21,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -53,6 +54,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

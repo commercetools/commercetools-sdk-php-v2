@@ -20,26 +20,31 @@ interface ErrorResponse extends JsonObject
     public const FIELD_ERRORS = 'errors';
 
     /**
+
      * @return null|int
      */
     public function getStatusCode();
 
     /**
+
      * @return null|string
      */
     public function getMessage();
 
     /**
+
      * @return null|string
      */
     public function getError();
 
     /**
+
      * @return null|string
      */
     public function getError_description();
 
     /**
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors();

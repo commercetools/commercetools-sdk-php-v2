@@ -20,6 +20,7 @@ interface ChangeEnumValueOrderChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,6 +28,7 @@ interface ChangeEnumValueOrderChange extends Change
     /**
      * <p>Update action for <code>changeEnumValueOrder</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -34,16 +36,19 @@ interface ChangeEnumValueOrderChange extends Change
     /**
      * <p>The name of the field/attribute definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
 
     /**
+
      * @return null|EnumValueCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|EnumValueCollection
      */
     public function getPreviousValue();

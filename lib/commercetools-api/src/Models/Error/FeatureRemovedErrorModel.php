@@ -21,11 +21,13 @@ final class FeatureRemovedErrorModel extends JsonObjectModel implements FeatureR
 {
     public const DISCRIMINATOR_VALUE = 'FeatureRemoved';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class FeatureRemovedErrorModel extends JsonObjectModel implements FeatureR
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class FeatureRemovedErrorModel extends JsonObjectModel implements FeatureR
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

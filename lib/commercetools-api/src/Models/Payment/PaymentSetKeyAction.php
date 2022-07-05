@@ -20,6 +20,7 @@ interface PaymentSetKeyAction extends PaymentUpdateAction
      * 256 characters).
      * If not provided an existing key will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey();

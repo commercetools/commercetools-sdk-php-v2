@@ -38,6 +38,7 @@ interface ShoppingList extends BaseResource
     /**
      * <p>Unique identifier of the ShoppingList.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -45,16 +46,19 @@ interface ShoppingList extends BaseResource
     /**
      * <p>The current version of the shopping list.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -62,6 +66,7 @@ interface ShoppingList extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -69,16 +74,19 @@ interface ShoppingList extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|CustomerReference
      */
     public function getCustomer();
@@ -86,11 +94,13 @@ interface ShoppingList extends BaseResource
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -98,16 +108,19 @@ interface ShoppingList extends BaseResource
     /**
      * <p>User-defined unique identifier of the ShoppingList.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|ShoppingListLineItemCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -117,11 +130,13 @@ interface ShoppingList extends BaseResource
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
      * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
+
      * @return null|TextLineItemCollection
      */
     public function getTextLineItems();
@@ -129,11 +144,13 @@ interface ShoppingList extends BaseResource
     /**
      * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+
      * @return null|StoreKeyReference
      */
     public function getStore();

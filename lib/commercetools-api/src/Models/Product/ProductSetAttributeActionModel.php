@@ -21,31 +21,37 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setAttribute';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -70,6 +76,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -87,6 +94,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -104,6 +112,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -121,6 +130,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -142,6 +152,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
      * If the attribute exists and a value is provided, the new value is applied.
      * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()
@@ -159,6 +170,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

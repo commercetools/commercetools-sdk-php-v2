@@ -23,11 +23,13 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'changeOrderState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $orderState;
@@ -44,6 +46,7 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderState()

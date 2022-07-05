@@ -21,26 +21,31 @@ use stdClass;
 final class ProductVariantAvailabilityBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $isOnStock;
 
     /**
+
      * @var ?int
      */
     private $restockableInDays;
 
     /**
+
      * @var ?int
      */
     private $availableQuantity;
 
     /**
+
      * @var null|ProductVariantChannelAvailabilityMap|ProductVariantChannelAvailabilityMapBuilder
      */
     private $channels;
 
     /**
+
      * @return null|bool
      */
     public function getIsOnStock()
@@ -49,6 +54,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getRestockableInDays()
@@ -57,6 +63,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getAvailableQuantity()
@@ -65,6 +72,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantChannelAvailabilityMap
      */
     public function getChannels()

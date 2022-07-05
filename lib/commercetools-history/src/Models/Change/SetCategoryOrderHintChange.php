@@ -21,6 +21,7 @@ interface SetCategoryOrderHintChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface SetCategoryOrderHintChange extends Change
     /**
      * <p>Update action for <code>setCategoryOrderHint</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|string
      */
     public function getCategoryId();
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getNextValue();

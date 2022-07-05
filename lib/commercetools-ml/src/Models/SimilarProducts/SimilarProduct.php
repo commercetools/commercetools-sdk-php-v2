@@ -21,6 +21,7 @@ interface SimilarProduct extends JsonObject
     /**
      * <p>Reference to Product</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -28,6 +29,7 @@ interface SimilarProduct extends JsonObject
     /**
      * <p>ID of the ProductVariant that was compared.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();
@@ -35,6 +37,7 @@ interface SimilarProduct extends JsonObject
     /**
      * <p>Supplementary information about the data used for similarity estimation. This information helps you understand the estimated confidence score, but it should not be used to identify a product.</p>
      *
+
      * @return null|SimilarProductMeta
      */
     public function getMeta();

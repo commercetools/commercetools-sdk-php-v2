@@ -23,11 +23,13 @@ use stdClass;
 final class ProductSlugChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $oldSlug;
@@ -35,6 +37,7 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -45,6 +48,7 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getOldSlug()

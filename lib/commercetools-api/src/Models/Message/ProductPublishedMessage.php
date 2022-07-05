@@ -19,16 +19,19 @@ interface ProductPublishedMessage extends Message
     public const FIELD_SCOPE = 'scope';
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls();
 
     /**
+
      * @return null|ProductProjection
      */
     public function getProductProjection();
 
     /**
+
      * @return null|string
      */
     public function getScope();

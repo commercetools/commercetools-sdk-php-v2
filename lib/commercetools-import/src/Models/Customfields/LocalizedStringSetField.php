@@ -17,6 +17,7 @@ interface LocalizedStringSetField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getValue();

@@ -23,11 +23,13 @@ final class ShoppingListSetStoreActionModel extends JsonObjectModel implements S
 {
     public const DISCRIMINATOR_VALUE = 'setStore';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -44,6 +46,7 @@ final class ShoppingListSetStoreActionModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShoppingListSetStoreActionModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

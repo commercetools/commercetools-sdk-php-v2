@@ -21,21 +21,25 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
+
      * @var ?int
      */
     protected $centAmount;
 
     /**
+
      * @var ?string
      */
     protected $currencyCode;
@@ -64,6 +68,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -81,6 +86,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
+
      * @return null|int
      */
     public function getFractionDigits()
@@ -98,6 +104,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
+
      * @return null|int
      */
     public function getCentAmount()
@@ -117,6 +124,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()

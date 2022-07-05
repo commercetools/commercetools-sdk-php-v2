@@ -26,51 +26,61 @@ use stdClass;
 final class ShippingMethodDraftModel extends JsonObjectModel implements ShippingMethodDraft
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $localizedName;
 
     /**
+     * @deprecated
      * @var ?string
      */
     protected $description;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $localizedDescription;
 
     /**
+
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
+
      * @var ?ZoneRateDraftCollection
      */
     protected $zoneRates;
 
     /**
+
      * @var ?bool
      */
     protected $isDefault;
 
     /**
+
      * @var ?string
      */
     protected $predicate;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -106,6 +116,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -125,6 +136,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Name of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -144,6 +156,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Localized name of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedName()
@@ -164,6 +177,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Description of the ShippingMethod.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getDescription()
@@ -183,6 +197,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Localized description of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()
@@ -203,6 +218,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> for all ZoneRates of the ShippingMethod.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -223,6 +239,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific zones.</p>
      *
+
      * @return null|ZoneRateDraftCollection
      */
     public function getZoneRates()
@@ -242,6 +259,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
+
      * @return null|bool
      */
     public function getIsDefault()
@@ -261,6 +279,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()
@@ -280,6 +299,7 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     /**
      * <p>Custom Fields for the ShippingMethod.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

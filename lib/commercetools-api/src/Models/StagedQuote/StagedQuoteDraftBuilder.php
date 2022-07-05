@@ -25,21 +25,25 @@ use stdClass;
 final class StagedQuoteDraftBuilder implements Builder
 {
     /**
+
      * @var null|QuoteRequestResourceIdentifier|QuoteRequestResourceIdentifierBuilder
      */
     private $quoteRequest;
 
     /**
+
      * @var ?int
      */
     private $quoteRequestVersion;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -47,6 +51,7 @@ final class StagedQuoteDraftBuilder implements Builder
     /**
      * <p>The QuoteRequest from which this StagedQuote is created.</p>
      *
+
      * @return null|QuoteRequestResourceIdentifier
      */
     public function getQuoteRequest()
@@ -57,6 +62,7 @@ final class StagedQuoteDraftBuilder implements Builder
     /**
      * <p>Current version of the QuoteRequest.</p>
      *
+
      * @return null|int
      */
     public function getQuoteRequestVersion()
@@ -67,6 +73,7 @@ final class StagedQuoteDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -81,6 +88,7 @@ final class StagedQuoteDraftBuilder implements Builder
      * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> are added to the StagedQuote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

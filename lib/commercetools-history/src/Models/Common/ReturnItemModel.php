@@ -22,41 +22,49 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $comment;
 
     /**
+
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
 
     /**
+
      * @var ?string
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     protected $createdAt;
@@ -87,6 +95,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -104,6 +113,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -121,6 +131,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -138,6 +149,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -155,6 +167,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -172,6 +185,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -189,6 +203,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getLastModifiedAt()
@@ -206,6 +221,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()

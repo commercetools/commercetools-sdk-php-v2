@@ -23,36 +23,43 @@ use stdClass;
 final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $variantKey;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -61,6 +68,7 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariantKey()
@@ -69,6 +77,7 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -77,6 +86,7 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -85,6 +95,7 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -93,6 +104,7 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

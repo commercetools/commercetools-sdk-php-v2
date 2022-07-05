@@ -19,6 +19,7 @@ interface QuoteStateChangedMessage extends Message
     /**
      * <p>Predefined states tracking the status of the Quote.</p>
      *
+
      * @return null|string
      */
     public function getQuoteState();
@@ -26,6 +27,7 @@ interface QuoteStateChangedMessage extends Message
     /**
      * <p>Predefined states tracking the status of the Quote.</p>
      *
+
      * @return null|string
      */
     public function getOldQuoteState();

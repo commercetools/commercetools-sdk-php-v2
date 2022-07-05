@@ -20,16 +20,19 @@ use stdClass;
 final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel implements ProjectCategoryRecommendationMeta
 {
     /**
+
      * @var ?string
      */
     protected $productName;
 
     /**
+
      * @var ?string
      */
     protected $productImageUrl;
 
     /**
+
      * @var ?array
      */
     protected $generalCategoryNames;
@@ -51,6 +54,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     /**
      * <p>The product name that was used to generate recommendations.</p>
      *
+
      * @return null|string
      */
     public function getProductName()
@@ -70,6 +74,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     /**
      * <p>The product image that was used to generate recommendations.</p>
      *
+
      * @return null|string
      */
     public function getProductImageUrl()
@@ -89,6 +94,7 @@ final class ProjectCategoryRecommendationMetaModel extends JsonObjectModel imple
     /**
      * <p>Top 5 general categories that were used internally to generate the project-specific categories. These category names are not related to the categories defined in the project, but they provide additional information to understand the project-specific categories in the results section.</p>
      *
+
      * @return null|array
      */
     public function getGeneralCategoryNames()

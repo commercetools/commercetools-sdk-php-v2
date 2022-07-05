@@ -19,6 +19,7 @@ interface QuoteRequestStateChangedMessage extends Message
     /**
      * <p>Predefined states tracking the status of the Quote Request in the negotiation process.</p>
      *
+
      * @return null|string
      */
     public function getQuoteRequestState();
@@ -26,6 +27,7 @@ interface QuoteRequestStateChangedMessage extends Message
     /**
      * <p>Predefined states tracking the status of the Quote Request in the negotiation process.</p>
      *
+
      * @return null|string
      */
     public function getOldQuoteRequestState();

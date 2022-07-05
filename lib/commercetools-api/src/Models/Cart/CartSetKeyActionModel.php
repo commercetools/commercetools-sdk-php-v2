@@ -21,11 +21,13 @@ final class CartSetKeyActionModel extends JsonObjectModel implements CartSetKeyA
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class CartSetKeyActionModel extends JsonObjectModel implements CartSetKeyA
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CartSetKeyActionModel extends JsonObjectModel implements CartSetKeyA
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

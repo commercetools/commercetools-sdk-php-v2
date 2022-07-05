@@ -21,16 +21,19 @@ use stdClass;
 final class ReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $typeId;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -39,6 +42,7 @@ final class ReferenceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTypeId()

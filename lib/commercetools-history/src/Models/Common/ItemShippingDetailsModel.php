@@ -22,11 +22,13 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
 
 
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     protected $targets;
 
     /**
+
      * @var ?bool
      */
     protected $valid;
@@ -45,6 +47,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     }
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()
@@ -64,6 +67,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     /**
      * <p>true if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise. A cart cannot be ordered when the value is <code>false</code>. The error InvalidItemShippingDetails will be triggered.</p>
      *
+
      * @return null|bool
      */
     public function getValid()

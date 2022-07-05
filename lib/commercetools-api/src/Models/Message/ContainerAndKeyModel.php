@@ -20,11 +20,13 @@ use stdClass;
 final class ContainerAndKeyModel extends JsonObjectModel implements ContainerAndKey
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $container;
@@ -44,6 +46,7 @@ final class ContainerAndKeyModel extends JsonObjectModel implements ContainerAnd
     /**
      * <p>User-defined identifier that is unique within the given container.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -63,6 +66,7 @@ final class ContainerAndKeyModel extends JsonObjectModel implements ContainerAnd
     /**
      * <p>Namespace to group Custom Objects.</p>
      *
+
      * @return null|string
      */
     public function getContainer()

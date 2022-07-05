@@ -23,11 +23,13 @@ use stdClass;
 final class ProductSelectionAddProductActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductResourceIdentifier|ProductResourceIdentifierBuilder
      */
     private $product;
 
     /**
+
      * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
      */
     private $variantSelection;
@@ -35,6 +37,7 @@ final class ProductSelectionAddProductActionBuilder implements Builder
     /**
      * <p>ResourceIdentifier to Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()
@@ -46,6 +49,7 @@ final class ProductSelectionAddProductActionBuilder implements Builder
      * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
      * If not supplied all Variants are deemed to be included.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection()

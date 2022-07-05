@@ -21,6 +21,7 @@ final class DeliveryFormatModel extends JsonObjectModel implements DeliveryForma
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -43,6 +44,7 @@ final class DeliveryFormatModel extends JsonObjectModel implements DeliveryForma
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

@@ -31,16 +31,19 @@ interface LineItemDraft extends JsonObject
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+
      * @return null|string
      */
     public function getProductId();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
@@ -49,6 +52,7 @@ interface LineItemDraft extends JsonObject
      * <p>The amount of a <code>LineItem</code>in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
@@ -57,6 +61,7 @@ interface LineItemDraft extends JsonObject
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
@@ -67,6 +72,7 @@ interface LineItemDraft extends JsonObject
      * The provided channel should have
      * the InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
@@ -75,6 +81,7 @@ interface LineItemDraft extends JsonObject
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
@@ -82,6 +89,7 @@ interface LineItemDraft extends JsonObject
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
@@ -89,6 +97,7 @@ interface LineItemDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -96,6 +105,7 @@ interface LineItemDraft extends JsonObject
     /**
      * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>
      *
+
      * @return null|Money
      */
     public function getExternalPrice();
@@ -103,6 +113,7 @@ interface LineItemDraft extends JsonObject
     /**
      * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>
      *
+
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice();
@@ -110,6 +121,7 @@ interface LineItemDraft extends JsonObject
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

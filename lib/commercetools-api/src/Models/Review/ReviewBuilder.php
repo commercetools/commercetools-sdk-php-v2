@@ -34,91 +34,109 @@ use stdClass;
 final class ReviewBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $uniquenessValue;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?string
      */
     private $authorName;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?string
      */
     private $text;
 
     /**
+
      * @var ?JsonObject
      */
     private $target;
 
     /**
+
      * @var ?bool
      */
     private $includedInStatistics;
 
     /**
+
      * @var ?int
      */
     private $rating;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -126,6 +144,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>Unique identifier of the Review.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -136,6 +155,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>The current version of the review.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -144,6 +164,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -152,6 +173,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -162,6 +184,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -172,6 +195,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -182,6 +206,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Review.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -190,6 +215,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getUniquenessValue()
@@ -198,6 +224,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -206,6 +233,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAuthorName()
@@ -214,6 +242,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()
@@ -222,6 +251,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getText()
@@ -233,6 +263,7 @@ final class ReviewBuilder implements Builder
      * <p>Identifies the target of the review.
      * Can be a Product or a Channel</p>
      *
+
      * @return null|JsonObject
      */
     public function getTarget()
@@ -245,6 +276,7 @@ final class ReviewBuilder implements Builder
      * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
      * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>
      *
+
      * @return null|bool
      */
     public function getIncludedInStatistics()
@@ -255,6 +287,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>Number between -100 and 100 included.</p>
      *
+
      * @return null|int
      */
     public function getRating()
@@ -263,6 +296,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|StateReference
      */
     public function getState()
@@ -273,6 +307,7 @@ final class ReviewBuilder implements Builder
     /**
      * <p>The customer who created the review.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -281,6 +316,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()

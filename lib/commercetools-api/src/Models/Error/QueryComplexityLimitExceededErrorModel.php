@@ -21,11 +21,13 @@ final class QueryComplexityLimitExceededErrorModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'QueryComplexityLimitExceeded';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class QueryComplexityLimitExceededErrorModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class QueryComplexityLimitExceededErrorModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

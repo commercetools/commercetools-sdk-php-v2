@@ -22,11 +22,13 @@ use stdClass;
 final class OrderReturnInfoSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?ReturnInfoCollection
      */
     private $returnInfo;
 
     /**
+
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo()

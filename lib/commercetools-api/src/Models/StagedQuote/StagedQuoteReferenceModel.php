@@ -23,16 +23,19 @@ final class StagedQuoteReferenceModel extends JsonObjectModel implements StagedQ
 {
     public const DISCRIMINATOR_VALUE = 'staged-quote';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?StagedQuote
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class StagedQuoteReferenceModel extends JsonObjectModel implements StagedQ
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class StagedQuoteReferenceModel extends JsonObjectModel implements StagedQ
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -92,6 +97,7 @@ final class StagedQuoteReferenceModel extends JsonObjectModel implements StagedQ
      * <p>Contains the representation of the expanded StagedQuote.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StagedQuote.</p>
      *
+
      * @return null|StagedQuote
      */
     public function getObj()

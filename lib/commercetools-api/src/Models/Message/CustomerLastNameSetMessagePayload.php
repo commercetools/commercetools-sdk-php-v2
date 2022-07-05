@@ -16,6 +16,7 @@ interface CustomerLastNameSetMessagePayload extends MessagePayload
     public const FIELD_LAST_NAME = 'lastName';
 
     /**
+
      * @return null|string
      */
     public function getLastName();

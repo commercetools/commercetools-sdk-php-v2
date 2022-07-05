@@ -26,36 +26,43 @@ use stdClass;
 final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $projectKey;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?int
      */
     private $oldVersion;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $modifiedAt;
 
     /**
+
      * @return null|string
      */
     public function getProjectKey()
@@ -66,6 +73,7 @@ final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -74,6 +82,7 @@ final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -82,6 +91,7 @@ final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -90,6 +100,7 @@ final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getOldVersion()
@@ -98,6 +109,7 @@ final class ResourceUpdatedDeliveryPayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()

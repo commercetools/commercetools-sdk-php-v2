@@ -21,31 +21,37 @@ use stdClass;
 final class ProductMoveImageToPositionActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $imageUrl;
 
     /**
+
      * @var ?int
      */
     private $position;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -54,6 +60,7 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -64,6 +71,7 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     /**
      * <p>The URL of the image</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -72,6 +80,7 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getPosition()
@@ -80,6 +89,7 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

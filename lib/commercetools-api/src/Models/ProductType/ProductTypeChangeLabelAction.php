@@ -20,6 +20,7 @@ interface ProductTypeChangeLabelAction extends ProductTypeUpdateAction
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -27,6 +28,7 @@ interface ProductTypeChangeLabelAction extends ProductTypeUpdateAction
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();

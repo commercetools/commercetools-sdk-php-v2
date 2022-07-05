@@ -25,11 +25,13 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
 {
     public const DISCRIMINATOR_VALUE = 'setTarget';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?mixed
      */
     protected $target;
@@ -46,6 +48,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -67,6 +70,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
      * Can be a Product or a Channel.
      * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return ?mixed
      */
     public function getTarget()

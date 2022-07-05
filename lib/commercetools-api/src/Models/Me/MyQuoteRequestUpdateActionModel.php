@@ -21,6 +21,7 @@ final class MyQuoteRequestUpdateActionModel extends JsonObjectModel implements M
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -42,6 +43,7 @@ final class MyQuoteRequestUpdateActionModel extends JsonObjectModel implements M
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

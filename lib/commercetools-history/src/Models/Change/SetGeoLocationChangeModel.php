@@ -24,21 +24,25 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
 
     public const DISCRIMINATOR_VALUE = 'SetGeoLocationChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?GeoLocation
      */
     protected $nextValue;
 
     /**
+
      * @var ?GeoLocation
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     /**
      * <p>Update action for <code>setGeoLocation</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     }
 
     /**
+
      * @return null|GeoLocation
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class SetGeoLocationChangeModel extends JsonObjectModel implements SetGeoL
     }
 
     /**
+
      * @return null|GeoLocation
      */
     public function getPreviousValue()

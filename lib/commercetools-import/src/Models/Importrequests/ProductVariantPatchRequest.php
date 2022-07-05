@@ -19,6 +19,7 @@ interface ProductVariantPatchRequest extends ImportRequest
     /**
      * <p>The product variant patches of this request.</p>
      *
+
      * @return null|ProductVariantPatchCollection
      */
     public function getPatches();

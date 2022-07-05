@@ -23,6 +23,7 @@ use stdClass;
 final class StoreRemoveDistributionChannelActionBuilder implements Builder
 {
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
@@ -30,6 +31,7 @@ final class StoreRemoveDistributionChannelActionBuilder implements Builder
     /**
      * <p>Value to remove. ResourceIdentifier of a Channel with the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

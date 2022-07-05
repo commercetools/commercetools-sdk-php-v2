@@ -23,11 +23,13 @@ use stdClass;
 final class ShoppingListSetDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()

@@ -21,26 +21,31 @@ use stdClass;
 final class ImportOperationPagedResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?ImportOperationCollection
      */
     private $results;
@@ -48,6 +53,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -58,6 +64,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -68,6 +75,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>The actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount()
@@ -78,6 +86,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>The total number of import operations matching the query.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -88,6 +97,7 @@ final class ImportOperationPagedResponseBuilder implements Builder
     /**
      * <p>The array of Import Operations matching the query.</p>
      *
+
      * @return null|ImportOperationCollection
      */
     public function getResults()

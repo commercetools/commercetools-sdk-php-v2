@@ -21,16 +21,19 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueOrder';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?array
      */
     protected $keys;
@@ -49,6 +52,7 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -87,6 +92,7 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
     /**
      * <p>Must match the set of <code>key</code>s of the LocalizedEnumValues in the FieldDefinition (up to order).</p>
      *
+
      * @return null|array
      */
     public function getKeys()

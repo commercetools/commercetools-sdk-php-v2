@@ -23,16 +23,19 @@ use stdClass;
 final class ShoppingListChangeTextLineItemNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $textLineItemId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @return null|string
      */
     public function getTextLineItemId()
@@ -43,6 +46,7 @@ final class ShoppingListChangeTextLineItemNameActionBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

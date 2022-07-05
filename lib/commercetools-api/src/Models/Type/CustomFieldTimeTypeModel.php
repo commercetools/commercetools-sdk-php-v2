@@ -21,6 +21,7 @@ final class CustomFieldTimeTypeModel extends JsonObjectModel implements CustomFi
 {
     public const DISCRIMINATOR_VALUE = 'Time';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class CustomFieldTimeTypeModel extends JsonObjectModel implements CustomFi
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

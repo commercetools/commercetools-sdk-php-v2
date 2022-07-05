@@ -24,16 +24,19 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
 
     public const DISCRIMINATOR_VALUE = 'ProductLabel';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -52,6 +55,7 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -69,6 +73,7 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -87,6 +92,7 @@ final class ProductLabelModel extends JsonObjectModel implements ProductLabel
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()

@@ -19,6 +19,7 @@ interface ShippingMethodAddZoneAction extends ShippingMethodUpdateAction
     /**
      * <p>Value to add to <code>zoneRates</code>.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone();

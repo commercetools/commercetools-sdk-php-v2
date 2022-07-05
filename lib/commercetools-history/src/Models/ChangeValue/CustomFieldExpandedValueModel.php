@@ -24,16 +24,19 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
 
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $label;
@@ -56,6 +59,7 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
     /**
      * <p>Name of a custom field.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -73,6 +77,7 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|mixed
      */
     public function getValue()
@@ -90,6 +95,7 @@ final class CustomFieldExpandedValueModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()

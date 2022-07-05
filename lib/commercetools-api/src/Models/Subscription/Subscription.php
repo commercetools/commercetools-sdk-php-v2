@@ -29,21 +29,25 @@ interface Subscription extends BaseResource
     /**
      * <p>Unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -51,6 +55,7 @@ interface Subscription extends BaseResource
     /**
      * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -58,16 +63,19 @@ interface Subscription extends BaseResource
     /**
      * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();
 
     /**
+
      * @return null|Destination
      */
     public function getDestination();
@@ -75,21 +83,25 @@ interface Subscription extends BaseResource
     /**
      * <p>User-defined unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages();
 
     /**
+
      * @return null|DeliveryFormat
      */
     public function getFormat();
 
     /**
+
      * @return null|string
      */
     public function getStatus();

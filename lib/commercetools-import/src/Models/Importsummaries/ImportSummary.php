@@ -19,6 +19,7 @@ interface ImportSummary extends JsonObject
     /**
      * <p>The import status of an <a href="/import-container#importcontainer">ImportContainer</a> given by the number of resources in each <a href="/processing-state#processingstate">Processing State</a>.</p>
      *
+
      * @return null|OperationStates
      */
     public function getStates();
@@ -26,6 +27,7 @@ interface ImportSummary extends JsonObject
     /**
      * <p>The total number of <a href="/import-operation#importoperation">ImportOperations</a> received for this Import Summary.</p>
      *
+
      * @return null|int
      */
     public function getTotal();

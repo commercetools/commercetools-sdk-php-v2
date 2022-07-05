@@ -21,16 +21,19 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'addLocalizedEnumValue';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?AttributeLocalizedEnumValue
      */
     protected $value;
@@ -49,6 +52,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -87,6 +92,7 @@ final class ProductTypeAddLocalizedEnumValueActionModel extends JsonObjectModel 
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|AttributeLocalizedEnumValue
      */
     public function getValue()

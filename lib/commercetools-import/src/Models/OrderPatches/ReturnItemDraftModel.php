@@ -20,26 +20,31 @@ use stdClass;
 final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDraft
 {
     /**
+
      * @var ?float
      */
     protected $quantity;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?string
      */
     protected $comment;
 
     /**
+
      * @var ?string
      */
     protected $shipmentState;
@@ -63,6 +68,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
+
      * @return null|float
      */
     public function getQuantity()
@@ -80,6 +86,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -97,6 +104,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -114,6 +122,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -133,6 +142,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     /**
      * <p>Maps to <code>ReturnItem.shipmentState</code></p>
      *
+
      * @return null|string
      */
     public function getShipmentState()

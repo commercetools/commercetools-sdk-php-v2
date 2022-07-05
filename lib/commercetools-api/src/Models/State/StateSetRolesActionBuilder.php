@@ -21,6 +21,7 @@ use stdClass;
 final class StateSetRolesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $roles;
@@ -29,6 +30,7 @@ final class StateSetRolesActionBuilder implements Builder
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

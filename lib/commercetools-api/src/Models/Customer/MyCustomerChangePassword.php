@@ -18,16 +18,19 @@ interface MyCustomerChangePassword extends JsonObject
     public const FIELD_NEW_PASSWORD = 'newPassword';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|string
      */
     public function getCurrentPassword();
 
     /**
+
      * @return null|string
      */
     public function getNewPassword();

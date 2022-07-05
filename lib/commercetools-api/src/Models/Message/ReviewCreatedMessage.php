@@ -17,6 +17,7 @@ interface ReviewCreatedMessage extends Message
     public const FIELD_REVIEW = 'review';
 
     /**
+
      * @return null|Review
      */
     public function getReview();

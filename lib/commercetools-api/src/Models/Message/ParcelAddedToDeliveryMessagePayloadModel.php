@@ -25,16 +25,19 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'ParcelAddedToDelivery';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Delivery
      */
     protected $delivery;
 
     /**
+
      * @var ?Parcel
      */
     protected $parcel;
@@ -53,6 +56,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +74,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|Delivery
      */
     public function getDelivery()
@@ -88,6 +93,7 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|Parcel
      */
     public function getParcel()

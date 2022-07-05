@@ -23,11 +23,13 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeValue';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?Money
      */
     protected $value;
@@ -44,6 +46,7 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|Money
      */
     public function getValue()

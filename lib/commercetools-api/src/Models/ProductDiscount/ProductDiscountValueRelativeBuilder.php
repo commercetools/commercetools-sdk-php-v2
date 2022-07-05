@@ -21,6 +21,7 @@ use stdClass;
 final class ProductDiscountValueRelativeBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $permyriad;
@@ -28,6 +29,7 @@ final class ProductDiscountValueRelativeBuilder implements Builder
     /**
      * <p>Fraction (per ten thousand) the price is reduced by. For example, <code>1000</code> will result in a 10% price reduction.</p>
      *
+
      * @return null|int
      */
     public function getPermyriad()

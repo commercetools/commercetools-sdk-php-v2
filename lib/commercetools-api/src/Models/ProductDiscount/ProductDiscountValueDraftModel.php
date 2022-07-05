@@ -21,6 +21,7 @@ final class ProductDiscountValueDraftModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -44,6 +45,7 @@ final class ProductDiscountValueDraftModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

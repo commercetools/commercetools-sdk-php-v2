@@ -21,16 +21,19 @@ use stdClass;
 final class AttributeValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -39,6 +42,7 @@ final class AttributeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getValue()

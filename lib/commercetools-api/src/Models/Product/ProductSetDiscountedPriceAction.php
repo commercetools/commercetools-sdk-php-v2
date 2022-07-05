@@ -19,16 +19,19 @@ interface ProductSetDiscountedPriceAction extends ProductUpdateAction
     public const FIELD_DISCOUNTED = 'discounted';
 
     /**
+
      * @return null|string
      */
     public function getPriceId();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();

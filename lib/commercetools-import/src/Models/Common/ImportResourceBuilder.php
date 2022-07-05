@@ -37,11 +37,13 @@ use stdClass;
 final class ImportResourceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|string
      */
     public function getKey()

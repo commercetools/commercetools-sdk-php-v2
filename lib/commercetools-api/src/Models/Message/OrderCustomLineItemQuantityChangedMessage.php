@@ -18,16 +18,19 @@ interface OrderCustomLineItemQuantityChangedMessage extends OrderMessage
     public const FIELD_OLD_QUANTITY = 'oldQuantity';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|int
      */
     public function getOldQuantity();

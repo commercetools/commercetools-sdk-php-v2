@@ -23,16 +23,19 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LineItem
      */
     protected $lineItem;
 
     /**
+
      * @var ?int
      */
     protected $addedQuantity;
@@ -51,6 +54,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|LineItem
      */
     public function getLineItem()
@@ -86,6 +91,7 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getAddedQuantity()

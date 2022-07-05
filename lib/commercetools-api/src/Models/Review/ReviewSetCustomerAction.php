@@ -20,6 +20,7 @@ interface ReviewSetCustomerAction extends ReviewUpdateAction
      * <p>The customer who created the review.
      * If <code>customer</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();

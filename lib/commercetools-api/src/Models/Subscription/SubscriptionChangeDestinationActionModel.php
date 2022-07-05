@@ -21,11 +21,13 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'changeDestination';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?Destination
      */
     protected $destination;
@@ -42,6 +44,7 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|Destination
      */
     public function getDestination()

@@ -22,6 +22,7 @@ interface ProductSelectionProductPagedQueryResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -29,6 +30,7 @@ interface ProductSelectionProductPagedQueryResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
@@ -36,6 +38,7 @@ interface ProductSelectionProductPagedQueryResponse extends JsonObject
     /**
      * <p>Actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount();
@@ -47,6 +50,7 @@ interface ProductSelectionProductPagedQueryResponse extends JsonObject
      * To get <code>total</code>, pass the query parameter <code>withTotal</code> set to <code>true</code>.
      * When the results are filtered with a <a href="/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/limits#queries">limit</a>.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -54,6 +58,7 @@ interface ProductSelectionProductPagedQueryResponse extends JsonObject
     /**
      * <p>References to Products that are assigned to the ProductSelection.</p>
      *
+
      * @return null|AssignedProductReferenceCollection
      */
     public function getResults();

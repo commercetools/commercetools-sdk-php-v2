@@ -23,21 +23,25 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'ProductImageAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?Image
      */
     protected $image;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -58,6 +62,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -75,6 +80,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -92,6 +98,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|Image
      */
     public function getImage()
@@ -110,6 +117,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

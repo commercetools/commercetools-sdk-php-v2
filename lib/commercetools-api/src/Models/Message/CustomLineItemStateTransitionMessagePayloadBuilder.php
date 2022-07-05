@@ -24,31 +24,37 @@ use stdClass;
 final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $transitionDate;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $fromState;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $toState;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -57,6 +63,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getTransitionDate()
@@ -65,6 +72,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -75,6 +83,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getFromState()
@@ -85,6 +94,7 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getToState()

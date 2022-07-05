@@ -18,6 +18,7 @@ interface ShoppingListChangeTextLineItemNameAction extends ShoppingListUpdateAct
     public const FIELD_NAME = 'name';
 
     /**
+
      * @return null|string
      */
     public function getTextLineItemId();
@@ -25,6 +26,7 @@ interface ShoppingListChangeTextLineItemNameAction extends ShoppingListUpdateAct
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

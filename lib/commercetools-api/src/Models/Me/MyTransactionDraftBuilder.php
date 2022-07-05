@@ -26,26 +26,31 @@ use stdClass;
 final class MyTransactionDraftBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $timestamp;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amount;
 
     /**
+
      * @var ?string
      */
     private $interactionId;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -53,6 +58,7 @@ final class MyTransactionDraftBuilder implements Builder
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp()
@@ -65,6 +71,7 @@ final class MyTransactionDraftBuilder implements Builder
      * Only the <code>Authorization</code> or <code>Charge</code>
      * TransactionTypes are allowed here.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -73,6 +80,7 @@ final class MyTransactionDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getAmount()
@@ -86,6 +94,7 @@ final class MyTransactionDraftBuilder implements Builder
      * the corresponding interaction should be findable with this ID.
      * The <code>state</code> is set to the <code>Initial</code> TransactionState.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId()
@@ -96,6 +105,7 @@ final class MyTransactionDraftBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

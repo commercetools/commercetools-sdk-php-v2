@@ -22,21 +22,25 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
 
     public const DISCRIMINATOR_VALUE = 'SetRestockableInDaysChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?int
      */
     protected $previousValue;
 
     /**
+
      * @var ?int
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     /**
      * <p>Shape of the action for <code>setRestockableInDays</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class SetRestockableInDaysChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()

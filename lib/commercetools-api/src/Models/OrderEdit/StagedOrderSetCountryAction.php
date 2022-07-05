@@ -17,6 +17,7 @@ interface StagedOrderSetCountryAction extends StagedOrderUpdateAction
     public const FIELD_COUNTRY = 'country';
 
     /**
+
      * @return null|string
      */
     public function getCountry();

@@ -20,11 +20,13 @@ interface PaymentStatusStateTransitionMessage extends Message
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getState();
 
     /**
+
      * @return null|bool
      */
     public function getForce();

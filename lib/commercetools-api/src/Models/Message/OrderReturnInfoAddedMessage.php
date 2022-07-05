@@ -17,6 +17,7 @@ interface OrderReturnInfoAddedMessage extends OrderMessage
     public const FIELD_RETURN_INFO = 'returnInfo';
 
     /**
+
      * @return null|ReturnInfo
      */
     public function getReturnInfo();

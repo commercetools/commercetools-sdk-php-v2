@@ -21,16 +21,19 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
 {
     public const DISCRIMINATOR_VALUE = 'boolean';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?bool
      */
     protected $value;
@@ -53,6 +56,7 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -70,6 +74,7 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +92,7 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
     }
 
     /**
+
      * @return null|bool
      */
     public function getValue()

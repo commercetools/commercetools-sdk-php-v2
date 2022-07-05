@@ -22,16 +22,19 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
 {
     public const DISCRIMINATOR_VALUE = 'money-set';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?TypedMoneyCollection
      */
     protected $value;
@@ -54,6 +57,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -71,6 +75,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -88,6 +93,7 @@ final class MoneySetAttributeModel extends JsonObjectModel implements MoneySetAt
     }
 
     /**
+
      * @return null|TypedMoneyCollection
      */
     public function getValue()

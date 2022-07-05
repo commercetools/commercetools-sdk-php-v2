@@ -22,11 +22,13 @@ final class ChangeModel extends JsonObjectModel implements Change
 
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
@@ -302,6 +304,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -319,6 +322,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()

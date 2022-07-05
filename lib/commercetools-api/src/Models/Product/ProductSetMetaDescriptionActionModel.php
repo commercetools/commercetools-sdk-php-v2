@@ -23,16 +23,19 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setMetaDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -86,6 +91,7 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

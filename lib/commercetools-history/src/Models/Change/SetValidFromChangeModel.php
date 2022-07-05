@@ -22,21 +22,25 @@ final class SetValidFromChangeModel extends JsonObjectModel implements SetValidF
 
     public const DISCRIMINATOR_VALUE = 'SetValidFromChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class SetValidFromChangeModel extends JsonObjectModel implements SetValidF
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class SetValidFromChangeModel extends JsonObjectModel implements SetValidF
     /**
      * <p>Shape of the action for <code>setValidFrom</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class SetValidFromChangeModel extends JsonObjectModel implements SetValidF
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class SetValidFromChangeModel extends JsonObjectModel implements SetValidF
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

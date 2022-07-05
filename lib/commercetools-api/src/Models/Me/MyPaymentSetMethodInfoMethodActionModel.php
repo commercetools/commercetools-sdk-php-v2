@@ -21,11 +21,13 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoMethod';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $method;
@@ -42,6 +44,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getMethod()

@@ -18,6 +18,7 @@ interface CustomerSignInResult extends JsonObject
     public const FIELD_CART = 'cart';
 
     /**
+
      * @return null|Customer
      */
     public function getCustomer();
@@ -26,6 +27,7 @@ interface CustomerSignInResult extends JsonObject
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
+
      * @return null|Cart
      */
     public function getCart();

@@ -27,46 +27,55 @@ use stdClass;
 final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDraft
 {
     /**
+
      * @var ?string
      */
     protected $productId;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
 
     /**
+
      * @var ?string
      */
     protected $sku;
@@ -98,6 +107,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -115,6 +125,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -132,6 +143,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -152,6 +164,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -177,6 +190,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
      * inventory entries that should be reserved.
      * The provided channel should have the InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -198,6 +212,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -218,6 +233,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -238,6 +254,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -256,6 +273,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()

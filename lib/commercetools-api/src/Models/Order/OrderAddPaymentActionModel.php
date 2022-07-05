@@ -23,11 +23,13 @@ final class OrderAddPaymentActionModel extends JsonObjectModel implements OrderA
 {
     public const DISCRIMINATOR_VALUE = 'addPayment';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?PaymentResourceIdentifier
      */
     protected $payment;
@@ -44,6 +46,7 @@ final class OrderAddPaymentActionModel extends JsonObjectModel implements OrderA
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class OrderAddPaymentActionModel extends JsonObjectModel implements OrderA
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

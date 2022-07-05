@@ -121,21 +121,25 @@ interface BaseResource extends JsonObject
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();

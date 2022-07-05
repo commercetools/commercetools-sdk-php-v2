@@ -21,21 +21,25 @@ interface CustomerChangePassword extends JsonObject
     /**
      * <p>Unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|string
      */
     public function getCurrentPassword();
 
     /**
+
      * @return null|string
      */
     public function getNewPassword();

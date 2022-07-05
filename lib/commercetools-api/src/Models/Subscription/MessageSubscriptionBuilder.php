@@ -21,16 +21,19 @@ use stdClass;
 final class MessageSubscriptionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $resourceTypeId;
 
     /**
+
      * @var ?array
      */
     private $types;
 
     /**
+
      * @return null|string
      */
     public function getResourceTypeId()
@@ -39,6 +42,7 @@ final class MessageSubscriptionBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getTypes()

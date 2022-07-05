@@ -21,6 +21,7 @@ final class ShippingRateInputDraftModel extends JsonObjectModel implements Shipp
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -43,6 +44,7 @@ final class ShippingRateInputDraftModel extends JsonObjectModel implements Shipp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

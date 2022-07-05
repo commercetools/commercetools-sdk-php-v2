@@ -23,11 +23,13 @@ use stdClass;
 final class InventoryEntryCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|InventoryEntry|InventoryEntryBuilder
      */
     private $inventoryEntry;
 
     /**
+
      * @return null|InventoryEntry
      */
     public function getInventoryEntry()

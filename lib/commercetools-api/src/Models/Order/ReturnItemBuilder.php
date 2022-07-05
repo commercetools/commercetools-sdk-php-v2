@@ -24,41 +24,49 @@ use stdClass;
 final class ReturnItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -66,6 +74,7 @@ final class ReturnItemBuilder implements Builder
     /**
      * <p>Unique identifier of the ReturnItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -74,6 +83,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -82,6 +92,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -90,6 +101,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -98,6 +110,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -108,6 +121,7 @@ final class ReturnItemBuilder implements Builder
     /**
      * <p>Custom Fields of this return item.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -116,6 +130,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -124,6 +139,7 @@ final class ReturnItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()

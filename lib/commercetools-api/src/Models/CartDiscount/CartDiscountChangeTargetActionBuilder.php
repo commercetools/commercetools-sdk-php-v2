@@ -21,6 +21,7 @@ use stdClass;
 final class CartDiscountChangeTargetActionBuilder implements Builder
 {
     /**
+
      * @var null|CartDiscountTarget|CartDiscountTargetBuilder
      */
     private $target;
@@ -28,6 +29,7 @@ final class CartDiscountChangeTargetActionBuilder implements Builder
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|CartDiscountTarget
      */
     public function getTarget()

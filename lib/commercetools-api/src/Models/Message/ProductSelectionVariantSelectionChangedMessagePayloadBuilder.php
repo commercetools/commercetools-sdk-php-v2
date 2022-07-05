@@ -25,16 +25,19 @@ use stdClass;
 final class ProductSelectionVariantSelectionChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
      */
     private $oldVariantSelection;
 
     /**
+
      * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
      */
     private $newVariantSelection;
@@ -42,6 +45,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadBuilder impleme
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -52,6 +56,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadBuilder impleme
     /**
      * <p>The former Product Variant Selection if any.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getOldVariantSelection()
@@ -62,6 +67,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadBuilder impleme
     /**
      * <p>The updated Product Variant Selection if any.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getNewVariantSelection()

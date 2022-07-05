@@ -27,61 +27,73 @@ use stdClass;
 final class SubscriptionModel extends JsonObjectModel implements Subscription
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?ChangeSubscriptionCollection
      */
     protected $changes;
 
     /**
+
      * @var ?Destination
      */
     protected $destination;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
 
     /**
+
      * @var ?DeliveryFormat
      */
     protected $format;
 
     /**
+
      * @var ?string
      */
     protected $status;
@@ -121,6 +133,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     /**
      * <p>Unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -138,6 +151,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -155,6 +169,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -176,6 +191,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -199,6 +215,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     /**
      * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -219,6 +236,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     /**
      * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -237,6 +255,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -254,6 +273,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|Destination
      */
     public function getDestination()
@@ -274,6 +294,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     /**
      * <p>User-defined unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -291,6 +312,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -308,6 +330,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|DeliveryFormat
      */
     public function getFormat()
@@ -326,6 +349,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+
      * @return null|string
      */
     public function getStatus()

@@ -49,11 +49,13 @@ interface LineItem extends JsonObject
     /**
      * <p>Unique identifier of the LineItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getProductId();
@@ -62,6 +64,7 @@ interface LineItem extends JsonObject
      * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
      * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
      *
+
      * @return null|string
      */
     public function getProductKey();
@@ -69,6 +72,7 @@ interface LineItem extends JsonObject
     /**
      * <p>The product name.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -79,11 +83,13 @@ interface LineItem extends JsonObject
      * It is empty if the product has been deleted.
      * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getProductSlug();
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType();
@@ -92,6 +98,7 @@ interface LineItem extends JsonObject
      * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
      * It can manually be updated with the Recalculate update action.</p>
      *
+
      * @return null|ProductVariant
      */
     public function getVariant();
@@ -100,6 +107,7 @@ interface LineItem extends JsonObject
      * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
      * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
+
      * @return null|Price
      */
     public function getPrice();
@@ -107,6 +115,7 @@ interface LineItem extends JsonObject
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();
@@ -117,6 +126,7 @@ interface LineItem extends JsonObject
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
@@ -125,6 +135,7 @@ interface LineItem extends JsonObject
      * <p>The amount of a LineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
@@ -133,11 +144,13 @@ interface LineItem extends JsonObject
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
@@ -146,6 +159,7 @@ interface LineItem extends JsonObject
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate();
@@ -155,6 +169,7 @@ interface LineItem extends JsonObject
      * The channel has
      * the role InventorySupply.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel();
@@ -163,26 +178,31 @@ interface LineItem extends JsonObject
      * <p>The distribution channel is used to select a ProductPrice.
      * The channel has the role ProductDistribution.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel();
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
+
      * @return null|string
      */
     public function getPriceMode();
 
     /**
+
      * @return null|string
      */
     public function getLineItemMode();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -190,6 +210,7 @@ interface LineItem extends JsonObject
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails();
@@ -199,6 +220,7 @@ interface LineItem extends JsonObject
      * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
      * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();

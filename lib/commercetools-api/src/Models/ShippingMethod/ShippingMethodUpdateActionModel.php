@@ -21,6 +21,7 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -55,6 +56,7 @@ final class ShippingMethodUpdateActionModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

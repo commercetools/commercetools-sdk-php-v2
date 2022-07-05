@@ -53,6 +53,7 @@ interface OrderImportDraft extends JsonObject
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique within a project.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber();
@@ -60,6 +61,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If given the customer with that ID must exist in the project.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId();
@@ -67,6 +69,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>
      *
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -74,6 +77,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If not given <code>customLineItems</code> must not be empty.</p>
      *
+
      * @return null|LineItemImportDraftCollection
      */
     public function getLineItems();
@@ -81,11 +85,13 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
+
      * @return null|CustomLineItemImportDraftCollection
      */
     public function getCustomLineItems();
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice();
@@ -94,16 +100,19 @@ interface OrderImportDraft extends JsonObject
      * <p>Order Import does not support calculation of taxes.
      * When setting the draft the taxedPrice is to be provided.</p>
      *
+
      * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress();
@@ -112,6 +121,7 @@ interface OrderImportDraft extends JsonObject
      * <p>Set when the customer is set and the customer is a member of a customer group.
      * Used for product variant price selection.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -120,6 +130,7 @@ interface OrderImportDraft extends JsonObject
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -127,6 +138,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If not given the <code>Open</code> state will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getOrderState();
@@ -134,16 +146,19 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>This reference can point to a state in a custom workflow.</p>
      *
+
      * @return null|StateReference
      */
     public function getState();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();
@@ -151,16 +166,19 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>Set if the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo();
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt();
@@ -168,6 +186,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -175,6 +194,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If not given the mode <code>None</code> will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode();
@@ -182,6 +202,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode();
@@ -189,11 +210,13 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore();
@@ -201,6 +224,7 @@ interface OrderImportDraft extends JsonObject
     /**
      * <p>The default origin is <code>Customer</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin();

@@ -25,26 +25,31 @@ use stdClass;
 final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
+
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -53,6 +58,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -64,6 +70,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Price with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Price.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -74,6 +81,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Price.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

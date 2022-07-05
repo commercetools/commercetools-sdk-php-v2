@@ -22,21 +22,25 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'StoreProductSelectionsChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     protected $addedProductSelections;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     protected $removedProductSelections;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     protected $updatedProductSelections;
@@ -57,6 +61,7 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -74,6 +79,7 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getAddedProductSelections()
@@ -91,6 +97,7 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getRemovedProductSelections()
@@ -108,6 +115,7 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getUpdatedProductSelections()

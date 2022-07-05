@@ -21,11 +21,13 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
 {
     public const DISCRIMINATOR_VALUE = 'reference';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $referenceTypeId;
@@ -42,6 +44,7 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getReferenceTypeId()

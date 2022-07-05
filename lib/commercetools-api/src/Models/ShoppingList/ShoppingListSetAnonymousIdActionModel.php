@@ -21,11 +21,13 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setAnonymousId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $anonymousId;
@@ -42,6 +44,7 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
      * <p>Anonymous ID of the anonymous customer that this shopping list belongs to.
      * If this field is not set any existing <code>anonymousId</code> is removed.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()

@@ -24,16 +24,19 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
 
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
@@ -54,6 +57,7 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -71,6 +75,7 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -89,6 +94,7 @@ final class ShoppingListLineItemValueModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

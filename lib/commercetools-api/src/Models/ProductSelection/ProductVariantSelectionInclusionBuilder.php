@@ -21,6 +21,7 @@ use stdClass;
 final class ProductVariantSelectionInclusionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $skus;
@@ -28,6 +29,7 @@ final class ProductVariantSelectionInclusionBuilder implements Builder
     /**
      * <p>Non-empty array of SKUs representing Product Variants to be included into the Product Selection.</p>
      *
+
      * @return null|array
      */
     public function getSkus()

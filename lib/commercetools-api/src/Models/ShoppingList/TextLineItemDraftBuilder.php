@@ -26,26 +26,31 @@ use stdClass;
 final class TextLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
@@ -53,6 +58,7 @@ final class TextLineItemDraftBuilder implements Builder
     /**
      * <p>Defaults to the current date and time.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -63,6 +69,7 @@ final class TextLineItemDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -71,6 +78,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -79,6 +87,7 @@ final class TextLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -89,6 +98,7 @@ final class TextLineItemDraftBuilder implements Builder
     /**
      * <p>Defaults to <code>1</code>.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()

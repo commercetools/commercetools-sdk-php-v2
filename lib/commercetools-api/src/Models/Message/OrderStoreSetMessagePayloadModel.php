@@ -23,11 +23,13 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'OrderStoreSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?StoreKeyReference
      */
     protected $store;
@@ -44,6 +46,7 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore()

@@ -21,6 +21,7 @@ use stdClass;
 final class AuthorizationHeaderAuthenticationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $headerValue;
@@ -28,6 +29,7 @@ final class AuthorizationHeaderAuthenticationBuilder implements Builder
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
+
      * @return null|string
      */
     public function getHeaderValue()

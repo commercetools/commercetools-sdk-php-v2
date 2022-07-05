@@ -23,11 +23,13 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxMode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
@@ -44,6 +46,7 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()

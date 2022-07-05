@@ -21,21 +21,25 @@ use stdClass;
 final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?int
      */
     private $oldQuantity;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -44,6 +48,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -52,6 +57,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     }
 
     /**
+
      * @return null|int
      */
     public function getOldQuantity()

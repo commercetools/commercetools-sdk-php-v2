@@ -23,26 +23,31 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'addExternalImage';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?Image
      */
     protected $image;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -65,6 +70,7 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -82,6 +88,7 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -99,6 +106,7 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -116,6 +124,7 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|Image
      */
     public function getImage()
@@ -134,6 +143,7 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

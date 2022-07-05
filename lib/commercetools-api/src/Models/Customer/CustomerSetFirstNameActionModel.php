@@ -21,11 +21,13 @@ final class CustomerSetFirstNameActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'setFirstName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $firstName;
@@ -42,6 +44,7 @@ final class CustomerSetFirstNameActionModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CustomerSetFirstNameActionModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()

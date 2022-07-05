@@ -23,56 +23,67 @@ use stdClass;
 final class ProductDataModel extends JsonObjectModel implements ProductData
 {
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?CategoryReferenceCollection
      */
     protected $categories;
 
     /**
+
      * @var ?CategoryOrderHints
      */
     protected $categoryOrderHints;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
+
      * @var ?ProductVariant
      */
     protected $masterVariant;
 
     /**
+
      * @var ?ProductVariantCollection
      */
     protected $variants;
 
     /**
+
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
@@ -110,6 +121,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -128,6 +140,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories()
@@ -145,6 +158,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -165,6 +179,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -185,6 +200,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -205,6 +221,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -225,6 +242,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -245,6 +263,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -263,6 +282,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getMasterVariant()
@@ -281,6 +301,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+
      * @return null|ProductVariantCollection
      */
     public function getVariants()
@@ -298,6 +319,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()

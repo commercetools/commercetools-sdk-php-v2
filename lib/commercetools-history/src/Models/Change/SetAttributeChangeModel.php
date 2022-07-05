@@ -24,26 +24,31 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
 
     public const DISCRIMINATOR_VALUE = 'SetAttributeChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?AttributeValue
      */
     protected $previousValue;
 
     /**
+
      * @var ?AttributeValue
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     /**
      * <p>Update action for <code>setAttribute</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +127,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
+
      * @return null|AttributeValue
      */
     public function getPreviousValue()
@@ -137,6 +146,7 @@ final class SetAttributeChangeModel extends JsonObjectModel implements SetAttrib
     }
 
     /**
+
      * @return null|AttributeValue
      */
     public function getNextValue()

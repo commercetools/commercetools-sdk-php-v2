@@ -21,26 +21,31 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
+
      * @var ?int
      */
     protected $centAmount;
 
     /**
+
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+
      * @var ?int
      */
     protected $preciseAmount;
@@ -63,6 +68,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -80,6 +86,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
+
      * @return null|int
      */
     public function getFractionDigits()
@@ -97,6 +104,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
+
      * @return null|int
      */
     public function getCentAmount()
@@ -116,6 +124,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -133,6 +142,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
+
      * @return null|int
      */
     public function getPreciseAmount()

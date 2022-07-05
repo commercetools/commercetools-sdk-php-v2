@@ -23,31 +23,37 @@ use stdClass;
 final class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
 {
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     protected $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
+
      * @var ?ImageCollection
      */
     protected $images;
 
     /**
+
      * @var ?AssetDraftCollection
      */
     protected $assets;
@@ -73,6 +79,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -93,6 +100,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
      * <p>User-defined unique identifier for the ProductVariant.
      * <em>ProductVariant keys are different from Product keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -110,6 +118,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -127,6 +136,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -144,6 +154,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -161,6 +172,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+
      * @return null|AssetDraftCollection
      */
     public function getAssets()

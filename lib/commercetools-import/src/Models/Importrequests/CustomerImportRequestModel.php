@@ -22,11 +22,13 @@ final class CustomerImportRequestModel extends JsonObjectModel implements Custom
 {
     public const DISCRIMINATOR_VALUE = 'customer';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CustomerImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class CustomerImportRequestModel extends JsonObjectModel implements Custom
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class CustomerImportRequestModel extends JsonObjectModel implements Custom
     /**
      * <p>The customer import resources of this request.</p>
      *
+
      * @return null|CustomerImportCollection
      */
     public function getResources()

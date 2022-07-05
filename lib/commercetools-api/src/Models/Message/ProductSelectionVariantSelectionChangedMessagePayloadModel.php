@@ -25,21 +25,25 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionVariantSelectionChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductReference
      */
     protected $product;
 
     /**
+
      * @var ?ProductVariantSelection
      */
     protected $oldVariantSelection;
 
     /**
+
      * @var ?ProductVariantSelection
      */
     protected $newVariantSelection;
@@ -60,6 +64,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -79,6 +84,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -99,6 +105,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     /**
      * <p>The former Product Variant Selection if any.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getOldVariantSelection()
@@ -119,6 +126,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     /**
      * <p>The updated Product Variant Selection if any.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getNewVariantSelection()

@@ -31,21 +31,25 @@ interface OverlappingStandalonePriceValidityError extends ErrorObject
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
+
      * @return null|StandalonePriceReference
      */
     public function getConflictingStandalonePrice();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getCurrency();
 
     /**
+
      * @return null|string
      */
     public function getCountry();
@@ -53,6 +57,7 @@ interface OverlappingStandalonePriceValidityError extends ErrorObject
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -60,26 +65,31 @@ interface OverlappingStandalonePriceValidityError extends ErrorObject
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getConflictingValidFrom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getConflictingValidUntil();

@@ -18,6 +18,7 @@ interface DiscountCodeChangeGroupsAction extends DiscountCodeUpdateAction
     /**
      * <p>New value to set. An empty array removes the DiscountCode from all groups.</p>
      *
+
      * @return null|array
      */
     public function getGroups();

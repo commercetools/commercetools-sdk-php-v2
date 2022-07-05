@@ -23,21 +23,25 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
 
     public const DISCRIMINATOR_VALUE = 'ChangeCartDiscountsChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $previousValue;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $nextValue;
@@ -58,6 +62,7 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -77,6 +82,7 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     /**
      * <p>Shape of the action for <code>changeCartDiscounts</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -94,6 +100,7 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -111,6 +118,7 @@ final class ChangeCartDiscountsChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue()

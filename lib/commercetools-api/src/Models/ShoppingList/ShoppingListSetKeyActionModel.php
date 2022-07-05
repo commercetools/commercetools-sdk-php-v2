@@ -21,11 +21,13 @@ final class ShoppingListSetKeyActionModel extends JsonObjectModel implements Sho
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class ShoppingListSetKeyActionModel extends JsonObjectModel implements Sho
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShoppingListSetKeyActionModel extends JsonObjectModel implements Sho
     /**
      * <p>User-specific unique identifier for the shopping list.</p>
      *
+
      * @return null|string
      */
     public function getKey()

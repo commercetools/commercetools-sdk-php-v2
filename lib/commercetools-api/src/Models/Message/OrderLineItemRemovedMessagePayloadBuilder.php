@@ -30,46 +30,55 @@ use stdClass;
 final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?int
      */
     private $removedQuantity;
 
     /**
+
      * @var ?int
      */
     private $newQuantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $newState;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $newTotalPrice;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $newTaxedPrice;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $newPrice;
 
     /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $newShippingDetail;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -78,6 +87,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getRemovedQuantity()
@@ -86,6 +96,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNewQuantity()
@@ -94,6 +105,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getNewState()
@@ -104,6 +116,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     /**
      * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getNewTotalPrice()
@@ -112,6 +125,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice()
@@ -120,6 +134,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|Price
      */
     public function getNewPrice()
@@ -128,6 +143,7 @@ final class OrderLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail()

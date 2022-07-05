@@ -21,11 +21,13 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
 {
     public const DISCRIMINATOR_VALUE = 'addLocation';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?Location
      */
     protected $location;
@@ -42,6 +44,7 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
     /**
      * <p>Location to be added to the Zone.</p>
      *
+
      * @return null|Location
      */
     public function getLocation()

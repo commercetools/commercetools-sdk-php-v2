@@ -21,31 +21,37 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'moveImageToPosition';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $imageUrl;
 
     /**
+
      * @var ?int
      */
     protected $position;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -70,6 +76,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -87,6 +94,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -104,6 +112,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -123,6 +132,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     /**
      * <p>The URL of the image</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -140,6 +150,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getPosition()
@@ -157,6 +168,7 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

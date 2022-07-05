@@ -22,11 +22,13 @@ use stdClass;
 final class CustomModel extends JsonObjectModel implements Custom
 {
     /**
+
      * @var ?TypeKeyReference
      */
     protected $type;
 
     /**
+
      * @var ?FieldContainer
      */
     protected $fields;
@@ -46,6 +48,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     /**
      * <p>The type that provides the field definitions for this object.</p>
      *
+
      * @return null|TypeKeyReference
      */
     public function getType()
@@ -66,6 +69,7 @@ final class CustomModel extends JsonObjectModel implements Custom
     /**
      * <p>The custom fields of this object.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

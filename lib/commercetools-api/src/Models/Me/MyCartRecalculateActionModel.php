@@ -21,11 +21,13 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
 {
     public const DISCRIMINATOR_VALUE = 'recalculate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?bool
      */
     protected $updateProductData;
@@ -42,6 +44,7 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData()

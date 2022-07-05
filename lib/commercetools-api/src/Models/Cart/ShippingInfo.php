@@ -31,6 +31,7 @@ interface ShippingInfo extends JsonObject
     public const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName();
@@ -38,6 +39,7 @@ interface ShippingInfo extends JsonObject
     /**
      * <p>Determined based on the ShippingRate and its tiered prices, and either the sum of LineItem prices or the <code>shippingRateInput</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getPrice();
@@ -45,6 +47,7 @@ interface ShippingInfo extends JsonObject
     /**
      * <p>The shipping rate used to determine the price.</p>
      *
+
      * @return null|ShippingRate
      */
     public function getShippingRate();
@@ -52,6 +55,7 @@ interface ShippingInfo extends JsonObject
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();
@@ -60,11 +64,13 @@ interface ShippingInfo extends JsonObject
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
@@ -72,6 +78,7 @@ interface ShippingInfo extends JsonObject
     /**
      * <p>Not set if custom shipping method is used.</p>
      *
+
      * @return null|ShippingMethodReference
      */
     public function getShippingMethod();
@@ -79,11 +86,13 @@ interface ShippingInfo extends JsonObject
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
+
      * @return null|DeliveryCollection
      */
     public function getDeliveries();
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getDiscountedPrice();
@@ -91,6 +100,7 @@ interface ShippingInfo extends JsonObject
     /**
      * <p>Indicates whether the ShippingMethod referenced in this ShippingInfo is allowed for the cart or not.</p>
      *
+
      * @return null|string
      */
     public function getShippingMethodState();

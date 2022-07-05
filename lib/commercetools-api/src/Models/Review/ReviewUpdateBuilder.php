@@ -21,16 +21,19 @@ use stdClass;
 final class ReviewUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?ReviewUpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class ReviewUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|ReviewUpdateActionCollection
      */
     public function getActions()

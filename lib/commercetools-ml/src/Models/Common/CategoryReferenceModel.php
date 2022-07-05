@@ -21,11 +21,13 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
 {
     public const DISCRIMINATOR_VALUE = 'category';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
@@ -42,6 +44,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     }
 
     /**
+
      * @return null|string
      */
     public function getTypeId()
@@ -59,6 +62,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     }
 
     /**
+
      * @return null|string
      */
     public function getId()

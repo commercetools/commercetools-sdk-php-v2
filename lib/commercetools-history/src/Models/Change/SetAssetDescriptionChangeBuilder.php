@@ -25,21 +25,25 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetAssetDescriptionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
     private $asset;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
@@ -47,6 +51,7 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setAssetDescription</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -63,6 +69,7 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -71,6 +78,7 @@ final class SetAssetDescriptionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

@@ -21,21 +21,25 @@ use stdClass;
 final class CustomerChangePasswordBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?string
      */
     private $currentPassword;
 
     /**
+
      * @var ?string
      */
     private $newPassword;
@@ -43,6 +47,7 @@ final class CustomerChangePasswordBuilder implements Builder
     /**
      * <p>Unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -51,6 +56,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +65,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCurrentPassword()
@@ -67,6 +74,7 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNewPassword()

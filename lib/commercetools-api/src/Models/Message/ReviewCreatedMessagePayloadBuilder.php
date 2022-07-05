@@ -23,11 +23,13 @@ use stdClass;
 final class ReviewCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Review|ReviewBuilder
      */
     private $review;
 
     /**
+
      * @return null|Review
      */
     public function getReview()

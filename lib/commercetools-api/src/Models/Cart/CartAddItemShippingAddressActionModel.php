@@ -23,11 +23,13 @@ final class CartAddItemShippingAddressActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'addItemShippingAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -44,6 +46,7 @@ final class CartAddItemShippingAddressActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CartAddItemShippingAddressActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

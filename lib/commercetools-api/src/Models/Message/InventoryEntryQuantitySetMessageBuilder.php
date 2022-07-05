@@ -30,76 +30,91 @@ use stdClass;
 final class InventoryEntryQuantitySetMessageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?int
      */
     private $sequenceNumber;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?int
      */
     private $oldQuantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $newQuantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $oldAvailableQuantity;
 
     /**
+
      * @var ?int
      */
     private $newAvailableQuantity;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
@@ -107,6 +122,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     /**
      * <p>Unique identifier of the Message.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -115,6 +131,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -123,6 +140,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -131,6 +149,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -141,6 +160,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -151,6 +171,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -159,6 +180,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -169,6 +191,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -177,6 +200,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -185,6 +209,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -193,6 +218,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getOldQuantityOnStock()
@@ -201,6 +227,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNewQuantityOnStock()
@@ -209,6 +236,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getOldAvailableQuantity()
@@ -217,6 +245,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNewAvailableQuantity()
@@ -227,6 +256,7 @@ final class InventoryEntryQuantitySetMessageBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

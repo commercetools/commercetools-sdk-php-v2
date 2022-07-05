@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\ReturnInfoBuilder;
 final class AddReturnInfoChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ReturnInfo|ReturnInfoBuilder
      */
     private $nextValue;
@@ -35,6 +37,7 @@ final class AddReturnInfoChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addReturnInfo</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class AddReturnInfoChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReturnInfo
      */
     public function getNextValue()

@@ -29,51 +29,61 @@ use stdClass;
 final class LineItemImportDraftBuilder implements Builder
 {
     /**
+
      * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LineItemProductVariantImportDraft|LineItemProductVariantImportDraftBuilder
      */
     private $variant;
 
     /**
+
      * @var null|LineItemPrice|LineItemPriceBuilder
      */
     private $price;
 
     /**
+
      * @var ?float
      */
     private $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -81,6 +91,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.productId</code>.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct()
@@ -91,6 +102,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.name</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -101,6 +113,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariantImportDraft</code>.</p>
      *
+
      * @return null|LineItemProductVariantImportDraft
      */
     public function getVariant()
@@ -111,6 +124,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.price</code>.</p>
      *
+
      * @return null|LineItemPrice
      */
     public function getPrice()
@@ -121,6 +135,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity()
@@ -129,6 +144,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -141,6 +157,7 @@ final class LineItemImportDraftBuilder implements Builder
      * The Reference to the Supply <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel()
@@ -153,6 +170,7 @@ final class LineItemImportDraftBuilder implements Builder
      * The Reference to the Distribution <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getDistributionChannel()
@@ -163,6 +181,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.taxRate</code>.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -173,6 +192,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to LineItem.shippingDetails.</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

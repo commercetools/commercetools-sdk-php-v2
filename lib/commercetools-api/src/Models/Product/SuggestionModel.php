@@ -20,6 +20,7 @@ use stdClass;
 final class SuggestionModel extends JsonObjectModel implements Suggestion
 {
     /**
+
      * @var ?string
      */
     protected $text;
@@ -37,6 +38,7 @@ final class SuggestionModel extends JsonObjectModel implements Suggestion
     /**
      * <p>The suggested text.</p>
      *
+
      * @return null|string
      */
     public function getText()

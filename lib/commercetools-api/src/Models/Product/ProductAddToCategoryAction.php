@@ -19,16 +19,19 @@ interface ProductAddToCategoryAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory();
 
     /**
+
      * @return null|string
      */
     public function getOrderHint();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

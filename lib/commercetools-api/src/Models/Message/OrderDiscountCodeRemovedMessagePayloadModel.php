@@ -23,11 +23,13 @@ final class OrderDiscountCodeRemovedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderDiscountCodeRemoved';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
@@ -44,6 +46,7 @@ final class OrderDiscountCodeRemovedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class OrderDiscountCodeRemovedMessagePayloadModel extends JsonObjectModel 
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()

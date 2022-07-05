@@ -24,26 +24,31 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
 
     public const DISCRIMINATOR_VALUE = 'ChangeShoppingListLineItemQuantityChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ShoppingListLineItemValue
      */
     protected $lineItem;
 
     /**
+
      * @var ?int
      */
     protected $previousValue;
 
     /**
+
      * @var ?int
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -83,6 +89,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -100,6 +107,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -118,6 +126,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()
@@ -135,6 +144,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()

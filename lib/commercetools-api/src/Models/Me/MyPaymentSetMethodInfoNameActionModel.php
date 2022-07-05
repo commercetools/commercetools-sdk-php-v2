@@ -23,11 +23,13 @@ final class MyPaymentSetMethodInfoNameActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class MyPaymentSetMethodInfoNameActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class MyPaymentSetMethodInfoNameActionModel extends JsonObjectModel implem
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

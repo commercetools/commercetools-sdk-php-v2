@@ -21,36 +21,43 @@ use stdClass;
 final class DeliveryBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $createdAt;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var ?ParcelCollection
      */
     private $parcels;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -59,6 +66,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()
@@ -67,6 +75,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -75,6 +84,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels()
@@ -83,6 +93,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -93,6 +104,7 @@ final class DeliveryBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

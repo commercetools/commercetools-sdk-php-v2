@@ -21,6 +21,7 @@ interface TransitionLineItemStateChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface TransitionLineItemStateChange extends Change
     /**
      * <p>Update action for <code>transitionLineItemState</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|string
      */
     public function getStateId();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getPreviousValue();

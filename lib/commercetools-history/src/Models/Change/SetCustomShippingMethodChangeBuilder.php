@@ -23,16 +23,19 @@ use Commercetools\History\Models\ChangeValue\CustomShippingMethodChangeValueBuil
 final class SetCustomShippingMethodChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|CustomShippingMethodChangeValue|CustomShippingMethodChangeValueBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|CustomShippingMethodChangeValue|CustomShippingMethodChangeValueBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setCustomShippingMethod</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomShippingMethodChangeValue
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class SetCustomShippingMethodChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomShippingMethodChangeValue
      */
     public function getPreviousValue()

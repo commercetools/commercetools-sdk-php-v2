@@ -23,6 +23,7 @@ interface QuoteDraft extends JsonObject
     /**
      * <p>The StagedQuote from which this Quote is created.</p>
      *
+
      * @return null|StagedQuoteResourceIdentifier
      */
     public function getStagedQuote();
@@ -30,6 +31,7 @@ interface QuoteDraft extends JsonObject
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getStagedQuoteVersion();
@@ -37,6 +39,7 @@ interface QuoteDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -48,6 +51,7 @@ interface QuoteDraft extends JsonObject
      * <li>If empty, the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

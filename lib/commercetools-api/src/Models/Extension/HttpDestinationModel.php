@@ -21,16 +21,19 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
 {
     public const DISCRIMINATOR_VALUE = 'HTTP';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $url;
 
     /**
+
      * @var ?HttpDestinationAuthentication
      */
     protected $authentication;
@@ -49,6 +52,7 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
     /**
      * <p>URL to the target destination.</p>
      *
+
      * @return null|string
      */
     public function getUrl()
@@ -87,6 +92,7 @@ final class HttpDestinationModel extends JsonObjectModel implements HttpDestinat
     /**
      * <p>Authentication methods (such as <code>Basic</code> or <code>Bearer</code>).</p>
      *
+
      * @return null|HttpDestinationAuthentication
      */
     public function getAuthentication()

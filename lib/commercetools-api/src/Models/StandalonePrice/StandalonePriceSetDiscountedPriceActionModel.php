@@ -23,11 +23,13 @@ final class StandalonePriceSetDiscountedPriceActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setDiscountedPrice';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
@@ -44,6 +46,7 @@ final class StandalonePriceSetDiscountedPriceActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StandalonePriceSetDiscountedPriceActionModel extends JsonObjectModel
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()

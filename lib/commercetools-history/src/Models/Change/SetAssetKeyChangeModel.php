@@ -24,26 +24,31 @@ final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKe
 
     public const DISCRIMINATOR_VALUE = 'SetAssetKeyChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
@@ -66,6 +71,7 @@ final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKe
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKe
     /**
      * <p>Update action for <code>setAssetKey</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKe
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -120,6 +128,7 @@ final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKe
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()
@@ -137,6 +146,7 @@ final class SetAssetKeyChangeModel extends JsonObjectModel implements SetAssetKe
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()

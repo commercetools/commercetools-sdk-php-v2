@@ -21,11 +21,13 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
 {
     public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
@@ -42,6 +44,7 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
     }
 
     /**
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()

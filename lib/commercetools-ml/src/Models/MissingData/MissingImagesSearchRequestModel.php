@@ -20,46 +20,55 @@ use stdClass;
 final class MissingImagesSearchRequestModel extends JsonObjectModel implements MissingImagesSearchRequest
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?int
      */
     protected $productSetLimit;
 
     /**
+
      * @var ?bool
      */
     protected $includeVariants;
 
     /**
+
      * @var ?bool
      */
     protected $autoThreshold;
 
     /**
+
      * @var ?int
      */
     protected $threshold;
 
     /**
+
      * @var ?array
      */
     protected $productIds;
 
     /**
+
      * @var ?array
      */
     protected $productTypeIds;
@@ -93,6 +102,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -112,6 +122,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -131,6 +142,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -150,6 +162,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Maximum number of products to scan.</p>
      *
+
      * @return null|int
      */
     public function getProductSetLimit()
@@ -169,6 +182,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
+
      * @return null|bool
      */
     public function getIncludeVariants()
@@ -188,6 +202,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>If true, uses the median number of images per product variant as a threshold value.</p>
      *
+
      * @return null|bool
      */
     public function getAutoThreshold()
@@ -207,6 +222,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>The minimum number of images a product variant must have. Anything below this value is considered a product variant with missing images.</p>
      *
+
      * @return null|int
      */
     public function getThreshold()
@@ -226,6 +242,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Filters results by the provided Product IDs. Cannot be applied in combination with any other filter.</p>
      *
+
      * @return null|array
      */
     public function getProductIds()
@@ -245,6 +262,7 @@ final class MissingImagesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Filters results by the provided product type IDs. It cannot be applied in combination with any other filter.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds()

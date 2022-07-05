@@ -22,16 +22,19 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
 {
     public const DISCRIMINATOR_VALUE = 'DuplicatePriceScope';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?PriceCollection
      */
     protected $conflictingPrices;
@@ -50,6 +53,7 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -67,6 +71,7 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -84,6 +89,7 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getConflictingPrices()

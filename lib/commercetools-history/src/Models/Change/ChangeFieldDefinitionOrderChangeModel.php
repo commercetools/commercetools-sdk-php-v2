@@ -23,21 +23,25 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'ChangeFieldDefinitionOrderChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?FieldDefinitionOrderValueCollection
      */
     protected $previousValue;
 
     /**
+
      * @var ?FieldDefinitionOrderValueCollection
      */
     protected $nextValue;
@@ -58,6 +62,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -77,6 +82,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>changeFieldDefinitionOrder</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -94,6 +100,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|FieldDefinitionOrderValueCollection
      */
     public function getPreviousValue()
@@ -111,6 +118,7 @@ final class ChangeFieldDefinitionOrderChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|FieldDefinitionOrderValueCollection
      */
     public function getNextValue()

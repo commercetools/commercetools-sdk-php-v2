@@ -24,26 +24,31 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
 
     public const DISCRIMINATOR_VALUE = 'SetOrderTotalTaxChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?Money
      */
     protected $nextValue;
 
     /**
+
      * @var ?Money
      */
     protected $previousValue;
@@ -66,6 +71,7 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     /**
      * <p>Update action for <code>setOrderTotalTax</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -119,6 +127,7 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()
@@ -137,6 +146,7 @@ final class SetOrderTotalTaxChangeModel extends JsonObjectModel implements SetOr
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()

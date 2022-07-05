@@ -23,11 +23,13 @@ use stdClass;
 final class PaymentCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Payment|PaymentBuilder
      */
     private $payment;
 
     /**
+
      * @return null|Payment
      */
     public function getPayment()

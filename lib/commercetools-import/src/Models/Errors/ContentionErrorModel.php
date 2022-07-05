@@ -21,11 +21,13 @@ final class ContentionErrorModel extends JsonObjectModel implements ContentionEr
 {
     public const DISCRIMINATOR_VALUE = 'Contention';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class ContentionErrorModel extends JsonObjectModel implements ContentionEr
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class ContentionErrorModel extends JsonObjectModel implements ContentionEr
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

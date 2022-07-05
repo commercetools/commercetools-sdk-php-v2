@@ -23,26 +23,31 @@ use Commercetools\History\Models\ChangeValue\ShoppingListLineItemValueBuilder;
 final class ChangeShoppingListLineItemQuantityChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ShoppingListLineItemValue|ShoppingListLineItemValueBuilder
      */
     private $lineItem;
 
     /**
+
      * @var ?int
      */
     private $previousValue;
 
     /**
+
      * @var ?int
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -51,6 +56,7 @@ final class ChangeShoppingListLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -59,6 +65,7 @@ final class ChangeShoppingListLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()
@@ -67,6 +74,7 @@ final class ChangeShoppingListLineItemQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()

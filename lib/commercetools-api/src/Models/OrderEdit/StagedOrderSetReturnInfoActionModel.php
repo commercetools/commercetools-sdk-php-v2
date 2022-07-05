@@ -24,11 +24,13 @@ final class StagedOrderSetReturnInfoActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setReturnInfo';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ReturnInfoDraftCollection
      */
     protected $items;
@@ -45,6 +47,7 @@ final class StagedOrderSetReturnInfoActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class StagedOrderSetReturnInfoActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|ReturnInfoDraftCollection
      */
     public function getItems()

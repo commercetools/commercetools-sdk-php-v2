@@ -22,11 +22,13 @@ use stdClass;
 final class CustomerSetStoresActionBuilder implements Builder
 {
     /**
+
      * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
     /**
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()

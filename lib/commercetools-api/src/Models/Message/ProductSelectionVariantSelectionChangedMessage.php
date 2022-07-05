@@ -22,6 +22,7 @@ interface ProductSelectionVariantSelectionChangedMessage extends Message
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -29,6 +30,7 @@ interface ProductSelectionVariantSelectionChangedMessage extends Message
     /**
      * <p>The former Product Variant Selection if any.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getOldVariantSelection();
@@ -36,6 +38,7 @@ interface ProductSelectionVariantSelectionChangedMessage extends Message
     /**
      * <p>The updated Product Variant Selection if any.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getNewVariantSelection();

@@ -19,16 +19,19 @@ interface DeliveryItemsUpdatedMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_ITEMS = 'oldItems';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems();

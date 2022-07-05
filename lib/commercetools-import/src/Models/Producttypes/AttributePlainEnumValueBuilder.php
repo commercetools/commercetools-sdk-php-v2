@@ -21,16 +21,19 @@ use stdClass;
 final class AttributePlainEnumValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -39,6 +42,7 @@ final class AttributePlainEnumValueBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLabel()

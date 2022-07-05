@@ -21,6 +21,7 @@ interface KeyReference extends JsonObject
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId();
@@ -28,6 +29,7 @@ interface KeyReference extends JsonObject
     /**
      * <p>User-defined unique and immutable key of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getKey();

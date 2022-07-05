@@ -21,21 +21,25 @@ use stdClass;
 final class ProductSetSkuActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -47,6 +51,7 @@ final class ProductSetSkuActionBuilder implements Builder
      * <p>SKU must be unique.
      * If left blank or set to <code>null</code>, the sku is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -55,6 +60,7 @@ final class ProductSetSkuActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

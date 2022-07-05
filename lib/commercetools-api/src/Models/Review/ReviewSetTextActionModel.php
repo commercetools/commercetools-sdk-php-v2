@@ -21,11 +21,13 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
 {
     public const DISCRIMINATOR_VALUE = 'setText';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $text;
@@ -42,6 +44,7 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     /**
      * <p>If <code>text</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getText()

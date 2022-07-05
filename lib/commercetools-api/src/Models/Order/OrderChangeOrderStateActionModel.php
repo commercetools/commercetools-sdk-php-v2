@@ -21,11 +21,13 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'changeOrderState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $orderState;
@@ -42,6 +44,7 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderState()

@@ -29,46 +29,55 @@ use stdClass;
 final class CustomLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $money;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -80,6 +89,7 @@ final class CustomLineItemDraftBuilder implements Builder
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -88,6 +98,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getMoney()
@@ -96,6 +107,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSlug()
@@ -106,6 +118,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -116,6 +129,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -126,6 +140,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -136,6 +151,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>Container for custom line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

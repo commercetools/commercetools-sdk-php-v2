@@ -23,41 +23,49 @@ use stdClass;
 final class AttributeDefinitionDraftBuilder implements Builder
 {
     /**
+
      * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @var ?bool
      */
     private $isRequired;
 
     /**
+
      * @var ?string
      */
     private $attributeConstraint;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
     /**
+
      * @var ?string
      */
     private $inputHint;
 
     /**
+
      * @var ?bool
      */
     private $isSearchable;
@@ -65,6 +73,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Describes the Type of the Attribute.</p>
      *
+
      * @return null|AttributeType
      */
     public function getType()
@@ -77,6 +86,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
      * When using the same <code>name</code> for an Attribute in multiple ProductTypes, all fields of the AttributeDefinition of this Attribute must be the same across the ProductTypes. Otherwise an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExistsError</a> will be returned.
      * An exception to this are the values of an <code>enum</code> or <code>lenum</code> Type and sets thereof.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -87,6 +97,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Human-readable label for the Attribute.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -97,6 +108,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Set to <code>true</code> if the Attribute is required to have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsRequired()
@@ -107,6 +119,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Specifies how an Attribute or a combination of Attributes should be validated across all variants of a Product.</p>
      *
+
      * @return null|string
      */
     public function getAttributeConstraint()
@@ -117,6 +130,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Provides additional information about the Attribute that aids content managers when setting Product details.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip()
@@ -127,6 +141,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
      *
+
      * @return null|string
      */
     public function getInputHint()
@@ -141,6 +156,7 @@ final class AttributeDefinitionDraftBuilder implements Builder
      * This constraint is enforced at both Product creation and Product update.
      * If the length of the input exceeds the maximum size, an InvalidField error is returned.</p>
      *
+
      * @return null|bool
      */
     public function getIsSearchable()

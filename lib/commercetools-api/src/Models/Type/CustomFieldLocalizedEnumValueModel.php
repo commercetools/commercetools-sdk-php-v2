@@ -22,11 +22,13 @@ use stdClass;
 final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implements CustomFieldLocalizedEnumValue
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $label;
@@ -46,6 +48,7 @@ final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implement
     /**
      * <p>Key of the value used as a programmatic identifier.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -65,6 +68,7 @@ final class CustomFieldLocalizedEnumValueModel extends JsonObjectModel implement
     /**
      * <p>Descriptive localized label of the value.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

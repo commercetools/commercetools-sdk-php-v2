@@ -35,6 +35,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>The unique ID of the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -42,6 +43,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -49,6 +51,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>User-specific unique identifier of the staged quote.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -56,6 +59,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Date and time (UTC) the StagedQuote was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -63,6 +67,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Date and time (UTC) the StagedQuote was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -70,6 +75,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -77,6 +83,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -84,6 +91,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState();
@@ -91,6 +99,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer();
@@ -98,6 +107,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>The Quote Request related to this Staged Quote.</p>
      *
+
      * @return null|QuoteRequestReference
      */
     public function getQuoteRequest();
@@ -105,6 +115,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
      *
+
      * @return null|CartReference
      */
     public function getQuotationCart();
@@ -112,6 +123,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Expiration date for the quote.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo();
@@ -119,6 +131,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment();
@@ -126,6 +139,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Custom Fields of this Staged Quote.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

@@ -23,31 +23,37 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
 
     public const DISCRIMINATOR_VALUE = 'ChangeLocalizedEnumValueOrderChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?LocalizedEnumValueCollection
      */
     protected $nextValue;
 
     /**
+
      * @var ?LocalizedEnumValueCollection
      */
     protected $previousValue;
@@ -72,6 +78,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -91,6 +98,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
     /**
      * <p>Update action for <code>changeLocalizedEnumValueOrder</code> on types and product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -110,6 +118,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -129,6 +138,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -146,6 +156,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|LocalizedEnumValueCollection
      */
     public function getNextValue()
@@ -163,6 +174,7 @@ final class ChangeLocalizedEnumValueOrderChangeModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|LocalizedEnumValueCollection
      */
     public function getPreviousValue()

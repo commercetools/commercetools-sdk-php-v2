@@ -34,111 +34,133 @@ use stdClass;
 final class ProductProjectionModel extends JsonObjectModel implements ProductProjection
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?ProductTypeReference
      */
     protected $productType;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?CategoryReferenceCollection
      */
     protected $categories;
 
     /**
+
      * @var ?CategoryOrderHints
      */
     protected $categoryOrderHints;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
+
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
 
     /**
+
      * @var ?bool
      */
     protected $hasStagedChanges;
 
     /**
+
      * @var ?bool
      */
     protected $published;
 
     /**
+
      * @var ?ProductVariant
      */
     protected $masterVariant;
 
     /**
+
      * @var ?ProductVariantCollection
      */
     protected $variants;
 
     /**
+
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
     /**
+
      * @var ?StateReference
      */
     protected $state;
 
     /**
+
      * @var ?ReviewRatingStatistics
      */
     protected $reviewRatingStatistics;
@@ -198,6 +220,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * <p>The unique ID of the Product.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -217,6 +240,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * <p>The current version of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -234,6 +258,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -255,6 +280,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -278,6 +304,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * <p>User-specific unique identifier of the Product.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -295,6 +322,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -313,6 +341,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -331,6 +360,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -349,6 +379,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -369,6 +400,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * <p>References to categories the product is in.</p>
      *
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories()
@@ -386,6 +418,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -404,6 +437,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -422,6 +456,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -440,6 +475,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -458,6 +494,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -476,6 +513,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|bool
      */
     public function getHasStagedChanges()
@@ -493,6 +531,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|bool
      */
     public function getPublished()
@@ -510,6 +549,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getMasterVariant()
@@ -528,6 +568,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|ProductVariantCollection
      */
     public function getVariants()
@@ -545,6 +586,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -563,6 +605,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+
      * @return null|StateReference
      */
     public function getState()
@@ -583,6 +626,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * <p>Statistics about the review ratings taken into account for this product.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()

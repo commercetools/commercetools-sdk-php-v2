@@ -16,6 +16,7 @@ interface PaymentSetStatusInterfaceTextAction extends PaymentUpdateAction
     public const FIELD_INTERFACE_TEXT = 'interfaceText';
 
     /**
+
      * @return null|string
      */
     public function getInterfaceText();

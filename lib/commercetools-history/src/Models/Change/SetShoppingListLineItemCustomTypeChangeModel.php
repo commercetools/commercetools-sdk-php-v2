@@ -26,26 +26,31 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
 
     public const DISCRIMINATOR_VALUE = 'SetShoppingListLineItemCustomTypeChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ShoppingListLineItemValue
      */
     protected $lineItem;
 
     /**
+
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
+
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     /**
      * <p>Update action for <code>setLineItemCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -122,6 +130,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()

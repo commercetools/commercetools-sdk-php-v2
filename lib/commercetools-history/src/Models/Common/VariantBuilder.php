@@ -21,21 +21,25 @@ use stdClass;
 final class VariantBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|int
      */
     public function getId()
@@ -44,6 +48,7 @@ final class VariantBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -52,6 +57,7 @@ final class VariantBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

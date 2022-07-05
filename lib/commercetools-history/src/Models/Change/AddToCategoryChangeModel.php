@@ -25,26 +25,31 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
 
     public const DISCRIMINATOR_VALUE = 'AddToCategoryChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Reference
      */
     protected $category;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $previousValue;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $nextValue;
@@ -67,6 +72,7 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -86,6 +92,7 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     /**
      * <p>Update action for <code>addToCategory</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -103,6 +110,7 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
+
      * @return null|Reference
      */
     public function getCategory()
@@ -121,6 +129,7 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -138,6 +147,7 @@ final class AddToCategoryChangeModel extends JsonObjectModel implements AddToCat
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue()

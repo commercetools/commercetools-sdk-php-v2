@@ -20,11 +20,13 @@ use stdClass;
 final class AttributeModel extends JsonObjectModel implements Attribute
 {
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
@@ -42,6 +44,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     /**
      * <p>A valid JSON value, based on an AttributeDefinition.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

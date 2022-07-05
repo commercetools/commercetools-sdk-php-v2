@@ -17,6 +17,7 @@ interface StagedQuoteValidToSetMessage extends Message
     public const FIELD_VALID_TO = 'validTo';
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo();

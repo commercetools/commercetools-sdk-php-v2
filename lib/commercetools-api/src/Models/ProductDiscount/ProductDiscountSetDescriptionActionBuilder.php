@@ -23,6 +23,7 @@ use stdClass;
 final class ProductDiscountSetDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
@@ -30,6 +31,7 @@ final class ProductDiscountSetDescriptionActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()

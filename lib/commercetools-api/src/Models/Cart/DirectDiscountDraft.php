@@ -19,6 +19,7 @@ interface DirectDiscountDraft extends JsonObject
     public const FIELD_TARGET = 'target';
 
     /**
+
      * @return null|CartDiscountValue
      */
     public function getValue();
@@ -26,6 +27,7 @@ interface DirectDiscountDraft extends JsonObject
     /**
      * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
      *
+
      * @return null|CartDiscountTarget
      */
     public function getTarget();

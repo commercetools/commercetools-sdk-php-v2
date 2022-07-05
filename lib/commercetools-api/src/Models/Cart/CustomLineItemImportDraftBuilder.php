@@ -32,51 +32,61 @@ use stdClass;
 final class CustomLineItemImportDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $money;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -88,6 +98,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -98,6 +109,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     /**
      * <p>The cost to add to the cart. The amount can be negative.</p>
      *
+
      * @return null|Money
      */
     public function getMoney()
@@ -106,6 +118,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSlug()
@@ -114,6 +127,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -122,6 +136,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -130,6 +145,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -140,6 +156,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -148,6 +165,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

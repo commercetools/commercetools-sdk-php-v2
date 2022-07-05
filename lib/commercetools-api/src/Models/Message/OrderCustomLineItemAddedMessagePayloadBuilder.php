@@ -23,11 +23,13 @@ use stdClass;
 final class OrderCustomLineItemAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
     private $customLineItem;
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getCustomLineItem()

@@ -20,11 +20,13 @@ use stdClass;
 final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implements CustomerCreatePasswordResetToken
 {
     /**
+
      * @var ?string
      */
     protected $email;
 
     /**
+
      * @var ?int
      */
     protected $ttlMinutes;
@@ -42,6 +44,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -59,6 +62,7 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getTtlMinutes()

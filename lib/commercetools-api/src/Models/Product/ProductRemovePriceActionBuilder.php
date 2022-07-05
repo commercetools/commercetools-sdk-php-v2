@@ -21,11 +21,13 @@ use stdClass;
 final class ProductRemovePriceActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var ?bool
      */
     private $staged;
@@ -33,6 +35,7 @@ final class ProductRemovePriceActionBuilder implements Builder
     /**
      * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
      *
+
      * @return null|string
      */
     public function getPriceId()
@@ -41,6 +44,7 @@ final class ProductRemovePriceActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

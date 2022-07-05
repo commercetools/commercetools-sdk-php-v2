@@ -24,31 +24,37 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'SetVariantAvailabilityChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?string
      */
     protected $variant;
 
     /**
+
      * @var ?ProductVariantAvailability
      */
     protected $previousValue;
 
     /**
+
      * @var ?ProductVariantAvailability
      */
     protected $nextValue;
@@ -73,6 +79,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -92,6 +99,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>setVariantAvailability</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -109,6 +117,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -126,6 +135,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -143,6 +153,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getPreviousValue()
@@ -161,6 +172,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getNextValue()

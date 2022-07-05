@@ -23,6 +23,7 @@ use stdClass;
 final class CustomerRemoveStoreActionBuilder implements Builder
 {
     /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
@@ -30,6 +31,7 @@ final class CustomerRemoveStoreActionBuilder implements Builder
     /**
      * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

@@ -21,11 +21,13 @@ final class CartDiscountChangeCartPredicateActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'changeCartPredicate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $cartPredicate;
@@ -42,6 +44,7 @@ final class CartDiscountChangeCartPredicateActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CartDiscountChangeCartPredicateActionModel extends JsonObjectModel i
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate()

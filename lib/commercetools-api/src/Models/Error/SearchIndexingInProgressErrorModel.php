@@ -21,11 +21,13 @@ final class SearchIndexingInProgressErrorModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'SearchIndexingInProgress';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class SearchIndexingInProgressErrorModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class SearchIndexingInProgressErrorModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

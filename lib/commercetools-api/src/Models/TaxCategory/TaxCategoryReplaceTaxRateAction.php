@@ -19,6 +19,7 @@ interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
     /**
      * <p>ID of the TaxRate to replace.</p>
      *
+
      * @return null|string
      */
     public function getTaxRateId();
@@ -26,6 +27,7 @@ interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
     /**
      * <p>New TaxRate to replace with.</p>
      *
+
      * @return null|TaxRateDraft
      */
     public function getTaxRate();

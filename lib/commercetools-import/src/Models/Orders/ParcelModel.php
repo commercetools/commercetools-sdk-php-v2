@@ -21,26 +21,31 @@ use stdClass;
 final class ParcelModel extends JsonObjectModel implements Parcel
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $measurements;
 
     /**
+
      * @var ?TrackingData
      */
     protected $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -64,6 +69,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -81,6 +87,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -102,6 +109,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -120,6 +128,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -138,6 +147,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

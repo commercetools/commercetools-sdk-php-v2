@@ -21,6 +21,7 @@ final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'ltext';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class AttributeLocalizableTextTypeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

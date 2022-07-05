@@ -22,11 +22,13 @@ use stdClass;
 final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $label;
@@ -46,6 +48,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     /**
      * <p>Key of the value used as a programmatic identifier, for example in facets &amp; filters.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -65,6 +68,7 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
     /**
      * <p>Descriptive, localized label of the value.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

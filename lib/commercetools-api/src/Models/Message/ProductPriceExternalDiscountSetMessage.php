@@ -22,31 +22,37 @@ interface ProductPriceExternalDiscountSetMessage extends Message
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getVariantKey();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getPriceId();
 
     /**
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

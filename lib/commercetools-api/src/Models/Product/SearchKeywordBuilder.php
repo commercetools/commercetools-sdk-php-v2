@@ -21,16 +21,19 @@ use stdClass;
 final class SearchKeywordBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $text;
 
     /**
+
      * @var null|SuggestTokenizer|SuggestTokenizerBuilder
      */
     private $suggestTokenizer;
 
     /**
+
      * @return null|string
      */
     public function getText()
@@ -39,6 +42,7 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
+
      * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer()

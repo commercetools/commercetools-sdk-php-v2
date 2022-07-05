@@ -22,11 +22,13 @@ final class StoreSetDistributionChannelsActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setDistributionChannels';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ChannelResourceIdentifierCollection
      */
     protected $distributionChannels;
@@ -43,6 +45,7 @@ final class StoreSetDistributionChannelsActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -64,6 +67,7 @@ final class StoreSetDistributionChannelsActionModel extends JsonObjectModel impl
      * If not defined, the Store's <code>distributionChannels</code> are unset.
      * Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error.</p>
      *
+
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getDistributionChannels()

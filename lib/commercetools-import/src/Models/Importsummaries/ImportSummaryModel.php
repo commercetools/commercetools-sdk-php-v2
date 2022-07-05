@@ -20,11 +20,13 @@ use stdClass;
 final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
 {
     /**
+
      * @var ?OperationStates
      */
     protected $states;
 
     /**
+
      * @var ?int
      */
     protected $total;
@@ -44,6 +46,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     /**
      * <p>The import status of an <a href="/import-container#importcontainer">ImportContainer</a> given by the number of resources in each <a href="/processing-state#processingstate">Processing State</a>.</p>
      *
+
      * @return null|OperationStates
      */
     public function getStates()
@@ -64,6 +67,7 @@ final class ImportSummaryModel extends JsonObjectModel implements ImportSummary
     /**
      * <p>The total number of <a href="/import-operation#importoperation">ImportOperations</a> received for this Import Summary.</p>
      *
+
      * @return null|int
      */
     public function getTotal()

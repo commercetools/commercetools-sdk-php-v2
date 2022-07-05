@@ -21,16 +21,19 @@ use stdClass;
 final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -39,6 +42,7 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

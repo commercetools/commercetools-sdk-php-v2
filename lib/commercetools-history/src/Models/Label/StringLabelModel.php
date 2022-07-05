@@ -22,11 +22,13 @@ final class StringLabelModel extends JsonObjectModel implements StringLabel
 
     public const DISCRIMINATOR_VALUE = 'StringLabel';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $value;
@@ -43,6 +45,7 @@ final class StringLabelModel extends JsonObjectModel implements StringLabel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class StringLabelModel extends JsonObjectModel implements StringLabel
     }
 
     /**
+
      * @return null|string
      */
     public function getValue()

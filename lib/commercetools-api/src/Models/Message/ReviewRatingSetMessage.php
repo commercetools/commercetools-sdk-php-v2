@@ -20,16 +20,19 @@ interface ReviewRatingSetMessage extends Message
     public const FIELD_TARGET = 'target';
 
     /**
+
      * @return null|float
      */
     public function getOldRating();
 
     /**
+
      * @return null|float
      */
     public function getNewRating();
 
     /**
+
      * @return null|bool
      */
     public function getIncludedInStatistics();
@@ -37,6 +40,7 @@ interface ReviewRatingSetMessage extends Message
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getTarget();

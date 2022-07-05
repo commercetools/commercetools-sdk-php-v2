@@ -23,41 +23,49 @@ use stdClass;
 final class CustomerSigninBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+     * @deprecated
      * @var ?string
      */
     private $anonymousCartId;
 
     /**
+
      * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
      */
     private $anonymousCart;
 
     /**
+
      * @var ?string
      */
     private $anonymousCartSignInMode;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var ?bool
      */
     private $updateProductData;
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -66,6 +74,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPassword()
@@ -74,6 +83,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+     * @deprecated
      * @return null|string
      */
     public function getAnonymousCartId()
@@ -84,6 +94,7 @@ final class CustomerSigninBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getAnonymousCart()
@@ -92,6 +103,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAnonymousCartSignInMode()
@@ -100,6 +112,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -108,6 +121,7 @@ final class CustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData()

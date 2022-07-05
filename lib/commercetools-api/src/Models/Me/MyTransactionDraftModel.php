@@ -25,26 +25,31 @@ use stdClass;
 final class MyTransactionDraftModel extends JsonObjectModel implements MyTransactionDraft
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $timestamp;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Money
      */
     protected $amount;
 
     /**
+
      * @var ?string
      */
     protected $interactionId;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -70,6 +75,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp()
@@ -95,6 +101,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
      * Only the <code>Authorization</code> or <code>Charge</code>
      * TransactionTypes are allowed here.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -112,6 +119,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     }
 
     /**
+
      * @return null|Money
      */
     public function getAmount()
@@ -135,6 +143,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
      * the corresponding interaction should be findable with this ID.
      * The <code>state</code> is set to the <code>Initial</code> TransactionState.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId()
@@ -154,6 +163,7 @@ final class MyTransactionDraftModel extends JsonObjectModel implements MyTransac
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

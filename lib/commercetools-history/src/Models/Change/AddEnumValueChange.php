@@ -19,6 +19,7 @@ interface AddEnumValueChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,6 +27,7 @@ interface AddEnumValueChange extends Change
     /**
      * <p>Update action for <code>addEnumValue</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -33,11 +35,13 @@ interface AddEnumValueChange extends Change
     /**
      * <p>The name of the field/attribute definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
 
     /**
+
      * @return null|EnumValue
      */
     public function getNextValue();

@@ -18,11 +18,13 @@ interface OrderSetDeliveryAddressAction extends OrderUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();

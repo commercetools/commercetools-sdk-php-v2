@@ -17,11 +17,13 @@ interface MyCustomerAddBillingAddressIdAction extends MyCustomerUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
+
      * @return null|string
      */
     public function getAddressId();
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();

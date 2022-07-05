@@ -21,26 +21,31 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'AttributeDefinitionTypeConflict';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $conflictingProductTypeId;
 
     /**
+
      * @var ?string
      */
     protected $conflictingProductTypeName;
 
     /**
+
      * @var ?string
      */
     protected $conflictingAttributeName;
@@ -63,6 +68,7 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -80,6 +86,7 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -97,6 +104,7 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingProductTypeId()
@@ -114,6 +122,7 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingProductTypeName()
@@ -131,6 +140,7 @@ final class AttributeDefinitionTypeConflictErrorModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingAttributeName()

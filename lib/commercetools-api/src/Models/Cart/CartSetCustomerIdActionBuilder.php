@@ -21,6 +21,7 @@ use stdClass;
 final class CartSetCustomerIdActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customerId;
@@ -28,6 +29,7 @@ final class CartSetCustomerIdActionBuilder implements Builder
     /**
      * <p>If set, a customer with the given ID must exist in the project.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId()

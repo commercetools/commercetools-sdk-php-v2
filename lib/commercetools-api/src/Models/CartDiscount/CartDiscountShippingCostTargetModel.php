@@ -21,6 +21,7 @@ final class CartDiscountShippingCostTargetModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'shipping';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class CartDiscountShippingCostTargetModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

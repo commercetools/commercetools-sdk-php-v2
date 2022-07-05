@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectChangeCurrenciesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $currencies;
@@ -28,6 +29,7 @@ final class ProjectChangeCurrenciesActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|array
      */
     public function getCurrencies()

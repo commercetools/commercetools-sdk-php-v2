@@ -30,16 +30,19 @@ interface ProductData extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories();
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints();
@@ -47,6 +50,7 @@ interface ProductData extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -54,6 +58,7 @@ interface ProductData extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
@@ -61,6 +66,7 @@ interface ProductData extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
@@ -68,6 +74,7 @@ interface ProductData extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
@@ -75,21 +82,25 @@ interface ProductData extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
 
     /**
+
      * @return null|ProductVariant
      */
     public function getMasterVariant();
 
     /**
+
      * @return null|ProductVariantCollection
      */
     public function getVariants();
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords();

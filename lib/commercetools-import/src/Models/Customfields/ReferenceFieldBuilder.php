@@ -23,6 +23,7 @@ use stdClass;
 final class ReferenceFieldBuilder implements Builder
 {
     /**
+
      * @var null|KeyReference|KeyReferenceBuilder
      */
     private $value;
@@ -30,6 +31,7 @@ final class ReferenceFieldBuilder implements Builder
     /**
      * <p>References a resource by key</p>
      *
+
      * @return null|KeyReference
      */
     public function getValue()

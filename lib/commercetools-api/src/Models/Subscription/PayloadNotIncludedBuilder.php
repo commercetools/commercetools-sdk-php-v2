@@ -21,16 +21,19 @@ use stdClass;
 final class PayloadNotIncludedBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $reason;
 
     /**
+
      * @var ?string
      */
     private $payloadType;
 
     /**
+
      * @return null|string
      */
     public function getReason()
@@ -39,6 +42,7 @@ final class PayloadNotIncludedBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPayloadType()

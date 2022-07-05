@@ -21,11 +21,13 @@ use stdClass;
 final class TimeSetFieldBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutableCollection
      */
     private $value;
 
     /**
+
      * @return null|DateTimeImmutableCollection
      */
     public function getValue()

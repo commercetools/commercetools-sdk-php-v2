@@ -24,21 +24,25 @@ final class AddShoppingListLineItemChangeModel extends JsonObjectModel implement
 
     public const DISCRIMINATOR_VALUE = 'AddShoppingListLineItemChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LineItem
      */
     protected $previousValue;
 
     /**
+
      * @var ?LineItem
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class AddShoppingListLineItemChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class AddShoppingListLineItemChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class AddShoppingListLineItemChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|LineItem
      */
     public function getPreviousValue()
@@ -111,6 +118,7 @@ final class AddShoppingListLineItemChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|LineItem
      */
     public function getNextValue()

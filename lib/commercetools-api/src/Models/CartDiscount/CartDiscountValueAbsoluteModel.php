@@ -22,11 +22,13 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
 {
     public const DISCRIMINATOR_VALUE = 'absolute';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CentPrecisionMoneyCollection
      */
     protected $money;
@@ -43,6 +45,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     /**
      * <p>Cent precision money values in different currencies.</p>
      *
+
      * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney()

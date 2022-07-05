@@ -18,6 +18,7 @@ interface QuoteRequestChangeQuoteRequestStateAction extends QuoteRequestUpdateAc
     /**
      * <p>The new state to be set for the Quote Request.</p>
      *
+
      * @return null|string
      */
     public function getQuoteRequestState();

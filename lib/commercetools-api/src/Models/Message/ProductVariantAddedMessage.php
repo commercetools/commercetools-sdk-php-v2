@@ -18,11 +18,13 @@ interface ProductVariantAddedMessage extends Message
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

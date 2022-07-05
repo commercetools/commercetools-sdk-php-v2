@@ -21,11 +21,13 @@ use stdClass;
 final class ItemShippingTargetBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressKey;
 
     /**
+
      * @var ?float
      */
     private $quantity;
@@ -33,6 +35,7 @@ final class ItemShippingTargetBuilder implements Builder
     /**
      * <p>Maps to <code>ItemShippingTarget.addressKey</code>.</p>
      *
+
      * @return null|string
      */
     public function getAddressKey()
@@ -43,6 +46,7 @@ final class ItemShippingTargetBuilder implements Builder
     /**
      * <p>Maps to <code>ItemShippingTarget.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity()

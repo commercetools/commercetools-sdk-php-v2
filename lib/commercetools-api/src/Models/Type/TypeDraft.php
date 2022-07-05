@@ -23,6 +23,7 @@ interface TypeDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Type.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -30,6 +31,7 @@ interface TypeDraft extends JsonObject
     /**
      * <p>Name of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -37,6 +39,7 @@ interface TypeDraft extends JsonObject
     /**
      * <p>Description of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -44,6 +47,7 @@ interface TypeDraft extends JsonObject
     /**
      * <p>Resources and/or data types for which the Type is defined.</p>
      *
+
      * @return null|array
      */
     public function getResourceTypeIds();
@@ -51,6 +55,7 @@ interface TypeDraft extends JsonObject
     /**
      * <p>Defines Custom Fields.</p>
      *
+
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions();

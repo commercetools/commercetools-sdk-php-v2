@@ -22,21 +22,25 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
 
     public const DISCRIMINATOR_VALUE = 'SetMaxApplicationsPerCustomerChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?int
      */
     protected $previousValue;
 
     /**
+
      * @var ?int
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     /**
      * <p>Shape of the action for <code>setMaxApplicationsPerCustomer</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class SetMaxApplicationsPerCustomerChangeModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()

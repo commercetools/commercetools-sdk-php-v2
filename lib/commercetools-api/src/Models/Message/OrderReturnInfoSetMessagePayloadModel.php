@@ -22,11 +22,13 @@ final class OrderReturnInfoSetMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'ReturnInfoSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ReturnInfoCollection
      */
     protected $returnInfo;
@@ -43,6 +45,7 @@ final class OrderReturnInfoSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class OrderReturnInfoSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo()

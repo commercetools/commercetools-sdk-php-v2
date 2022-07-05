@@ -23,6 +23,7 @@ use stdClass;
 final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $interaction;
@@ -30,6 +31,7 @@ final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getInteraction()

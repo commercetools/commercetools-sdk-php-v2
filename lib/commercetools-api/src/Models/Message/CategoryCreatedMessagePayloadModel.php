@@ -23,11 +23,13 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'CategoryCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Category
      */
     protected $category;
@@ -44,6 +46,7 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|Category
      */
     public function getCategory()

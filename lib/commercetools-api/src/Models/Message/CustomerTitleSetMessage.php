@@ -16,6 +16,7 @@ interface CustomerTitleSetMessage extends Message
     public const FIELD_TITLE = 'title';
 
     /**
+
      * @return null|string
      */
     public function getTitle();

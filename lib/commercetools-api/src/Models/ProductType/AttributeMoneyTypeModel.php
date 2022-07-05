@@ -21,6 +21,7 @@ final class AttributeMoneyTypeModel extends JsonObjectModel implements Attribute
 {
     public const DISCRIMINATOR_VALUE = 'money';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class AttributeMoneyTypeModel extends JsonObjectModel implements Attribute
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

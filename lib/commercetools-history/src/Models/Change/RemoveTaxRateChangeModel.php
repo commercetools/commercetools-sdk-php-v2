@@ -24,21 +24,25 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
 
     public const DISCRIMINATOR_VALUE = 'RemoveTaxRateChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?TaxRate
      */
     protected $previousValue;
 
     /**
+
      * @var ?TaxRate
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
     /**
      * <p>Update action for <code>removeTaxRate</code> on tax categories</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -97,6 +103,7 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()
@@ -117,6 +124,7 @@ final class RemoveTaxRateChangeModel extends JsonObjectModel implements RemoveTa
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()

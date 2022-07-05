@@ -20,11 +20,13 @@ use stdClass;
 final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraft
 {
     /**
+
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+
      * @var ?FieldContainer
      */
     protected $fields;
@@ -44,6 +46,7 @@ final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFiel
     /**
      * <p><code>id</code> or <code>key</code> of the <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -64,6 +67,7 @@ final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFiel
     /**
      * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#list-of-customizable-data-types">customized resource or data type</a>.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

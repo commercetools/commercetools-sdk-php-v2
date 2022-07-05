@@ -21,11 +21,13 @@ final class ResourceSizeLimitExceededErrorModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'ResourceSizeLimitExceeded';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class ResourceSizeLimitExceededErrorModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class ResourceSizeLimitExceededErrorModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

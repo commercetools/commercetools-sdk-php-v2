@@ -21,6 +21,7 @@ use stdClass;
 final class ProductDiscountChangeValueActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductDiscountValueDraft|ProductDiscountValueDraftBuilder
      */
     private $value;
@@ -28,6 +29,7 @@ final class ProductDiscountChangeValueActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|ProductDiscountValueDraft
      */
     public function getValue()

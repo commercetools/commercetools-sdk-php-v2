@@ -40,11 +40,13 @@ interface ProductDraft extends JsonObject
      * <p>A predefined product type assigned to the product.
      * All products must have a product type.</p>
      *
+
      * @return null|ProductTypeResourceIdentifier
      */
     public function getProductType();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -55,6 +57,7 @@ interface ProductDraft extends JsonObject
      * Slugs have a maximum size of 256.
      * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
@@ -62,11 +65,13 @@ interface ProductDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Product.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -74,26 +79,31 @@ interface ProductDraft extends JsonObject
     /**
      * <p>Categories assigned to the product.</p>
      *
+
      * @return null|CategoryResourceIdentifierCollection
      */
     public function getCategories();
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
@@ -102,6 +112,7 @@ interface ProductDraft extends JsonObject
      * <p>The master product variant.
      * Required if the <code>variants</code> array has product variants.</p>
      *
+
      * @return null|ProductVariantDraft
      */
     public function getMasterVariant();
@@ -109,21 +120,25 @@ interface ProductDraft extends JsonObject
     /**
      * <p>An array of related product variants.</p>
      *
+
      * @return null|ProductVariantDraftCollection
      */
     public function getVariants();
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords();
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState();
@@ -131,6 +146,7 @@ interface ProductDraft extends JsonObject
     /**
      * <p>If <code>true</code>, the product is published immediately.</p>
      *
+
      * @return null|bool
      */
     public function getPublish();
@@ -138,6 +154,7 @@ interface ProductDraft extends JsonObject
     /**
      * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
      *
+
      * @return null|string
      */
     public function getPriceMode();

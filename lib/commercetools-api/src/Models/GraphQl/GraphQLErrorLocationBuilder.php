@@ -21,16 +21,19 @@ use stdClass;
 final class GraphQLErrorLocationBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $line;
 
     /**
+
      * @var ?int
      */
     private $column;
 
     /**
+
      * @return null|int
      */
     public function getLine()
@@ -39,6 +42,7 @@ final class GraphQLErrorLocationBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getColumn()

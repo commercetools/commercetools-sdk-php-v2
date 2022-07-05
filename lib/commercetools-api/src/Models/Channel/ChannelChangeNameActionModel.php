@@ -23,11 +23,13 @@ final class ChannelChangeNameActionModel extends JsonObjectModel implements Chan
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class ChannelChangeNameActionModel extends JsonObjectModel implements Chan
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ChannelChangeNameActionModel extends JsonObjectModel implements Chan
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

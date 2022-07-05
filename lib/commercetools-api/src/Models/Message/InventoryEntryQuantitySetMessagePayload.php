@@ -21,21 +21,25 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
+
      * @return null|int
      */
     public function getOldQuantityOnStock();
 
     /**
+
      * @return null|int
      */
     public function getNewQuantityOnStock();
 
     /**
+
      * @return null|int
      */
     public function getOldAvailableQuantity();
 
     /**
+
      * @return null|int
      */
     public function getNewAvailableQuantity();
@@ -43,6 +47,7 @@ interface InventoryEntryQuantitySetMessagePayload extends MessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel();

@@ -16,6 +16,7 @@ interface OrderSetCustomerEmailAction extends OrderUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+
      * @return null|string
      */
     public function getEmail();

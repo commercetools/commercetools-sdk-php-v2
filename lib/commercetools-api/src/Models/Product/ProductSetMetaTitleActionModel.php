@@ -23,16 +23,19 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setMetaTitle';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -86,6 +91,7 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

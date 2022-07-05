@@ -21,11 +21,13 @@ use stdClass;
 final class ScoreShippingRateInputDraftBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $score;
 
     /**
+
      * @return null|float
      */
     public function getScore()

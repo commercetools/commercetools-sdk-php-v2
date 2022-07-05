@@ -18,11 +18,13 @@ interface OrderLineItemAddedMessage extends OrderMessage
     public const FIELD_ADDED_QUANTITY = 'addedQuantity';
 
     /**
+
      * @return null|LineItem
      */
     public function getLineItem();
 
     /**
+
      * @return null|int
      */
     public function getAddedQuantity();

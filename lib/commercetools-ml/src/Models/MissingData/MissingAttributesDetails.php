@@ -20,6 +20,7 @@ interface MissingAttributesDetails extends JsonObject
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -27,6 +28,7 @@ interface MissingAttributesDetails extends JsonObject
     /**
      * <p>Number of products missing attribute names.</p>
      *
+
      * @return null|int
      */
     public function getMissingAttributeNames();
@@ -34,6 +36,7 @@ interface MissingAttributesDetails extends JsonObject
     /**
      * <p>Number of products missing attribute values.</p>
      *
+
      * @return null|int
      */
     public function getMissingAttributeValues();

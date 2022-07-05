@@ -23,16 +23,19 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemRemoved';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?CustomLineItem
      */
     protected $customLineItem;
@@ -51,6 +54,7 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -85,6 +90,7 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getCustomLineItem()

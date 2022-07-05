@@ -20,21 +20,25 @@ interface ProductSetPricesAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

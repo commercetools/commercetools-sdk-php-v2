@@ -19,6 +19,7 @@ interface IndividualProductSelectionType extends ProductSelectionType
     /**
      * <p>The name of the ProductSelection which is recommended to be unique.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

@@ -28,51 +28,61 @@ use stdClass;
 final class ProductTypeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var ?AttributeDefinitionCollection
      */
     private $attributes;
@@ -80,6 +90,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Unique identifier of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -90,6 +101,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Current version of the ProductType.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -100,6 +112,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Date and time (UTC) the ProductType was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -110,6 +123,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Channel was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -120,6 +134,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -130,6 +145,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -140,6 +156,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -150,6 +167,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Name of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -160,6 +178,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Description of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -170,6 +189,7 @@ final class ProductTypeBuilder implements Builder
     /**
      * <p>Attributes specified for the ProductType.</p>
      *
+
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

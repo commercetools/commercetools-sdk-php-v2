@@ -21,26 +21,31 @@ use stdClass;
 final class ProductRemoveImageActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $imageUrl;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -49,6 +54,7 @@ final class ProductRemoveImageActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -59,6 +65,7 @@ final class ProductRemoveImageActionBuilder implements Builder
     /**
      * <p>The URL of the image.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -67,6 +74,7 @@ final class ProductRemoveImageActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

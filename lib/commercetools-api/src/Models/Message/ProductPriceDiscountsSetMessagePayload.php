@@ -16,6 +16,7 @@ interface ProductPriceDiscountsSetMessagePayload extends MessagePayload
     public const FIELD_UPDATED_PRICES = 'updatedPrices';
 
     /**
+
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
      */
     public function getUpdatedPrices();

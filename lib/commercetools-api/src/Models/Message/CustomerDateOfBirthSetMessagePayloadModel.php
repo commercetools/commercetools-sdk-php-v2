@@ -22,11 +22,13 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'CustomerDateOfBirthSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
@@ -43,6 +45,7 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()

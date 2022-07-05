@@ -21,26 +21,31 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'removeImage';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $imageUrl;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -63,6 +68,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -80,6 +86,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -97,6 +104,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -116,6 +124,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     /**
      * <p>The URL of the image.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -133,6 +142,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\AttributeDefinitionBuilder;
 final class AddAttributeDefinitionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|AttributeDefinition|AttributeDefinitionBuilder
      */
     private $nextValue;
@@ -35,6 +37,7 @@ final class AddAttributeDefinitionChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addAttributeDefinition</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class AddAttributeDefinitionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeDefinition
      */
     public function getNextValue()

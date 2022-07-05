@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\SyncInfoBuilder;
 final class UpdateSyncInfoChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $channelId;
 
     /**
+
      * @var null|SyncInfo|SyncInfoBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class UpdateSyncInfoChangeBuilder implements Builder
     /**
      * <p>Update action for <code>updateSyncInfo</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class UpdateSyncInfoChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getChannelId()
@@ -56,6 +61,7 @@ final class UpdateSyncInfoChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|SyncInfo
      */
     public function getNextValue()

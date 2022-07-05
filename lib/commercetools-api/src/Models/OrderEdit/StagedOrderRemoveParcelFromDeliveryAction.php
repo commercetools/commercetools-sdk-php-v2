@@ -17,6 +17,7 @@ interface StagedOrderRemoveParcelFromDeliveryAction extends StagedOrderUpdateAct
     public const FIELD_PARCEL_ID = 'parcelId';
 
     /**
+
      * @return null|string
      */
     public function getParcelId();

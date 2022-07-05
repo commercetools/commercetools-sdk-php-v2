@@ -21,21 +21,25 @@ use stdClass;
 final class ProductSetCategoryOrderHintActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $categoryId;
 
     /**
+
      * @var ?string
      */
     private $orderHint;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|string
      */
     public function getCategoryId()
@@ -44,6 +48,7 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderHint()
@@ -52,6 +57,7 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

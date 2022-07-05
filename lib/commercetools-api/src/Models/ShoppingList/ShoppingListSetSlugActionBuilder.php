@@ -23,11 +23,13 @@ use stdClass;
 final class ShoppingListSetSlugActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug()

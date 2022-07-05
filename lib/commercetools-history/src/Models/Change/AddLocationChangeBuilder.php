@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocationBuilder;
 final class AddLocationChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Location|LocationBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Location|LocationBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class AddLocationChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addLocation</code> on zones</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -50,6 +54,7 @@ final class AddLocationChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+
      * @return null|Location
      */
     public function getPreviousValue()
@@ -60,6 +65,7 @@ final class AddLocationChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+
      * @return null|Location
      */
     public function getNextValue()

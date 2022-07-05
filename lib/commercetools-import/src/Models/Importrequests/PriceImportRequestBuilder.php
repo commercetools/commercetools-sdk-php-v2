@@ -22,6 +22,7 @@ use stdClass;
 final class PriceImportRequestBuilder implements Builder
 {
     /**
+
      * @var ?PriceImportCollection
      */
     private $resources;
@@ -29,6 +30,7 @@ final class PriceImportRequestBuilder implements Builder
     /**
      * <p>The price import resources of this request.</p>
      *
+
      * @return null|PriceImportCollection
      */
     public function getResources()

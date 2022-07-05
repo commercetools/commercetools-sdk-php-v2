@@ -23,26 +23,31 @@ interface SetAssetCustomTypeChange extends Change
     /**
      * <p>Update action for <code>setAssetCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset();
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue();
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue();

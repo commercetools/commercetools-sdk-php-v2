@@ -21,6 +21,7 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -48,6 +49,7 @@ final class MyPaymentUpdateActionModel extends JsonObjectModel implements MyPaym
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

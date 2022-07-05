@@ -16,6 +16,7 @@ interface CustomerLastNameSetMessage extends Message
     public const FIELD_LAST_NAME = 'lastName';
 
     /**
+
      * @return null|string
      */
     public function getLastName();

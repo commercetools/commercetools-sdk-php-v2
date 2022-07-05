@@ -37,121 +37,145 @@ use stdClass;
 final class OrderImportDraftModel extends JsonObjectModel implements OrderImportDraft
 {
     /**
+
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+
      * @var ?string
      */
     protected $customerId;
 
     /**
+
      * @var ?string
      */
     protected $customerEmail;
 
     /**
+
      * @var ?LineItemImportDraftCollection
      */
     protected $lineItems;
 
     /**
+
      * @var ?CustomLineItemImportDraftCollection
      */
     protected $customLineItems;
 
     /**
+
      * @var ?Money
      */
     protected $totalPrice;
 
     /**
+
      * @var ?TaxedPriceDraft
      */
     protected $taxedPrice;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $shippingAddress;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $billingAddress;
 
     /**
+
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?string
      */
     protected $orderState;
 
     /**
+
      * @var ?StateReference
      */
     protected $state;
 
     /**
+
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
 
     /**
+
      * @var ?ShippingInfoImportDraft
      */
     protected $shippingInfo;
 
     /**
+
      * @var ?PaymentInfo
      */
     protected $paymentInfo;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $completedAt;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
+
      * @var ?string
      */
     protected $taxRoundingMode;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
+
      * @var ?StoreResourceIdentifier
      */
     protected $store;
 
     /**
+
      * @var ?string
      */
     protected $origin;
@@ -217,6 +241,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique within a project.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -236,6 +261,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If given the customer with that ID must exist in the project.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId()
@@ -255,6 +281,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>
      *
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -274,6 +301,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If not given <code>customLineItems</code> must not be empty.</p>
      *
+
      * @return null|LineItemImportDraftCollection
      */
     public function getLineItems()
@@ -293,6 +321,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
+
      * @return null|CustomLineItemImportDraftCollection
      */
     public function getCustomLineItems()
@@ -310,6 +339,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -331,6 +361,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * <p>Order Import does not support calculation of taxes.
      * When setting the draft the taxedPrice is to be provided.</p>
      *
+
      * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice()
@@ -349,6 +380,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -367,6 +399,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -388,6 +421,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * <p>Set when the customer is set and the customer is a member of a customer group.
      * Used for product variant price selection.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -409,6 +443,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -428,6 +463,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If not given the <code>Open</code> state will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getOrderState()
@@ -447,6 +483,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>This reference can point to a state in a custom workflow.</p>
      *
+
      * @return null|StateReference
      */
     public function getState()
@@ -465,6 +502,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -482,6 +520,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -501,6 +540,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Set if the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo()
@@ -519,6 +559,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -537,6 +578,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt()
@@ -560,6 +602,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -580,6 +623,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If not given the mode <code>None</code> will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -599,6 +643,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -618,6 +663,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -635,6 +681,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()
@@ -655,6 +702,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * <p>The default origin is <code>Customer</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()

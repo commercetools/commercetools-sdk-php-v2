@@ -23,6 +23,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer();
@@ -30,6 +31,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -37,6 +39,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getOldCustomer();
@@ -44,6 +47,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup();

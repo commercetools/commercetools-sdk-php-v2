@@ -23,31 +23,37 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
 {
     public const DISCRIMINATOR_VALUE = 'addAsset';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?AssetDraft
      */
     protected $asset;
 
     /**
+
      * @var ?int
      */
     protected $position;
@@ -72,6 +78,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -89,6 +96,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -106,6 +114,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -123,6 +132,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -140,6 +150,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|AssetDraft
      */
     public function getAsset()
@@ -160,6 +171,7 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     /**
      * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
      *
+
      * @return null|int
      */
     public function getPosition()

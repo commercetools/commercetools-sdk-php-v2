@@ -21,6 +21,7 @@ interface CartSetShippingRateInputAction extends CartUpdateAction
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
      *
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput();

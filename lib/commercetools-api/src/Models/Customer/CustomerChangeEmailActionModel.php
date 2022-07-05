@@ -21,11 +21,13 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = 'changeEmail';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $email;
@@ -42,6 +44,7 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()

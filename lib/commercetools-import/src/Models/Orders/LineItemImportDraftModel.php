@@ -28,51 +28,61 @@ use stdClass;
 final class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft
 {
     /**
+
      * @var ?ProductKeyReference
      */
     protected $product;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LineItemProductVariantImportDraft
      */
     protected $variant;
 
     /**
+
      * @var ?LineItemPrice
      */
     protected $price;
 
     /**
+
      * @var ?float
      */
     protected $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+
      * @var ?ChannelKeyReference
      */
     protected $supplyChannel;
 
     /**
+
      * @var ?ChannelKeyReference
      */
     protected $distributionChannel;
 
     /**
+
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -108,6 +118,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.productId</code>.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct()
@@ -128,6 +139,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.name</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -148,6 +160,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>ProductVariantImportDraft</code>.</p>
      *
+
      * @return null|LineItemProductVariantImportDraft
      */
     public function getVariant()
@@ -168,6 +181,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.price</code>.</p>
      *
+
      * @return null|LineItemPrice
      */
     public function getPrice()
@@ -188,6 +202,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity()
@@ -205,6 +220,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -226,6 +242,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * The Reference to the Supply <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel()
@@ -248,6 +265,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * The Reference to the Distribution <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getDistributionChannel()
@@ -268,6 +286,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.taxRate</code>.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -288,6 +307,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to LineItem.shippingDetails.</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

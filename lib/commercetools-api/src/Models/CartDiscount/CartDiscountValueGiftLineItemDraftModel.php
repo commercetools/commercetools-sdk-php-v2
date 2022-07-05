@@ -25,26 +25,31 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'giftLineItem';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductResourceIdentifier
      */
     protected $product;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -67,6 +72,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -86,6 +92,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     /**
      * <p>ResourceIdentifier of a Product.</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()
@@ -106,6 +113,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -125,6 +133,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     /**
      * <p>Channel must have the role <code>InventorySupply</code>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -145,6 +154,7 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     /**
      * <p>Channel must have the role <code>ProductDistribution</code>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

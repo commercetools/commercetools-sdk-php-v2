@@ -21,21 +21,25 @@ use stdClass;
 final class ImageSearchResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?float
      */
     private $offset;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?ResultItemCollection
      */
     private $results;
@@ -43,6 +47,7 @@ final class ImageSearchResponseBuilder implements Builder
     /**
      * <p>The maximum number of results to return from a query.</p>
      *
+
      * @return null|int
      */
     public function getCount()
@@ -53,6 +58,7 @@ final class ImageSearchResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|float
      */
     public function getOffset()
@@ -63,6 +69,7 @@ final class ImageSearchResponseBuilder implements Builder
     /**
      * <p>The total number of product images that were have been analyzed.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -73,6 +80,7 @@ final class ImageSearchResponseBuilder implements Builder
     /**
      * <p>An array of image URLs of images that are similar to the query image. If no matching images are found, results is empty.</p>
      *
+
      * @return null|ResultItemCollection
      */
     public function getResults()

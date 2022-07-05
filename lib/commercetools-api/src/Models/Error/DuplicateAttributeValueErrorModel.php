@@ -23,16 +23,19 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?Attribute
      */
     protected $attribute;
@@ -51,6 +54,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -68,6 +72,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -85,6 +90,7 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|Attribute
      */
     public function getAttribute()

@@ -21,16 +21,19 @@ use stdClass;
 final class ExtensionTriggerBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $resourceTypeId;
 
     /**
+
      * @var ?array
      */
     private $actions;
 
     /**
+
      * @var ?string
      */
     private $condition;
@@ -38,6 +41,7 @@ final class ExtensionTriggerBuilder implements Builder
     /**
      * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
      *
+
      * @return null|string
      */
     public function getResourceTypeId()
@@ -48,6 +52,7 @@ final class ExtensionTriggerBuilder implements Builder
     /**
      * <p><code>Create</code> and <code>Update</code> requests are supported.</p>
      *
+
      * @return null|array
      */
     public function getActions()
@@ -58,6 +63,7 @@ final class ExtensionTriggerBuilder implements Builder
     /**
      * <p>Valid <a href="/../api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
      *
+
      * @return null|string
      */
     public function getCondition()

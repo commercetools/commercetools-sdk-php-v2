@@ -25,11 +25,13 @@ use stdClass;
 final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
      */
     private $variantSelection;
@@ -37,6 +39,7 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -47,6 +50,7 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
     /**
      * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection()

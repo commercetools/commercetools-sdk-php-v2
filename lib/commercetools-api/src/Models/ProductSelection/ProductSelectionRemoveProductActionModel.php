@@ -23,11 +23,13 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'removeProduct';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ProductResourceIdentifier
      */
     protected $product;
@@ -44,6 +46,7 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
     /**
      * <p>ResourceIdentifier to Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()

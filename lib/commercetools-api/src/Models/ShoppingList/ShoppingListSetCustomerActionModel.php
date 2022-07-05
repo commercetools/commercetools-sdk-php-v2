@@ -23,11 +23,13 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setCustomer';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
@@ -44,6 +46,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

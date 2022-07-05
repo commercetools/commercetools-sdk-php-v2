@@ -33,6 +33,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Name of the DiscountCode.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -40,6 +41,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Description of the DiscountCode.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -48,6 +50,7 @@ interface DiscountCodeDraft extends JsonObject
      * <p>User-defined unique identifier for the DiscountCode that can be <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.
      * It cannot be modified after the DiscountCode is created.</p>
      *
+
      * @return null|string
      */
     public function getCode();
@@ -55,6 +58,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Specify what CartDiscounts the API applies when you add the DiscountCode to the Cart.</p>
      *
+
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts();
@@ -62,6 +66,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate();
@@ -69,6 +74,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Only active DiscountCodes can be applied to the Cart.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive();
@@ -76,6 +82,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Number of times the DiscountCode can be applied.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplications();
@@ -83,6 +90,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Number of times the DiscountCode can be applied per Customer.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer();
@@ -90,6 +98,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Custom Fields for the DiscountCode.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -97,6 +106,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Groups to which the DiscountCode will belong to.</p>
      *
+
      * @return null|array
      */
     public function getGroups();
@@ -104,6 +114,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Date and time (UTC) from which the DiscountCode is effective. Must be earlier than <code>validUntil</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -111,6 +122,7 @@ interface DiscountCodeDraft extends JsonObject
     /**
      * <p>Date and time (UTC) until which the DiscountCode is effective. Must be later than <code>validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

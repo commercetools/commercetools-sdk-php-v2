@@ -21,11 +21,13 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
 {
     public const DISCRIMINATOR_VALUE = 'setTransitions';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StateResourceIdentifierCollection
      */
     protected $transitions;
@@ -42,6 +44,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -67,6 +70,7 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
      * If <code>transitions</code> is not set, the validation is turned off.</p>
      * <p>When performing a <code>transitionState</code> update action, any other State of the same <code>type</code> can be transitioned to.</p>
      *
+
      * @return null|StateResourceIdentifierCollection
      */
     public function getTransitions()

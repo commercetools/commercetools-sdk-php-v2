@@ -20,6 +20,7 @@ interface SetShippingMethodTaxAmountChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetShippingMethodTaxAmountChange extends Change
     /**
      * <p>Update action for <code>setShippingMethodTaxAmount</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getTaxMode();
 
     /**
+
      * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getNextValue();
 
     /**
+
      * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getPreviousValue();

@@ -23,16 +23,19 @@ use stdClass;
 final class ProductChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -41,6 +44,7 @@ final class ProductChangeNameActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

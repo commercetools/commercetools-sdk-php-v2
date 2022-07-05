@@ -23,11 +23,13 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedString';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $value;
@@ -46,6 +48,7 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +73,7 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getValue()

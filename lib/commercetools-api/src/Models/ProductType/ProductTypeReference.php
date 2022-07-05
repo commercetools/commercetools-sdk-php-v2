@@ -19,6 +19,7 @@ interface ProductTypeReference extends Reference
     /**
      * <p>Contains the representation of the expanded ProductType. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductTypes.</p>
      *
+
      * @return null|ProductType
      */
     public function getObj();
@@ -26,6 +27,7 @@ interface ProductTypeReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

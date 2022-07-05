@@ -23,56 +23,67 @@ use stdClass;
 final class ImportOperationModel extends JsonObjectModel implements ImportOperation
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?string
      */
     protected $importContainerKey;
 
     /**
+
      * @var ?string
      */
     protected $resourceKey;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $state;
 
     /**
+
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+
      * @var ?ErrorObjectCollection
      */
     protected $errors;
 
     /**
+
      * @var ?UnresolvedReferencesCollection
      */
     protected $unresolvedReferences;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $expiresAt;
@@ -110,6 +121,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The version of the ImportOperation.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -129,6 +141,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
      *
+
      * @return null|string
      */
     public function getImportContainerKey()
@@ -148,6 +161,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The key of the resource.</p>
      *
+
      * @return null|string
      */
     public function getResourceKey()
@@ -167,6 +181,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The ID of the ImportOperation.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -186,6 +201,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The import status of the resource. Set to <code>rejected</code> or <code>validationFailed</code> if the import of the resource was not successful.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -205,6 +221,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The version of the impmorted resource when the import was successful.</p>
      *
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -224,6 +241,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>Contains an error if the import of the resource was not successful. See <a href="/error">Errors</a>.</p>
      *
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors()
@@ -243,6 +261,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>In case of unresolved status this array will show the unresolved references</p>
      *
+
      * @return null|UnresolvedReferencesCollection
      */
     public function getUnresolvedReferences()
@@ -262,6 +281,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The time when the ImportOperation was created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -285,6 +305,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The last time When the ImportOperation was modified.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -308,6 +329,7 @@ final class ImportOperationModel extends JsonObjectModel implements ImportOperat
     /**
      * <p>The expiration time of the ImportOperation.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt()

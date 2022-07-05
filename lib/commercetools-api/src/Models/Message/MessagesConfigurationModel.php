@@ -20,11 +20,13 @@ use stdClass;
 final class MessagesConfigurationModel extends JsonObjectModel implements MessagesConfiguration
 {
     /**
+
      * @var ?bool
      */
     protected $enabled;
 
     /**
+
      * @var ?int
      */
     protected $deleteDaysAfterCreation;
@@ -44,6 +46,7 @@ final class MessagesConfigurationModel extends JsonObjectModel implements Messag
     /**
      * <p>When <code>true</code>, the <a href="/../api/projects/messages">Messages Query</a> feature is active.</p>
      *
+
      * @return null|bool
      */
     public function getEnabled()
@@ -65,6 +68,7 @@ final class MessagesConfigurationModel extends JsonObjectModel implements Messag
      * For Messages older than the specified period, it is not guaranteed that they are still accessible via the API.
      * This field may not be present on Projects created before 8 October 2018.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterCreation()

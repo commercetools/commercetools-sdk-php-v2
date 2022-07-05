@@ -24,16 +24,19 @@ final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'AddAttributeDefinitionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AttributeDefinition
      */
     protected $nextValue;
@@ -52,6 +55,7 @@ final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>addAttributeDefinition</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +93,7 @@ final class AddAttributeDefinitionChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|AttributeDefinition
      */
     public function getNextValue()

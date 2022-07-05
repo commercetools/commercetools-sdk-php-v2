@@ -21,21 +21,25 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemQuantityChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?int
      */
     protected $oldQuantity;
@@ -56,6 +60,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -73,6 +78,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -90,6 +96,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -107,6 +114,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     }
 
     /**
+
      * @return null|int
      */
     public function getOldQuantity()

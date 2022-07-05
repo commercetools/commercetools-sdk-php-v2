@@ -23,11 +23,13 @@ final class StoreAddSupplyChannelActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'addSupplyChannel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -44,6 +46,7 @@ final class StoreAddSupplyChannelActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StoreAddSupplyChannelActionModel extends JsonObjectModel implements 
     /**
      * <p>Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

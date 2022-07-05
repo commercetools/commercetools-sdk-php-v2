@@ -19,6 +19,7 @@ interface StandalonePriceCreatedMessagePayload extends MessagePayload
     /**
      * <p>The Standalone Price as it was created.</p>
      *
+
      * @return null|StandalonePrice
      */
     public function getStandalonePrice();

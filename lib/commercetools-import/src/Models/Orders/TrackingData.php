@@ -20,26 +20,31 @@ interface TrackingData extends JsonObject
     public const FIELD_IS_RETURN = 'isReturn';
 
     /**
+
      * @return null|string
      */
     public function getTrackingId();
 
     /**
+
      * @return null|string
      */
     public function getCarrier();
 
     /**
+
      * @return null|string
      */
     public function getProvider();
 
     /**
+
      * @return null|string
      */
     public function getProviderTransaction();
 
     /**
+
      * @return null|bool
      */
     public function getIsReturn();

@@ -23,11 +23,13 @@ use stdClass;
 final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|CategoryReference|CategoryReferenceBuilder
      */
     private $category;
 
     /**
+
      * @var ?bool
      */
     private $staged;
@@ -35,6 +37,7 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -43,6 +46,7 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

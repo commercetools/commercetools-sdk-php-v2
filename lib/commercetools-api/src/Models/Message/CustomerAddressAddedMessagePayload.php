@@ -17,6 +17,7 @@ interface CustomerAddressAddedMessagePayload extends MessagePayload
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|Address
      */
     public function getAddress();

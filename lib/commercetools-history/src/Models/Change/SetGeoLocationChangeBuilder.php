@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\GeoLocationBuilder;
 final class SetGeoLocationChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|GeoLocation|GeoLocationBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|GeoLocation|GeoLocationBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class SetGeoLocationChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setGeoLocation</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|GeoLocation
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class SetGeoLocationChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|GeoLocation
      */
     public function getPreviousValue()

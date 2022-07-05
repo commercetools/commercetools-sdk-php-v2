@@ -20,6 +20,7 @@ use stdClass;
 final class RemoveParcelFromDeliveryDraftModel extends JsonObjectModel implements RemoveParcelFromDeliveryDraft
 {
     /**
+
      * @var ?string
      */
     protected $parcelId;
@@ -35,6 +36,7 @@ final class RemoveParcelFromDeliveryDraftModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()

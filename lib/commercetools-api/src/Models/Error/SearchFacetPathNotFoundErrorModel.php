@@ -21,11 +21,13 @@ final class SearchFacetPathNotFoundErrorModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'SearchFacetPathNotFound';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class SearchFacetPathNotFoundErrorModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class SearchFacetPathNotFoundErrorModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

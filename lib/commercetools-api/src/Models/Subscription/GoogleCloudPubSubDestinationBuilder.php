@@ -21,16 +21,19 @@ use stdClass;
 final class GoogleCloudPubSubDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $projectId;
 
     /**
+
      * @var ?string
      */
     private $topic;
 
     /**
+
      * @return null|string
      */
     public function getProjectId()
@@ -39,6 +42,7 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTopic()

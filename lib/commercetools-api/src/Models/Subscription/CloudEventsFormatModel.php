@@ -21,11 +21,13 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
 {
     public const DISCRIMINATOR_VALUE = 'CloudEvents';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $cloudEventsVersion;
@@ -42,6 +44,7 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
     }
 
     /**
+
      * @return null|string
      */
     public function getCloudEventsVersion()

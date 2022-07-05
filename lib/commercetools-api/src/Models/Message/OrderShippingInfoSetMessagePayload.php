@@ -18,11 +18,13 @@ interface OrderShippingInfoSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_SHIPPING_INFO = 'oldShippingInfo';
 
     /**
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
 
     /**
+
      * @return null|ShippingInfo
      */
     public function getOldShippingInfo();

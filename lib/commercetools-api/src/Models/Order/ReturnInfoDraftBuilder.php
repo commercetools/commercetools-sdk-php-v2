@@ -22,21 +22,25 @@ use stdClass;
 final class ReturnInfoDraftBuilder implements Builder
 {
     /**
+
      * @var ?ReturnItemDraftCollection
      */
     private $items;
 
     /**
+
      * @var ?string
      */
     private $returnTrackingId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $returnDate;
 
     /**
+
      * @return null|ReturnItemDraftCollection
      */
     public function getItems()
@@ -47,6 +51,7 @@ final class ReturnInfoDraftBuilder implements Builder
     /**
      * <p>Identifies, which return tracking ID is connected to this particular return.</p>
      *
+
      * @return null|string
      */
     public function getReturnTrackingId()
@@ -55,6 +60,7 @@ final class ReturnInfoDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getReturnDate()

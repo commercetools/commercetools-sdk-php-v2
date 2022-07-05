@@ -23,16 +23,19 @@ interface CustomerSignin extends JsonObject
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
+
      * @return null|string
      */
     public function getEmail();
 
     /**
+
      * @return null|string
      */
     public function getPassword();
 
     /**
+     * @deprecated
      * @return null|string
      */
     public function getAnonymousCartId();
@@ -40,21 +43,25 @@ interface CustomerSignin extends JsonObject
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getAnonymousCart();
 
     /**
+
      * @return null|string
      */
     public function getAnonymousCartSignInMode();
 
     /**
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData();

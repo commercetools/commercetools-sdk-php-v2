@@ -24,6 +24,7 @@ interface ImportResource extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|string
      */
     public function getKey();

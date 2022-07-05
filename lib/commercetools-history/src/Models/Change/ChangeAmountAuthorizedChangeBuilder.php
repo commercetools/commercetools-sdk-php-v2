@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\MoneyBuilder;
 final class ChangeAmountAuthorizedChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class ChangeAmountAuthorizedChangeBuilder implements Builder
     /**
      * <p>Internal Update action for <code>changeAmountAuthorized</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class ChangeAmountAuthorizedChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()
@@ -56,6 +61,7 @@ final class ChangeAmountAuthorizedChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()

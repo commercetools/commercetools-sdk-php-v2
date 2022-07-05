@@ -24,6 +24,7 @@ interface LocalizedStringField extends CustomField
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getValue();

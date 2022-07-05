@@ -23,11 +23,13 @@ use stdClass;
 final class ProductCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
 
     /**
+
      * @return null|ProductProjection
      */
     public function getProductProjection()

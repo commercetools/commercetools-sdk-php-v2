@@ -22,31 +22,37 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
 
     public const DISCRIMINATOR_VALUE = 'multiBuyCustomLineItems';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $predicate;
 
     /**
+
      * @var ?int
      */
     protected $triggerQuantity;
 
     /**
+
      * @var ?int
      */
     protected $discountedQuantity;
 
     /**
+
      * @var ?int
      */
     protected $maxOccurrence;
 
     /**
+
      * @var ?string
      */
     protected $selectionMode;
@@ -71,6 +77,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -88,6 +95,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
+
      * @return null|string
      */
     public function getPredicate()
@@ -107,6 +115,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     /**
      * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
      *
+
      * @return null|int
      */
     public function getTriggerQuantity()
@@ -126,6 +135,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     /**
      * <p>Quantity of line items that are discounted per application of this discount.</p>
      *
+
      * @return null|int
      */
     public function getDiscountedQuantity()
@@ -145,6 +155,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     /**
      * <p>Maximum number of applications of this discount.</p>
      *
+
      * @return null|int
      */
     public function getMaxOccurrence()
@@ -162,6 +173,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueModel extends JsonObje
     }
 
     /**
+
      * @return null|string
      */
     public function getSelectionMode()

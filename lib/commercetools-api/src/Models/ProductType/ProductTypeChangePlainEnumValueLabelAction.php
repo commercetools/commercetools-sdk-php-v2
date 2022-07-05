@@ -19,6 +19,7 @@ interface ProductTypeChangePlainEnumValueLabelAction extends ProductTypeUpdateAc
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -26,6 +27,7 @@ interface ProductTypeChangePlainEnumValueLabelAction extends ProductTypeUpdateAc
     /**
      * <p>New value to set. Must be different from the existing value.</p>
      *
+
      * @return null|AttributePlainEnumValue
      */
     public function getNewValue();

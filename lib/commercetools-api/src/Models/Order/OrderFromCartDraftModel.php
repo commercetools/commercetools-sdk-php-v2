@@ -26,46 +26,55 @@ use stdClass;
 final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFromCartDraft
 {
     /**
+     * @deprecated
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?CartResourceIdentifier
      */
     protected $cart;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
 
     /**
+
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+
      * @var ?string
      */
     protected $orderState;
 
     /**
+
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -99,6 +108,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     /**
      * <p>Unique identifier of the Cart from which you can create an Order.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getId()
@@ -118,6 +128,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     /**
      * <p>ResourceIdentifier to the Cart from which this order is created.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart()
@@ -136,6 +147,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -159,6 +171,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      * Once it's set it cannot be changed.
      * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -176,6 +189,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -193,6 +207,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -212,6 +227,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     /**
      * <p>Order will be created with <code>Open</code> status by default.</p>
      *
+
      * @return null|string
      */
     public function getOrderState()
@@ -229,6 +245,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -251,6 +268,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
      * If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> and added to the Order.
      * If empty, the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are added to the Order automatically.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

@@ -17,6 +17,7 @@ interface PaymentTransactionAddedMessagePayload extends MessagePayload
     public const FIELD_TRANSACTION = 'transaction';
 
     /**
+
      * @return null|Transaction
      */
     public function getTransaction();

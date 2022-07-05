@@ -23,11 +23,13 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'ProductCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductProjection
      */
     protected $productProjection;
@@ -44,6 +46,7 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|ProductProjection
      */
     public function getProductProjection()

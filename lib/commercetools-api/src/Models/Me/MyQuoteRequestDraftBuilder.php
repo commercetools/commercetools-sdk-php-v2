@@ -23,16 +23,19 @@ use stdClass;
 final class MyQuoteRequestDraftBuilder implements Builder
 {
     /**
+
      * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
      */
     private $cart;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?string
      */
     private $comment;
@@ -40,6 +43,7 @@ final class MyQuoteRequestDraftBuilder implements Builder
     /**
      * <p>ResourceIdentifier to the Cart from which this quote request is created.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart()
@@ -50,6 +54,7 @@ final class MyQuoteRequestDraftBuilder implements Builder
     /**
      * <p>Current version of the Cart.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -60,6 +65,7 @@ final class MyQuoteRequestDraftBuilder implements Builder
     /**
      * <p>Text message included in the request.</p>
      *
+
      * @return null|string
      */
     public function getComment()

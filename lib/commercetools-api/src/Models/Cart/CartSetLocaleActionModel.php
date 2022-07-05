@@ -21,11 +21,13 @@ final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetL
 {
     public const DISCRIMINATOR_VALUE = 'setLocale';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $locale;
@@ -42,6 +44,7 @@ final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetL
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetL
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()

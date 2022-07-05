@@ -21,6 +21,7 @@ final class CustomFieldNumberTypeModel extends JsonObjectModel implements Custom
 {
     public const DISCRIMINATOR_VALUE = 'Number';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class CustomFieldNumberTypeModel extends JsonObjectModel implements Custom
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

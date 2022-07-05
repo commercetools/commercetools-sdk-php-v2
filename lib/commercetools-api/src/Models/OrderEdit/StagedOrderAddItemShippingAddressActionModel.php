@@ -25,11 +25,13 @@ final class StagedOrderAddItemShippingAddressActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'addItemShippingAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -46,6 +48,7 @@ final class StagedOrderAddItemShippingAddressActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StagedOrderAddItemShippingAddressActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

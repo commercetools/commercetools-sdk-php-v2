@@ -21,16 +21,19 @@ use stdClass;
 final class CustomerSetAuthenticationModeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $authMode;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+
      * @return null|string
      */
     public function getAuthMode()
@@ -41,6 +44,7 @@ final class CustomerSetAuthenticationModeActionBuilder implements Builder
     /**
      * <p>Required when <code>authMode</code> is <code>Password</code></p>
      *
+
      * @return null|string
      */
     public function getPassword()

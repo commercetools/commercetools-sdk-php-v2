@@ -24,16 +24,19 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
 
     public const DISCRIMINATOR_VALUE = 'PaymentLabel';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?Money
      */
     protected $amountPlanned;
@@ -52,6 +55,7 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -69,6 +73,7 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -86,6 +91,7 @@ final class PaymentLabelModel extends JsonObjectModel implements PaymentLabel
     }
 
     /**
+
      * @return null|Money
      */
     public function getAmountPlanned()

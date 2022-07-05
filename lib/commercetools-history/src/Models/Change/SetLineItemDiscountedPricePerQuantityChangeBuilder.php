@@ -25,26 +25,31 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var null|DiscountedLineItemPriceForQuantity|DiscountedLineItemPriceForQuantityBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|DiscountedLineItemPriceForQuantity|DiscountedLineItemPriceForQuantityBuilder
      */
     private $previousValue;
@@ -52,6 +57,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     /**
      * <p>Update action for <code>setLineItemDiscountedPricePerQuantity</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -60,6 +66,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -68,6 +75,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -76,6 +84,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantity
      */
     public function getNextValue()
@@ -84,6 +93,7 @@ final class SetLineItemDiscountedPricePerQuantityChangeBuilder implements Builde
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantity
      */
     public function getPreviousValue()

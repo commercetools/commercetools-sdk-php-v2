@@ -23,6 +23,7 @@ use stdClass;
 final class OrderPaymentAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|PaymentReference|PaymentReferenceBuilder
      */
     private $payment;
@@ -30,6 +31,7 @@ final class OrderPaymentAddedMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|PaymentReference
      */
     public function getPayment()

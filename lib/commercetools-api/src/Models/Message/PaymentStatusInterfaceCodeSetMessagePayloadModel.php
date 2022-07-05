@@ -21,16 +21,19 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'PaymentStatusInterfaceCodeSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $paymentId;
 
     /**
+
      * @var ?string
      */
     protected $interfaceCode;
@@ -49,6 +52,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentId()
@@ -83,6 +88,7 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getInterfaceCode()

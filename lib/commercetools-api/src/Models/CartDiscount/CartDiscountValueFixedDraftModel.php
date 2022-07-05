@@ -22,11 +22,13 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'fixed';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?MoneyCollection
      */
     protected $money;
@@ -43,6 +45,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class CartDiscountValueFixedDraftModel extends JsonObjectModel implements 
      * <p>Money values in different currencies.
      * A fixed Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be discounted by 10€ and the matching $ price will be discounted to 15$.</p>
      *
+
      * @return null|MoneyCollection
      */
     public function getMoney()

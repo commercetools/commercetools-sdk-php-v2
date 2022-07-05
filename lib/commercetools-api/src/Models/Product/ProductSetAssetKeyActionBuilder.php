@@ -21,31 +21,37 @@ use stdClass;
 final class ProductSetAssetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -54,6 +60,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -62,6 +69,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -70,6 +78,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -81,6 +90,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
      * <p>User-defined identifier for the asset.
      * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()

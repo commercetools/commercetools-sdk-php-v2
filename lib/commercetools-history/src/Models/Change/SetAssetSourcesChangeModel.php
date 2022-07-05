@@ -25,26 +25,31 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
 
     public const DISCRIMINATOR_VALUE = 'SetAssetSourcesChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     protected $nextValue;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     protected $previousValue;
@@ -67,6 +72,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -86,6 +92,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     /**
      * <p>Update action for <code>setAssetSources</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -103,6 +110,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -121,6 +129,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getNextValue()
@@ -138,6 +147,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getPreviousValue()

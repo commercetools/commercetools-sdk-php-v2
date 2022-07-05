@@ -23,11 +23,13 @@ final class MyPaymentChangeAmountPlannedActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'changeAmountPlanned';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?Money
      */
     protected $amount;
@@ -44,6 +46,7 @@ final class MyPaymentChangeAmountPlannedActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -64,6 +67,7 @@ final class MyPaymentChangeAmountPlannedActionModel extends JsonObjectModel impl
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getAmount()

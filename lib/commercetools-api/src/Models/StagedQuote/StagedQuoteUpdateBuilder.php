@@ -21,16 +21,19 @@ use stdClass;
 final class StagedQuoteUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?StagedQuoteUpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class StagedQuoteUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|StagedQuoteUpdateActionCollection
      */
     public function getActions()

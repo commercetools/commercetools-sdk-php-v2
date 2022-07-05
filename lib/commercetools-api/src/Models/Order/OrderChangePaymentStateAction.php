@@ -16,6 +16,7 @@ interface OrderChangePaymentStateAction extends OrderUpdateAction
     public const FIELD_PAYMENT_STATE = 'paymentState';
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();

@@ -27,46 +27,55 @@ use stdClass;
 final class ProductVariantImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $isMasterVariant;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @var ?bool
      */
     private $publish;
 
     /**
+
      * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -77,6 +86,7 @@ final class ProductVariantImportBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariant.sku</code>.</p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -87,6 +97,7 @@ final class ProductVariantImportBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>
      *
+
      * @return null|bool
      */
     public function getIsMasterVariant()
@@ -98,6 +109,7 @@ final class ProductVariantImportBuilder implements Builder
      * <p>Maps to <code>ProductVariant.attributes</code>.
      * The referenced attribute must be defined in an already existing ProductType in the project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
      *
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -108,6 +120,7 @@ final class ProductVariantImportBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariant.images</code>.</p>
      *
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -118,6 +131,7 @@ final class ProductVariantImportBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariant.assets</code>.</p>
      *
+
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -130,6 +144,7 @@ final class ProductVariantImportBuilder implements Builder
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
      * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
+
      * @return null|bool
      */
     public function getPublish()
@@ -142,6 +157,7 @@ final class ProductVariantImportBuilder implements Builder
      * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the ProductVariant is associated.
      * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct()

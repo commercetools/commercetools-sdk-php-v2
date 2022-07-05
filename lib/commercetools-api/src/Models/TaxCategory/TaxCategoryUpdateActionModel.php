@@ -21,6 +21,7 @@ final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxC
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -47,6 +48,7 @@ final class TaxCategoryUpdateActionModel extends JsonObjectModel implements TaxC
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

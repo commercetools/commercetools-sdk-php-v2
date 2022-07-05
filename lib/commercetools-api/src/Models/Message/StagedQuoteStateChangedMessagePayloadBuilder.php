@@ -21,11 +21,13 @@ use stdClass;
 final class StagedQuoteStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $stagedQuoteState;
 
     /**
+
      * @var ?string
      */
     private $oldStagedQuoteState;
@@ -33,6 +35,7 @@ final class StagedQuoteStateChangedMessagePayloadBuilder implements Builder
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -43,6 +46,7 @@ final class StagedQuoteStateChangedMessagePayloadBuilder implements Builder
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getOldStagedQuoteState()

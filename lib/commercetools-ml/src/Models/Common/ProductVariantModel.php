@@ -20,16 +20,19 @@ use stdClass;
 final class ProductVariantModel extends JsonObjectModel implements ProductVariant
 {
     /**
+
      * @var ?ProductReference
      */
     protected $product;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
@@ -51,6 +54,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     /**
      * <p>The product that contains this variant.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -71,6 +75,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     /**
      * <p>The state of the product variant.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -90,6 +95,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     /**
      * <p>The id of the product variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()

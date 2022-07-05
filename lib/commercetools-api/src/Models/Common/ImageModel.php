@@ -20,16 +20,19 @@ use stdClass;
 final class ImageModel extends JsonObjectModel implements Image
 {
     /**
+
      * @var ?string
      */
     protected $url;
 
     /**
+
      * @var ?ImageDimensions
      */
     protected $dimensions;
 
     /**
+
      * @var ?string
      */
     protected $label;
@@ -49,6 +52,7 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
     /**
+
      * @return null|string
      */
     public function getUrl()
@@ -66,6 +70,7 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
     /**
+
      * @return null|ImageDimensions
      */
     public function getDimensions()
@@ -84,6 +89,7 @@ final class ImageModel extends JsonObjectModel implements Image
     }
 
     /**
+
      * @return null|string
      */
     public function getLabel()

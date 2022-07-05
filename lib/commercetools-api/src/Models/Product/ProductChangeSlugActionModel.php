@@ -23,16 +23,19 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = 'changeSlug';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -72,6 +76,7 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
      * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
      * Maximum size is <code>256</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -90,6 +95,7 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

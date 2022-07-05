@@ -23,11 +23,13 @@ final class CustomerAddAddressActionModel extends JsonObjectModel implements Cus
 {
     public const DISCRIMINATOR_VALUE = 'addAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -44,6 +46,7 @@ final class CustomerAddAddressActionModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CustomerAddAddressActionModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

@@ -24,26 +24,31 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemShippingDetailsChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?ItemShippingDetails
      */
     protected $nextValue;
 
     /**
+
      * @var ?ItemShippingDetails
      */
     protected $previousValue;
@@ -66,6 +71,7 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
     /**
      * <p>Update action for <code>setCustomLineItemShippingDetails</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -119,6 +127,7 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getNextValue()
@@ -137,6 +146,7 @@ final class SetCustomLineItemShippingDetailsChangeModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getPreviousValue()

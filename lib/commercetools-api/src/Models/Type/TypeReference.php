@@ -19,6 +19,7 @@ interface TypeReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -27,6 +28,7 @@ interface TypeReference extends Reference
      * <p>Contains the representation of the expanded Type.
      * Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Types.</p>
      *
+
      * @return null|Type
      */
     public function getObj();

@@ -21,6 +21,7 @@ interface SetTextLineItemCustomTypeChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface SetTextLineItemCustomTypeChange extends Change
     /**
      * <p>Update action for <code>setTextLineItemCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem();
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue();
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue();

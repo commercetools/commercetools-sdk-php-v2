@@ -17,6 +17,7 @@ interface MyCustomerAddAddressAction extends MyCustomerUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();

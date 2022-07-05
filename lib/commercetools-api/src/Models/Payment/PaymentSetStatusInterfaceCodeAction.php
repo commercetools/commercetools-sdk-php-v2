@@ -16,6 +16,7 @@ interface PaymentSetStatusInterfaceCodeAction extends PaymentUpdateAction
     public const FIELD_INTERFACE_CODE = 'interfaceCode';
 
     /**
+
      * @return null|string
      */
     public function getInterfaceCode();

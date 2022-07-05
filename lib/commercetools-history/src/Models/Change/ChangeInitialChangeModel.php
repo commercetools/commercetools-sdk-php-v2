@@ -22,21 +22,25 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
 
     public const DISCRIMINATOR_VALUE = 'ChangeInitialChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?bool
      */
     protected $previousValue;
 
     /**
+
      * @var ?bool
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     /**
      * <p>Shape of the action for <code>changeInitial</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     }
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class ChangeInitialChangeModel extends JsonObjectModel implements ChangeIn
     }
 
     /**
+
      * @return null|bool
      */
     public function getNextValue()

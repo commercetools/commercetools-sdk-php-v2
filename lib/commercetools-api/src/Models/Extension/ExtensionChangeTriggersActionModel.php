@@ -21,11 +21,13 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeTriggers';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ExtensionTriggerCollection
      */
     protected $triggers;
@@ -42,6 +44,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()

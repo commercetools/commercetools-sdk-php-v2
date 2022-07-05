@@ -23,11 +23,13 @@ final class ShippingMethodSetLocalizedNameActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'setLocalizedName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $localizedName;
@@ -44,6 +46,7 @@ final class ShippingMethodSetLocalizedNameActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ShippingMethodSetLocalizedNameActionModel extends JsonObjectModel im
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedName()

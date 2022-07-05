@@ -18,11 +18,13 @@ interface AttributeValue extends JsonObject
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|mixed
      */
     public function getValue();

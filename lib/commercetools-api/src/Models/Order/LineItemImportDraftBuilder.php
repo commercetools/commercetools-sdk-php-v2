@@ -33,56 +33,67 @@ use stdClass;
 final class LineItemImportDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|ProductVariantImportDraft|ProductVariantImportDraftBuilder
      */
     private $variant;
 
     /**
+
      * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -91,6 +102,7 @@ final class LineItemImportDraftBuilder implements Builder
      * <p>ID of the existing product.
      * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
      *
+
      * @return null|string
      */
     public function getProductId()
@@ -101,6 +113,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>The product name.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -109,6 +122,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantImportDraft
      */
     public function getVariant()
@@ -117,6 +131,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceDraft
      */
     public function getPrice()
@@ -125,6 +140,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -133,6 +149,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -147,6 +164,7 @@ final class LineItemImportDraftBuilder implements Builder
      * The provided channel should have the
      * InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -158,6 +176,7 @@ final class LineItemImportDraftBuilder implements Builder
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -166,6 +185,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -176,6 +196,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -184,6 +205,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

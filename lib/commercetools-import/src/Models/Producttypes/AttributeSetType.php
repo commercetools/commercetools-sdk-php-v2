@@ -16,6 +16,7 @@ interface AttributeSetType extends AttributeType
     public const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**
+
      * @return null|AttributeType
      */
     public function getElementType();

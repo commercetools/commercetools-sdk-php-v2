@@ -25,16 +25,19 @@ final class MyCartSetCustomTypeActionModel extends JsonObjectModel implements My
 {
     public const DISCRIMINATOR_VALUE = 'setCustomType';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+
      * @var ?FieldContainer
      */
     protected $fields;
@@ -53,6 +56,7 @@ final class MyCartSetCustomTypeActionModel extends JsonObjectModel implements My
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +77,7 @@ final class MyCartSetCustomTypeActionModel extends JsonObjectModel implements My
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the MyCart with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the MyCart.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -93,6 +98,7 @@ final class MyCartSetCustomTypeActionModel extends JsonObjectModel implements My
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the MyCart.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

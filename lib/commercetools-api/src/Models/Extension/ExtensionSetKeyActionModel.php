@@ -21,11 +21,13 @@ final class ExtensionSetKeyActionModel extends JsonObjectModel implements Extens
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class ExtensionSetKeyActionModel extends JsonObjectModel implements Extens
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ExtensionSetKeyActionModel extends JsonObjectModel implements Extens
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

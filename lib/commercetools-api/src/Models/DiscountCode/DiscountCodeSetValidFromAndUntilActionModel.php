@@ -22,16 +22,19 @@ final class DiscountCodeSetValidFromAndUntilActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setValidFromAndUntil';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -50,6 +53,7 @@ final class DiscountCodeSetValidFromAndUntilActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -69,6 +73,7 @@ final class DiscountCodeSetValidFromAndUntilActionModel extends JsonObjectModel 
     /**
      * <p>Value to set that must be earlier than <code>validUntil</code>. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -92,6 +97,7 @@ final class DiscountCodeSetValidFromAndUntilActionModel extends JsonObjectModel 
     /**
      * <p>Value to set that must be later than <code>validFrom</code>. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

@@ -27,61 +27,73 @@ use stdClass;
 final class ProductVariantModel extends JsonObjectModel implements ProductVariant
 {
     /**
+
      * @var ?int
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?PriceCollection
      */
     protected $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
+
      * @var ?Price
      */
     protected $price;
 
     /**
+
      * @var ?ImageCollection
      */
     protected $images;
 
     /**
+
      * @var ?AssetCollection
      */
     protected $assets;
 
     /**
+
      * @var ?ProductVariantAvailability
      */
     protected $availability;
 
     /**
+
      * @var ?bool
      */
     protected $isMatchingVariant;
 
     /**
+
      * @var ?ScopedPrice
      */
     protected $scopedPrice;
 
     /**
+
      * @var ?bool
      */
     protected $scopedPriceDiscounted;
@@ -121,6 +133,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     /**
      * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
      *
+
      * @return null|int
      */
     public function getId()
@@ -138,6 +151,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -158,6 +172,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
      * <p>User-defined unique identifier of the ProductVariant.
      * <em>ProductVariant keys are different from Product keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -175,6 +190,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getPrices()
@@ -192,6 +208,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -209,6 +226,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|Price
      */
     public function getPrice()
@@ -227,6 +245,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -244,6 +263,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -261,6 +281,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getAvailability()
@@ -279,6 +300,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsMatchingVariant()
@@ -296,6 +318,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|ScopedPrice
      */
     public function getScopedPrice()
@@ -314,6 +337,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+
      * @return null|bool
      */
     public function getScopedPriceDiscounted()

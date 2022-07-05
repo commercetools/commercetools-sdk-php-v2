@@ -21,21 +21,25 @@ use stdClass;
 final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -46,6 +50,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     /**
      * <p>The same update behavior as for Set Attribute applies.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()
@@ -54,6 +59,7 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

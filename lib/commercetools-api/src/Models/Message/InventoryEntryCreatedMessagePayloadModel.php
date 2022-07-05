@@ -23,11 +23,13 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?InventoryEntry
      */
     protected $inventoryEntry;
@@ -44,6 +46,7 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|InventoryEntry
      */
     public function getInventoryEntry()

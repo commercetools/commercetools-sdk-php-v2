@@ -25,6 +25,7 @@ interface TextLineItemDraft extends JsonObject
     /**
      * <p>Defaults to the current date and time.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
@@ -32,16 +33,19 @@ interface TextLineItemDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -49,6 +53,7 @@ interface TextLineItemDraft extends JsonObject
     /**
      * <p>Defaults to <code>1</code>.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();

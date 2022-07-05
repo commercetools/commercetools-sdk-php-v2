@@ -17,11 +17,13 @@ interface OrderReturnShipmentStateChangedMessage extends OrderMessage
     public const FIELD_RETURN_SHIPMENT_STATE = 'returnShipmentState';
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId();
 
     /**
+
      * @return null|string
      */
     public function getReturnShipmentState();

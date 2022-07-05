@@ -21,6 +21,7 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -54,6 +55,7 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

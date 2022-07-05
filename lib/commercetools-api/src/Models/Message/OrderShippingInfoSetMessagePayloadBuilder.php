@@ -23,16 +23,19 @@ use stdClass;
 final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $shippingInfo;
 
     /**
+
      * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $oldShippingInfo;
 
     /**
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -41,6 +44,7 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingInfo
      */
     public function getOldShippingInfo()

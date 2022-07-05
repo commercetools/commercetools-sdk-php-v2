@@ -21,41 +21,49 @@ use stdClass;
 final class SimilarProductSearchRequestBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?string
      */
     private $language;
 
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @var null|SimilarityMeasures|SimilarityMeasuresBuilder
      */
     private $similarityMeasures;
 
     /**
+
      * @var ?ProductSetSelectorCollection
      */
     private $productSetSelectors;
 
     /**
+
      * @var ?float
      */
     private $confidenceMin;
 
     /**
+
      * @var ?float
      */
     private $confidenceMax;
@@ -63,6 +71,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -73,6 +82,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -83,6 +93,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * <p>language tag used to prioritize language for text comparisons.</p>
      *
+
      * @return null|string
      */
     public function getLanguage()
@@ -93,6 +104,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * <p>The three-digit  currency code to compare prices in. When a product has multiple prices, all prices for the product are converted to the currency provided by the currency attribute and the median price is calculated for comparison. Currencies are converted using the ECB currency exchange rates at the time the request is made. Of the currency codes, only currencies with currency exchange rates provided by the ECB are supported.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -103,6 +115,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * <p><code>similarityMeasures</code> defines the attributes taken into account to measure product similarity.</p>
      *
+
      * @return null|SimilarityMeasures
      */
     public function getSimilarityMeasures()
@@ -113,6 +126,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     /**
      * <p>Array of length 2 of ProductSetSelector</p>
      *
+
      * @return null|ProductSetSelectorCollection
      */
     public function getProductSetSelectors()
@@ -121,6 +135,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getConfidenceMin()
@@ -129,6 +144,7 @@ final class SimilarProductSearchRequestBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getConfidenceMax()

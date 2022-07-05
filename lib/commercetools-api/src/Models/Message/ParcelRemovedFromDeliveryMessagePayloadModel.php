@@ -23,16 +23,19 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'ParcelRemovedFromDelivery';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?Parcel
      */
     protected $parcel;
@@ -51,6 +54,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -85,6 +90,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|Parcel
      */
     public function getParcel()

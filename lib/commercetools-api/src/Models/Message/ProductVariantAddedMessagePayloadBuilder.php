@@ -23,16 +23,19 @@ use stdClass;
 final class ProductVariantAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -41,6 +44,7 @@ final class ProductVariantAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

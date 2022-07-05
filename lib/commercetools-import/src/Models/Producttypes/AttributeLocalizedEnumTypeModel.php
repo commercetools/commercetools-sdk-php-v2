@@ -21,11 +21,13 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
 {
     public const DISCRIMINATOR_VALUE = 'lenum';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?AttributeLocalizedEnumValueCollection
      */
     protected $values;
@@ -42,6 +44,7 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -59,6 +62,7 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
     }
 
     /**
+
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues()

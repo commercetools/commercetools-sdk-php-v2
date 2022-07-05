@@ -21,11 +21,13 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
 {
     public const DISCRIMINATOR_VALUE = 'type';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

@@ -19,6 +19,7 @@ interface StandalonePriceChangeValueAction extends StandalonePriceUpdateAction
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|Money
      */
     public function getValue();

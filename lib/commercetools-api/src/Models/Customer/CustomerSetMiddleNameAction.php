@@ -16,6 +16,7 @@ interface CustomerSetMiddleNameAction extends CustomerUpdateAction
     public const FIELD_MIDDLE_NAME = 'middleName';
 
     /**
+
      * @return null|string
      */
     public function getMiddleName();

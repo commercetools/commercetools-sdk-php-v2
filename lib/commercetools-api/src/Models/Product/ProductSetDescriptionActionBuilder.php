@@ -23,16 +23,19 @@ use stdClass;
 final class ProductSetDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -41,6 +44,7 @@ final class ProductSetDescriptionActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

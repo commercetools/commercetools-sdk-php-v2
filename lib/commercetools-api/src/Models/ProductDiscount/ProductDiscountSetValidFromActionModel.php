@@ -22,11 +22,13 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setValidFrom';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
@@ -43,6 +45,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -64,6 +67,7 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
      * If empty, any existing value will be removed.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()

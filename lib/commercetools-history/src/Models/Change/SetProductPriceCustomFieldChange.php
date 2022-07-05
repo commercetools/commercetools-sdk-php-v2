@@ -20,6 +20,7 @@ interface SetProductPriceCustomFieldChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetProductPriceCustomFieldChange extends Change
     /**
      * <p>Update action for <code>setProductPriceCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue();

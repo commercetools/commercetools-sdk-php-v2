@@ -23,31 +23,37 @@ use stdClass;
 final class ShoppingListLineItemDraftModel extends JsonObjectModel implements ShoppingListLineItemDraft
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $productId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
@@ -73,6 +79,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -96,6 +103,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -114,6 +122,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -131,6 +140,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -148,6 +158,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -165,6 +176,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

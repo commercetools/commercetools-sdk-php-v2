@@ -21,11 +21,13 @@ final class CartSetShippingMethodTaxRateActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setShippingMethodTaxRate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -42,6 +44,7 @@ final class CartSetShippingMethodTaxRateActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CartSetShippingMethodTaxRateActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

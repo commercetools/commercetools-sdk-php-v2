@@ -23,6 +23,7 @@ use stdClass;
 final class ProductSelectionRemoveProductActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductResourceIdentifier|ProductResourceIdentifierBuilder
      */
     private $product;
@@ -30,6 +31,7 @@ final class ProductSelectionRemoveProductActionBuilder implements Builder
     /**
      * <p>ResourceIdentifier to Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()

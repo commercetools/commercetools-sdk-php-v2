@@ -23,11 +23,13 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'setLocalizedDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $localizedDescription;
@@ -44,6 +46,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()

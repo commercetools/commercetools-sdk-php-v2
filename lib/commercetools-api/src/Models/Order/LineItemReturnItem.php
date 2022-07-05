@@ -16,6 +16,7 @@ interface LineItemReturnItem extends ReturnItem
     public const FIELD_LINE_ITEM_ID = 'lineItemId';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();

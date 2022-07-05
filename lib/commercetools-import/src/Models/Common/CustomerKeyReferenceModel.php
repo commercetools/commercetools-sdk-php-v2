@@ -21,11 +21,13 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
 {
     public const DISCRIMINATOR_VALUE = 'customer';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class CustomerKeyReferenceModel extends JsonObjectModel implements Custome
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

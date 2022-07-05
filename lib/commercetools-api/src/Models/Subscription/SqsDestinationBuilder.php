@@ -21,26 +21,31 @@ use stdClass;
 final class SqsDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $accessKey;
 
     /**
+
      * @var ?string
      */
     private $accessSecret;
 
     /**
+
      * @var ?string
      */
     private $queueUrl;
 
     /**
+
      * @var ?string
      */
     private $region;
 
     /**
+
      * @return null|string
      */
     public function getAccessKey()
@@ -49,6 +54,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAccessSecret()
@@ -57,6 +63,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getQueueUrl()
@@ -65,6 +72,7 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getRegion()

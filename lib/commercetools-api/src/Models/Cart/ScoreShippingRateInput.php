@@ -16,6 +16,7 @@ interface ScoreShippingRateInput extends ShippingRateInput
     public const FIELD_SCORE = 'score';
 
     /**
+
      * @return null|float
      */
     public function getScore();

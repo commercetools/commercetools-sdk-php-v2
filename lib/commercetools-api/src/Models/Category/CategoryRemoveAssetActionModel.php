@@ -21,16 +21,19 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
 {
     public const DISCRIMINATOR_VALUE = 'removeAsset';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
@@ -49,6 +52,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     /**
      * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId()
@@ -87,6 +92,7 @@ final class CategoryRemoveAssetActionModel extends JsonObjectModel implements Ca
     /**
      * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()

@@ -19,6 +19,7 @@ interface InvalidStateTransitionError extends ErrorObject
     /**
      * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
+
      * @return null|string
      */
     public function getCurrentState();
@@ -26,6 +27,7 @@ interface InvalidStateTransitionError extends ErrorObject
     /**
      * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
+
      * @return null|string
      */
     public function getNewState();

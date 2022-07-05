@@ -20,11 +20,13 @@ use stdClass;
 final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQLErrorLocation
 {
     /**
+
      * @var ?int
      */
     protected $line;
 
     /**
+
      * @var ?int
      */
     protected $column;
@@ -42,6 +44,7 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     }
 
     /**
+
      * @return null|int
      */
     public function getLine()
@@ -59,6 +62,7 @@ final class GraphQLErrorLocationModel extends JsonObjectModel implements GraphQL
     }
 
     /**
+
      * @return null|int
      */
     public function getColumn()

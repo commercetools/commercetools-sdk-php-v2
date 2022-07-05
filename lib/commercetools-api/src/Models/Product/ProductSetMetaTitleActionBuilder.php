@@ -23,16 +23,19 @@ use stdClass;
 final class ProductSetMetaTitleActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -41,6 +44,7 @@ final class ProductSetMetaTitleActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -28,21 +28,25 @@ interface OrderLineItemRemovedMessage extends OrderMessage
     public const FIELD_NEW_SHIPPING_DETAIL = 'newShippingDetail';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getRemovedQuantity();
 
     /**
+
      * @return null|int
      */
     public function getNewQuantity();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getNewState();
@@ -50,21 +54,25 @@ interface OrderLineItemRemovedMessage extends OrderMessage
     /**
      * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getNewTotalPrice();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice();
 
     /**
+
      * @return null|Price
      */
     public function getNewPrice();
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail();

@@ -19,6 +19,7 @@ interface RemoveEnumValuesChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,6 +27,7 @@ interface RemoveEnumValuesChange extends Change
     /**
      * <p>Update action for <code>removeEnumValues</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -33,11 +35,13 @@ interface RemoveEnumValuesChange extends Change
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+
      * @return null|EnumValue
      */
     public function getPreviousValue();

@@ -20,16 +20,19 @@ interface VariantValues extends JsonObject
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices();
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes();

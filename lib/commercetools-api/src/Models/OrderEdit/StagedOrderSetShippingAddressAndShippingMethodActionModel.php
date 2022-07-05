@@ -29,21 +29,25 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
 {
     public const DISCRIMINATOR_VALUE = 'setShippingAddressAndShippingMethod';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
 
     /**
+
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -64,6 +68,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -81,6 +86,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -101,6 +107,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
      *
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -119,6 +126,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

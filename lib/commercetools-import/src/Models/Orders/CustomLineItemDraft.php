@@ -38,36 +38,43 @@ interface CustomLineItemDraft extends JsonObject
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getMoney();
 
     /**
+
      * @return null|CustomLineItemTaxedPrice
      */
     public function getTaxedPrice();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
 
     /**
+
      * @return null|string
      */
     public function getSlug();
 
     /**
+
      * @return null|float
      */
     public function getQuantity();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
@@ -75,26 +82,31 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>References a tax category by key.</p>
      *
+
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory();
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
 
     /**
+
      * @return null|DiscountedLineItemPriceDraftCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

@@ -21,11 +21,13 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
 {
     public const DISCRIMINATOR_VALUE = 'relative';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $permyriad;
@@ -42,6 +44,7 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class CartDiscountValueRelativeModel extends JsonObjectModel implements Ca
     /**
      * <p>Fraction (per ten thousand) the price is reduced by. For example, <code>1000</code> will result in a 10% price reduction.</p>
      *
+
      * @return null|int
      */
     public function getPermyriad()

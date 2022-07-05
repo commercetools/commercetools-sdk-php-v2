@@ -21,11 +21,13 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
 {
     public const DISCRIMINATOR_VALUE = 'WeakPassword';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class WeakPasswordErrorModel extends JsonObjectModel implements WeakPasswo
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

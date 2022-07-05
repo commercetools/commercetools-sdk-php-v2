@@ -18,11 +18,13 @@ interface ProductVariantDeletedMessage extends Message
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant();
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls();

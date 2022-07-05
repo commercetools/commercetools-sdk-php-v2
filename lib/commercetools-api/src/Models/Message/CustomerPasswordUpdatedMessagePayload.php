@@ -18,6 +18,7 @@ interface CustomerPasswordUpdatedMessagePayload extends MessagePayload
     /**
      * <p>true, if password has been updated during Customer's Password Reset workflow.</p>
      *
+
      * @return null|bool
      */
     public function getReset();

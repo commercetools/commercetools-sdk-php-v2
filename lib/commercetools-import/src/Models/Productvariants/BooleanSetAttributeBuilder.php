@@ -21,11 +21,13 @@ use stdClass;
 final class BooleanSetAttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?array
      */
     private $value;
@@ -35,6 +37,7 @@ final class BooleanSetAttributeBuilder implements Builder
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -43,6 +46,7 @@ final class BooleanSetAttributeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getValue()

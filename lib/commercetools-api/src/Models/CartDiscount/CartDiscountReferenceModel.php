@@ -23,16 +23,19 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
 {
     public const DISCRIMINATOR_VALUE = 'cart-discount';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?CartDiscount
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
     /**
      * <p>Contains the representation of the expanded CartDiscount. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CartDiscounts.</p>
      *
+
      * @return null|CartDiscount
      */
     public function getObj()

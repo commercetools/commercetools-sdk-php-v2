@@ -26,26 +26,31 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemDiscountSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
+
      * @var ?Money
      */
     protected $totalPrice;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
@@ -68,6 +73,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -102,6 +109,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -122,6 +130,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -140,6 +149,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

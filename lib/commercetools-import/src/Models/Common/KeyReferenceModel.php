@@ -21,11 +21,13 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -68,6 +70,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -87,6 +90,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

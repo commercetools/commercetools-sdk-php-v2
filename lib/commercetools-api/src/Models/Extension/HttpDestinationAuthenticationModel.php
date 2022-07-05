@@ -21,6 +21,7 @@ final class HttpDestinationAuthenticationModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -43,6 +44,7 @@ final class HttpDestinationAuthenticationModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

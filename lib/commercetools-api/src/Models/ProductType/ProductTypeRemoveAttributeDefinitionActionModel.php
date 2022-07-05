@@ -21,11 +21,13 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'removeAttributeDefinition';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $name;
@@ -42,6 +44,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
     /**
      * <p>Name of the Attribute to remove.</p>
      *
+
      * @return null|string
      */
     public function getName()

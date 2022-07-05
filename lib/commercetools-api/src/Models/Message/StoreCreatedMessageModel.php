@@ -34,86 +34,103 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
 {
     public const DISCRIMINATOR_VALUE = 'StoreCreated';
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+
      * @var ?Reference
      */
     protected $resource;
 
     /**
+
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?array
      */
     protected $languages;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     protected $distributionChannels;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     protected $supplyChannels;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     protected $productSelections;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
@@ -162,6 +179,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     /**
      * <p>Unique identifier of the Message.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -179,6 +197,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -196,6 +215,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -217,6 +237,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -240,6 +261,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -260,6 +282,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -278,6 +301,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -297,6 +321,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -315,6 +340,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -332,6 +358,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -349,6 +376,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -369,6 +397,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -387,6 +416,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|array
      */
     public function getLanguages()
@@ -404,6 +434,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -421,6 +452,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
@@ -438,6 +470,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -457,6 +490,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

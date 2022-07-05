@@ -26,36 +26,43 @@ use stdClass;
 final class StoreDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?array
      */
     private $languages;
 
     /**
+
      * @var ?ChannelResourceIdentifierCollection
      */
     private $distributionChannels;
 
     /**
+
      * @var ?ChannelResourceIdentifierCollection
      */
     private $supplyChannels;
 
     /**
+
      * @var ?ProductSelectionSettingDraftCollection
      */
     private $productSelections;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -64,6 +71,7 @@ final class StoreDraftBuilder implements Builder
      * <p>User-defined unique and immutable identifier for the Store.
      * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -74,6 +82,7 @@ final class StoreDraftBuilder implements Builder
     /**
      * <p>Name of the Store.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -84,6 +93,7 @@ final class StoreDraftBuilder implements Builder
     /**
      * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
      *
+
      * @return null|array
      */
     public function getLanguages()
@@ -94,6 +104,7 @@ final class StoreDraftBuilder implements Builder
     /**
      * <p>ResourceIdentifier to a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getDistributionChannels()
@@ -104,6 +115,7 @@ final class StoreDraftBuilder implements Builder
     /**
      * <p>ResourceIdentifier to a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getSupplyChannels()
@@ -118,6 +130,7 @@ final class StoreDraftBuilder implements Builder
      * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
      * </ul>
      *
+
      * @return null|ProductSelectionSettingDraftCollection
      */
     public function getProductSelections()
@@ -128,6 +141,7 @@ final class StoreDraftBuilder implements Builder
     /**
      * <p>Custom fields for the Store.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

@@ -20,6 +20,7 @@ interface SetSearchKeywordsChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetSearchKeywordsChange extends Change
     /**
      * <p>Update action for <code>setSearchKeywords</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getNextValue();

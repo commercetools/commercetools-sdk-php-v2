@@ -27,51 +27,61 @@ use stdClass;
 final class PriceModel extends JsonObjectModel implements Price
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+
      * @var ?ChannelReference
      */
     protected $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
@@ -107,6 +117,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Unique identifier of this Price.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -126,6 +137,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Money value of this Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -146,6 +158,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Country for which this Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -165,6 +178,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -185,6 +199,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -205,6 +220,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Date and time from which this Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -228,6 +244,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Date and time until this Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -253,6 +270,7 @@ final class PriceModel extends JsonObjectModel implements Price
      * If set, the API uses the DiscountedPrice value for the <a href="/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -273,6 +291,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -292,6 +311,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Custom Fields defined for the Price.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

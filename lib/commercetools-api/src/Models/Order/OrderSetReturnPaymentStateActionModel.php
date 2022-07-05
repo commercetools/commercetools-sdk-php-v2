@@ -21,16 +21,19 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setReturnPaymentState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $returnItemId;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
@@ -49,6 +52,7 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId()
@@ -83,6 +88,7 @@ final class OrderSetReturnPaymentStateActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()

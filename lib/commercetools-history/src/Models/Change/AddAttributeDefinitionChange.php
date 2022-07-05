@@ -18,6 +18,7 @@ interface AddAttributeDefinitionChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface AddAttributeDefinitionChange extends Change
     /**
      * <p>Update action for <code>addAttributeDefinition</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|AttributeDefinition
      */
     public function getNextValue();

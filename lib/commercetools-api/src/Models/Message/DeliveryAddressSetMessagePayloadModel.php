@@ -23,21 +23,25 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryAddressSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?Address
      */
     protected $address;
 
     /**
+
      * @var ?Address
      */
     protected $oldAddress;
@@ -58,6 +62,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -75,6 +80,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -92,6 +98,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -110,6 +117,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|Address
      */
     public function getOldAddress()

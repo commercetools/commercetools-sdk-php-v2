@@ -22,16 +22,19 @@ interface DeliveryChangeValue extends JsonObject
     public const FIELD_PARCELS = 'parcels';
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels();

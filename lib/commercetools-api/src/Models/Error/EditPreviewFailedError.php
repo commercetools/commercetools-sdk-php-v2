@@ -17,6 +17,7 @@ interface EditPreviewFailedError extends ErrorObject
     public const FIELD_RESULT = 'result';
 
     /**
+
      * @return null|OrderEditPreviewFailure
      */
     public function getResult();

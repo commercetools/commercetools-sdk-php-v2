@@ -31,66 +31,79 @@ use stdClass;
 final class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $money;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
+
      * @var ?string
      */
     protected $slug;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
     /**
+
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
@@ -132,6 +145,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>Unique identifier of the CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -151,6 +165,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>The name of this CustomLineItem.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -172,6 +187,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * <p>The cost to add to the cart.
      * The amount can be negative.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getMoney()
@@ -192,6 +208,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -215,6 +232,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -235,6 +253,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getSlug()
@@ -255,6 +274,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -272,6 +292,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -289,6 +310,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -310,6 +332,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -328,6 +351,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -345,6 +369,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -367,6 +392,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
      * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>
      *
+
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails()

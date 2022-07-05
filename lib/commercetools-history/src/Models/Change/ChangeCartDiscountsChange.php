@@ -19,6 +19,7 @@ interface ChangeCartDiscountsChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface ChangeCartDiscountsChange extends Change
     /**
      * <p>Shape of the action for <code>changeCartDiscounts</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue();

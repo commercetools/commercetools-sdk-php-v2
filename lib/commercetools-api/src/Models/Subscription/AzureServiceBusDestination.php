@@ -16,6 +16,7 @@ interface AzureServiceBusDestination extends Destination
     public const FIELD_CONNECTION_STRING = 'connectionString';
 
     /**
+
      * @return null|string
      */
     public function getConnectionString();

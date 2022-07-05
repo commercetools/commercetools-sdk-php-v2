@@ -19,21 +19,25 @@ interface ChangeAssetOrderChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getNextValue();

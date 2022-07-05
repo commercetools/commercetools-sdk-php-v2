@@ -20,11 +20,13 @@ use stdClass;
 final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShippingDetails
 {
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     protected $targets;
 
     /**
+
      * @var ?bool
      */
     protected $valid;
@@ -45,6 +47,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
      * <p>Used to map what sub-quantity should be shipped to which address.
      * Duplicate address keys are not allowed.</p>
      *
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()
@@ -66,6 +69,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
      * A cart cannot be ordered when the value is <code>false</code>.
      * The error InvalidItemShippingDetails will be triggered.</p>
      *
+
      * @return null|bool
      */
     public function getValid()

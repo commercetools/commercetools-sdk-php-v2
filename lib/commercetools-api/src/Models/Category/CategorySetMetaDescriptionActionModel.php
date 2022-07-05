@@ -23,11 +23,13 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setMetaDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaDescription;
@@ -44,6 +46,7 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()

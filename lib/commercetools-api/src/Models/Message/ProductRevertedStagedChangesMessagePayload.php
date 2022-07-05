@@ -16,6 +16,7 @@ interface ProductRevertedStagedChangesMessagePayload extends MessagePayload
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls();

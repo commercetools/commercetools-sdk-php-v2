@@ -29,31 +29,37 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'removeLineItem';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?Money
      */
     protected $externalPrice;
 
     /**
+
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetailsToRemove;
@@ -78,6 +84,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -95,6 +102,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -112,6 +120,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -132,6 +141,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getExternalPrice()
@@ -150,6 +160,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()
@@ -168,6 +179,7 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetailsToRemove()

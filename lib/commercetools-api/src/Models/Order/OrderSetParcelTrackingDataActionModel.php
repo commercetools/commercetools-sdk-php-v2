@@ -21,16 +21,19 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setParcelTrackingData';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?TrackingData
      */
     protected $trackingData;
@@ -49,6 +52,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -83,6 +88,7 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()

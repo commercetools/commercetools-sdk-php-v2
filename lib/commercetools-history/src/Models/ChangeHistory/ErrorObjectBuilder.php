@@ -21,16 +21,19 @@ use stdClass;
 final class ErrorObjectBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $code;
 
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -39,6 +42,7 @@ final class ErrorObjectBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

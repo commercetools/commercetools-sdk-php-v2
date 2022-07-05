@@ -20,21 +20,25 @@ interface ProductSetAssetKeyAction extends ProductUpdateAction
     public const FIELD_ASSET_KEY = 'assetKey';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|string
      */
     public function getAssetId();
@@ -43,6 +47,7 @@ interface ProductSetAssetKeyAction extends ProductUpdateAction
      * <p>User-defined identifier for the asset.
      * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey();

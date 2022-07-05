@@ -21,21 +21,25 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
 {
     public const DISCRIMINATOR_VALUE = 'EnumKeyAlreadyExists';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $conflictingEnumKey;
 
     /**
+
      * @var ?string
      */
     protected $conflictingAttributeName;
@@ -56,6 +60,7 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -73,6 +78,7 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +96,7 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingEnumKey()
@@ -107,6 +114,7 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingAttributeName()

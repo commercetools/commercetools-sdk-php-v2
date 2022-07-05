@@ -23,11 +23,13 @@ use stdClass;
 final class DeliveryRemovedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Delivery|DeliveryBuilder
      */
     private $delivery;
 
     /**
+
      * @return null|Delivery
      */
     public function getDelivery()

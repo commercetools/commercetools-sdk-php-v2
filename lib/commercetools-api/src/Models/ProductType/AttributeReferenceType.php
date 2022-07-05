@@ -18,6 +18,7 @@ interface AttributeReferenceType extends AttributeType
     /**
      * <p>Name of the resource type that the value should reference.</p>
      *
+
      * @return null|string
      */
     public function getReferenceTypeId();

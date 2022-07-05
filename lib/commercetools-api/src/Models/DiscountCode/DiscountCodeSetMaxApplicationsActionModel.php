@@ -21,11 +21,13 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'setMaxApplications';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $maxApplications;
@@ -42,6 +44,7 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplications()

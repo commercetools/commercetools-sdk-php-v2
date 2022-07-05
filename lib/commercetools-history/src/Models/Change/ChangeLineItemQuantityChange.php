@@ -21,6 +21,7 @@ interface ChangeLineItemQuantityChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,16 +29,19 @@ interface ChangeLineItemQuantityChange extends Change
     /**
      * <p>Update action for <code>changeLineItemQuantity</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
@@ -45,6 +49,7 @@ interface ChangeLineItemQuantityChange extends Change
     /**
      * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getNextValue();
@@ -52,6 +57,7 @@ interface ChangeLineItemQuantityChange extends Change
     /**
      * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getPreviousValue();

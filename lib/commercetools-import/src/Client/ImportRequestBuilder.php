@@ -13,6 +13,9 @@ use Commercetools\Client\ApiResource;
 use Commercetools\Import\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
 
+/**
+ *
+ */
 class ImportRequestBuilder extends ApiResource
 {
     /**

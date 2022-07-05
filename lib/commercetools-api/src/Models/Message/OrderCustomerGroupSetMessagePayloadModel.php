@@ -23,16 +23,19 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerGroupSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+
      * @var ?CustomerGroupReference
      */
     protected $oldCustomerGroup;
@@ -51,6 +54,7 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +74,7 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -90,6 +95,7 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup()

@@ -21,11 +21,13 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
 {
     public const DISCRIMINATOR_VALUE = 'setTitle';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $title;
@@ -42,6 +44,7 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()

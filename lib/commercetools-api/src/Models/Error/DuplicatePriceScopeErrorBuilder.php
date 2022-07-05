@@ -22,16 +22,19 @@ use stdClass;
 final class DuplicatePriceScopeErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?PriceCollection
      */
     private $conflictingPrices;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -40,6 +43,7 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getConflictingPrices()

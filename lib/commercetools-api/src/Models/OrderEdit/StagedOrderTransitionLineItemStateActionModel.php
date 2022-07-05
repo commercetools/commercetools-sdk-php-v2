@@ -26,31 +26,37 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'transitionLineItemState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?StateResourceIdentifier
      */
     protected $fromState;
 
     /**
+
      * @var ?StateResourceIdentifier
      */
     protected $toState;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $actualTransitionDate;
@@ -75,6 +81,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -92,6 +99,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -109,6 +117,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -128,6 +137,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getFromState()
@@ -148,6 +158,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getToState()
@@ -166,6 +177,7 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate()

@@ -23,11 +23,13 @@ final class OrderCustomLineItemAddedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CustomLineItem
      */
     protected $customLineItem;
@@ -44,6 +46,7 @@ final class OrderCustomLineItemAddedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class OrderCustomLineItemAddedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getCustomLineItem()

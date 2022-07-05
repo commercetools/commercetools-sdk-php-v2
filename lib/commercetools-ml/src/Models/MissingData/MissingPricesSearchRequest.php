@@ -29,6 +29,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -36,6 +37,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
@@ -43,6 +45,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
+
      * @return null|bool
      */
     public function getStaged();
@@ -50,6 +53,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Maximum number of products to scan.</p>
      *
+
      * @return null|int
      */
     public function getProductSetLimit();
@@ -57,6 +61,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
+
      * @return null|bool
      */
     public function getIncludeVariants();
@@ -64,6 +69,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>If used, only checks if a product variant has a price in the provided currency code.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode();
@@ -71,6 +77,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>If true, checks if there are prices for the specified date range and time.</p>
      *
+
      * @return null|bool
      */
     public function getCheckDate();
@@ -78,6 +85,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Starting date of the range to check. If no value is given, checks prices valid at the time the search is initiated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -85,6 +93,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Ending date of the range to check. If no value is given, it is equal to <code>validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -92,6 +101,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Filters results by the provided Product IDs. Cannot be applied in combination with the <code>productTypeIds</code> filter.</p>
      *
+
      * @return null|array
      */
     public function getProductIds();
@@ -99,6 +109,7 @@ interface MissingPricesSearchRequest extends JsonObject
     /**
      * <p>Filters results by the provided product type IDs. Cannot be applied in combination with the <code>productIds</code> filter.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds();

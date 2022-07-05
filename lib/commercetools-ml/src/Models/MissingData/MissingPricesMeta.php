@@ -17,11 +17,13 @@ interface MissingPricesMeta extends JsonObject
     public const FIELD_VARIANT_LEVEL = 'variantLevel';
 
     /**
+
      * @return null|MissingPricesProductLevel
      */
     public function getProductLevel();
 
     /**
+
      * @return null|MissingPricesVariantLevel
      */
     public function getVariantLevel();

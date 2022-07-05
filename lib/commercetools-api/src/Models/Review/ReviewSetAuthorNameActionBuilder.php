@@ -21,6 +21,7 @@ use stdClass;
 final class ReviewSetAuthorNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $authorName;
@@ -28,6 +29,7 @@ final class ReviewSetAuthorNameActionBuilder implements Builder
     /**
      * <p>If <code>authorName</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getAuthorName()

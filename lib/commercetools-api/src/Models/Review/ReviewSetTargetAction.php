@@ -22,6 +22,7 @@ interface ReviewSetTargetAction extends ReviewUpdateAction
      * Can be a Product or a Channel.
      * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|mixed
      */
     public function getTarget();

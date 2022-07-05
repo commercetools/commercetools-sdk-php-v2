@@ -23,11 +23,13 @@ use stdClass;
 final class OrderDeletedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Order|OrderBuilder
      */
     private $order;
 
     /**
+
      * @return null|Order
      */
     public function getOrder()

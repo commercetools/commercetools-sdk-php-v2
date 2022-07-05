@@ -24,6 +24,7 @@ interface ProductVariantDraft extends JsonObject
     public const FIELD_ASSETS = 'assets';
 
     /**
+
      * @return null|string
      */
     public function getSku();
@@ -32,26 +33,31 @@ interface ProductVariantDraft extends JsonObject
      * <p>User-defined unique identifier for the ProductVariant.
      * <em>ProductVariant keys are different from Product keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices();
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+
      * @return null|AssetDraftCollection
      */
     public function getAssets();

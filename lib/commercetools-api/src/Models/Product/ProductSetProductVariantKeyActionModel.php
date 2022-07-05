@@ -21,26 +21,31 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setProductVariantKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -63,6 +68,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -80,6 +86,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -97,6 +104,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -116,6 +124,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     /**
      * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -133,6 +142,7 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

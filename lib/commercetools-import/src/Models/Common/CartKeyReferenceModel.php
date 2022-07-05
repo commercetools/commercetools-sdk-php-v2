@@ -21,11 +21,13 @@ final class CartKeyReferenceModel extends JsonObjectModel implements CartKeyRefe
 {
     public const DISCRIMINATOR_VALUE = 'cart';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class CartKeyReferenceModel extends JsonObjectModel implements CartKeyRefe
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class CartKeyReferenceModel extends JsonObjectModel implements CartKeyRefe
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

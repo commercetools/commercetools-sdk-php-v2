@@ -23,16 +23,19 @@ use Commercetools\History\Models\ChangeValue\EnumValueBuilder;
 final class AddEnumValueChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var null|EnumValue|EnumValueBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class AddEnumValueChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addEnumValue</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -50,6 +54,7 @@ final class AddEnumValueChangeBuilder implements Builder
     /**
      * <p>The name of the field/attribute definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -58,6 +63,7 @@ final class AddEnumValueChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|EnumValue
      */
     public function getNextValue()

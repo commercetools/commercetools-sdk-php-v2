@@ -23,11 +23,13 @@ use stdClass;
 final class CartSetCartTotalTaxActionBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $externalTotalGross;
 
     /**
+
      * @var ?TaxPortionDraftCollection
      */
     private $externalTaxPortions;
@@ -35,6 +37,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     /**
      * <p>The total gross amount of the cart (totalNet + taxes).</p>
      *
+
      * @return null|Money
      */
     public function getExternalTotalGross()
@@ -43,6 +46,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()

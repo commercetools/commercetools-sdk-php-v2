@@ -24,21 +24,25 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
 
     public const DISCRIMINATOR_VALUE = 'SetTaxCategoryChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Reference
      */
     protected $previousValue;
 
     /**
+
      * @var ?Reference
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     /**
      * <p>Shape of the action for <code>setTaxCategory</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     }
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class SetTaxCategoryChangeModel extends JsonObjectModel implements SetTaxC
     }
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue()

@@ -19,6 +19,7 @@ interface ContainerAndKey extends JsonObject
     /**
      * <p>User-defined identifier that is unique within the given container.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -26,6 +27,7 @@ interface ContainerAndKey extends JsonObject
     /**
      * <p>Namespace to group Custom Objects.</p>
      *
+
      * @return null|string
      */
     public function getContainer();

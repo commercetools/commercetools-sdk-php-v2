@@ -20,11 +20,13 @@ use stdClass;
 final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNotIncluded
 {
     /**
+
      * @var ?string
      */
     protected $reason;
 
     /**
+
      * @var ?string
      */
     protected $payloadType;
@@ -42,6 +44,7 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     }
 
     /**
+
      * @return null|string
      */
     public function getReason()
@@ -59,6 +62,7 @@ final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNo
     }
 
     /**
+
      * @return null|string
      */
     public function getPayloadType()

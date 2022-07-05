@@ -23,11 +23,13 @@ final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
@@ -44,6 +46,7 @@ final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderRemoveCustomLineItemActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()

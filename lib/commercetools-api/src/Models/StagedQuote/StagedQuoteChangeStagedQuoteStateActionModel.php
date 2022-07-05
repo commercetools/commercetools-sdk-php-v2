@@ -21,11 +21,13 @@ final class StagedQuoteChangeStagedQuoteStateActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeStagedQuoteState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $stagedQuoteState;
@@ -42,6 +44,7 @@ final class StagedQuoteChangeStagedQuoteStateActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedQuoteChangeStagedQuoteStateActionModel extends JsonObjectModel
     /**
      * <p>The new quote staged state to be set for the Quote Staged.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()

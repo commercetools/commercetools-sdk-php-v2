@@ -21,16 +21,19 @@ use stdClass;
 final class SetLanguagesChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?array
      */
     private $previousValue;
 
     /**
+
      * @var ?array
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class SetLanguagesChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLanguages</code> on stores</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class SetLanguagesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class SetLanguagesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()

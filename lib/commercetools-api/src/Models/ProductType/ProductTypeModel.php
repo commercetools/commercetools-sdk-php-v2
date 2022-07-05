@@ -27,51 +27,61 @@ use stdClass;
 final class ProductTypeModel extends JsonObjectModel implements ProductType
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $description;
 
     /**
+
      * @var ?AttributeDefinitionCollection
      */
     protected $attributes;
@@ -107,6 +117,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Unique identifier of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -126,6 +137,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Current version of the ProductType.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -145,6 +157,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Date and time (UTC) the ProductType was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -168,6 +181,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Date and time (UTC) the Channel was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -191,6 +205,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -211,6 +226,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -231,6 +247,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>User-defined unique identifier of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -250,6 +267,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Name of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -269,6 +287,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Description of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -288,6 +307,7 @@ final class ProductTypeModel extends JsonObjectModel implements ProductType
     /**
      * <p>Attributes specified for the ProductType.</p>
      *
+
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

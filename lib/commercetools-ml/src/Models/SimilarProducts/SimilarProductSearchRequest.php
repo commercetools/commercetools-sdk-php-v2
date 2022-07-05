@@ -25,6 +25,7 @@ interface SimilarProductSearchRequest extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -32,6 +33,7 @@ interface SimilarProductSearchRequest extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
@@ -39,6 +41,7 @@ interface SimilarProductSearchRequest extends JsonObject
     /**
      * <p>language tag used to prioritize language for text comparisons.</p>
      *
+
      * @return null|string
      */
     public function getLanguage();
@@ -46,6 +49,7 @@ interface SimilarProductSearchRequest extends JsonObject
     /**
      * <p>The three-digit  currency code to compare prices in. When a product has multiple prices, all prices for the product are converted to the currency provided by the currency attribute and the median price is calculated for comparison. Currencies are converted using the ECB currency exchange rates at the time the request is made. Of the currency codes, only currencies with currency exchange rates provided by the ECB are supported.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode();
@@ -53,6 +57,7 @@ interface SimilarProductSearchRequest extends JsonObject
     /**
      * <p><code>similarityMeasures</code> defines the attributes taken into account to measure product similarity.</p>
      *
+
      * @return null|SimilarityMeasures
      */
     public function getSimilarityMeasures();
@@ -60,16 +65,19 @@ interface SimilarProductSearchRequest extends JsonObject
     /**
      * <p>Array of length 2 of ProductSetSelector</p>
      *
+
      * @return null|ProductSetSelectorCollection
      */
     public function getProductSetSelectors();
 
     /**
+
      * @return null|float
      */
     public function getConfidenceMin();
 
     /**
+
      * @return null|float
      */
     public function getConfidenceMax();

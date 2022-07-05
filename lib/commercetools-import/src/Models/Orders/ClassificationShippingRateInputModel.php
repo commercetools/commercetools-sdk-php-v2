@@ -23,16 +23,19 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'Classification';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $label;
@@ -51,6 +54,7 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -92,6 +97,7 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

@@ -21,11 +21,13 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'changeLineItemsOrder';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $lineItemOrder;
@@ -42,6 +44,7 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|array
      */
     public function getLineItemOrder()

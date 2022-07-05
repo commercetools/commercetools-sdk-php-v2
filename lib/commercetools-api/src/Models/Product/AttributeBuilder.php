@@ -21,16 +21,19 @@ use stdClass;
 final class AttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -41,6 +44,7 @@ final class AttributeBuilder implements Builder
     /**
      * <p>A valid JSON value, based on an AttributeDefinition.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

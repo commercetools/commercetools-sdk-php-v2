@@ -21,16 +21,19 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'OrderReturnShipmentStateChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $returnItemId;
 
     /**
+
      * @var ?string
      */
     protected $returnShipmentState;
@@ -49,6 +52,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId()
@@ -83,6 +88,7 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnShipmentState()

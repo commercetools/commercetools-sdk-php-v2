@@ -21,6 +21,7 @@ final class AttributeDateTypeModel extends JsonObjectModel implements AttributeD
 {
     public const DISCRIMINATOR_VALUE = 'date';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class AttributeDateTypeModel extends JsonObjectModel implements AttributeD
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

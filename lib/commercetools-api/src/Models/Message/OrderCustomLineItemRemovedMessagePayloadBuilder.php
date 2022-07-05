@@ -23,16 +23,19 @@ use stdClass;
 final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
     private $customLineItem;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -41,6 +44,7 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getCustomLineItem()

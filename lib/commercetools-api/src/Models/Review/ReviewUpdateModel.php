@@ -20,11 +20,13 @@ use stdClass;
 final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?ReviewUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,7 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,7 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     }
 
     /**
+
      * @return null|ReviewUpdateActionCollection
      */
     public function getActions()

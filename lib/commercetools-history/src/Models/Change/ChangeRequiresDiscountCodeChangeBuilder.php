@@ -21,16 +21,19 @@ use stdClass;
 final class ChangeRequiresDiscountCodeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?bool
      */
     private $previousValue;
 
     /**
+
      * @var ?bool
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class ChangeRequiresDiscountCodeChangeBuilder implements Builder
     /**
      * <p>Shape of the action for <code>changeRequiresDiscountCode</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class ChangeRequiresDiscountCodeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class ChangeRequiresDiscountCodeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getNextValue()

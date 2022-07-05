@@ -21,11 +21,13 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
 {
     public const DISCRIMINATOR_VALUE = 'setVatId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $vatId;
@@ -42,6 +44,7 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     }
 
     /**
+
      * @return null|string
      */
     public function getVatId()

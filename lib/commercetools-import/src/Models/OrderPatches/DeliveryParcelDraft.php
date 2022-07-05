@@ -21,16 +21,19 @@ interface DeliveryParcelDraft extends JsonObject
     public const FIELD_ITEMS = 'items';
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();

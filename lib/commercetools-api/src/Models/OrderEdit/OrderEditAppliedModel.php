@@ -22,21 +22,25 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
 {
     public const DISCRIMINATOR_VALUE = 'Applied';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $appliedAt;
 
     /**
+
      * @var ?OrderExcerpt
      */
     protected $excerptBeforeEdit;
 
     /**
+
      * @var ?OrderExcerpt
      */
     protected $excerptAfterEdit;
@@ -57,6 +61,7 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -74,6 +79,7 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAppliedAt()
@@ -95,6 +101,7 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+
      * @return null|OrderExcerpt
      */
     public function getExcerptBeforeEdit()
@@ -113,6 +120,7 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     }
 
     /**
+
      * @return null|OrderExcerpt
      */
     public function getExcerptAfterEdit()

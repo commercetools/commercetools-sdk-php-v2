@@ -27,51 +27,61 @@ use stdClass;
 final class ExtensionModel extends JsonObjectModel implements Extension
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?ExtensionDestination
      */
     protected $destination;
 
     /**
+
      * @var ?ExtensionTriggerCollection
      */
     protected $triggers;
 
     /**
+
      * @var ?int
      */
     protected $timeoutInMs;
@@ -107,6 +117,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -126,6 +137,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Current version of the Extension.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -145,6 +157,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Date and time (UTC) the Extension was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -168,6 +181,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Date and time (UTC) the Extension was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -191,6 +205,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -211,6 +226,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -231,6 +247,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>User-defined unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -250,6 +267,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>The configuration for the Extension, including its type, location and authentication details.</p>
      *
+
      * @return null|ExtensionDestination
      */
     public function getDestination()
@@ -270,6 +288,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     /**
      * <p>Describes what triggers the Extension.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()
@@ -291,6 +310,7 @@ final class ExtensionModel extends JsonObjectModel implements Extension
      * If no timeout is provided, the default value is used for all types of Extensions.
      * The maximum value is 10000 ms (10 seconds) for <code>payment</code> Extensions and 2000 ms (2 seconds) for all other Extensions.</p>
      *
+
      * @return null|int
      */
     public function getTimeoutInMs()

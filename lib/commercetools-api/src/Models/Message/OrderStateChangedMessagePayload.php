@@ -17,11 +17,13 @@ interface OrderStateChangedMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_ORDER_STATE = 'oldOrderState';
 
     /**
+
      * @return null|string
      */
     public function getOrderState();
 
     /**
+
      * @return null|string
      */
     public function getOldOrderState();

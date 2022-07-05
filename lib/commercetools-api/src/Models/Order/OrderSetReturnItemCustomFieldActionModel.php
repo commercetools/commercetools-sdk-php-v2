@@ -21,21 +21,25 @@ final class OrderSetReturnItemCustomFieldActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setReturnItemCustomField';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $returnItemId;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
@@ -56,6 +60,7 @@ final class OrderSetReturnItemCustomFieldActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class OrderSetReturnItemCustomFieldActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId()
@@ -92,6 +98,7 @@ final class OrderSetReturnItemCustomFieldActionModel extends JsonObjectModel imp
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -113,6 +120,7 @@ final class OrderSetReturnItemCustomFieldActionModel extends JsonObjectModel imp
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

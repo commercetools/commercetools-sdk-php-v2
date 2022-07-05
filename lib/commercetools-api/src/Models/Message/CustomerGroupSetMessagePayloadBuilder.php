@@ -23,6 +23,7 @@ use stdClass;
 final class CustomerGroupSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
@@ -30,6 +31,7 @@ final class CustomerGroupSetMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()

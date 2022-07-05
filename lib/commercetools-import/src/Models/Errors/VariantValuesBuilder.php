@@ -23,21 +23,25 @@ use stdClass;
 final class VariantValuesBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?PriceImportCollection
      */
     private $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -46,6 +50,7 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceImportCollection
      */
     public function getPrices()
@@ -54,6 +59,7 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()

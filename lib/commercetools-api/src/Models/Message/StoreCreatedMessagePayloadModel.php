@@ -27,36 +27,43 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
 {
     public const DISCRIMINATOR_VALUE = 'StoreCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?array
      */
     protected $languages;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     protected $distributionChannels;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     protected $supplyChannels;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     protected $productSelections;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
@@ -83,6 +90,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -102,6 +110,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -120,6 +129,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|array
      */
     public function getLanguages()
@@ -137,6 +147,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -154,6 +165,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
@@ -171,6 +183,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -190,6 +203,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

@@ -21,16 +21,19 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'QuoteRequestStateChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $quoteRequestState;
 
     /**
+
      * @var ?string
      */
     protected $oldQuoteRequestState;
@@ -49,6 +52,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>Predefined states tracking the status of the Quote Request in the negotiation process.</p>
      *
+
      * @return null|string
      */
     public function getQuoteRequestState()
@@ -87,6 +92,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>Predefined states tracking the status of the Quote Request in the negotiation process.</p>
      *
+
      * @return null|string
      */
     public function getOldQuoteRequestState()

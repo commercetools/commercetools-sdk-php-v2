@@ -21,21 +21,25 @@ use stdClass;
 final class CustomerLabelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $customerNumber;
 
     /**
+
      * @return null|string
      */
     public function getFirstName()
@@ -44,6 +48,7 @@ final class CustomerLabelBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()
@@ -52,6 +57,7 @@ final class CustomerLabelBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerNumber()

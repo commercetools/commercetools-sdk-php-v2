@@ -22,16 +22,19 @@ use stdClass;
 final class ProductVariantPatchModel extends JsonObjectModel implements ProductVariantPatch
 {
     /**
+
      * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
 
     /**
+
      * @var ?Attributes
      */
     protected $attributes;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -55,6 +58,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
      * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the ProductVariantPatch is associated.
      * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
+
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant()
@@ -76,6 +80,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
      * <p>Maps to <code>ProductVariant.attributes</code>.
      * The referenced attribute must be defined in an already existing <a href="/../api/projects/productTypes#producttype">ProductType</a> in the Project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
      *
+
      * @return null|Attributes
      */
     public function getAttributes()
@@ -96,6 +101,7 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     /**
      * <p>If <code>false</code>, the attribute changes are applied to both <a href="/../api/projects/productProjections#current--staged">current and staged projected representations</a> of the <a href="/../api/projects/products#product">Product</a>.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()

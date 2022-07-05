@@ -22,11 +22,13 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
 
 
     /**
+
      * @var ?Money
      */
     protected $value;
 
     /**
+
      * @var ?DiscountedLineItemPortionCollection
      */
     protected $includedDiscounts;
@@ -45,6 +47,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
+
      * @return null|Money
      */
     public function getValue()
@@ -63,6 +66,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
+
      * @return null|DiscountedLineItemPortionCollection
      */
     public function getIncludedDiscounts()

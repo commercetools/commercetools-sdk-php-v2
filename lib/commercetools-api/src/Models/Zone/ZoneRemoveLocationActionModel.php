@@ -21,11 +21,13 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
 {
     public const DISCRIMINATOR_VALUE = 'removeLocation';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?Location
      */
     protected $location;
@@ -42,6 +44,7 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ZoneRemoveLocationActionModel extends JsonObjectModel implements Zon
     /**
      * <p>Location to be removed from the Zone.</p>
      *
+
      * @return null|Location
      */
     public function getLocation()

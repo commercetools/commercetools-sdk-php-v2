@@ -21,16 +21,19 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderPaymentStateChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
 
     /**
+
      * @var ?string
      */
     protected $oldPaymentState;
@@ -49,6 +52,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -83,6 +88,7 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getOldPaymentState()

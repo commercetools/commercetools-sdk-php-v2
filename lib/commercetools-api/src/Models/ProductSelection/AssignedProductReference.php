@@ -20,6 +20,7 @@ interface AssignedProductReference extends JsonObject
     /**
      * <p>Reference to a Product that is assigned to the Product Selection.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -28,6 +29,7 @@ interface AssignedProductReference extends JsonObject
      * <p>The Variants of the Product that are included, or excluded, from the Product Selection.
      * In absence of this field, all Variants are deemed to be included.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection();

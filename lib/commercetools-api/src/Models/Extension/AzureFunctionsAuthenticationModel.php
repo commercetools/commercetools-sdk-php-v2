@@ -21,11 +21,13 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'AzureFunctions';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
+
      * @return null|string
      */
     public function getKey()

@@ -21,6 +21,7 @@ use stdClass;
 final class CustomerSetVatIdActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $vatId;
@@ -28,6 +29,7 @@ final class CustomerSetVatIdActionBuilder implements Builder
     /**
      * <p>If not defined, the vat Id is unset.</p>
      *
+
      * @return null|string
      */
     public function getVatId()

@@ -20,11 +20,13 @@ interface CartSetCartTotalTaxAction extends CartUpdateAction
     /**
      * <p>The total gross amount of the cart (totalNet + taxes).</p>
      *
+
      * @return null|Money
      */
     public function getExternalTotalGross();
 
     /**
+
      * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions();

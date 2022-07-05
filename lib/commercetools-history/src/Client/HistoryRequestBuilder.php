@@ -13,6 +13,9 @@ use Commercetools\History\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\ClientInterface;
 use Commercetools\Client\ApiResource;
 
+/**
+ * 
+ */
 class HistoryRequestBuilder extends ApiResource
 {
     /**
