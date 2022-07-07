@@ -66,9 +66,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Identifies the target of the review.
-     * Can be a Product or a Channel.
-     * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set, specified as <a href="ctp:api:type:ProductResourceIdentifier">ProductResourceIdentifier</a> or <a href="ctp:api:type:ChannelResourceIdentifier">ChannelResourceIdentifier</a>, respectively. If empty, any existing value will be removed.</p>
      *
 
      * @return ?mixed
@@ -88,9 +86,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Identifies the target of the review.
-     * Can be a Product or a Channel.
-     * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set, specified as <a href="ctp:api:type:ProductResourceIdentifier">ProductResourceIdentifier</a> or <a href="ctp:api:type:ChannelResourceIdentifier">ChannelResourceIdentifier</a>, respectively. If empty, any existing value will be removed.</p>
      *
      * @return null|ProductResourceIdentifier
      */
@@ -106,9 +102,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Identifies the target of the review.
-     * Can be a Product or a Channel.
-     * If <code>target</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set, specified as <a href="ctp:api:type:ProductResourceIdentifier">ProductResourceIdentifier</a> or <a href="ctp:api:type:ChannelResourceIdentifier">ChannelResourceIdentifier</a>, respectively. If empty, any existing value will be removed.</p>
      *
      * @return null|ChannelResourceIdentifier
      */

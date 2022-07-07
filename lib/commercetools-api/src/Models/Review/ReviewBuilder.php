@@ -153,7 +153,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the review.</p>
+     * <p>Current version of the Review.</p>
      *
 
      * @return null|int
@@ -164,6 +164,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Review was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -173,6 +175,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Review was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -215,6 +219,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Must be unique among Reviews. For example, if this value is set to Customer <code>id</code> + Product <code>id</code>, only one Review per Customer and per Product is allowed.</p>
+     *
 
      * @return null|string
      */
@@ -224,6 +230,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Language in which the content of the Review is written.</p>
+     *
 
      * @return null|string
      */
@@ -233,6 +241,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Name of the author.</p>
+     *
 
      * @return null|string
      */
@@ -242,6 +252,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Title of the Review.</p>
+     *
 
      * @return null|string
      */
@@ -251,6 +263,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Content of the Review.</p>
+     *
 
      * @return null|string
      */
@@ -260,8 +274,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>Identifies the target of the review.
-     * Can be a Product or a Channel</p>
+     * <p>Identifies the target of the Review. Can be a <a href="ctp:api:type:Product">Product</a> or a <a href="ctp:api:type:Channel">Channel</a>, specified as <a href="ctp:api:type:ProductReference">ProductReference</a> or <a href="ctp:api:type:ChannelReference">ChannelReference</a>, respectively.</p>
      *
 
      * @return null|JsonObject
@@ -272,9 +285,9 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>Indicates if this review is taken into account in the ratings statistics of the target.
-     * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
-     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>
+     * <p>Indicates if this Review is taken into account in the ratings statistics of the target.
+     * A Review is per default used in the statistics, unless the Review is in a state that does not have the <a href="ctp:api:type:StateRoleEnum">role</a> <code>ReviewIncludedInStatistics</code>.
+     * If the role of a <a href="ctp:api:type:State">State</a> is modified after the calculation of this field, the calculation is not updated.</p>
      *
 
      * @return null|bool
@@ -285,7 +298,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>Number between -100 and 100 included.</p>
+     * <p>Rating of the Product or Channel.</p>
      *
 
      * @return null|int
@@ -296,6 +309,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>State of the Review. Used for approval processes, see <a href="/../tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
+     *
 
      * @return null|StateReference
      */
@@ -305,7 +320,7 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * <p>The customer who created the review.</p>
+     * <p>Customer who created the Review.</p>
      *
 
      * @return null|CustomerReference
@@ -316,6 +331,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields of the Review.</p>
+     *
 
      * @return null|CustomFields
      */

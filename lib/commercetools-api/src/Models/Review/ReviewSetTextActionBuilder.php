@@ -27,7 +27,7 @@ final class ReviewSetTextActionBuilder implements Builder
     private $text;
 
     /**
-     * <p>If <code>text</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
 
      * @return null|string

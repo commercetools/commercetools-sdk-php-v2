@@ -17,12 +17,16 @@ interface ReviewUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+     * <p>The expected version of the review on which the changes should be applied. If the expected version does not match the actual version, a 409 Conflict will be returned.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>The list of update actions to be performed on the review.</p>
+     *
 
      * @return null|ReviewUpdateActionCollection
      */

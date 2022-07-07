@@ -53,7 +53,7 @@ interface ReviewRatingStatistics extends JsonObject
     public function getCount();
 
     /**
-     * <p>The full distribution of the ratings.
+     * <p>Full distribution of the ratings.
      * The keys are the different ratings and the values are the count of reviews having this rating.
      * Only the used ratings appear in this object.</p>
      *
