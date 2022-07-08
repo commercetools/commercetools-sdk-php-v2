@@ -26,6 +26,8 @@ final class ShippingMethodChangeNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>Value to set. Must not be empty.</p>
+     *
      * @return null|string
      */
     public function getName()

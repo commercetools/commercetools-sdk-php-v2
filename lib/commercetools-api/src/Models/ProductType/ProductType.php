@@ -25,25 +25,29 @@ interface ProductType extends BaseResource
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
-     * <p>Unique identifier for the ProductType.</p>
+     * <p>Unique identifier of the ProductType.</p>
      *
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the product type.</p>
+     * <p>Current version of the ProductType.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the ProductType was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Channel was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -70,16 +74,22 @@ interface ProductType extends BaseResource
     public function getKey();
 
     /**
+     * <p>Name of the ProductType.</p>
+     *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Description of the ProductType.</p>
+     *
      * @return null|string
      */
     public function getDescription();
 
     /**
+     * <p>Attributes specified for the ProductType.</p>
+     *
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes();

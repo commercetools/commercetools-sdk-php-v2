@@ -41,18 +41,22 @@ interface ShippingMethod extends BaseResource
     public function getId();
 
     /**
-     * <p>The current version of the shipping method.</p>
+     * <p>Current version of the ShippingMethod.</p>
      *
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the ShippingMethod was initially created.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the ShippingMethod was last updated.</p>
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -79,50 +83,64 @@ interface ShippingMethod extends BaseResource
     public function getKey();
 
     /**
+     * <p>Name of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Localized name of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedName();
 
     /**
+     * <p>Description of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getDescription();
 
     /**
+     * <p>Localized description of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription();
 
     /**
+     * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> of all ZoneRates of the ShippingMethod.</p>
+     *
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
 
     /**
+     * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific Zones.</p>
+     *
      * @return null|ZoneRateCollection
      */
     public function getZoneRates();
 
     /**
-     * <p>One shipping method in a project can be default.</p>
+     * <p>If <code>true</code> this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
      * @return null|bool
      */
     public function getIsDefault();
 
     /**
-     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>
+     * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
      * @return null|string
      */
     public function getPredicate();
 
     /**
+     * <p>Custom Fields of the ShippingMethod.</p>
+     *
      * @return null|CustomFields
      */
     public function getCustom();

@@ -16,6 +16,8 @@ interface ProductTypeAddAttributeDefinitionAction extends ProductTypeUpdateActio
     public const FIELD_ATTRIBUTE = 'attribute';
 
     /**
+     * <p>Value to append to <code>attributes</code>.</p>
+     *
      * @return null|AttributeDefinitionDraft
      */
     public function getAttribute();

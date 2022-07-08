@@ -28,7 +28,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     protected $type;
 
     /**
-     * @var ?float
+     * @var ?int
      */
     protected $score;
 
@@ -52,7 +52,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $score = null,
+        ?int $score = null,
         ?Money $price = null,
         ?PriceFunction $priceFunction = null,
         ?bool $isMatching = null
@@ -65,8 +65,6 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
-     * <p>Can be one of the following or absent.</p>
-     *
      * @return null|string
      */
     public function getType()
@@ -84,25 +82,26 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
-     * @return null|float
+     * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../tutorials/shipping-rate">Using Tiered Shipping Rates</a> for details and examples.</p>
+     *
+     * @return null|int
      */
     public function getScore()
     {
         if (is_null($this->score)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_SCORE);
             if (is_null($data)) {
                 return null;
             }
-            $this->score = (float) $data;
+            $this->score = (int) $data;
         }
 
         return $this->score;
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Defines a fixed price for the <code>score</code>.</p>
      *
      * @return null|Money
      */
@@ -122,6 +121,8 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
+     * <p>Dynamically calculates a Price for a range of scores.</p>
+     *
      * @return null|PriceFunction
      */
     public function getPriceFunction()
@@ -140,6 +141,8 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
+     * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
+     *
      * @return null|bool
      */
     public function getIsMatching()
@@ -158,9 +161,9 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
 
 
     /**
-     * @param ?float $score
+     * @param ?int $score
      */
-    public function setScore(?float $score): void
+    public function setScore(?int $score): void
     {
         $this->score = $score;
     }

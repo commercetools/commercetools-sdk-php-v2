@@ -43,8 +43,6 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     }
 
     /**
-     * <p>Can be one of the following or absent.</p>
-     *
      * @return null|string
      */
     public function getType()

@@ -145,6 +145,33 @@ class ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet extends Api
 
     /**
      *
+     * @psalm-param scalar|scalar[] $limit
+     */
+    public function withLimit($limit): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
+    {
+        return $this->withQueryParam('limit', $limit);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $offset
+     */
+    public function withOffset($offset): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
+    {
+        return $this->withQueryParam('offset', $offset);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyProductSelectionAssignmentsGet

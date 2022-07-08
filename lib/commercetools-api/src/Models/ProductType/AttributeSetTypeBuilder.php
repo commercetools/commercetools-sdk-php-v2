@@ -26,6 +26,8 @@ final class AttributeSetTypeBuilder implements Builder
     private $elementType;
 
     /**
+     * <p>Attribute type of the elements in the set.</p>
+     *
      * @return null|AttributeType
      */
     public function getElementType()

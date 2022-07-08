@@ -35,50 +35,64 @@ interface ShippingMethodDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p>Name of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Localized name of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedName();
 
     /**
+     * <p>Description of the ShippingMethod.</p>
+     *
      * @return null|string
      */
     public function getDescription();
 
     /**
+     * <p>Localized description of the ShippingMethod.</p>
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription();
 
     /**
+     * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> for all ZoneRates of the ShippingMethod.</p>
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
 
     /**
+     * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific zones.</p>
+     *
      * @return null|ZoneRateDraftCollection
      */
     public function getZoneRates();
 
     /**
-     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>
+     * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
      * @return null|bool
      */
     public function getIsDefault();
 
     /**
-     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>
+     * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
      * @return null|string
      */
     public function getPredicate();
 
     /**
+     * <p>Custom Fields for the ShippingMethod.</p>
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

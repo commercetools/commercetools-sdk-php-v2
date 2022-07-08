@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelection;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelectionBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -83,6 +85,11 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
+
+    /**
+     * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
+     */
+    private $variantSelection;
 
     /**
      * <p>Unique identifier of the Message.</p>
@@ -180,6 +187,16 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
     public function getProduct()
     {
         return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
+    }
+
+    /**
+     * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        return $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection;
     }
 
     /**
@@ -304,6 +321,17 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?ProductVariantSelection $variantSelection
+     * @return $this
+     */
+    public function withVariantSelection(?ProductVariantSelection $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -358,6 +386,17 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withVariantSelection() instead
+     * @return $this
+     */
+    public function withVariantSelectionBuilder(?ProductVariantSelectionBuilder $variantSelection)
+    {
+        $this->variantSelection = $variantSelection;
+
+        return $this;
+    }
+
     public function build(): ProductSelectionProductAddedMessage
     {
         return new ProductSelectionProductAddedMessageModel(
@@ -371,7 +410,8 @@ final class ProductSelectionProductAddedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
+            $this->variantSelection instanceof ProductVariantSelectionBuilder ? $this->variantSelection->build() : $this->variantSelection
         );
     }
 

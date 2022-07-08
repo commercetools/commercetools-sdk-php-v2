@@ -16,6 +16,8 @@ interface ProductTypeChangeDescriptionAction extends ProductTypeUpdateAction
     public const FIELD_DESCRIPTION = 'description';
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getDescription();

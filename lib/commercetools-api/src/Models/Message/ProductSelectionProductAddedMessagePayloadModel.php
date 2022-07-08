@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceModel;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelection;
+use Commercetools\Api\Models\ProductSelection\ProductVariantSelectionModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -32,14 +34,21 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
      */
     protected $product;
 
+    /**
+     * @var ?ProductVariantSelection
+     */
+    protected $variantSelection;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductReference $product = null
+        ?ProductReference $product = null,
+        ?ProductVariantSelection $variantSelection = null
     ) {
         $this->product = $product;
+        $this->variantSelection = $variantSelection;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -80,6 +89,26 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
         return $this->product;
     }
 
+    /**
+     * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        if (is_null($this->variantSelection)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_VARIANT_SELECTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
+            $this->variantSelection = $className::of($data);
+        }
+
+        return $this->variantSelection;
+    }
+
 
     /**
      * @param ?ProductReference $product
@@ -87,5 +116,13 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
     public function setProduct(?ProductReference $product): void
     {
         $this->product = $product;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     */
+    public function setVariantSelection(?ProductVariantSelection $variantSelection): void
+    {
+        $this->variantSelection = $variantSelection;
     }
 }

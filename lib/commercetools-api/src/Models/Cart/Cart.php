@@ -47,6 +47,7 @@ interface Cart extends BaseResource
     public const FIELD_COUNTRY = 'country';
     public const FIELD_SHIPPING_INFO = 'shippingInfo';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
+    public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_PAYMENT_INFO = 'paymentInfo';
     public const FIELD_LOCALE = 'locale';
@@ -220,6 +221,11 @@ interface Cart extends BaseResource
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes();
+
+    /**
+     * @return null|DirectDiscountCollection
+     */
+    public function getDirectDiscounts();
 
     /**
      * @return null|CustomFields
@@ -411,6 +417,11 @@ interface Cart extends BaseResource
      * @param ?DiscountCodeInfoCollection $discountCodes
      */
     public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
+
+    /**
+     * @param ?DirectDiscountCollection $directDiscounts
+     */
+    public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void;
 
     /**
      * @param ?CustomFields $custom

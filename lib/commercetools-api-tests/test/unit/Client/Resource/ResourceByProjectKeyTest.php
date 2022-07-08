@@ -32,9 +32,12 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductProjections;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProducts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductSelections;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyProductTypes;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyQuoteRequests;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyQuotes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyReviews;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShippingMethods;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyShoppingLists;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyStagedQuotes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyStandalonePrices;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyStates;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyStores;
@@ -346,6 +349,36 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyProductTypes::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/product-types'
+            ],
+            'ResourceByProjectKeyQuotes' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyQuotes {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->quotes();
+                },
+                ResourceByProjectKeyQuotes::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/quotes'
+            ],
+            'ResourceByProjectKeyQuoteRequests' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyQuoteRequests {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->quoteRequests();
+                },
+                ResourceByProjectKeyQuoteRequests::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/quote-requests'
+            ],
+            'ResourceByProjectKeyStagedQuotes' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyStagedQuotes {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->stagedQuotes();
+                },
+                ResourceByProjectKeyStagedQuotes::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/staged-quotes'
             ],
             'ResourceByProjectKeyReviews' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyReviews {

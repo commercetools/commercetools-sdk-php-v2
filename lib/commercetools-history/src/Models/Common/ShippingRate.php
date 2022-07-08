@@ -30,7 +30,7 @@ interface ShippingRate extends JsonObject
     public function getFreeAbove();
 
     /**
-     * <p>Only appears in response to requests for shipping methods by cart or location to mark this shipping rate as one that matches the cart or location.</p>
+     * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
      *
      * @return null|bool
      */

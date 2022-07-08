@@ -31,6 +31,8 @@ final class ProductTypeChangeInputHintActionBuilder implements Builder
     private $newValue;
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -39,6 +41,8 @@ final class ProductTypeChangeInputHintActionBuilder implements Builder
     }
 
     /**
+     * <p><code>SingleLine</code> or <code>MultiLine</code></p>
+     *
      * @return null|string
      */
     public function getNewValue()

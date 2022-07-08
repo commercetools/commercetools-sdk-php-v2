@@ -17,11 +17,15 @@ interface ProductTypeChangePlainEnumValueLabelAction extends ProductTypeUpdateAc
     public const FIELD_NEW_VALUE = 'newValue';
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+     * <p>New value to set. Must be different from the existing value.</p>
+     *
      * @return null|AttributePlainEnumValue
      */
     public function getNewValue();

@@ -26,24 +26,6 @@ class ResourceByProjectKey extends ApiResource
     }
 
     /**
-     * @deprecated
-     */
-    public function importSinks(): ResourceByProjectKeyImportSinks
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyImportSinks($args, $this->getClient());
-    }
-    /**
-     * @deprecated
-     */
-    public function importSummaries(): ResourceByProjectKeyImportSummaries
-    {
-        $args = $this->getArgs();
-
-        return new ResourceByProjectKeyImportSummaries($args, $this->getClient());
-    }
-    /**
      */
     public function importContainers(): ResourceByProjectKeyImportContainers
     {
@@ -138,5 +120,13 @@ class ResourceByProjectKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyCustomers($args, $this->getClient());
+    }
+    /**
+     */
+    public function inventories(): ResourceByProjectKeyInventories
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInventories($args, $this->getClient());
     }
 }

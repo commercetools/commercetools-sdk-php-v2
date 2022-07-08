@@ -31,6 +31,8 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     private $newValue;
 
     /**
+     * <p>Name of the AttributeDefinition to update.</p>
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -39,6 +41,8 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     }
 
     /**
+     * <p>New value to set. Must be different from the existing value.</p>
+     *
      * @return null|AttributePlainEnumValue
      */
     public function getNewValue()

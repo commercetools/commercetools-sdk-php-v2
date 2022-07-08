@@ -24,6 +24,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\OrderEdit\StagedOrder;
+use Commercetools\Api\Models\Quote\QuoteReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -61,6 +62,7 @@ interface Order extends BaseResource
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
     public const FIELD_LAST_MESSAGE_SEQUENCE_NUMBER = 'lastMessageSequenceNumber';
     public const FIELD_CART = 'cart';
+    public const FIELD_QUOTE = 'quote';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_PAYMENT_INFO = 'paymentInfo';
     public const FIELD_LOCALE = 'locale';
@@ -268,6 +270,13 @@ interface Order extends BaseResource
      * @return null|CartReference
      */
     public function getCart();
+
+    /**
+     * <p>Set when this order was created from a quote.</p>
+     *
+     * @return null|QuoteReference
+     */
+    public function getQuote();
 
     /**
      * @return null|CustomFields
@@ -481,6 +490,11 @@ interface Order extends BaseResource
      * @param ?CartReference $cart
      */
     public function setCart(?CartReference $cart): void;
+
+    /**
+     * @param ?QuoteReference $quote
+     */
+    public function setQuote(?QuoteReference $quote): void;
 
     /**
      * @param ?CustomFields $custom

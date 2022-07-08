@@ -44,6 +44,8 @@ final class ZoneRateModel extends JsonObjectModel implements ZoneRate
     }
 
     /**
+     * <p><a href="ctp:api:type:Zone">Zone</a> for which the shipping rates are valid.</p>
+     *
      * @return null|ZoneReference
      */
     public function getZone()
@@ -62,7 +64,7 @@ final class ZoneRateModel extends JsonObjectModel implements ZoneRate
     }
 
     /**
-     * <p>The array does not contain two shipping rates with the same currency.</p>
+     * <p>Shipping rates defined per currency.</p>
      *
      * @return null|ShippingRateCollection
      */

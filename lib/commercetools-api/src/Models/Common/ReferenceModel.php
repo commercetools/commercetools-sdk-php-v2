@@ -40,12 +40,18 @@ use Commercetools\Api\Models\ProductSelection\ProductSelectionReference;
 use Commercetools\Api\Models\ProductSelection\ProductSelectionReferenceModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
+use Commercetools\Api\Models\Quote\QuoteReference;
+use Commercetools\Api\Models\Quote\QuoteReferenceModel;
+use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
+use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceModel;
 use Commercetools\Api\Models\Review\ReviewReference;
 use Commercetools\Api\Models\Review\ReviewReferenceModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
 use Commercetools\Api\Models\ShoppingList\ShoppingListReferenceModel;
+use Commercetools\Api\Models\StagedQuote\StagedQuoteReference;
+use Commercetools\Api\Models\StagedQuote\StagedQuoteReferenceModel;
 use Commercetools\Api\Models\StandalonePrice\StandalonePriceReference;
 use Commercetools\Api\Models\StandalonePrice\StandalonePriceReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
@@ -101,9 +107,12 @@ final class ReferenceModel extends JsonObjectModel implements Reference
        'product-discount' => ProductDiscountReferenceModel::class,
        'product-selection' => ProductSelectionReferenceModel::class,
        'product-type' => ProductTypeReferenceModel::class,
+       'quote' => QuoteReferenceModel::class,
+       'quote-request' => QuoteRequestReferenceModel::class,
        'review' => ReviewReferenceModel::class,
        'shipping-method' => ShippingMethodReferenceModel::class,
        'shopping-list' => ShoppingListReferenceModel::class,
+       'staged-quote' => StagedQuoteReferenceModel::class,
        'standalone-price' => StandalonePriceReferenceModel::class,
        'state' => StateReferenceModel::class,
        'store' => StoreReferenceModel::class,

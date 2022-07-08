@@ -59,8 +59,7 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>A valid Cart predicate.
-     * If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>
+     * <p>A valid <a href="/projects/predicates#cart-predicates">Cart predicate</a>. If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>
      *
      * @return null|string
      */

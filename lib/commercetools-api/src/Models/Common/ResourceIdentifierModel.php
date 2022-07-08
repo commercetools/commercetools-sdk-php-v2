@@ -38,12 +38,18 @@ use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifier
 use Commercetools\Api\Models\ProductSelection\ProductSelectionResourceIdentifierModel;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifierModel;
+use Commercetools\Api\Models\Quote\QuoteResourceIdentifier;
+use Commercetools\Api\Models\Quote\QuoteResourceIdentifierModel;
+use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifier;
+use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifierModel;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifier;
 use Commercetools\Api\Models\Review\ReviewResourceIdentifierModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
 use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
+use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifier;
+use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifierModel;
 use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifier;
 use Commercetools\Api\Models\StandalonePrice\StandalonePriceResourceIdentifierModel;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
@@ -103,9 +109,12 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
        'product-discount' => ProductDiscountResourceIdentifierModel::class,
        'product-selection' => ProductSelectionResourceIdentifierModel::class,
        'product-type' => ProductTypeResourceIdentifierModel::class,
+       'quote' => QuoteResourceIdentifierModel::class,
+       'quote-request' => QuoteRequestResourceIdentifierModel::class,
        'review' => ReviewResourceIdentifierModel::class,
        'shipping-method' => ShippingMethodResourceIdentifierModel::class,
        'shopping-list' => ShoppingListResourceIdentifierModel::class,
+       'staged-quote' => StagedQuoteResourceIdentifierModel::class,
        'standalone-price' => StandalonePriceResourceIdentifierModel::class,
        'state' => StateResourceIdentifierModel::class,
        'store' => StoreResourceIdentifierModel::class,

@@ -37,6 +37,8 @@ use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Order\PaymentInfoBuilder;
 use Commercetools\Api\Models\Order\ReturnInfoCollection;
 use Commercetools\Api\Models\Order\SyncInfoCollection;
+use Commercetools\Api\Models\Quote\QuoteReference;
+use Commercetools\Api\Models\Quote\QuoteReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReference;
@@ -215,6 +217,11 @@ final class StagedOrderBuilder implements Builder
      * @var null|CartReference|CartReferenceBuilder
      */
     private $cart;
+
+    /**
+     * @var null|QuoteReference|QuoteReferenceBuilder
+     */
+    private $quote;
 
     /**
      * @var null|CustomFields|CustomFieldsBuilder
@@ -553,6 +560,16 @@ final class StagedOrderBuilder implements Builder
     public function getCart()
     {
         return $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart;
+    }
+
+    /**
+     * <p>Set when this order was created from a quote.</p>
+     *
+     * @return null|QuoteReference
+     */
+    public function getQuote()
+    {
+        return $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote;
     }
 
     /**
@@ -988,6 +1005,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @param ?QuoteReference $quote
+     * @return $this
+     */
+    public function withQuote(?QuoteReference $quote)
+    {
+        $this->quote = $quote;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -1208,6 +1236,17 @@ final class StagedOrderBuilder implements Builder
     }
 
     /**
+     * @deprecated use withQuote() instead
+     * @return $this
+     */
+    public function withQuoteBuilder(?QuoteReferenceBuilder $quote)
+    {
+        $this->quote = $quote;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustom() instead
      * @return $this
      */
@@ -1275,6 +1314,7 @@ final class StagedOrderBuilder implements Builder
             $this->discountCodes,
             $this->lastMessageSequenceNumber,
             $this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart,
+            $this->quote instanceof QuoteReferenceBuilder ? $this->quote->build() : $this->quote,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo,
             $this->locale,

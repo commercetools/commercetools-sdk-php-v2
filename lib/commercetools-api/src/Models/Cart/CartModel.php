@@ -171,6 +171,11 @@ final class CartModel extends JsonObjectModel implements Cart
     protected $discountCodes;
 
     /**
+     * @var ?DirectDiscountCollection
+     */
+    protected $directDiscounts;
+
+    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -246,6 +251,7 @@ final class CartModel extends JsonObjectModel implements Cart
         ?string $country = null,
         ?ShippingInfo $shippingInfo = null,
         ?DiscountCodeInfoCollection $discountCodes = null,
+        ?DirectDiscountCollection $directDiscounts = null,
         ?CustomFields $custom = null,
         ?PaymentInfo $paymentInfo = null,
         ?string $locale = null,
@@ -282,6 +288,7 @@ final class CartModel extends JsonObjectModel implements Cart
         $this->country = $country;
         $this->shippingInfo = $shippingInfo;
         $this->discountCodes = $discountCodes;
+        $this->directDiscounts = $directDiscounts;
         $this->custom = $custom;
         $this->paymentInfo = $paymentInfo;
         $this->locale = $locale;
@@ -787,6 +794,23 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * @return null|DirectDiscountCollection
+     */
+    public function getDirectDiscounts()
+    {
+        if (is_null($this->directDiscounts)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_DIRECT_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->directDiscounts = DirectDiscountCollection::fromArray($data);
+        }
+
+        return $this->directDiscounts;
+    }
+
+    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -1165,6 +1189,14 @@ final class CartModel extends JsonObjectModel implements Cart
     public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void
     {
         $this->discountCodes = $discountCodes;
+    }
+
+    /**
+     * @param ?DirectDiscountCollection $directDiscounts
+     */
+    public function setDirectDiscounts(?DirectDiscountCollection $directDiscounts): void
+    {
+        $this->directDiscounts = $directDiscounts;
     }
 
     /**

@@ -59,6 +59,8 @@ final class ProductTypeChangeNameActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      * @return null|string
      */
     public function getName()

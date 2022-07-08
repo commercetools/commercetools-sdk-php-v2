@@ -31,16 +31,23 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
      */
     protected $productSelection;
 
+    /**
+     * @var ?ProductVariantSelection
+     */
+    protected $variantSelection;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?ProductReference $product = null,
-        ?ProductSelectionReference $productSelection = null
+        ?ProductSelectionReference $productSelection = null,
+        ?ProductVariantSelection $variantSelection = null
     ) {
         $this->product = $product;
         $this->productSelection = $productSelection;
+        $this->variantSelection = $variantSelection;
     }
 
     /**
@@ -64,7 +71,7 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
     }
 
     /**
-     * <p>Reference to the ProductSelection that this assignment is part of.</p>
+     * <p>Reference to the Product Selection that this assignment is part of.</p>
      *
      * @return null|ProductSelectionReference
      */
@@ -83,6 +90,26 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
         return $this->productSelection;
     }
 
+    /**
+     * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
+     *
+     * @return null|ProductVariantSelection
+     */
+    public function getVariantSelection()
+    {
+        if (is_null($this->variantSelection)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_VARIANT_SELECTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->variantSelection = ProductVariantSelectionModel::of($data);
+        }
+
+        return $this->variantSelection;
+    }
+
 
     /**
      * @param ?ProductReference $product
@@ -98,5 +125,13 @@ final class ProductSelectionAssignmentModel extends JsonObjectModel implements P
     public function setProductSelection(?ProductSelectionReference $productSelection): void
     {
         $this->productSelection = $productSelection;
+    }
+
+    /**
+     * @param ?ProductVariantSelection $variantSelection
+     */
+    public function setVariantSelection(?ProductVariantSelection $variantSelection): void
+    {
+        $this->variantSelection = $variantSelection;
     }
 }
