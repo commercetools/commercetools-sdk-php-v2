@@ -28,7 +28,7 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
 
     /**
 
-     * @var ?float
+     * @var ?int
      */
     protected $score;
 
@@ -37,7 +37,7 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $score = null
+        ?int $score = null
     ) {
         $this->score = $score;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -63,17 +63,17 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getScore()
     {
         if (is_null($this->score)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_SCORE);
             if (is_null($data)) {
                 return null;
             }
-            $this->score = (float) $data;
+            $this->score = (int) $data;
         }
 
         return $this->score;
@@ -81,9 +81,9 @@ final class ScoreShippingRateInputDraftModel extends JsonObjectModel implements 
 
 
     /**
-     * @param ?float $score
+     * @param ?int $score
      */
-    public function setScore(?float $score): void
+    public function setScore(?int $score): void
     {
         $this->score = $score;
     }

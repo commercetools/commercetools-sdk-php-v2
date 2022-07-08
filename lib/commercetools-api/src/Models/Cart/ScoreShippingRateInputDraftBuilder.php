@@ -22,13 +22,13 @@ final class ScoreShippingRateInputDraftBuilder implements Builder
 {
     /**
 
-     * @var ?float
+     * @var ?int
      */
     private $score;
 
     /**
 
-     * @return null|float
+     * @return null|int
      */
     public function getScore()
     {
@@ -36,10 +36,10 @@ final class ScoreShippingRateInputDraftBuilder implements Builder
     }
 
     /**
-     * @param ?float $score
+     * @param ?int $score
      * @return $this
      */
-    public function withScore(?float $score)
+    public function withScore(?int $score)
     {
         $this->score = $score;
 
