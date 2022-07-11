@@ -32,9 +32,11 @@ jobs:
         shell: bash
 
       - name: Generate Doxygen Documentation
-        run: doxygen doxygen_config
+        run: doxygen doxygen-config
         shell: bash
-        working-directory: sdk
+        working-directory:
+          - "lib"
+          - "src"
         env:
           PROJECT_NUMBER: ${{ github.ref_name }}
 
