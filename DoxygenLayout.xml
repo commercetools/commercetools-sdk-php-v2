@@ -8,7 +8,6 @@
     <tab type="user" visible="yes" title="MLApi" url="@ref lib/commercetools-ml/src"/>
     <tab type="user" visible="yes" title="HistoryApi" url="@ref lib/commercetools-history/src"/>
     <tab type="modules" visible="yes" title="" intro="Documentation"/>
-    <tab type="namespacelist" visible="yes" title="Namespace List" intro=""/>
     <tab type="concepts" visible="yes" title="">
     <tab type="pages" visible="yes" title="" intro=""/>
     </tab>
