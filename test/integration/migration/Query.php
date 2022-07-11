@@ -12,7 +12,7 @@ class Query extends MigrationService implements MigrationInterface
         $client = $this->clientV1();
 
         /** @var Category $category */
-        $request = RequestBuilder::of()->categories()->query()->where("id=" . "\"" . $category->getId() . "\"");
+        $request = RequestBuilder::of()->categories()->query()->where('id = :id', ['id' => $category->getId()]);
         $response = $client->execute($request);
         $result = $request->mapFromResponse($response);
 

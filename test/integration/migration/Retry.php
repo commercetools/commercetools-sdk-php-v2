@@ -62,20 +62,10 @@ class Retry extends MigrationService implements MigrationInterface
 
     public function v2()
     {
-        $middlewares = [];
-        $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries = 3);
-
         $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
-        $client = ClientFactoryV2::of()->createGuzzleClientForHandler(
-            new ConfigV2(),
-            OAuthHandlerFactory::ofAuthConfig($authConfig),
-            null,
-            $middlewares
-        );
-
+        $client = ClientFactoryV2::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
-
         $result = $request->execute();
 
         return $result;

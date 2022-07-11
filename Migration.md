@@ -19,7 +19,7 @@ This guide helps developers to migrate from the version 1.x to the version 2.x o
 ### Client Configuration and Creation
 To setup the Client, in the 1.x we use the **Config** class to add the config data and then the **Client** class to create the Client from the Config.
 In the 2.x the **ClientCredentialsConfig** class sets up the config data such as *clientId* and *clientSecret* and the **ClientFactory** creates the client.
-The benefit of the 2.x, is that through the **ClientFactory** class, there is the possibility to easily set up the available Middlewares such as: the **LOGGER**, the **RETRY**, the **HEADER**, as it will be mentioned in the [Retry](#retry) section.
+The benefit of the 2.x, is that through the **ClientFactory** class, there is the possibility to easily set up the available Middlewares such as: the **LOGGER**, the **RETRY**, the **HEADER**.
 
 1.x
 ```php
@@ -37,16 +37,18 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
         $response = $client->execute($request);
 ```
 2.x
-*For the rest of the *Migration Guideline* this part below will be replaced with* **$builder = $this->builder();** 
+*For the rest of the Migration Guideline this part below will be replaced with* **$builder = $this->builder();**
+
+In the below example the class *ClientCredentialsConfig* takes a default value for AUTH_URI, the same is for the class *Config* which takes a default value for the API_URL, but it can be defined in this way:
 ```php
         $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
         $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
         $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
-        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3]), $authConfig);
-        $apiRequest = new ApiRequestBuilder($client);
-        $request = $apiRequest->withProjectKey($projectKey)->get();
-        $response = $request->execute();
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), null, self::OAUTH_URL);
+        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3], self::API_URL), $authConfig);
+        $apiRequestBuilder = new ApiRequestBuilder($client);
+        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
+        $client = $request->execute();
 ```
 
 <a id="timout-setting"></a>
@@ -68,7 +70,7 @@ In both versions is the **execute()** method which sets the timeout. In alternat
 The setup of the timeout in the **ClientFactory**: the default value for the timeout is "60", see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
 ```php
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
-        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
+        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $client = $request->execute();
@@ -97,7 +99,7 @@ Like as the [timeout](#timeout-setting), in alternative, the 2.x version is able
 The setup of the headers in the **ClientFactory**: the default value for the headers is an empty array, see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
 ```php
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
-        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'headers' => ["foo" => "bar"]]), $authConfig);
+        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3, 'headers' => ["foo" => "bar"]]), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $response = $request->execute();
@@ -107,7 +109,7 @@ The setup of the headers in the **ClientFactory**: the default value for the hea
 ### Retry
 In the 1.x, the *Retry* is handled through the client options, so with multidimensional array. And then, the creation of the Client, which here below there is another way to build it.
 
-The 2.x is instead, through the **MiddlewareFactory**, it is possible to set a middleware array through the **createRetryNAMiddleware()** method, which helps in this case, to set up the *Retry*.
+The 2.x instead, sets the *Retry* from the creation of the client through **ClientFactory**, with the help of the *createGuzzleClient* method, it's passed as a .
 
 1.x
 ```php
@@ -131,29 +133,17 @@ The 2.x is instead, through the **MiddlewareFactory**, it is possible to set a m
 ```
 2.x
 ```php
-        $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
-        $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
-        $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-        
-        $middlewares = [];
-        $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries = 3);
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($clientId, $clientSecret));
-        $client = ClientFactory::of()->createGuzzleClientForHandler(
-            new ConfigV2(),
-            OAuthHandlerFactory::ofAuthConfig($authConfig),
-            null,
-            $middlewares
-        );
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET));
+        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
-        $request = $apiRequestBuilder->withProjectKey($projectKey)->get();
-
+        $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
         $result = $request->execute();
 ```
 
 <a id="draft-builder"></a>
 ### Draft Builder
 About the *DraftBuilder* the main difference is that in the 2.x we introduced the **build()** method to create objects (in this case the *DraftBuilder* object).
-As can be seen below, the setters are being replaced by the *withXxx()* methods. 
+As can be seen below, setters are being replaced by withers methods, thanks to them now the class APIs are more stable no matter how many properties are required
 
 1.x
 ```php
@@ -236,8 +226,8 @@ The main difference is how to build the request, as explained in the [Create Com
 ### Update Command
 Like the [Create Command](#create-command), there are not dedicate methods to build a request, like in this case the *update* method.
 So to create this kind of requests, like the example below:
-- Create the Action Model object, instantiating the related class to update the property and set the related property that it needs to be changed, in this case the class is *CategoryChangeNameActionModel*,
-- Create the Update Action Collection from the Action Model that can be used to have multiple update actions to be applied using the *add()* method, in this case it's used the *CategoryUpdateActionCollection*,
+- Call the static method *of()* of the Action Model class, and then set the related property that it needs to be changed, in this case the class is *CategoryChangeNameActionModel*,
+- Call the static method *of()* of the Update Action Collection and then call the *add()* method to pass the Action Model object, in this case as Update Action Collection, it's used the *CategoryUpdateActionCollection*,
 - Create the Update Builder object, having the version (using *withVersion()* method) from the object that has to be modified and passing the collection of Actions through the method *withActions()*   
 - Now the creation of the request:
   - follow the first 2 points of the [Create Command](#create-command)
@@ -249,13 +239,11 @@ Here the differences:
 1.x
 ```php
         $client = $this->client();
+        $newName = LocalizedString::ofLangAndText('en', 'name');
+        $updateAction = CategoryChangeNameAction::ofName($newName);
         /** @var Category $category */
         $request = RequestBuilder::of()->categories()->update($category)
-                    ->addAction(
-                        CategoryChangeNameAction::ofName(
-                            LocalizedString::ofLangAndText('en', 'name')
-                        )
-                    );
+                    ->addAction($updateAction);
         $response = $this->execute($client, $request);
         $result = $request->mapFromResponse($response);
 ```
@@ -263,17 +251,16 @@ Here the differences:
 ```php
         $builder = $this->builder();
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
-        $updateAction = new CategoryChangeNameActionModel();
+        $updateAction = CategoryChangeNameActionModel::of();
         $updateAction->setName($newName);
-        $updateActionCollection = new CategoryUpdateActionCollection();
-        $updateActionCollection->add($updateAction);
+        $updateCollection = CategoryUpdateActionCollection::of()->add($updateAction);
         /** @var Category $category */
         $request = $builder->with()->categories()->withId($category->getId())
             ->post(
                 CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build()
+                    ->withActions($updateCollection)->build()
             );
-        $result = $request->execute();
+        $categoryUpdated = $request->execute();
 ```
 
 <a id="query-getbyid"></a>
@@ -308,19 +295,13 @@ Here another example to retrieve an object from the request. In the 2.x version,
 1.x
 ```php
         $client = $this->client();
-        $request = RequestBuilder::of()->categories()->query()->where('id = :id');
+        $request = RequestBuilder::of()->categories()->query()->where('id = :id', ['id' => $category->getId()]);
         $response = $this->execute($client, $request);
         $result = $request->mapFromResponse($response);
 ```
 2.x
 ```php
         $builder = $this->builder();
-        $request = $builder->with()->categories()->get()->withWhere(sprintf("id=\"%s\"", $category->getId()));
-        $result = $request->execute();
-```
-or using the predicates:
-```php
-        $builder = $this->builder();
-        $request = $builder->with()->categories()->get()->withWhere("key = :inputKey")->withPredicateVar("inputKey", $category->getKey());
+        $request = $builder->with()->categories()->get()->withWhere("key = :key")->withPredicateVar("key", $category->getKey());
         $result = $request->execute();
 ```

@@ -31,15 +31,14 @@ class UpdateCommand extends MigrationService implements MigrationInterface
         $builder = $this->builderV2();
 
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
-        $updateAction = new CategoryChangeNameActionModel();
+        $updateAction = CategoryChangeNameActionModel::of();
         $updateAction->setName($newName);
-        $updateActionCollection = new CategoryUpdateActionCollection();
-        $updateActionCollection->add($updateAction);
+        $updateCollection = CategoryUpdateActionCollection::of()->add($updateAction);
         /** @var CategoryV2 $category */
         $request = $builder->with()->categories()->withId($category->getId())
             ->post(
                 CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build()
+                    ->withActions($updateCollection)->build()
             );
 
         return $request->execute();

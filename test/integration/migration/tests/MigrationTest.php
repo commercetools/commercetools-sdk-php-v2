@@ -17,8 +17,6 @@ use Commercetools\Api\Models\Category\CategoryUpdateBuilder;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
-use Commercetools\Client\MiddlewareFactory;
-use Commercetools\Client\OAuthHandlerFactory;
 use Commercetools\IntegrationTest\ApiTestCase;
 use Commercetools\IntegrationTest\migration\MigrationService;
 use function PHPUnit\Framework\assertEquals;
@@ -27,14 +25,16 @@ use function PHPUnit\Framework\assertNotSame;
 
 class MigrationTest extends ApiTestCase
 {
-    public string $clientId = 'bme-3iUSJonevnAqdovBgJMp';
-    public string $clientSecret = 'f-xA0DFe3ooO1bMRZZUS4WjAUKE0KgO9';
-    public string $projectKey = 'barbara-mc-test';
+    public $clientId = 'bme-3iUSJonevnAqdovBgJMp';
+    public $clientSecret = 'f-xA0DFe3ooO1bMRZZUS4WjAUKE0KgO9';
+    public $projectKey = 'barbara-mc-test';
+    public $apiUri = 'https://api.us-central1.gcp.commercetools.com';
+    public $authUrl = 'https://auth.us-central1.gcp.commercetools.com';
 
     public function testClient()
     {
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
-        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3]), $authConfig);
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), null, $this->authUrl);
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3], $this->apiUri), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $client = $request->execute();
@@ -66,18 +66,8 @@ class MigrationTest extends ApiTestCase
 
     public function testRetry()
     {
-        $maxRetries = 3;
-        $middlewares = [];
-        $middlewares['retryNA'] = MiddlewareFactory::createRetryNAMiddleware($maxRetries);
-
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
-        $client = ClientFactory::of()->createGuzzleClientForHandler(
-            new ConfigV2(),
-            OAuthHandlerFactory::ofAuthConfig($authConfig),
-            null,
-            $middlewares
-        );
-
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $response = $request->execute();
@@ -154,16 +144,16 @@ class MigrationTest extends ApiTestCase
         $request = $builder->with()->categories()->post($categoryDraft);
         $category = $request->execute();
 
+
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
-        $updateAction = new CategoryChangeNameActionModel();
+        $updateAction = CategoryChangeNameActionModel::of();
         $updateAction->setName($newName);
-        $updateActionCollection = new CategoryUpdateActionCollection();
-        $updateActionCollection->add($updateAction);
+        $updateCollection = CategoryUpdateActionCollection::of()->add($updateAction);
         /** @var CategoryV2 $category */
         $request = $builder->with()->categories()->withId($category->getId())
             ->post(
                 CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateActionCollection)->build()
+                    ->withActions($updateCollection)->build()
             );
         $categoryUpdated = $request->execute();
 
@@ -187,12 +177,7 @@ class MigrationTest extends ApiTestCase
         $request = $builder->with()->categories()->post($categoryDraft);
         $category = $request->execute();
 
-        $request = $builder->with()->categories()->get()->withWhere(sprintf("id=\"%s\"", $category->getId()));
-        $resultWithWhere = $request->execute();
-
-        assertEquals($category->getId(), $resultWithWhere->getResults()->current()->getId());
-
-        $request = $builder->with()->categories()->get()->withWhere("key = :inputKey")->withPredicateVar("inputKey", $key);
+        $request = $builder->with()->categories()->get()->withWhere("key = :key")->withPredicateVar("key", $key);
         $resultWithPredicateVar = $request->execute();
 
         assertEquals($category->getKey(), $resultWithPredicateVar->getResults()->current()->getKey());
