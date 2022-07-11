@@ -3,15 +3,15 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="mainpage" visible="yes" title="Overview"/>
-    <tab type="user" visible="yes" title="Api" url="@ref lib/commercetools-api"/>
-    <tab type="user" visible="yes" title="ImportApi" url="@ref lib/commercetools-import"/>
-    <tab type="user" visible="yes" title="MLApi" url="@ref lib/commercetools-ml"/>
-    <tab type="user" visible="yes" title="HistoryApi" url="@ref lib/commercetools-history"/>
+    <tab type="user" visible="yes" title="Api" url="@ref lib/commercetools-api/src"/>
+    <tab type="user" visible="yes" title="ImportApi" url="@ref lib/commercetools-import/src"/>
+    <tab type="user" visible="yes" title="MLApi" url="@ref lib/commercetools-ml/src"/>
+    <tab type="user" visible="yes" title="HistoryApi" url="@ref lib/commercetools-history/src"/>
     <tab type="modules" visible="yes" title="" intro="Documentation"/>
     <tab type="namespacelist" visible="yes" title="Namespace List" intro=""/>
     <tab type="concepts" visible="yes" title="">
     <tab type="pages" visible="yes" title="" intro=""/>
-
+    </tab>
     <tab type="interfaces" visible="yes" title="">
       <tab type="interfacelist" visible="yes" title="" intro=""/>
       <tab type="interfaceindex" visible="$ALPHABETICAL_INDEX" title=""/>
