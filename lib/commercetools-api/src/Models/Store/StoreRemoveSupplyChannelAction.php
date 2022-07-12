@@ -19,6 +19,7 @@ interface StoreRemoveSupplyChannelAction extends StoreUpdateAction
     /**
      * <p>Value to remove. ResourceIdentifier of a Channel with the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();

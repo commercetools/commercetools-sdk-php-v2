@@ -23,16 +23,19 @@ use stdClass;
 final class CustomLineItemTaxedPriceBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalNet;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalGross;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -41,6 +44,7 @@ final class CustomLineItemTaxedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalGross()

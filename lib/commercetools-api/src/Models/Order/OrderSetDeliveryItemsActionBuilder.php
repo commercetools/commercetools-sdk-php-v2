@@ -21,16 +21,19 @@ use stdClass;
 final class OrderSetDeliveryItemsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -39,6 +42,7 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

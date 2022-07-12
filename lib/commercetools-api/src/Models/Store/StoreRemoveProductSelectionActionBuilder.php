@@ -23,6 +23,7 @@ use stdClass;
 final class StoreRemoveProductSelectionActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductSelectionResourceIdentifier|ProductSelectionResourceIdentifierBuilder
      */
     private $productSelection;
@@ -30,6 +31,7 @@ final class StoreRemoveProductSelectionActionBuilder implements Builder
     /**
      * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()

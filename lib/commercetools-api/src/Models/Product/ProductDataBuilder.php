@@ -24,56 +24,67 @@ use stdClass;
 final class ProductDataBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?CategoryReferenceCollection
      */
     private $categories;
 
     /**
+
      * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $categoryOrderHints;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $masterVariant;
 
     /**
+
      * @var ?ProductVariantCollection
      */
     private $variants;
 
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
@@ -81,6 +92,7 @@ final class ProductDataBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -89,6 +101,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories()
@@ -97,6 +110,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -107,6 +121,7 @@ final class ProductDataBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -117,6 +132,7 @@ final class ProductDataBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -127,6 +143,7 @@ final class ProductDataBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -137,6 +154,7 @@ final class ProductDataBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -147,6 +165,7 @@ final class ProductDataBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -155,6 +174,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getMasterVariant()
@@ -163,6 +183,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantCollection
      */
     public function getVariants()
@@ -171,6 +192,7 @@ final class ProductDataBuilder implements Builder
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()

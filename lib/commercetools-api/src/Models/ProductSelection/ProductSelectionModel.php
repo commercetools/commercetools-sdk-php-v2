@@ -31,56 +31,67 @@ use stdClass;
 final class ProductSelectionModel extends JsonObjectModel implements ProductSelection
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?int
      */
     protected $productCount;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
@@ -118,6 +129,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Unique identifier of the ProductSelection.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -137,6 +149,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Current version of the ProductSelection.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -156,6 +169,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Date and time (UTC) the ProductSelection was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -179,6 +193,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Date and time (UTC) the ProductSelection was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -202,6 +217,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Present on resources updated after 1/02/2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -222,6 +238,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Present on resources created after 1/02/2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -242,6 +259,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>User-defined unique identifier of the ProductSelection.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -261,6 +279,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Name of the ProductSelection.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -281,6 +300,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Number of Products that are currently assigned to this ProductSelection.</p>
      *
+
      * @return null|int
      */
     public function getProductCount()
@@ -300,6 +320,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Specifies in which way the Products are assigned to the ProductSelection. Currently, the only way of doing this is to specify each Product individually. Hence, the type is fixed to <code>individual</code> for now, but we have plans to add other types in the future.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -319,6 +340,7 @@ final class ProductSelectionModel extends JsonObjectModel implements ProductSele
     /**
      * <p>Custom Fields of this ProductSelection.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

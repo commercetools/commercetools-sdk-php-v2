@@ -23,11 +23,13 @@ use stdClass;
 final class StandalonePriceReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|StandalonePrice|StandalonePriceBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class StandalonePriceReferenceBuilder implements Builder
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class StandalonePriceReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded StandalonePrice. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StandalonePrice.</p>
      *
+
      * @return null|StandalonePrice
      */
     public function getObj()

@@ -18,6 +18,7 @@ interface AttributeLocalizedEnumType extends AttributeType
     /**
      * <p>Available values that can be assigned to Products.</p>
      *
+
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues();

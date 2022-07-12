@@ -21,21 +21,25 @@ use stdClass;
 final class ProductChangeMasterVariantActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -44,6 +48,7 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -52,6 +57,7 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -21,16 +21,19 @@ use stdClass;
 final class ProductSetSearchKeywordsActionBuilder implements Builder
 {
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -39,6 +42,7 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

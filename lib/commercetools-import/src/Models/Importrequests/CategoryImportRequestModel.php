@@ -22,11 +22,13 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
 {
     public const DISCRIMINATOR_VALUE = 'category';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CategoryImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
     /**
      * <p>The category import resources of this request.</p>
      *
+
      * @return null|CategoryImportCollection
      */
     public function getResources()

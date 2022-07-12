@@ -21,11 +21,13 @@ final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setAnonymousId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $anonymousId;
@@ -42,6 +44,7 @@ final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class PaymentSetAnonymousIdActionModel extends JsonObjectModel implements 
      * <p>Anonymous ID of the anonymous customer that this payment belongs to.
      * If this field is not set any existing <code>anonymousId</code> is removed.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()

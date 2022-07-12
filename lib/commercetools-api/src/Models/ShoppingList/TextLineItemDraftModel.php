@@ -25,26 +25,31 @@ use stdClass;
 final class TextLineItemDraftModel extends JsonObjectModel implements TextLineItemDraft
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
@@ -70,6 +75,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     /**
      * <p>Defaults to the current date and time.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -93,6 +99,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -111,6 +118,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -129,6 +137,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -149,6 +158,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     /**
      * <p>Defaults to <code>1</code>.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()

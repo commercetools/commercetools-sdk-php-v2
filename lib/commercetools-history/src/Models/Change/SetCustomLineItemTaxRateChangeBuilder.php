@@ -25,31 +25,37 @@ use Commercetools\History\Models\Common\TaxRateBuilder;
 final class SetCustomLineItemTaxRateChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
 
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $previousValue;
@@ -57,6 +63,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setCustomLineItemTaxRate</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -65,6 +72,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -73,6 +81,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -81,6 +90,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -91,6 +101,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()
@@ -101,6 +112,7 @@ final class SetCustomLineItemTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()

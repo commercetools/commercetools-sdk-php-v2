@@ -21,11 +21,13 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'setShippingRateInputType';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ShippingRateInputType
      */
     protected $shippingRateInputType;
@@ -42,6 +44,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|ShippingRateInputType
      */
     public function getShippingRateInputType()

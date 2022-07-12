@@ -19,6 +19,7 @@ interface ProductDiscountUpdate extends JsonObject
     /**
      * <p>Expected version of the ProductDiscount on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -26,6 +27,7 @@ interface ProductDiscountUpdate extends JsonObject
     /**
      * <p>Update actions to be performed on the ProductDiscount.</p>
      *
+
      * @return null|ProductDiscountUpdateActionCollection
      */
     public function getActions();

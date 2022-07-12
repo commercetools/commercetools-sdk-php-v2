@@ -19,11 +19,13 @@ interface PaymentStatusDraft extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|string
      */
     public function getInterfaceCode();
 
     /**
+
      * @return null|string
      */
     public function getInterfaceText();
@@ -31,6 +33,7 @@ interface PaymentStatusDraft extends JsonObject
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getState();

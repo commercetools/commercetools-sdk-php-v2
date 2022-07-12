@@ -16,6 +16,7 @@ interface AttributeLocalizedEnumType extends AttributeType
     public const FIELD_VALUES = 'values';
 
     /**
+
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues();

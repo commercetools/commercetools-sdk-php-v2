@@ -21,6 +21,7 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -42,6 +43,7 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

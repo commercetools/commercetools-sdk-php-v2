@@ -23,11 +23,13 @@ use stdClass;
 final class ExtensionInputBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $action;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
@@ -35,6 +37,7 @@ final class ExtensionInputBuilder implements Builder
     /**
      * <p><code>Create</code> or <code>Update</code> request.</p>
      *
+
      * @return null|string
      */
     public function getAction()
@@ -45,6 +48,7 @@ final class ExtensionInputBuilder implements Builder
     /**
      * <p>Expanded reference to the resource that triggered the Extension.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()

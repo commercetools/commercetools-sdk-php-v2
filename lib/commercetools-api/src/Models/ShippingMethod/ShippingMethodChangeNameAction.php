@@ -18,6 +18,7 @@ interface ShippingMethodChangeNameAction extends ShippingMethodUpdateAction
     /**
      * <p>Value to set. Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getName();

@@ -76,6 +76,7 @@ interface Order extends BaseResource
     /**
      * <p>Unique identifier of the Order.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -83,16 +84,19 @@ interface Order extends BaseResource
     /**
      * <p>The current version of the order.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -100,6 +104,7 @@ interface Order extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -107,6 +112,7 @@ interface Order extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -114,6 +120,7 @@ interface Order extends BaseResource
     /**
      * <p>This field will only be present if it was set for Order Import</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt();
@@ -124,16 +131,19 @@ interface Order extends BaseResource
      * It should be unique across a project.
      * Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber();
 
     /**
+
      * @return null|string
      */
     public function getCustomerId();
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -141,26 +151,31 @@ interface Order extends BaseResource
     /**
      * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+
      * @return null|StoreKeyReference
      */
     public function getStore();
 
     /**
+
      * @return null|LineItemCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
@@ -168,21 +183,25 @@ interface Order extends BaseResource
     /**
      * <p>The taxes are calculated based on the shipping address.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
 
     /**
+
      * @return null|Address
      */
     public function getShippingAddress();
 
     /**
+
      * @return null|Address
      */
     public function getBillingAddress();
 
     /**
+
      * @return null|string
      */
     public function getTaxMode();
@@ -190,6 +209,7 @@ interface Order extends BaseResource
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode();
@@ -198,6 +218,7 @@ interface Order extends BaseResource
      * <p>Set when the customer is set and the customer is a member of a customer group.
      * Used for product variant price selection.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -206,6 +227,7 @@ interface Order extends BaseResource
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -213,6 +235,7 @@ interface Order extends BaseResource
     /**
      * <p>One of the four predefined OrderStates.</p>
      *
+
      * @return null|string
      */
     public function getOrderState();
@@ -220,16 +243,19 @@ interface Order extends BaseResource
     /**
      * <p>This reference can point to a state in a custom workflow.</p>
      *
+
      * @return null|StateReference
      */
     public function getState();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();
@@ -237,21 +263,25 @@ interface Order extends BaseResource
     /**
      * <p>Set if the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
 
     /**
+
      * @return null|SyncInfoCollection
      */
     public function getSyncInfo();
 
     /**
+
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo();
 
     /**
+
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes();
@@ -259,6 +289,7 @@ interface Order extends BaseResource
     /**
      * <p>Internal-only field.</p>
      *
+     * @deprecated
      * @return null|int
      */
     public function getLastMessageSequenceNumber();
@@ -267,6 +298,7 @@ interface Order extends BaseResource
      * <p>Set when this order was created from a cart.
      * The cart will have the state <code>Ordered</code>.</p>
      *
+
      * @return null|CartReference
      */
     public function getCart();
@@ -274,31 +306,37 @@ interface Order extends BaseResource
     /**
      * <p>Set when this order was created from a quote.</p>
      *
+
      * @return null|QuoteReference
      */
     public function getQuote();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|string
      */
     public function getInventoryMode();
 
     /**
+
      * @return null|string
      */
     public function getOrigin();
@@ -306,6 +344,7 @@ interface Order extends BaseResource
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode();
@@ -313,6 +352,7 @@ interface Order extends BaseResource
     /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
@@ -320,6 +360,7 @@ interface Order extends BaseResource
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
@@ -327,6 +368,7 @@ interface Order extends BaseResource
     /**
      * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
      *
+
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts();

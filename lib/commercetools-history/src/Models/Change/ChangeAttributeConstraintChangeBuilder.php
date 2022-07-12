@@ -21,26 +21,31 @@ use stdClass;
 final class ChangeAttributeConstraintChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -51,6 +56,7 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
     /**
      * <p>name of the updated attribute</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -59,6 +65,7 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -67,6 +74,7 @@ final class ChangeAttributeConstraintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

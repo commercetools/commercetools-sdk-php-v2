@@ -21,31 +21,37 @@ use stdClass;
 final class ProductSetAttributeActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -54,6 +60,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -62,6 +69,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -74,6 +82,7 @@ final class ProductSetAttributeActionBuilder implements Builder
      * If the attribute exists and a value is provided, the new value is applied.
      * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()
@@ -82,6 +91,7 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

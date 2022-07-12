@@ -19,6 +19,7 @@ interface ChannelSetGeoLocationAction extends ChannelUpdateAction
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation();

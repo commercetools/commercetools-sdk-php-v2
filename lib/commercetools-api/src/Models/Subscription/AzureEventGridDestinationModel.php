@@ -21,16 +21,19 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
 {
     public const DISCRIMINATOR_VALUE = 'EventGrid';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $uri;
 
     /**
+
      * @var ?string
      */
     protected $accessKey;
@@ -49,6 +52,7 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     }
 
     /**
+
      * @return null|string
      */
     public function getUri()
@@ -83,6 +88,7 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     }
 
     /**
+
      * @return null|string
      */
     public function getAccessKey()

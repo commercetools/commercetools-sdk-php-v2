@@ -21,6 +21,7 @@ final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdat
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -55,6 +56,7 @@ final class StoreUpdateActionModel extends JsonObjectModel implements StoreUpdat
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

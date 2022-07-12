@@ -20,6 +20,7 @@ interface ItemShippingDetails extends JsonObject
      * <p>Used to map what sub-quantity should be shipped to which address.
      * Duplicate address keys are not allowed.</p>
      *
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets();
@@ -29,6 +30,7 @@ interface ItemShippingDetails extends JsonObject
      * A cart cannot be ordered when the value is <code>false</code>.
      * The error InvalidItemShippingDetails will be triggered.</p>
      *
+
      * @return null|bool
      */
     public function getValid();

@@ -29,26 +29,31 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'addDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
 
     /**
+
      * @var ?ParcelDraftCollection
      */
     protected $parcels;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -71,6 +76,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -88,6 +94,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -105,6 +112,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -123,6 +131,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|ParcelDraftCollection
      */
     public function getParcels()
@@ -142,6 +151,7 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

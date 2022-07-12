@@ -21,21 +21,25 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
 {
     public const DISCRIMINATOR_VALUE = 'PriceChanged';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?array
      */
     protected $lineItems;
 
     /**
+
      * @var ?bool
      */
     protected $shipping;
@@ -56,6 +60,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -73,6 +78,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +96,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+
      * @return null|array
      */
     public function getLineItems()
@@ -107,6 +114,7 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     }
 
     /**
+
      * @return null|bool
      */
     public function getShipping()

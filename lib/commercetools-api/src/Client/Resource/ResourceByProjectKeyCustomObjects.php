@@ -56,6 +56,7 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
+     * @deprecated
      */
     public function get($body = null, array $headers = []): ByProjectKeyCustomObjectsGet
     {

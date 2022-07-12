@@ -21,6 +21,7 @@ interface TaxCategoryDraft extends JsonObject
     /**
      * <p>Name of the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -28,6 +29,7 @@ interface TaxCategoryDraft extends JsonObject
     /**
      * <p>Description of the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getDescription();
@@ -35,6 +37,7 @@ interface TaxCategoryDraft extends JsonObject
     /**
      * <p>Tax rates and subrates of states and countries.</p>
      *
+
      * @return null|TaxRateDraftCollection
      */
     public function getRates();
@@ -42,6 +45,7 @@ interface TaxCategoryDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getKey();

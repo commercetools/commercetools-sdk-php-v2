@@ -18,16 +18,19 @@ interface CustomObjectLabel extends Label
     public const FIELD_CONTAINER = 'container';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|string
      */
     public function getContainer();

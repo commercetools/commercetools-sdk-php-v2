@@ -25,26 +25,31 @@ use Commercetools\History\Models\Common\ReferenceBuilder;
 final class SetLineItemDistributionChannelChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $previousValue;
@@ -52,6 +57,7 @@ final class SetLineItemDistributionChannelChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLineItemDistributionChannel</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -60,6 +66,7 @@ final class SetLineItemDistributionChannelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -68,6 +75,7 @@ final class SetLineItemDistributionChannelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -76,6 +84,7 @@ final class SetLineItemDistributionChannelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue()
@@ -84,6 +93,7 @@ final class SetLineItemDistributionChannelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue()

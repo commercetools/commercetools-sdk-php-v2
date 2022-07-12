@@ -32,56 +32,67 @@ use stdClass;
 final class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft
 {
     /**
+
      * @var ?string
      */
     protected $productId;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?ProductVariantImportDraft
      */
     protected $variant;
 
     /**
+
      * @var ?PriceDraft
      */
     protected $price;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
 
     /**
+
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -120,6 +131,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * <p>ID of the existing product.
      * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
      *
+
      * @return null|string
      */
     public function getProductId()
@@ -139,6 +151,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>The product name.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -157,6 +170,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|ProductVariantImportDraft
      */
     public function getVariant()
@@ -175,6 +189,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|PriceDraft
      */
     public function getPrice()
@@ -193,6 +208,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -210,6 +226,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -233,6 +250,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * The provided channel should have the
      * InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -254,6 +272,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -272,6 +291,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -292,6 +312,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -310,6 +331,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

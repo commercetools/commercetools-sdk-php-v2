@@ -28,16 +28,19 @@ interface MyLineItemDraft extends JsonObject
     public const FIELD_SKU = 'sku';
 
     /**
+
      * @return null|string
      */
     public function getProductId();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
@@ -46,6 +49,7 @@ interface MyLineItemDraft extends JsonObject
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
@@ -55,6 +59,7 @@ interface MyLineItemDraft extends JsonObject
      * inventory entries that should be reserved.
      * The provided channel should have the InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
@@ -63,6 +68,7 @@ interface MyLineItemDraft extends JsonObject
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
@@ -70,6 +76,7 @@ interface MyLineItemDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -77,11 +84,13 @@ interface MyLineItemDraft extends JsonObject
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
 
     /**
+
      * @return null|string
      */
     public function getSku();

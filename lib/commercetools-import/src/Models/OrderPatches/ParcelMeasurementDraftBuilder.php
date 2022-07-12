@@ -23,16 +23,19 @@ use stdClass;
 final class ParcelMeasurementDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -41,6 +44,7 @@ final class ParcelMeasurementDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()

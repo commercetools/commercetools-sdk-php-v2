@@ -22,6 +22,7 @@ interface SetLineItemDiscountedPricePerQuantityChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,26 +30,31 @@ interface SetLineItemDiscountedPricePerQuantityChange extends Change
     /**
      * <p>Update action for <code>setLineItemDiscountedPricePerQuantity</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantity
      */
     public function getNextValue();
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantity
      */
     public function getPreviousValue();

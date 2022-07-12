@@ -22,11 +22,13 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
 {
     public const DISCRIMINATOR_VALUE = 'MoneySet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?MoneyCollection
      */
     protected $value;
@@ -45,6 +47,7 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class MoneySetFieldModel extends JsonObjectModel implements MoneySetField
     }
 
     /**
+
      * @return null|MoneyCollection
      */
     public function getValue()

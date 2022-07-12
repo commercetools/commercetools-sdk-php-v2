@@ -28,6 +28,7 @@ use Commercetools\History\Models\ChangeHistory\RecordPagedQueryResponseModel;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  *
  */

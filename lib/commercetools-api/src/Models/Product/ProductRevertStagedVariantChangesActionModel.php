@@ -21,11 +21,13 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'revertStagedVariantChanges';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
@@ -42,6 +44,7 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

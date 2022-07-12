@@ -24,26 +24,31 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
 
     public const DISCRIMINATOR_VALUE = 'AddPriceChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?string
      */
     protected $priceId;
 
     /**
+
      * @var ?Price
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     /**
      * <p>Update action for adding prices</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +127,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -136,6 +145,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+
      * @return null|Price
      */
     public function getNextValue()

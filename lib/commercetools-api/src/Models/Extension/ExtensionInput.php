@@ -20,6 +20,7 @@ interface ExtensionInput extends JsonObject
     /**
      * <p><code>Create</code> or <code>Update</code> request.</p>
      *
+
      * @return null|string
      */
     public function getAction();
@@ -27,6 +28,7 @@ interface ExtensionInput extends JsonObject
     /**
      * <p>Expanded reference to the resource that triggered the Extension.</p>
      *
+
      * @return null|Reference
      */
     public function getResource();

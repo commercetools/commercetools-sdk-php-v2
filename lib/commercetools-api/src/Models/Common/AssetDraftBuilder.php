@@ -23,36 +23,43 @@ use stdClass;
 final class AssetDraftBuilder implements Builder
 {
     /**
+
      * @var ?AssetSourceCollection
      */
     private $sources;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?array
      */
     private $tags;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources()
@@ -63,6 +70,7 @@ final class AssetDraftBuilder implements Builder
     /**
      * <p>Name of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -73,6 +81,7 @@ final class AssetDraftBuilder implements Builder
     /**
      * <p>Description of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -83,6 +92,7 @@ final class AssetDraftBuilder implements Builder
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
+
      * @return null|array
      */
     public function getTags()
@@ -93,6 +103,7 @@ final class AssetDraftBuilder implements Builder
     /**
      * <p>Custom Fields defined for the Asset.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -103,6 +114,7 @@ final class AssetDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Asset.</p>
      *
+
      * @return null|string
      */
     public function getKey()

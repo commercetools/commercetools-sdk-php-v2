@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\AssetBuilder;
 final class RemoveAssetChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Asset|AssetBuilder
      */
     private $previousValue;
@@ -35,6 +37,7 @@ final class RemoveAssetChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeAsset</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class RemoveAssetChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Asset
      */
     public function getPreviousValue()

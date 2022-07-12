@@ -19,21 +19,25 @@ interface OrderAddParcelToDeliveryAction extends OrderUpdateAction
     public const FIELD_ITEMS = 'items';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();

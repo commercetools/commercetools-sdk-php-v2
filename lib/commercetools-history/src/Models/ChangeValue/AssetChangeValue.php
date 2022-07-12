@@ -19,11 +19,13 @@ interface AssetChangeValue extends JsonObject
     public const FIELD_NAME = 'name';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();

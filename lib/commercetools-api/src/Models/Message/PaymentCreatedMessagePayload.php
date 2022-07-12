@@ -17,6 +17,7 @@ interface PaymentCreatedMessagePayload extends MessagePayload
     public const FIELD_PAYMENT = 'payment';
 
     /**
+
      * @return null|Payment
      */
     public function getPayment();

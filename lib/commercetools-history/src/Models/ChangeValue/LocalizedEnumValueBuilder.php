@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class LocalizedEnumValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -41,6 +44,7 @@ final class LocalizedEnumValueBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()

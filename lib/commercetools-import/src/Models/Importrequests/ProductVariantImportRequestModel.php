@@ -22,11 +22,13 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'product-variant';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductVariantImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class ProductVariantImportRequestModel extends JsonObjectModel implements 
     /**
      * <p>The product variant import resources of this request.</p>
      *
+
      * @return null|ProductVariantImportCollection
      */
     public function getResources()

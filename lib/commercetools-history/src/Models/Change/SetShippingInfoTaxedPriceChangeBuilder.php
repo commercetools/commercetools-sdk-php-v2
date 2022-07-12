@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\TaxedPriceBuilder;
 final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setShippingInfoTaxedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedPrice
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class SetShippingInfoTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedPrice
      */
     public function getPreviousValue()

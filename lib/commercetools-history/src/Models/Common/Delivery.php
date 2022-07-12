@@ -22,26 +22,31 @@ interface Delivery extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();
@@ -49,6 +54,7 @@ interface Delivery extends JsonObject
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

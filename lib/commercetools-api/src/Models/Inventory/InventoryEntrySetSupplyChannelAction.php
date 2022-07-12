@@ -19,6 +19,7 @@ interface InventoryEntrySetSupplyChannelAction extends InventoryEntryUpdateActio
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();

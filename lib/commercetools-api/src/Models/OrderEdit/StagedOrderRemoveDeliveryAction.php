@@ -17,6 +17,7 @@ interface StagedOrderRemoveDeliveryAction extends StagedOrderUpdateAction
     public const FIELD_DELIVERY_ID = 'deliveryId';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();

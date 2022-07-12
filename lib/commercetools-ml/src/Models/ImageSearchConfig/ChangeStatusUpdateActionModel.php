@@ -21,11 +21,13 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
 {
     public const DISCRIMINATOR_VALUE = 'changeStatus';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $status;
@@ -42,6 +44,7 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
     }
 
     /**
+
      * @return null|string
      */
     public function getStatus()

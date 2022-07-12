@@ -16,6 +16,7 @@ interface SubscriptionSetMessagesAction extends SubscriptionUpdateAction
     public const FIELD_MESSAGES = 'messages';
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages();

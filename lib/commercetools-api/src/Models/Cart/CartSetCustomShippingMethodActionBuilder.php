@@ -25,26 +25,31 @@ use stdClass;
 final class CartSetCustomShippingMethodActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $shippingMethodName;
 
     /**
+
      * @var null|ShippingRateDraft|ShippingRateDraftBuilder
      */
     private $shippingRate;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName()
@@ -53,6 +58,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -63,6 +69,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -71,6 +78,7 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

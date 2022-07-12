@@ -22,6 +22,7 @@ interface OrderEditSetCustomTypeAction extends OrderEditUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the OrderEdit with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the OrderEdit.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -29,6 +30,7 @@ interface OrderEditSetCustomTypeAction extends OrderEditUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the OrderEdit.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

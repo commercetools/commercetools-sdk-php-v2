@@ -23,11 +23,13 @@ final class ShippingMethodRemoveZoneActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'removeZone';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ZoneResourceIdentifier
      */
     protected $zone;
@@ -44,6 +46,7 @@ final class ShippingMethodRemoveZoneActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ShippingMethodRemoveZoneActionModel extends JsonObjectModel implemen
     /**
      * <p>Value to remove from <code>zoneRates</code>.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()

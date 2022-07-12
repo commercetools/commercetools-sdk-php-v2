@@ -17,11 +17,13 @@ interface OrderShipmentStateChangedMessage extends OrderMessage
     public const FIELD_OLD_SHIPMENT_STATE = 'oldShipmentState';
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+
      * @return null|string
      */
     public function getOldShipmentState();

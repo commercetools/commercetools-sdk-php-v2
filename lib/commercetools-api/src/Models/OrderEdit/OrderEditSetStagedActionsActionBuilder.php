@@ -22,6 +22,7 @@ use stdClass;
 final class OrderEditSetStagedActionsActionBuilder implements Builder
 {
     /**
+
      * @var ?StagedOrderUpdateActionCollection
      */
     private $stagedActions;
@@ -29,6 +30,7 @@ final class OrderEditSetStagedActionsActionBuilder implements Builder
     /**
      * <p>The actions to edit the <code>resource</code>.</p>
      *
+
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions()

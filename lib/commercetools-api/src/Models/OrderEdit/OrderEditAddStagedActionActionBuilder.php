@@ -23,11 +23,13 @@ use stdClass;
 final class OrderEditAddStagedActionActionBuilder implements Builder
 {
     /**
+
      * @var null|StagedOrderUpdateAction|StagedOrderUpdateActionBuilder
      */
     private $stagedAction;
 
     /**
+
      * @return null|StagedOrderUpdateAction
      */
     public function getStagedAction()

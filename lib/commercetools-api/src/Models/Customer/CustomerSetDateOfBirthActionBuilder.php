@@ -22,6 +22,7 @@ use stdClass;
 final class CustomerSetDateOfBirthActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
@@ -29,6 +30,7 @@ final class CustomerSetDateOfBirthActionBuilder implements Builder
     /**
      * <p>If not defined, the date of birth is unset.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()

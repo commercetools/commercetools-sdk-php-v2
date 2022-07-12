@@ -18,11 +18,13 @@ interface ProductSetMetaDescriptionAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

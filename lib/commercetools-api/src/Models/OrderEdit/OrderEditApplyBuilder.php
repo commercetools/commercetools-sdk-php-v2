@@ -21,16 +21,19 @@ use stdClass;
 final class OrderEditApplyBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $editVersion;
 
     /**
+
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+
      * @return null|int
      */
     public function getEditVersion()
@@ -39,6 +42,7 @@ final class OrderEditApplyBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()

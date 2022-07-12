@@ -18,6 +18,7 @@ interface ProductSetSkuAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
@@ -26,11 +27,13 @@ interface ProductSetSkuAction extends ProductUpdateAction
      * <p>SKU must be unique.
      * If left blank or set to <code>null</code>, the sku is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

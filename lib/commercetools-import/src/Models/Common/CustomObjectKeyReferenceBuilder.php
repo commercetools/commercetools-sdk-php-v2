@@ -21,16 +21,19 @@ use stdClass;
 final class CustomObjectKeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $container;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -39,6 +42,7 @@ final class CustomObjectKeyReferenceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getContainer()

@@ -75,16 +75,19 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -138,6 +141,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     /**
      * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -157,6 +161,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     /**
      * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -176,6 +181,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
     /**
      * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getKey()

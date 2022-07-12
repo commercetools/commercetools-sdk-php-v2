@@ -21,16 +21,19 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
 {
     public const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueLabel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?AttributeLocalizedEnumValue
      */
     protected $newValue;
@@ -49,6 +52,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -87,6 +92,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     /**
      * <p>New value to set. Must be different from the existing value.</p>
      *
+
      * @return null|AttributeLocalizedEnumValue
      */
     public function getNewValue()

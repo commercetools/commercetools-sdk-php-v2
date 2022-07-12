@@ -21,11 +21,13 @@ use stdClass;
 final class CustomerTitleSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @return null|string
      */
     public function getTitle()

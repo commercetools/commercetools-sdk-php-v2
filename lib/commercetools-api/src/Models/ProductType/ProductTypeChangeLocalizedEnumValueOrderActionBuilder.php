@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?AttributeLocalizedEnumValueCollection
      */
     private $values;
@@ -33,6 +35,7 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
     /**
      * <p>Values must be equal to the values of the Attribute enum values (except for the order). If not, an <a href="/errors#product-types-400-enum-values-must-match">EnumValuesMustMatch</a> error code will be returned.</p>
      *
+
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues()

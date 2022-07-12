@@ -21,6 +21,7 @@ interface ProjectCategoryRecommendation extends JsonObject
     /**
      * <p>A category that is recommended for a product.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getCategory();
@@ -28,6 +29,7 @@ interface ProjectCategoryRecommendation extends JsonObject
     /**
      * <p>Probability score for the category recommendation.</p>
      *
+
      * @return null|float
      */
     public function getConfidence();
@@ -35,6 +37,7 @@ interface ProjectCategoryRecommendation extends JsonObject
     /**
      * <p>Breadcrumb path to the recommended category. This only picks up one language, not all available languages for the category. English is prioritized, but if English data is not available, an arbitrary language is selected. Do not use this to identify a category,use the category ID from the category reference instead.</p>
      *
+
      * @return null|string
      */
     public function getPath();

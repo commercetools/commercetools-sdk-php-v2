@@ -16,6 +16,7 @@ interface ProductVariantSelectionInclusion extends ProductVariantSelection
     public const FIELD_SKUS = 'skus';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -23,6 +24,7 @@ interface ProductVariantSelectionInclusion extends ProductVariantSelection
     /**
      * <p>Non-empty array of SKUs representing Product Variants to be included into the Product Selection.</p>
      *
+
      * @return null|array
      */
     public function getSkus();

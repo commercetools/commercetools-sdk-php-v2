@@ -30,6 +30,7 @@ interface CustomLineItemImportDraft extends JsonObject
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -38,6 +39,7 @@ interface CustomLineItemImportDraft extends JsonObject
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
@@ -45,26 +47,31 @@ interface CustomLineItemImportDraft extends JsonObject
     /**
      * <p>The cost to add to the cart. The amount can be negative.</p>
      *
+
      * @return null|Money
      */
     public function getMoney();
 
     /**
+
      * @return null|string
      */
     public function getSlug();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
@@ -72,11 +79,13 @@ interface CustomLineItemImportDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

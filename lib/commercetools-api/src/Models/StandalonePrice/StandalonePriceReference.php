@@ -19,6 +19,7 @@ interface StandalonePriceReference extends Reference
     /**
      * <p>Contains the representation of the expanded StandalonePrice. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StandalonePrice.</p>
      *
+
      * @return null|StandalonePrice
      */
     public function getObj();

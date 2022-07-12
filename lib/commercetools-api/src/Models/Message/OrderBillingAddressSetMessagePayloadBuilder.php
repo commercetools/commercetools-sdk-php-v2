@@ -23,16 +23,19 @@ use stdClass;
 final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $oldAddress;
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -41,6 +44,7 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getOldAddress()

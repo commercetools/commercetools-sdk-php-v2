@@ -19,11 +19,13 @@ interface PaymentAddInterfaceInteractionAction extends PaymentUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
 
     /**
+
      * @return null|FieldContainer
      */
     public function getFields();

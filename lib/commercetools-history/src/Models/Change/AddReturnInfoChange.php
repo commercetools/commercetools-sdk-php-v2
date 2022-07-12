@@ -18,6 +18,7 @@ interface AddReturnInfoChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface AddReturnInfoChange extends Change
     /**
      * <p>Update action for <code>addReturnInfo</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ReturnInfo
      */
     public function getNextValue();

@@ -24,16 +24,19 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
 
     public const DISCRIMINATOR_VALUE = 'AddInterfaceInteractionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?CustomFieldExpandedValue
      */
     protected $nextValue;
@@ -52,6 +55,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
     /**
      * <p>Update action for <code>addInterfaceInteraction</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -90,6 +95,7 @@ final class AddInterfaceInteractionChangeModel extends JsonObjectModel implement
     /**
      * <p>Only available if <code>expand</code> is set to true</p>
      *
+
      * @return null|CustomFieldExpandedValue
      */
     public function getNextValue()

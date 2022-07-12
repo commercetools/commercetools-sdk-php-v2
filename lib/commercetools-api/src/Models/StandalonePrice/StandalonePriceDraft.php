@@ -35,6 +35,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the StandalonePrice.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -43,6 +44,7 @@ interface StandalonePriceDraft extends JsonObject
      * <p>Specifies to which <a href="ctp:api:type:ProductVariant">ProductVariant</a> the API associates this Price.
      * It is not validated to exist in product variants.</p>
      *
+
      * @return null|string
      */
     public function getSku();
@@ -50,6 +52,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets the money value of this Price.</p>
      *
+
      * @return null|Money
      */
     public function getValue();
@@ -57,6 +60,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets the country for which this Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -64,6 +68,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -71,6 +76,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets the product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel();
@@ -78,6 +84,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets the date from which the Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -85,6 +92,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets the date until the Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -92,6 +100,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets price tiers.</p>
      *
+
      * @return null|PriceTierDraftCollection
      */
     public function getTiers();
@@ -99,6 +108,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Sets a discounted price for this Price that is different from the base price with <code>value</code>.</p>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
@@ -106,6 +116,7 @@ interface StandalonePriceDraft extends JsonObject
     /**
      * <p>Custom Fields for the StandalonePrice.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

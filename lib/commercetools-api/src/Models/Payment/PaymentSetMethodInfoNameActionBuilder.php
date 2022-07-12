@@ -23,6 +23,7 @@ use stdClass;
 final class PaymentSetMethodInfoNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -30,6 +31,7 @@ final class PaymentSetMethodInfoNameActionBuilder implements Builder
     /**
      * <p>If not provided, the name is unset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

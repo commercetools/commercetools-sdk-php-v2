@@ -23,16 +23,19 @@ use stdClass;
 final class ItemStateBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $quantity;
 
     /**
+
      * @var null|StateKeyReference|StateKeyReferenceBuilder
      */
     private $state;
 
     /**
+
      * @return null|float
      */
     public function getQuantity()
@@ -43,6 +46,7 @@ final class ItemStateBuilder implements Builder
     /**
      * <p>Maps to <code>ItemState.state</code>.</p>
      *
+
      * @return null|StateKeyReference
      */
     public function getState()

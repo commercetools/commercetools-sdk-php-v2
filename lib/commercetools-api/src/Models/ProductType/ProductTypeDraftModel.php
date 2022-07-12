@@ -20,21 +20,25 @@ use stdClass;
 final class ProductTypeDraftModel extends JsonObjectModel implements ProductTypeDraft
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $description;
 
     /**
+
      * @var ?AttributeDefinitionDraftCollection
      */
     protected $attributes;
@@ -58,6 +62,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     /**
      * <p>User-defined unique identifier for the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -77,6 +82,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     /**
      * <p>Name of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -96,6 +102,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     /**
      * <p>Description of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -115,6 +122,7 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     /**
      * <p>Attributes to specify for the ProductType. Products of this ProductType have these Attributes available on their <a href="ctp:api:type:ProductVariant">ProductVariants</a>.</p>
      *
+
      * @return null|AttributeDefinitionDraftCollection
      */
     public function getAttributes()

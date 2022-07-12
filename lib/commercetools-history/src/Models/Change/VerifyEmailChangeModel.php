@@ -22,11 +22,13 @@ final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmai
 
     public const DISCRIMINATOR_VALUE = 'VerifyEmailChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
@@ -43,6 +45,7 @@ final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmai
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmai
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()

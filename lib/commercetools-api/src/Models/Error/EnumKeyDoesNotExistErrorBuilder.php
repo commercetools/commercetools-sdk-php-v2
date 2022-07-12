@@ -21,21 +21,25 @@ use stdClass;
 final class EnumKeyDoesNotExistErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $conflictingEnumKey;
 
     /**
+
      * @var ?string
      */
     private $conflictingAttributeName;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -44,6 +48,7 @@ final class EnumKeyDoesNotExistErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingEnumKey()
@@ -52,6 +57,7 @@ final class EnumKeyDoesNotExistErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingAttributeName()

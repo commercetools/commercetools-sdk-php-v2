@@ -21,21 +21,25 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'removeVariant';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -56,6 +60,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|int
      */
     public function getId()
@@ -90,6 +96,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -107,6 +114,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

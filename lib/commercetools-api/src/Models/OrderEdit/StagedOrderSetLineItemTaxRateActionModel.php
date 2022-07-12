@@ -25,16 +25,19 @@ final class StagedOrderSetLineItemTaxRateActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemTaxRate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -53,6 +56,7 @@ final class StagedOrderSetLineItemTaxRateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetLineItemTaxRateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -87,6 +92,7 @@ final class StagedOrderSetLineItemTaxRateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

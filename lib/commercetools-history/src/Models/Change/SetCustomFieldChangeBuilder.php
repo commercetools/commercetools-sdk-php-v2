@@ -21,26 +21,31 @@ use stdClass;
 final class SetCustomFieldChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $customTypeId;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
@@ -48,6 +53,7 @@ final class SetCustomFieldChangeBuilder implements Builder
     /**
      * <p>Update action for setting a custom field</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class SetCustomFieldChangeBuilder implements Builder
     /**
      * <p>Custom field name</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -66,6 +73,7 @@ final class SetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomTypeId()
@@ -74,6 +82,7 @@ final class SetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -82,6 +91,7 @@ final class SetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

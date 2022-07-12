@@ -23,16 +23,19 @@ use Commercetools\History\Models\ChangeValue\ChangeTargetChangeValueBuilder;
 final class ChangeTargetChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ChangeTargetChangeValue|ChangeTargetChangeValueBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|ChangeTargetChangeValue|ChangeTargetChangeValueBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class ChangeTargetChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeTarget</code> on cart discounts</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ChangeTargetChangeValue
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class ChangeTargetChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ChangeTargetChangeValue
      */
     public function getPreviousValue()

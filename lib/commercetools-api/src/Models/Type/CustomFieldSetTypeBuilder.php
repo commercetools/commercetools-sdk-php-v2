@@ -21,6 +21,7 @@ use stdClass;
 final class CustomFieldSetTypeBuilder implements Builder
 {
     /**
+
      * @var null|FieldType|FieldTypeBuilder
      */
     private $elementType;
@@ -28,6 +29,7 @@ final class CustomFieldSetTypeBuilder implements Builder
     /**
      * <p>Field type of the elements in the set.</p>
      *
+
      * @return null|FieldType
      */
     public function getElementType()

@@ -21,21 +21,25 @@ interface ChangeAddressChange extends Change
     /**
      * <p>Update action <code>changeAddress</code> action.</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|Address
      */
     public function getNextValue();
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue();

@@ -18,6 +18,7 @@ interface ChangeAttributeOrderByNameChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface ChangeAttributeOrderByNameChange extends Change
     /**
      * <p>Update action for <code>changeAttributeOrderByName</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|array
      */
     public function getNextValue();

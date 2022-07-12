@@ -22,21 +22,25 @@ use stdClass;
 final class ReturnInfoBuilder implements Builder
 {
     /**
+
      * @var ?ReturnItemDraftCollection
      */
     private $items;
 
     /**
+
      * @var ?string
      */
     private $returnTrackingId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $returnDate;
 
     /**
+
      * @return null|ReturnItemDraftCollection
      */
     public function getItems()
@@ -47,6 +51,7 @@ final class ReturnInfoBuilder implements Builder
     /**
      * <p>Maps to <code>ReturnInfo.returnTrackingId</code></p>
      *
+
      * @return null|string
      */
     public function getReturnTrackingId()
@@ -57,6 +62,7 @@ final class ReturnInfoBuilder implements Builder
     /**
      * <p>Maps to <code>ReturnInfo.returnDate</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getReturnDate()

@@ -21,16 +21,19 @@ use stdClass;
 final class AssetDimensionsBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $w;
 
     /**
+
      * @var ?int
      */
     private $h;
 
     /**
+
      * @return null|int
      */
     public function getW()
@@ -39,6 +42,7 @@ final class AssetDimensionsBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getH()

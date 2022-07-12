@@ -16,6 +16,7 @@ interface StagedQuoteSellerCommentSetMessage extends Message
     public const FIELD_SELLER_COMMENT = 'sellerComment';
 
     /**
+
      * @return null|string
      */
     public function getSellerComment();

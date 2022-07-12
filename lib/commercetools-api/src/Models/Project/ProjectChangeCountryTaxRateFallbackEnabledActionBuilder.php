@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectChangeCountryTaxRateFallbackEnabledActionBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $countryTaxRateFallbackEnabled;
@@ -28,6 +29,7 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionBuilder implements B
     /**
      * <p>When <code>true</code>, country <em>- no state</em> Tax Rate is used as fallback. See <a href="ctp:api:type:CartsConfiguration">CartsConfiguration</a>.</p>
      *
+
      * @return null|bool
      */
     public function getCountryTaxRateFallbackEnabled()

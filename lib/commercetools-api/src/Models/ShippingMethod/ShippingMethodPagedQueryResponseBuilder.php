@@ -21,26 +21,31 @@ use stdClass;
 final class ShippingMethodPagedQueryResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?ShippingMethodCollection
      */
     private $results;
@@ -48,6 +53,7 @@ final class ShippingMethodPagedQueryResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -58,6 +64,7 @@ final class ShippingMethodPagedQueryResponseBuilder implements Builder
     /**
      * <p>Actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount()
@@ -72,6 +79,7 @@ final class ShippingMethodPagedQueryResponseBuilder implements Builder
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
      * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -82,6 +90,7 @@ final class ShippingMethodPagedQueryResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -92,6 +101,7 @@ final class ShippingMethodPagedQueryResponseBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ShippingMethod">Shipping Methods</a> matching the query.</p>
      *
+
      * @return null|ShippingMethodCollection
      */
     public function getResults()

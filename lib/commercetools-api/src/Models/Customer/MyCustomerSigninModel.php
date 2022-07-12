@@ -20,21 +20,25 @@ use stdClass;
 final class MyCustomerSigninModel extends JsonObjectModel implements MyCustomerSignin
 {
     /**
+
      * @var ?string
      */
     protected $email;
 
     /**
+
      * @var ?string
      */
     protected $password;
 
     /**
+
      * @var ?string
      */
     protected $activeCartSignInMode;
 
     /**
+
      * @var ?bool
      */
     protected $updateProductData;
@@ -56,6 +60,7 @@ final class MyCustomerSigninModel extends JsonObjectModel implements MyCustomerS
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -73,6 +78,7 @@ final class MyCustomerSigninModel extends JsonObjectModel implements MyCustomerS
     }
 
     /**
+
      * @return null|string
      */
     public function getPassword()
@@ -90,6 +96,7 @@ final class MyCustomerSigninModel extends JsonObjectModel implements MyCustomerS
     }
 
     /**
+
      * @return null|string
      */
     public function getActiveCartSignInMode()
@@ -107,6 +114,7 @@ final class MyCustomerSigninModel extends JsonObjectModel implements MyCustomerS
     }
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData()

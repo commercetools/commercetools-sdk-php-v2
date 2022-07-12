@@ -25,16 +25,19 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemTaxRate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -53,6 +56,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -87,6 +92,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

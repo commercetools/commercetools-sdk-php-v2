@@ -21,26 +21,31 @@ use stdClass;
 final class MyCustomerSigninBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+
      * @var ?string
      */
     private $activeCartSignInMode;
 
     /**
+
      * @var ?bool
      */
     private $updateProductData;
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -49,6 +54,7 @@ final class MyCustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPassword()
@@ -57,6 +63,7 @@ final class MyCustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getActiveCartSignInMode()
@@ -65,6 +72,7 @@ final class MyCustomerSigninBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData()

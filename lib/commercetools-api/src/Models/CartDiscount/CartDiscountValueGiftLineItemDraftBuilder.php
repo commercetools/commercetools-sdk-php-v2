@@ -25,21 +25,25 @@ use stdClass;
 final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var null|ProductResourceIdentifier|ProductResourceIdentifierBuilder
      */
     private $product;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
@@ -47,6 +51,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * <p>ResourceIdentifier of a Product.</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()
@@ -57,6 +62,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -67,6 +73,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * <p>Channel must have the role <code>InventorySupply</code>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -77,6 +84,7 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * <p>Channel must have the role <code>ProductDistribution</code>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

@@ -22,11 +22,13 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 
 
     /**
+
      * @var ?Money
      */
     protected $totalNet;
 
     /**
+
      * @var ?Money
      */
     protected $totalGross;
@@ -45,6 +47,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalNet()
@@ -63,6 +66,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalGross()

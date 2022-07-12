@@ -21,11 +21,13 @@ use stdClass;
 final class TypeChangeEnumValueOrderActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var ?array
      */
     private $keys;
@@ -33,6 +35,7 @@ final class TypeChangeEnumValueOrderActionBuilder implements Builder
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -43,6 +46,7 @@ final class TypeChangeEnumValueOrderActionBuilder implements Builder
     /**
      * <p>Must match the set of <code>key</code>s of the EnumValues in the FieldDefinition (apart from their order).</p>
      *
+
      * @return null|array
      */
     public function getKeys()

@@ -22,6 +22,7 @@ interface ProductSelectionDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the ProductSelection.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -29,6 +30,7 @@ interface ProductSelectionDraft extends JsonObject
     /**
      * <p>Name of the ProductSelection. Not checked for uniqueness, but distinct names are recommended.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -36,6 +38,7 @@ interface ProductSelectionDraft extends JsonObject
     /**
      * <p>Custom Fields of this ProductSelection.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

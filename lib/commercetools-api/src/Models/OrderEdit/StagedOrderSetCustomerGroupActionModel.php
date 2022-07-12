@@ -25,11 +25,13 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerGroup';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
@@ -46,6 +48,7 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -65,6 +68,7 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

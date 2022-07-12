@@ -23,16 +23,19 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'removeShippingRate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ZoneResourceIdentifier
      */
     protected $zone;
 
     /**
+
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
@@ -51,6 +54,7 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> from which the ShippingRate should be removed.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()
@@ -90,6 +95,7 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     /**
      * <p>Value to remove from <code>shippingRates</code>.</p>
      *
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()

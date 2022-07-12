@@ -23,16 +23,19 @@ use stdClass;
 final class ProductVariantPatchBuilder implements Builder
 {
     /**
+
      * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
 
     /**
+
      * @var null|Attributes|AttributesBuilder
      */
     private $attributes;
 
     /**
+
      * @var ?bool
      */
     private $staged;
@@ -42,6 +45,7 @@ final class ProductVariantPatchBuilder implements Builder
      * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the ProductVariantPatch is associated.
      * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
+
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant()
@@ -53,6 +57,7 @@ final class ProductVariantPatchBuilder implements Builder
      * <p>Maps to <code>ProductVariant.attributes</code>.
      * The referenced attribute must be defined in an already existing <a href="/../api/projects/productTypes#producttype">ProductType</a> in the Project, or the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be <code>unresolved</code>.</p>
      *
+
      * @return null|Attributes
      */
     public function getAttributes()
@@ -63,6 +68,7 @@ final class ProductVariantPatchBuilder implements Builder
     /**
      * <p>If <code>false</code>, the attribute changes are applied to both <a href="/../api/projects/productProjections#current--staged">current and staged projected representations</a> of the <a href="/../api/projects/products#product">Product</a>.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()

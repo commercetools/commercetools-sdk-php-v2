@@ -24,21 +24,25 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemDiscountSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
@@ -59,6 +63,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -93,6 +99,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -110,6 +117,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

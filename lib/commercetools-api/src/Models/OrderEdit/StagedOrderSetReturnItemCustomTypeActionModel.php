@@ -27,21 +27,25 @@ final class StagedOrderSetReturnItemCustomTypeActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'setReturnItemCustomType';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $returnItemId;
 
     /**
+
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+
      * @var ?FieldContainer
      */
     protected $fields;
@@ -62,6 +66,7 @@ final class StagedOrderSetReturnItemCustomTypeActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -79,6 +84,7 @@ final class StagedOrderSetReturnItemCustomTypeActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId()
@@ -99,6 +105,7 @@ final class StagedOrderSetReturnItemCustomTypeActionModel extends JsonObjectMode
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the ReturnItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the ReturnItem.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -119,6 +126,7 @@ final class StagedOrderSetReturnItemCustomTypeActionModel extends JsonObjectMode
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the ReturnItem.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

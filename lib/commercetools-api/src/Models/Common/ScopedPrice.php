@@ -29,6 +29,7 @@ interface ScopedPrice extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|string
      */
     public function getId();
@@ -36,6 +37,7 @@ interface ScopedPrice extends JsonObject
     /**
      * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -43,6 +45,7 @@ interface ScopedPrice extends JsonObject
     /**
      * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getCurrentValue();
@@ -50,6 +53,7 @@ interface ScopedPrice extends JsonObject
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -57,6 +61,7 @@ interface ScopedPrice extends JsonObject
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -64,21 +69,25 @@ interface ScopedPrice extends JsonObject
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
@@ -86,6 +95,7 @@ interface ScopedPrice extends JsonObject
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

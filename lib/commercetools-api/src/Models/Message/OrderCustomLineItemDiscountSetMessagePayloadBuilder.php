@@ -24,21 +24,25 @@ use stdClass;
 final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -47,6 +51,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -55,6 +60,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

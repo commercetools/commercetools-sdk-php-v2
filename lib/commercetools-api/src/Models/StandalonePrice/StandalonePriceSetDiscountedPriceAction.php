@@ -19,6 +19,7 @@ interface StandalonePriceSetDiscountedPriceAction extends StandalonePriceUpdateA
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();

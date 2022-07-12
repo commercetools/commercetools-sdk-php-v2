@@ -17,11 +17,13 @@ interface PaymentTransactionStateChangedMessage extends Message
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+
      * @return null|string
      */
     public function getState();

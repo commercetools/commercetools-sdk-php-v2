@@ -21,16 +21,19 @@ use stdClass;
 final class OrderLabelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customerEmail;
 
     /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -39,6 +42,7 @@ final class OrderLabelBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderNumber()

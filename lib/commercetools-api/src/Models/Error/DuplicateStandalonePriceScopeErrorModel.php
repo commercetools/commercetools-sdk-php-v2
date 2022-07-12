@@ -28,51 +28,61 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateStandalonePriceScope';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?StandalonePriceReference
      */
     protected $conflictingStandalonePrice;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $currency;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -105,6 +115,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -122,6 +133,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -141,6 +153,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
+
      * @return null|StandalonePriceReference
      */
     public function getConflictingStandalonePrice()
@@ -159,6 +172,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -176,6 +190,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getCurrency()
@@ -193,6 +208,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getCountry()
@@ -212,6 +228,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -232,6 +249,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -250,6 +268,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -271,6 +290,7 @@ final class DuplicateStandalonePriceScopeErrorModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

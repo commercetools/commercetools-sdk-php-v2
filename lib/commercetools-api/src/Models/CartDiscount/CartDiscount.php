@@ -40,6 +40,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Unique identifier of the CartDiscount.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -47,6 +48,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Current version of the CartDiscount.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -54,6 +56,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Date and time (UTC) for the CartDiscount was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -61,6 +64,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Date and time (UTC) for the CartDiscount was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -68,6 +72,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -75,6 +80,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -82,6 +88,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Name of the CartDiscount.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -89,6 +96,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>User-defined unique identifier of the CartDiscount.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -96,6 +104,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Description of the CartDiscount.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -103,6 +112,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Effect of the CartDiscount.</p>
      *
+
      * @return null|CartDiscountValue
      */
     public function getValue();
@@ -110,6 +120,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate();
@@ -117,6 +128,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Sets a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a>. Empty if <code>value</code> has type <code>giftLineItem</code>.</p>
      *
+
      * @return null|CartDiscountTarget
      */
     public function getTarget();
@@ -127,6 +139,7 @@ interface CartDiscount extends BaseResource
      * A Discount with a higher sortOrder is prioritized.
      * The sort order is unambiguous among all CartDiscounts.</p>
      *
+
      * @return null|string
      */
     public function getSortOrder();
@@ -134,6 +147,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Indicates if the CartDiscount is active and can be applied to the Cart.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive();
@@ -141,6 +155,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Date and time (UTC) from which the Discount is effective.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -148,6 +163,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Date and time (UTC) until which the Discount is effective.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -155,6 +171,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Indicates if the Discount can be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|bool
      */
     public function getRequiresDiscountCode();
@@ -163,6 +180,7 @@ interface CartDiscount extends BaseResource
      * <p>References of all resources that are addressed in the predicate.
      * The API generates this array from the predicate.</p>
      *
+
      * @return null|ReferenceCollection
      */
     public function getReferences();
@@ -170,6 +188,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Indicates whether the application of the CartDiscount causes other discounts to be ignored.</p>
      *
+
      * @return null|string
      */
     public function getStackingMode();
@@ -177,6 +196,7 @@ interface CartDiscount extends BaseResource
     /**
      * <p>Custom Fields of the CartDiscount.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

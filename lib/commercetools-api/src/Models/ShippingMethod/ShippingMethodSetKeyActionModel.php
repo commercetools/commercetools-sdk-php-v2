@@ -21,11 +21,13 @@ final class ShippingMethodSetKeyActionModel extends JsonObjectModel implements S
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class ShippingMethodSetKeyActionModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShippingMethodSetKeyActionModel extends JsonObjectModel implements S
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, the existing key, if any, will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

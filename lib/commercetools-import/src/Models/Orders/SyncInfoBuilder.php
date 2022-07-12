@@ -24,16 +24,19 @@ use stdClass;
 final class SyncInfoBuilder implements Builder
 {
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $syncedAt;
@@ -41,6 +44,7 @@ final class SyncInfoBuilder implements Builder
     /**
      * <p>Maps to <code>SyncInfo.channel</code></p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel()
@@ -51,6 +55,7 @@ final class SyncInfoBuilder implements Builder
     /**
      * <p>Maps to <code>SyncInfo.externalId</code></p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -61,6 +66,7 @@ final class SyncInfoBuilder implements Builder
     /**
      * <p>Maps to <code>SyncInfo.syncedAt</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt()

@@ -21,11 +21,13 @@ use stdClass;
 final class MyCartRecalculateActionBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $updateProductData;
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData()

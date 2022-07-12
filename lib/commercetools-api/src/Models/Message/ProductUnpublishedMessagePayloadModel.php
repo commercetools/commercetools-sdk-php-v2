@@ -21,6 +21,7 @@ final class ProductUnpublishedMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'ProductUnpublished';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class ProductUnpublishedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

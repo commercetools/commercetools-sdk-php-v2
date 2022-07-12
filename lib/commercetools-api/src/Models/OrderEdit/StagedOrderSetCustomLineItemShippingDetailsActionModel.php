@@ -25,16 +25,19 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemShippingDetails';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -53,6 +56,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -87,6 +92,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

@@ -30,41 +30,49 @@ use stdClass;
 final class MyPaymentBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountPlanned;
 
     /**
+
      * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
+
      * @var ?TransactionCollection
      */
     private $transactions;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -72,6 +80,7 @@ final class MyPaymentBuilder implements Builder
     /**
      * <p>Unique identifier of the MyPayment.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -80,6 +89,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -90,6 +100,7 @@ final class MyPaymentBuilder implements Builder
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -100,6 +111,7 @@ final class MyPaymentBuilder implements Builder
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -111,6 +123,7 @@ final class MyPaymentBuilder implements Builder
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getAmountPlanned()
@@ -119,6 +132,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -130,6 +144,7 @@ final class MyPaymentBuilder implements Builder
      * <p>A list of financial transactions of different TransactionTypes
      * with different TransactionStates.</p>
      *
+
      * @return null|TransactionCollection
      */
     public function getTransactions()
@@ -138,6 +153,7 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()

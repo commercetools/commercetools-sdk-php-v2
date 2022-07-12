@@ -16,6 +16,7 @@ interface CustomerSetSalutationAction extends CustomerUpdateAction
     public const FIELD_SALUTATION = 'salutation';
 
     /**
+
      * @return null|string
      */
     public function getSalutation();

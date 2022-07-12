@@ -23,11 +23,13 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'removeDistributionChannel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -44,6 +46,7 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
     /**
      * <p>Value to remove. ResourceIdentifier of a Channel with the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

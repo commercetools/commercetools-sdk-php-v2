@@ -20,11 +20,13 @@ use stdClass;
 final class GeneralCategoryRecommendationModel extends JsonObjectModel implements GeneralCategoryRecommendation
 {
     /**
+
      * @var ?string
      */
     protected $categoryName;
 
     /**
+
      * @var ?float
      */
     protected $confidence;
@@ -44,6 +46,7 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     /**
      * <p>An English category name that is recommended for a product.</p>
      *
+
      * @return null|string
      */
     public function getCategoryName()
@@ -63,6 +66,7 @@ final class GeneralCategoryRecommendationModel extends JsonObjectModel implement
     /**
      * <p>Probability score for the category recommendation.</p>
      *
+
      * @return null|float
      */
     public function getConfidence()

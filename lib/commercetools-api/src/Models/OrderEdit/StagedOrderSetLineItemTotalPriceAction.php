@@ -19,11 +19,13 @@ interface StagedOrderSetLineItemTotalPriceAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice();

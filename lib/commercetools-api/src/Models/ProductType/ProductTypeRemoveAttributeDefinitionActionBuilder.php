@@ -21,6 +21,7 @@ use stdClass;
 final class ProductTypeRemoveAttributeDefinitionActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
@@ -28,6 +29,7 @@ final class ProductTypeRemoveAttributeDefinitionActionBuilder implements Builder
     /**
      * <p>Name of the Attribute to remove.</p>
      *
+
      * @return null|string
      */
     public function getName()

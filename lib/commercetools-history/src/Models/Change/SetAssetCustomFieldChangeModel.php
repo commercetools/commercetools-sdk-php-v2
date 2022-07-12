@@ -24,36 +24,43 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
 
     public const DISCRIMINATOR_VALUE = 'SetAssetCustomFieldChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $customTypeId;
 
     /**
+
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
+
      * @var ?mixed
      */
     protected $previousValue;
@@ -80,6 +87,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -99,6 +107,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     /**
      * <p>Update action for <code>setAssetCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -116,6 +125,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -133,6 +143,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomTypeId()
@@ -150,6 +161,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -168,6 +180,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -185,6 +198,7 @@ final class SetAssetCustomFieldChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

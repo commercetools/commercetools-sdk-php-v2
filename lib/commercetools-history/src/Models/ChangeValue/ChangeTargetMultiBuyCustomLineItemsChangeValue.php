@@ -21,11 +21,13 @@ interface ChangeTargetMultiBuyCustomLineItemsChangeValue extends ChangeTargetCha
     public const FIELD_SELECTION_MODE = 'selectionMode';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getPredicate();
@@ -33,6 +35,7 @@ interface ChangeTargetMultiBuyCustomLineItemsChangeValue extends ChangeTargetCha
     /**
      * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
      *
+
      * @return null|int
      */
     public function getTriggerQuantity();
@@ -40,6 +43,7 @@ interface ChangeTargetMultiBuyCustomLineItemsChangeValue extends ChangeTargetCha
     /**
      * <p>Quantity of line items that are discounted per application of this discount.</p>
      *
+
      * @return null|int
      */
     public function getDiscountedQuantity();
@@ -47,11 +51,13 @@ interface ChangeTargetMultiBuyCustomLineItemsChangeValue extends ChangeTargetCha
     /**
      * <p>Maximum number of applications of this discount.</p>
      *
+
      * @return null|int
      */
     public function getMaxOccurrence();
 
     /**
+
      * @return null|string
      */
     public function getSelectionMode();

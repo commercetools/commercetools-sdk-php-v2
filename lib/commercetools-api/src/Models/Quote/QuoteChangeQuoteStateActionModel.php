@@ -21,11 +21,13 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'changeQuoteState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $quoteState;
@@ -42,6 +44,7 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
     /**
      * <p>The new quote state to be set for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getQuoteState()

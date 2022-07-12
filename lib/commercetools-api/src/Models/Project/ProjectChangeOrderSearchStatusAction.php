@@ -18,6 +18,7 @@ interface ProjectChangeOrderSearchStatusAction extends ProjectUpdateAction
     /**
      * <p>Activates or deactivates the <a href="/../api/projects/order-search">Order Search</a> feature. Activation will trigger building a search index for the Orders in the Project.</p>
      *
+
      * @return null|string
      */
     public function getStatus();

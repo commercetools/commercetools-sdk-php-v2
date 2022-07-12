@@ -26,36 +26,43 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'ResourceDeleted';
     /**
+
      * @var ?string
      */
     protected $projectKey;
 
     /**
+
      * @var ?string
      */
     protected $notificationType;
 
     /**
+
      * @var ?Reference
      */
     protected $resource;
 
     /**
+
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $modifiedAt;
 
     /**
+
      * @var ?bool
      */
     protected $dataErasure;
@@ -82,6 +89,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getProjectKey()
@@ -99,6 +107,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getNotificationType()
@@ -118,6 +127,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -136,6 +146,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -154,6 +165,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -171,6 +183,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()
@@ -192,6 +205,7 @@ final class ResourceDeletedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|bool
      */
     public function getDataErasure()

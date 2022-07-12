@@ -20,26 +20,31 @@ use stdClass;
 final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
 {
     /**
+
      * @var ?int
      */
     protected $statusCode;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $error;
 
     /**
+
      * @var ?string
      */
     protected $error_description;
 
     /**
+
      * @var ?ErrorObjectCollection
      */
     protected $errors;
@@ -65,6 +70,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     /**
      * <p>The http status code of the response.</p>
      *
+
      * @return null|int
      */
     public function getStatusCode()
@@ -84,6 +90,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     /**
      * <p>Describes the error.</p>
      *
+
      * @return null|string
      */
     public function getMessage()
@@ -104,6 +111,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
      * <p>This property is only used for OAuth2 errors.
      * Contains the error code.</p>
      *
+
      * @return null|string
      */
     public function getError()
@@ -125,6 +133,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
      * Additional information to assist the client developer in
      * understanding the error.</p>
      *
+
      * @return null|string
      */
     public function getError_description()
@@ -144,6 +153,7 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     /**
      * <p>The errors that caused this error response.</p>
      *
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors()

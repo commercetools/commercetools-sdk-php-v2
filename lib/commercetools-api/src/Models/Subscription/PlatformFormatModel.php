@@ -21,6 +21,7 @@ final class PlatformFormatModel extends JsonObjectModel implements PlatformForma
 {
     public const DISCRIMINATOR_VALUE = 'Platform';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class PlatformFormatModel extends JsonObjectModel implements PlatformForma
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

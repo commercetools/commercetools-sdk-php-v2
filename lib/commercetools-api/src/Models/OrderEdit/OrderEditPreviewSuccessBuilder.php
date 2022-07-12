@@ -22,16 +22,19 @@ use stdClass;
 final class OrderEditPreviewSuccessBuilder implements Builder
 {
     /**
+
      * @var null|StagedOrder|StagedOrderBuilder
      */
     private $preview;
 
     /**
+
      * @var ?MessagePayloadCollection
      */
     private $messagePayloads;
 
     /**
+
      * @return null|StagedOrder
      */
     public function getPreview()
@@ -40,6 +43,7 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     }
 
     /**
+
      * @return null|MessagePayloadCollection
      */
     public function getMessagePayloads()

@@ -23,26 +23,31 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetLineItemProductSlugChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
@@ -50,6 +55,7 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLineItemProductSlug</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -66,6 +73,7 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -74,6 +82,7 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -82,6 +91,7 @@ final class SetLineItemProductSlugChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

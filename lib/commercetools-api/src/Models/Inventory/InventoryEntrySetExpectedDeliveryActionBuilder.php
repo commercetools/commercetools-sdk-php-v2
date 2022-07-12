@@ -22,6 +22,7 @@ use stdClass;
 final class InventoryEntrySetExpectedDeliveryActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $expectedDelivery;
@@ -29,6 +30,7 @@ final class InventoryEntrySetExpectedDeliveryActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()

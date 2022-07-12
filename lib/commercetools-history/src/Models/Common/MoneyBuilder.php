@@ -21,21 +21,25 @@ use stdClass;
 final class MoneyBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @var ?int
      */
     private $centAmount;
 
     /**
+
      * @var ?int
      */
     private $fractionDigits;
 
     /**
+
      * @var ?string
      */
     private $type;
@@ -43,6 +47,7 @@ final class MoneyBuilder implements Builder
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -51,6 +56,7 @@ final class MoneyBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCentAmount()
@@ -59,6 +65,7 @@ final class MoneyBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getFractionDigits()
@@ -67,6 +74,7 @@ final class MoneyBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

@@ -21,11 +21,13 @@ use stdClass;
 final class PriceTierBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $minimumQuantity;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
@@ -33,6 +35,7 @@ final class PriceTierBuilder implements Builder
     /**
      * <p>The minimum quantity this price tier is valid for.</p>
      *
+
      * @return null|int
      */
     public function getMinimumQuantity()
@@ -43,6 +46,7 @@ final class PriceTierBuilder implements Builder
     /**
      * <p>The currency of a price tier is always the same as the currency of the base Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue()

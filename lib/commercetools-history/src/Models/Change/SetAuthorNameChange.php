@@ -18,6 +18,7 @@ interface SetAuthorNameChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface SetAuthorNameChange extends Change
     /**
      * <p>Shape of the action for <code>setAuthorName</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();

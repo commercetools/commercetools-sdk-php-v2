@@ -21,16 +21,19 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'PaymentTransactionStateChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $transactionId;
 
     /**
+
      * @var ?string
      */
     protected $state;
@@ -49,6 +52,7 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -83,6 +88,7 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getState()

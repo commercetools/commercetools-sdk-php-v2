@@ -22,21 +22,25 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
 
     public const DISCRIMINATOR_VALUE = 'SetLanguagesChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?array
      */
     protected $previousValue;
 
     /**
+
      * @var ?array
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     /**
      * <p>Update action for <code>setLanguages</code> on stores</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class SetLanguagesChangeModel extends JsonObjectModel implements SetLangua
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()

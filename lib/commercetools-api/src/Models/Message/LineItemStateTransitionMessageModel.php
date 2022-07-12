@@ -30,81 +30,97 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'LineItemStateTransition';
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+
      * @var ?Reference
      */
     protected $resource;
 
     /**
+
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $transitionDate;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?StateReference
      */
     protected $fromState;
 
     /**
+
      * @var ?StateReference
      */
     protected $toState;
@@ -151,6 +167,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Unique identifier of the Message.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -168,6 +185,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -185,6 +203,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -206,6 +225,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -229,6 +249,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -249,6 +270,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -267,6 +289,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -286,6 +309,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -304,6 +328,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -321,6 +346,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -338,6 +364,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -356,6 +383,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -373,6 +401,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getTransitionDate()
@@ -394,6 +423,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -413,6 +443,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getFromState()
@@ -433,6 +464,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getToState()

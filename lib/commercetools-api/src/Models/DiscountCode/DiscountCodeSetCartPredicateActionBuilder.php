@@ -21,6 +21,7 @@ use stdClass;
 final class DiscountCodeSetCartPredicateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $cartPredicate;
@@ -28,6 +29,7 @@ final class DiscountCodeSetCartPredicateActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate()

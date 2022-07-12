@@ -18,6 +18,7 @@ interface ShippingMethodSetDescriptionAction extends ShippingMethodUpdateAction
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getDescription();

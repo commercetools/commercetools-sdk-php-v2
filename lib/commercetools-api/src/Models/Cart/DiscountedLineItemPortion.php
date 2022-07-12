@@ -19,11 +19,13 @@ interface DiscountedLineItemPortion extends JsonObject
     public const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 
     /**
+
      * @return null|CartDiscountReference
      */
     public function getDiscount();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getDiscountedAmount();

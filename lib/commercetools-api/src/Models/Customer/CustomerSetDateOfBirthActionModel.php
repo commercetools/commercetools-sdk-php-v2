@@ -22,11 +22,13 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setDateOfBirth';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
@@ -43,6 +45,7 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements
     /**
      * <p>If not defined, the date of birth is unset.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()

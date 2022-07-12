@@ -23,11 +23,13 @@ final class MyCartUpdateItemShippingAddressActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'updateItemShippingAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -44,6 +46,7 @@ final class MyCartUpdateItemShippingAddressActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class MyCartUpdateItemShippingAddressActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

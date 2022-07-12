@@ -16,6 +16,7 @@ interface CartAddDiscountCodeAction extends CartUpdateAction
     public const FIELD_CODE = 'code';
 
     /**
+
      * @return null|string
      */
     public function getCode();

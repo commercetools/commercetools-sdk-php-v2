@@ -21,16 +21,19 @@ use stdClass;
 final class AzureEventGridDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $uri;
 
     /**
+
      * @var ?string
      */
     private $accessKey;
 
     /**
+
      * @return null|string
      */
     public function getUri()
@@ -39,6 +42,7 @@ final class AzureEventGridDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAccessKey()

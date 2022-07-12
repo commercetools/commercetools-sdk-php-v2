@@ -21,31 +21,37 @@ use stdClass;
 final class ErrorResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $statusCode;
 
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $error;
 
     /**
+
      * @var ?string
      */
     private $error_description;
 
     /**
+
      * @var ?ErrorObjectCollection
      */
     private $errors;
 
     /**
+
      * @return null|int
      */
     public function getStatusCode()
@@ -54,6 +60,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -62,6 +69,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getError()
@@ -70,6 +78,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getError_description()
@@ -78,6 +87,7 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors()

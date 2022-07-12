@@ -21,6 +21,7 @@ final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderE
 {
     public const DISCRIMINATOR_VALUE = 'NotProcessed';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class OrderEditNotProcessedModel extends JsonObjectModel implements OrderE
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

@@ -19,6 +19,7 @@ interface ReferenceField extends CustomField
     /**
      * <p>References a resource by key</p>
      *
+
      * @return null|KeyReference
      */
     public function getValue();

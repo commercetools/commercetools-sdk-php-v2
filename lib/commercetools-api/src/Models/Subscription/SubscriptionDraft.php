@@ -20,11 +20,13 @@ interface SubscriptionDraft extends JsonObject
     public const FIELD_FORMAT = 'format';
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();
 
     /**
+
      * @return null|Destination
      */
     public function getDestination();
@@ -32,16 +34,19 @@ interface SubscriptionDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages();
 
     /**
+
      * @return null|DeliveryFormat
      */
     public function getFormat();

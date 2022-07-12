@@ -16,6 +16,7 @@ interface DuplicateVariantValuesError extends ErrorObject
     public const FIELD_VARIANT_VALUES = 'variantValues';
 
     /**
+
      * @return null|VariantValues
      */
     public function getVariantValues();

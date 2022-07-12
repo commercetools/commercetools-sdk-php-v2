@@ -20,6 +20,7 @@ interface CategoryAddAssetAction extends CategoryUpdateAction
     /**
      * <p>Value to append.</p>
      *
+
      * @return null|AssetDraft
      */
     public function getAsset();
@@ -27,6 +28,7 @@ interface CategoryAddAssetAction extends CategoryUpdateAction
     /**
      * <p>Position in the array at which the Asset should be put. When specified, the value must be between <code>0</code> and the total number of Assets minus <code>1</code>.</p>
      *
+
      * @return null|int
      */
     public function getPosition();

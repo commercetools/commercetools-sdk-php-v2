@@ -18,6 +18,7 @@ interface TypeAddFieldDefinitionAction extends TypeUpdateAction
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|FieldDefinition
      */
     public function getFieldDefinition();

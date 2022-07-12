@@ -19,6 +19,7 @@ interface CategorySetAssetKeyAction extends CategoryUpdateAction
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|string
      */
     public function getAssetId();
@@ -26,6 +27,7 @@ interface CategorySetAssetKeyAction extends CategoryUpdateAction
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey();

@@ -21,11 +21,13 @@ use stdClass;
 final class ExternalOAuthBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $url;
 
     /**
+
      * @var ?string
      */
     private $authorizationHeader;
@@ -33,6 +35,7 @@ final class ExternalOAuthBuilder implements Builder
     /**
      * <p>URL with authorization header.</p>
      *
+
      * @return null|string
      */
     public function getUrl()
@@ -43,6 +46,7 @@ final class ExternalOAuthBuilder implements Builder
     /**
      * <p>Partially hidden on retrieval.</p>
      *
+
      * @return null|string
      */
     public function getAuthorizationHeader()

@@ -21,6 +21,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -57,7 +58,10 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'LineItemStateTransition' => LineItemStateTransitionMessagePayloadModel::class,
        'OrderBillingAddressSet' => OrderBillingAddressSetMessagePayloadModel::class,
        'OrderCreated' => OrderCreatedMessagePayloadModel::class,
+       'OrderCustomLineItemAdded' => OrderCustomLineItemAddedMessagePayloadModel::class,
        'OrderCustomLineItemDiscountSet' => OrderCustomLineItemDiscountSetMessagePayloadModel::class,
+       'OrderCustomLineItemQuantityChanged' => OrderCustomLineItemQuantityChangedMessagePayloadModel::class,
+       'OrderCustomLineItemRemoved' => OrderCustomLineItemRemovedMessagePayloadModel::class,
        'OrderCustomerEmailSet' => OrderCustomerEmailSetMessagePayloadModel::class,
        'OrderCustomerGroupSet' => OrderCustomerGroupSetMessagePayloadModel::class,
        'OrderCustomerSet' => OrderCustomerSetMessagePayloadModel::class,
@@ -148,6 +152,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

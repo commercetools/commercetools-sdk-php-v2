@@ -33,76 +33,91 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemDiscountSet';
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+
      * @var ?Reference
      */
     protected $resource;
 
     /**
+
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
+
      * @var ?Money
      */
     protected $totalPrice;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
@@ -147,6 +162,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     /**
      * <p>Unique identifier of the Message.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -164,6 +180,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -181,6 +198,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -202,6 +220,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -225,6 +244,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -245,6 +265,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -263,6 +284,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -282,6 +304,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -300,6 +323,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -317,6 +341,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -334,6 +359,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -352,6 +378,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -369,6 +396,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -389,6 +417,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -407,6 +436,7 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

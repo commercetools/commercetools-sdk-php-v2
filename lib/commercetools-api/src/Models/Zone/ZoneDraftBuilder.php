@@ -21,21 +21,25 @@ use stdClass;
 final class ZoneDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var ?LocationCollection
      */
     private $locations;
@@ -43,6 +47,7 @@ final class ZoneDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Zone.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -53,6 +58,7 @@ final class ZoneDraftBuilder implements Builder
     /**
      * <p>Name of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -63,6 +69,7 @@ final class ZoneDraftBuilder implements Builder
     /**
      * <p>Description of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -73,6 +80,7 @@ final class ZoneDraftBuilder implements Builder
     /**
      * <p>List of locations that belong to the Zone.</p>
      *
+
      * @return null|LocationCollection
      */
     public function getLocations()

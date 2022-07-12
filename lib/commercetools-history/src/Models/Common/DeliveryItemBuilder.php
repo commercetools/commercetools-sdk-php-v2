@@ -21,16 +21,19 @@ use stdClass;
 final class DeliveryItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -39,6 +42,7 @@ final class DeliveryItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

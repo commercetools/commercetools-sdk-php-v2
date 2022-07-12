@@ -16,6 +16,7 @@ interface AttributeEnumType extends AttributeType
     public const FIELD_VALUES = 'values';
 
     /**
+
      * @return null|AttributePlainEnumValueCollection
      */
     public function getValues();

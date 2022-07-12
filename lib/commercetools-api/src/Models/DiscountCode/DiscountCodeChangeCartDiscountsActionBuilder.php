@@ -22,6 +22,7 @@ use stdClass;
 final class DiscountCodeChangeCartDiscountsActionBuilder implements Builder
 {
     /**
+
      * @var ?CartDiscountResourceIdentifierCollection
      */
     private $cartDiscounts;
@@ -29,6 +30,7 @@ final class DiscountCodeChangeCartDiscountsActionBuilder implements Builder
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts()

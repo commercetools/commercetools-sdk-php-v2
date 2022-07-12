@@ -23,16 +23,19 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'CategorySlugChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $oldSlug;
@@ -51,6 +54,7 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +74,7 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -90,6 +95,7 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getOldSlug()

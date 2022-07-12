@@ -28,41 +28,49 @@ use stdClass;
 final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLineItemDraft
 {
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?Money
      */
     protected $money;
 
     /**
+
      * @var ?string
      */
     protected $slug;
 
     /**
+
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -92,6 +100,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -113,6 +122,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -130,6 +140,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
+
      * @return null|Money
      */
     public function getMoney()
@@ -148,6 +159,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
+
      * @return null|string
      */
     public function getSlug()
@@ -167,6 +179,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     /**
      * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -187,6 +200,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -207,6 +221,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -227,6 +242,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     /**
      * <p>Container for custom line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

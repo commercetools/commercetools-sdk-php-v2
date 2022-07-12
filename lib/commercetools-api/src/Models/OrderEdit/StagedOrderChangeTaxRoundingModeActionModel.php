@@ -23,11 +23,13 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxRoundingMode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $taxRoundingMode;
@@ -44,6 +46,7 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxRoundingMode()

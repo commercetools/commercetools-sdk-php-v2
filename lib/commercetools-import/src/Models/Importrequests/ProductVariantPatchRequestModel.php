@@ -22,11 +22,13 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'product-variant-patch';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductVariantPatchCollection
      */
     protected $patches;
@@ -45,6 +47,7 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     /**
      * <p>The product variant patches of this request.</p>
      *
+
      * @return null|ProductVariantPatchCollection
      */
     public function getPatches()

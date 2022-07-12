@@ -19,6 +19,7 @@ interface CartDiscountChangeNameAction extends CartDiscountUpdateAction
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

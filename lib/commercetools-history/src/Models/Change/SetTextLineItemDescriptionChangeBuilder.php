@@ -25,26 +25,31 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetTextLineItemDescriptionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TextLineItemValue|TextLineItemValueBuilder
      */
     private $textLineItem;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -61,6 +67,7 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class SetTextLineItemDescriptionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

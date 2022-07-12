@@ -20,16 +20,19 @@ interface DeliveryDraft extends JsonObject
     public const FIELD_PARCELS = 'parcels';
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();
 
     /**
+
      * @return null|DeliveryParcelDraftCollection
      */
     public function getParcels();

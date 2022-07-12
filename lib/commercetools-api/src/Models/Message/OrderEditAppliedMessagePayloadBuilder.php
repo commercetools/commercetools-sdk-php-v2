@@ -25,11 +25,13 @@ use stdClass;
 final class OrderEditAppliedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|OrderEditReference|OrderEditReferenceBuilder
      */
     private $edit;
 
     /**
+
      * @var null|OrderEditApplied|OrderEditAppliedBuilder
      */
     private $result;
@@ -37,6 +39,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
+
      * @return null|OrderEditReference
      */
     public function getEdit()
@@ -45,6 +48,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|OrderEditApplied
      */
     public function getResult()

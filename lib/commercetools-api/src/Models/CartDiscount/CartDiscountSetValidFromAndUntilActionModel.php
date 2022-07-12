@@ -22,16 +22,19 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setValidFromAndUntil';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -50,6 +53,7 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -94,6 +99,7 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

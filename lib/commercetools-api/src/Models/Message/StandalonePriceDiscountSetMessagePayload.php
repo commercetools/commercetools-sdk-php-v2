@@ -19,6 +19,7 @@ interface StandalonePriceDiscountSetMessagePayload extends MessagePayload
     /**
      * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();

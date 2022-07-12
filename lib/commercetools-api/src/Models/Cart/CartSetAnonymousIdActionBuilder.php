@@ -21,6 +21,7 @@ use stdClass;
 final class CartSetAnonymousIdActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $anonymousId;
@@ -28,6 +29,7 @@ final class CartSetAnonymousIdActionBuilder implements Builder
     /**
      * <p>If not set, any existing anonymous ID will be removed.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()

@@ -20,6 +20,7 @@ interface StoreChangeProductSelectionAction extends StoreUpdateAction
     /**
      * <p>Current Product Selection of the Store to be activated or deactivated.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection();
@@ -27,6 +28,7 @@ interface StoreChangeProductSelectionAction extends StoreUpdateAction
     /**
      * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
+
      * @return null|bool
      */
     public function getActive();

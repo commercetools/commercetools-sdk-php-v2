@@ -16,6 +16,7 @@ interface CustomerSetFirstNameAction extends CustomerUpdateAction
     public const FIELD_FIRST_NAME = 'firstName';
 
     /**
+
      * @return null|string
      */
     public function getFirstName();

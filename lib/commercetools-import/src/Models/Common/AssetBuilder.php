@@ -23,31 +23,37 @@ use stdClass;
 final class AssetBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     private $sources;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?array
      */
     private $tags;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
@@ -56,6 +62,7 @@ final class AssetBuilder implements Builder
      * <p>User-defined identifier for the asset.
      * Asset keys are unique inside their container (a product variant or a category).</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -64,6 +71,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources()
@@ -79,6 +87,7 @@ final class AssetBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -94,6 +103,7 @@ final class AssetBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -102,6 +112,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getTags()
@@ -112,6 +123,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()

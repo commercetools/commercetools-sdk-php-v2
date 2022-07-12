@@ -18,11 +18,13 @@ interface ProductChangeNameAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

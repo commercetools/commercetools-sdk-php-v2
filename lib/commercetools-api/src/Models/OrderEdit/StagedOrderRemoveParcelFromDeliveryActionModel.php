@@ -23,11 +23,13 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'removeParcelFromDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
@@ -44,6 +46,7 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()

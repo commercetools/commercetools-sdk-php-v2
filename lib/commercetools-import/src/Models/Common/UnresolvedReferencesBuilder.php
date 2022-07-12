@@ -21,16 +21,19 @@ use stdClass;
 final class UnresolvedReferencesBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $typeId;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -41,6 +44,7 @@ final class UnresolvedReferencesBuilder implements Builder
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

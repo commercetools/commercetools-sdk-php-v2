@@ -24,21 +24,25 @@ use Commercetools\History\Models\Common\DeliveryItemCollection;
 final class SetParcelItemsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ParcelChangeValue|ParcelChangeValueBuilder
      */
     private $parcel;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $previousValue;
@@ -46,6 +50,7 @@ final class SetParcelItemsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setParcelItems</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -54,6 +59,7 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -62,6 +68,7 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getNextValue()
@@ -70,6 +77,7 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getPreviousValue()

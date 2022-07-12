@@ -18,6 +18,7 @@ interface SetMaxApplicationsChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface SetMaxApplicationsChange extends Change
     /**
      * <p>Shape of the action for <code>setMaxApplications</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|int
      */
     public function getNextValue();

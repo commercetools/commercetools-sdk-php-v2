@@ -21,6 +21,7 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -47,6 +48,7 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

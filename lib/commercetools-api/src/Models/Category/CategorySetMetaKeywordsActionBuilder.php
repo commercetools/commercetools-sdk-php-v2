@@ -23,6 +23,7 @@ use stdClass;
 final class CategorySetMetaKeywordsActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
@@ -30,6 +31,7 @@ final class CategorySetMetaKeywordsActionBuilder implements Builder
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()

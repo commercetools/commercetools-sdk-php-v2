@@ -53,6 +53,7 @@ interface CustomerDraft extends JsonObject
      * It should be <strong>unique</strong> across a project.
      * Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber();
@@ -62,6 +63,7 @@ interface CustomerDraft extends JsonObject
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
      * For more information, see Email uniquenes.</p>
      *
+
      * @return null|string
      */
     public function getEmail();
@@ -69,26 +71,31 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword();
 
     /**
+
      * @return null|string
      */
     public function getFirstName();
 
     /**
+
      * @return null|string
      */
     public function getLastName();
 
     /**
+
      * @return null|string
      */
     public function getMiddleName();
 
     /**
+
      * @return null|string
      */
     public function getTitle();
@@ -96,6 +103,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getAnonymousCartId();
@@ -103,6 +111,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getAnonymousCart();
@@ -110,21 +119,25 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();
 
     /**
+
      * @return null|string
      */
     public function getCompanyName();
 
     /**
+
      * @return null|string
      */
     public function getVatId();
@@ -132,6 +145,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getAddresses();
@@ -140,6 +154,7 @@ interface CustomerDraft extends JsonObject
      * <p>The index of the address in the addresses array.
      * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress();
@@ -148,6 +163,7 @@ interface CustomerDraft extends JsonObject
      * <p>The indices of the shipping addresses in the addresses array.
      * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getShippingAddresses();
@@ -156,6 +172,7 @@ interface CustomerDraft extends JsonObject
      * <p>The index of the address in the addresses array.
      * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress();
@@ -164,21 +181,25 @@ interface CustomerDraft extends JsonObject
      * <p>The indices of the billing addresses in the addresses array.
      * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getBillingAddresses();
 
     /**
+
      * @return null|bool
      */
     public function getIsEmailVerified();
 
     /**
+
      * @return null|string
      */
     public function getExternalId();
 
     /**
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -186,6 +207,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -193,11 +215,13 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Must be one of the languages supported for this project</p>
      *
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|string
      */
     public function getSalutation();
@@ -205,6 +229,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -214,6 +239,7 @@ interface CustomerDraft extends JsonObject
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
      * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();
@@ -221,6 +247,7 @@ interface CustomerDraft extends JsonObject
     /**
      * <p>Defines whether a password field is a required field for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode();

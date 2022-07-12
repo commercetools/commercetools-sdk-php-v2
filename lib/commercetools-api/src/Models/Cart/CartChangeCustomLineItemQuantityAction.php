@@ -17,11 +17,13 @@ interface CartChangeCustomLineItemQuantityAction extends CartUpdateAction
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

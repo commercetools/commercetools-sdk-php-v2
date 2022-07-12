@@ -25,36 +25,43 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public const FIELD_ASSETS = 'assets';
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices();
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets();

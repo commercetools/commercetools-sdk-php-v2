@@ -19,16 +19,19 @@ interface StoreProductSelectionsChangedMessage extends Message
     public const FIELD_UPDATED_PRODUCT_SELECTIONS = 'updatedProductSelections';
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getAddedProductSelections();
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getRemovedProductSelections();
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getUpdatedProductSelections();

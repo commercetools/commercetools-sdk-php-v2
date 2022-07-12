@@ -22,26 +22,31 @@ use stdClass;
 final class TypeDraftModel extends JsonObjectModel implements TypeDraft
 {
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?array
      */
     protected $resourceTypeIds;
 
     /**
+
      * @var ?FieldDefinitionCollection
      */
     protected $fieldDefinitions;
@@ -67,6 +72,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     /**
      * <p>User-defined unique identifier for the Type.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -86,6 +92,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     /**
      * <p>Name of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -106,6 +113,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     /**
      * <p>Description of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -126,6 +134,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     /**
      * <p>Resources and/or data types for which the Type is defined.</p>
      *
+
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -145,6 +154,7 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     /**
      * <p>Defines Custom Fields.</p>
      *
+
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions()

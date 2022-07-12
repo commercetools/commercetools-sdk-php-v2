@@ -17,6 +17,7 @@ interface StagedOrderChangeOrderStateAction extends StagedOrderUpdateAction
     public const FIELD_ORDER_STATE = 'orderState';
 
     /**
+
      * @return null|string
      */
     public function getOrderState();

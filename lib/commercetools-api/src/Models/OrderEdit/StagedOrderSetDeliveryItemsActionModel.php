@@ -24,16 +24,19 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setDeliveryItems';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -52,6 +55,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -69,6 +73,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -86,6 +91,7 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

@@ -22,46 +22,55 @@ use stdClass;
 final class ApiClientBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $scope;
 
     /**
+
      * @var ?string
      */
     private $secret;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastUsedAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $deleteAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?int
      */
     private $accessTokenValiditySeconds;
 
     /**
+
      * @var ?int
      */
     private $refreshTokenValiditySeconds;
@@ -69,6 +78,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>The OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -79,6 +89,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>Name of the APIClient.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -89,6 +100,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
      *
+
      * @return null|string
      */
     public function getScope()
@@ -100,6 +112,7 @@ final class ApiClientBuilder implements Builder
      * <p>Only shown once in the response of creating the APIClient.
      * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
+
      * @return null|string
      */
     public function getSecret()
@@ -110,6 +123,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>Date of the last day this APIClient was used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastUsedAt()
@@ -120,6 +134,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>If set, the Client will be deleted on (or shortly after) this point in time.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getDeleteAt()
@@ -130,6 +145,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>Date and time (UTC) the APIClient was initially created at.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -140,6 +156,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>Expiration time in seconds for each access token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
      *
+
      * @return null|int
      */
     public function getAccessTokenValiditySeconds()
@@ -150,6 +167,7 @@ final class ApiClientBuilder implements Builder
     /**
      * <p>Inactivity expiration time in seconds for each refresh token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
      *
+
      * @return null|int
      */
     public function getRefreshTokenValiditySeconds()

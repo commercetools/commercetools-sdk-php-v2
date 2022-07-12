@@ -21,16 +21,19 @@ use stdClass;
 final class OrderSetParcelTrackingDataActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -39,6 +42,7 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()

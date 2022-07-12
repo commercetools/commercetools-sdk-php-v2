@@ -18,11 +18,13 @@ interface ProductDeletedMessagePayload extends MessagePayload
     public const FIELD_CURRENT_PROJECTION = 'currentProjection';
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls();
 
     /**
+
      * @return null|ProductProjection
      */
     public function getCurrentProjection();

@@ -23,16 +23,19 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'changeCustomLineItemQuantity';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
@@ -51,6 +54,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -85,6 +90,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionModel extends JsonObjec
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

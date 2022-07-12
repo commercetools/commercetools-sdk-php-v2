@@ -21,6 +21,7 @@ use stdClass;
 final class CartSetShippingRateInputActionBuilder implements Builder
 {
     /**
+
      * @var null|ShippingRateInputDraft|ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
@@ -31,6 +32,7 @@ final class CartSetShippingRateInputActionBuilder implements Builder
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
      *
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()

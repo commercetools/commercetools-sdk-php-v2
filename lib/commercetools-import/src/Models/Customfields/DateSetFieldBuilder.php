@@ -21,11 +21,13 @@ use stdClass;
 final class DateSetFieldBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutableCollection
      */
     private $value;
 
     /**
+
      * @return null|DateTimeImmutableCollection
      */
     public function getValue()

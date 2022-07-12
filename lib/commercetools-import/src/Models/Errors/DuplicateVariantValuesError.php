@@ -18,6 +18,7 @@ interface DuplicateVariantValuesError extends ErrorObject
     /**
      * <p>The offending variant values.</p>
      *
+
      * @return null|VariantValues
      */
     public function getVariantValues();

@@ -24,21 +24,25 @@ final class RemoveItemShippingAddressesChangeModel extends JsonObjectModel imple
 
     public const DISCRIMINATOR_VALUE = 'RemoveItemShippingAddressesChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Address
      */
     protected $nextValue;
 
     /**
+
      * @var ?Address
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class RemoveItemShippingAddressesChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class RemoveItemShippingAddressesChangeModel extends JsonObjectModel imple
     /**
      * <p>Update action for <code>removeItemShippingAddress</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class RemoveItemShippingAddressesChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|Address
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class RemoveItemShippingAddressesChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue()

@@ -21,21 +21,25 @@ use stdClass;
 final class ImageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $url;
 
     /**
+
      * @var null|ImageDimensions|ImageDimensionsBuilder
      */
     private $dimensions;
 
     /**
+
      * @var ?string
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getUrl()
@@ -44,6 +48,7 @@ final class ImageBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageDimensions
      */
     public function getDimensions()
@@ -52,6 +57,7 @@ final class ImageBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLabel()

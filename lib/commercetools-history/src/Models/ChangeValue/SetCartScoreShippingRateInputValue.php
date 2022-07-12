@@ -18,11 +18,13 @@ interface SetCartScoreShippingRateInputValue extends JsonObject
     public const FIELD_SCORE = 'score';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|int
      */
     public function getScore();

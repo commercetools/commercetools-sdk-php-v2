@@ -22,6 +22,7 @@ use stdClass;
 final class ProductDiscountSetValidFromActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
@@ -31,6 +32,7 @@ final class ProductDiscountSetValidFromActionBuilder implements Builder
      * If empty, any existing value will be removed.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()

@@ -22,11 +22,13 @@ use stdClass;
 final class ImportResponseBuilder implements Builder
 {
     /**
+
      * @var ?ImportOperationStatusCollection
      */
     private $operationStatus;
 
     /**
+
      * @return null|ImportOperationStatusCollection
      */
     public function getOperationStatus()

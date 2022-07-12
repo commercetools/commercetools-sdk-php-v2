@@ -33,96 +33,115 @@ use stdClass;
 final class CategoryBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?CategoryReferenceCollection
      */
     private $ancestors;
 
     /**
+
      * @var null|CategoryReference|CategoryReferenceBuilder
      */
     private $parent;
 
     /**
+
      * @var ?string
      */
     private $orderHint;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -130,6 +149,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Unique identifier of the Category.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -140,6 +160,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Current version of the Category.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -150,6 +171,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Category was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -160,6 +182,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Category was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -170,6 +193,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -180,6 +204,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -190,6 +215,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Name of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -203,6 +229,7 @@ final class CategoryBuilder implements Builder
      * Valid slugs match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.
      * For <a href="/../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in a Project.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -213,6 +240,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Description of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -223,6 +251,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Contains the parent path towards the root Category.</p>
      *
+
      * @return null|CategoryReferenceCollection
      */
     public function getAncestors()
@@ -233,6 +262,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Parent Category of this Category.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getParent()
@@ -243,6 +273,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.</p>
      *
+
      * @return null|string
      */
     public function getOrderHint()
@@ -253,6 +284,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -263,6 +295,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Name of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -273,6 +306,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Description of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -283,6 +317,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Keywords related to the Category for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -293,6 +328,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Custom Fields for the Category.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -303,6 +339,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>Media related to the Category.</p>
      *
+
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -313,6 +350,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Category.</p>
      *
+
      * @return null|string
      */
     public function getKey()

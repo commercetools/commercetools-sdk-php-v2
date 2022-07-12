@@ -21,21 +21,25 @@ use stdClass;
 final class GraphQLErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?GraphQLErrorLocationCollection
      */
     private $locations;
 
     /**
+
      * @var ?array
      */
     private $path;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -44,6 +48,7 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|GraphQLErrorLocationCollection
      */
     public function getLocations()
@@ -52,6 +57,7 @@ final class GraphQLErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getPath()

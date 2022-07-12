@@ -21,11 +21,13 @@ final class GeneralErrorModel extends JsonObjectModel implements GeneralError
 {
     public const DISCRIMINATOR_VALUE = 'General';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class GeneralErrorModel extends JsonObjectModel implements GeneralError
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class GeneralErrorModel extends JsonObjectModel implements GeneralError
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

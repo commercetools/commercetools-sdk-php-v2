@@ -21,26 +21,31 @@ interface SetTextLineItemDescriptionChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();

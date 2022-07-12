@@ -22,11 +22,13 @@ final class OrderPatchImportRequestModel extends JsonObjectModel implements Orde
 {
     public const DISCRIMINATOR_VALUE = 'order-patch';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?OrderPatchImportCollection
      */
     protected $patches;
@@ -45,6 +47,7 @@ final class OrderPatchImportRequestModel extends JsonObjectModel implements Orde
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class OrderPatchImportRequestModel extends JsonObjectModel implements Orde
     /**
      * <p>The order patches of this request</p>
      *
+
      * @return null|OrderPatchImportCollection
      */
     public function getPatches()

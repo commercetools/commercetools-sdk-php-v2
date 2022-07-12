@@ -21,6 +21,7 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -62,6 +63,7 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

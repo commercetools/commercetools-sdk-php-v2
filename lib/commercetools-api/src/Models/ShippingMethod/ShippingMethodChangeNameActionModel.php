@@ -21,11 +21,13 @@ final class ShippingMethodChangeNameActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $name;
@@ -42,6 +44,7 @@ final class ShippingMethodChangeNameActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShippingMethodChangeNameActionModel extends JsonObjectModel implemen
     /**
      * <p>Value to set. Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getName()

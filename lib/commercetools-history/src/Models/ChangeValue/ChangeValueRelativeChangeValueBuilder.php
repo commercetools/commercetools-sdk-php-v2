@@ -21,11 +21,13 @@ use stdClass;
 final class ChangeValueRelativeChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $permyriad;
 
     /**
+
      * @return null|int
      */
     public function getPermyriad()

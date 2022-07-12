@@ -19,11 +19,13 @@ interface StagedOrderSetLineItemShippingDetailsAction extends StagedOrderUpdateA
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

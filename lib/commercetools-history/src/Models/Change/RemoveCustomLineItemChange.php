@@ -19,6 +19,7 @@ interface RemoveCustomLineItemChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface RemoveCustomLineItemChange extends Change
     /**
      * <p>Update action for adding and removing custom line items</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getNextValue();
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getPreviousValue();

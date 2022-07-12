@@ -21,6 +21,7 @@ interface ImportOperationStatus extends JsonObject
     /**
      * <p>The ID of the <a href="#importoperation">ImportOperation</a>.</p>
      *
+
      * @return null|string
      */
     public function getOperationId();
@@ -28,6 +29,7 @@ interface ImportOperationStatus extends JsonObject
     /**
      * <p>The validation state of the <a href="#importoperation">ImportOperation</a>.</p>
      *
+
      * @return null|string
      */
     public function getState();
@@ -36,6 +38,7 @@ interface ImportOperationStatus extends JsonObject
      * <p>The validation errors for the <a href="#importoperation">ImportOperation</a>.
      * See <a href="/error">Errors</a>.</p>
      *
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors();

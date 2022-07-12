@@ -21,41 +21,49 @@ use stdClass;
 final class TaxRateBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?float
      */
     private $amount;
 
     /**
+
      * @var ?bool
      */
     private $includedInPrice;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?SubRateCollection
      */
     private $subRates;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -64,6 +72,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -72,6 +81,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getAmount()
@@ -80,6 +90,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIncludedInPrice()
@@ -90,6 +101,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -98,6 +110,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()
@@ -106,6 +119,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|SubRateCollection
      */
     public function getSubRates()

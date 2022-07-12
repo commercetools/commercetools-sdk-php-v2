@@ -21,6 +21,7 @@ interface ProductTypeImport extends ImportResource
     /**
      * <p>Maps to <code>ProductType.name</code>.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -28,6 +29,7 @@ interface ProductTypeImport extends ImportResource
     /**
      * <p>Maps to <code>ProductType.description</code>.</p>
      *
+
      * @return null|string
      */
     public function getDescription();
@@ -35,6 +37,7 @@ interface ProductTypeImport extends ImportResource
     /**
      * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
      *
+
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes();

@@ -20,11 +20,13 @@ interface MissingImagesPagedQueryResult extends JsonObject
     public const FIELD_META = 'meta';
 
     /**
+
      * @return null|int
      */
     public function getCount();
 
     /**
+
      * @return null|int
      */
     public function getTotal();
@@ -32,16 +34,19 @@ interface MissingImagesPagedQueryResult extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
 
     /**
+
      * @return null|MissingImagesCollection
      */
     public function getResults();
 
     /**
+
      * @return null|MissingImagesMeta
      */
     public function getMeta();

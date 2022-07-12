@@ -23,16 +23,19 @@ use stdClass;
 final class CartClassificationTierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $value;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var ?bool
      */
     private $isMatching;
@@ -40,6 +43,7 @@ final class CartClassificationTierBuilder implements Builder
     /**
      * <p><code>key</code> selected from the <code>values</code> of the <a href="/projects/project#cartclassificationtype">CartClassificationType</a> configured in the Project.</p>
      *
+
      * @return null|string
      */
     public function getValue()
@@ -50,6 +54,7 @@ final class CartClassificationTierBuilder implements Builder
     /**
      * <p>Fixed shipping rate for the selected classification.</p>
      *
+
      * @return null|Money
      */
     public function getPrice()
@@ -60,6 +65,7 @@ final class CartClassificationTierBuilder implements Builder
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching()

@@ -25,21 +25,25 @@ use Commercetools\History\Models\Common\ParcelCollection;
 final class DeliveryChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var ?ParcelCollection
      */
     private $parcels;
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -48,6 +52,7 @@ final class DeliveryChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -56,6 +61,7 @@ final class DeliveryChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels()

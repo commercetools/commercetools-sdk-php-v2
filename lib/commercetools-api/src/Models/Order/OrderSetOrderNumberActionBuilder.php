@@ -21,11 +21,13 @@ use stdClass;
 final class OrderSetOrderNumberActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @return null|string
      */
     public function getOrderNumber()

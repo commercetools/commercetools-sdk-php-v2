@@ -21,6 +21,7 @@ interface AssetSource extends JsonObject
     /**
      * <p>URI of the AssetSource.</p>
      *
+
      * @return null|string
      */
     public function getUri();
@@ -28,6 +29,7 @@ interface AssetSource extends JsonObject
     /**
      * <p>User-defined unique identifier of the AssetSource.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -35,6 +37,7 @@ interface AssetSource extends JsonObject
     /**
      * <p>Width and height of the AssetSource.</p>
      *
+
      * @return null|AssetDimensions
      */
     public function getDimensions();
@@ -42,6 +45,7 @@ interface AssetSource extends JsonObject
     /**
      * <p>Indicates the type of content, for example <code>application/pdf</code>.</p>
      *
+
      * @return null|string
      */
     public function getContentType();

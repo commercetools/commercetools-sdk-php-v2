@@ -21,11 +21,13 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'addFieldDefinition';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?FieldDefinition
      */
     protected $fieldDefinition;
@@ -42,6 +44,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|FieldDefinition
      */
     public function getFieldDefinition()

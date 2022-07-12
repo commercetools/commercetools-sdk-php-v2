@@ -30,11 +30,13 @@ interface MyPayment extends JsonObject
     /**
      * <p>Unique identifier of the MyPayment.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
@@ -42,6 +44,7 @@ interface MyPayment extends JsonObject
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer();
@@ -49,6 +52,7 @@ interface MyPayment extends JsonObject
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
@@ -57,11 +61,13 @@ interface MyPayment extends JsonObject
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getAmountPlanned();
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo();
@@ -70,11 +76,13 @@ interface MyPayment extends JsonObject
      * <p>A list of financial transactions of different TransactionTypes
      * with different TransactionStates.</p>
      *
+
      * @return null|TransactionCollection
      */
     public function getTransactions();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();

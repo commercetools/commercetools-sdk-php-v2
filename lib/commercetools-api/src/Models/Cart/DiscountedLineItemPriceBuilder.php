@@ -23,16 +23,19 @@ use stdClass;
 final class DiscountedLineItemPriceBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var ?DiscountedLineItemPortionCollection
      */
     private $includedDiscounts;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -41,6 +44,7 @@ final class DiscountedLineItemPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPortionCollection
      */
     public function getIncludedDiscounts()

@@ -18,11 +18,13 @@ interface Price extends JsonObject
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|Money
      */
     public function getValue();

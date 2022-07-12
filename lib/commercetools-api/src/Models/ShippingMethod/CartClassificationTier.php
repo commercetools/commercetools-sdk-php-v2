@@ -21,6 +21,7 @@ interface CartClassificationTier extends ShippingRatePriceTier
     /**
      * <p><code>key</code> selected from the <code>values</code> of the <a href="/projects/project#cartclassificationtype">CartClassificationType</a> configured in the Project.</p>
      *
+
      * @return null|string
      */
     public function getValue();
@@ -28,6 +29,7 @@ interface CartClassificationTier extends ShippingRatePriceTier
     /**
      * <p>Fixed shipping rate for the selected classification.</p>
      *
+
      * @return null|Money
      */
     public function getPrice();
@@ -35,6 +37,7 @@ interface CartClassificationTier extends ShippingRatePriceTier
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching();

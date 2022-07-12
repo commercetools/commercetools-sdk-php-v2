@@ -21,11 +21,13 @@ final class BadGatewayErrorModel extends JsonObjectModel implements BadGatewayEr
 {
     public const DISCRIMINATOR_VALUE = 'BadGateway';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class BadGatewayErrorModel extends JsonObjectModel implements BadGatewayEr
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class BadGatewayErrorModel extends JsonObjectModel implements BadGatewayEr
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

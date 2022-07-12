@@ -24,16 +24,19 @@ final class RemoveDiscountCodeChangeModel extends JsonObjectModel implements Rem
 
     public const DISCRIMINATOR_VALUE = 'RemoveDiscountCodeChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?DiscountCodeInfo
      */
     protected $previousValue;
@@ -52,6 +55,7 @@ final class RemoveDiscountCodeChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class RemoveDiscountCodeChangeModel extends JsonObjectModel implements Rem
     /**
      * <p>Update action for <code>removeDiscountCode</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +93,7 @@ final class RemoveDiscountCodeChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
+
      * @return null|DiscountCodeInfo
      */
     public function getPreviousValue()

@@ -23,11 +23,13 @@ use stdClass;
 final class ProductSelectionCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductSelectionType|ProductSelectionTypeBuilder
      */
     private $productSelection;
 
     /**
+
      * @return null|ProductSelectionType
      */
     public function getProductSelection()

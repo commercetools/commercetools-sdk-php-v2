@@ -21,16 +21,19 @@ use stdClass;
 final class InventoryQuantityValueBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $quantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $availableQuantity;
 
     /**
+
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -39,6 +42,7 @@ final class InventoryQuantityValueBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getAvailableQuantity()

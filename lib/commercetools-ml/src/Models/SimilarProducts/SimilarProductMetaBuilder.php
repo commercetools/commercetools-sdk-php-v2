@@ -25,21 +25,25 @@ use stdClass;
 final class SimilarProductMetaBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var ?int
      */
     private $variantCount;
@@ -47,6 +51,7 @@ final class SimilarProductMetaBuilder implements Builder
     /**
      * <p>Localized product name used for similarity estimation.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -57,6 +62,7 @@ final class SimilarProductMetaBuilder implements Builder
     /**
      * <p>Localized product description used for similarity estimation.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -67,6 +73,7 @@ final class SimilarProductMetaBuilder implements Builder
     /**
      * <p>The product price in cents using the currency defined in SimilarProductSearchRequest If multiple prices exist, the median value is taken as a representative amount.</p>
      *
+
      * @return null|Money
      */
     public function getPrice()
@@ -77,6 +84,7 @@ final class SimilarProductMetaBuilder implements Builder
     /**
      * <p>Total number of variants associated with the product.</p>
      *
+
      * @return null|int
      */
     public function getVariantCount()

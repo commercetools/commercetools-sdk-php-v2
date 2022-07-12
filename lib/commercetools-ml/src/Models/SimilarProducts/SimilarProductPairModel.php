@@ -20,11 +20,13 @@ use stdClass;
 final class SimilarProductPairModel extends JsonObjectModel implements SimilarProductPair
 {
     /**
+
      * @var ?float
      */
     protected $confidence;
 
     /**
+
      * @var ?SimilarProductCollection
      */
     protected $products;
@@ -44,6 +46,7 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     /**
      * <p>The probability of product similarity.</p>
      *
+
      * @return null|float
      */
     public function getConfidence()
@@ -61,6 +64,7 @@ final class SimilarProductPairModel extends JsonObjectModel implements SimilarPr
     }
 
     /**
+
      * @return null|SimilarProductCollection
      */
     public function getProducts()

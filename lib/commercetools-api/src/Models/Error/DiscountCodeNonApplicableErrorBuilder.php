@@ -22,41 +22,49 @@ use stdClass;
 final class DiscountCodeNonApplicableErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $discountCode;
 
     /**
+
      * @var ?string
      */
     private $reason;
 
     /**
+
      * @var ?string
      */
     private $dicountCodeId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validityCheckTime;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -65,6 +73,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getDiscountCode()
@@ -73,6 +82,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getReason()
@@ -81,6 +91,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getDicountCodeId()
@@ -89,6 +100,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -97,6 +109,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -105,6 +118,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidityCheckTime()

@@ -21,12 +21,14 @@ use stdClass;
 final class ScoreShippingRateInputBuilder implements Builder
 {
     /**
-     * @var ?float
+
+     * @var ?int
      */
     private $score;
 
     /**
-     * @return null|float
+
+     * @return null|int
      */
     public function getScore()
     {
@@ -34,10 +36,10 @@ final class ScoreShippingRateInputBuilder implements Builder
     }
 
     /**
-     * @param ?float $score
+     * @param ?int $score
      * @return $this
      */
-    public function withScore(?float $score)
+    public function withScore(?int $score)
     {
         $this->score = $score;
 

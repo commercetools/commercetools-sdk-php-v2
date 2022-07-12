@@ -23,31 +23,37 @@ use Commercetools\History\Models\Common\ReferenceBuilder;
 final class ModifiedByBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var ?string
      */
     private $clientId;
 
     /**
+
      * @var ?bool
      */
     private $isPlatformClient;
@@ -56,6 +62,7 @@ final class ModifiedByBuilder implements Builder
      * <p><a href="/general-concepts#identifier">ID</a> of the Merchant Center user who made the change.
      * Present only if the change was made in the Merchant Center.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -67,6 +74,7 @@ final class ModifiedByBuilder implements Builder
      * <p>Indicates whether the change was made by a user or the API client with or without an
      * <a href="/client-logging#external-user-ids">External user ID</a>.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -80,6 +88,7 @@ final class ModifiedByBuilder implements Builder
      * the change was made using a token from the <a href="/authorization#password-flow">Password
      * Flow</a>.</p>
      *
+
      * @return null|Reference
      */
     public function getCustomer()
@@ -91,6 +100,7 @@ final class ModifiedByBuilder implements Builder
      * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">Anonymous
      * Session</a>.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -103,6 +113,7 @@ final class ModifiedByBuilder implements Builder
      * Client</a> that made the change. Present only if
      * the change was made using an API Client.</p>
      *
+
      * @return null|string
      */
     public function getClientId()
@@ -113,6 +124,7 @@ final class ModifiedByBuilder implements Builder
     /**
      * <p><code>true</code> if the change was made via Merchant Center or <a href="https://impex.europe-west1.gcp.commercetools.com/">ImpEx</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsPlatformClient()

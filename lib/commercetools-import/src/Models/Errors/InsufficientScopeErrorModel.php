@@ -21,11 +21,13 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
 {
     public const DISCRIMINATOR_VALUE = 'insufficient_scope';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

@@ -21,11 +21,13 @@ final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoInterface';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $interface;
@@ -42,6 +44,7 @@ final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class PaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getInterface()

@@ -20,11 +20,13 @@ interface ParcelDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData();
@@ -32,6 +34,7 @@ interface ParcelDraft extends JsonObject
     /**
      * <p>The delivery items contained in this parcel.</p>
      *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
@@ -39,6 +42,7 @@ interface ParcelDraft extends JsonObject
     /**
      * <p>Custom Fields of this parcel.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

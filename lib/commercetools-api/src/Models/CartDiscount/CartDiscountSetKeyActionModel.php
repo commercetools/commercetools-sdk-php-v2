@@ -21,11 +21,13 @@ final class CartDiscountSetKeyActionModel extends JsonObjectModel implements Car
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class CartDiscountSetKeyActionModel extends JsonObjectModel implements Car
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CartDiscountSetKeyActionModel extends JsonObjectModel implements Car
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

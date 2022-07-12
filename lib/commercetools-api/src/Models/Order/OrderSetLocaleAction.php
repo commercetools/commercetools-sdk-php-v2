@@ -16,6 +16,7 @@ interface OrderSetLocaleAction extends OrderUpdateAction
     public const FIELD_LOCALE = 'locale';
 
     /**
+
      * @return null|string
      */
     public function getLocale();

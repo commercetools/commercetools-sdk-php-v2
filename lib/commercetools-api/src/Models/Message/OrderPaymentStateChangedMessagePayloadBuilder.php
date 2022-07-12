@@ -21,16 +21,19 @@ use stdClass;
 final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var ?string
      */
     private $oldPaymentState;
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -39,6 +42,7 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOldPaymentState()

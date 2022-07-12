@@ -17,11 +17,13 @@ interface PriceChangedError extends ErrorObject
     public const FIELD_SHIPPING = 'shipping';
 
     /**
+
      * @return null|array
      */
     public function getLineItems();
 
     /**
+
      * @return null|bool
      */
     public function getShipping();

@@ -17,6 +17,7 @@ interface OrderReturnInfoSetMessagePayload extends OrderMessagePayload
     public const FIELD_RETURN_INFO = 'returnInfo';
 
     /**
+
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo();

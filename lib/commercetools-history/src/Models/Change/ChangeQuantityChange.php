@@ -19,21 +19,25 @@ interface ChangeQuantityChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|InventoryQuantityValue
      */
     public function getNextValue();
 
     /**
+
      * @return null|InventoryQuantityValue
      */
     public function getPreviousValue();

@@ -19,6 +19,7 @@ interface RemoveParcelFromDeliveryChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface RemoveParcelFromDeliveryChange extends Change
     /**
      * <p>Update action for <code>removeParcelFromDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|Parcel
      */
     public function getPreviousValue();

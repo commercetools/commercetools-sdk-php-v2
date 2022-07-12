@@ -25,16 +25,19 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setDeliveryAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -53,6 +56,7 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -87,6 +92,7 @@ final class StagedOrderSetDeliveryAddressActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

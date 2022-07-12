@@ -22,11 +22,13 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
 
 
     /**
+
      * @var ?int
      */
     protected $quantityOnStock;
 
     /**
+
      * @var ?int
      */
     protected $availableQuantity;
@@ -45,6 +47,7 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -62,6 +65,7 @@ final class InventoryQuantityValueModel extends JsonObjectModel implements Inven
     }
 
     /**
+
      * @return null|int
      */
     public function getAvailableQuantity()

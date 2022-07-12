@@ -21,11 +21,13 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'InternalConstraintViolated';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

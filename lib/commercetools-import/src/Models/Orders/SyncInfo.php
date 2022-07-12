@@ -22,6 +22,7 @@ interface SyncInfo extends JsonObject
     /**
      * <p>Maps to <code>SyncInfo.channel</code></p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel();
@@ -29,6 +30,7 @@ interface SyncInfo extends JsonObject
     /**
      * <p>Maps to <code>SyncInfo.externalId</code></p>
      *
+
      * @return null|string
      */
     public function getExternalId();
@@ -36,6 +38,7 @@ interface SyncInfo extends JsonObject
     /**
      * <p>Maps to <code>SyncInfo.syncedAt</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt();

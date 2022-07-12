@@ -22,6 +22,7 @@ use stdClass;
 final class StoreSetSupplyChannelsActionBuilder implements Builder
 {
     /**
+
      * @var ?ChannelResourceIdentifierCollection
      */
     private $supplyChannels;
@@ -31,6 +32,7 @@ final class StoreSetSupplyChannelsActionBuilder implements Builder
      * If not defined, the Store's <code>supplyChannels</code> are unset.
      * Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error.</p>
      *
+
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getSupplyChannels()

@@ -23,11 +23,13 @@ use stdClass;
 final class ShoppingListReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|ShoppingList|ShoppingListBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class ShoppingListReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class ShoppingListReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded ShoppingList. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ShoppingLists.</p>
      *
+
      * @return null|ShoppingList
      */
     public function getObj()

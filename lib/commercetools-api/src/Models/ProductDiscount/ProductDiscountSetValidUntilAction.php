@@ -21,6 +21,7 @@ interface ProductDiscountSetValidUntilAction extends ProductDiscountUpdateAction
      * If empty, any existing value will be removed.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

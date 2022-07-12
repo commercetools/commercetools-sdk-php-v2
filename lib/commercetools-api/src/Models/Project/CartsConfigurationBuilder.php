@@ -21,11 +21,13 @@ use stdClass;
 final class CartsConfigurationBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?bool
      */
     private $countryTaxRateFallbackEnabled;
@@ -33,6 +35,7 @@ final class CartsConfigurationBuilder implements Builder
     /**
      * <p>Default value for the <code>deleteDaysAfterLastModification</code> parameter of the <a href="ctp:api:type:CartDraft">CartDraft</a>. This field may not be present on Projects created before January 2020.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -43,6 +46,7 @@ final class CartsConfigurationBuilder implements Builder
     /**
      * <p>Indicates if country <em>- no state</em> Tax Rate fallback should be used when a shipping address state is not explicitly covered in the rates lists of all Tax Categories of a Cart Line Items. This field may not be present on Projects created before June 2020.</p>
      *
+
      * @return null|bool
      */
     public function getCountryTaxRateFallbackEnabled()

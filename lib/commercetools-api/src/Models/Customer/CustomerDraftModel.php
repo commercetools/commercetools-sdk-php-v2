@@ -29,136 +29,163 @@ use stdClass;
 final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
 {
     /**
+
      * @var ?string
      */
     protected $customerNumber;
 
     /**
+
      * @var ?string
      */
     protected $email;
 
     /**
+
      * @var ?string
      */
     protected $password;
 
     /**
+
      * @var ?string
      */
     protected $firstName;
 
     /**
+
      * @var ?string
      */
     protected $lastName;
 
     /**
+
      * @var ?string
      */
     protected $middleName;
 
     /**
+
      * @var ?string
      */
     protected $title;
 
     /**
+     * @deprecated
      * @var ?string
      */
     protected $anonymousCartId;
 
     /**
+
      * @var ?CartResourceIdentifier
      */
     protected $anonymousCart;
 
     /**
+
      * @var ?string
      */
     protected $anonymousId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
 
     /**
+
      * @var ?string
      */
     protected $companyName;
 
     /**
+
      * @var ?string
      */
     protected $vatId;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     protected $addresses;
 
     /**
+
      * @var ?int
      */
     protected $defaultShippingAddress;
 
     /**
+
      * @var ?array
      */
     protected $shippingAddresses;
 
     /**
+
      * @var ?int
      */
     protected $defaultBillingAddress;
 
     /**
+
      * @var ?array
      */
     protected $billingAddresses;
 
     /**
+
      * @var ?bool
      */
     protected $isEmailVerified;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $locale;
 
     /**
+
      * @var ?string
      */
     protected $salutation;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
 
     /**
+
      * @var ?string
      */
     protected $authenticationMode;
@@ -231,6 +258,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * It should be <strong>unique</strong> across a project.
      * Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber()
@@ -252,6 +280,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
      * For more information, see Email uniquenes.</p>
      *
+
      * @return null|string
      */
     public function getEmail()
@@ -271,6 +300,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword()
@@ -288,6 +318,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()
@@ -305,6 +336,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()
@@ -322,6 +354,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getMiddleName()
@@ -339,6 +372,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()
@@ -358,6 +392,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getAnonymousCartId()
@@ -377,6 +412,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getAnonymousCart()
@@ -397,6 +433,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -414,6 +451,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -435,6 +473,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getCompanyName()
@@ -452,6 +491,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getVatId()
@@ -471,6 +511,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getAddresses()
@@ -491,6 +532,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * <p>The index of the address in the addresses array.
      * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress()
@@ -511,6 +553,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * <p>The indices of the shipping addresses in the addresses array.
      * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getShippingAddresses()
@@ -531,6 +574,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * <p>The index of the address in the addresses array.
      * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress()
@@ -551,6 +595,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * <p>The indices of the billing addresses in the addresses array.
      * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getBillingAddresses()
@@ -568,6 +613,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsEmailVerified()
@@ -585,6 +631,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()
@@ -602,6 +649,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -622,6 +670,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -642,6 +691,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Must be one of the languages supported for this project</p>
      *
+
      * @return null|string
      */
     public function getLocale()
@@ -659,6 +709,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getSalutation()
@@ -678,6 +729,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>User-defined unique identifier for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -699,6 +751,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
      * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
@@ -718,6 +771,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     /**
      * <p>Defines whether a password field is a required field for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode()

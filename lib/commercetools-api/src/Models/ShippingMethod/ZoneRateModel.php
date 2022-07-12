@@ -22,11 +22,13 @@ use stdClass;
 final class ZoneRateModel extends JsonObjectModel implements ZoneRate
 {
     /**
+
      * @var ?ZoneReference
      */
     protected $zone;
 
     /**
+
      * @var ?ShippingRateCollection
      */
     protected $shippingRates;
@@ -46,6 +48,7 @@ final class ZoneRateModel extends JsonObjectModel implements ZoneRate
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> for which the shipping rates are valid.</p>
      *
+
      * @return null|ZoneReference
      */
     public function getZone()
@@ -66,6 +69,7 @@ final class ZoneRateModel extends JsonObjectModel implements ZoneRate
     /**
      * <p>Shipping rates defined per currency.</p>
      *
+
      * @return null|ShippingRateCollection
      */
     public function getShippingRates()

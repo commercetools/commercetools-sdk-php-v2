@@ -22,26 +22,31 @@ use Commercetools\History\Models\Common\PriceCollection;
 final class SetPricesChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var ?PriceCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?PriceCollection
      */
     private $nextValue;
@@ -49,6 +54,7 @@ final class SetPricesChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setPrices</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -57,6 +63,7 @@ final class SetPricesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -65,6 +72,7 @@ final class SetPricesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -73,6 +81,7 @@ final class SetPricesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getPreviousValue()
@@ -81,6 +90,7 @@ final class SetPricesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceCollection
      */
     public function getNextValue()

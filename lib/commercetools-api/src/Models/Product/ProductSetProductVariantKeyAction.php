@@ -19,11 +19,13 @@ interface ProductSetProductVariantKeyAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
@@ -31,11 +33,13 @@ interface ProductSetProductVariantKeyAction extends ProductUpdateAction
     /**
      * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

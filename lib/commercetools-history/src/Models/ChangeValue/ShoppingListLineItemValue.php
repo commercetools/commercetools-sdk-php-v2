@@ -20,16 +20,19 @@ interface ShoppingListLineItemValue extends JsonObject
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();

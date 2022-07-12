@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\ParcelBuilder;
 final class RemoveParcelFromDeliveryChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var null|Parcel|ParcelBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeParcelFromDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -56,6 +61,7 @@ final class RemoveParcelFromDeliveryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Parcel
      */
     public function getPreviousValue()

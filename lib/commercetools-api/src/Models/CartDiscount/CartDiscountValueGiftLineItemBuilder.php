@@ -25,21 +25,25 @@ use stdClass;
 final class CartDiscountValueGiftLineItemBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $distributionChannel;
@@ -47,6 +51,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     /**
      * <p>Reference to a Product.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -57,6 +62,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -67,6 +73,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     /**
      * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -77,6 +84,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     /**
      * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel()

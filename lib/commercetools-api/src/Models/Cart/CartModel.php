@@ -41,181 +41,217 @@ use stdClass;
 final class CartModel extends JsonObjectModel implements Cart
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $customerId;
 
     /**
+
      * @var ?string
      */
     protected $customerEmail;
 
     /**
+
      * @var ?string
      */
     protected $anonymousId;
 
     /**
+
      * @var ?StoreKeyReference
      */
     protected $store;
 
     /**
+
      * @var ?LineItemCollection
      */
     protected $lineItems;
 
     /**
+
      * @var ?CustomLineItemCollection
      */
     protected $customLineItems;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
+
      * @var ?TaxedPrice
      */
     protected $taxedPrice;
 
     /**
+
      * @var ?string
      */
     protected $cartState;
 
     /**
+
      * @var ?Address
      */
     protected $shippingAddress;
 
     /**
+
      * @var ?Address
      */
     protected $billingAddress;
 
     /**
+
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?string
      */
     protected $taxRoundingMode;
 
     /**
+
      * @var ?string
      */
     protected $taxCalculationMode;
 
     /**
+
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
 
     /**
+
      * @var ?DiscountCodeInfoCollection
      */
     protected $discountCodes;
 
     /**
+
      * @var ?DirectDiscountCollection
      */
     protected $directDiscounts;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?PaymentInfo
      */
     protected $paymentInfo;
 
     /**
+
      * @var ?string
      */
     protected $locale;
 
     /**
+
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?CartDiscountReferenceCollection
      */
     protected $refusedGifts;
 
     /**
+
      * @var ?string
      */
     protected $origin;
 
     /**
+
      * @var ?ShippingRateInput
      */
     protected $shippingRateInput;
 
     /**
+
      * @var ?AddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
+
      * @var ?int
      */
     protected $totalLineItemQuantity;
@@ -303,6 +339,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>Unique identifier of the Cart.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -322,6 +359,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>The current version of the cart.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -339,6 +377,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -360,6 +399,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -383,6 +423,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>User-defined unique identifier of the Cart.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -402,6 +443,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -422,6 +464,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -440,6 +483,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerId()
@@ -457,6 +501,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -476,6 +521,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -493,6 +539,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -511,6 +558,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|LineItemCollection
      */
     public function getLineItems()
@@ -528,6 +576,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems()
@@ -548,6 +597,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -570,6 +620,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * Will be set automatically in the <code>Platform</code> TaxMode.
      * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -588,6 +639,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getCartState()
@@ -607,6 +659,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
+
      * @return null|Address
      */
     public function getShippingAddress()
@@ -625,6 +678,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|Address
      */
     public function getBillingAddress()
@@ -643,6 +697,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -660,6 +715,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -679,6 +735,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -698,6 +755,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -719,6 +777,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * Used for product variant
      * price selection.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -740,6 +799,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -759,6 +819,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>Set automatically once the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -777,6 +838,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes()
@@ -794,6 +856,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|DirectDiscountCollection
      */
     public function getDirectDiscounts()
@@ -811,6 +874,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -829,6 +893,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -847,6 +912,7 @@ final class CartModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -866,6 +932,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -885,6 +952,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from the cart.</p>
      *
+
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts()
@@ -905,6 +973,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * <p>The origin field indicates how this cart was created.
      * The value <code>Customer</code> indicates, that the cart was created by the customer.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()
@@ -924,6 +993,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -947,6 +1017,7 @@ final class CartModel extends JsonObjectModel implements Cart
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()
@@ -966,6 +1037,7 @@ final class CartModel extends JsonObjectModel implements Cart
     /**
      * <p>The sum off all the <a href="ctp:api:type:LineItem">Line Items</a> quantities. Does not take <a href="ctp:api:type:CustomLineItem">Custom Line Items</a> into consideration.</p>
      *
+
      * @return null|int
      */
     public function getTotalLineItemQuantity()

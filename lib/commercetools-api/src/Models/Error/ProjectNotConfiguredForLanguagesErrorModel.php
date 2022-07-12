@@ -21,16 +21,19 @@ final class ProjectNotConfiguredForLanguagesErrorModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'ProjectNotConfiguredForLanguages';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?array
      */
     protected $languages;
@@ -49,6 +52,7 @@ final class ProjectNotConfiguredForLanguagesErrorModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -66,6 +70,7 @@ final class ProjectNotConfiguredForLanguagesErrorModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -83,6 +88,7 @@ final class ProjectNotConfiguredForLanguagesErrorModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|array
      */
     public function getLanguages()

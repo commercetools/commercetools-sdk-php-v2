@@ -20,6 +20,7 @@ interface CartSetItemShippingAddressCustomTypeAction extends CartUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();
@@ -28,6 +29,7 @@ interface CartSetItemShippingAddressCustomTypeAction extends CartUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>itemShippingAddress</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>itemShippingAddress</code>.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -35,6 +37,7 @@ interface CartSetItemShippingAddressCustomTypeAction extends CartUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>itemShippingAddress</code>.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

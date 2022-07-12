@@ -23,16 +23,19 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemSupplyChannel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -51,6 +54,7 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -87,6 +92,7 @@ final class MyCartSetLineItemSupplyChannelActionModel extends JsonObjectModel im
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

@@ -21,11 +21,13 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'ProductPriceDiscountsSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     protected $updatedPrices;
@@ -42,6 +44,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
      */
     public function getUpdatedPrices()

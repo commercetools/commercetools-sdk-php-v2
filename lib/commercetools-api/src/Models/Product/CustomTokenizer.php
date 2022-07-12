@@ -16,6 +16,7 @@ interface CustomTokenizer extends SuggestTokenizer
     public const FIELD_INPUTS = 'inputs';
 
     /**
+
      * @return null|array
      */
     public function getInputs();

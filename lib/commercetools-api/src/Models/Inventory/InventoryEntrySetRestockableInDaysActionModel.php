@@ -21,11 +21,13 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'setRestockableInDays';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $restockableInDays;
@@ -42,6 +44,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|int
      */
     public function getRestockableInDays()

@@ -21,11 +21,13 @@ use stdClass;
 final class ShoppingListChangeLineItemsOrderActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $lineItemOrder;
 
     /**
+
      * @return null|array
      */
     public function getLineItemOrder()

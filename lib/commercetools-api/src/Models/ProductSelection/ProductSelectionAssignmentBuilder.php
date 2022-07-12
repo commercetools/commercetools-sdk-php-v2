@@ -23,16 +23,19 @@ use stdClass;
 final class ProductSelectionAssignmentBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var null|ProductSelectionReference|ProductSelectionReferenceBuilder
      */
     private $productSelection;
 
     /**
+
      * @var null|ProductVariantSelection|ProductVariantSelectionBuilder
      */
     private $variantSelection;
@@ -40,6 +43,7 @@ final class ProductSelectionAssignmentBuilder implements Builder
     /**
      * <p>Reference to a Product that is assigned to the ProductSelection.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -50,6 +54,7 @@ final class ProductSelectionAssignmentBuilder implements Builder
     /**
      * <p>Reference to the Product Selection that this assignment is part of.</p>
      *
+
      * @return null|ProductSelectionReference
      */
     public function getProductSelection()
@@ -60,6 +65,7 @@ final class ProductSelectionAssignmentBuilder implements Builder
     /**
      * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection()

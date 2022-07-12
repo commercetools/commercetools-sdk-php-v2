@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\TaxedItemPriceBuilder;
 final class SetOrderTaxedPriceChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setOrderTaxedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -61,6 +67,7 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class SetOrderTaxedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getPreviousValue()

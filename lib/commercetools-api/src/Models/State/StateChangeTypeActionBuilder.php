@@ -21,6 +21,7 @@ use stdClass;
 final class StateChangeTypeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $type;
@@ -29,6 +30,7 @@ final class StateChangeTypeActionBuilder implements Builder
      * <p>Resource or object types the State shall be assigned to.
      * Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getType()

@@ -23,11 +23,13 @@ use stdClass;
 final class CategoryCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Category|CategoryBuilder
      */
     private $category;
 
     /**
+
      * @return null|Category
      */
     public function getCategory()

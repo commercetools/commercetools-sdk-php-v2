@@ -21,21 +21,25 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'InvalidTransition';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $currentState;
 
     /**
+
      * @var ?string
      */
     protected $newState;
@@ -56,6 +60,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -73,6 +78,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -92,6 +98,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     /**
      * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
+
      * @return null|string
      */
     public function getCurrentState()
@@ -111,6 +118,7 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     /**
      * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
+
      * @return null|string
      */
     public function getNewState()

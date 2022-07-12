@@ -21,6 +21,7 @@ use stdClass;
 final class PaymentSetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -30,6 +31,7 @@ final class PaymentSetKeyActionBuilder implements Builder
      * 256 characters).
      * If not provided an existing key will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

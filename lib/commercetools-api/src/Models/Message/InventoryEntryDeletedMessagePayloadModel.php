@@ -23,16 +23,19 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?ChannelReference
      */
     protected $supplyChannel;
@@ -51,6 +54,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -87,6 +92,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

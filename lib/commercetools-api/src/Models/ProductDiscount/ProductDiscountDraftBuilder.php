@@ -24,46 +24,55 @@ use stdClass;
 final class ProductDiscountDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|ProductDiscountValueDraft|ProductDiscountValueDraftBuilder
      */
     private $value;
 
     /**
+
      * @var ?string
      */
     private $predicate;
 
     /**
+
      * @var ?string
      */
     private $sortOrder;
 
     /**
+
      * @var ?bool
      */
     private $isActive;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
@@ -71,6 +80,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>Name of the ProductDiscount.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -81,6 +91,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the ProductDiscount.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -91,6 +102,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>Description of the ProductDiscount.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -101,6 +113,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>Type of Discount and its corresponding value.</p>
      *
+
      * @return null|ProductDiscountValueDraft
      */
     public function getValue()
@@ -111,6 +124,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()
@@ -122,6 +136,7 @@ final class ProductDiscountDraftBuilder implements Builder
      * <p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.
      * The value must be <strong>unique</strong> among all ProductDiscounts in the <a href="ctp:api:type:Project">Project</a>.</p>
      *
+
      * @return null|string
      */
     public function getSortOrder()
@@ -132,6 +147,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * <p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
      *
+
      * @return null|bool
      */
     public function getIsActive()
@@ -143,6 +159,7 @@ final class ProductDiscountDraftBuilder implements Builder
      * <p>Date and time (UTC) from which the Discount is effective.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -154,6 +171,7 @@ final class ProductDiscountDraftBuilder implements Builder
      * <p>Date and time (UTC) until which the Discount is effective.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

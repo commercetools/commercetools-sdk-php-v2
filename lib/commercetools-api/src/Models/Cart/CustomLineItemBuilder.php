@@ -32,66 +32,79 @@ use stdClass;
 final class CustomLineItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $money;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $shippingDetails;
@@ -99,6 +112,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>Unique identifier of the CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -109,6 +123,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>The name of this CustomLineItem.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -120,6 +135,7 @@ final class CustomLineItemBuilder implements Builder
      * <p>The cost to add to the cart.
      * The amount can be negative.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getMoney()
@@ -130,6 +146,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -143,6 +160,7 @@ final class CustomLineItemBuilder implements Builder
      * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -153,6 +171,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getSlug()
@@ -164,6 +183,7 @@ final class CustomLineItemBuilder implements Builder
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -172,6 +192,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -180,6 +201,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -191,6 +213,7 @@ final class CustomLineItemBuilder implements Builder
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -199,6 +222,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -207,6 +231,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -219,6 +244,7 @@ final class CustomLineItemBuilder implements Builder
      * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
      * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>
      *
+
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails()

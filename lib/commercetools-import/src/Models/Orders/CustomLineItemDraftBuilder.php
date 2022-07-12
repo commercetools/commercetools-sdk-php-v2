@@ -29,61 +29,73 @@ use stdClass;
 final class CustomLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $money;
 
     /**
+
      * @var null|CustomLineItemTaxedPrice|CustomLineItemTaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var ?float
      */
     private $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|TaxCategoryKeyReference|TaxCategoryKeyReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @var ?DiscountedLineItemPriceDraftCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -96,6 +108,7 @@ final class CustomLineItemDraftBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -104,6 +117,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getMoney()
@@ -112,6 +126,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomLineItemTaxedPrice
      */
     public function getTaxedPrice()
@@ -120,6 +135,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -128,6 +144,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSlug()
@@ -136,6 +153,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getQuantity()
@@ -144,6 +162,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -154,6 +173,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>References a tax category by key.</p>
      *
+
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -162,6 +182,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -170,6 +191,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -178,6 +200,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceDraftCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -186,6 +209,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

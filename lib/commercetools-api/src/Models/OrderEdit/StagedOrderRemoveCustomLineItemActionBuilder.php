@@ -23,11 +23,13 @@ use stdClass;
 final class StagedOrderRemoveCustomLineItemActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()

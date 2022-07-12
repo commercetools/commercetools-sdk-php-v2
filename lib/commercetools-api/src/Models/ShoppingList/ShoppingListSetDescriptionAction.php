@@ -17,6 +17,7 @@ interface ShoppingListSetDescriptionAction extends ShoppingListUpdateAction
     public const FIELD_DESCRIPTION = 'description';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();

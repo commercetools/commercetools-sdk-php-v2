@@ -21,16 +21,19 @@ use stdClass;
 final class DuplicateVariantValuesErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var null|VariantValues|VariantValuesBuilder
      */
     private $variantValues;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|VariantValues
      */
     public function getVariantValues()

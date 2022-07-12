@@ -21,11 +21,13 @@ final class LocalizedEnumFieldModel extends JsonObjectModel implements Localized
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedEnum';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $value;
@@ -44,6 +46,7 @@ final class LocalizedEnumFieldModel extends JsonObjectModel implements Localized
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class LocalizedEnumFieldModel extends JsonObjectModel implements Localized
     }
 
     /**
+
      * @return null|string
      */
     public function getValue()

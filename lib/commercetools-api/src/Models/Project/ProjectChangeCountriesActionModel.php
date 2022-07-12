@@ -21,11 +21,13 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'changeCountries';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $countries;
@@ -42,6 +44,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|array
      */
     public function getCountries()

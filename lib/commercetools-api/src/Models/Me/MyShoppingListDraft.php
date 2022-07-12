@@ -27,21 +27,25 @@ interface MyShoppingListDraft extends JsonObject
     public const FIELD_STORE = 'store';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems();
@@ -49,6 +53,7 @@ interface MyShoppingListDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -56,11 +61,13 @@ interface MyShoppingListDraft extends JsonObject
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore();

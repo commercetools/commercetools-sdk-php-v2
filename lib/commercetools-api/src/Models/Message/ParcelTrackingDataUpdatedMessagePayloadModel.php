@@ -23,21 +23,25 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'ParcelTrackingDataUpdated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?TrackingData
      */
     protected $trackingData;
@@ -58,6 +62,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -75,6 +80,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -92,6 +98,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -109,6 +116,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()

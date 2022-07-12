@@ -21,6 +21,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -63,6 +64,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

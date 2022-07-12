@@ -20,6 +20,7 @@ interface CartDiscountSetValidUntilAction extends CartDiscountUpdateAction
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

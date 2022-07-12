@@ -27,6 +27,7 @@ interface CustomLineItemDraft extends JsonObject
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -35,16 +36,19 @@ interface CustomLineItemDraft extends JsonObject
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|Money
      */
     public function getMoney();
 
     /**
+
      * @return null|string
      */
     public function getSlug();
@@ -52,6 +56,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
@@ -59,6 +64,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
@@ -66,6 +72,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -73,6 +80,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>Container for custom line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

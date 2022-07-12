@@ -23,16 +23,19 @@ use stdClass;
 final class MissingPricesBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -43,6 +46,7 @@ final class MissingPricesBuilder implements Builder
     /**
      * <p>Id of the <code>ProductVariant</code>.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()

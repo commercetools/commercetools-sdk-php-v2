@@ -25,6 +25,7 @@ interface StateDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the State.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -32,6 +33,7 @@ interface StateDraft extends JsonObject
     /**
      * <p>Specify to which resource or object type the State is assigned to.</p>
      *
+
      * @return null|string
      */
     public function getType();
@@ -39,6 +41,7 @@ interface StateDraft extends JsonObject
     /**
      * <p>Name of the State.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -46,6 +49,7 @@ interface StateDraft extends JsonObject
     /**
      * <p>Description of the State.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -53,6 +57,7 @@ interface StateDraft extends JsonObject
     /**
      * <p>Set to <code>false</code> if the State is not the first step in a workflow.</p>
      *
+
      * @return null|bool
      */
     public function getInitial();
@@ -60,6 +65,7 @@ interface StateDraft extends JsonObject
     /**
      * <p>If suitable, assign predifined roles the State can fulfill in case the State's <code>type</code> is <code>LineItemState</code> or <code>ReviewState</code>.</p>
      *
+
      * @return null|array
      */
     public function getRoles();
@@ -72,6 +78,7 @@ interface StateDraft extends JsonObject
      * <li>Do not set this field at all to turn off validation and allowing transitions to any other State of the same <code>type</code> as the current State.</li>
      * </ul>
      *
+
      * @return null|StateResourceIdentifierCollection
      */
     public function getTransitions();

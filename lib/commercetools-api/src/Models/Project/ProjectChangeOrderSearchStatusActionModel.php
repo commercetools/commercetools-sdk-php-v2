@@ -21,11 +21,13 @@ final class ProjectChangeOrderSearchStatusActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'changeOrderSearchStatus';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $status;
@@ -42,6 +44,7 @@ final class ProjectChangeOrderSearchStatusActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProjectChangeOrderSearchStatusActionModel extends JsonObjectModel im
     /**
      * <p>Activates or deactivates the <a href="/../api/projects/order-search">Order Search</a> feature. Activation will trigger building a search index for the Orders in the Project.</p>
      *
+
      * @return null|string
      */
     public function getStatus()

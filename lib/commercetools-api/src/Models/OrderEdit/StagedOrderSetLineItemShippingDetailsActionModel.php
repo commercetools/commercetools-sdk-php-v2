@@ -25,16 +25,19 @@ final class StagedOrderSetLineItemShippingDetailsActionModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemShippingDetails';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -53,6 +56,7 @@ final class StagedOrderSetLineItemShippingDetailsActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetLineItemShippingDetailsActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -87,6 +92,7 @@ final class StagedOrderSetLineItemShippingDetailsActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

@@ -23,21 +23,25 @@ use stdClass;
 final class ProductAddToCategoryActionBuilder implements Builder
 {
     /**
+
      * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $category;
 
     /**
+
      * @var ?string
      */
     private $orderHint;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -46,6 +50,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderHint()
@@ -54,6 +59,7 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

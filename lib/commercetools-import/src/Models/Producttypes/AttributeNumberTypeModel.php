@@ -21,6 +21,7 @@ final class AttributeNumberTypeModel extends JsonObjectModel implements Attribut
 {
     public const DISCRIMINATOR_VALUE = 'number';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class AttributeNumberTypeModel extends JsonObjectModel implements Attribut
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

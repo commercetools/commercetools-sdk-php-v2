@@ -22,11 +22,13 @@ final class PublishChangeModel extends JsonObjectModel implements PublishChange
 
     public const DISCRIMINATOR_VALUE = 'PublishChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
@@ -43,6 +45,7 @@ final class PublishChangeModel extends JsonObjectModel implements PublishChange
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class PublishChangeModel extends JsonObjectModel implements PublishChange
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()

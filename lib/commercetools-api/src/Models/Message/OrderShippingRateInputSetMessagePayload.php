@@ -18,11 +18,13 @@ interface OrderShippingRateInputSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_SHIPPING_RATE_INPUT = 'oldShippingRateInput';
 
     /**
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
 
     /**
+
      * @return null|ShippingRateInput
      */
     public function getOldShippingRateInput();

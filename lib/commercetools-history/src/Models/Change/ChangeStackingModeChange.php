@@ -20,21 +20,25 @@ interface ChangeStackingModeChange extends Change
     /**
      * <p>Update action for <code>changeStackingMode</code> on cart discounts</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();

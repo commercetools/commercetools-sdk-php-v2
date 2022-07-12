@@ -23,36 +23,43 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'changeAssetName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -79,6 +86,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -96,6 +104,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -113,6 +122,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -130,6 +140,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -147,6 +158,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -164,6 +176,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -181,6 +194,7 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()

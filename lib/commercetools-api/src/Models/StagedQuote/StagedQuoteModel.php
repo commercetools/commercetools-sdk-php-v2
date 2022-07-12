@@ -35,71 +35,85 @@ use stdClass;
 final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $stagedQuoteState;
 
     /**
+
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
+
      * @var ?QuoteRequestReference
      */
     protected $quoteRequest;
 
     /**
+
      * @var ?CartReference
      */
     protected $quotationCart;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validTo;
 
     /**
+
      * @var ?string
      */
     protected $sellerComment;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
@@ -143,6 +157,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>The unique ID of the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -162,6 +177,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -181,6 +197,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Date and time (UTC) the StagedQuote was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -204,6 +221,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Date and time (UTC) the StagedQuote was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -227,6 +245,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>User-specific unique identifier of the staged quote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -246,6 +265,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -266,6 +286,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -286,6 +307,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -305,6 +327,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -325,6 +348,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>The Quote Request related to this Staged Quote.</p>
      *
+
      * @return null|QuoteRequestReference
      */
     public function getQuoteRequest()
@@ -345,6 +369,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
      *
+
      * @return null|CartReference
      */
     public function getQuotationCart()
@@ -365,6 +390,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Expiration date for the quote.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()
@@ -388,6 +414,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment()
@@ -407,6 +434,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Custom Fields of this Staged Quote.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

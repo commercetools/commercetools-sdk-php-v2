@@ -21,6 +21,7 @@ use stdClass;
 final class AttributeReferenceTypeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $referenceTypeId;
@@ -28,6 +29,7 @@ final class AttributeReferenceTypeBuilder implements Builder
     /**
      * <p>Name of the resource type that the value should reference.</p>
      *
+
      * @return null|string
      */
     public function getReferenceTypeId()

@@ -25,11 +25,13 @@ final class StagedOrderSetBillingAddressActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setBillingAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -46,6 +48,7 @@ final class StagedOrderSetBillingAddressActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StagedOrderSetBillingAddressActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

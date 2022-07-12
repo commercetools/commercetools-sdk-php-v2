@@ -21,6 +21,7 @@ use stdClass;
 final class ItemShippingDetailsDraftBuilder implements Builder
 {
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     private $targets;
@@ -28,6 +29,7 @@ final class ItemShippingDetailsDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ItemShippingDetailsDraft.targets</code>.</p>
      *
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()

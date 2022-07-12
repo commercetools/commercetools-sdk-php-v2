@@ -24,31 +24,37 @@ interface CustomerToken extends JsonObject
     /**
      * <p>Unique identifier of the CustomerToken.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+
      * @return null|string
      */
     public function getCustomerId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt();
 
     /**
+
      * @return null|string
      */
     public function getValue();

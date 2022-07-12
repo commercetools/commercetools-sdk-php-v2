@@ -23,11 +23,13 @@ use stdClass;
 final class ZoneRateDraftBuilder implements Builder
 {
     /**
+
      * @var null|ZoneResourceIdentifier|ZoneResourceIdentifierBuilder
      */
     private $zone;
 
     /**
+
      * @var ?ShippingRateDraftCollection
      */
     private $shippingRates;
@@ -35,6 +37,7 @@ final class ZoneRateDraftBuilder implements Builder
     /**
      * <p>Sets the <a href="ctp:api:type:Zone">Zone</a> for which the shippng rates are valid.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()
@@ -45,6 +48,7 @@ final class ZoneRateDraftBuilder implements Builder
     /**
      * <p>Shipping rates for the <code>currencies</code> configured in the <a href="ctp:api:type:Project">Project</a>. The array must not contain two ShippingRates with the same <a href="ctp:api:type:CurrencyCode">CurrencyCode</a>.</p>
      *
+
      * @return null|ShippingRateDraftCollection
      */
     public function getShippingRates()

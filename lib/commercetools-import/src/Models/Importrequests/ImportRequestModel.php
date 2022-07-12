@@ -21,6 +21,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -54,6 +55,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()

@@ -21,26 +21,31 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'ReferencedResourceNotFound';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -63,6 +68,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -80,6 +86,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -99,6 +106,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -116,6 +124,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -133,6 +142,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

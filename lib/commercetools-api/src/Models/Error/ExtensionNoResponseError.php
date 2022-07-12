@@ -17,11 +17,13 @@ interface ExtensionNoResponseError extends ErrorObject
     public const FIELD_EXTENSION_KEY = 'extensionKey';
 
     /**
+
      * @return null|string
      */
     public function getExtensionId();
 
     /**
+
      * @return null|string
      */
     public function getExtensionKey();

@@ -23,6 +23,7 @@ interface SetLineItemTaxRateChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -30,21 +31,25 @@ interface SetLineItemTaxRateChange extends Change
     /**
      * <p>Update action for <code>setLineItemTaxRate</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|string
      */
     public function getTaxMode();
@@ -52,6 +57,7 @@ interface SetLineItemTaxRateChange extends Change
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue();
@@ -59,6 +65,7 @@ interface SetLineItemTaxRateChange extends Change
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue();

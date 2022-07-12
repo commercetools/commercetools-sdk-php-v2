@@ -21,16 +21,19 @@ use stdClass;
 final class ProductTypeChangeEnumKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $newKey;
@@ -38,6 +41,7 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -48,6 +52,7 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     /**
      * <p>Existing key to be changed.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -58,6 +63,7 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     /**
      * <p>New key to be set.</p>
      *
+
      * @return null|string
      */
     public function getNewKey()

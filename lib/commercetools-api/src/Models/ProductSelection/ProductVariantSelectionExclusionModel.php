@@ -21,11 +21,13 @@ final class ProductVariantSelectionExclusionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'exclusion';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $skus;
@@ -42,6 +44,7 @@ final class ProductVariantSelectionExclusionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class ProductVariantSelectionExclusionModel extends JsonObjectModel implem
     /**
      * <p>Non-empty array of SKUs representing Product Variants to be excluded from the Product Selection.</p>
      *
+
      * @return null|array
      */
     public function getSkus()

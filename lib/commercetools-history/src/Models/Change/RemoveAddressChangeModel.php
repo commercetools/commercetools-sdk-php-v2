@@ -24,16 +24,19 @@ final class RemoveAddressChangeModel extends JsonObjectModel implements RemoveAd
 
     public const DISCRIMINATOR_VALUE = 'RemoveAddressChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Address
      */
     protected $previousValue;
@@ -52,6 +55,7 @@ final class RemoveAddressChangeModel extends JsonObjectModel implements RemoveAd
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class RemoveAddressChangeModel extends JsonObjectModel implements RemoveAd
     /**
      * <p>Update action for <code>removeAddress</code> action.</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +93,7 @@ final class RemoveAddressChangeModel extends JsonObjectModel implements RemoveAd
     }
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue()

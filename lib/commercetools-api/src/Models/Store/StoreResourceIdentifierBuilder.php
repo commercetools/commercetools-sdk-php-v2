@@ -23,11 +23,13 @@ use stdClass;
 final class StoreResourceIdentifierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -35,6 +37,7 @@ final class StoreResourceIdentifierBuilder implements Builder
     /**
      * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class StoreResourceIdentifierBuilder implements Builder
     /**
      * <p>Unique key of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getKey()

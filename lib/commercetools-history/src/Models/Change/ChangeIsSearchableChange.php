@@ -19,6 +19,7 @@ interface ChangeIsSearchableChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,6 +27,7 @@ interface ChangeIsSearchableChange extends Change
     /**
      * <p>Update action for <code>changeIsSearchable</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -33,16 +35,19 @@ interface ChangeIsSearchableChange extends Change
     /**
      * <p>The name of the updated attribute.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+
      * @return null|bool
      */
     public function getNextValue();
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue();

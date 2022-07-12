@@ -19,6 +19,7 @@ interface StandalonePriceSetCustomFieldAction extends StandalonePriceUpdateActio
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -28,6 +29,7 @@ interface StandalonePriceSetCustomFieldAction extends StandalonePriceUpdateActio
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue();

@@ -21,11 +21,13 @@ use stdClass;
 final class OrderRemoveItemShippingAddressActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressKey;
 
     /**
+
      * @return null|string
      */
     public function getAddressKey()

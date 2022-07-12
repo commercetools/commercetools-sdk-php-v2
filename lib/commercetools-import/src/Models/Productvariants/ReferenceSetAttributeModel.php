@@ -22,16 +22,19 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
 {
     public const DISCRIMINATOR_VALUE = 'reference-set';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?KeyReferenceCollection
      */
     protected $value;
@@ -54,6 +57,7 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -71,6 +75,7 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -88,6 +93,7 @@ final class ReferenceSetAttributeModel extends JsonObjectModel implements Refere
     }
 
     /**
+
      * @return null|KeyReferenceCollection
      */
     public function getValue()

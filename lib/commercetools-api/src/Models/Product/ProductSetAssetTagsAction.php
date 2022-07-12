@@ -21,31 +21,37 @@ interface ProductSetAssetTagsAction extends ProductUpdateAction
     public const FIELD_TAGS = 'tags';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|string
      */
     public function getAssetId();
 
     /**
+
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+
      * @return null|array
      */
     public function getTags();

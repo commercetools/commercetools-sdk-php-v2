@@ -23,11 +23,13 @@ use stdClass;
 final class CategoryReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Category|CategoryBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class CategoryReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class CategoryReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded Category. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Categories.</p>
      *
+
      * @return null|Category
      */
     public function getObj()

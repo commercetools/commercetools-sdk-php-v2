@@ -25,11 +25,13 @@ use stdClass;
 final class StagedOrderSetShippingRateInputActionBuilder implements Builder
 {
     /**
+
      * @var null|ShippingRateInputDraft|ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
 
     /**
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()

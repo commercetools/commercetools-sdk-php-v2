@@ -21,21 +21,25 @@ use stdClass;
 final class ReturnInfoBuilder implements Builder
 {
     /**
+
      * @var ?ReturnItemCollection
      */
     private $items;
 
     /**
+
      * @var ?string
      */
     private $returnTrackingId;
 
     /**
+
      * @var ?string
      */
     private $returnDate;
 
     /**
+
      * @return null|ReturnItemCollection
      */
     public function getItems()
@@ -46,6 +50,7 @@ final class ReturnInfoBuilder implements Builder
     /**
      * <p>Identifies, which return tracking ID is connected to this particular return.</p>
      *
+
      * @return null|string
      */
     public function getReturnTrackingId()
@@ -54,6 +59,7 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getReturnDate()

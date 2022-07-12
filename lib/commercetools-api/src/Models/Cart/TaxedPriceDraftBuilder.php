@@ -23,16 +23,19 @@ use stdClass;
 final class TaxedPriceDraftBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalNet;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalGross;
 
     /**
+
      * @var ?TaxPortionDraftCollection
      */
     private $taxPortions;
@@ -41,6 +44,7 @@ final class TaxedPriceDraftBuilder implements Builder
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getTotalNet()
@@ -52,6 +56,7 @@ final class TaxedPriceDraftBuilder implements Builder
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross()
@@ -60,6 +65,7 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxPortionDraftCollection
      */
     public function getTaxPortions()

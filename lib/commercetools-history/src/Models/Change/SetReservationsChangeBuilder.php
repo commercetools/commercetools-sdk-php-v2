@@ -22,16 +22,19 @@ use Commercetools\History\Models\Common\ReservationCollection;
 final class SetReservationsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?ReservationCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?ReservationCollection
      */
     private $previousValue;
@@ -39,6 +42,7 @@ final class SetReservationsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setReservations</code> on inventories</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -47,6 +51,7 @@ final class SetReservationsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReservationCollection
      */
     public function getNextValue()
@@ -55,6 +60,7 @@ final class SetReservationsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReservationCollection
      */
     public function getPreviousValue()

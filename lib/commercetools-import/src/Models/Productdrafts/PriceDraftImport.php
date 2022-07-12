@@ -32,6 +32,7 @@ interface PriceDraftImport extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -39,6 +40,7 @@ interface PriceDraftImport extends JsonObject
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -46,6 +48,7 @@ interface PriceDraftImport extends JsonObject
     /**
      * <p>References a customer group by key.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup();
@@ -53,16 +56,19 @@ interface PriceDraftImport extends JsonObject
     /**
      * <p>References a channel by key.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -70,6 +76,7 @@ interface PriceDraftImport extends JsonObject
     /**
      * <p>The custom fields for this category.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();
@@ -77,6 +84,7 @@ interface PriceDraftImport extends JsonObject
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
@@ -84,11 +92,13 @@ interface PriceDraftImport extends JsonObject
     /**
      * <p>The tiered prices for this price.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers();
 
     /**
+
      * @return null|string
      */
     public function getKey();

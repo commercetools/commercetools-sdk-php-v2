@@ -19,6 +19,7 @@ interface PriceTier extends JsonObject
     /**
      * <p>The minimum quantity this price tier is valid for.</p>
      *
+
      * @return null|int
      */
     public function getMinimumQuantity();
@@ -26,6 +27,7 @@ interface PriceTier extends JsonObject
     /**
      * <p>The currency of a price tier is always the same as the currency of the base Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();

@@ -21,26 +21,31 @@ interface ChangeValueGiftLineItemChangeValue extends ChangeValueChangeValue
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|Reference
      */
     public function getProduct();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|Reference
      */
     public function getSupplyChannel();
 
     /**
+
      * @return null|Reference
      */
     public function getDistributionChannel();

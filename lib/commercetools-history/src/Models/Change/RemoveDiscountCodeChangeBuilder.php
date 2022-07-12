@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\DiscountCodeInfoBuilder;
 final class RemoveDiscountCodeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|DiscountCodeInfo|DiscountCodeInfoBuilder
      */
     private $previousValue;
@@ -35,6 +37,7 @@ final class RemoveDiscountCodeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeDiscountCode</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class RemoveDiscountCodeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountCodeInfo
      */
     public function getPreviousValue()

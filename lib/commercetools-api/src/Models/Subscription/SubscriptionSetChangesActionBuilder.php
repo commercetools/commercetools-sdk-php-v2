@@ -21,11 +21,13 @@ use stdClass;
 final class SubscriptionSetChangesActionBuilder implements Builder
 {
     /**
+
      * @var ?ChangeSubscriptionCollection
      */
     private $changes;
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()

@@ -21,11 +21,13 @@ use stdClass;
 final class CustomFieldsBuilder implements Builder
 {
     /**
+
      * @var null|TypeReference|TypeReferenceBuilder
      */
     private $type;
 
     /**
+
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
@@ -33,6 +35,7 @@ final class CustomFieldsBuilder implements Builder
     /**
      * <p>Reference to the <a href="ctp:api:type:Type">Type</a> that holds the <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> for the Custom Fields.</p>
      *
+
      * @return null|TypeReference
      */
     public function getType()
@@ -43,6 +46,7 @@ final class CustomFieldsBuilder implements Builder
     /**
      * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#list-of-customizable-data-types">customized resource or data type</a>.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

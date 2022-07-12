@@ -22,11 +22,13 @@ final class StagedQuoteValidToSetMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteValidToSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validTo;
@@ -43,6 +45,7 @@ final class StagedQuoteValidToSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class StagedQuoteValidToSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()

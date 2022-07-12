@@ -25,6 +25,7 @@ use stdClass;
 final class StagedOrderRemovePaymentActionBuilder implements Builder
 {
     /**
+
      * @var null|PaymentResourceIdentifier|PaymentResourceIdentifierBuilder
      */
     private $payment;
@@ -32,6 +33,7 @@ final class StagedOrderRemovePaymentActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

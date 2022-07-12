@@ -24,26 +24,31 @@ use stdClass;
 final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteRequestDraft
 {
     /**
+
      * @var ?CartResourceIdentifier
      */
     protected $cart;
 
     /**
+
      * @var ?int
      */
     protected $cartVersion;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $comment;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -69,6 +74,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart()
@@ -89,6 +95,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>Current version of the referenced Cart.</p>
      *
+
      * @return null|int
      */
     public function getCartVersion()
@@ -108,6 +115,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>User-defined unique identifier for the QuoteRequest.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -127,6 +135,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>Text message included in the request.</p>
      *
+
      * @return null|string
      */
     public function getComment()
@@ -146,6 +155,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>Custom Fields to be added to the Quote Request.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

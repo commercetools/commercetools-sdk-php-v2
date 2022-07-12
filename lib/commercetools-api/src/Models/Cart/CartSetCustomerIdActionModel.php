@@ -21,11 +21,13 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customerId;
@@ -42,6 +44,7 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
     /**
      * <p>If set, a customer with the given ID must exist in the project.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId()

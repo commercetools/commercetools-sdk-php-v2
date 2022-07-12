@@ -21,11 +21,13 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'changeStackingMode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $stackingMode;
@@ -42,6 +44,7 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getStackingMode()

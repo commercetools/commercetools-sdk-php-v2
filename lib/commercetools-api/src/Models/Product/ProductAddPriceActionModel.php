@@ -23,26 +23,31 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
 {
     public const DISCRIMINATOR_VALUE = 'addPrice';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?PriceDraft
      */
     protected $price;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -65,6 +70,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -82,6 +88,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -99,6 +106,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -116,6 +124,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|PriceDraft
      */
     public function getPrice()
@@ -134,6 +143,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

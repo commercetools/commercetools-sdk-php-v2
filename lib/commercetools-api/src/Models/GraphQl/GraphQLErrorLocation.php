@@ -17,11 +17,13 @@ interface GraphQLErrorLocation extends JsonObject
     public const FIELD_COLUMN = 'column';
 
     /**
+
      * @return null|int
      */
     public function getLine();
 
     /**
+
      * @return null|int
      */
     public function getColumn();

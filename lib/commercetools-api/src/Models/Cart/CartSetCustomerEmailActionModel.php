@@ -21,11 +21,13 @@ final class CartSetCustomerEmailActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerEmail';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $email;
@@ -42,6 +44,7 @@ final class CartSetCustomerEmailActionModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CartSetCustomerEmailActionModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()

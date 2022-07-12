@@ -19,6 +19,7 @@ interface TaxPortion extends JsonObject
     public const FIELD_AMOUNT = 'amount';
 
     /**
+
      * @return null|string
      */
     public function getName();
@@ -26,11 +27,13 @@ interface TaxPortion extends JsonObject
     /**
      * <p>A number in the range [0..1]</p>
      *
+
      * @return null|float
      */
     public function getRate();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getAmount();

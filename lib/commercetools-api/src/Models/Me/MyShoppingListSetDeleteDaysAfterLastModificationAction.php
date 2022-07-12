@@ -16,6 +16,7 @@ interface MyShoppingListSetDeleteDaysAfterLastModificationAction extends MyShopp
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
 
     /**
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();

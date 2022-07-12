@@ -18,11 +18,13 @@ interface ChangeValueAbsoluteChangeValue extends ChangeValueChangeValue
     public const FIELD_MONEY = 'money';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|MoneyCollection
      */
     public function getMoney();

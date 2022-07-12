@@ -16,6 +16,7 @@ interface CustomerCompanyNameSetMessagePayload extends MessagePayload
     public const FIELD_COMPANY_NAME = 'companyName';
 
     /**
+
      * @return null|string
      */
     public function getCompanyName();

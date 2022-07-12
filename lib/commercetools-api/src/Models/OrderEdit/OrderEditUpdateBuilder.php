@@ -21,21 +21,25 @@ use stdClass;
 final class OrderEditUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?OrderEditUpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @var ?bool
      */
     private $dryRun;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -44,6 +48,7 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|OrderEditUpdateActionCollection
      */
     public function getActions()
@@ -52,6 +57,7 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getDryRun()

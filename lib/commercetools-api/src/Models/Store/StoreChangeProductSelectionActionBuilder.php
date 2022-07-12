@@ -23,11 +23,13 @@ use stdClass;
 final class StoreChangeProductSelectionActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductSelectionResourceIdentifier|ProductSelectionResourceIdentifierBuilder
      */
     private $productSelection;
 
     /**
+
      * @var ?bool
      */
     private $active;
@@ -35,6 +37,7 @@ final class StoreChangeProductSelectionActionBuilder implements Builder
     /**
      * <p>Current Product Selection of the Store to be activated or deactivated.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
@@ -45,6 +48,7 @@ final class StoreChangeProductSelectionActionBuilder implements Builder
     /**
      * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
+
      * @return null|bool
      */
     public function getActive()

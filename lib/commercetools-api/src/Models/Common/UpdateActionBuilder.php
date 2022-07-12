@@ -21,11 +21,13 @@ use stdClass;
 final class UpdateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $action;
 
     /**
+
      * @return null|string
      */
     public function getAction()

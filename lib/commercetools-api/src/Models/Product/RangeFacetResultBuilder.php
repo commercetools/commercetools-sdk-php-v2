@@ -21,11 +21,13 @@ use stdClass;
 final class RangeFacetResultBuilder implements Builder
 {
     /**
+
      * @var ?FacetRangeCollection
      */
     private $ranges;
 
     /**
+
      * @return null|FacetRangeCollection
      */
     public function getRanges()

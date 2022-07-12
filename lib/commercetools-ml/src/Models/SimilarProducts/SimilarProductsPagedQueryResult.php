@@ -20,11 +20,13 @@ interface SimilarProductsPagedQueryResult extends JsonObject
     public const FIELD_META = 'meta';
 
     /**
+
      * @return null|int
      */
     public function getCount();
 
     /**
+
      * @return null|int
      */
     public function getTotal();
@@ -32,16 +34,19 @@ interface SimilarProductsPagedQueryResult extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
 
     /**
+
      * @return null|SimilarProductPairCollection
      */
     public function getResults();
 
     /**
+
      * @return null|SimilarProductSearchRequestMeta
      */
     public function getMeta();

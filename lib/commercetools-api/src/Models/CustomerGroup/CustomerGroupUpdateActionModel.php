@@ -21,6 +21,7 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -45,6 +46,7 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

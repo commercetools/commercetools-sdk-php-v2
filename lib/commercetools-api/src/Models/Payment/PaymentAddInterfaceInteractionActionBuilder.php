@@ -25,16 +25,19 @@ use stdClass;
 final class PaymentAddInterfaceInteractionActionBuilder implements Builder
 {
     /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
+
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -43,6 +46,7 @@ final class PaymentAddInterfaceInteractionActionBuilder implements Builder
     }
 
     /**
+
      * @return null|FieldContainer
      */
     public function getFields()

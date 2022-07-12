@@ -21,21 +21,25 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'InvalidItemShippingDetails';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $subject;
 
     /**
+
      * @var ?string
      */
     protected $itemId;
@@ -56,6 +60,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -73,6 +78,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +96,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getSubject()
@@ -107,6 +114,7 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getItemId()

@@ -21,11 +21,13 @@ use stdClass;
 final class DiscountCodeKeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|string
      */
     public function getKey()

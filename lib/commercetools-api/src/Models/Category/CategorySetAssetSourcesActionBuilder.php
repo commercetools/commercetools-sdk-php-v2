@@ -22,16 +22,19 @@ use stdClass;
 final class CategorySetAssetSourcesActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     private $sources;
@@ -39,6 +42,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId()
@@ -49,6 +53,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()
@@ -59,6 +64,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     /**
      * <p>Must not be empty. At least one entry is required.</p>
      *
+
      * @return null|AssetSourceCollection
      */
     public function getSources()

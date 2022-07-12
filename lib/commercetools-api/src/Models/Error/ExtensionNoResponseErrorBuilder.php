@@ -21,21 +21,25 @@ use stdClass;
 final class ExtensionNoResponseErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $extensionId;
 
     /**
+
      * @var ?string
      */
     private $extensionKey;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -44,6 +48,7 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getExtensionId()
@@ -52,6 +57,7 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getExtensionKey()

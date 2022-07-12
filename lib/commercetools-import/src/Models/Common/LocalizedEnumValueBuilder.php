@@ -21,16 +21,19 @@ use stdClass;
 final class LocalizedEnumValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -46,6 +49,7 @@ final class LocalizedEnumValueBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

@@ -21,11 +21,13 @@ final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'NoMatchingProductDiscountFound';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

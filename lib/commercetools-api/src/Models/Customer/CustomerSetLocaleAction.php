@@ -16,6 +16,7 @@ interface CustomerSetLocaleAction extends CustomerUpdateAction
     public const FIELD_LOCALE = 'locale';
 
     /**
+
      * @return null|string
      */
     public function getLocale();

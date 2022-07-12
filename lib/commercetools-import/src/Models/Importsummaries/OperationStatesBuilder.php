@@ -21,31 +21,37 @@ use stdClass;
 final class OperationStatesBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $processing;
 
     /**
+
      * @var ?int
      */
     private $validationFailed;
 
     /**
+
      * @var ?int
      */
     private $unresolved;
 
     /**
+
      * @var ?int
      */
     private $waitForMasterVariant;
 
     /**
+
      * @var ?int
      */
     private $imported;
 
     /**
+
      * @var ?int
      */
     private $rejected;
@@ -53,6 +59,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of resources in the <code>processing</code> state.</p>
      *
+
      * @return null|int
      */
     public function getProcessing()
@@ -63,6 +70,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of resources in the <code>validationFailed</code> state.</p>
      *
+
      * @return null|int
      */
     public function getValidationFailed()
@@ -73,6 +81,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of resources in the <code>unresolved</code> state.</p>
      *
+
      * @return null|int
      */
     public function getUnresolved()
@@ -83,6 +92,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
      *
+
      * @return null|int
      */
     public function getWaitForMasterVariant()
@@ -93,6 +103,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of resources in the <code>imported</code> state.</p>
      *
+
      * @return null|int
      */
     public function getImported()
@@ -103,6 +114,7 @@ final class OperationStatesBuilder implements Builder
     /**
      * <p>The number of resources in the <code>rejected</code> state.</p>
      *
+
      * @return null|int
      */
     public function getRejected()

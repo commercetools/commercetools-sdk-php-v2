@@ -24,31 +24,37 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
 
     public const DISCRIMINATOR_VALUE = 'RemovePriceChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?string
      */
     protected $priceId;
 
     /**
+
      * @var ?Price
      */
     protected $previousValue;
 
     /**
+
      * @var ?Price
      */
     protected $nextValue;
@@ -73,6 +79,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -92,6 +99,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
     /**
      * <p>Update action for removing prices</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -109,6 +117,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -126,6 +135,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -143,6 +153,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
     }
 
     /**
+
      * @return null|Price
      */
     public function getPreviousValue()
@@ -161,6 +172,7 @@ final class RemovePriceChangeModel extends JsonObjectModel implements RemovePric
     }
 
     /**
+
      * @return null|Price
      */
     public function getNextValue()

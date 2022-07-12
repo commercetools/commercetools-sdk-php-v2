@@ -22,11 +22,13 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setStagedActions';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StagedOrderUpdateActionCollection
      */
     protected $stagedActions;
@@ -43,6 +45,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     /**
      * <p>The actions to edit the <code>resource</code>.</p>
      *
+
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions()

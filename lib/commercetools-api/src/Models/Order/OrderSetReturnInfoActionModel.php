@@ -21,11 +21,13 @@ final class OrderSetReturnInfoActionModel extends JsonObjectModel implements Ord
 {
     public const DISCRIMINATOR_VALUE = 'setReturnInfo';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ReturnInfoDraftCollection
      */
     protected $items;
@@ -42,6 +44,7 @@ final class OrderSetReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderSetReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
     /**
+
      * @return null|ReturnInfoDraftCollection
      */
     public function getItems()

@@ -23,16 +23,19 @@ final class PaymentTransitionStateActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'transitionState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
+
      * @var ?bool
      */
     protected $force;
@@ -51,6 +54,7 @@ final class PaymentTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class PaymentTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -86,6 +91,7 @@ final class PaymentTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

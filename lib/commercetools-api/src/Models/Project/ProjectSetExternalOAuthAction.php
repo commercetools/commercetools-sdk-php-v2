@@ -18,6 +18,7 @@ interface ProjectSetExternalOAuthAction extends ProjectUpdateAction
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|ExternalOAuth
      */
     public function getExternalOAuth();

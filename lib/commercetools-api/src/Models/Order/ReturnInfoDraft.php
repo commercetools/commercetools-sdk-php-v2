@@ -19,6 +19,7 @@ interface ReturnInfoDraft extends JsonObject
     public const FIELD_RETURN_DATE = 'returnDate';
 
     /**
+
      * @return null|ReturnItemDraftCollection
      */
     public function getItems();
@@ -26,11 +27,13 @@ interface ReturnInfoDraft extends JsonObject
     /**
      * <p>Identifies, which return tracking ID is connected to this particular return.</p>
      *
+
      * @return null|string
      */
     public function getReturnTrackingId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getReturnDate();

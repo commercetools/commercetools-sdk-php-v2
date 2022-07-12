@@ -20,11 +20,13 @@ use stdClass;
 final class QuoteRequestUpdateModel extends JsonObjectModel implements QuoteRequestUpdate
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?QuoteRequestUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,7 @@ final class QuoteRequestUpdateModel extends JsonObjectModel implements QuoteRequ
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,7 @@ final class QuoteRequestUpdateModel extends JsonObjectModel implements QuoteRequ
     }
 
     /**
+
      * @return null|QuoteRequestUpdateActionCollection
      */
     public function getActions()

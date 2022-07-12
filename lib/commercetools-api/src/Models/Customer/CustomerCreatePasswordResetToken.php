@@ -17,11 +17,13 @@ interface CustomerCreatePasswordResetToken extends JsonObject
     public const FIELD_TTL_MINUTES = 'ttlMinutes';
 
     /**
+
      * @return null|string
      */
     public function getEmail();
 
     /**
+
      * @return null|int
      */
     public function getTtlMinutes();

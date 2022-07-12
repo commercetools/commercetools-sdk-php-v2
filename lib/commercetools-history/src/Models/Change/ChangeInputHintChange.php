@@ -20,6 +20,7 @@ interface ChangeInputHintChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,6 +28,7 @@ interface ChangeInputHintChange extends Change
     /**
      * <p>Update action for <code>changeInputHint</code> on product types and types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -34,6 +36,7 @@ interface ChangeInputHintChange extends Change
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -41,16 +44,19 @@ interface ChangeInputHintChange extends Change
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();

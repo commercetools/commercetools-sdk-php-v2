@@ -33,6 +33,7 @@ interface Store extends BaseResource
     /**
      * <p>Unique ID of the Store.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -40,6 +41,7 @@ interface Store extends BaseResource
     /**
      * <p>Current version of the Store.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -47,6 +49,7 @@ interface Store extends BaseResource
     /**
      * <p>Date and time (UTC) the Store was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -54,6 +57,7 @@ interface Store extends BaseResource
     /**
      * <p>Date and time (UTC) the Store was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -61,6 +65,7 @@ interface Store extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -68,6 +73,7 @@ interface Store extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -75,6 +81,7 @@ interface Store extends BaseResource
     /**
      * <p>User-defined unique and immutable identifier for the Store.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -82,6 +89,7 @@ interface Store extends BaseResource
     /**
      * <p>Name of the Store.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -89,6 +97,7 @@ interface Store extends BaseResource
     /**
      * <p>Languages configured for the Store.</p>
      *
+
      * @return null|array
      */
     public function getLanguages();
@@ -96,6 +105,7 @@ interface Store extends BaseResource
     /**
      * <p>Product Distribution Channels allowed for the Store.</p>
      *
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels();
@@ -103,6 +113,7 @@ interface Store extends BaseResource
     /**
      * <p>Inventory Supply Channels allowed for the Store.</p>
      *
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels();
@@ -114,6 +125,7 @@ interface Store extends BaseResource
      * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
      * </ul>
      *
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections();
@@ -121,6 +133,7 @@ interface Store extends BaseResource
     /**
      * <p>Custom fields for the Store.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

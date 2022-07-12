@@ -23,6 +23,7 @@ use stdClass;
 final class CartDiscountChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -30,6 +31,7 @@ final class CartDiscountChangeNameActionBuilder implements Builder
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

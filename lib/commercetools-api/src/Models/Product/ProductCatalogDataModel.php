@@ -20,21 +20,25 @@ use stdClass;
 final class ProductCatalogDataModel extends JsonObjectModel implements ProductCatalogData
 {
     /**
+
      * @var ?bool
      */
     protected $published;
 
     /**
+
      * @var ?ProductData
      */
     protected $current;
 
     /**
+
      * @var ?ProductData
      */
     protected $staged;
 
     /**
+
      * @var ?bool
      */
     protected $hasStagedChanges;
@@ -56,6 +60,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     }
 
     /**
+
      * @return null|bool
      */
     public function getPublished()
@@ -73,6 +78,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     }
 
     /**
+
      * @return null|ProductData
      */
     public function getCurrent()
@@ -91,6 +97,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     }
 
     /**
+
      * @return null|ProductData
      */
     public function getStaged()
@@ -109,6 +116,7 @@ final class ProductCatalogDataModel extends JsonObjectModel implements ProductCa
     }
 
     /**
+
      * @return null|bool
      */
     public function getHasStagedChanges()

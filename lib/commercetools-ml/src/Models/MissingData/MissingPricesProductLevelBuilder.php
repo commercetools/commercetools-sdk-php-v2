@@ -21,11 +21,13 @@ use stdClass;
 final class MissingPricesProductLevelBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $missingPrices;
@@ -33,6 +35,7 @@ final class MissingPricesProductLevelBuilder implements Builder
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -43,6 +46,7 @@ final class MissingPricesProductLevelBuilder implements Builder
     /**
      * <p>Number of products missing prices.</p>
      *
+
      * @return null|int
      */
     public function getMissingPrices()

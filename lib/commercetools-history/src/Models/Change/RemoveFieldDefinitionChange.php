@@ -18,6 +18,7 @@ interface RemoveFieldDefinitionChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface RemoveFieldDefinitionChange extends Change
     /**
      * <p>Update action for <code>removeFieldDefinition</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|FieldDefinition
      */
     public function getPreviousValue();

@@ -21,11 +21,13 @@ use stdClass;
 final class CategoryRemoveAssetActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
@@ -33,6 +35,7 @@ final class CategoryRemoveAssetActionBuilder implements Builder
     /**
      * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId()
@@ -43,6 +46,7 @@ final class CategoryRemoveAssetActionBuilder implements Builder
     /**
      * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()

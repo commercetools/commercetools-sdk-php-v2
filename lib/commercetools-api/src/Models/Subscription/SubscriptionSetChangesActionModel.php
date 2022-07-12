@@ -21,11 +21,13 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setChanges';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ChangeSubscriptionCollection
      */
     protected $changes;
@@ -42,6 +44,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()

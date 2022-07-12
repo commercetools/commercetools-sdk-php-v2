@@ -24,31 +24,37 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemProductSlugChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+
      * @var ?string
      */
     protected $variant;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -73,6 +79,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -92,6 +99,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>setLineItemProductSlug</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -109,6 +117,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -127,6 +136,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -144,6 +154,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -162,6 +173,7 @@ final class SetLineItemProductSlugChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

@@ -21,11 +21,13 @@ final class ExternalOAuthFailedErrorModel extends JsonObjectModel implements Ext
 {
     public const DISCRIMINATOR_VALUE = 'ExternalOAuthFailed';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class ExternalOAuthFailedErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class ExternalOAuthFailedErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

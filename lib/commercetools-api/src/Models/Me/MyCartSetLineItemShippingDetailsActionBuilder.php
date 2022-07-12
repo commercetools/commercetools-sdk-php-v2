@@ -23,16 +23,19 @@ use stdClass;
 final class MyCartSetLineItemShippingDetailsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -41,6 +44,7 @@ final class MyCartSetLineItemShippingDetailsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

@@ -18,6 +18,7 @@ interface CustomFieldEnumType extends FieldType
     /**
      * <p>Allowed values.</p>
      *
+
      * @return null|CustomFieldEnumValueCollection
      */
     public function getValues();

@@ -34,151 +34,181 @@ use stdClass;
 final class CustomerBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $customerNumber;
 
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $middleName;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
 
     /**
+
      * @var ?string
      */
     private $companyName;
 
     /**
+
      * @var ?string
      */
     private $vatId;
 
     /**
+
      * @var ?AddressCollection
      */
     private $addresses;
 
     /**
+
      * @var ?string
      */
     private $defaultShippingAddressId;
 
     /**
+
      * @var ?array
      */
     private $shippingAddressIds;
 
     /**
+
      * @var ?string
      */
     private $defaultBillingAddressId;
 
     /**
+
      * @var ?array
      */
     private $billingAddressIds;
 
     /**
+
      * @var ?bool
      */
     private $isEmailVerified;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?StoreKeyReferenceCollection
      */
     private $stores;
 
     /**
+
      * @var ?string
      */
     private $authenticationMode;
@@ -186,6 +216,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>Unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -196,6 +227,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The current version of the customer.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -204,6 +236,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -212,6 +245,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -222,6 +256,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -232,6 +267,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -244,6 +280,7 @@ final class CustomerBuilder implements Builder
      * It should be unique across a project.
      * Once the field was set it cannot be changed anymore.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber()
@@ -256,6 +293,7 @@ final class CustomerBuilder implements Builder
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
      * For more information, see Email uniquenes.</p>
      *
+
      * @return null|string
      */
     public function getEmail()
@@ -266,6 +304,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword()
@@ -274,6 +313,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()
@@ -282,6 +322,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()
@@ -290,6 +331,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getMiddleName()
@@ -298,6 +340,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()
@@ -306,6 +349,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -314,6 +358,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCompanyName()
@@ -322,6 +367,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVatId()
@@ -332,6 +378,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The addresses have unique IDs in the addresses list</p>
      *
+
      * @return null|AddressCollection
      */
     public function getAddresses()
@@ -342,6 +389,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The address ID in the addresses list</p>
      *
+
      * @return null|string
      */
     public function getDefaultShippingAddressId()
@@ -352,6 +400,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The IDs from the addresses list which are used as shipping addresses</p>
      *
+
      * @return null|array
      */
     public function getShippingAddressIds()
@@ -362,6 +411,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The address ID in the addresses list</p>
      *
+
      * @return null|string
      */
     public function getDefaultBillingAddressId()
@@ -372,6 +422,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>The IDs from the addresses list which are used as billing addresses</p>
      *
+
      * @return null|array
      */
     public function getBillingAddressIds()
@@ -380,6 +431,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsEmailVerified()
@@ -388,6 +440,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()
@@ -396,6 +449,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -404,6 +458,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -412,6 +467,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -420,6 +476,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSalutation()
@@ -430,6 +487,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -442,6 +500,7 @@ final class CustomerBuilder implements Builder
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
      * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
+
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores()
@@ -452,6 +511,7 @@ final class CustomerBuilder implements Builder
     /**
      * <p>Defines whether a Customer has a password.</p>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode()

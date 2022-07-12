@@ -21,11 +21,13 @@ use stdClass;
 final class PriceKeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|string
      */
     public function getKey()

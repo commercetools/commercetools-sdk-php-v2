@@ -21,6 +21,7 @@ interface OrderSearchRequest extends JsonObject
     /**
      * <p>The Order search query.</p>
      *
+
      * @return null|OrderSearchQuery
      */
     public function getQuery();
@@ -28,6 +29,7 @@ interface OrderSearchRequest extends JsonObject
     /**
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
+
      * @return null|string
      */
     public function getSort();
@@ -35,6 +37,7 @@ interface OrderSearchRequest extends JsonObject
     /**
      * <p>The maximum number of search results to be returned.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -42,6 +45,7 @@ interface OrderSearchRequest extends JsonObject
     /**
      * <p>The number of search results to be skipped in the response for pagination.</p>
      *
+
      * @return null|int
      */
     public function getOffset();

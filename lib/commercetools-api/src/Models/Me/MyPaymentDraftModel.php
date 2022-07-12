@@ -26,21 +26,25 @@ use stdClass;
 final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraft
 {
     /**
+
      * @var ?Money
      */
     protected $amountPlanned;
 
     /**
+
      * @var ?PaymentMethodInfo
      */
     protected $paymentMethodInfo;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?MyTransactionDraft
      */
     protected $transaction;
@@ -65,6 +69,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|Money
      */
     public function getAmountPlanned()
@@ -83,6 +88,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     }
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -101,6 +107,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     }
 
     /**
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -122,6 +129,7 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
      * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
      * TransactionTypes.</p>
      *
+
      * @return null|MyTransactionDraft
      */
     public function getTransaction()

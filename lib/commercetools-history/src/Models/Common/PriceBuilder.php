@@ -21,16 +21,19 @@ use stdClass;
 final class PriceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $value;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -39,6 +42,7 @@ final class PriceBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getValue()

@@ -21,11 +21,13 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setCompanyName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $companyName;
@@ -42,6 +44,7 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     /**
      * <p>If not defined, the company name is unset.</p>
      *
+
      * @return null|string
      */
     public function getCompanyName()

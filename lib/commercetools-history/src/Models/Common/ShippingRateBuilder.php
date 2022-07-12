@@ -21,26 +21,31 @@ use stdClass;
 final class ShippingRateBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $freeAbove;
 
     /**
+
      * @var ?bool
      */
     private $isMatching;
 
     /**
+
      * @var ?ShippingRatePriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -49,6 +54,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getFreeAbove()
@@ -59,6 +65,7 @@ final class ShippingRateBuilder implements Builder
     /**
      * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching()
@@ -67,6 +74,7 @@ final class ShippingRateBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()

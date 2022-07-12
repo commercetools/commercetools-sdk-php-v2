@@ -16,6 +16,7 @@ interface OrderRemoveItemShippingAddressAction extends OrderUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();

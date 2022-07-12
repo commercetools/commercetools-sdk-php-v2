@@ -29,56 +29,67 @@ use stdClass;
 final class ShoppingListDraftBuilder implements Builder
 {
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?ShoppingListLineItemDraftCollection
      */
     private $lineItems;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var ?TextLineItemDraftCollection
      */
     private $textLineItems;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
@@ -86,6 +97,7 @@ final class ShoppingListDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -94,6 +106,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -104,6 +117,7 @@ final class ShoppingListDraftBuilder implements Builder
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -112,6 +126,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -122,6 +137,7 @@ final class ShoppingListDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the ShoppingList.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -130,6 +146,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems()
@@ -138,6 +155,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -150,6 +168,7 @@ final class ShoppingListDraftBuilder implements Builder
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
      * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -158,6 +177,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems()
@@ -168,6 +188,7 @@ final class ShoppingListDraftBuilder implements Builder
     /**
      * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -176,6 +197,7 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

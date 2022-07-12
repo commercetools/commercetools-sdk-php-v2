@@ -28,21 +28,25 @@ interface ShippingInfoImportDraft extends JsonObject
     public const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getPrice();
 
     /**
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate();
@@ -50,6 +54,7 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>References a tax category by key.</p>
      *
+
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory();
@@ -57,6 +62,7 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>References a shipping method by key.</p>
      *
+
      * @return null|ShippingMethodKeyReference
      */
     public function getShippingMethod();
@@ -64,16 +70,19 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referencable by an <code>id</code>.</p>
      *
+
      * @return null|DeliveryCollection
      */
     public function getDeliveries();
 
     /**
+
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice();
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodState();

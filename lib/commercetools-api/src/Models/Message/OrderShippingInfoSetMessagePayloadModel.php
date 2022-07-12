@@ -23,16 +23,19 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'OrderShippingInfoSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
 
     /**
+
      * @var ?ShippingInfo
      */
     protected $oldShippingInfo;
@@ -51,6 +54,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -86,6 +91,7 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|ShippingInfo
      */
     public function getOldShippingInfo()

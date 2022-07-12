@@ -16,6 +16,7 @@ interface CustomLineItemReturnItem extends ReturnItem
     public const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();

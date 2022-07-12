@@ -21,16 +21,19 @@ use stdClass;
 final class OrderSetReturnShipmentStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $returnItemId;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId()
@@ -39,6 +42,7 @@ final class OrderSetReturnShipmentStateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()

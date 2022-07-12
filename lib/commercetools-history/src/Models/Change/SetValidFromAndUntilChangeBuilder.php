@@ -23,21 +23,25 @@ use Commercetools\History\Models\ChangeValue\ValidFromAndUntilValueBuilder;
 final class SetValidFromAndUntilChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ValidFromAndUntilValue|ValidFromAndUntilValueBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|ValidFromAndUntilValue|ValidFromAndUntilValueBuilder
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetValidFromAndUntilChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
      *
+
      * @return null|ValidFromAndUntilValue
      */
     public function getPreviousValue()
@@ -58,6 +63,7 @@ final class SetValidFromAndUntilChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
      *
+
      * @return null|ValidFromAndUntilValue
      */
     public function getNextValue()

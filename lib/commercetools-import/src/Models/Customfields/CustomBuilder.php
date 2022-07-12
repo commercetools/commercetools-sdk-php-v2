@@ -23,11 +23,13 @@ use stdClass;
 final class CustomBuilder implements Builder
 {
     /**
+
      * @var null|TypeKeyReference|TypeKeyReferenceBuilder
      */
     private $type;
 
     /**
+
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
@@ -35,6 +37,7 @@ final class CustomBuilder implements Builder
     /**
      * <p>The type that provides the field definitions for this object.</p>
      *
+
      * @return null|TypeKeyReference
      */
     public function getType()
@@ -45,6 +48,7 @@ final class CustomBuilder implements Builder
     /**
      * <p>The custom fields of this object.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

@@ -17,6 +17,7 @@ interface ProductSelectionCreatedMessage extends Message
     public const FIELD_PRODUCT_SELECTION = 'productSelection';
 
     /**
+
      * @return null|ProductSelectionType
      */
     public function getProductSelection();

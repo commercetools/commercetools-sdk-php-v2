@@ -21,11 +21,13 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $fieldNames;
@@ -42,6 +44,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     /**
      * <p>Must match the set of <code>name</code>s of FieldDefinitions (up to order).</p>
      *
+
      * @return null|array
      */
     public function getFieldNames()

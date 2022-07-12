@@ -23,6 +23,7 @@ use stdClass;
 final class StandalonePriceChangeValueActionBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $value;
@@ -30,6 +31,7 @@ final class StandalonePriceChangeValueActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|Money
      */
     public function getValue()

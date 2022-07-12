@@ -23,16 +23,19 @@ use stdClass;
 final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -43,6 +46,7 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

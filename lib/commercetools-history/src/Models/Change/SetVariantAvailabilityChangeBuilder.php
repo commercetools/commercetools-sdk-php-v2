@@ -23,26 +23,31 @@ use Commercetools\History\Models\Common\ProductVariantAvailabilityBuilder;
 final class SetVariantAvailabilityChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var null|ProductVariantAvailability|ProductVariantAvailabilityBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|ProductVariantAvailability|ProductVariantAvailabilityBuilder
      */
     private $nextValue;
@@ -50,6 +55,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setVariantAvailability</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -66,6 +73,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -74,6 +82,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getPreviousValue()
@@ -82,6 +91,7 @@ final class SetVariantAvailabilityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getNextValue()

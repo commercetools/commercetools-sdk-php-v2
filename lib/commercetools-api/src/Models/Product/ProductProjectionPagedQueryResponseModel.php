@@ -20,26 +20,31 @@ use stdClass;
 final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel implements ProductProjectionPagedQueryResponse
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?ProductProjectionCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel imp
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -82,6 +88,7 @@ final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -99,6 +106,7 @@ final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -118,6 +126,7 @@ final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel imp
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -135,6 +144,7 @@ final class ProductProjectionPagedQueryResponseModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|ProductProjectionCollection
      */
     public function getResults()

@@ -23,6 +23,7 @@ use stdClass;
 final class StateSetNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -31,6 +32,7 @@ final class StateSetNameActionBuilder implements Builder
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

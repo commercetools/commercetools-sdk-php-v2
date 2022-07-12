@@ -17,6 +17,7 @@ interface ImportResponse extends JsonObject
     public const FIELD_OPERATION_STATUS = 'operationStatus';
 
     /**
+
      * @return null|ImportOperationStatusCollection
      */
     public function getOperationStatus();

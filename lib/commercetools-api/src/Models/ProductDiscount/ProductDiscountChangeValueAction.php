@@ -18,6 +18,7 @@ interface ProductDiscountChangeValueAction extends ProductDiscountUpdateAction
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|ProductDiscountValueDraft
      */
     public function getValue();

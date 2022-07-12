@@ -22,6 +22,7 @@ use stdClass;
 final class ProductDiscountSetValidUntilActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
@@ -31,6 +32,7 @@ final class ProductDiscountSetValidUntilActionBuilder implements Builder
      * If empty, any existing value will be removed.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

@@ -23,11 +23,13 @@ use Commercetools\History\Models\ChangeValue\CustomFieldExpandedValueBuilder;
 final class AddInterfaceInteractionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|CustomFieldExpandedValue|CustomFieldExpandedValueBuilder
      */
     private $nextValue;
@@ -35,6 +37,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addInterfaceInteraction</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -45,6 +48,7 @@ final class AddInterfaceInteractionChangeBuilder implements Builder
     /**
      * <p>Only available if <code>expand</code> is set to true</p>
      *
+
      * @return null|CustomFieldExpandedValue
      */
     public function getNextValue()

@@ -21,16 +21,19 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();
 
     /**
+
      * @return null|ParcelDraftCollection
      */
     public function getParcels();
@@ -38,6 +41,7 @@ interface OrderAddDeliveryAction extends OrderUpdateAction
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

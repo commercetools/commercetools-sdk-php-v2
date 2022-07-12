@@ -19,6 +19,7 @@ interface StateChangeKeyAction extends StateUpdateAction
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getKey();

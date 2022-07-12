@@ -21,6 +21,7 @@ interface SetParcelTrackingDataChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface SetParcelTrackingDataChange extends Change
     /**
      * <p>Update action for <code>setParcelTrackingData</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel();
 
     /**
+
      * @return null|TrackingData
      */
     public function getNextValue();
 
     /**
+
      * @return null|TrackingData
      */
     public function getPreviousValue();

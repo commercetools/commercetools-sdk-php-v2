@@ -22,6 +22,7 @@ interface ProductDiscountMatchQuery extends JsonObject
     /**
      * <p>ID of the specified Product.</p>
      *
+
      * @return null|string
      */
     public function getProductId();
@@ -29,6 +30,7 @@ interface ProductDiscountMatchQuery extends JsonObject
     /**
      * <p>ID of the specified Product Variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();
@@ -37,6 +39,7 @@ interface ProductDiscountMatchQuery extends JsonObject
      * <p>Controls which <a href="/../api/projects/productProjections#current--staged">projected representation</a> is applied for the query.
      * Set to <code>true</code> for the <code>staged</code> Product Projection of the specified Product Variant, set to <code>false</code> for the <code>current</code> one.</p>
      *
+
      * @return null|bool
      */
     public function getStaged();
@@ -44,6 +47,7 @@ interface ProductDiscountMatchQuery extends JsonObject
     /**
      * <p>Specified Price of the specified Product Variant.</p>
      *
+
      * @return null|QueryPrice
      */
     public function getPrice();

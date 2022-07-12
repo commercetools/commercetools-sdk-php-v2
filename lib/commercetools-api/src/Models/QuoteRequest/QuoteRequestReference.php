@@ -20,6 +20,7 @@ interface QuoteRequestReference extends Reference
      * <p>Contains the representation of the expanded QuoteRequest.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for QuoteRequest.</p>
      *
+
      * @return null|QuoteRequest
      */
     public function getObj();

@@ -23,21 +23,25 @@ use Commercetools\History\Models\ChangeValue\InventoryQuantityValueBuilder;
 final class ChangeQuantityChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|InventoryQuantityValue|InventoryQuantityValueBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|InventoryQuantityValue|InventoryQuantityValueBuilder
      */
     private $previousValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|InventoryQuantityValue
      */
     public function getNextValue()
@@ -54,6 +59,7 @@ final class ChangeQuantityChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|InventoryQuantityValue
      */
     public function getPreviousValue()

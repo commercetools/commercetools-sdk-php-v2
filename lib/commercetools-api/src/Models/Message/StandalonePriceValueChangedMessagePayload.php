@@ -19,6 +19,7 @@ interface StandalonePriceValueChangedMessagePayload extends MessagePayload
     /**
      * <p>The new value of the updated StandalonePrice.</p>
      *
+
      * @return null|Money
      */
     public function getValue();

@@ -18,16 +18,19 @@ interface AddTextLineItemChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|TextLineItem
      */
     public function getNextValue();

@@ -19,6 +19,7 @@ interface InventoryImportRequest extends ImportRequest
     /**
      * <p>The inventory import resources of this request.</p>
      *
+
      * @return null|InventoryImportCollection
      */
     public function getResources();

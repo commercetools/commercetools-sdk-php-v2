@@ -23,16 +23,19 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -86,6 +91,7 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

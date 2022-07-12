@@ -21,11 +21,13 @@ final class NotEnabledErrorModel extends JsonObjectModel implements NotEnabledEr
 {
     public const DISCRIMINATOR_VALUE = 'NotEnabled';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class NotEnabledErrorModel extends JsonObjectModel implements NotEnabledEr
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class NotEnabledErrorModel extends JsonObjectModel implements NotEnabledEr
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

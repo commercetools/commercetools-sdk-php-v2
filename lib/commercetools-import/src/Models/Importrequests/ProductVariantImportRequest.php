@@ -19,6 +19,7 @@ interface ProductVariantImportRequest extends ImportRequest
     /**
      * <p>The product variant import resources of this request.</p>
      *
+
      * @return null|ProductVariantImportCollection
      */
     public function getResources();

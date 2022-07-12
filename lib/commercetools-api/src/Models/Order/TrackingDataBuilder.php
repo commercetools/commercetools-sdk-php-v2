@@ -21,26 +21,31 @@ use stdClass;
 final class TrackingDataBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $trackingId;
 
     /**
+
      * @var ?string
      */
     private $carrier;
 
     /**
+
      * @var ?string
      */
     private $provider;
 
     /**
+
      * @var ?string
      */
     private $providerTransaction;
 
     /**
+
      * @var ?bool
      */
     private $isReturn;
@@ -48,6 +53,7 @@ final class TrackingDataBuilder implements Builder
     /**
      * <p>The ID to track one parcel.</p>
      *
+
      * @return null|string
      */
     public function getTrackingId()
@@ -58,6 +64,7 @@ final class TrackingDataBuilder implements Builder
     /**
      * <p>The carrier that delivers the parcel.</p>
      *
+
      * @return null|string
      */
     public function getCarrier()
@@ -66,6 +73,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProvider()
@@ -74,6 +82,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProviderTransaction()
@@ -84,6 +93,7 @@ final class TrackingDataBuilder implements Builder
     /**
      * <p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>
      *
+
      * @return null|bool
      */
     public function getIsReturn()

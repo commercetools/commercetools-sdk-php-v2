@@ -23,16 +23,19 @@ use stdClass;
 final class PaymentMethodInfoBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $paymentInterface;
 
     /**
+
      * @var ?string
      */
     private $method;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -42,6 +45,7 @@ final class PaymentMethodInfoBuilder implements Builder
      * Cannot be changed once it has been set.
      * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>
      *
+
      * @return null|string
      */
     public function getPaymentInterface()
@@ -54,6 +58,7 @@ final class PaymentMethodInfoBuilder implements Builder
      * e.g.
      * a conventional string representing Credit Card, Cash Advance etc.</p>
      *
+
      * @return null|string
      */
     public function getMethod()
@@ -65,6 +70,7 @@ final class PaymentMethodInfoBuilder implements Builder
      * <p>A human-readable, localized name for the payment method, e.g.
      * 'Credit Card'.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

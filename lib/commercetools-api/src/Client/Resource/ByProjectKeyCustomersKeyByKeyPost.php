@@ -28,6 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Conflicting<ByProjectKeyCustomersKeyByKeyPost>
  * @template-implements Expandable<ByProjectKeyCustomersKeyByKeyPost>

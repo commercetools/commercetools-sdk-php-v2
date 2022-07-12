@@ -23,16 +23,19 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
 {
     public const DISCRIMINATOR_VALUE = 'tax-category';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?TaxCategory
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class TaxCategoryReferenceModel extends JsonObjectModel implements TaxCate
     /**
      * <p>Contains the representation of the expanded TaxCategory. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for TaxCategories.</p>
      *
+
      * @return null|TaxCategory
      */
     public function getObj()

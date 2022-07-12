@@ -21,21 +21,25 @@ use stdClass;
 final class MissingAttributesMetaBuilder implements Builder
 {
     /**
+
      * @var null|MissingAttributesDetails|MissingAttributesDetailsBuilder
      */
     private $productLevel;
 
     /**
+
      * @var null|MissingAttributesDetails|MissingAttributesDetailsBuilder
      */
     private $variantLevel;
 
     /**
+
      * @var ?array
      */
     private $productTypeIds;
 
     /**
+
      * @return null|MissingAttributesDetails
      */
     public function getProductLevel()
@@ -44,6 +48,7 @@ final class MissingAttributesMetaBuilder implements Builder
     }
 
     /**
+
      * @return null|MissingAttributesDetails
      */
     public function getVariantLevel()
@@ -54,6 +59,7 @@ final class MissingAttributesMetaBuilder implements Builder
     /**
      * <p>The IDs of the product types containing the requested <code>attributeName</code>.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds()

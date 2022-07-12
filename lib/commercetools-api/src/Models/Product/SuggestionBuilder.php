@@ -21,6 +21,7 @@ use stdClass;
 final class SuggestionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $text;
@@ -28,6 +29,7 @@ final class SuggestionBuilder implements Builder
     /**
      * <p>The suggested text.</p>
      *
+
      * @return null|string
      */
     public function getText()

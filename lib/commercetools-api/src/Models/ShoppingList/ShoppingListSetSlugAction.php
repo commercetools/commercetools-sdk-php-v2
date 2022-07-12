@@ -17,6 +17,7 @@ interface ShoppingListSetSlugAction extends ShoppingListUpdateAction
     public const FIELD_SLUG = 'slug';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug();

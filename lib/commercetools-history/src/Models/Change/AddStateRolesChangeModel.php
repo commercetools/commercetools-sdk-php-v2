@@ -22,21 +22,25 @@ final class AddStateRolesChangeModel extends JsonObjectModel implements AddState
 
     public const DISCRIMINATOR_VALUE = 'AddStateRolesChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?array
      */
     protected $previousValue;
 
     /**
+
      * @var ?array
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class AddStateRolesChangeModel extends JsonObjectModel implements AddState
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -74,6 +79,7 @@ final class AddStateRolesChangeModel extends JsonObjectModel implements AddState
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -91,6 +97,7 @@ final class AddStateRolesChangeModel extends JsonObjectModel implements AddState
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -108,6 +115,7 @@ final class AddStateRolesChangeModel extends JsonObjectModel implements AddState
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()

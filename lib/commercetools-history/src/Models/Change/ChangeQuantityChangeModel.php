@@ -24,21 +24,25 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
 
     public const DISCRIMINATOR_VALUE = 'ChangeQuantityChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?InventoryQuantityValue
      */
     protected $nextValue;
 
     /**
+
      * @var ?InventoryQuantityValue
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
     }
 
     /**
+
      * @return null|InventoryQuantityValue
      */
     public function getNextValue()
@@ -111,6 +118,7 @@ final class ChangeQuantityChangeModel extends JsonObjectModel implements ChangeQ
     }
 
     /**
+
      * @return null|InventoryQuantityValue
      */
     public function getPreviousValue()

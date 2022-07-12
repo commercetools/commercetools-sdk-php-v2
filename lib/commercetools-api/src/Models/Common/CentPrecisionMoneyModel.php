@@ -21,21 +21,25 @@ final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPreci
 {
     public const DISCRIMINATOR_VALUE = 'centPrecision';
     /**
+
      * @var ?int
      */
     protected $centAmount;
 
     /**
+
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $fractionDigits;
@@ -62,6 +66,7 @@ final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPreci
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getCentAmount()
@@ -81,6 +86,7 @@ final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPreci
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -100,6 +106,7 @@ final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPreci
     /**
      * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -119,6 +126,7 @@ final class CentPrecisionMoneyModel extends JsonObjectModel implements CentPreci
     /**
      * <p>The number of default fraction digits for the given currency, like <code>2</code> for EUR or <code>0</code> for JPY.</p>
      *
+
      * @return null|int
      */
     public function getFractionDigits()

@@ -23,21 +23,25 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
 
     public const DISCRIMINATOR_VALUE = 'SetDistributionChannelsChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $previousValue;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $nextValue;
@@ -58,6 +62,7 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -77,6 +82,7 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     /**
      * <p>Shape of the action for <code>setDistributionChannels</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -94,6 +100,7 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -111,6 +118,7 @@ final class SetDistributionChannelsChangeModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue()

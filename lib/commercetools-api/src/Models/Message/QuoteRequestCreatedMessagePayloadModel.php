@@ -21,6 +21,7 @@ final class QuoteRequestCreatedMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'QuoteRequestCreated';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class QuoteRequestCreatedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

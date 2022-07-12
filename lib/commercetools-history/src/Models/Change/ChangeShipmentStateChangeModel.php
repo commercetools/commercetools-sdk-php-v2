@@ -22,21 +22,25 @@ final class ChangeShipmentStateChangeModel extends JsonObjectModel implements Ch
 
     public const DISCRIMINATOR_VALUE = 'ChangeShipmentStateChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
@@ -57,6 +61,7 @@ final class ChangeShipmentStateChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeShipmentStateChangeModel extends JsonObjectModel implements Ch
     /**
      * <p>Update action for <code>changeShipmentState</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeShipmentStateChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()
@@ -110,6 +117,7 @@ final class ChangeShipmentStateChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()

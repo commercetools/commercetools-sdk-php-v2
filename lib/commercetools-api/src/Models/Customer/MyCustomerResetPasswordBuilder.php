@@ -21,16 +21,19 @@ use stdClass;
 final class MyCustomerResetPasswordBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $tokenValue;
 
     /**
+
      * @var ?string
      */
     private $newPassword;
 
     /**
+
      * @return null|string
      */
     public function getTokenValue()
@@ -39,6 +42,7 @@ final class MyCustomerResetPasswordBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNewPassword()

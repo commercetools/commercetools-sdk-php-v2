@@ -21,11 +21,13 @@ use stdClass;
 final class DiscountCodeUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DiscountCodeUpdateActionCollection
      */
     private $actions;
@@ -34,6 +36,7 @@ final class DiscountCodeUpdateBuilder implements Builder
      * <p>Expected version of the DiscountCode on which the changes should be applied.
      * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -44,6 +47,7 @@ final class DiscountCodeUpdateBuilder implements Builder
     /**
      * <p>Update actions to be performed on the DiscountCode.</p>
      *
+
      * @return null|DiscountCodeUpdateActionCollection
      */
     public function getActions()

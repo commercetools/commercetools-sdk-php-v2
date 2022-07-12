@@ -17,11 +17,13 @@ interface PaymentStatusInterfaceCodeSetMessage extends Message
     public const FIELD_INTERFACE_CODE = 'interfaceCode';
 
     /**
+
      * @return null|string
      */
     public function getPaymentId();
 
     /**
+
      * @return null|string
      */
     public function getInterfaceCode();

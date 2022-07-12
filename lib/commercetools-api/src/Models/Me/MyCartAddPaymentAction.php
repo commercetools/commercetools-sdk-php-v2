@@ -19,6 +19,7 @@ interface MyCartAddPaymentAction extends MyCartUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment();

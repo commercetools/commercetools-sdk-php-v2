@@ -21,6 +21,7 @@ use stdClass;
 final class ExtensionChangeDestinationActionBuilder implements Builder
 {
     /**
+
      * @var null|ExtensionDestination|ExtensionDestinationBuilder
      */
     private $destination;
@@ -28,6 +29,7 @@ final class ExtensionChangeDestinationActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|ExtensionDestination
      */
     public function getDestination()

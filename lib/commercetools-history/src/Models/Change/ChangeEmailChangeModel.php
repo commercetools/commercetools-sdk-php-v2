@@ -22,21 +22,25 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
 
     public const DISCRIMINATOR_VALUE = 'ChangeEmailChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     /**
      * <p>Shape of the action for <code>changeEmail</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class ChangeEmailChangeModel extends JsonObjectModel implements ChangeEmai
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

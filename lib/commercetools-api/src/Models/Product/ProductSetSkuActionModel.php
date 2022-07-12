@@ -21,21 +21,25 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
 {
     public const DISCRIMINATOR_VALUE = 'setSku';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -56,6 +60,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -93,6 +99,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
      * <p>SKU must be unique.
      * If left blank or set to <code>null</code>, the sku is unset/removed.</p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -110,6 +117,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

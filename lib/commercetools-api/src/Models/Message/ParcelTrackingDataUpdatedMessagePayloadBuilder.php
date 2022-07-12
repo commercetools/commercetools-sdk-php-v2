@@ -23,21 +23,25 @@ use stdClass;
 final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -46,6 +50,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -54,6 +59,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()

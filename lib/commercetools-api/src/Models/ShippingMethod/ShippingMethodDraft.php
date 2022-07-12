@@ -30,6 +30,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -37,6 +38,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Name of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -44,6 +46,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Localized name of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedName();
@@ -51,6 +54,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Description of the ShippingMethod.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getDescription();
@@ -58,6 +62,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Localized description of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription();
@@ -65,6 +70,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> for all ZoneRates of the ShippingMethod.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
@@ -72,6 +78,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific zones.</p>
      *
+
      * @return null|ZoneRateDraftCollection
      */
     public function getZoneRates();
@@ -79,6 +86,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
+
      * @return null|bool
      */
     public function getIsDefault();
@@ -86,6 +94,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
+
      * @return null|string
      */
     public function getPredicate();
@@ -93,6 +102,7 @@ interface ShippingMethodDraft extends JsonObject
     /**
      * <p>Custom Fields for the ShippingMethod.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

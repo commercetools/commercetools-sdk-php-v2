@@ -24,26 +24,31 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
 
     public const DISCRIMINATOR_VALUE = 'SetSearchKeywordsChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?SearchKeywords
      */
     protected $previousValue;
 
     /**
+
      * @var ?SearchKeywords
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     /**
      * <p>Update action for <code>setSearchKeywords</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +127,7 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getPreviousValue()
@@ -137,6 +146,7 @@ final class SetSearchKeywordsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getNextValue()

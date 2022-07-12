@@ -19,11 +19,13 @@ interface LocalizedEnumValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel();

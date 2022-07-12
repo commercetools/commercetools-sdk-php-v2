@@ -17,11 +17,13 @@ interface OrderSetReturnShipmentStateAction extends OrderUpdateAction
     public const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();

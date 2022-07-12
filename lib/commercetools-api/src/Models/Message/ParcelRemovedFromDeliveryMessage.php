@@ -18,11 +18,13 @@ interface ParcelRemovedFromDeliveryMessage extends OrderMessage
     public const FIELD_PARCEL = 'parcel';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|Parcel
      */
     public function getParcel();

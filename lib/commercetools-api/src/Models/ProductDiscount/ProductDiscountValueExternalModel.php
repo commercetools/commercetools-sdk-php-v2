@@ -21,6 +21,7 @@ final class ProductDiscountValueExternalModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'external';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class ProductDiscountValueExternalModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

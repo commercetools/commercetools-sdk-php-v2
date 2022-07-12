@@ -31,6 +31,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The version of the ImportOperation.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -38,6 +39,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The key of the <a href="/import-container#importcontainer">importContainer</a>.</p>
      *
+
      * @return null|string
      */
     public function getImportContainerKey();
@@ -45,6 +47,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The key of the resource.</p>
      *
+
      * @return null|string
      */
     public function getResourceKey();
@@ -52,6 +55,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The ID of the ImportOperation.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -59,6 +63,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The import status of the resource. Set to <code>rejected</code> or <code>validationFailed</code> if the import of the resource was not successful.</p>
      *
+
      * @return null|string
      */
     public function getState();
@@ -66,6 +71,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The version of the impmorted resource when the import was successful.</p>
      *
+
      * @return null|int
      */
     public function getResourceVersion();
@@ -73,6 +79,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>Contains an error if the import of the resource was not successful. See <a href="/error">Errors</a>.</p>
      *
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors();
@@ -80,6 +87,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>In case of unresolved status this array will show the unresolved references</p>
      *
+
      * @return null|UnresolvedReferencesCollection
      */
     public function getUnresolvedReferences();
@@ -87,6 +95,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The time when the ImportOperation was created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -94,6 +103,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The last time When the ImportOperation was modified.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -101,6 +111,7 @@ interface ImportOperation extends JsonObject
     /**
      * <p>The expiration time of the ImportOperation.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt();

@@ -18,6 +18,7 @@ interface RemoveDeliveryItemsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface RemoveDeliveryItemsChange extends Change
     /**
      * <p>Update action for <code>removeDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Delivery
      */
     public function getPreviousValue();

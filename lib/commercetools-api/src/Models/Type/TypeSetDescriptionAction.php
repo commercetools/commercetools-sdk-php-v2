@@ -19,6 +19,7 @@ interface TypeSetDescriptionAction extends TypeUpdateAction
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();

@@ -16,6 +16,7 @@ interface ChangeSubscription extends JsonObject
     public const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
 
     /**
+
      * @return null|string
      */
     public function getResourceTypeId();

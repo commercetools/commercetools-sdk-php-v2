@@ -23,16 +23,19 @@ use stdClass;
 final class ProjectCategoryRecommendationBuilder implements Builder
 {
     /**
+
      * @var null|CategoryReference|CategoryReferenceBuilder
      */
     private $category;
 
     /**
+
      * @var ?float
      */
     private $confidence;
 
     /**
+
      * @var ?string
      */
     private $path;
@@ -40,6 +43,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     /**
      * <p>A category that is recommended for a product.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -50,6 +54,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     /**
      * <p>Probability score for the category recommendation.</p>
      *
+
      * @return null|float
      */
     public function getConfidence()
@@ -60,6 +65,7 @@ final class ProjectCategoryRecommendationBuilder implements Builder
     /**
      * <p>Breadcrumb path to the recommended category. This only picks up one language, not all available languages for the category. English is prioritized, but if English data is not available, an arbitrary language is selected. Do not use this to identify a category,use the category ID from the category reference instead.</p>
      *
+
      * @return null|string
      */
     public function getPath()

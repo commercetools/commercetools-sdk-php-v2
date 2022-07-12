@@ -16,6 +16,7 @@ interface OrderSetCustomerIdAction extends OrderUpdateAction
     public const FIELD_CUSTOMER_ID = 'customerId';
 
     /**
+
      * @return null|string
      */
     public function getCustomerId();

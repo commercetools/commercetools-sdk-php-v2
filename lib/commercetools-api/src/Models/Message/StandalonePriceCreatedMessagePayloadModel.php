@@ -23,11 +23,13 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?StandalonePrice
      */
     protected $standalonePrice;
@@ -44,6 +46,7 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
     /**
      * <p>The Standalone Price as it was created.</p>
      *
+
      * @return null|StandalonePrice
      */
     public function getStandalonePrice()

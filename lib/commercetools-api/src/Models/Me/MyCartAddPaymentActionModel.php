@@ -23,11 +23,13 @@ final class MyCartAddPaymentActionModel extends JsonObjectModel implements MyCar
 {
     public const DISCRIMINATOR_VALUE = 'addPayment';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?PaymentResourceIdentifier
      */
     protected $payment;
@@ -44,6 +46,7 @@ final class MyCartAddPaymentActionModel extends JsonObjectModel implements MyCar
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class MyCartAddPaymentActionModel extends JsonObjectModel implements MyCar
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

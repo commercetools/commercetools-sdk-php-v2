@@ -25,26 +25,31 @@ use stdClass;
 final class LineItemProductVariantImportDraftBuilder implements Builder
 {
     /**
+
      * @var null|ProductVariantKeyReference|ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?LineItemPriceCollection
      */
     private $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
@@ -52,6 +57,7 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariant.product</code>.</p>
      *
+
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant()
@@ -62,6 +68,7 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariantImportDraft.sku</code>.</p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -72,6 +79,7 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariantImportDraft.prices</code></p>
      *
+
      * @return null|LineItemPriceCollection
      */
     public function getPrices()
@@ -82,6 +90,7 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariantImportDraft.attributes</code></p>
      *
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -92,6 +101,7 @@ final class LineItemProductVariantImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariantImportDraft.images</code>.</p>
      *
+
      * @return null|ImageCollection
      */
     public function getImages()

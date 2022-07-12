@@ -22,16 +22,19 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeTransactionTimestamp';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $transactionId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $timestamp;
@@ -50,6 +53,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -67,6 +71,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -84,6 +89,7 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp()

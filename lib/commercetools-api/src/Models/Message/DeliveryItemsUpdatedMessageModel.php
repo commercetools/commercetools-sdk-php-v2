@@ -29,71 +29,85 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryItemsUpdated';
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+
      * @var ?Reference
      */
     protected $resource;
 
     /**
+
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $oldItems;
@@ -136,6 +150,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     /**
      * <p>Unique identifier of the Message.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -153,6 +168,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -170,6 +186,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -191,6 +208,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -214,6 +232,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -234,6 +253,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -252,6 +272,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -271,6 +292,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -289,6 +311,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -306,6 +329,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -323,6 +347,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -341,6 +366,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -358,6 +384,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -375,6 +402,7 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()

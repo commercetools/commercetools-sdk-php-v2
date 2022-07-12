@@ -30,86 +30,103 @@ use stdClass;
 final class ProductDraftBuilder implements Builder
 {
     /**
+
      * @var null|ProductTypeResourceIdentifier|ProductTypeResourceIdentifierBuilder
      */
     private $productType;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?CategoryResourceIdentifierCollection
      */
     private $categories;
 
     /**
+
      * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $categoryOrderHints;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var null|ProductVariantDraft|ProductVariantDraftBuilder
      */
     private $masterVariant;
 
     /**
+
      * @var ?ProductVariantDraftCollection
      */
     private $variants;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @var ?bool
      */
     private $publish;
 
     /**
+
      * @var ?string
      */
     private $priceMode;
@@ -118,6 +135,7 @@ final class ProductDraftBuilder implements Builder
      * <p>A predefined product type assigned to the product.
      * All products must have a product type.</p>
      *
+
      * @return null|ProductTypeResourceIdentifier
      */
     public function getProductType()
@@ -126,6 +144,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -139,6 +158,7 @@ final class ProductDraftBuilder implements Builder
      * Slugs have a maximum size of 256.
      * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -149,6 +169,7 @@ final class ProductDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Product.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -157,6 +178,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -167,6 +189,7 @@ final class ProductDraftBuilder implements Builder
     /**
      * <p>Categories assigned to the product.</p>
      *
+
      * @return null|CategoryResourceIdentifierCollection
      */
     public function getCategories()
@@ -175,6 +198,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -183,6 +207,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -191,6 +216,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -199,6 +225,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -210,6 +237,7 @@ final class ProductDraftBuilder implements Builder
      * <p>The master product variant.
      * Required if the <code>variants</code> array has product variants.</p>
      *
+
      * @return null|ProductVariantDraft
      */
     public function getMasterVariant()
@@ -220,6 +248,7 @@ final class ProductDraftBuilder implements Builder
     /**
      * <p>An array of related product variants.</p>
      *
+
      * @return null|ProductVariantDraftCollection
      */
     public function getVariants()
@@ -228,6 +257,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -236,6 +266,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -244,6 +275,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -254,6 +286,7 @@ final class ProductDraftBuilder implements Builder
     /**
      * <p>If <code>true</code>, the product is published immediately.</p>
      *
+
      * @return null|bool
      */
     public function getPublish()
@@ -264,6 +297,7 @@ final class ProductDraftBuilder implements Builder
     /**
      * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
      *
+
      * @return null|string
      */
     public function getPriceMode()

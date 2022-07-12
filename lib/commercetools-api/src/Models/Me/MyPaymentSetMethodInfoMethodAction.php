@@ -16,6 +16,7 @@ interface MyPaymentSetMethodInfoMethodAction extends MyPaymentUpdateAction
     public const FIELD_METHOD = 'method';
 
     /**
+
      * @return null|string
      */
     public function getMethod();

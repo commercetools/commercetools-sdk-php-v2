@@ -21,6 +21,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -48,6 +49,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

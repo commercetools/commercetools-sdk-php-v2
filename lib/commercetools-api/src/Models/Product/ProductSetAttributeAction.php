@@ -20,16 +20,19 @@ interface ProductSetAttributeAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getName();
@@ -39,11 +42,13 @@ interface ProductSetAttributeAction extends ProductUpdateAction
      * If the attribute exists and a value is provided, the new value is applied.
      * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
      *
+
      * @return null|mixed
      */
     public function getValue();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

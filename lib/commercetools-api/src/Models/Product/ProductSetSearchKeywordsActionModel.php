@@ -21,16 +21,19 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setSearchKeywords';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -49,6 +52,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -84,6 +89,7 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

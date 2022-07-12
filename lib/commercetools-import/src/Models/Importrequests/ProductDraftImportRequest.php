@@ -19,6 +19,7 @@ interface ProductDraftImportRequest extends ImportRequest
     /**
      * <p>The product draft import resources of this request.</p>
      *
+
      * @return null|ProductDraftImportCollection
      */
     public function getResources();

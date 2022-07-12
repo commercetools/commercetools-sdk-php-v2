@@ -21,26 +21,31 @@ use stdClass;
 final class ProductCatalogDataBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $published;
 
     /**
+
      * @var null|ProductData|ProductDataBuilder
      */
     private $current;
 
     /**
+
      * @var null|ProductData|ProductDataBuilder
      */
     private $staged;
 
     /**
+
      * @var ?bool
      */
     private $hasStagedChanges;
 
     /**
+
      * @return null|bool
      */
     public function getPublished()
@@ -49,6 +54,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductData
      */
     public function getCurrent()
@@ -57,6 +63,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductData
      */
     public function getStaged()
@@ -65,6 +72,7 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getHasStagedChanges()

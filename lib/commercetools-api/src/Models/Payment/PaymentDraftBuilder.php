@@ -28,76 +28,91 @@ use stdClass;
 final class PaymentDraftBuilder implements Builder
 {
     /**
+
      * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+     * @deprecated
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var ?string
      */
     private $interfaceId;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amountPlanned;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amountAuthorized;
 
     /**
+
      * @var ?string
      */
     private $authorizedUntil;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amountPaid;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amountRefunded;
 
     /**
+
      * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
+
      * @var null|PaymentStatusDraft|PaymentStatusDraftBuilder
      */
     private $paymentStatus;
 
     /**
+
      * @var ?TransactionDraftCollection
      */
     private $transactions;
 
     /**
+
      * @var ?CustomFieldsDraftCollection
      */
     private $interfaceInteractions;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -105,6 +120,7 @@ final class PaymentDraftBuilder implements Builder
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -115,6 +131,7 @@ final class PaymentDraftBuilder implements Builder
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -123,6 +140,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated
      * @return null|string
      */
     public function getExternalId()
@@ -135,6 +153,7 @@ final class PaymentDraftBuilder implements Builder
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceId()
@@ -146,6 +165,7 @@ final class PaymentDraftBuilder implements Builder
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|Money
      */
     public function getAmountPlanned()
@@ -157,6 +177,7 @@ final class PaymentDraftBuilder implements Builder
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getAmountAuthorized()
@@ -165,6 +186,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAuthorizedUntil()
@@ -176,6 +198,7 @@ final class PaymentDraftBuilder implements Builder
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getAmountPaid()
@@ -187,6 +210,7 @@ final class PaymentDraftBuilder implements Builder
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getAmountRefunded()
@@ -195,6 +219,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -203,6 +228,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentStatusDraft
      */
     public function getPaymentStatus()
@@ -213,6 +239,7 @@ final class PaymentDraftBuilder implements Builder
     /**
      * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
      *
+
      * @return null|TransactionDraftCollection
      */
     public function getTransactions()
@@ -226,6 +253,7 @@ final class PaymentDraftBuilder implements Builder
      * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
      * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
      *
+
      * @return null|CustomFieldsDraftCollection
      */
     public function getInterfaceInteractions()
@@ -234,6 +262,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -244,6 +273,7 @@ final class PaymentDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Payment.</p>
      *
+
      * @return null|string
      */
     public function getKey()

@@ -24,21 +24,25 @@ final class SetBillingAddressChangeModel extends JsonObjectModel implements SetB
 
     public const DISCRIMINATOR_VALUE = 'SetBillingAddressChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Address
      */
     protected $nextValue;
 
     /**
+
      * @var ?Address
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class SetBillingAddressChangeModel extends JsonObjectModel implements SetB
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetBillingAddressChangeModel extends JsonObjectModel implements SetB
     /**
      * <p>Update action for <code>setBillingAddress</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetBillingAddressChangeModel extends JsonObjectModel implements SetB
     }
 
     /**
+
      * @return null|Address
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class SetBillingAddressChangeModel extends JsonObjectModel implements SetB
     }
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue()

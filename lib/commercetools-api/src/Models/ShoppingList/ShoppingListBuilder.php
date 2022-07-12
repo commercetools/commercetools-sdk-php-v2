@@ -36,86 +36,103 @@ use stdClass;
 final class ShoppingListBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?ShoppingListLineItemCollection
      */
     private $lineItems;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var ?TextLineItemCollection
      */
     private $textLineItems;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
@@ -123,6 +140,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>Unique identifier of the ShoppingList.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -133,6 +151,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>The current version of the shopping list.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -141,6 +160,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -149,6 +169,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -159,6 +180,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -169,6 +191,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -177,6 +200,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -185,6 +209,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -195,6 +220,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -203,6 +229,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -213,6 +240,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the ShoppingList.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -221,6 +249,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|ShoppingListLineItemCollection
      */
     public function getLineItems()
@@ -229,6 +258,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -241,6 +271,7 @@ final class ShoppingListBuilder implements Builder
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
      * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -249,6 +280,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemCollection
      */
     public function getTextLineItems()
@@ -259,6 +291,7 @@ final class ShoppingListBuilder implements Builder
     /**
      * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -267,6 +300,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+
      * @return null|StoreKeyReference
      */
     public function getStore()

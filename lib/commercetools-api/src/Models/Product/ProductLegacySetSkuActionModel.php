@@ -21,16 +21,19 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'legacySetSku';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
@@ -49,6 +52,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -83,6 +88,7 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

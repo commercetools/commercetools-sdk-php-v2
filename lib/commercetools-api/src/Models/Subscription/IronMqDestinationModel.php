@@ -21,11 +21,13 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
 {
     public const DISCRIMINATOR_VALUE = 'IronMQ';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $uri;
@@ -42,6 +44,7 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     }
 
     /**
+
      * @return null|string
      */
     public function getUri()

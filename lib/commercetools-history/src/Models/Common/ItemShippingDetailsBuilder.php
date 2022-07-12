@@ -21,16 +21,19 @@ use stdClass;
 final class ItemShippingDetailsBuilder implements Builder
 {
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     private $targets;
 
     /**
+
      * @var ?bool
      */
     private $valid;
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()
@@ -41,6 +44,7 @@ final class ItemShippingDetailsBuilder implements Builder
     /**
      * <p>true if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise. A cart cannot be ordered when the value is <code>false</code>. The error InvalidItemShippingDetails will be triggered.</p>
      *
+
      * @return null|bool
      */
     public function getValid()

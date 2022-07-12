@@ -22,11 +22,13 @@ use stdClass;
 final class OrderEditPreviewFailureBuilder implements Builder
 {
     /**
+
      * @var ?ErrorObjectCollection
      */
     private $errors;
 
     /**
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors()

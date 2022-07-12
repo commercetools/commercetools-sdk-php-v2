@@ -23,16 +23,19 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
 {
     public const DISCRIMINATOR_VALUE = 'order';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?Order
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -89,6 +94,7 @@ final class OrderReferenceModel extends JsonObjectModel implements OrderReferenc
     }
 
     /**
+
      * @return null|Order
      */
     public function getObj()

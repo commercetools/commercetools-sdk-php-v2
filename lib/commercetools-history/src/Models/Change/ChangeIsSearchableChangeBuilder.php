@@ -21,21 +21,25 @@ use stdClass;
 final class ChangeIsSearchableChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?bool
      */
     private $nextValue;
 
     /**
+
      * @var ?bool
      */
     private $previousValue;
@@ -43,6 +47,7 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeIsSearchable</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     /**
      * <p>The name of the updated attribute.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -61,6 +67,7 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class ChangeIsSearchableChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue()

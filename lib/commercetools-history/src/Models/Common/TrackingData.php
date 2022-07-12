@@ -23,6 +23,7 @@ interface TrackingData extends JsonObject
     /**
      * <p>The ID to track one parcel.</p>
      *
+
      * @return null|string
      */
     public function getTrackingId();
@@ -30,16 +31,19 @@ interface TrackingData extends JsonObject
     /**
      * <p>The carrier that delivers the parcel.</p>
      *
+
      * @return null|string
      */
     public function getCarrier();
 
     /**
+
      * @return null|string
      */
     public function getProvider();
 
     /**
+
      * @return null|string
      */
     public function getProviderTransaction();
@@ -47,6 +51,7 @@ interface TrackingData extends JsonObject
     /**
      * <p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>
      *
+
      * @return null|bool
      */
     public function getIsReturn();

@@ -21,16 +21,19 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeInputHint';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?string
      */
     protected $newValue;
@@ -49,6 +52,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -87,6 +92,7 @@ final class ProductTypeChangeInputHintActionModel extends JsonObjectModel implem
     /**
      * <p><code>SingleLine</code> or <code>MultiLine</code></p>
      *
+
      * @return null|string
      */
     public function getNewValue()

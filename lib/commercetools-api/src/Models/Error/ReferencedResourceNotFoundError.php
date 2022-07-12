@@ -20,16 +20,19 @@ interface ReferencedResourceNotFoundError extends ErrorObject
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
+
      * @return null|string
      */
     public function getTypeId();
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getKey();

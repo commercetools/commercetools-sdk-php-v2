@@ -21,11 +21,13 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
 {
     public const DISCRIMINATOR_VALUE = 'removeDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
@@ -42,6 +44,7 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderRemoveDeliveryActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()

@@ -21,16 +21,19 @@ use stdClass;
 final class CentPrecisionMoneyBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $centAmount;
 
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @var ?int
      */
     private $fractionDigits;
@@ -42,6 +45,7 @@ final class CentPrecisionMoneyBuilder implements Builder
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getCentAmount()
@@ -52,6 +56,7 @@ final class CentPrecisionMoneyBuilder implements Builder
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -62,6 +67,7 @@ final class CentPrecisionMoneyBuilder implements Builder
     /**
      * <p>The number of default fraction digits for the given currency, like <code>2</code> for EUR or <code>0</code> for JPY.</p>
      *
+
      * @return null|int
      */
     public function getFractionDigits()

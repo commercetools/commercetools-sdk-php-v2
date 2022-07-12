@@ -28,51 +28,61 @@ use stdClass;
 final class QueryPriceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $value;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
     private $discounted;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?PriceTierDraftCollection
      */
     private $tiers;
@@ -80,6 +90,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Unique identifier of the given Price.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -90,6 +101,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Money value of the given Price.</p>
      *
+
      * @return null|Money
      */
     public function getValue()
@@ -100,6 +112,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Country for which the given Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -110,6 +123,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the given Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -120,6 +134,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which the given Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -130,6 +145,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Date from which the given Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -140,6 +156,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Date until which the given Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -150,6 +167,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:DiscountedPrice">DiscountedPrice</a> you specify for the given Price.</p>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
@@ -160,6 +178,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Custom Fields for the Price.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -170,6 +189,7 @@ final class QueryPriceBuilder implements Builder
     /**
      * <p>Price tier applied when the minimum quantity for the <a href="ctp:api:type:LineItem">LineItem</a> of a ProductVariant with the related Price is reached in a Cart.</p>
      *
+
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()

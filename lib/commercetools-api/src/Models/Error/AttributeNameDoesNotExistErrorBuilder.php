@@ -21,16 +21,19 @@ use stdClass;
 final class AttributeNameDoesNotExistErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $invalidAttributeName;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class AttributeNameDoesNotExistErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getInvalidAttributeName()

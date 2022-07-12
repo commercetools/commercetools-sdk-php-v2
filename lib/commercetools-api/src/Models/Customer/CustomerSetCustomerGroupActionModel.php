@@ -23,11 +23,13 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerGroup';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
@@ -44,6 +46,7 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
     /**
      * <p>If not defined, the customer group is unset.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

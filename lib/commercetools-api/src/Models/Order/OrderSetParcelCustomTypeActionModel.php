@@ -25,21 +25,25 @@ final class OrderSetParcelCustomTypeActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setParcelCustomType';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+
      * @var ?FieldContainer
      */
     protected $fields;
@@ -60,6 +64,7 @@ final class OrderSetParcelCustomTypeActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -77,6 +82,7 @@ final class OrderSetParcelCustomTypeActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -97,6 +103,7 @@ final class OrderSetParcelCustomTypeActionModel extends JsonObjectModel implemen
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Parcel with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Parcel.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -117,6 +124,7 @@ final class OrderSetParcelCustomTypeActionModel extends JsonObjectModel implemen
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Parcel.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

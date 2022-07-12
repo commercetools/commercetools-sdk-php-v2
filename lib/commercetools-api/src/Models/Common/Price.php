@@ -31,6 +31,7 @@ interface Price extends JsonObject
     /**
      * <p>Unique identifier of this Price.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -38,6 +39,7 @@ interface Price extends JsonObject
     /**
      * <p>Money value of this Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -45,6 +47,7 @@ interface Price extends JsonObject
     /**
      * <p>Country for which this Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -52,6 +55,7 @@ interface Price extends JsonObject
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -59,6 +63,7 @@ interface Price extends JsonObject
     /**
      * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel();
@@ -66,6 +71,7 @@ interface Price extends JsonObject
     /**
      * <p>Date and time from which this Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -73,6 +79,7 @@ interface Price extends JsonObject
     /**
      * <p>Date and time until this Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -82,6 +89,7 @@ interface Price extends JsonObject
      * If set, the API uses the DiscountedPrice value for the <a href="/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
@@ -89,6 +97,7 @@ interface Price extends JsonObject
     /**
      * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers();
@@ -96,6 +105,7 @@ interface Price extends JsonObject
     /**
      * <p>Custom Fields defined for the Price.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

@@ -23,16 +23,19 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'ProductAddedToCategory';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?CategoryReference
      */
     protected $category;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -70,6 +74,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -88,6 +93,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

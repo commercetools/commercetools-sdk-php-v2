@@ -19,6 +19,7 @@ interface OrderPaymentAddedMessagePayload extends MessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|PaymentReference
      */
     public function getPayment();

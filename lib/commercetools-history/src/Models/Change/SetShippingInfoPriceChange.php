@@ -19,6 +19,7 @@ interface SetShippingInfoPriceChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface SetShippingInfoPriceChange extends Change
     /**
      * <p>Update action for <code>setShippingInfoPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Money
      */
     public function getNextValue();
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue();

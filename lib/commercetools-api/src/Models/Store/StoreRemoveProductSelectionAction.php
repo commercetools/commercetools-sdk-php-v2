@@ -19,6 +19,7 @@ interface StoreRemoveProductSelectionAction extends StoreUpdateAction
     /**
      * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection();

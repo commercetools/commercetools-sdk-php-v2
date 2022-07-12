@@ -22,11 +22,13 @@ use stdClass;
 final class ProductDiscountSetValidFromAndUntilActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
@@ -35,6 +37,7 @@ final class ProductDiscountSetValidFromAndUntilActionBuilder implements Builder
      * <p>Value to set.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -46,6 +49,7 @@ final class ProductDiscountSetValidFromAndUntilActionBuilder implements Builder
      * <p>Value to set.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

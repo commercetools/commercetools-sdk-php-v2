@@ -40,6 +40,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Unique identifier of the StandalonePrice.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -47,6 +48,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Current version of the StandalonePrice.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -54,6 +56,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Date and time (UTC) the StandalonePrice was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -61,6 +64,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Date and time (UTC) the StandalonePrice was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -68,6 +72,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -75,6 +80,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -82,6 +88,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>User-defined unique identifier of the StandalonePrice.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -89,6 +96,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which this Price is associated.</p>
      *
+
      * @return null|string
      */
     public function getSku();
@@ -96,6 +104,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Money value of this Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -103,6 +112,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Country for which this Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -110,6 +120,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -117,6 +128,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel();
@@ -124,6 +136,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Date from which the Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -131,6 +144,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Date until the Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -138,6 +152,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Price tiers if any are defined.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers();
@@ -146,6 +161,7 @@ interface StandalonePrice extends BaseResource
      * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
@@ -153,6 +169,7 @@ interface StandalonePrice extends BaseResource
     /**
      * <p>Custom Fields for the StandalonePrice.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

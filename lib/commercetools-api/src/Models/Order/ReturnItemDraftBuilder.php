@@ -23,36 +23,43 @@ use stdClass;
 final class ReturnItemDraftBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -61,6 +68,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -69,6 +77,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -77,6 +86,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -85,6 +95,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -95,6 +106,7 @@ final class ReturnItemDraftBuilder implements Builder
     /**
      * <p>Custom Fields of this return item.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

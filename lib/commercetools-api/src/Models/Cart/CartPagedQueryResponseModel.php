@@ -20,26 +20,31 @@ use stdClass;
 final class CartPagedQueryResponseModel extends JsonObjectModel implements CartPagedQueryResponse
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?CartCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -82,6 +88,7 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -99,6 +106,7 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -118,6 +126,7 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -135,6 +144,7 @@ final class CartPagedQueryResponseModel extends JsonObjectModel implements CartP
     }
 
     /**
+
      * @return null|CartCollection
      */
     public function getResults()

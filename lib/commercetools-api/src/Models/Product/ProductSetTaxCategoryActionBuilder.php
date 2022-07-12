@@ -23,6 +23,7 @@ use stdClass;
 final class ProductSetTaxCategoryActionBuilder implements Builder
 {
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
@@ -30,6 +31,7 @@ final class ProductSetTaxCategoryActionBuilder implements Builder
     /**
      * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()

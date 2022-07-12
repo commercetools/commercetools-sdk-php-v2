@@ -32,56 +32,67 @@ use stdClass;
 final class ShippingInfoBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $shippingMethodName;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|ShippingRate|ShippingRateBuilder
      */
     private $shippingRate;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ShippingMethodReference|ShippingMethodReferenceBuilder
      */
     private $shippingMethod;
 
     /**
+
      * @var ?DeliveryCollection
      */
     private $deliveries;
 
     /**
+
      * @var null|DiscountedLineItemPrice|DiscountedLineItemPriceBuilder
      */
     private $discountedPrice;
 
     /**
+
      * @var ?string
      */
     private $shippingMethodState;
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName()
@@ -92,6 +103,7 @@ final class ShippingInfoBuilder implements Builder
     /**
      * <p>Determined based on the ShippingRate and its tiered prices, and either the sum of LineItem prices or the <code>shippingRateInput</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getPrice()
@@ -102,6 +114,7 @@ final class ShippingInfoBuilder implements Builder
     /**
      * <p>The shipping rate used to determine the price.</p>
      *
+
      * @return null|ShippingRate
      */
     public function getShippingRate()
@@ -112,6 +125,7 @@ final class ShippingInfoBuilder implements Builder
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -123,6 +137,7 @@ final class ShippingInfoBuilder implements Builder
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -131,6 +146,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -141,6 +157,7 @@ final class ShippingInfoBuilder implements Builder
     /**
      * <p>Not set if custom shipping method is used.</p>
      *
+
      * @return null|ShippingMethodReference
      */
     public function getShippingMethod()
@@ -151,6 +168,7 @@ final class ShippingInfoBuilder implements Builder
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
+
      * @return null|DeliveryCollection
      */
     public function getDeliveries()
@@ -159,6 +177,7 @@ final class ShippingInfoBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getDiscountedPrice()
@@ -169,6 +188,7 @@ final class ShippingInfoBuilder implements Builder
     /**
      * <p>Indicates whether the ShippingMethod referenced in this ShippingInfo is allowed for the cart or not.</p>
      *
+
      * @return null|string
      */
     public function getShippingMethodState()

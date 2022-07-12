@@ -22,11 +22,13 @@ final class UnpublishChangeModel extends JsonObjectModel implements UnpublishCha
 
     public const DISCRIMINATOR_VALUE = 'UnpublishChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
@@ -43,6 +45,7 @@ final class UnpublishChangeModel extends JsonObjectModel implements UnpublishCha
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -60,6 +63,7 @@ final class UnpublishChangeModel extends JsonObjectModel implements UnpublishCha
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()

@@ -24,41 +24,49 @@ use stdClass;
 final class ProductAddVariantActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     private $prices;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -67,6 +75,7 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -75,6 +84,7 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -83,6 +93,7 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -91,6 +102,7 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -99,6 +111,7 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -107,6 +120,7 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets()

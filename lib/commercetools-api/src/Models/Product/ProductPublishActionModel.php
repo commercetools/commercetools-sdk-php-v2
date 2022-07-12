@@ -21,11 +21,13 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
 {
     public const DISCRIMINATOR_VALUE = 'publish';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $scope;
@@ -42,6 +44,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     }
 
     /**
+
      * @return null|string
      */
     public function getScope()

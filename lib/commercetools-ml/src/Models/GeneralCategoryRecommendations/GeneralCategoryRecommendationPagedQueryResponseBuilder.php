@@ -21,26 +21,31 @@ use stdClass;
 final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?GeneralCategoryRecommendationCollection
      */
     private $results;
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -49,6 +54,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -59,6 +65,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -67,6 +74,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+
      * @return null|GeneralCategoryRecommendationCollection
      */
     public function getResults()

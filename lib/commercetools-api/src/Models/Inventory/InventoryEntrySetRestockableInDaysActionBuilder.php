@@ -21,6 +21,7 @@ use stdClass;
 final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $restockableInDays;
@@ -28,6 +29,7 @@ final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|int
      */
     public function getRestockableInDays()

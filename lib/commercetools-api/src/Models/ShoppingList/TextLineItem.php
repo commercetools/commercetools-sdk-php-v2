@@ -26,16 +26,19 @@ interface TextLineItem extends JsonObject
     /**
      * <p>When the text line item was added to the shopping list.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -43,16 +46,19 @@ interface TextLineItem extends JsonObject
     /**
      * <p>Unique identifier of the TextLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

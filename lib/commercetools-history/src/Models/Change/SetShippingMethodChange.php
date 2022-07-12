@@ -19,6 +19,7 @@ interface SetShippingMethodChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface SetShippingMethodChange extends Change
     /**
      * <p>Update action for <code>setShippingMethod</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ShippingMethodChangeValue
      */
     public function getNextValue();
 
     /**
+
      * @return null|ShippingMethodChangeValue
      */
     public function getPreviousValue();

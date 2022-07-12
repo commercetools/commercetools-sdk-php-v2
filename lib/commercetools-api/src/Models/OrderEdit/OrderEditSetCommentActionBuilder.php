@@ -21,11 +21,13 @@ use stdClass;
 final class OrderEditSetCommentActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @return null|string
      */
     public function getComment()

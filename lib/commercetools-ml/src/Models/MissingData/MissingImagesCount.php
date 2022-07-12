@@ -17,6 +17,7 @@ interface MissingImagesCount extends JsonObject
     public const FIELD_TOTAL = 'total';
 
     /**
+
      * @return null|int
      */
     public function getMissingImages();
@@ -24,6 +25,7 @@ interface MissingImagesCount extends JsonObject
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal();

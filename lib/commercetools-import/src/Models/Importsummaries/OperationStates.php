@@ -23,6 +23,7 @@ interface OperationStates extends JsonObject
     /**
      * <p>The number of resources in the <code>processing</code> state.</p>
      *
+
      * @return null|int
      */
     public function getProcessing();
@@ -30,6 +31,7 @@ interface OperationStates extends JsonObject
     /**
      * <p>The number of resources in the <code>validationFailed</code> state.</p>
      *
+
      * @return null|int
      */
     public function getValidationFailed();
@@ -37,6 +39,7 @@ interface OperationStates extends JsonObject
     /**
      * <p>The number of resources in the <code>unresolved</code> state.</p>
      *
+
      * @return null|int
      */
     public function getUnresolved();
@@ -44,6 +47,7 @@ interface OperationStates extends JsonObject
     /**
      * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
      *
+
      * @return null|int
      */
     public function getWaitForMasterVariant();
@@ -51,6 +55,7 @@ interface OperationStates extends JsonObject
     /**
      * <p>The number of resources in the <code>imported</code> state.</p>
      *
+
      * @return null|int
      */
     public function getImported();
@@ -58,6 +63,7 @@ interface OperationStates extends JsonObject
     /**
      * <p>The number of resources in the <code>rejected</code> state.</p>
      *
+
      * @return null|int
      */
     public function getRejected();

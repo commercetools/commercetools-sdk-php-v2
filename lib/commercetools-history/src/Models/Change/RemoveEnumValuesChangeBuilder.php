@@ -23,16 +23,19 @@ use Commercetools\History\Models\ChangeValue\EnumValueBuilder;
 final class RemoveEnumValuesChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|EnumValue|EnumValueBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeEnumValues</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -50,6 +54,7 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -58,6 +63,7 @@ final class RemoveEnumValuesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|EnumValue
      */
     public function getPreviousValue()

@@ -21,11 +21,13 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
 {
     public const DISCRIMINATOR_VALUE = 'nested';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?ProductTypeReference
      */
     protected $typeReference;
@@ -42,6 +44,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     /**
      * <p>Attributes that can be stored as nested Attributes of the current Attribute.</p>
      *
+
      * @return null|ProductTypeReference
      */
     public function getTypeReference()

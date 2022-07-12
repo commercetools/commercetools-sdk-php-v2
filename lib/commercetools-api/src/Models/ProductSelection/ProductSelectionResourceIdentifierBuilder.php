@@ -23,11 +23,13 @@ use stdClass;
 final class ProductSelectionResourceIdentifierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -35,6 +37,7 @@ final class ProductSelectionResourceIdentifierBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductSelection">ProductSelection</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class ProductSelectionResourceIdentifierBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:ProductSelection">ProductSelection</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getKey()

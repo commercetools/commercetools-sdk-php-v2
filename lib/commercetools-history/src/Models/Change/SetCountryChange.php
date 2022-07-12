@@ -18,6 +18,7 @@ interface SetCountryChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,6 +26,7 @@ interface SetCountryChange extends Change
     /**
      * <p>Update action for <code>setCountry</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -32,6 +34,7 @@ interface SetCountryChange extends Change
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getPreviousValue();
@@ -39,6 +42,7 @@ interface SetCountryChange extends Change
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getNextValue();

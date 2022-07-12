@@ -30,6 +30,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Unique identifier of the ProductSelection.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -37,6 +38,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Current version of the ProductSelection.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -44,6 +46,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Date and time (UTC) the ProductSelection was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -51,6 +54,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Date and time (UTC) the ProductSelection was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -58,6 +62,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Present on resources updated after 1/02/2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -65,6 +70,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Present on resources created after 1/02/2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -72,6 +78,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>User-defined unique identifier of the ProductSelection.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -79,6 +86,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Name of the ProductSelection.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -86,6 +94,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Number of Products that are currently assigned to this ProductSelection.</p>
      *
+
      * @return null|int
      */
     public function getProductCount();
@@ -93,6 +102,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Specifies in which way the Products are assigned to the ProductSelection. Currently, the only way of doing this is to specify each Product individually. Hence, the type is fixed to <code>individual</code> for now, but we have plans to add other types in the future.</p>
      *
+
      * @return null|string
      */
     public function getType();
@@ -100,6 +110,7 @@ interface ProductSelection extends BaseResource
     /**
      * <p>Custom Fields of this ProductSelection.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

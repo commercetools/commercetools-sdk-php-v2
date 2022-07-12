@@ -31,6 +31,7 @@ interface ShoppingListLineItem extends JsonObject
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
@@ -38,11 +39,13 @@ interface ShoppingListLineItem extends JsonObject
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDeactivatedAt();
@@ -50,6 +53,7 @@ interface ShoppingListLineItem extends JsonObject
     /**
      * <p>Unique identifier of the ShoppingListLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -57,11 +61,13 @@ interface ShoppingListLineItem extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|string
      */
     public function getProductId();
@@ -69,6 +75,7 @@ interface ShoppingListLineItem extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getProductSlug();
@@ -76,21 +83,25 @@ interface ShoppingListLineItem extends JsonObject
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
+
      * @return null|ProductTypeReference
      */
     public function getProductType();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();

@@ -21,16 +21,19 @@ final class MyCustomerRemoveShippingAddressIdActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'removeShippingAddressId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $addressId;
 
     /**
+
      * @var ?string
      */
     protected $addressKey;
@@ -49,6 +52,7 @@ final class MyCustomerRemoveShippingAddressIdActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class MyCustomerRemoveShippingAddressIdActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAddressId()
@@ -83,6 +88,7 @@ final class MyCustomerRemoveShippingAddressIdActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAddressKey()

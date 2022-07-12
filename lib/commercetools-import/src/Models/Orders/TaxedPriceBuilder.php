@@ -23,21 +23,25 @@ use stdClass;
 final class TaxedPriceBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalNet;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalGross;
 
     /**
+
      * @var ?TaxPortionCollection
      */
     private $taxPortions;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalTax;
@@ -45,6 +49,7 @@ final class TaxedPriceBuilder implements Builder
     /**
      * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalNet()
@@ -55,6 +60,7 @@ final class TaxedPriceBuilder implements Builder
     /**
      * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross()
@@ -65,6 +71,7 @@ final class TaxedPriceBuilder implements Builder
     /**
      * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
      *
+
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions()
@@ -75,6 +82,7 @@ final class TaxedPriceBuilder implements Builder
     /**
      * <p>Maps to <code>TaxedPrice.totalTax</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalTax()

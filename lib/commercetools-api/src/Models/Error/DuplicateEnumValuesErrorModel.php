@@ -21,16 +21,19 @@ final class DuplicateEnumValuesErrorModel extends JsonObjectModel implements Dup
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateEnumValues';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?array
      */
     protected $duplicates;
@@ -49,6 +52,7 @@ final class DuplicateEnumValuesErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -66,6 +70,7 @@ final class DuplicateEnumValuesErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -83,6 +88,7 @@ final class DuplicateEnumValuesErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+
      * @return null|array
      */
     public function getDuplicates()

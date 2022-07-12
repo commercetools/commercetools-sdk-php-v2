@@ -25,6 +25,7 @@ use stdClass;
 final class StagedOrderSetCustomerGroupActionBuilder implements Builder
 {
     /**
+
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
@@ -32,6 +33,7 @@ final class StagedOrderSetCustomerGroupActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

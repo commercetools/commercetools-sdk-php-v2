@@ -21,11 +21,13 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = 'customer-group';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

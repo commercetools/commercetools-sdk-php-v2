@@ -21,11 +21,13 @@ use stdClass;
 final class AttributeSetTypeBuilder implements Builder
 {
     /**
+
      * @var null|AttributeType|AttributeTypeBuilder
      */
     private $elementType;
 
     /**
+
      * @return null|AttributeType
      */
     public function getElementType()

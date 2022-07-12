@@ -20,6 +20,7 @@ interface StateSetNameAction extends StateUpdateAction
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

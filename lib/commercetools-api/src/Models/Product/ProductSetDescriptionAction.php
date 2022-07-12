@@ -18,11 +18,13 @@ interface ProductSetDescriptionAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

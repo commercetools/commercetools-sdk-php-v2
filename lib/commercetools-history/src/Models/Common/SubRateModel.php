@@ -22,11 +22,13 @@ final class SubRateModel extends JsonObjectModel implements SubRate
 
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?int
      */
     protected $amount;
@@ -45,6 +47,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -62,6 +65,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
+
      * @return null|int
      */
     public function getAmount()

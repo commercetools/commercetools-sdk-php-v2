@@ -22,16 +22,19 @@ use stdClass;
 final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDraft
 {
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?float
      */
     protected $rate;
 
     /**
+
      * @var ?Money
      */
     protected $amount;
@@ -51,6 +54,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -68,6 +72,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     }
 
     /**
+
      * @return null|float
      */
     public function getRate()
@@ -88,6 +93,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getAmount()

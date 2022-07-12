@@ -21,6 +21,7 @@ interface SetLineItemProductSlugChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface SetLineItemProductSlugChange extends Change
     /**
      * <p>Update action for <code>setLineItemProductSlug</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();

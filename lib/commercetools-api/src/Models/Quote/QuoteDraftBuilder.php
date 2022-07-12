@@ -25,21 +25,25 @@ use stdClass;
 final class QuoteDraftBuilder implements Builder
 {
     /**
+
      * @var null|StagedQuoteResourceIdentifier|StagedQuoteResourceIdentifierBuilder
      */
     private $stagedQuote;
 
     /**
+
      * @var ?int
      */
     private $stagedQuoteVersion;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -47,6 +51,7 @@ final class QuoteDraftBuilder implements Builder
     /**
      * <p>The StagedQuote from which this Quote is created.</p>
      *
+
      * @return null|StagedQuoteResourceIdentifier
      */
     public function getStagedQuote()
@@ -57,6 +62,7 @@ final class QuoteDraftBuilder implements Builder
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getStagedQuoteVersion()
@@ -67,6 +73,7 @@ final class QuoteDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -81,6 +88,7 @@ final class QuoteDraftBuilder implements Builder
      * <li>If empty, the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

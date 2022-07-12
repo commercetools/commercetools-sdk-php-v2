@@ -21,11 +21,13 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
 {
     public const DISCRIMINATOR_VALUE = 'removeRoles';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $roles;
@@ -42,6 +44,7 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StateRemoveRolesActionModel extends JsonObjectModel implements State
     /**
      * <p>Roles to remove from the State.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

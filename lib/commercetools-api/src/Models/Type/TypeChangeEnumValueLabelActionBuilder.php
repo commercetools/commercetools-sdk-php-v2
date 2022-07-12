@@ -21,11 +21,13 @@ use stdClass;
 final class TypeChangeEnumValueLabelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var null|CustomFieldEnumValue|CustomFieldEnumValueBuilder
      */
     private $value;
@@ -33,6 +35,7 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -44,6 +47,7 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|CustomFieldEnumValue
      */
     public function getValue()

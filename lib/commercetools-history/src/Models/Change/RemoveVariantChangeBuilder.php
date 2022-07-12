@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\VariantBuilder;
 final class RemoveVariantChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var null|Variant|VariantBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Variant|VariantBuilder
      */
     private $nextValue;
@@ -45,6 +49,7 @@ final class RemoveVariantChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeVariant</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class RemoveVariantChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -61,6 +67,7 @@ final class RemoveVariantChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Variant
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class RemoveVariantChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Variant
      */
     public function getNextValue()

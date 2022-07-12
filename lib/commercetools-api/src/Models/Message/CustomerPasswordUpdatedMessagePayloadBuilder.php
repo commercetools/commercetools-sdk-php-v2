@@ -21,6 +21,7 @@ use stdClass;
 final class CustomerPasswordUpdatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $reset;
@@ -28,6 +29,7 @@ final class CustomerPasswordUpdatedMessagePayloadBuilder implements Builder
     /**
      * <p>true, if password has been updated during Customer's Password Reset workflow.</p>
      *
+
      * @return null|bool
      */
     public function getReset()

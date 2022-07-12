@@ -21,11 +21,13 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
 {
     public const DISCRIMINATOR_VALUE = 'Reference';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $referenceTypeId;
@@ -42,6 +44,7 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     /**
      * <p>Resource type the Custom Field can reference.</p>
      *
+
      * @return null|string
      */
     public function getReferenceTypeId()

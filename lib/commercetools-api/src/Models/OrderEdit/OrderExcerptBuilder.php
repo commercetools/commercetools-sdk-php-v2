@@ -25,21 +25,25 @@ use stdClass;
 final class OrderExcerptBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -48,6 +52,7 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -56,6 +61,7 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()

@@ -17,11 +17,13 @@ interface OrderEditApply extends JsonObject
     public const FIELD_RESOURCE_VERSION = 'resourceVersion';
 
     /**
+
      * @return null|int
      */
     public function getEditVersion();
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion();

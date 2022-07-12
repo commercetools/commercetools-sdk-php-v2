@@ -23,11 +23,13 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceValueChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Money
      */
     protected $value;
@@ -44,6 +46,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     /**
      * <p>The new value of the updated StandalonePrice.</p>
      *
+
      * @return null|Money
      */
     public function getValue()

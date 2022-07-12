@@ -22,6 +22,7 @@ use stdClass;
 final class StagedQuoteSetValidToActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validTo;
@@ -29,6 +30,7 @@ final class StagedQuoteSetValidToActionBuilder implements Builder
     /**
      * <p>If <code>validTo</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()

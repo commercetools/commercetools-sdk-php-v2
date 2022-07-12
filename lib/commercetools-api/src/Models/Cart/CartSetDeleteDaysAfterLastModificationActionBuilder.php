@@ -21,11 +21,13 @@ use stdClass;
 final class CartSetDeleteDaysAfterLastModificationActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()

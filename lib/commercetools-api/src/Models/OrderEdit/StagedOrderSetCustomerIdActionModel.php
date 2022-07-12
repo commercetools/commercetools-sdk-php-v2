@@ -23,11 +23,13 @@ final class StagedOrderSetCustomerIdActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customerId;
@@ -44,6 +46,7 @@ final class StagedOrderSetCustomerIdActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderSetCustomerIdActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerId()

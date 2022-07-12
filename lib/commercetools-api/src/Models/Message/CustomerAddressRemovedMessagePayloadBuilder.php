@@ -23,11 +23,13 @@ use stdClass;
 final class CustomerAddressRemovedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @return null|Address
      */
     public function getAddress()

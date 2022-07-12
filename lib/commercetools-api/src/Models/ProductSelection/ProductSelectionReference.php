@@ -19,6 +19,7 @@ interface ProductSelectionReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductSelection">ProductSelection</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -26,6 +27,7 @@ interface ProductSelectionReference extends Reference
     /**
      * <p>Contains the representation of the expanded ProductSelection. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductSelections.</p>
      *
+
      * @return null|ProductSelection
      */
     public function getObj();

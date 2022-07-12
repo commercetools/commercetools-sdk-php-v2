@@ -20,6 +20,7 @@ interface DiscountedPriceDraft extends JsonObject
     /**
      * <p>Sets the money value for the discounted price.</p>
      *
+
      * @return null|Money
      */
     public function getValue();
@@ -27,6 +28,7 @@ interface DiscountedPriceDraft extends JsonObject
     /**
      * <p>Relates the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> to the discounted price.</p>
      *
+
      * @return null|ProductDiscountReference
      */
     public function getDiscount();

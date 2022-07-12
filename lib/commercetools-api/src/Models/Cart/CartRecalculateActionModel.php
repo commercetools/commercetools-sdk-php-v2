@@ -21,11 +21,13 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
 {
     public const DISCRIMINATOR_VALUE = 'recalculate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?bool
      */
     protected $updateProductData;
@@ -42,6 +44,7 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class CartRecalculateActionModel extends JsonObjectModel implements CartRe
      * If set to <code>false</code>, only the prices and tax rates of the line item will be updated.
      * Notice that if the Product's <a href="ctp:api:type:Product">priceMode</a> value is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a>, the updated price of a line item may not correspond to a price in <code>variant.prices</code> anymore.</p>
      *
+
      * @return null|bool
      */
     public function getUpdateProductData()

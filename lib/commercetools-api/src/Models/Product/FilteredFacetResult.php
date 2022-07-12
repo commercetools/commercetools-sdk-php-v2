@@ -17,11 +17,13 @@ interface FilteredFacetResult extends FacetResult
     public const FIELD_PRODUCT_COUNT = 'productCount';
 
     /**
+
      * @return null|int
      */
     public function getCount();
 
     /**
+
      * @return null|int
      */
     public function getProductCount();

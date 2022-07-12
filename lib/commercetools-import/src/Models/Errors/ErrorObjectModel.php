@@ -21,11 +21,13 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -70,6 +72,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -87,6 +90,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

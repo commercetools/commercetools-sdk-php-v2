@@ -24,16 +24,19 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'RemoveAttributeDefinitionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AttributeDefinition
      */
     protected $previousValue;
@@ -52,6 +55,7 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
     /**
      * <p>Update action for <code>removeAttributeDefinition</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -88,6 +93,7 @@ final class RemoveAttributeDefinitionChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|AttributeDefinition
      */
     public function getPreviousValue()

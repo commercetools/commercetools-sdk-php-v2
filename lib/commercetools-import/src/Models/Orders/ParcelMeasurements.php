@@ -19,21 +19,25 @@ interface ParcelMeasurements extends JsonObject
     public const FIELD_WEIGHT_IN_GRAM = 'weightInGram';
 
     /**
+
      * @return null|float
      */
     public function getHeightInMillimeter();
 
     /**
+
      * @return null|float
      */
     public function getLengthInMillimeter();
 
     /**
+
      * @return null|float
      */
     public function getWidthInMillimeter();
 
     /**
+
      * @return null|float
      */
     public function getWeightInGram();

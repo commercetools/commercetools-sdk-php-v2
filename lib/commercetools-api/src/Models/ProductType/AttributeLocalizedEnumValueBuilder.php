@@ -23,11 +23,13 @@ use stdClass;
 final class AttributeLocalizedEnumValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
@@ -35,6 +37,7 @@ final class AttributeLocalizedEnumValueBuilder implements Builder
     /**
      * <p>Key of the value used as a programmatic identifier, for example in facets &amp; filters.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -45,6 +48,7 @@ final class AttributeLocalizedEnumValueBuilder implements Builder
     /**
      * <p>Descriptive, localized label of the value.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

@@ -23,21 +23,25 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setDiscountedPrice';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $priceId;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
@@ -58,6 +62,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -75,6 +80,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -92,6 +98,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -109,6 +116,7 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()

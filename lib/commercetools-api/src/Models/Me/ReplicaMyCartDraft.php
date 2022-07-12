@@ -18,6 +18,7 @@ interface ReplicaMyCartDraft extends JsonObject
     public const FIELD_REFERENCE = 'reference';
 
     /**
+
      * @return null|mixed
      */
     public function getReference();

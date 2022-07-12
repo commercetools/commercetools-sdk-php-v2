@@ -23,11 +23,13 @@ final class MyCartSetBillingAddressActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setBillingAddress';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $address;
@@ -44,6 +46,7 @@ final class MyCartSetBillingAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class MyCartSetBillingAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()

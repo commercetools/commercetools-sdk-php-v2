@@ -21,26 +21,31 @@ use stdClass;
 final class ConcurrentModificationErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?int
      */
     private $specifiedVersion;
 
     /**
+
      * @var ?int
      */
     private $currentVersion;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $conflictedResource;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -51,6 +56,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     /**
      * <p>The version specified in the failed request.</p>
      *
+
      * @return null|int
      */
     public function getSpecifiedVersion()
@@ -61,6 +67,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     /**
      * <p>The current version of the resource.</p>
      *
+
      * @return null|int
      */
     public function getCurrentVersion()
@@ -71,6 +78,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     /**
      * <p>The resource in conflict.</p>
      *
+
      * @return null|mixed
      */
     public function getConflictedResource()

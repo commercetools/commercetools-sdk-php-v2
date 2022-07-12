@@ -21,6 +21,7 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'revertStagedChanges';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -35,6 +36,7 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

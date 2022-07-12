@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class ProductLabelBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -41,6 +44,7 @@ final class ProductLabelBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()

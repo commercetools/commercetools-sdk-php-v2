@@ -21,11 +21,13 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
 {
     public const DISCRIMINATOR_VALUE = 'changeInitial';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?bool
      */
     protected $initial;
@@ -42,6 +44,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     /**
      * <p>Set to <code>true</code> for defining the State as initial State in a state machine and making it the first step in a workflow.</p>
      *
+
      * @return null|bool
      */
     public function getInitial()

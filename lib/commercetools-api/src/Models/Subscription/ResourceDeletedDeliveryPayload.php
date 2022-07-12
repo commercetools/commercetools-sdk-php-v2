@@ -19,16 +19,19 @@ interface ResourceDeletedDeliveryPayload extends DeliveryPayload
     public const FIELD_DATA_ERASURE = 'dataErasure';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt();
 
     /**
+
      * @return null|bool
      */
     public function getDataErasure();

@@ -21,6 +21,7 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -45,6 +46,7 @@ final class SubscriptionUpdateActionModel extends JsonObjectModel implements Sub
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

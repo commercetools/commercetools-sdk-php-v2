@@ -26,51 +26,61 @@ interface LineItem extends JsonObject
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+
      * @return null|string
      */
     public function getAddedAt();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|string
      */
     public function getProductId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getProductSlug();
 
     /**
+
      * @return null|Reference
      */
     public function getProductType();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|Variant
      */
     public function getVariant();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();

@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class ShoppingListLineItemValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -46,6 +50,7 @@ final class ShoppingListLineItemValueBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -54,6 +59,7 @@ final class ShoppingListLineItemValueBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

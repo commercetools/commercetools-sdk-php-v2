@@ -22,11 +22,13 @@ interface OrderTransitionLineItemStateAction extends OrderUpdateAction
     public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
@@ -34,6 +36,7 @@ interface OrderTransitionLineItemStateAction extends OrderUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getFromState();
@@ -41,11 +44,13 @@ interface OrderTransitionLineItemStateAction extends OrderUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getToState();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate();

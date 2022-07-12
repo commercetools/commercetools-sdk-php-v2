@@ -21,11 +21,13 @@ use stdClass;
 final class ProductPriceDiscountsSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     private $updatedPrices;
 
     /**
+
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
      */
     public function getUpdatedPrices()

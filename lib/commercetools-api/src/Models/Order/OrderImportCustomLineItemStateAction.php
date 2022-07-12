@@ -17,11 +17,13 @@ interface OrderImportCustomLineItemStateAction extends OrderUpdateAction
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();

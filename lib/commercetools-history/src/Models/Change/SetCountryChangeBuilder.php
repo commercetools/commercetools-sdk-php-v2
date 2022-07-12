@@ -21,16 +21,19 @@ use stdClass;
 final class SetCountryChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class SetCountryChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setCountry</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetCountryChangeBuilder implements Builder
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -58,6 +63,7 @@ final class SetCountryChangeBuilder implements Builder
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getNextValue()

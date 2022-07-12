@@ -17,6 +17,7 @@ interface CategoryCreatedMessage extends Message
     public const FIELD_CATEGORY = 'category';
 
     /**
+
      * @return null|Category
      */
     public function getCategory();

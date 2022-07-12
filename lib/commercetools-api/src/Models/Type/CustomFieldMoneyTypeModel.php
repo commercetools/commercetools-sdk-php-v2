@@ -21,6 +21,7 @@ final class CustomFieldMoneyTypeModel extends JsonObjectModel implements CustomF
 {
     public const DISCRIMINATOR_VALUE = 'Money';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class CustomFieldMoneyTypeModel extends JsonObjectModel implements CustomF
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

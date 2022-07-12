@@ -17,6 +17,7 @@ interface DuplicatePriceScopeError extends ErrorObject
     public const FIELD_CONFLICTING_PRICES = 'conflictingPrices';
 
     /**
+
      * @return null|PriceCollection
      */
     public function getConflictingPrices();

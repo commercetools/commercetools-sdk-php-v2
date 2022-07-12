@@ -22,31 +22,37 @@ use stdClass;
 final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel implements ProductPriceDiscountsSetUpdatedPrice
 {
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $variantKey;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?string
      */
     protected $priceId;
 
     /**
+
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -72,6 +78,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -89,6 +96,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getVariantKey()
@@ -106,6 +114,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -123,6 +132,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -140,6 +150,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -158,6 +169,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

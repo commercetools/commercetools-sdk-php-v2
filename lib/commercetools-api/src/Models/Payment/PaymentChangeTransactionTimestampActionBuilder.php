@@ -22,16 +22,19 @@ use stdClass;
 final class PaymentChangeTransactionTimestampActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $transactionId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $timestamp;
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -40,6 +43,7 @@ final class PaymentChangeTransactionTimestampActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp()

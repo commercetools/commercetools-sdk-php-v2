@@ -19,6 +19,7 @@ interface StoreSetNameAction extends StoreUpdateAction
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

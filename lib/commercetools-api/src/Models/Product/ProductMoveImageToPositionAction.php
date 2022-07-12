@@ -20,11 +20,13 @@ interface ProductMoveImageToPositionAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
@@ -32,16 +34,19 @@ interface ProductMoveImageToPositionAction extends ProductUpdateAction
     /**
      * <p>The URL of the image</p>
      *
+
      * @return null|string
      */
     public function getImageUrl();
 
     /**
+
      * @return null|int
      */
     public function getPosition();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

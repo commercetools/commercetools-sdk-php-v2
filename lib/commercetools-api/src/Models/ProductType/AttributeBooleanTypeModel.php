@@ -21,6 +21,7 @@ final class AttributeBooleanTypeModel extends JsonObjectModel implements Attribu
 {
     public const DISCRIMINATOR_VALUE = 'boolean';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class AttributeBooleanTypeModel extends JsonObjectModel implements Attribu
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

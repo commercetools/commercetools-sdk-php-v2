@@ -18,6 +18,7 @@ interface CategoryChangeAssetOrderAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Must contain all Asset <code>id</code>s.</p>
      *
+
      * @return null|array
      */
     public function getAssetOrder();

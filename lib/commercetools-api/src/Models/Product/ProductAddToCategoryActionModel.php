@@ -23,21 +23,25 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'addToCategory';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CategoryResourceIdentifier
      */
     protected $category;
 
     /**
+
      * @var ?string
      */
     protected $orderHint;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -58,6 +62,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -75,6 +80,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -93,6 +99,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getOrderHint()
@@ -110,6 +117,7 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

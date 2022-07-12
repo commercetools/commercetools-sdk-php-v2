@@ -31,31 +31,37 @@ use stdClass;
 final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder implements Builder
 {
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @var ?string
      */
     private $shippingMethodName;
 
     /**
+
      * @var null|ShippingRateDraft|ShippingRateDraftBuilder
      */
     private $shippingRate;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -64,6 +70,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     }
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName()
@@ -72,6 +79,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     }
 
     /**
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -82,6 +90,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -90,6 +99,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

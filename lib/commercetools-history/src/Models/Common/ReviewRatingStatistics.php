@@ -23,6 +23,7 @@ interface ReviewRatingStatistics extends JsonObject
     /**
      * <p>Average rating of one target This number is rounded with 5 decimals.</p>
      *
+
      * @return null|int
      */
     public function getAverageRating();
@@ -30,6 +31,7 @@ interface ReviewRatingStatistics extends JsonObject
     /**
      * <p>Highest rating of one target</p>
      *
+
      * @return null|int
      */
     public function getHighestRating();
@@ -37,6 +39,7 @@ interface ReviewRatingStatistics extends JsonObject
     /**
      * <p>Lowest rating of one target</p>
      *
+
      * @return null|int
      */
     public function getLowestRating();
@@ -44,6 +47,7 @@ interface ReviewRatingStatistics extends JsonObject
     /**
      * <p>Number of ratings taken into account</p>
      *
+
      * @return null|int
      */
     public function getCount();
@@ -51,6 +55,7 @@ interface ReviewRatingStatistics extends JsonObject
     /**
      * <p>The full distribution of the ratings. The keys are the different ratings and the values are the count of reviews having this rating. Only the used ratings appear in this object.</p>
      *
+
      * @return null|mixed
      */
     public function getRatingsDistribution();

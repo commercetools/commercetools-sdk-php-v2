@@ -21,6 +21,7 @@ interface CartValueTier extends ShippingRatePriceTier
     /**
      * <p>Minimum total price of a Cart for which a shipping rate applies.</p>
      *
+
      * @return null|int
      */
     public function getMinimumCentAmount();
@@ -28,6 +29,7 @@ interface CartValueTier extends ShippingRatePriceTier
     /**
      * <p>Fixed shipping rate Price for a CartValue.</p>
      *
+
      * @return null|Money
      */
     public function getPrice();
@@ -35,6 +37,7 @@ interface CartValueTier extends ShippingRatePriceTier
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching();

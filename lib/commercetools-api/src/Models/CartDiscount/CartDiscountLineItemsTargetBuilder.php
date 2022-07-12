@@ -21,6 +21,7 @@ use stdClass;
 final class CartDiscountLineItemsTargetBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $predicate;
@@ -28,6 +29,7 @@ final class CartDiscountLineItemsTargetBuilder implements Builder
     /**
      * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()

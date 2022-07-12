@@ -21,21 +21,25 @@ interface AddAssetChange extends Change
     /**
      * <p>Update action for <code>addAsset</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|Asset
      */
     public function getNextValue();
 
     /**
+
      * @return null|Asset
      */
     public function getPreviousValue();

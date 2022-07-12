@@ -24,6 +24,7 @@ interface QuoteRequestDraft extends JsonObject
     /**
      * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart();
@@ -31,6 +32,7 @@ interface QuoteRequestDraft extends JsonObject
     /**
      * <p>Current version of the referenced Cart.</p>
      *
+
      * @return null|int
      */
     public function getCartVersion();
@@ -38,6 +40,7 @@ interface QuoteRequestDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the QuoteRequest.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -45,6 +48,7 @@ interface QuoteRequestDraft extends JsonObject
     /**
      * <p>Text message included in the request.</p>
      *
+
      * @return null|string
      */
     public function getComment();
@@ -52,6 +56,7 @@ interface QuoteRequestDraft extends JsonObject
     /**
      * <p>Custom Fields to be added to the Quote Request.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

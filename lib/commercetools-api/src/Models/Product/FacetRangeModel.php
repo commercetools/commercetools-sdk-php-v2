@@ -20,51 +20,61 @@ use stdClass;
 final class FacetRangeModel extends JsonObjectModel implements FacetRange
 {
     /**
+
      * @var ?float
      */
     protected $from;
 
     /**
+
      * @var ?string
      */
     protected $fromStr;
 
     /**
+
      * @var ?float
      */
     protected $to;
 
     /**
+
      * @var ?string
      */
     protected $toStr;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $productCount;
 
     /**
+
      * @var ?float
      */
     protected $total;
 
     /**
+
      * @var ?float
      */
     protected $min;
 
     /**
+
      * @var ?float
      */
     protected $max;
 
     /**
+
      * @var ?float
      */
     protected $mean;
@@ -98,6 +108,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|float
      */
     public function getFrom()
@@ -115,6 +126,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|string
      */
     public function getFromStr()
@@ -132,6 +144,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|float
      */
     public function getTo()
@@ -149,6 +162,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|string
      */
     public function getToStr()
@@ -166,6 +180,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -183,6 +198,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|int
      */
     public function getProductCount()
@@ -200,6 +216,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|float
      */
     public function getTotal()
@@ -217,6 +234,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|float
      */
     public function getMin()
@@ -234,6 +252,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|float
      */
     public function getMax()
@@ -251,6 +270,7 @@ final class FacetRangeModel extends JsonObjectModel implements FacetRange
     }
 
     /**
+
      * @return null|float
      */
     public function getMean()

@@ -22,21 +22,25 @@ final class SetValidUntilChangeModel extends JsonObjectModel implements SetValid
 
     public const DISCRIMINATOR_VALUE = 'SetValidUntilChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class SetValidUntilChangeModel extends JsonObjectModel implements SetValid
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class SetValidUntilChangeModel extends JsonObjectModel implements SetValid
     /**
      * <p>Shape of the action for <code>setValidUntil</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class SetValidUntilChangeModel extends JsonObjectModel implements SetValid
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class SetValidUntilChangeModel extends JsonObjectModel implements SetValid
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

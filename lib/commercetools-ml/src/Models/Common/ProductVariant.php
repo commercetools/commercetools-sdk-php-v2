@@ -20,6 +20,7 @@ interface ProductVariant extends JsonObject
     /**
      * <p>The product that contains this variant.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -27,6 +28,7 @@ interface ProductVariant extends JsonObject
     /**
      * <p>The state of the product variant.</p>
      *
+
      * @return null|bool
      */
     public function getStaged();
@@ -34,6 +36,7 @@ interface ProductVariant extends JsonObject
     /**
      * <p>The id of the product variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();

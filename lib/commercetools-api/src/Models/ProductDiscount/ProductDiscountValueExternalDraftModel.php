@@ -21,6 +21,7 @@ final class ProductDiscountValueExternalDraftModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'external';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class ProductDiscountValueExternalDraftModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

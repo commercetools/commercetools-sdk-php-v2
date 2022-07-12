@@ -23,26 +23,31 @@ interface ShoppingListAddLineItemAction extends ShoppingListUpdateAction
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getProductId();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
@@ -50,6 +55,7 @@ interface ShoppingListAddLineItemAction extends ShoppingListUpdateAction
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

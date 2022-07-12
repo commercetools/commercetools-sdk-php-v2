@@ -21,6 +21,7 @@ use stdClass;
 final class ImageSearchConfigRequestBuilder implements Builder
 {
     /**
+
      * @var ?ImageSearchConfigUpdateActionCollection
      */
     private $actions;
@@ -28,6 +29,7 @@ final class ImageSearchConfigRequestBuilder implements Builder
     /**
      * <p>The list of update actions to be performed on the project.</p>
      *
+
      * @return null|ImageSearchConfigUpdateActionCollection
      */
     public function getActions()

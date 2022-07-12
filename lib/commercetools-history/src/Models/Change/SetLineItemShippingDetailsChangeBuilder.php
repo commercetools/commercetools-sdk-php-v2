@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\ItemShippingDetailsBuilder;
 final class SetLineItemShippingDetailsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLineItemShippingDetails</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -61,6 +67,7 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class SetLineItemShippingDetailsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getPreviousValue()

@@ -23,11 +23,13 @@ use stdClass;
 final class ChannelReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Channel|ChannelBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class ChannelReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -46,6 +49,7 @@ final class ChannelReferenceBuilder implements Builder
      * <p>Contains the representation of the expanded Channel.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Channels.</p>
      *
+
      * @return null|Channel
      */
     public function getObj()

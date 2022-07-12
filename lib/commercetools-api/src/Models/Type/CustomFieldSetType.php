@@ -18,6 +18,7 @@ interface CustomFieldSetType extends FieldType
     /**
      * <p>Field type of the elements in the set.</p>
      *
+
      * @return null|FieldType
      */
     public function getElementType();

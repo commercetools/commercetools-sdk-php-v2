@@ -17,6 +17,7 @@ interface StagedOrderAddDiscountCodeAction extends StagedOrderUpdateAction
     public const FIELD_CODE = 'code';
 
     /**
+
      * @return null|string
      */
     public function getCode();

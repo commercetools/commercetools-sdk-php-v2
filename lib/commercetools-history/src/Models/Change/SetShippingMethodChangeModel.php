@@ -24,21 +24,25 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
 
     public const DISCRIMINATOR_VALUE = 'SetShippingMethodChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?ShippingMethodChangeValue
      */
     protected $nextValue;
 
     /**
+
      * @var ?ShippingMethodChangeValue
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     /**
      * <p>Update action for <code>setShippingMethod</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|ShippingMethodChangeValue
      */
     public function getNextValue()
@@ -113,6 +120,7 @@ final class SetShippingMethodChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+
      * @return null|ShippingMethodChangeValue
      */
     public function getPreviousValue()

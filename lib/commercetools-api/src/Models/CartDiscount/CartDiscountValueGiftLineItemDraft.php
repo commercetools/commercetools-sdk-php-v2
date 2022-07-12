@@ -23,6 +23,7 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     /**
      * <p>ResourceIdentifier of a Product.</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct();
@@ -30,6 +31,7 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();
@@ -37,6 +39,7 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     /**
      * <p>Channel must have the role <code>InventorySupply</code>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
@@ -44,6 +47,7 @@ interface CartDiscountValueGiftLineItemDraft extends CartDiscountValueDraft
     /**
      * <p>Channel must have the role <code>ProductDistribution</code>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();

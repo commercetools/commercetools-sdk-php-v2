@@ -20,16 +20,19 @@ use stdClass;
 final class CustomerResetPasswordModel extends JsonObjectModel implements CustomerResetPassword
 {
     /**
+
      * @var ?string
      */
     protected $tokenValue;
 
     /**
+
      * @var ?string
      */
     protected $newPassword;
 
     /**
+
      * @var ?int
      */
     protected $version;
@@ -49,6 +52,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
     /**
+
      * @return null|string
      */
     public function getTokenValue()
@@ -66,6 +70,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
     /**
+
      * @return null|string
      */
     public function getNewPassword()
@@ -83,6 +88,7 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()

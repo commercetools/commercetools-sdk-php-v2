@@ -21,11 +21,13 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
 {
     public const DISCRIMINATOR_VALUE = 'order';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

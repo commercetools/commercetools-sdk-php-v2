@@ -18,6 +18,7 @@ interface ProductSetAttributeInAllVariantsAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|string
      */
     public function getName();
@@ -25,11 +26,13 @@ interface ProductSetAttributeInAllVariantsAction extends ProductUpdateAction
     /**
      * <p>The same update behavior as for Set Attribute applies.</p>
      *
+
      * @return null|mixed
      */
     public function getValue();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

@@ -21,31 +21,37 @@ use stdClass;
 final class ParcelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $createdAt;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -54,6 +60,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()
@@ -62,6 +69,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -70,6 +78,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -78,6 +87,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

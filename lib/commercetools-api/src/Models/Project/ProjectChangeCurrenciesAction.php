@@ -18,6 +18,7 @@ interface ProjectChangeCurrenciesAction extends ProjectUpdateAction
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|array
      */
     public function getCurrencies();

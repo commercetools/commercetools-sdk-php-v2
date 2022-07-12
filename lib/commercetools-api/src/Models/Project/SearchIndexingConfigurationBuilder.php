@@ -21,11 +21,13 @@ use stdClass;
 final class SearchIndexingConfigurationBuilder implements Builder
 {
     /**
+
      * @var null|SearchIndexingConfigurationValues|SearchIndexingConfigurationValuesBuilder
      */
     private $products;
 
     /**
+
      * @var null|SearchIndexingConfigurationValues|SearchIndexingConfigurationValuesBuilder
      */
     private $orders;
@@ -33,6 +35,7 @@ final class SearchIndexingConfigurationBuilder implements Builder
     /**
      * <p>Configuration for the <a href="/../api/projects/products-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
      *
+
      * @return null|SearchIndexingConfigurationValues
      */
     public function getProducts()
@@ -43,6 +46,7 @@ final class SearchIndexingConfigurationBuilder implements Builder
     /**
      * <p>Configuration for the <a href="/../api/projects/order-search">Order Search</a> feature.</p>
      *
+
      * @return null|SearchIndexingConfigurationValues
      */
     public function getOrders()

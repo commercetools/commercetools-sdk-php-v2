@@ -22,11 +22,13 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
 {
     public const DISCRIMINATOR_VALUE = 'ReferenceSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?KeyReferenceCollection
      */
     protected $value;
@@ -45,6 +47,7 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class ReferenceSetFieldModel extends JsonObjectModel implements ReferenceS
     }
 
     /**
+
      * @return null|KeyReferenceCollection
      */
     public function getValue()

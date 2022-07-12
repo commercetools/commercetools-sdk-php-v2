@@ -21,6 +21,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -65,6 +66,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()

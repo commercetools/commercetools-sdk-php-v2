@@ -21,11 +21,13 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoMethod';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $method;
@@ -42,6 +44,7 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     /**
      * <p>If not provided, the method is unset.</p>
      *
+
      * @return null|string
      */
     public function getMethod()

@@ -21,11 +21,13 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
 {
     public const DISCRIMINATOR_VALUE = 'state';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

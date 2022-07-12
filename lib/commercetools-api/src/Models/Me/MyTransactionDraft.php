@@ -25,6 +25,7 @@ interface MyTransactionDraft extends JsonObject
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp();
@@ -34,11 +35,13 @@ interface MyTransactionDraft extends JsonObject
      * Only the <code>Authorization</code> or <code>Charge</code>
      * TransactionTypes are allowed here.</p>
      *
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|Money
      */
     public function getAmount();
@@ -49,6 +52,7 @@ interface MyTransactionDraft extends JsonObject
      * the corresponding interaction should be findable with this ID.
      * The <code>state</code> is set to the <code>Initial</code> TransactionState.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId();
@@ -56,6 +60,7 @@ interface MyTransactionDraft extends JsonObject
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

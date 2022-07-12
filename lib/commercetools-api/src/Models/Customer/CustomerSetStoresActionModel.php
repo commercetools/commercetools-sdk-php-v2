@@ -22,11 +22,13 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
 {
     public const DISCRIMINATOR_VALUE = 'setStores';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
@@ -43,6 +45,7 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -60,6 +63,7 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
     }
 
     /**
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()

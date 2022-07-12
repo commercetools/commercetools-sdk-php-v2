@@ -21,16 +21,19 @@ final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'addLocalizedEnumValue';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?CustomFieldLocalizedEnumValue
      */
     protected $value;
@@ -49,6 +52,7 @@ final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel impleme
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -87,6 +92,7 @@ final class TypeAddLocalizedEnumValueActionModel extends JsonObjectModel impleme
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|CustomFieldLocalizedEnumValue
      */
     public function getValue()

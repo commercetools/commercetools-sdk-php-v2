@@ -22,11 +22,13 @@ use stdClass;
 final class MoneySetFieldBuilder implements Builder
 {
     /**
+
      * @var ?MoneyCollection
      */
     private $value;
 
     /**
+
      * @return null|MoneyCollection
      */
     public function getValue()

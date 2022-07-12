@@ -17,11 +17,13 @@ interface MyQuoteRequestUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|MyQuoteRequestUpdateActionCollection
      */
     public function getActions();

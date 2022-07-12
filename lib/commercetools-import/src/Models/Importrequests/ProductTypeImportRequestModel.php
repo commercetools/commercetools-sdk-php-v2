@@ -22,11 +22,13 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'product-type';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductTypeImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
     /**
      * <p>The product type import resources of this request.</p>
      *
+
      * @return null|ProductTypeImportCollection
      */
     public function getResources()

@@ -21,16 +21,19 @@ use stdClass;
 final class GraphQLResponseBuilder implements Builder
 {
     /**
+
      * @var null|mixed|mixed
      */
     private $data;
 
     /**
+
      * @var ?GraphQLErrorCollection
      */
     private $errors;
 
     /**
+
      * @return null|mixed
      */
     public function getData()
@@ -39,6 +42,7 @@ final class GraphQLResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|GraphQLErrorCollection
      */
     public function getErrors()

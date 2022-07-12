@@ -19,6 +19,7 @@ interface GeneralCategoryRecommendation extends JsonObject
     /**
      * <p>An English category name that is recommended for a product.</p>
      *
+
      * @return null|string
      */
     public function getCategoryName();
@@ -26,6 +27,7 @@ interface GeneralCategoryRecommendation extends JsonObject
     /**
      * <p>Probability score for the category recommendation.</p>
      *
+
      * @return null|float
      */
     public function getConfidence();

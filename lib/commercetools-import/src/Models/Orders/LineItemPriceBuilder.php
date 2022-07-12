@@ -33,46 +33,55 @@ use stdClass;
 final class LineItemPriceBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var null|CustomerGroupKeyReference|CustomerGroupKeyReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
+
      * @var ?PriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
@@ -80,6 +89,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>Maps to <code>Price.value</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -90,6 +100,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>Maps to <code>Price.county</code>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -100,6 +111,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>Maps to <code>Price.validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -110,6 +122,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>Maps to <code>Price.validUntil</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -120,6 +133,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>References a customer group by key.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -130,6 +144,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>References a channel by key.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel()
@@ -140,6 +155,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -150,6 +166,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>The tiered prices for this price.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -160,6 +177,7 @@ final class LineItemPriceBuilder implements Builder
     /**
      * <p>Maps to <code>Price.custom</code>.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()

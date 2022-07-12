@@ -21,6 +21,7 @@ interface SetPricesChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface SetPricesChange extends Change
     /**
      * <p>Update action for <code>setPrices</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|PriceCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|PriceCollection
      */
     public function getNextValue();

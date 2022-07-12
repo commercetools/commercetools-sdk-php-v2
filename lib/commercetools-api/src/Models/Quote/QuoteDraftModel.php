@@ -24,21 +24,25 @@ use stdClass;
 final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
 {
     /**
+
      * @var ?StagedQuoteResourceIdentifier
      */
     protected $stagedQuote;
 
     /**
+
      * @var ?int
      */
     protected $stagedQuoteVersion;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -62,6 +66,7 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     /**
      * <p>The StagedQuote from which this Quote is created.</p>
      *
+
      * @return null|StagedQuoteResourceIdentifier
      */
     public function getStagedQuote()
@@ -82,6 +87,7 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getStagedQuoteVersion()
@@ -101,6 +107,7 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     /**
      * <p>User-defined unique identifier for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -124,6 +131,7 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
      * <li>If empty, the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

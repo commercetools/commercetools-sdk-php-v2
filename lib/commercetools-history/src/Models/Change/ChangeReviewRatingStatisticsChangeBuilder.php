@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\ReviewRatingStatisticsBuilder;
 final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeReviewRatingStatistics</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReviewRatingStatistics
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class ChangeReviewRatingStatisticsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReviewRatingStatistics
      */
     public function getPreviousValue()

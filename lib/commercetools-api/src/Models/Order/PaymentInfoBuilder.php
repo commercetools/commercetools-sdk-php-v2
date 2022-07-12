@@ -22,11 +22,13 @@ use stdClass;
 final class PaymentInfoBuilder implements Builder
 {
     /**
+
      * @var ?PaymentReferenceCollection
      */
     private $payments;
 
     /**
+
      * @return null|PaymentReferenceCollection
      */
     public function getPayments()

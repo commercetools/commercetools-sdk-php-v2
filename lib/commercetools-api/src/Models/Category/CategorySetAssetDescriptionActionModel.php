@@ -23,21 +23,25 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setAssetDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
@@ -58,6 +62,7 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -77,6 +82,7 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId()
@@ -96,6 +102,7 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()
@@ -115,6 +122,7 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()

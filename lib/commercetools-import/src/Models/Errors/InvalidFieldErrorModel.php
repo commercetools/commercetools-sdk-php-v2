@@ -21,31 +21,37 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
 {
     public const DISCRIMINATOR_VALUE = 'InvalidField';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?string
      */
     protected $field;
 
     /**
+
      * @var ?mixed
      */
     protected $invalidValue;
 
     /**
+
      * @var ?array
      */
     protected $allowedValues;
 
     /**
+
      * @var ?int
      */
     protected $resourceIndex;
@@ -70,6 +76,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -87,6 +94,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -106,6 +114,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     /**
      * <p>The name of the field.</p>
      *
+
      * @return null|string
      */
     public function getField()
@@ -125,6 +134,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     /**
      * <p>The invalid value.</p>
      *
+
      * @return null|mixed
      */
     public function getInvalidValue()
@@ -144,6 +154,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     /**
      * <p>The set of allowed values for the field, if any.</p>
      *
+
      * @return null|array
      */
     public function getAllowedValues()
@@ -161,6 +172,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceIndex()

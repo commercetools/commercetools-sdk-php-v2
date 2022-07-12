@@ -18,6 +18,7 @@ interface DiscountCodeSetMaxApplicationsAction extends DiscountCodeUpdateAction
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplications();

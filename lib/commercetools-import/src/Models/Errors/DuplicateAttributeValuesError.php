@@ -17,6 +17,7 @@ interface DuplicateAttributeValuesError extends ErrorObject
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes();

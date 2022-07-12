@@ -20,26 +20,31 @@ use stdClass;
 final class MessagePagedQueryResponseModel extends JsonObjectModel implements MessagePagedQueryResponse
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?MessageCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -82,6 +88,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -99,6 +106,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -118,6 +126,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -135,6 +144,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     }
 
     /**
+
      * @return null|MessageCollection
      */
     public function getResults()

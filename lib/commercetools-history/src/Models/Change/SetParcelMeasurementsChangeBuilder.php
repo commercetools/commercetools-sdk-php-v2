@@ -25,21 +25,25 @@ use Commercetools\History\Models\Common\ParcelMeasurementsBuilder;
 final class SetParcelMeasurementsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ParcelChangeValue|ParcelChangeValueBuilder
      */
     private $parcel;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $previousValue;
@@ -47,6 +51,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setParcelMeasurements</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -63,6 +69,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getNextValue()
@@ -71,6 +78,7 @@ final class SetParcelMeasurementsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getPreviousValue()

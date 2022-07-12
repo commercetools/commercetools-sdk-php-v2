@@ -25,16 +25,19 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setParcelMeasurements';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $measurements;
@@ -53,6 +56,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -87,6 +92,7 @@ final class StagedOrderSetParcelMeasurementsActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()

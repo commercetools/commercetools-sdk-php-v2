@@ -22,6 +22,7 @@ interface ExternalTaxRateDraft extends JsonObject
     public const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
 
     /**
+
      * @return null|string
      */
     public function getName();
@@ -32,6 +33,7 @@ interface ExternalTaxRateDraft extends JsonObject
      * If <code>subRates</code> are specified
      * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
+
      * @return null|float
      */
     public function getAmount();
@@ -39,6 +41,7 @@ interface ExternalTaxRateDraft extends JsonObject
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -46,6 +49,7 @@ interface ExternalTaxRateDraft extends JsonObject
     /**
      * <p>The state in the country</p>
      *
+
      * @return null|string
      */
     public function getState();
@@ -55,6 +59,7 @@ interface ExternalTaxRateDraft extends JsonObject
      * the US) where the total tax is a combination of multiple taxes (e.g.
      * state and local taxes).</p>
      *
+
      * @return null|SubRateCollection
      */
     public function getSubRates();
@@ -62,6 +67,7 @@ interface ExternalTaxRateDraft extends JsonObject
     /**
      * <p>The default value for <code>includedInPrice</code> is FALSE.</p>
      *
+
      * @return null|bool
      */
     public function getIncludedInPrice();

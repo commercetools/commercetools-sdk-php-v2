@@ -23,6 +23,7 @@ use stdClass;
 final class ChannelChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -30,6 +31,7 @@ final class ChannelChangeNameActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

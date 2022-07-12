@@ -18,11 +18,13 @@ interface Reference extends JsonObject
     public const FIELD_TYPE_ID = 'typeId';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getTypeId();

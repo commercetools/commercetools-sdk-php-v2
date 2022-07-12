@@ -34,6 +34,7 @@ interface Product extends BaseResource
     /**
      * <p>Unique identifier of the Product.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -41,16 +42,19 @@ interface Product extends BaseResource
     /**
      * <p>The current version of the product.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -58,6 +62,7 @@ interface Product extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -65,6 +70,7 @@ interface Product extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -73,11 +79,13 @@ interface Product extends BaseResource
      * <p>User-defined unique identifier of the Product.
      * <em>Product keys are different from ProductVariant keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType();
@@ -85,16 +93,19 @@ interface Product extends BaseResource
     /**
      * <p>The product data in the master catalog.</p>
      *
+
      * @return null|ProductCatalogData
      */
     public function getMasterData();
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
 
     /**
+
      * @return null|StateReference
      */
     public function getState();
@@ -102,6 +113,7 @@ interface Product extends BaseResource
     /**
      * <p>Statistics about the review ratings taken into account for this product.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
@@ -109,6 +121,7 @@ interface Product extends BaseResource
     /**
      * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
      *
+
      * @return null|string
      */
     public function getPriceMode();

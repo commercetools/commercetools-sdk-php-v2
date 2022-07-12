@@ -21,6 +21,7 @@ use stdClass;
 final class ZoneChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
@@ -28,6 +29,7 @@ final class ZoneChangeNameActionBuilder implements Builder
     /**
      * <p>New name of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getName()

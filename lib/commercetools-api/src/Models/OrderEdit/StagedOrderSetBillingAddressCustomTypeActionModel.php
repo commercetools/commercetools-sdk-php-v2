@@ -27,16 +27,19 @@ final class StagedOrderSetBillingAddressCustomTypeActionModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'setBillingAddressCustomType';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+
      * @var ?FieldContainer
      */
     protected $fields;
@@ -55,6 +58,7 @@ final class StagedOrderSetBillingAddressCustomTypeActionModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -75,6 +79,7 @@ final class StagedOrderSetBillingAddressCustomTypeActionModel extends JsonObject
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>billingAddress</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>billingAddress</code>.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -95,6 +100,7 @@ final class StagedOrderSetBillingAddressCustomTypeActionModel extends JsonObject
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>billingAddress</code>.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

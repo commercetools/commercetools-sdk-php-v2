@@ -21,6 +21,7 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -45,6 +46,7 @@ final class OrderEditResultModel extends JsonObjectModel implements OrderEditRes
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

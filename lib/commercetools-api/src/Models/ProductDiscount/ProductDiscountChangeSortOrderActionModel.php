@@ -21,11 +21,13 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'changeSortOrder';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $sortOrder;
@@ -42,6 +44,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -64,6 +67,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
      * The string value must be a number between <code>0</code> and <code>1</code>.
      * A Discount with a higher sortOrder is prioritized.</p>
      *
+
      * @return null|string
      */
     public function getSortOrder()

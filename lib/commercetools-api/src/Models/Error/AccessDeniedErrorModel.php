@@ -21,11 +21,13 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
 {
     public const DISCRIMINATOR_VALUE = 'access_denied';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

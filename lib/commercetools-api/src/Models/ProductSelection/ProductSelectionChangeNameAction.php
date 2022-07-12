@@ -19,6 +19,7 @@ interface ProductSelectionChangeNameAction extends ProductSelectionUpdateAction
     /**
      * <p>The new name to be set for the ProductSelection.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|AttributePlainEnumValue|AttributePlainEnumValueBuilder
      */
     private $newValue;
@@ -33,6 +35,7 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     /**
      * <p>New value to set. Must be different from the existing value.</p>
      *
+
      * @return null|AttributePlainEnumValue
      */
     public function getNewValue()

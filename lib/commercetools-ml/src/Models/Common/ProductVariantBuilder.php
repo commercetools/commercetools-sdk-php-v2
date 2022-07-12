@@ -21,16 +21,19 @@ use stdClass;
 final class ProductVariantBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?int
      */
     private $variantId;
@@ -38,6 +41,7 @@ final class ProductVariantBuilder implements Builder
     /**
      * <p>The product that contains this variant.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -48,6 +52,7 @@ final class ProductVariantBuilder implements Builder
     /**
      * <p>The state of the product variant.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -58,6 +63,7 @@ final class ProductVariantBuilder implements Builder
     /**
      * <p>The id of the product variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()

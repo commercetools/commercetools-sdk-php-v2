@@ -23,31 +23,37 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $valueKey;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
@@ -55,6 +61,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeLocalizedEnumValueLabel</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -65,6 +72,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -75,6 +83,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -85,6 +94,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>Key of the values that was updated</p>
      *
+
      * @return null|string
      */
     public function getValueKey()
@@ -93,6 +103,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -101,6 +112,7 @@ final class ChangeLocalizedEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

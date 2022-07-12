@@ -23,16 +23,19 @@ final class ProductSelectionSetVariantSelectionActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'setVariantSelection';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ProductResourceIdentifier
      */
     protected $product;
 
     /**
+
      * @var ?ProductVariantSelection
      */
     protected $variantSelection;
@@ -51,6 +54,7 @@ final class ProductSelectionSetVariantSelectionActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class ProductSelectionSetVariantSelectionActionModel extends JsonObjectMod
     /**
      * <p>ResourceIdentifier to Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()
@@ -91,6 +96,7 @@ final class ProductSelectionSetVariantSelectionActionModel extends JsonObjectMod
      * <p>Determines which Variants of the previously added Product are to be included in, or excluded from, the Product Selection.
      * Leave it empty to unset an existing Variant Selection.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection()

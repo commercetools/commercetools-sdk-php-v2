@@ -20,6 +20,7 @@ interface ProductTypeChangeEnumKeyAction extends ProductTypeUpdateAction
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -27,6 +28,7 @@ interface ProductTypeChangeEnumKeyAction extends ProductTypeUpdateAction
     /**
      * <p>Existing key to be changed.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -34,6 +36,7 @@ interface ProductTypeChangeEnumKeyAction extends ProductTypeUpdateAction
     /**
      * <p>New key to be set.</p>
      *
+
      * @return null|string
      */
     public function getNewKey();

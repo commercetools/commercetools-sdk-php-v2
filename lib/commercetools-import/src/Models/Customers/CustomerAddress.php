@@ -42,61 +42,73 @@ interface CustomerAddress extends JsonObject
      * <p>User-defined identifier for the address.
      * Must follow the pattern <code>[a-zA-Z0-9_-]{2,256}</code> and must be unique per customer.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|string
      */
     public function getTitle();
 
     /**
+
      * @return null|string
      */
     public function getSalutation();
 
     /**
+
      * @return null|string
      */
     public function getFirstName();
 
     /**
+
      * @return null|string
      */
     public function getLastName();
 
     /**
+
      * @return null|string
      */
     public function getStreetName();
 
     /**
+
      * @return null|string
      */
     public function getStreetNumber();
 
     /**
+
      * @return null|string
      */
     public function getAdditionalStreetInfo();
 
     /**
+
      * @return null|string
      */
     public function getPostalCode();
 
     /**
+
      * @return null|string
      */
     public function getCity();
 
     /**
+
      * @return null|string
      */
     public function getRegion();
 
     /**
+
      * @return null|string
      */
     public function getState();
@@ -104,61 +116,73 @@ interface CustomerAddress extends JsonObject
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
 
     /**
+
      * @return null|string
      */
     public function getCompany();
 
     /**
+
      * @return null|string
      */
     public function getDepartment();
 
     /**
+
      * @return null|string
      */
     public function getBuilding();
 
     /**
+
      * @return null|string
      */
     public function getApartment();
 
     /**
+
      * @return null|string
      */
     public function getPOBox();
 
     /**
+
      * @return null|string
      */
     public function getPhone();
 
     /**
+
      * @return null|string
      */
     public function getMobile();
 
     /**
+
      * @return null|string
      */
     public function getEmail();
 
     /**
+
      * @return null|string
      */
     public function getFax();
 
     /**
+
      * @return null|string
      */
     public function getAdditionalAddressInfo();
 
     /**
+
      * @return null|string
      */
     public function getExternalId();

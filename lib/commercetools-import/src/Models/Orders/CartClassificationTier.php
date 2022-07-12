@@ -20,21 +20,25 @@ interface CartClassificationTier extends ShippingRatePriceTier
     public const FIELD_IS_MATCHING = 'isMatching';
 
     /**
+
      * @return null|string
      */
     public function getValue();
 
     /**
+
      * @return null|Money
      */
     public function getPrice();
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers();
 
     /**
+
      * @return null|bool
      */
     public function getIsMatching();

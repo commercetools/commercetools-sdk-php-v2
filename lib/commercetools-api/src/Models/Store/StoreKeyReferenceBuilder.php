@@ -23,6 +23,7 @@ use stdClass;
 final class StoreKeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -30,6 +31,7 @@ final class StoreKeyReferenceBuilder implements Builder
     /**
      * <p>Unique and immutable key of the referenced <a href="ctp:api:type:Store">Store</a>.</p>
      *
+
      * @return null|string
      */
     public function getKey()

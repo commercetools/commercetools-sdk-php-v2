@@ -21,11 +21,13 @@ use stdClass;
 final class CustomerSetLocaleActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @return null|string
      */
     public function getLocale()

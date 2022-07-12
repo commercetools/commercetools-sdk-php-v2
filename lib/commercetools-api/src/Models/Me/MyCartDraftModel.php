@@ -30,76 +30,91 @@ use stdClass;
 final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 {
     /**
+
      * @var ?string
      */
     protected $currency;
 
     /**
+
      * @var ?string
      */
     protected $customerEmail;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
+
      * @var ?MyLineItemDraftCollection
      */
     protected $lineItems;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $shippingAddress;
 
     /**
+
      * @var ?BaseAddress
      */
     protected $billingAddress;
 
     /**
+
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $locale;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
+
      * @var ?StoreKeyReference
      */
     protected $store;
 
     /**
+
      * @var ?DiscountCodeInfoCollection
      */
     protected $discountCodes;
@@ -145,6 +160,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency()
@@ -162,6 +178,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -181,6 +198,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -200,6 +218,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -217,6 +236,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|MyLineItemDraftCollection
      */
     public function getLineItems()
@@ -234,6 +254,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -252,6 +273,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -270,6 +292,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -290,6 +313,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -308,6 +332,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -327,6 +352,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode()
@@ -347,6 +373,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -367,6 +394,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
      * <p>Contains addresses for orders with multiple shipping addresses.
      * Each address must contain a key which is unique in this cart.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -386,6 +414,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -404,6 +433,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes()

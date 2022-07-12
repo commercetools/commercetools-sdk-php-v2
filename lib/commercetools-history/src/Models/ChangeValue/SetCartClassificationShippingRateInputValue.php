@@ -20,16 +20,19 @@ interface SetCartClassificationShippingRateInputValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel();

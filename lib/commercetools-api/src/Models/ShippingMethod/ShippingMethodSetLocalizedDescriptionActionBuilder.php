@@ -23,6 +23,7 @@ use stdClass;
 final class ShippingMethodSetLocalizedDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedDescription;
@@ -30,6 +31,7 @@ final class ShippingMethodSetLocalizedDescriptionActionBuilder implements Builde
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()

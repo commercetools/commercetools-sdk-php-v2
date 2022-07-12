@@ -21,11 +21,13 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerNumber';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customerNumber;
@@ -42,6 +44,7 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
      * <p>It should be <strong>unique</strong> across a project.
      * Once it's set, it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber()

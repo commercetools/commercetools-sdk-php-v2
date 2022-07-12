@@ -20,11 +20,13 @@ use stdClass;
 final class TaskTokenModel extends JsonObjectModel implements TaskToken
 {
     /**
+
      * @var ?string
      */
     protected $taskId;
 
     /**
+
      * @var ?string
      */
     protected $uriPath;
@@ -44,6 +46,7 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     /**
      * <p>The ID for the task. Used to find the status of the task.</p>
      *
+
      * @return null|string
      */
     public function getTaskId()
@@ -63,6 +66,7 @@ final class TaskTokenModel extends JsonObjectModel implements TaskToken
     /**
      * <p>The URI path to poll for the status of the task.</p>
      *
+
      * @return null|string
      */
     public function getUriPath()

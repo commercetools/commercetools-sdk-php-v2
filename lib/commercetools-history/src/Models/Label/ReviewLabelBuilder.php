@@ -21,16 +21,19 @@ use stdClass;
 final class ReviewLabelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -39,6 +42,7 @@ final class ReviewLabelBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()

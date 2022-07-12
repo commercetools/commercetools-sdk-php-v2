@@ -27,16 +27,19 @@ use stdClass;
 final class StagedOrderAddShoppingListActionBuilder implements Builder
 {
     /**
+
      * @var null|ShoppingListResourceIdentifier|ShoppingListResourceIdentifierBuilder
      */
     private $shoppingList;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
@@ -44,6 +47,7 @@ final class StagedOrderAddShoppingListActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
+
      * @return null|ShoppingListResourceIdentifier
      */
     public function getShoppingList()
@@ -54,6 +58,7 @@ final class StagedOrderAddShoppingListActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -64,6 +69,7 @@ final class StagedOrderAddShoppingListActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

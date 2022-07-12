@@ -23,11 +23,13 @@ final class IndividualProductSelectionTypeModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'individual';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -46,6 +48,7 @@ final class IndividualProductSelectionTypeModel extends JsonObjectModel implemen
     /**
      * <p>The following type of Product Selections is supported:</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -65,6 +68,7 @@ final class IndividualProductSelectionTypeModel extends JsonObjectModel implemen
     /**
      * <p>The name of the ProductSelection which is recommended to be unique.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

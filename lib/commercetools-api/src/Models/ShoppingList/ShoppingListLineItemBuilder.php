@@ -30,61 +30,73 @@ use stdClass;
 final class ShoppingListLineItemBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $deactivatedAt;
 
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $productSlug;
 
     /**
+
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -95,6 +107,7 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -103,6 +116,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDeactivatedAt()
@@ -113,6 +127,7 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * <p>Unique identifier of the ShoppingListLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -123,6 +138,7 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -131,6 +147,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -141,6 +158,7 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -151,6 +169,7 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -159,6 +178,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -167,6 +187,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -175,6 +196,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

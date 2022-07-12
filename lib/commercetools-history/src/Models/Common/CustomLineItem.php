@@ -25,26 +25,31 @@ interface CustomLineItem extends JsonObject
     /**
      * <p>The unique ID of this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|Money
      */
     public function getMoney();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice();
@@ -52,6 +57,7 @@ interface CustomLineItem extends JsonObject
     /**
      * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getSlug();
@@ -59,6 +65,7 @@ interface CustomLineItem extends JsonObject
     /**
      * <p>The amount of a CustomLineItem in the cart. Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();

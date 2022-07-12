@@ -21,11 +21,13 @@ use stdClass;
 final class ProductRevertedStagedChangesMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $removedImageUrls;
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()

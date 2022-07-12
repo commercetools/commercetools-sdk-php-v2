@@ -23,16 +23,19 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'OrderBillingAddressSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Address
      */
     protected $address;
 
     /**
+
      * @var ?Address
      */
     protected $oldAddress;
@@ -51,6 +54,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -86,6 +91,7 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|Address
      */
     public function getOldAddress()

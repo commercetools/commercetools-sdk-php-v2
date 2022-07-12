@@ -21,6 +21,7 @@ use stdClass;
 final class StoreSetProductSelectionsActionBuilder implements Builder
 {
     /**
+
      * @var ?ProductSelectionSettingDraftCollection
      */
     private $productSelections;
@@ -32,6 +33,7 @@ final class StoreSetProductSelectionsActionBuilder implements Builder
      * <li>If not provided or provided as empty array, the action removes all Product Selections from this Store, meaning all Products in the <a href="ctp:api:type:Project">Project</a> are available in this Store.</li>
      * </ul>
      *
+
      * @return null|ProductSelectionSettingDraftCollection
      */
     public function getProductSelections()

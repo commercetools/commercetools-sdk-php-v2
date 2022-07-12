@@ -23,11 +23,13 @@ use stdClass;
 final class LocalizableTextAttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $value;
@@ -37,6 +39,7 @@ final class LocalizableTextAttributeBuilder implements Builder
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -52,6 +55,7 @@ final class LocalizableTextAttributeBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getValue()

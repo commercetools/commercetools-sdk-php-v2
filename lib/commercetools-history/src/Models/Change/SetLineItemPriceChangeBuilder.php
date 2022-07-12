@@ -25,21 +25,25 @@ use Commercetools\History\Models\Common\PriceBuilder;
 final class SetLineItemPriceChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $previousValue;
@@ -47,6 +51,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLineItemPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -63,6 +69,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Price
      */
     public function getNextValue()
@@ -71,6 +78,7 @@ final class SetLineItemPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Price
      */
     public function getPreviousValue()

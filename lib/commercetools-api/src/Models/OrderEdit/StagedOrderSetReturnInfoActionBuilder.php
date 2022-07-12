@@ -24,11 +24,13 @@ use stdClass;
 final class StagedOrderSetReturnInfoActionBuilder implements Builder
 {
     /**
+
      * @var ?ReturnInfoDraftCollection
      */
     private $items;
 
     /**
+
      * @return null|ReturnInfoDraftCollection
      */
     public function getItems()

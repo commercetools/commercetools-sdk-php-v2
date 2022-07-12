@@ -21,16 +21,19 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setParcelMeasurements';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $measurements;
@@ -49,6 +52,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -83,6 +88,7 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()

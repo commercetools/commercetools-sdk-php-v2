@@ -16,6 +16,7 @@ interface ProductRevertedStagedChangesMessage extends Message
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls();

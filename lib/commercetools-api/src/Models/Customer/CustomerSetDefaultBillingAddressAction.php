@@ -19,11 +19,13 @@ interface CustomerSetDefaultBillingAddressAction extends CustomerUpdateAction
     /**
      * <p>If not defined, the customer's <code>defaultBillingAddress</code> is unset.</p>
      *
+
      * @return null|string
      */
     public function getAddressId();
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();

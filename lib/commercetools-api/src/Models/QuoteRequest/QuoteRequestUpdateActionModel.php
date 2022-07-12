@@ -21,6 +21,7 @@ final class QuoteRequestUpdateActionModel extends JsonObjectModel implements Quo
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -44,6 +45,7 @@ final class QuoteRequestUpdateActionModel extends JsonObjectModel implements Quo
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

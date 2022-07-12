@@ -25,6 +25,7 @@ interface LineItemProductVariantImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariant.product</code>.</p>
      *
+
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant();
@@ -32,6 +33,7 @@ interface LineItemProductVariantImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariantImportDraft.sku</code>.</p>
      *
+
      * @return null|string
      */
     public function getSku();
@@ -39,6 +41,7 @@ interface LineItemProductVariantImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariantImportDraft.prices</code></p>
      *
+
      * @return null|LineItemPriceCollection
      */
     public function getPrices();
@@ -46,6 +49,7 @@ interface LineItemProductVariantImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariantImportDraft.attributes</code></p>
      *
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
@@ -53,6 +57,7 @@ interface LineItemProductVariantImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariantImportDraft.images</code>.</p>
      *
+
      * @return null|ImageCollection
      */
     public function getImages();

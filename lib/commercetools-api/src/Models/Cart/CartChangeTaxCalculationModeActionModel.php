@@ -21,11 +21,13 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxCalculationMode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $taxCalculationMode;
@@ -42,6 +44,7 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CartChangeTaxCalculationModeActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxCalculationMode()

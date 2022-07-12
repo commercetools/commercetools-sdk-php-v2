@@ -26,26 +26,31 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'SetTextLineItemCustomTypeChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?TextLineItemValue
      */
     protected $textLineItem;
 
     /**
+
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
+
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     /**
      * <p>Update action for <code>setTextLineItemCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -122,6 +130,7 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class SetTextLineItemCustomTypeChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()

@@ -23,11 +23,13 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'ReviewCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Review
      */
     protected $review;
@@ -44,6 +46,7 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|Review
      */
     public function getReview()

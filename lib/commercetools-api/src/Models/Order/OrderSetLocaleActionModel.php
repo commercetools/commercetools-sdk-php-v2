@@ -21,11 +21,13 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
 {
     public const DISCRIMINATOR_VALUE = 'setLocale';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $locale;
@@ -42,6 +44,7 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()

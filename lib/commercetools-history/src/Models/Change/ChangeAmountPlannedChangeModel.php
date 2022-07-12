@@ -24,21 +24,25 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
 
     public const DISCRIMINATOR_VALUE = 'ChangeAmountPlannedChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Money
      */
     protected $previousValue;
 
     /**
+
      * @var ?Money
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()
@@ -111,6 +118,7 @@ final class ChangeAmountPlannedChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()

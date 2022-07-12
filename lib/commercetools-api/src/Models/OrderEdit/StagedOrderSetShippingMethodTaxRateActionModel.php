@@ -25,11 +25,13 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'setShippingMethodTaxRate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -46,6 +48,7 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StagedOrderSetShippingMethodTaxRateActionModel extends JsonObjectMod
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

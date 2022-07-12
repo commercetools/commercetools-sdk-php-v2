@@ -21,11 +21,13 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
 {
     public const DISCRIMINATOR_VALUE = 'product';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
@@ -42,6 +44,7 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     }
 
     /**
+
      * @return null|string
      */
     public function getTypeId()
@@ -59,6 +62,7 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     }
 
     /**
+
      * @return null|string
      */
     public function getId()

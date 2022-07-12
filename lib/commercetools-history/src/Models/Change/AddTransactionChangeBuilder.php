@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\TransactionBuilder;
 final class AddTransactionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Transaction|TransactionBuilder
      */
     private $nextValue;
@@ -35,6 +37,7 @@ final class AddTransactionChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addTransaction</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class AddTransactionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Transaction
      */
     public function getNextValue()

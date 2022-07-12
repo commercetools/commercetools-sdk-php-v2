@@ -19,6 +19,7 @@ interface ProductTypeChangeLocalizedEnumValueLabelAction extends ProductTypeUpda
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -26,6 +27,7 @@ interface ProductTypeChangeLocalizedEnumValueLabelAction extends ProductTypeUpda
     /**
      * <p>New value to set. Must be different from the existing value.</p>
      *
+
      * @return null|AttributeLocalizedEnumValue
      */
     public function getNewValue();

@@ -21,31 +21,37 @@ use stdClass;
 final class TrackingDataBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $trackingId;
 
     /**
+
      * @var ?string
      */
     private $carrier;
 
     /**
+
      * @var ?string
      */
     private $provider;
 
     /**
+
      * @var ?string
      */
     private $providerTransaction;
 
     /**
+
      * @var ?bool
      */
     private $isReturn;
 
     /**
+
      * @return null|string
      */
     public function getTrackingId()
@@ -54,6 +60,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCarrier()
@@ -62,6 +69,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProvider()
@@ -70,6 +78,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProviderTransaction()
@@ -78,6 +87,7 @@ final class TrackingDataBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsReturn()

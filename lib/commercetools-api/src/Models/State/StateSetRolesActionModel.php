@@ -21,11 +21,13 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
 {
     public const DISCRIMINATOR_VALUE = 'setRoles';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $roles;
@@ -42,6 +44,7 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

@@ -22,21 +22,25 @@ use stdClass;
 final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $addedProductSelections;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $removedProductSelections;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $updatedProductSelections;
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getAddedProductSelections()
@@ -45,6 +49,7 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getRemovedProductSelections()
@@ -53,6 +58,7 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     }
 
     /**
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getUpdatedProductSelections()

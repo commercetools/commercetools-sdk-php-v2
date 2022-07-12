@@ -21,6 +21,7 @@ use stdClass;
 final class QuoteChangeQuoteStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $quoteState;
@@ -28,6 +29,7 @@ final class QuoteChangeQuoteStateActionBuilder implements Builder
     /**
      * <p>The new quote state to be set for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getQuoteState()

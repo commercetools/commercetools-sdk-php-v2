@@ -21,6 +21,7 @@ use stdClass;
 final class AttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
@@ -30,6 +31,7 @@ final class AttributeBuilder implements Builder
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()

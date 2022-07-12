@@ -22,6 +22,7 @@ interface SetDiscountedPriceChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,31 +30,37 @@ interface SetDiscountedPriceChange extends Change
     /**
      * <p>Update action for <code>setDiscountedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|string
      */
     public function getPriceId();
 
     /**
+
      * @return null|Price
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Price
      */
     public function getNextValue();

@@ -24,21 +24,25 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'ChangeAmountAuthorizedChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Money
      */
     protected $previousValue;
 
     /**
+
      * @var ?Money
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     /**
      * <p>Internal Update action for <code>changeAmountAuthorized</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class ChangeAmountAuthorizedChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()

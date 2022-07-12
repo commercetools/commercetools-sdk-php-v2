@@ -21,11 +21,13 @@ use stdClass;
 final class CartSetShippingMethodTaxRateActionBuilder implements Builder
 {
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

@@ -18,6 +18,7 @@ interface ZoneSetDescriptionAction extends ZoneUpdateAction
     /**
      * <p>Description of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getDescription();

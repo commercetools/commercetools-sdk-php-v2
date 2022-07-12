@@ -18,6 +18,7 @@ interface CustomerSetExternalIdAction extends CustomerUpdateAction
     /**
      * <p>If not defined, the external ID is unset.</p>
      *
+
      * @return null|string
      */
     public function getExternalId();

@@ -19,6 +19,7 @@ interface RemoveItemShippingAddressesChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface RemoveItemShippingAddressesChange extends Change
     /**
      * <p>Update action for <code>removeItemShippingAddress</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Address
      */
     public function getNextValue();
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue();

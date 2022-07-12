@@ -23,11 +23,13 @@ final class PaymentTransactionAddedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'PaymentTransactionAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Transaction
      */
     protected $transaction;
@@ -44,6 +46,7 @@ final class PaymentTransactionAddedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class PaymentTransactionAddedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|Transaction
      */
     public function getTransaction()

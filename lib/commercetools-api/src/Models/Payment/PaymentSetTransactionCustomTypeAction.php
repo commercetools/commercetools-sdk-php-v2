@@ -20,6 +20,7 @@ interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+
      * @return null|string
      */
     public function getTransactionId();
@@ -28,6 +29,7 @@ interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Transaction with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Transaction.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -35,6 +37,7 @@ interface PaymentSetTransactionCustomTypeAction extends PaymentUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Transaction.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

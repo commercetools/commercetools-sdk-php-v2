@@ -18,6 +18,7 @@ interface AddInterfaceInteractionChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,6 +26,7 @@ interface AddInterfaceInteractionChange extends Change
     /**
      * <p>Update action for <code>addInterfaceInteraction</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -32,6 +34,7 @@ interface AddInterfaceInteractionChange extends Change
     /**
      * <p>Only available if <code>expand</code> is set to true</p>
      *
+
      * @return null|CustomFieldExpandedValue
      */
     public function getNextValue();

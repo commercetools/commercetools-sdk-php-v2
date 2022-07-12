@@ -26,6 +26,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -33,6 +34,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
@@ -40,6 +42,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
+
      * @return null|bool
      */
     public function getStaged();
@@ -47,6 +50,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>Maximum number of products to scan.</p>
      *
+
      * @return null|int
      */
     public function getProductSetLimit();
@@ -54,6 +58,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
+
      * @return null|bool
      */
     public function getIncludeVariants();
@@ -61,6 +66,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>If true, uses the median number of images per product variant as a threshold value.</p>
      *
+
      * @return null|bool
      */
     public function getAutoThreshold();
@@ -68,6 +74,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>The minimum number of images a product variant must have. Anything below this value is considered a product variant with missing images.</p>
      *
+
      * @return null|int
      */
     public function getThreshold();
@@ -75,6 +82,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>Filters results by the provided Product IDs. Cannot be applied in combination with any other filter.</p>
      *
+
      * @return null|array
      */
     public function getProductIds();
@@ -82,6 +90,7 @@ interface MissingImagesSearchRequest extends JsonObject
     /**
      * <p>Filters results by the provided product type IDs. It cannot be applied in combination with any other filter.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds();

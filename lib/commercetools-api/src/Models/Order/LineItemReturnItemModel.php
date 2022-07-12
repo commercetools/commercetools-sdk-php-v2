@@ -24,51 +24,61 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
 {
     public const DISCRIMINATOR_VALUE = 'LineItemReturnItem';
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $comment;
 
     /**
+
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+
      * @var ?string
      */
     protected $paymentState;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
@@ -103,6 +113,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     /**
      * <p>Unique identifier of the ReturnItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -120,6 +131,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -137,6 +149,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -154,6 +167,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -171,6 +185,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -188,6 +203,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -207,6 +223,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     /**
      * <p>Custom Fields of this return item.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -225,6 +242,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -246,6 +264,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -267,6 +286,7 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()

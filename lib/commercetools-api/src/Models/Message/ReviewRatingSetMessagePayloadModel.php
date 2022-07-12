@@ -23,26 +23,31 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'ReviewRatingSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?float
      */
     protected $oldRating;
 
     /**
+
      * @var ?float
      */
     protected $newRating;
 
     /**
+
      * @var ?bool
      */
     protected $includedInStatistics;
 
     /**
+
      * @var ?Reference
      */
     protected $target;
@@ -65,6 +70,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -82,6 +88,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|float
      */
     public function getOldRating()
@@ -99,6 +106,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|float
      */
     public function getNewRating()
@@ -116,6 +124,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|bool
      */
     public function getIncludedInStatistics()
@@ -135,6 +144,7 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getTarget()

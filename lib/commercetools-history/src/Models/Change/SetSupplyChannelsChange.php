@@ -19,6 +19,7 @@ interface SetSupplyChannelsChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface SetSupplyChannelsChange extends Change
     /**
      * <p>Shape of the action for <code>setSupplyChannels</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue();

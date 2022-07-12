@@ -21,11 +21,13 @@ final class ProductTypeChangeDescriptionActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'changeDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $description;
@@ -42,6 +44,7 @@ final class ProductTypeChangeDescriptionActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProductTypeChangeDescriptionActionModel extends JsonObjectModel impl
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getDescription()

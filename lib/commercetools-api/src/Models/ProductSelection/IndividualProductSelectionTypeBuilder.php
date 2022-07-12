@@ -23,6 +23,7 @@ use stdClass;
 final class IndividualProductSelectionTypeBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -30,6 +31,7 @@ final class IndividualProductSelectionTypeBuilder implements Builder
     /**
      * <p>The name of the ProductSelection which is recommended to be unique.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

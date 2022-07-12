@@ -36,6 +36,7 @@ use stdClass;
 final class ImportResourceModel extends JsonObjectModel implements ImportResource
 {
     /**
+
      * @var ?string
      */
     protected $key;
@@ -51,6 +52,7 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

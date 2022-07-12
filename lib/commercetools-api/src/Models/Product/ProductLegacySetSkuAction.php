@@ -17,11 +17,13 @@ interface ProductLegacySetSkuAction extends ProductUpdateAction
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();

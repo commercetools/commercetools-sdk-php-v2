@@ -21,26 +21,31 @@ use stdClass;
 final class FieldDefinitionBuilder implements Builder
 {
     /**
+
      * @var null|FieldType|FieldTypeBuilder
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @var ?string
      */
     private $inputHint;
 
     /**
+
      * @return null|FieldType
      */
     public function getType()
@@ -51,6 +56,7 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * <p>The name of the field. The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>). The name must be unique for a given resource type ID. In case there is a field with the same name in another type it has to have the same FieldType also.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -59,6 +65,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -67,6 +74,7 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getInputHint()

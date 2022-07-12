@@ -19,6 +19,7 @@ interface ProductSelectionRemoveProductAction extends ProductSelectionUpdateActi
     /**
      * <p>ResourceIdentifier to Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct();

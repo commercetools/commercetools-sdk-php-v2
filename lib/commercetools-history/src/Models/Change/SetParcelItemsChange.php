@@ -21,6 +21,7 @@ interface SetParcelItemsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface SetParcelItemsChange extends Change
     /**
      * <p>Update action for <code>setParcelItems</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getPreviousValue();

@@ -21,11 +21,13 @@ use stdClass;
 final class ProductRevertStagedVariantChangesActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

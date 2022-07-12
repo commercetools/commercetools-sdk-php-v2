@@ -21,16 +21,19 @@ use stdClass;
 final class OrderSetParcelMeasurementsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -39,6 +42,7 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()

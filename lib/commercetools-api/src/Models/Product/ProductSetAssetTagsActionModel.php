@@ -21,36 +21,43 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setAssetTags';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
 
     /**
+
      * @var ?array
      */
     protected $tags;
@@ -77,6 +84,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -94,6 +102,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -111,6 +120,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -128,6 +138,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -145,6 +156,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -162,6 +174,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -179,6 +192,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+
      * @return null|array
      */
     public function getTags()

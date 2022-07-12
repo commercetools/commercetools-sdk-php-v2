@@ -21,11 +21,13 @@ use stdClass;
 final class AttributeCoverageBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $names;
 
     /**
+
      * @var ?float
      */
     private $values;
@@ -33,6 +35,7 @@ final class AttributeCoverageBuilder implements Builder
     /**
      * <p>The percentage of attributes from the product type defined in the product variant. A value of <code>1.0</code> indicates a product variant contains all attributes defined in the product type.</p>
      *
+
      * @return null|float
      */
     public function getNames()
@@ -43,6 +46,7 @@ final class AttributeCoverageBuilder implements Builder
     /**
      * <p>Represents the percentage of attributes in the product variant that contain values.</p>
      *
+
      * @return null|float
      */
     public function getValues()

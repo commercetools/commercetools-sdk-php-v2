@@ -19,6 +19,7 @@ interface StagedQuoteStateChangedMessagePayload extends MessagePayload
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState();
@@ -26,6 +27,7 @@ interface StagedQuoteStateChangedMessagePayload extends MessagePayload
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getOldStagedQuoteState();

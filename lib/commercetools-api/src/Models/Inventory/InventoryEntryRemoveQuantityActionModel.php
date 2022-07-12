@@ -21,11 +21,13 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'removeQuantity';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
@@ -42,6 +44,7 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
     /**
      * <p>Value to remove from <code>quantityOnStock</code>.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()

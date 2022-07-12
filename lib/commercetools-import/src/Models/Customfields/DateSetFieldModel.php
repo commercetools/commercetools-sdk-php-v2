@@ -21,11 +21,13 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
 {
     public const DISCRIMINATOR_VALUE = 'DateSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DateTimeImmutableCollection
      */
     protected $value;
@@ -44,6 +46,7 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class DateSetFieldModel extends JsonObjectModel implements DateSetField
     }
 
     /**
+
      * @return null|DateTimeImmutableCollection
      */
     public function getValue()

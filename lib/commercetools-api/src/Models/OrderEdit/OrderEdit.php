@@ -32,6 +32,7 @@ interface OrderEdit extends BaseResource
     /**
      * <p>Unique identifier of the OrderEdit.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -39,16 +40,19 @@ interface OrderEdit extends BaseResource
     /**
      * <p>The current version of the OrderEdit.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -56,6 +60,7 @@ interface OrderEdit extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -63,6 +68,7 @@ interface OrderEdit extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -70,6 +76,7 @@ interface OrderEdit extends BaseResource
     /**
      * <p>User-defined unique identifier of the OrderEdit.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -77,6 +84,7 @@ interface OrderEdit extends BaseResource
     /**
      * <p>The order to be updated with this edit.</p>
      *
+
      * @return null|OrderReference
      */
     public function getResource();
@@ -85,11 +93,13 @@ interface OrderEdit extends BaseResource
      * <p>The actions to apply to the Order.
      * Cannot be updated after the edit has been applied.</p>
      *
+
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -98,6 +108,7 @@ interface OrderEdit extends BaseResource
      * <p>Contains a preview of the changes in case of unapplied edit.
      * For applied edits, it contains the summary of the changes.</p>
      *
+
      * @return null|OrderEditResult
      */
     public function getResult();
@@ -105,6 +116,7 @@ interface OrderEdit extends BaseResource
     /**
      * <p>This field can be used to add textual information regarding the edit.</p>
      *
+
      * @return null|string
      */
     public function getComment();

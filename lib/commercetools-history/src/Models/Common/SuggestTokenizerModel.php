@@ -22,6 +22,7 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
 
 
     /**
+
      * @var ?string
      */
     protected $type;
@@ -38,6 +39,7 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

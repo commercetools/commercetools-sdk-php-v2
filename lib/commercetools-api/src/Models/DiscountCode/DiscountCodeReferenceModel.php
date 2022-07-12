@@ -23,16 +23,19 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
 {
     public const DISCRIMINATOR_VALUE = 'discount-code';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?DiscountCode
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class DiscountCodeReferenceModel extends JsonObjectModel implements Discou
     /**
      * <p>Contains the representation of the expanded DiscountCode. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountCodes.</p>
      *
+
      * @return null|DiscountCode
      */
     public function getObj()

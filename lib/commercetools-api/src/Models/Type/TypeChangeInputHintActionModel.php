@@ -21,16 +21,19 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
 {
     public const DISCRIMINATOR_VALUE = 'changeInputHint';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $fieldName;
 
     /**
+
      * @var ?string
      */
     protected $inputHint;
@@ -49,6 +52,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -88,6 +93,7 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getInputHint()

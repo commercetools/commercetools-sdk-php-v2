@@ -28,6 +28,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>Name of the ProductDiscount.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -35,6 +36,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the ProductDiscount.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -42,6 +44,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>Description of the ProductDiscount.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -49,6 +52,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>Type of Discount and its corresponding value.</p>
      *
+
      * @return null|ProductDiscountValueDraft
      */
     public function getValue();
@@ -56,6 +60,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>Valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getPredicate();
@@ -64,6 +69,7 @@ interface ProductDiscountDraft extends JsonObject
      * <p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.
      * The value must be <strong>unique</strong> among all ProductDiscounts in the <a href="ctp:api:type:Project">Project</a>.</p>
      *
+
      * @return null|string
      */
     public function getSortOrder();
@@ -71,6 +77,7 @@ interface ProductDiscountDraft extends JsonObject
     /**
      * <p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
      *
+
      * @return null|bool
      */
     public function getIsActive();
@@ -79,6 +86,7 @@ interface ProductDiscountDraft extends JsonObject
      * <p>Date and time (UTC) from which the Discount is effective.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -87,6 +95,7 @@ interface ProductDiscountDraft extends JsonObject
      * <p>Date and time (UTC) until which the Discount is effective.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

@@ -21,6 +21,7 @@ use stdClass;
 final class CustomerSetCompanyNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $companyName;
@@ -28,6 +29,7 @@ final class CustomerSetCompanyNameActionBuilder implements Builder
     /**
      * <p>If not defined, the company name is unset.</p>
      *
+
      * @return null|string
      */
     public function getCompanyName()

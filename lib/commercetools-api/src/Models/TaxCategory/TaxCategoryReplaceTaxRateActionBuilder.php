@@ -21,11 +21,13 @@ use stdClass;
 final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $taxRateId;
 
     /**
+
      * @var null|TaxRateDraft|TaxRateDraftBuilder
      */
     private $taxRate;
@@ -33,6 +35,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     /**
      * <p>ID of the TaxRate to replace.</p>
      *
+
      * @return null|string
      */
     public function getTaxRateId()
@@ -43,6 +46,7 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     /**
      * <p>New TaxRate to replace with.</p>
      *
+
      * @return null|TaxRateDraft
      */
     public function getTaxRate()

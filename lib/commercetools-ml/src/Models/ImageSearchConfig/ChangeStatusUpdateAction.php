@@ -16,6 +16,7 @@ interface ChangeStatusUpdateAction extends ImageSearchConfigUpdateAction
     public const FIELD_STATUS = 'status';
 
     /**
+
      * @return null|string
      */
     public function getStatus();

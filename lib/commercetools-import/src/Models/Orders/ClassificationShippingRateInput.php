@@ -18,6 +18,7 @@ interface ClassificationShippingRateInput extends ShippingRateInput
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getKey();
@@ -30,6 +31,7 @@ interface ClassificationShippingRateInput extends ShippingRateInput
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();

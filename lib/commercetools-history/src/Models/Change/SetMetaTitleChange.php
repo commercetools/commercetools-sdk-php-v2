@@ -19,6 +19,7 @@ interface SetMetaTitleChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface SetMetaTitleChange extends Change
     /**
      * <p>Shape of the action for <code>setMetaTitle</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();

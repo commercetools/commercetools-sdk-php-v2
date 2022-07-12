@@ -18,11 +18,13 @@ interface CustomLineItemTaxedPrice extends JsonObject
     public const FIELD_TOTAL_GROSS = 'totalGross';
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalNet();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalGross();

@@ -23,36 +23,43 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public const FIELD_PAYLOAD_NOT_INCLUDED = 'payloadNotIncluded';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber();
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion();
 
     /**
+
      * @return null|PayloadNotIncluded
      */
     public function getPayloadNotIncluded();

@@ -22,6 +22,7 @@ interface SetLineItemTaxedPriceChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,26 +30,31 @@ interface SetLineItemTaxedPriceChange extends Change
     /**
      * <p>Update action for <code>setLineItemTaxedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getNextValue();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getPreviousValue();

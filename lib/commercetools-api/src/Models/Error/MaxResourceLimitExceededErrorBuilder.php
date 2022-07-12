@@ -21,16 +21,19 @@ use stdClass;
 final class MaxResourceLimitExceededErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $exceededResource;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -41,6 +44,7 @@ final class MaxResourceLimitExceededErrorBuilder implements Builder
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
+
      * @return null|string
      */
     public function getExceededResource()

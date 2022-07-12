@@ -23,11 +23,13 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
@@ -44,6 +46,7 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()

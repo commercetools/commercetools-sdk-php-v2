@@ -28,26 +28,31 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'addParcelToDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $measurements;
 
     /**
+
      * @var ?TrackingData
      */
     protected $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -70,6 +75,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -87,6 +93,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -104,6 +111,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -122,6 +130,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -140,6 +149,7 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

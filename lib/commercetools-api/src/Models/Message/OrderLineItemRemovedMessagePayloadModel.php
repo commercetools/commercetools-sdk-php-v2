@@ -30,46 +30,55 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemRemoved';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?int
      */
     protected $removedQuantity;
 
     /**
+
      * @var ?int
      */
     protected $newQuantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     protected $newState;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $newTotalPrice;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $newTaxedPrice;
 
     /**
+
      * @var ?Price
      */
     protected $newPrice;
 
     /**
+
      * @var ?ItemShippingDetails
      */
     protected $newShippingDetail;
@@ -100,6 +109,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -117,6 +127,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -134,6 +145,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|int
      */
     public function getRemovedQuantity()
@@ -151,6 +163,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|int
      */
     public function getNewQuantity()
@@ -168,6 +181,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getNewState()
@@ -187,6 +201,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     /**
      * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getNewTotalPrice()
@@ -205,6 +220,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice()
@@ -223,6 +239,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|Price
      */
     public function getNewPrice()
@@ -241,6 +258,7 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail()

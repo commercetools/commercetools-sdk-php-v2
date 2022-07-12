@@ -27,56 +27,67 @@ use Commercetools\History\Models\Label\LabelBuilder;
 final class RecordBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?int
      */
     private $previousVersion;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|ModifiedBy|ModifiedByBuilder
      */
     private $modifiedBy;
 
     /**
+
      * @var ?string
      */
     private $modifiedAt;
 
     /**
+
      * @var null|Label|LabelBuilder
      */
     private $label;
 
     /**
+
      * @var null|Label|LabelBuilder
      */
     private $previousLabel;
 
     /**
+
      * @var ?ChangeCollection
      */
     private $changes;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?KeyReferenceCollection
      */
     private $stores;
 
     /**
+
      * @var ?bool
      */
     private $withoutChanges;
@@ -84,6 +95,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Version of the resource after the change.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -94,6 +106,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Version of the resource before the change.</p>
      *
+
      * @return null|int
      */
     public function getPreviousVersion()
@@ -104,6 +117,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Type of the change (creation, update or deletion).</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -114,6 +128,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Information about the user or the API client who performed the change.</p>
      *
+
      * @return null|ModifiedBy
      */
     public function getModifiedBy()
@@ -124,6 +139,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Date and time when the change was made.</p>
      *
+
      * @return null|string
      */
     public function getModifiedAt()
@@ -134,6 +150,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Information that describes the resource after the change.</p>
      *
+
      * @return null|Label
      */
     public function getLabel()
@@ -144,6 +161,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Information that describes the resource before the change.</p>
      *
+
      * @return null|Label
      */
     public function getPreviousLabel()
@@ -155,6 +173,7 @@ final class RecordBuilder implements Builder
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
      * The value is not identical to the actual array of update actions sent and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
+
      * @return null|ChangeCollection
      */
     public function getChanges()
@@ -165,6 +184,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>Reference to the changed resource.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -175,6 +195,7 @@ final class RecordBuilder implements Builder
     /**
      * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
      *
+
      * @return null|KeyReferenceCollection
      */
     public function getStores()
@@ -186,6 +207,7 @@ final class RecordBuilder implements Builder
      * <p><code>true</code> if no change was detected.
      * The version number of the resource can be increased even without any change in the resource.</p>
      *
+
      * @return null|bool
      */
     public function getWithoutChanges()

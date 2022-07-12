@@ -21,16 +21,19 @@ use stdClass;
 final class ResourceDeletionErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $resource;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class ResourceDeletionErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getResource()

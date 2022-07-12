@@ -22,11 +22,13 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -45,6 +47,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -62,6 +65,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+
      * @return null|string
      */
     public function getTypeId()

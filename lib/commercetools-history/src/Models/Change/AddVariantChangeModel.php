@@ -24,26 +24,31 @@ final class AddVariantChangeModel extends JsonObjectModel implements AddVariantC
 
     public const DISCRIMINATOR_VALUE = 'AddVariantChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?Variant
      */
     protected $previousValue;
 
     /**
+
      * @var ?Variant
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class AddVariantChangeModel extends JsonObjectModel implements AddVariantC
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class AddVariantChangeModel extends JsonObjectModel implements AddVariantC
     /**
      * <p>Update action for <code>addVariant</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class AddVariantChangeModel extends JsonObjectModel implements AddVariantC
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +127,7 @@ final class AddVariantChangeModel extends JsonObjectModel implements AddVariantC
     }
 
     /**
+
      * @return null|Variant
      */
     public function getPreviousValue()
@@ -137,6 +146,7 @@ final class AddVariantChangeModel extends JsonObjectModel implements AddVariantC
     }
 
     /**
+
      * @return null|Variant
      */
     public function getNextValue()

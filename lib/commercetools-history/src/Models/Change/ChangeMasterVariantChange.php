@@ -20,6 +20,7 @@ interface ChangeMasterVariantChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface ChangeMasterVariantChange extends Change
     /**
      * <p>Update action for <code>changeMasterVariant</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|Variant
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Variant
      */
     public function getNextValue();

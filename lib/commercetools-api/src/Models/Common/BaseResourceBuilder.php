@@ -224,26 +224,31 @@ use stdClass;
 final class BaseResourceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -252,6 +257,7 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -260,6 +266,7 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -268,6 +275,7 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

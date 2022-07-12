@@ -21,11 +21,13 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setMessages';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
@@ -42,6 +44,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()

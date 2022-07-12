@@ -21,6 +21,7 @@ interface ProductTypeDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -28,6 +29,7 @@ interface ProductTypeDraft extends JsonObject
     /**
      * <p>Name of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -35,6 +37,7 @@ interface ProductTypeDraft extends JsonObject
     /**
      * <p>Description of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getDescription();
@@ -42,6 +45,7 @@ interface ProductTypeDraft extends JsonObject
     /**
      * <p>Attributes to specify for the ProductType. Products of this ProductType have these Attributes available on their <a href="ctp:api:type:ProductVariant">ProductVariants</a>.</p>
      *
+
      * @return null|AttributeDefinitionDraftCollection
      */
     public function getAttributes();

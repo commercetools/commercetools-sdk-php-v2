@@ -21,11 +21,13 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
 {
     public const DISCRIMINATOR_VALUE = 'Enum';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?CustomFieldEnumValueCollection
      */
     protected $values;
@@ -42,6 +44,7 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     /**
      * <p>Allowed values.</p>
      *
+
      * @return null|CustomFieldEnumValueCollection
      */
     public function getValues()

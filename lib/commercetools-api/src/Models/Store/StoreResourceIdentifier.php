@@ -17,6 +17,7 @@ interface StoreResourceIdentifier extends ResourceIdentifier
     /**
      * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -24,6 +25,7 @@ interface StoreResourceIdentifier extends ResourceIdentifier
     /**
      * <p>Unique key of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getKey();

@@ -22,31 +22,37 @@ interface TextLineItem extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+
      * @return null|string
      */
     public function getAddedAt();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

@@ -21,6 +21,7 @@ use stdClass;
 final class ChannelSetRolesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $roles;
@@ -28,6 +29,7 @@ final class ChannelSetRolesActionBuilder implements Builder
     /**
      * <p>Value to set. If not specified, then <code>InventorySupply</code> is assigned by default.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

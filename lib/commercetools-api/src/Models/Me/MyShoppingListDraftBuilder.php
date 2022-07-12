@@ -29,41 +29,49 @@ use stdClass;
 final class MyShoppingListDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?ShoppingListLineItemDraftCollection
      */
     private $lineItems;
 
     /**
+
      * @var ?TextLineItemDraftCollection
      */
     private $textLineItems;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -72,6 +80,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -80,6 +89,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems()
@@ -88,6 +98,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems()
@@ -98,6 +109,7 @@ final class MyShoppingListDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -108,6 +120,7 @@ final class MyShoppingListDraftBuilder implements Builder
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -116,6 +129,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

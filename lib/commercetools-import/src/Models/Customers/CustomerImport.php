@@ -44,6 +44,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.customerNumber</code>.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber();
@@ -51,6 +52,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.email</code>.</p>
      *
+
      * @return null|string
      */
     public function getEmail();
@@ -58,6 +60,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.password</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword();
@@ -65,6 +68,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
      *
+
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();
@@ -72,6 +76,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.firstName</code>.</p>
      *
+
      * @return null|string
      */
     public function getFirstName();
@@ -79,6 +84,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.lastName</code>.</p>
      *
+
      * @return null|string
      */
     public function getLastName();
@@ -86,6 +92,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.middleName</code>.</p>
      *
+
      * @return null|string
      */
     public function getMiddleName();
@@ -93,6 +100,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.title</code>.</p>
      *
+
      * @return null|string
      */
     public function getTitle();
@@ -100,6 +108,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.salutation</code>.</p>
      *
+
      * @return null|string
      */
     public function getSalutation();
@@ -107,6 +116,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.externalId</code>.</p>
      *
+
      * @return null|string
      */
     public function getExternalId();
@@ -114,6 +124,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.dateOfBirth</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();
@@ -121,6 +132,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.companyName</code>.</p>
      *
+
      * @return null|string
      */
     public function getCompanyName();
@@ -128,6 +140,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.vatId</code>.</p>
      *
+
      * @return null|string
      */
     public function getVatId();
@@ -135,6 +148,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.isEmailVerified</code>.</p>
      *
+
      * @return null|bool
      */
     public function getIsEmailVerified();
@@ -143,6 +157,7 @@ interface CustomerImport extends ImportResource
      * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the Customer is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup();
@@ -150,6 +165,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.addresses</code>.</p>
      *
+
      * @return null|CustomerAddressCollection
      */
     public function getAddresses();
@@ -157,6 +173,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress();
@@ -164,6 +181,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getBillingAddresses();
@@ -171,6 +189,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress();
@@ -178,6 +197,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getShippingAddresses();
@@ -185,6 +205,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>Maps to <code>Customer.locale</code>.</p>
      *
+
      * @return null|string
      */
     public function getLocale();
@@ -192,6 +213,7 @@ interface CustomerImport extends ImportResource
     /**
      * <p>The custom fields for this Customer.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();

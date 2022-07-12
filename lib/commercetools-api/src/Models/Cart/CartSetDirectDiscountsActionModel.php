@@ -21,11 +21,13 @@ final class CartSetDirectDiscountsActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setDirectDiscounts';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DirectDiscountDraftCollection
      */
     protected $discounts;
@@ -42,6 +44,7 @@ final class CartSetDirectDiscountsActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class CartSetDirectDiscountsActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|DirectDiscountDraftCollection
      */
     public function getDiscounts()

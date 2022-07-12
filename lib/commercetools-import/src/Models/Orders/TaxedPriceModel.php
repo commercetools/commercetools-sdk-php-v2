@@ -22,21 +22,25 @@ use stdClass;
 final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 {
     /**
+
      * @var ?Money
      */
     protected $totalNet;
 
     /**
+
      * @var ?Money
      */
     protected $totalGross;
 
     /**
+
      * @var ?TaxPortionCollection
      */
     protected $taxPortions;
 
     /**
+
      * @var ?Money
      */
     protected $totalTax;
@@ -60,6 +64,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     /**
      * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalNet()
@@ -80,6 +85,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     /**
      * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross()
@@ -100,6 +106,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     /**
      * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
      *
+
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions()
@@ -119,6 +126,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     /**
      * <p>Maps to <code>TaxedPrice.totalTax</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalTax()

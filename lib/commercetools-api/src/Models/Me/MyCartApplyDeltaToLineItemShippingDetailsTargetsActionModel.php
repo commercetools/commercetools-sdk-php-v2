@@ -22,16 +22,19 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
 {
     public const DISCRIMINATOR_VALUE = 'applyDeltaToLineItemShippingDetailsTargets';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     protected $targetsDelta;
@@ -50,6 +53,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -67,6 +71,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -84,6 +89,7 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     }
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargetsDelta()

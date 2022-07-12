@@ -21,6 +21,7 @@ interface OrderPagedSearchResponse extends JsonObject
     /**
      * <p>Total number of results matching the query.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -28,6 +29,7 @@ interface OrderPagedSearchResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
@@ -35,6 +37,7 @@ interface OrderPagedSearchResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -42,6 +45,7 @@ interface OrderPagedSearchResponse extends JsonObject
     /**
      * <p>Actual results.</p>
      *
+
      * @return null|HitCollection
      */
     public function getHits();

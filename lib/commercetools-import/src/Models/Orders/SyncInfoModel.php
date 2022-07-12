@@ -23,16 +23,19 @@ use stdClass;
 final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 {
     /**
+
      * @var ?ChannelKeyReference
      */
     protected $channel;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $syncedAt;
@@ -54,6 +57,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     /**
      * <p>Maps to <code>SyncInfo.channel</code></p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel()
@@ -74,6 +78,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     /**
      * <p>Maps to <code>SyncInfo.externalId</code></p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -93,6 +98,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     /**
      * <p>Maps to <code>SyncInfo.syncedAt</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt()

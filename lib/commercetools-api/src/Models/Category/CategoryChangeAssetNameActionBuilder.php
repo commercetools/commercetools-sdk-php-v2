@@ -23,16 +23,19 @@ use stdClass;
 final class CategoryChangeAssetNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -40,6 +43,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId()
@@ -50,6 +54,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()
@@ -60,6 +65,7 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

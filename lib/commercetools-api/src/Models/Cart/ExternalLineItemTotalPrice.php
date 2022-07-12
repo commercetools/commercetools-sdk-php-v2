@@ -18,11 +18,13 @@ interface ExternalLineItemTotalPrice extends JsonObject
     public const FIELD_TOTAL_PRICE = 'totalPrice';
 
     /**
+
      * @return null|Money
      */
     public function getPrice();
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice();

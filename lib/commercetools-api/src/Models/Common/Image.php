@@ -18,16 +18,19 @@ interface Image extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getUrl();
 
     /**
+
      * @return null|ImageDimensions
      */
     public function getDimensions();
 
     /**
+
      * @return null|string
      */
     public function getLabel();

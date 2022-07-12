@@ -21,6 +21,7 @@ use stdClass;
 final class ChannelAddRolesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $roles;
@@ -28,6 +29,7 @@ final class ChannelAddRolesActionBuilder implements Builder
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

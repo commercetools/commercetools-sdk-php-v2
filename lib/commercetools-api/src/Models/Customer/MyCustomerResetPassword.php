@@ -17,11 +17,13 @@ interface MyCustomerResetPassword extends JsonObject
     public const FIELD_NEW_PASSWORD = 'newPassword';
 
     /**
+
      * @return null|string
      */
     public function getTokenValue();
 
     /**
+
      * @return null|string
      */
     public function getNewPassword();

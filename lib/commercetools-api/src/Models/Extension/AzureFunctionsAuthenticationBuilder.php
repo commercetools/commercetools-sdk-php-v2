@@ -21,6 +21,7 @@ use stdClass;
 final class AzureFunctionsAuthenticationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -28,6 +29,7 @@ final class AzureFunctionsAuthenticationBuilder implements Builder
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
+
      * @return null|string
      */
     public function getKey()

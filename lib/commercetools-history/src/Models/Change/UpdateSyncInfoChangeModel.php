@@ -24,21 +24,25 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
 
     public const DISCRIMINATOR_VALUE = 'UpdateSyncInfoChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $channelId;
 
     /**
+
      * @var ?SyncInfo
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     /**
      * <p>Update action for <code>updateSyncInfo</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     }
 
     /**
+
      * @return null|string
      */
     public function getChannelId()
@@ -112,6 +119,7 @@ final class UpdateSyncInfoChangeModel extends JsonObjectModel implements UpdateS
     }
 
     /**
+
      * @return null|SyncInfo
      */
     public function getNextValue()

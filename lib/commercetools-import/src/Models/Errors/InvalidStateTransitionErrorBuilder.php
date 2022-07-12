@@ -21,21 +21,25 @@ use stdClass;
 final class InvalidStateTransitionErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $currentState;
 
     /**
+
      * @var ?string
      */
     private $newState;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -46,6 +50,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     /**
      * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
+
      * @return null|string
      */
     public function getCurrentState()
@@ -56,6 +61,7 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     /**
      * <p>Every <a href="/import-operation">Import Operation</a> is assigned with one of the following states.</p>
      *
+
      * @return null|string
      */
     public function getNewState()

@@ -21,16 +21,19 @@ use stdClass;
 final class MissingPricesMetaBuilder implements Builder
 {
     /**
+
      * @var null|MissingPricesProductLevel|MissingPricesProductLevelBuilder
      */
     private $productLevel;
 
     /**
+
      * @var null|MissingPricesVariantLevel|MissingPricesVariantLevelBuilder
      */
     private $variantLevel;
 
     /**
+
      * @return null|MissingPricesProductLevel
      */
     public function getProductLevel()
@@ -39,6 +42,7 @@ final class MissingPricesMetaBuilder implements Builder
     }
 
     /**
+
      * @return null|MissingPricesVariantLevel
      */
     public function getVariantLevel()

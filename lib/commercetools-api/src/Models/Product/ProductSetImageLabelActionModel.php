@@ -21,31 +21,37 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'setImageLabel';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $imageUrl;
 
     /**
+
      * @var ?string
      */
     protected $label;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -70,6 +76,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -87,6 +94,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -104,6 +112,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -123,6 +132,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     /**
      * <p>The URL of the image.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -143,6 +153,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
      * <p>The new image label.
      * If left blank or set to null, the label is removed.</p>
      *
+
      * @return null|string
      */
     public function getLabel()
@@ -160,6 +171,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -21,21 +21,25 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setTransactionCustomField';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $transactionId;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
@@ -56,6 +60,7 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -93,6 +99,7 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
      * <p>description: |
      * Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -114,6 +121,7 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

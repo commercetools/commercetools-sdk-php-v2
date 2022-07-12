@@ -20,26 +20,31 @@ use stdClass;
 final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectModel implements ProductSelectionProductPagedQueryResponse
 {
     /**
+
      * @var ?int
      */
     protected $limit;
 
     /**
+
      * @var ?int
      */
     protected $offset;
 
     /**
+
      * @var ?int
      */
     protected $count;
 
     /**
+
      * @var ?int
      */
     protected $total;
 
     /**
+
      * @var ?AssignedProductReferenceCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectMod
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -84,6 +90,7 @@ final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectMod
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -103,6 +110,7 @@ final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectMod
     /**
      * <p>Actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount()
@@ -126,6 +134,7 @@ final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectMod
      * To get <code>total</code>, pass the query parameter <code>withTotal</code> set to <code>true</code>.
      * When the results are filtered with a <a href="/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/limits#queries">limit</a>.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -145,6 +154,7 @@ final class ProductSelectionProductPagedQueryResponseModel extends JsonObjectMod
     /**
      * <p>References to Products that are assigned to the ProductSelection.</p>
      *
+
      * @return null|AssignedProductReferenceCollection
      */
     public function getResults()

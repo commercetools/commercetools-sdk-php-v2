@@ -21,11 +21,13 @@ final class SearchDeactivatedErrorModel extends JsonObjectModel implements Searc
 {
     public const DISCRIMINATOR_VALUE = 'SearchDeactivated';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class SearchDeactivatedErrorModel extends JsonObjectModel implements Searc
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class SearchDeactivatedErrorModel extends JsonObjectModel implements Searc
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

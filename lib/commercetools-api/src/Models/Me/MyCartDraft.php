@@ -38,11 +38,13 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency();
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -50,6 +52,7 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -57,26 +60,31 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode();
 
     /**
+
      * @return null|MyLineItemDraftCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress();
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
@@ -84,11 +92,13 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
@@ -96,6 +106,7 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode();
@@ -104,6 +115,7 @@ interface MyCartDraft extends JsonObject
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
@@ -112,6 +124,7 @@ interface MyCartDraft extends JsonObject
      * <p>Contains addresses for orders with multiple shipping addresses.
      * Each address must contain a key which is unique in this cart.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
@@ -119,11 +132,13 @@ interface MyCartDraft extends JsonObject
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore();
 
     /**
+
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes();

@@ -20,6 +20,7 @@ use stdClass;
 final class OrderMessagePayloadModel extends JsonObjectModel implements OrderMessagePayload
 {
     /**
+
      * @var ?string
      */
     protected $type;
@@ -34,6 +35,7 @@ final class OrderMessagePayloadModel extends JsonObjectModel implements OrderMes
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

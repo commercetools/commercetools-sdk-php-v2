@@ -21,16 +21,19 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemTaxAmount';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
@@ -49,6 +52,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -83,6 +88,7 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|ExternalTaxAmountDraft
      */
     public function getExternalTaxAmount()

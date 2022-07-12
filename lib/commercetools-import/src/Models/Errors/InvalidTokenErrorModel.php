@@ -21,11 +21,13 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
 {
     public const DISCRIMINATOR_VALUE = 'invalid_token';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

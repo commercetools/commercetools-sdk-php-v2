@@ -21,16 +21,19 @@ use stdClass;
 final class FilteredFacetResultBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $productCount;
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -39,6 +42,7 @@ final class FilteredFacetResultBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getProductCount()

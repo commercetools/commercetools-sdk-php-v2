@@ -24,41 +24,49 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
 
     public const DISCRIMINATOR_VALUE = 'SetOrderLineItemCustomFieldChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $customTypeId;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $variant;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
+
      * @var ?mixed
      */
     protected $previousValue;
@@ -87,6 +95,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -106,6 +115,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     /**
      * <p>Update action for <code>setLineItemCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -123,6 +133,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomTypeId()
@@ -140,6 +151,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -157,6 +169,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -174,6 +187,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -192,6 +206,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -209,6 +224,7 @@ final class SetOrderLineItemCustomFieldChangeModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

@@ -23,11 +23,13 @@ final class CartRemoveDiscountCodeActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'removeDiscountCode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
@@ -44,6 +46,7 @@ final class CartRemoveDiscountCodeActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class CartRemoveDiscountCodeActionModel extends JsonObjectModel implements
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()

@@ -21,6 +21,7 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -50,6 +51,7 @@ final class InventoryEntryUpdateActionModel extends JsonObjectModel implements I
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

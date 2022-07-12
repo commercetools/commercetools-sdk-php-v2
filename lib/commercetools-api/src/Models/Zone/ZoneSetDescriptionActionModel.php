@@ -21,11 +21,13 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $description;
@@ -42,6 +44,7 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ZoneSetDescriptionActionModel extends JsonObjectModel implements Zon
     /**
      * <p>Description of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getDescription()

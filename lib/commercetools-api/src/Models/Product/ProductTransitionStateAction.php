@@ -18,11 +18,13 @@ interface ProductTransitionStateAction extends ProductUpdateAction
     public const FIELD_FORCE = 'force';
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState();
 
     /**
+
      * @return null|bool
      */
     public function getForce();

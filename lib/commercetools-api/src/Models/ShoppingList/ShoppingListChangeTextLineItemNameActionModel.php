@@ -23,16 +23,19 @@ final class ShoppingListChangeTextLineItemNameActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'changeTextLineItemName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $textLineItemId;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -51,6 +54,7 @@ final class ShoppingListChangeTextLineItemNameActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ShoppingListChangeTextLineItemNameActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getTextLineItemId()
@@ -87,6 +92,7 @@ final class ShoppingListChangeTextLineItemNameActionModel extends JsonObjectMode
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

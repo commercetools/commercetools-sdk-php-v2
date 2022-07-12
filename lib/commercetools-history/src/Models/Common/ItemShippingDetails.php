@@ -18,6 +18,7 @@ interface ItemShippingDetails extends JsonObject
     public const FIELD_VALID = 'valid';
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets();
@@ -25,6 +26,7 @@ interface ItemShippingDetails extends JsonObject
     /**
      * <p>true if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise. A cart cannot be ordered when the value is <code>false</code>. The error InvalidItemShippingDetails will be triggered.</p>
      *
+
      * @return null|bool
      */
     public function getValid();

@@ -23,11 +23,13 @@ final class StandalonePriceDiscountSetMessagePayloadModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceDiscountSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?DiscountedPrice
      */
     protected $discounted;
@@ -44,6 +46,7 @@ final class StandalonePriceDiscountSetMessagePayloadModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class StandalonePriceDiscountSetMessagePayloadModel extends JsonObjectMode
     /**
      * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()

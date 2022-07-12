@@ -23,6 +23,7 @@ interface PaymentMethodInfo extends JsonObject
      * Cannot be changed once it has been set.
      * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>
      *
+
      * @return null|string
      */
     public function getPaymentInterface();
@@ -32,6 +33,7 @@ interface PaymentMethodInfo extends JsonObject
      * e.g.
      * a conventional string representing Credit Card, Cash Advance etc.</p>
      *
+
      * @return null|string
      */
     public function getMethod();
@@ -40,6 +42,7 @@ interface PaymentMethodInfo extends JsonObject
      * <p>A human-readable, localized name for the payment method, e.g.
      * 'Credit Card'.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

@@ -21,21 +21,25 @@ use stdClass;
 final class PriceChangedErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?array
      */
     private $lineItems;
 
     /**
+
      * @var ?bool
      */
     private $shipping;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -44,6 +48,7 @@ final class PriceChangedErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getLineItems()
@@ -52,6 +57,7 @@ final class PriceChangedErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getShipping()

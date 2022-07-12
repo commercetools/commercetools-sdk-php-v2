@@ -20,6 +20,7 @@ interface ConcurrentModificationError extends ErrorObject
     /**
      * <p>The version specified in the failed request.</p>
      *
+
      * @return null|int
      */
     public function getSpecifiedVersion();
@@ -27,6 +28,7 @@ interface ConcurrentModificationError extends ErrorObject
     /**
      * <p>The current version of the resource.</p>
      *
+
      * @return null|int
      */
     public function getCurrentVersion();
@@ -34,6 +36,7 @@ interface ConcurrentModificationError extends ErrorObject
     /**
      * <p>The resource in conflict.</p>
      *
+
      * @return null|mixed
      */
     public function getConflictedResource();

@@ -23,11 +23,13 @@ final class PaymentSetMethodInfoNameActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class PaymentSetMethodInfoNameActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class PaymentSetMethodInfoNameActionModel extends JsonObjectModel implemen
     /**
      * <p>If not provided, the name is unset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

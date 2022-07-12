@@ -23,26 +23,31 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class ChangeLabelChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
@@ -50,6 +55,7 @@ final class ChangeLabelChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeLabel</code> on product types and types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -60,6 +66,7 @@ final class ChangeLabelChangeBuilder implements Builder
     /**
      * <p>The name of the field definition to update (types).</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -70,6 +77,7 @@ final class ChangeLabelChangeBuilder implements Builder
     /**
      * <p>The name of the attribute definition to update (product-type).</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -78,6 +86,7 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -86,6 +95,7 @@ final class ChangeLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

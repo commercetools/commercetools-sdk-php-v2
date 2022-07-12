@@ -23,11 +23,13 @@ use stdClass;
 final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ReturnInfo|ReturnInfoBuilder
      */
     private $returnInfo;
 
     /**
+
      * @return null|ReturnInfo
      */
     public function getReturnInfo()

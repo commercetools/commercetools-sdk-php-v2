@@ -21,11 +21,13 @@ use stdClass;
 final class HttpDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $url;
 
     /**
+
      * @var null|HttpDestinationAuthentication|HttpDestinationAuthenticationBuilder
      */
     private $authentication;
@@ -33,6 +35,7 @@ final class HttpDestinationBuilder implements Builder
     /**
      * <p>URL to the target destination.</p>
      *
+
      * @return null|string
      */
     public function getUrl()
@@ -43,6 +46,7 @@ final class HttpDestinationBuilder implements Builder
     /**
      * <p>Authentication methods (such as <code>Basic</code> or <code>Bearer</code>).</p>
      *
+
      * @return null|HttpDestinationAuthentication
      */
     public function getAuthentication()

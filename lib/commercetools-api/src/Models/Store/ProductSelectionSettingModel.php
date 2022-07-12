@@ -22,11 +22,13 @@ use stdClass;
 final class ProductSelectionSettingModel extends JsonObjectModel implements ProductSelectionSetting
 {
     /**
+
      * @var ?ProductSelectionReference
      */
     protected $productSelection;
 
     /**
+
      * @var ?bool
      */
     protected $active;
@@ -46,6 +48,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     /**
      * <p>Reference to a ProductSelection.</p>
      *
+
      * @return null|ProductSelectionReference
      */
     public function getProductSelection()
@@ -66,6 +69,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     /**
      * <p>If <code>true</code>, all Products assigned to this Product Selection are part of the Store's assortment.</p>
      *
+
      * @return null|bool
      */
     public function getActive()

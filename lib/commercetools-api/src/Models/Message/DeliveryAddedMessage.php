@@ -17,6 +17,7 @@ interface DeliveryAddedMessage extends OrderMessage
     public const FIELD_DELIVERY = 'delivery';
 
     /**
+
      * @return null|Delivery
      */
     public function getDelivery();

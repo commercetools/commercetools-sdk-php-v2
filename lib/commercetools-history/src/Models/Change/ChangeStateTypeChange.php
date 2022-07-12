@@ -18,6 +18,7 @@ interface ChangeStateTypeChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface ChangeStateTypeChange extends Change
     /**
      * <p>Update action for <code>changeType</code> on state</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();

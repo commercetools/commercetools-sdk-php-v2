@@ -20,11 +20,13 @@ use stdClass;
 final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuoteUpdate
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?StagedQuoteUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,7 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,7 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
     }
 
     /**
+
      * @return null|StagedQuoteUpdateActionCollection
      */
     public function getActions()

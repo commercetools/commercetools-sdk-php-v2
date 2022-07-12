@@ -21,11 +21,13 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
 {
     public const DISCRIMINATOR_VALUE = 'setComment';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $comment;
@@ -42,6 +44,7 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()

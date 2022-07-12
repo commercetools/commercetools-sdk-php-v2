@@ -21,11 +21,13 @@ use stdClass;
 final class AttributeLocalizedEnumTypeBuilder implements Builder
 {
     /**
+
      * @var ?AttributeLocalizedEnumValueCollection
      */
     private $values;
 
     /**
+
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues()

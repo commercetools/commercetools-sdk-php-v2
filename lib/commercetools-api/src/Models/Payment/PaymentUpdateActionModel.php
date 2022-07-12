@@ -21,6 +21,7 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -36,14 +37,10 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
        'changeTransactionInteractionId' => PaymentChangeTransactionInteractionIdActionModel::class,
        'changeTransactionState' => PaymentChangeTransactionStateActionModel::class,
        'changeTransactionTimestamp' => PaymentChangeTransactionTimestampActionModel::class,
-       'setAmountPaid' => PaymentSetAmountPaidActionModel::class,
-       'setAmountRefunded' => PaymentSetAmountRefundedActionModel::class,
        'setAnonymousId' => PaymentSetAnonymousIdActionModel::class,
-       'setAuthorization' => PaymentSetAuthorizationActionModel::class,
        'setCustomField' => PaymentSetCustomFieldActionModel::class,
        'setCustomType' => PaymentSetCustomTypeActionModel::class,
        'setCustomer' => PaymentSetCustomerActionModel::class,
-       'setExternalId' => PaymentSetExternalIdActionModel::class,
        'setInterfaceId' => PaymentSetInterfaceIdActionModel::class,
        'setKey' => PaymentSetKeyActionModel::class,
        'setMethodInfoInterface' => PaymentSetMethodInfoInterfaceActionModel::class,
@@ -65,6 +62,7 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

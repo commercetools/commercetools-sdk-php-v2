@@ -21,26 +21,31 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
 {
     public const DISCRIMINATOR_VALUE = 'SQS';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $accessKey;
 
     /**
+
      * @var ?string
      */
     protected $accessSecret;
 
     /**
+
      * @var ?string
      */
     protected $queueUrl;
 
     /**
+
      * @var ?string
      */
     protected $region;
@@ -63,6 +68,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -80,6 +86,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+
      * @return null|string
      */
     public function getAccessKey()
@@ -97,6 +104,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+
      * @return null|string
      */
     public function getAccessSecret()
@@ -114,6 +122,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+
      * @return null|string
      */
     public function getQueueUrl()
@@ -131,6 +140,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+
      * @return null|string
      */
     public function getRegion()

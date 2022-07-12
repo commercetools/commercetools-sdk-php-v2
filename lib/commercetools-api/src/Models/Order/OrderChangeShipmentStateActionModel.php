@@ -21,11 +21,13 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeShipmentState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $shipmentState;
@@ -42,6 +44,7 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()

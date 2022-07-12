@@ -18,6 +18,7 @@ interface SetApplicationVersionChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface SetApplicationVersionChange extends Change
     /**
      * <p>Internal Update action for <code>setApplicationVersion</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|int
      */
     public function getNextValue();

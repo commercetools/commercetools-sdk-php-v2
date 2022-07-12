@@ -23,16 +23,19 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'removeFromCategory';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CategoryResourceIdentifier
      */
     protected $category;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -86,6 +91,7 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

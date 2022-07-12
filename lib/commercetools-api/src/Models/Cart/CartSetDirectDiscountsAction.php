@@ -16,6 +16,7 @@ interface CartSetDirectDiscountsAction extends CartUpdateAction
     public const FIELD_DISCOUNTS = 'discounts';
 
     /**
+
      * @return null|DirectDiscountDraftCollection
      */
     public function getDiscounts();

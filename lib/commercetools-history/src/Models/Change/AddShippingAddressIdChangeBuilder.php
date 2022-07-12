@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\AddressBuilder;
 final class AddShippingAddressIdChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?array
      */
     private $nextValue;
 
     /**
+
      * @var ?array
      */
     private $previousValue;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
@@ -45,6 +49,7 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addShippingAddressId</code> action on customers.</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()
@@ -61,6 +67,7 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class AddShippingAddressIdChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()

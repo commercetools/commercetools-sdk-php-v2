@@ -25,16 +25,19 @@ use stdClass;
 final class StagedOrderSetLineItemDistributionChannelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -45,6 +48,7 @@ final class StagedOrderSetLineItemDistributionChannelActionBuilder implements Bu
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

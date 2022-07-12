@@ -23,26 +23,31 @@ use stdClass;
 final class ParcelDraftBuilder implements Builder
 {
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -51,6 +56,7 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -61,6 +67,7 @@ final class ParcelDraftBuilder implements Builder
     /**
      * <p>The delivery items contained in this parcel.</p>
      *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -71,6 +78,7 @@ final class ParcelDraftBuilder implements Builder
     /**
      * <p>Custom Fields of this parcel.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

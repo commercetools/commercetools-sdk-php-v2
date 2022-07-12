@@ -21,11 +21,13 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'changeLanguages';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $languages;
@@ -42,6 +44,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|array
      */
     public function getLanguages()

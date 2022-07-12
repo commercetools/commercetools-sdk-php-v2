@@ -18,6 +18,7 @@ interface CategoryChangeParentAction extends CategoryUpdateAction
     /**
      * <p>New value to set as parent.</p>
      *
+
      * @return null|CategoryResourceIdentifier
      */
     public function getParent();

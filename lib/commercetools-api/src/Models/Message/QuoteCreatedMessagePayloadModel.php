@@ -21,6 +21,7 @@ final class QuoteCreatedMessagePayloadModel extends JsonObjectModel implements Q
 {
     public const DISCRIMINATOR_VALUE = 'QuoteCreated';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class QuoteCreatedMessagePayloadModel extends JsonObjectModel implements Q
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

@@ -19,21 +19,25 @@ interface CustomerLabel extends Label
     public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getFirstName();
 
     /**
+
      * @return null|string
      */
     public function getLastName();
 
     /**
+
      * @return null|string
      */
     public function getCustomerNumber();

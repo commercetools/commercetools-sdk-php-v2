@@ -33,71 +33,85 @@ use stdClass;
 final class OrderLineItemDiscountSetMessageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?int
      */
     private $sequenceNumber;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
@@ -105,6 +119,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * <p>Unique identifier of the Message.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -113,6 +128,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -121,6 +137,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -129,6 +146,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -139,6 +157,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -149,6 +168,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -157,6 +177,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -167,6 +188,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -175,6 +197,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -183,6 +206,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -191,6 +215,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -199,6 +224,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -210,6 +236,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -218,6 +245,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

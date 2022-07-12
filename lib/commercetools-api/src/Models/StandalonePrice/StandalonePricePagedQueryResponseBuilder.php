@@ -21,26 +21,31 @@ use stdClass;
 final class StandalonePricePagedQueryResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?StandalonePriceCollection
      */
     private $results;
@@ -48,6 +53,7 @@ final class StandalonePricePagedQueryResponseBuilder implements Builder
     /**
      * <p>Number of requested results.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -58,6 +64,7 @@ final class StandalonePricePagedQueryResponseBuilder implements Builder
     /**
      * <p>Offset supplied by the client or server default. It is the number of elements skipped, not a page number.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -68,6 +75,7 @@ final class StandalonePricePagedQueryResponseBuilder implements Builder
     /**
      * <p>Actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount()
@@ -82,6 +90,7 @@ final class StandalonePricePagedQueryResponseBuilder implements Builder
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
      * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -92,6 +101,7 @@ final class StandalonePricePagedQueryResponseBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:StandalonePrice">StandalonePrices</a> matching the query.</p>
      *
+
      * @return null|StandalonePriceCollection
      */
     public function getResults()

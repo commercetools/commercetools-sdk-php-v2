@@ -20,6 +20,7 @@ interface SetDeliveryItemsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetDeliveryItemsChange extends Change
     /**
      * <p>Update action for <code>setDeliveryItems</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getPreviousValue();

@@ -21,11 +21,13 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
 {
     public const DISCRIMINATOR_VALUE = 'StringSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $value;
@@ -44,6 +46,7 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class StringSetFieldModel extends JsonObjectModel implements StringSetFiel
     }
 
     /**
+
      * @return null|array
      */
     public function getValue()

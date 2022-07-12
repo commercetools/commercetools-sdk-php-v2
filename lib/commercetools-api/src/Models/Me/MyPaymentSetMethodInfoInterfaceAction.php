@@ -16,6 +16,7 @@ interface MyPaymentSetMethodInfoInterfaceAction extends MyPaymentUpdateAction
     public const FIELD_INTERFACE = 'interface';
 
     /**
+
      * @return null|string
      */
     public function getInterface();

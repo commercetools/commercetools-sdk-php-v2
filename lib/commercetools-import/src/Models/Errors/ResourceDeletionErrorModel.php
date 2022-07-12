@@ -21,16 +21,19 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
 {
     public const DISCRIMINATOR_VALUE = 'ResourceDeletion';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
 
     /**
+
      * @var ?mixed
      */
     protected $resource;
@@ -49,6 +52,7 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -66,6 +70,7 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -83,6 +88,7 @@ final class ResourceDeletionErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+
      * @return null|mixed
      */
     public function getResource()

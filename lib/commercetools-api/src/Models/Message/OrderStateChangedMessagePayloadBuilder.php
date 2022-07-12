@@ -21,16 +21,19 @@ use stdClass;
 final class OrderStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @var ?string
      */
     private $oldOrderState;
 
     /**
+
      * @return null|string
      */
     public function getOrderState()
@@ -39,6 +42,7 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOldOrderState()

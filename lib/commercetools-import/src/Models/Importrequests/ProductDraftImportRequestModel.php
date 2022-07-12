@@ -22,11 +22,13 @@ final class ProductDraftImportRequestModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'product-draft';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductDraftImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class ProductDraftImportRequestModel extends JsonObjectModel implements Pr
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class ProductDraftImportRequestModel extends JsonObjectModel implements Pr
     /**
      * <p>The product draft import resources of this request.</p>
      *
+
      * @return null|ProductDraftImportCollection
      */
     public function getResources()

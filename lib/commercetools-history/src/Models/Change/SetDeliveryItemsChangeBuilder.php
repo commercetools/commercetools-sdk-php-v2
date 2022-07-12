@@ -22,21 +22,25 @@ use Commercetools\History\Models\Common\DeliveryItemCollection;
 final class SetDeliveryItemsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $previousValue;
@@ -44,6 +48,7 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setDeliveryItems</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -52,6 +57,7 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -60,6 +66,7 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getNextValue()
@@ -68,6 +75,7 @@ final class SetDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getPreviousValue()

@@ -21,11 +21,13 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'addAttributeDefinition';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?AttributeDefinitionDraft
      */
     protected $attribute;
@@ -42,6 +44,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     /**
      * <p>Value to append to <code>attributes</code>.</p>
      *
+
      * @return null|AttributeDefinitionDraft
      */
     public function getAttribute()

@@ -21,11 +21,13 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
 {
     public const DISCRIMINATOR_VALUE = 'Set';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?FieldType
      */
     protected $elementType;
@@ -42,6 +44,7 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     /**
      * <p>Field type of the elements in the set.</p>
      *
+
      * @return null|FieldType
      */
     public function getElementType()

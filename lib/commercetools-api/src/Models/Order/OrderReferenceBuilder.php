@@ -23,11 +23,13 @@ use stdClass;
 final class OrderReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Order|OrderBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class OrderReferenceBuilder implements Builder
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -43,6 +46,7 @@ final class OrderReferenceBuilder implements Builder
     }
 
     /**
+
      * @return null|Order
      */
     public function getObj()

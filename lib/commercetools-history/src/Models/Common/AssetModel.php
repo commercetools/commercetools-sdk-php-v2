@@ -22,26 +22,31 @@ final class AssetModel extends JsonObjectModel implements Asset
 
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -66,6 +71,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -83,6 +89,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -101,6 +108,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -119,6 +127,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -137,6 +146,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

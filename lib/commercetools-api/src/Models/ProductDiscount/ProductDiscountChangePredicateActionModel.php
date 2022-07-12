@@ -21,11 +21,13 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'changePredicate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $predicate;
@@ -42,6 +44,7 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     /**
      * <p>New value to set. Must be a valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()

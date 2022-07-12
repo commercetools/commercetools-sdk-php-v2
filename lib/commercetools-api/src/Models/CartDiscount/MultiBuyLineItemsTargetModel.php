@@ -21,31 +21,37 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
 {
     public const DISCRIMINATOR_VALUE = 'multiBuyLineItems';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $predicate;
 
     /**
+
      * @var ?int
      */
     protected $triggerQuantity;
 
     /**
+
      * @var ?int
      */
     protected $discountedQuantity;
 
     /**
+
      * @var ?int
      */
     protected $maxOccurrence;
 
     /**
+
      * @var ?string
      */
     protected $selectionMode;
@@ -70,6 +76,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -89,6 +96,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     /**
      * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>. The Discount will be applied to Line Items that are matched by the predicate.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()
@@ -108,6 +116,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     /**
      * <p>Number of Line Items to be present in order to trigger an application of this Discount.</p>
      *
+
      * @return null|int
      */
     public function getTriggerQuantity()
@@ -127,6 +136,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     /**
      * <p>Number of Line Items that are discounted per application of this Discount.</p>
      *
+
      * @return null|int
      */
     public function getDiscountedQuantity()
@@ -146,6 +156,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     /**
      * <p>Maximum number of times this Discount can be applied.</p>
      *
+
      * @return null|int
      */
     public function getMaxOccurrence()
@@ -165,6 +176,7 @@ final class MultiBuyLineItemsTargetModel extends JsonObjectModel implements Mult
     /**
      * <p>Discounts particular Line Items only according to the SelectionMode.</p>
      *
+
      * @return null|string
      */
     public function getSelectionMode()

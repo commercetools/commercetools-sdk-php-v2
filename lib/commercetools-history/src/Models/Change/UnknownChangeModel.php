@@ -22,21 +22,25 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
 
     public const DISCRIMINATOR_VALUE = 'UnknownChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?mixed
      */
     protected $previousValue;
 
     /**
+
      * @var ?mixed
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -74,6 +79,7 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -91,6 +97,7 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()
@@ -108,6 +115,7 @@ final class UnknownChangeModel extends JsonObjectModel implements UnknownChange
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()

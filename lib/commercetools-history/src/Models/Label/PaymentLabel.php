@@ -19,16 +19,19 @@ interface PaymentLabel extends Label
     public const FIELD_AMOUNT_PLANNED = 'amountPlanned';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|Money
      */
     public function getAmountPlanned();

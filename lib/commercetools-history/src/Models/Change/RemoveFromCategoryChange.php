@@ -21,6 +21,7 @@ interface RemoveFromCategoryChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface RemoveFromCategoryChange extends Change
     /**
      * <p>Update action for <code>addToCategory</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Reference
      */
     public function getCategory();
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue();

@@ -19,6 +19,7 @@ interface ProductDiscountChangeIsActiveAction extends ProductDiscountUpdateActio
      * <p>New value to set.
      * If set to <code>true</code>, the Discount will be applied to Product Prices.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive();

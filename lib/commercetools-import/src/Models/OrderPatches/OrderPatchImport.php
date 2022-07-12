@@ -19,6 +19,7 @@ interface OrderPatchImport extends JsonObject
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order, unique across a project.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber();
@@ -26,6 +27,7 @@ interface OrderPatchImport extends JsonObject
     /**
      * <p>Each field referenced must be defined in an already existing order in the project or the import operation state is set to <code>validationFailed</code>.</p>
      *
+
      * @return null|OrderField
      */
     public function getFields();

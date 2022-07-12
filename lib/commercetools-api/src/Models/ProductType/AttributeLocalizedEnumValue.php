@@ -20,6 +20,7 @@ interface AttributeLocalizedEnumValue extends JsonObject
     /**
      * <p>Key of the value used as a programmatic identifier, for example in facets &amp; filters.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -27,6 +28,7 @@ interface AttributeLocalizedEnumValue extends JsonObject
     /**
      * <p>Descriptive, localized label of the value.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();

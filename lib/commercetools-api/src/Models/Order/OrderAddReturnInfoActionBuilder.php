@@ -22,21 +22,25 @@ use stdClass;
 final class OrderAddReturnInfoActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $returnTrackingId;
 
     /**
+
      * @var ?ReturnItemDraftCollection
      */
     private $items;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $returnDate;
 
     /**
+
      * @return null|string
      */
     public function getReturnTrackingId()
@@ -45,6 +49,7 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ReturnItemDraftCollection
      */
     public function getItems()
@@ -53,6 +58,7 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getReturnDate()

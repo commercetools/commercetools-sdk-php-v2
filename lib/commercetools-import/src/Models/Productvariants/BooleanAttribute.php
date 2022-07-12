@@ -16,6 +16,7 @@ interface BooleanAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|bool
      */
     public function getValue();

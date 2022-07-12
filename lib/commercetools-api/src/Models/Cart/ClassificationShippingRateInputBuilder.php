@@ -23,16 +23,19 @@ use stdClass;
 final class ClassificationShippingRateInputBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -43,6 +46,7 @@ final class ClassificationShippingRateInputBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

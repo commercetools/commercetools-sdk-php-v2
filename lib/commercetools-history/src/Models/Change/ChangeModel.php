@@ -22,11 +22,13 @@ final class ChangeModel extends JsonObjectModel implements Change
 
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
@@ -56,6 +58,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'AddPaymentChange' => AddPaymentChangeModel::class,
        'AddPlainEnumValueChange' => AddPlainEnumValueChangeModel::class,
        'AddPriceChange' => AddPriceChangeModel::class,
+       'AddProductChange' => AddProductChangeModel::class,
        'AddPropertyChange' => AddPropertyChangeModel::class,
        'AddReturnInfoChange' => AddReturnInfoChangeModel::class,
        'AddShippingAddressIdChange' => AddShippingAddressIdChangeModel::class,
@@ -145,6 +148,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'RemoveParcelFromDeliveryChange' => RemoveParcelFromDeliveryChangeModel::class,
        'RemovePaymentChange' => RemovePaymentChangeModel::class,
        'RemovePriceChange' => RemovePriceChangeModel::class,
+       'RemoveProductChange' => RemoveProductChangeModel::class,
        'RemovePropertyChange' => RemovePropertyChangeModel::class,
        'RemoveShippingAddressIdChange' => RemoveShippingAddressIdChangeModel::class,
        'RemoveShoppingListLineItemChange' => RemoveShoppingListLineItemChangeModel::class,
@@ -162,6 +166,7 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetAssetSourcesChange' => SetAssetSourcesChangeModel::class,
        'SetAssetTagsChange' => SetAssetTagsChangeModel::class,
        'SetAttributeChange' => SetAttributeChangeModel::class,
+       'SetAuthenticationModeChange' => SetAuthenticationModeChangeModel::class,
        'SetAuthorNameChange' => SetAuthorNameChangeModel::class,
        'SetBillingAddressChange' => SetBillingAddressChangeModel::class,
        'SetCartPredicateChange' => SetCartPredicateChangeModel::class,
@@ -206,10 +211,12 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetKeyChange' => SetKeyChangeModel::class,
        'SetLanguagesChange' => SetLanguagesChangeModel::class,
        'SetLastNameChange' => SetLastNameChangeModel::class,
+       'SetLineItemDeactivatedAtChange' => SetLineItemDeactivatedAtChangeModel::class,
        'SetLineItemDiscountedPriceChange' => SetLineItemDiscountedPriceChangeModel::class,
        'SetLineItemDiscountedPricePerQuantityChange' => SetLineItemDiscountedPricePerQuantityChangeModel::class,
        'SetLineItemDistributionChannelChange' => SetLineItemDistributionChannelChangeModel::class,
        'SetLineItemPriceChange' => SetLineItemPriceChangeModel::class,
+       'SetLineItemProductKeyChange' => SetLineItemProductKeyChangeModel::class,
        'SetLineItemProductSlugChange' => SetLineItemProductSlugChangeModel::class,
        'SetLineItemShippingDetailsChange' => SetLineItemShippingDetailsChangeModel::class,
        'SetLineItemTaxAmountChange' => SetLineItemTaxAmountChangeModel::class,
@@ -238,8 +245,10 @@ final class ChangeModel extends JsonObjectModel implements Change
        'SetParcelMeasurementsChange' => SetParcelMeasurementsChangeModel::class,
        'SetParcelTrackingDataChange' => SetParcelTrackingDataChangeModel::class,
        'SetPricesChange' => SetPricesChangeModel::class,
+       'SetProductCountChange' => SetProductCountChangeModel::class,
        'SetProductPriceCustomFieldChange' => SetProductPriceCustomFieldChangeModel::class,
        'SetProductPriceCustomTypeChange' => SetProductPriceCustomTypeChangeModel::class,
+       'SetProductSelectionsChange' => SetProductSelectionsChangeModel::class,
        'SetProductVariantKeyChange' => SetProductVariantKeyChangeModel::class,
        'SetPropertyChange' => SetPropertyChangeModel::class,
        'SetRatingChange' => SetRatingChangeModel::class,
@@ -302,6 +311,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -319,6 +329,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()

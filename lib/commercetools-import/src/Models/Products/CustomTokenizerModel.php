@@ -21,11 +21,13 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
 {
     public const DISCRIMINATOR_VALUE = 'custom';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?array
      */
     protected $inputs;
@@ -42,6 +44,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     }
 
     /**
+
      * @return null|array
      */
     public function getInputs()

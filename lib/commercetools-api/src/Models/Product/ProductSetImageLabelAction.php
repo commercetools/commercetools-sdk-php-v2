@@ -20,11 +20,13 @@ interface ProductSetImageLabelAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
@@ -32,6 +34,7 @@ interface ProductSetImageLabelAction extends ProductUpdateAction
     /**
      * <p>The URL of the image.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl();
@@ -40,11 +43,13 @@ interface ProductSetImageLabelAction extends ProductUpdateAction
      * <p>The new image label.
      * If left blank or set to null, the label is removed.</p>
      *
+
      * @return null|string
      */
     public function getLabel();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

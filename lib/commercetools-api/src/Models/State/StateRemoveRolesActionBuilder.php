@@ -21,6 +21,7 @@ use stdClass;
 final class StateRemoveRolesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $roles;
@@ -28,6 +29,7 @@ final class StateRemoveRolesActionBuilder implements Builder
     /**
      * <p>Roles to remove from the State.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

@@ -17,6 +17,7 @@ interface ReviewCreatedMessagePayload extends MessagePayload
     public const FIELD_REVIEW = 'review';
 
     /**
+
      * @return null|Review
      */
     public function getReview();

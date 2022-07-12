@@ -24,36 +24,43 @@ use stdClass;
 final class ProductVariantDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     private $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
 
     /**
+
      * @var ?AssetDraftCollection
      */
     private $assets;
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -65,6 +72,7 @@ final class ProductVariantDraftBuilder implements Builder
      * <p>User-defined unique identifier for the ProductVariant.
      * <em>ProductVariant keys are different from Product keys.</em></p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -73,6 +81,7 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -81,6 +90,7 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -89,6 +99,7 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -97,6 +108,7 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetDraftCollection
      */
     public function getAssets()

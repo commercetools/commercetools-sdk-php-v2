@@ -17,11 +17,13 @@ interface MyShoppingListRemoveTextLineItemAction extends MyShoppingListUpdateAct
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+
      * @return null|string
      */
     public function getTextLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

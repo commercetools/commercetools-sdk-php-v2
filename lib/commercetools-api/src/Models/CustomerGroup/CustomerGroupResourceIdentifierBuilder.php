@@ -23,11 +23,13 @@ use stdClass;
 final class CustomerGroupResourceIdentifierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -35,6 +37,7 @@ final class CustomerGroupResourceIdentifierBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class CustomerGroupResourceIdentifierBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getKey()

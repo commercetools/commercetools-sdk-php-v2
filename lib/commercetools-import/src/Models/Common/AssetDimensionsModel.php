@@ -20,11 +20,13 @@ use stdClass;
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
     /**
+
      * @var ?int
      */
     protected $w;
 
     /**
+
      * @var ?int
      */
     protected $h;
@@ -44,6 +46,7 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     /**
      * <p>The width of the asset source.</p>
      *
+
      * @return null|int
      */
     public function getW()
@@ -63,6 +66,7 @@ final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensi
     /**
      * <p>The height of the asset source.</p>
      *
+
      * @return null|int
      */
     public function getH()

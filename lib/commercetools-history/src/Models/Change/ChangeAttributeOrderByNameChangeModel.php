@@ -22,21 +22,25 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'ChangeAttributeOrderByNameChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?array
      */
     protected $previousValue;
 
     /**
+
      * @var ?array
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>changeAttributeOrderByName</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class ChangeAttributeOrderByNameChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()

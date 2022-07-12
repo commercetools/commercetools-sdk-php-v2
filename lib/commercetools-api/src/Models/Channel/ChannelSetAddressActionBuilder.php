@@ -23,6 +23,7 @@ use stdClass;
 final class ChannelSetAddressActionBuilder implements Builder
 {
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
@@ -30,6 +31,7 @@ final class ChannelSetAddressActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|BaseAddress
      */
     public function getAddress()

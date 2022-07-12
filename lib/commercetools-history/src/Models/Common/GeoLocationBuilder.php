@@ -21,16 +21,19 @@ use stdClass;
 final class GeoLocationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var ?array
      */
     private $coordinates;
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -39,6 +42,7 @@ final class GeoLocationBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getCoordinates()

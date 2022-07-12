@@ -19,6 +19,7 @@ interface EventBridgeDestination extends Destination
     /**
      * <p>AWS region of the Subscriptions that receives the events.</p>
      *
+
      * @return null|string
      */
     public function getRegion();
@@ -26,6 +27,7 @@ interface EventBridgeDestination extends Destination
     /**
      * <p>ID of the AWS account that receives events.</p>
      *
+
      * @return null|string
      */
     public function getAccountId();

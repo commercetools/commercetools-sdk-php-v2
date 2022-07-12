@@ -24,21 +24,25 @@ final class SetCustomerChangeModel extends JsonObjectModel implements SetCustome
 
     public const DISCRIMINATOR_VALUE = 'SetCustomerChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Reference
      */
     protected $previousValue;
 
     /**
+
      * @var ?Reference
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class SetCustomerChangeModel extends JsonObjectModel implements SetCustome
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetCustomerChangeModel extends JsonObjectModel implements SetCustome
     /**
      * <p>Shape of the action for <code>setCustomer</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetCustomerChangeModel extends JsonObjectModel implements SetCustome
     }
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class SetCustomerChangeModel extends JsonObjectModel implements SetCustome
     }
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue()

@@ -16,6 +16,7 @@ interface ProjectNotConfiguredForLanguagesError extends ErrorObject
     public const FIELD_LANGUAGES = 'languages';
 
     /**
+
      * @return null|array
      */
     public function getLanguages();

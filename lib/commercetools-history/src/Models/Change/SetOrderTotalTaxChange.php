@@ -20,6 +20,7 @@ interface SetOrderTotalTaxChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetOrderTotalTaxChange extends Change
     /**
      * <p>Update action for <code>setOrderTotalTax</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getTaxMode();
 
     /**
+
      * @return null|Money
      */
     public function getNextValue();
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue();

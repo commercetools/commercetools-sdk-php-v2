@@ -16,6 +16,7 @@ interface ClassificationShippingRateInputDraft extends ShippingRateInputDraft
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|string
      */
     public function getKey();

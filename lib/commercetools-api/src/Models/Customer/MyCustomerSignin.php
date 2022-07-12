@@ -19,21 +19,25 @@ interface MyCustomerSignin extends JsonObject
     public const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
+
      * @return null|string
      */
     public function getEmail();
 
     /**
+
      * @return null|string
      */
     public function getPassword();
 
     /**
+
      * @return null|string
      */
     public function getActiveCartSignInMode();
 
     /**
+
      * @return null|bool
      */
     public function getUpdateProductData();

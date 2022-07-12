@@ -18,6 +18,7 @@ interface QuoteChangeQuoteStateAction extends QuoteUpdateAction
     /**
      * <p>The new quote state to be set for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getQuoteState();

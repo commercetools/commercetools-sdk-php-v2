@@ -26,31 +26,37 @@ use stdClass;
 final class TextLineItemBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
@@ -58,6 +64,7 @@ final class TextLineItemBuilder implements Builder
     /**
      * <p>When the text line item was added to the shopping list.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -66,6 +73,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -74,6 +82,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -84,6 +93,7 @@ final class TextLineItemBuilder implements Builder
     /**
      * <p>Unique identifier of the TextLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -92,6 +102,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -100,6 +111,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

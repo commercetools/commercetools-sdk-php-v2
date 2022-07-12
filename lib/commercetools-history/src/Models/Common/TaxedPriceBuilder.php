@@ -21,16 +21,19 @@ use stdClass;
 final class TaxedPriceBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalNet;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalGross;
 
     /**
+
      * @return null|Money
      */
     public function getTotalNet()
@@ -39,6 +42,7 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalGross()

@@ -21,11 +21,13 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
 {
     public const DISCRIMINATOR_VALUE = 'enum';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?AttributePlainEnumValueCollection
      */
     protected $values;
@@ -42,6 +44,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -61,6 +64,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     /**
      * <p>Available values that can be assigned to Products.</p>
      *
+
      * @return null|AttributePlainEnumValueCollection
      */
     public function getValues()

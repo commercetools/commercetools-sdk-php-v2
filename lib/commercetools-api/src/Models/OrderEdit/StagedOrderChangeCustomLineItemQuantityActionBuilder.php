@@ -23,16 +23,19 @@ use stdClass;
 final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -41,6 +44,7 @@ final class StagedOrderChangeCustomLineItemQuantityActionBuilder implements Buil
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

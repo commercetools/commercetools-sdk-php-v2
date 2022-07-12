@@ -19,16 +19,19 @@ interface ParcelMeasurementsUpdatedMessagePayload extends OrderMessagePayload
     public const FIELD_MEASUREMENTS = 'measurements';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|string
      */
     public function getParcelId();
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();

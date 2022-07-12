@@ -30,136 +30,163 @@ use stdClass;
 final class CustomerDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customerNumber;
 
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $middleName;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+     * @deprecated
      * @var ?string
      */
     private $anonymousCartId;
 
     /**
+
      * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
      */
     private $anonymousCart;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
 
     /**
+
      * @var ?string
      */
     private $companyName;
 
     /**
+
      * @var ?string
      */
     private $vatId;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     private $addresses;
 
     /**
+
      * @var ?int
      */
     private $defaultShippingAddress;
 
     /**
+
      * @var ?array
      */
     private $shippingAddresses;
 
     /**
+
      * @var ?int
      */
     private $defaultBillingAddress;
 
     /**
+
      * @var ?array
      */
     private $billingAddresses;
 
     /**
+
      * @var ?bool
      */
     private $isEmailVerified;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
     /**
+
      * @var ?string
      */
     private $authenticationMode;
@@ -170,6 +197,7 @@ final class CustomerDraftBuilder implements Builder
      * It should be <strong>unique</strong> across a project.
      * Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber()
@@ -182,6 +210,7 @@ final class CustomerDraftBuilder implements Builder
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
      * For more information, see Email uniquenes.</p>
      *
+
      * @return null|string
      */
     public function getEmail()
@@ -192,6 +221,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword()
@@ -200,6 +230,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getFirstName()
@@ -208,6 +239,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()
@@ -216,6 +248,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getMiddleName()
@@ -224,6 +257,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTitle()
@@ -234,6 +268,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getAnonymousCartId()
@@ -244,6 +279,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Identifies a single cart that will be assigned to the new customer account.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getAnonymousCart()
@@ -254,6 +290,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -262,6 +299,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -270,6 +308,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCompanyName()
@@ -278,6 +317,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVatId()
@@ -288,6 +328,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getAddresses()
@@ -299,6 +340,7 @@ final class CustomerDraftBuilder implements Builder
      * <p>The index of the address in the addresses array.
      * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress()
@@ -310,6 +352,7 @@ final class CustomerDraftBuilder implements Builder
      * <p>The indices of the shipping addresses in the addresses array.
      * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getShippingAddresses()
@@ -321,6 +364,7 @@ final class CustomerDraftBuilder implements Builder
      * <p>The index of the address in the addresses array.
      * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress()
@@ -332,6 +376,7 @@ final class CustomerDraftBuilder implements Builder
      * <p>The indices of the billing addresses in the addresses array.
      * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getBillingAddresses()
@@ -340,6 +385,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsEmailVerified()
@@ -348,6 +394,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getExternalId()
@@ -356,6 +403,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -366,6 +414,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -376,6 +425,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Must be one of the languages supported for this project</p>
      *
+
      * @return null|string
      */
     public function getLocale()
@@ -384,6 +434,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSalutation()
@@ -394,6 +445,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -406,6 +458,7 @@ final class CustomerDraftBuilder implements Builder
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
      * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
@@ -416,6 +469,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * <p>Defines whether a password field is a required field for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode()

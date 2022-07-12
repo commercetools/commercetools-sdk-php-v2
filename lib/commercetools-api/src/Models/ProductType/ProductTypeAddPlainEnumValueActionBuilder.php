@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|AttributePlainEnumValue|AttributePlainEnumValueBuilder
      */
     private $value;
@@ -33,6 +35,7 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|AttributePlainEnumValue
      */
     public function getValue()

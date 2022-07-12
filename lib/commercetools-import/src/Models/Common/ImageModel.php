@@ -20,16 +20,19 @@ use stdClass;
 final class ImageModel extends JsonObjectModel implements Image
 {
     /**
+
      * @var ?string
      */
     protected $url;
 
     /**
+
      * @var ?AssetDimensions
      */
     protected $dimensions;
 
     /**
+
      * @var ?string
      */
     protected $label;
@@ -51,6 +54,7 @@ final class ImageModel extends JsonObjectModel implements Image
     /**
      * <p>URL of the image in its original size. The URL must be unique within a single variant. It can be used to obtain the image in different sizes.</p>
      *
+
      * @return null|string
      */
     public function getUrl()
@@ -70,6 +74,7 @@ final class ImageModel extends JsonObjectModel implements Image
     /**
      * <p>Dimensions of the original image. This can be used by your application, for example, to determine whether the image is large enough to display a zoom view.</p>
      *
+
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -90,6 +95,7 @@ final class ImageModel extends JsonObjectModel implements Image
     /**
      * <p>Custom label that can be used, for example, as an image description.</p>
      *
+
      * @return null|string
      */
     public function getLabel()

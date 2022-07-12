@@ -33,61 +33,73 @@ use stdClass;
 final class OrderEditBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|OrderReference|OrderReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?StagedOrderUpdateActionCollection
      */
     private $stagedActions;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|OrderEditResult|OrderEditResultBuilder
      */
     private $result;
 
     /**
+
      * @var ?string
      */
     private $comment;
@@ -95,6 +107,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>Unique identifier of the OrderEdit.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -105,6 +118,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>The current version of the OrderEdit.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -113,6 +127,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -121,6 +136,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -131,6 +147,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -141,6 +158,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -151,6 +169,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the OrderEdit.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -161,6 +180,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>The order to be updated with this edit.</p>
      *
+
      * @return null|OrderReference
      */
     public function getResource()
@@ -172,6 +192,7 @@ final class OrderEditBuilder implements Builder
      * <p>The actions to apply to the Order.
      * Cannot be updated after the edit has been applied.</p>
      *
+
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions()
@@ -180,6 +201,7 @@ final class OrderEditBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -191,6 +213,7 @@ final class OrderEditBuilder implements Builder
      * <p>Contains a preview of the changes in case of unapplied edit.
      * For applied edits, it contains the summary of the changes.</p>
      *
+
      * @return null|OrderEditResult
      */
     public function getResult()
@@ -201,6 +224,7 @@ final class OrderEditBuilder implements Builder
     /**
      * <p>This field can be used to add textual information regarding the edit.</p>
      *
+
      * @return null|string
      */
     public function getComment()

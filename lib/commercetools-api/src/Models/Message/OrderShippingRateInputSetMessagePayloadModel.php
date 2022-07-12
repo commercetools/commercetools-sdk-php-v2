@@ -23,16 +23,19 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'OrderShippingRateInputSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ShippingRateInput
      */
     protected $shippingRateInput;
 
     /**
+
      * @var ?ShippingRateInput
      */
     protected $oldShippingRateInput;
@@ -51,6 +54,7 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -86,6 +91,7 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|ShippingRateInput
      */
     public function getOldShippingRateInput()

@@ -16,6 +16,7 @@ interface MyCustomerSetVatIdAction extends MyCustomerUpdateAction
     public const FIELD_VAT_ID = 'vatId';
 
     /**
+
      * @return null|string
      */
     public function getVatId();

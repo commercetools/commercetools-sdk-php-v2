@@ -18,11 +18,13 @@ interface DeliveryItem extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

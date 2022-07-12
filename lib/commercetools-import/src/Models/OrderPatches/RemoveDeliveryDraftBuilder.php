@@ -21,11 +21,13 @@ use stdClass;
 final class RemoveDeliveryDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @return null|string
      */
     public function getId()

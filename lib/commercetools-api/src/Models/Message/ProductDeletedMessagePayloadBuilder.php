@@ -23,16 +23,19 @@ use stdClass;
 final class ProductDeletedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $removedImageUrls;
 
     /**
+
      * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $currentProjection;
 
     /**
+
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -41,6 +44,7 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductProjection
      */
     public function getCurrentProjection()

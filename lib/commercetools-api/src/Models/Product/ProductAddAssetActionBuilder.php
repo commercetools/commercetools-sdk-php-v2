@@ -23,31 +23,37 @@ use stdClass;
 final class ProductAddAssetActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var null|AssetDraft|AssetDraftBuilder
      */
     private $asset;
 
     /**
+
      * @var ?int
      */
     private $position;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -56,6 +62,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -64,6 +71,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -72,6 +80,7 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetDraft
      */
     public function getAsset()
@@ -82,6 +91,7 @@ final class ProductAddAssetActionBuilder implements Builder
     /**
      * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
      *
+
      * @return null|int
      */
     public function getPosition()

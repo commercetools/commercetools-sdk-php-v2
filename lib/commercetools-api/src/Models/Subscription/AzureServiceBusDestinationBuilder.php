@@ -21,11 +21,13 @@ use stdClass;
 final class AzureServiceBusDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $connectionString;
 
     /**
+
      * @return null|string
      */
     public function getConnectionString()

@@ -21,6 +21,7 @@ use stdClass;
 final class StateChangeInitialActionBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $initial;
@@ -28,6 +29,7 @@ final class StateChangeInitialActionBuilder implements Builder
     /**
      * <p>Set to <code>true</code> for defining the State as initial State in a state machine and making it the first step in a workflow.</p>
      *
+
      * @return null|bool
      */
     public function getInitial()

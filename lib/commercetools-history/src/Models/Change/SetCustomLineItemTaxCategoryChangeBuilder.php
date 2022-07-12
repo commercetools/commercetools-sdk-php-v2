@@ -25,26 +25,31 @@ use Commercetools\History\Models\Common\ReferenceBuilder;
 final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
 
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $previousValue;
@@ -52,6 +57,7 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setCustomLineItemTaxCategory</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -60,6 +66,7 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -68,6 +75,7 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -76,6 +84,7 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue()
@@ -84,6 +93,7 @@ final class SetCustomLineItemTaxCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue()

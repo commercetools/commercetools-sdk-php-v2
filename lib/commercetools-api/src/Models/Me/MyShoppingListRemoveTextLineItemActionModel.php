@@ -21,16 +21,19 @@ final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'removeTextLineItem';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $textLineItemId;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
@@ -49,6 +52,7 @@ final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getTextLineItemId()
@@ -83,6 +88,7 @@ final class MyShoppingListRemoveTextLineItemActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

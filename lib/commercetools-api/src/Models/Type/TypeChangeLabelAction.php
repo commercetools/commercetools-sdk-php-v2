@@ -20,6 +20,7 @@ interface TypeChangeLabelAction extends TypeUpdateAction
     /**
      * <p>Name of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -27,6 +28,7 @@ interface TypeChangeLabelAction extends TypeUpdateAction
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();

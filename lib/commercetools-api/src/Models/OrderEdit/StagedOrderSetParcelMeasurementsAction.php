@@ -19,11 +19,13 @@ interface StagedOrderSetParcelMeasurementsAction extends StagedOrderUpdateAction
     public const FIELD_MEASUREMENTS = 'measurements';
 
     /**
+
      * @return null|string
      */
     public function getParcelId();
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements();

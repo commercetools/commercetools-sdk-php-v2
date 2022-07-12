@@ -23,21 +23,25 @@ use Commercetools\History\Models\ChangeValue\LocalizedEnumValueBuilder;
 final class AddLocalizedEnumValueChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|LocalizedEnumValue|LocalizedEnumValueBuilder
      */
     private $nextValue;
@@ -45,6 +49,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addLocalizedEnumValue</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -65,6 +71,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -73,6 +80,7 @@ final class AddLocalizedEnumValueChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedEnumValue
      */
     public function getNextValue()

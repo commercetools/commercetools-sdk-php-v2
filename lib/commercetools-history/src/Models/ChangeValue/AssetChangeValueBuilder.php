@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class AssetChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -41,6 +44,7 @@ final class AssetChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()

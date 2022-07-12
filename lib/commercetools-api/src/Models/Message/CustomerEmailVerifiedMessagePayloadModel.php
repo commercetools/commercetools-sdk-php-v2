@@ -21,6 +21,7 @@ final class CustomerEmailVerifiedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'CustomerEmailVerified';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -35,6 +36,7 @@ final class CustomerEmailVerifiedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

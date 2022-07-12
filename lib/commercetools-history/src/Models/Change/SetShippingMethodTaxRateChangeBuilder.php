@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\TaxRateBuilder;
 final class SetShippingMethodTaxRateChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setShippingMethodTaxRate</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -63,6 +69,7 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()
@@ -73,6 +80,7 @@ final class SetShippingMethodTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()

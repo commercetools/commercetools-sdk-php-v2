@@ -21,26 +21,31 @@ use stdClass;
 final class AssetSourceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $uri;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|AssetDimensions|AssetDimensionsBuilder
      */
     private $dimensions;
 
     /**
+
      * @var ?string
      */
     private $contentType;
 
     /**
+
      * @return null|string
      */
     public function getUri()
@@ -49,6 +54,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -57,6 +63,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -65,6 +72,7 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getContentType()

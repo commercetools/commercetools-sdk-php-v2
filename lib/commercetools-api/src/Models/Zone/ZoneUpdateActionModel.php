@@ -21,6 +21,7 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -46,6 +47,7 @@ final class ZoneUpdateActionModel extends JsonObjectModel implements ZoneUpdateA
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

@@ -21,6 +21,7 @@ final class CustomFieldBooleanTypeModel extends JsonObjectModel implements Custo
 {
     public const DISCRIMINATOR_VALUE = 'Boolean';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class CustomFieldBooleanTypeModel extends JsonObjectModel implements Custo
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

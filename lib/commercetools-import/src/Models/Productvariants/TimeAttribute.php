@@ -17,6 +17,7 @@ interface TimeAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValue();

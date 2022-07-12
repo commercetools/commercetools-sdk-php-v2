@@ -16,6 +16,7 @@ interface CustomerSetTitleAction extends CustomerUpdateAction
     public const FIELD_TITLE = 'title';
 
     /**
+
      * @return null|string
      */
     public function getTitle();

@@ -38,71 +38,85 @@ use stdClass;
 final class ChannelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?array
      */
     private $roles;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $reviewRatingStatistics;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|GeoJson|GeoJsonBuilder
      */
     private $geoLocation;
@@ -110,6 +124,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Unique identifier of the Channel.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -120,6 +135,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Current version of the Channel.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -130,6 +146,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Channel was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -140,6 +157,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Channel was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -150,6 +168,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -160,6 +179,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -170,6 +190,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Channel.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -180,6 +201,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Roles of the Channel.</p>
      *
+
      * @return null|array
      */
     public function getRoles()
@@ -190,6 +212,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Name of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -200,6 +223,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Description of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -210,6 +234,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Address where the Channel is located (for example, if the Channel is a physical store).</p>
      *
+
      * @return null|Address
      */
     public function getAddress()
@@ -220,6 +245,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Statistics about the review ratings taken into account for the Channel.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()
@@ -230,6 +256,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>Custom Fields defined for the Channel.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -240,6 +267,7 @@ final class ChannelBuilder implements Builder
     /**
      * <p>GeoJSON geometry object encoding the geo location of the Channel.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation()

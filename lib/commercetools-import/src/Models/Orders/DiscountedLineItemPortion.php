@@ -21,11 +21,13 @@ interface DiscountedLineItemPortion extends JsonObject
     /**
      * <p>References a cart discount by key.</p>
      *
+
      * @return null|CartDiscountKeyReference
      */
     public function getDiscount();
 
     /**
+
      * @return null|Money
      */
     public function getDiscountedAmount();

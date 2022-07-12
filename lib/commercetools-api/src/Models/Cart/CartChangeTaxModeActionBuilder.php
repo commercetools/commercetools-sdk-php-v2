@@ -21,11 +21,13 @@ use stdClass;
 final class CartChangeTaxModeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()

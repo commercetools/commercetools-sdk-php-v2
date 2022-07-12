@@ -23,16 +23,19 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
 {
     public const DISCRIMINATOR_VALUE = 'transitionState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
+
      * @var ?bool
      */
     protected $force;
@@ -51,6 +54,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -88,6 +93,7 @@ final class OrderTransitionStateActionModel extends JsonObjectModel implements O
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

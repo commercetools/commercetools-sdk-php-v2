@@ -23,16 +23,19 @@ use stdClass;
 final class ProductTransitionStateActionBuilder implements Builder
 {
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @var ?bool
      */
     private $force;
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -41,6 +44,7 @@ final class ProductTransitionStateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

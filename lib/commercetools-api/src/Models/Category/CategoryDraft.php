@@ -32,6 +32,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Name of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -41,6 +42,7 @@ interface CategoryDraft extends JsonObject
      * A Category can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>.
      * Valid slugs must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
@@ -48,6 +50,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Description of the Category.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -56,6 +59,7 @@ interface CategoryDraft extends JsonObject
      * <p>Parent Category of the Category.
      * The parent can be set by its <code>id</code> or <code>key</code>.</p>
      *
+
      * @return null|CategoryResourceIdentifier
      */
     public function getParent();
@@ -64,6 +68,7 @@ interface CategoryDraft extends JsonObject
      * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.
      * If not set, a random value will be assigned.</p>
      *
+
      * @return null|string
      */
     public function getOrderHint();
@@ -71,6 +76,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
      *
+
      * @return null|string
      */
     public function getExternalId();
@@ -78,6 +84,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Name of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
@@ -85,6 +92,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Description of the Category used by external search engines for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
@@ -92,6 +100,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Keywords related to the Category for improved search engine performance.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
@@ -99,6 +108,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Custom Fields for the Category.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -106,6 +116,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>Media related to the Category.</p>
      *
+
      * @return null|AssetDraftCollection
      */
     public function getAssets();
@@ -113,6 +124,7 @@ interface CategoryDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Category.</p>
      *
+
      * @return null|string
      */
     public function getKey();

@@ -21,6 +21,7 @@ use stdClass;
 final class InventoryEntryRemoveQuantityActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $quantity;
@@ -28,6 +29,7 @@ final class InventoryEntryRemoveQuantityActionBuilder implements Builder
     /**
      * <p>Value to remove from <code>quantityOnStock</code>.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()

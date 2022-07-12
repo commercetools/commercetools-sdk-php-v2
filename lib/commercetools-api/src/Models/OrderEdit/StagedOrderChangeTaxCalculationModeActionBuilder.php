@@ -23,11 +23,13 @@ use stdClass;
 final class StagedOrderChangeTaxCalculationModeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $taxCalculationMode;
 
     /**
+
      * @return null|string
      */
     public function getTaxCalculationMode()

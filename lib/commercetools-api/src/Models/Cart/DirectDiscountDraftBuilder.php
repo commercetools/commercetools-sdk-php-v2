@@ -25,16 +25,19 @@ use stdClass;
 final class DirectDiscountDraftBuilder implements Builder
 {
     /**
+
      * @var null|CartDiscountValue|CartDiscountValueBuilder
      */
     private $value;
 
     /**
+
      * @var null|CartDiscountTarget|CartDiscountTargetBuilder
      */
     private $target;
 
     /**
+
      * @return null|CartDiscountValue
      */
     public function getValue()
@@ -45,6 +48,7 @@ final class DirectDiscountDraftBuilder implements Builder
     /**
      * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
      *
+
      * @return null|CartDiscountTarget
      */
     public function getTarget()

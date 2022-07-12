@@ -21,6 +21,7 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -53,6 +54,7 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

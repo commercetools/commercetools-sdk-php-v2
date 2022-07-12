@@ -17,11 +17,13 @@ interface SearchKeyword extends JsonObject
     public const FIELD_SUGGEST_TOKENIZER = 'suggestTokenizer';
 
     /**
+
      * @return null|string
      */
     public function getText();
 
     /**
+
      * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer();

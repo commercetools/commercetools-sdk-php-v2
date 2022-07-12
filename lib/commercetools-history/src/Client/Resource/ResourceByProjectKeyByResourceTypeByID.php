@@ -26,7 +26,7 @@ class ResourceByProjectKeyByResourceTypeByID extends ApiResource
 
     /**
      * @psalm-param ?object|array|string $body
-     * @psalm-param array<string, scalar|scalar[]> $headers
+     * @psalm-param array<string, scalar|scalar[]> $headers 
      */
     public function get($body = null, array $headers = []): ByProjectKeyByResourceTypeByIDGet
     {

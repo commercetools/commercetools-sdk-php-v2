@@ -18,6 +18,7 @@ interface AddFieldDefinitionChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface AddFieldDefinitionChange extends Change
     /**
      * <p>Update action for <code>addFieldDefinition</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|FieldDefinition
      */
     public function getNextValue();

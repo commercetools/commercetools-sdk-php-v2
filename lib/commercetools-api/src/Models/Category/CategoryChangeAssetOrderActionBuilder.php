@@ -21,6 +21,7 @@ use stdClass;
 final class CategoryChangeAssetOrderActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $assetOrder;
@@ -28,6 +29,7 @@ final class CategoryChangeAssetOrderActionBuilder implements Builder
     /**
      * <p>New value to set. Must contain all Asset <code>id</code>s.</p>
      *
+
      * @return null|array
      */
     public function getAssetOrder()

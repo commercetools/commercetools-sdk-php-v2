@@ -23,31 +23,37 @@ use stdClass;
 final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $oldQuantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $newQuantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $oldAvailableQuantity;
 
     /**
+
      * @var ?int
      */
     private $newAvailableQuantity;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @return null|int
      */
     public function getOldQuantityOnStock()
@@ -56,6 +62,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNewQuantityOnStock()
@@ -64,6 +71,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getOldAvailableQuantity()
@@ -72,6 +80,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNewAvailableQuantity()
@@ -82,6 +91,7 @@ final class InventoryEntryQuantitySetMessagePayloadBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

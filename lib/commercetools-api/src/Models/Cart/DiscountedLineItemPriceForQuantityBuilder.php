@@ -21,16 +21,19 @@ use stdClass;
 final class DiscountedLineItemPriceForQuantityBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|DiscountedLineItemPrice|DiscountedLineItemPriceBuilder
      */
     private $discountedPrice;
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -39,6 +42,7 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPrice
      */
     public function getDiscountedPrice()

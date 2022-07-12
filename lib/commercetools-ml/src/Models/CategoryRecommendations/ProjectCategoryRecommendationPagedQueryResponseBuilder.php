@@ -21,31 +21,37 @@ use stdClass;
 final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?ProjectCategoryRecommendationCollection
      */
     private $results;
 
     /**
+
      * @var null|ProjectCategoryRecommendationMeta|ProjectCategoryRecommendationMetaBuilder
      */
     private $meta;
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -54,6 +60,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -64,6 +71,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -72,6 +80,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+
      * @return null|ProjectCategoryRecommendationCollection
      */
     public function getResults()
@@ -80,6 +89,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseBuilder implements Bu
     }
 
     /**
+
      * @return null|ProjectCategoryRecommendationMeta
      */
     public function getMeta()

@@ -21,21 +21,25 @@ use stdClass;
 final class ProductTypeDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var ?AttributeDefinitionDraftCollection
      */
     private $attributes;
@@ -43,6 +47,7 @@ final class ProductTypeDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -53,6 +58,7 @@ final class ProductTypeDraftBuilder implements Builder
     /**
      * <p>Name of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -63,6 +69,7 @@ final class ProductTypeDraftBuilder implements Builder
     /**
      * <p>Description of the ProductType.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -73,6 +80,7 @@ final class ProductTypeDraftBuilder implements Builder
     /**
      * <p>Attributes to specify for the ProductType. Products of this ProductType have these Attributes available on their <a href="ctp:api:type:ProductVariant">ProductVariants</a>.</p>
      *
+
      * @return null|AttributeDefinitionDraftCollection
      */
     public function getAttributes()

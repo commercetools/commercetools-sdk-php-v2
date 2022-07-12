@@ -24,26 +24,31 @@ final class AddBillingAddressIdChangeModel extends JsonObjectModel implements Ad
 
     public const DISCRIMINATOR_VALUE = 'AddBillingAddressIdChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?array
      */
     protected $nextValue;
 
     /**
+
      * @var ?array
      */
     protected $previousValue;
 
     /**
+
      * @var ?Address
      */
     protected $address;
@@ -66,6 +71,7 @@ final class AddBillingAddressIdChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class AddBillingAddressIdChangeModel extends JsonObjectModel implements Ad
     /**
      * <p>Update action for <code>addBillingAddressId</code> action on customers.</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class AddBillingAddressIdChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()
@@ -119,6 +127,7 @@ final class AddBillingAddressIdChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -136,6 +145,7 @@ final class AddBillingAddressIdChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()

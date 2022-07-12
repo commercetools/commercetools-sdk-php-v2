@@ -21,26 +21,31 @@ use stdClass;
 final class OrderPagedQueryResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?OrderCollection
      */
     private $results;
@@ -48,6 +53,7 @@ final class OrderPagedQueryResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -56,6 +62,7 @@ final class OrderPagedQueryResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -64,6 +71,7 @@ final class OrderPagedQueryResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -74,6 +82,7 @@ final class OrderPagedQueryResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -82,6 +91,7 @@ final class OrderPagedQueryResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|OrderCollection
      */
     public function getResults()

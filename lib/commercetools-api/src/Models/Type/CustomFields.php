@@ -19,6 +19,7 @@ interface CustomFields extends JsonObject
     /**
      * <p>Reference to the <a href="ctp:api:type:Type">Type</a> that holds the <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> for the Custom Fields.</p>
      *
+
      * @return null|TypeReference
      */
     public function getType();
@@ -26,6 +27,7 @@ interface CustomFields extends JsonObject
     /**
      * <p>Object containing the Custom Fields for the <a href="/../api/projects/types#list-of-customizable-data-types">customized resource or data type</a>.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

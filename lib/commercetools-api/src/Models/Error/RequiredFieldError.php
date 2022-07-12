@@ -16,6 +16,7 @@ interface RequiredFieldError extends ErrorObject
     public const FIELD_FIELD = 'field';
 
     /**
+
      * @return null|string
      */
     public function getField();

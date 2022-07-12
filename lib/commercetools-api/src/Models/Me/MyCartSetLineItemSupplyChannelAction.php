@@ -18,6 +18,7 @@ interface MyCartSetLineItemSupplyChannelAction extends MyCartUpdateAction
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
@@ -25,6 +26,7 @@ interface MyCartSetLineItemSupplyChannelAction extends MyCartUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();

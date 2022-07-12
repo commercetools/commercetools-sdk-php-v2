@@ -18,6 +18,7 @@ interface OrderLineItemDistributionChannelSetMessagePayload extends OrderMessage
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
@@ -25,6 +26,7 @@ interface OrderLineItemDistributionChannelSetMessagePayload extends OrderMessage
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel();

@@ -21,6 +21,7 @@ final class ShippingRateInputModel extends JsonObjectModel implements ShippingRa
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -43,6 +44,7 @@ final class ShippingRateInputModel extends JsonObjectModel implements ShippingRa
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

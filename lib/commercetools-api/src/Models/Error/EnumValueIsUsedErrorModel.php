@@ -21,11 +21,13 @@ final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumVal
 {
     public const DISCRIMINATOR_VALUE = 'EnumValueIsUsed';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumVal
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class EnumValueIsUsedErrorModel extends JsonObjectModel implements EnumVal
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

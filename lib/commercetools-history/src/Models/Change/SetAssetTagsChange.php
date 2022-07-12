@@ -22,26 +22,31 @@ interface SetAssetTagsChange extends Change
     /**
      * <p>Update action for <code>setAssetTags</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset();
 
     /**
+
      * @return null|array
      */
     public function getNextValue();
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue();

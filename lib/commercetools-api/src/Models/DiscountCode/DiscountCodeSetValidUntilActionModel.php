@@ -22,11 +22,13 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setValidUntil';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -43,6 +45,7 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
     /**
      * <p>Value to set that must be later than <code>validFrom</code>. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

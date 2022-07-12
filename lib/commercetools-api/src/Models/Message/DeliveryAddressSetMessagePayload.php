@@ -19,16 +19,19 @@ interface DeliveryAddressSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_ADDRESS = 'oldAddress';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();
 
     /**
+
      * @return null|Address
      */
     public function getOldAddress();

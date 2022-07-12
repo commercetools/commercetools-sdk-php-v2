@@ -18,6 +18,7 @@ interface Suggestion extends JsonObject
     /**
      * <p>The suggested text.</p>
      *
+
      * @return null|string
      */
     public function getText();

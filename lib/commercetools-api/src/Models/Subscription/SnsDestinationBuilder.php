@@ -21,21 +21,25 @@ use stdClass;
 final class SnsDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $accessKey;
 
     /**
+
      * @var ?string
      */
     private $accessSecret;
 
     /**
+
      * @var ?string
      */
     private $topicArn;
 
     /**
+
      * @return null|string
      */
     public function getAccessKey()
@@ -44,6 +48,7 @@ final class SnsDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAccessSecret()
@@ -52,6 +57,7 @@ final class SnsDestinationBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTopicArn()

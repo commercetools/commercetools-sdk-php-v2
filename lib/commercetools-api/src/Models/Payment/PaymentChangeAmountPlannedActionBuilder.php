@@ -23,11 +23,13 @@ use stdClass;
 final class PaymentChangeAmountPlannedActionBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amount;
 
     /**
+
      * @return null|Money
      */
     public function getAmount()

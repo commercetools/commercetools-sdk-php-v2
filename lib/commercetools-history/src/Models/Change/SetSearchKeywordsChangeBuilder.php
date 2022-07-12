@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\SearchKeywordsBuilder;
 final class SetSearchKeywordsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $nextValue;
@@ -45,6 +49,7 @@ final class SetSearchKeywordsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setSearchKeywords</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetSearchKeywordsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -61,6 +67,7 @@ final class SetSearchKeywordsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class SetSearchKeywordsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getNextValue()

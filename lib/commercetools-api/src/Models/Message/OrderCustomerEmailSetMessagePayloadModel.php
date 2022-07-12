@@ -21,16 +21,19 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerEmailSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $email;
 
     /**
+
      * @var ?string
      */
     protected $oldEmail;
@@ -49,6 +52,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -66,6 +70,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()
@@ -83,6 +88,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getOldEmail()

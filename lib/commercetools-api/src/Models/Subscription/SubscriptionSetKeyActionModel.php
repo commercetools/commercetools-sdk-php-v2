@@ -21,11 +21,13 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getKey()

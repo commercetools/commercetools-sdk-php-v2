@@ -21,11 +21,13 @@ use stdClass;
 final class SubscriptionSetMessagesActionBuilder implements Builder
 {
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     private $messages;
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()

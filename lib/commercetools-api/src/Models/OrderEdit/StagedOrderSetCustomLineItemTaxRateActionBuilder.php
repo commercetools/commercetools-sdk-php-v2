@@ -25,16 +25,19 @@ use stdClass;
 final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -43,6 +46,7 @@ final class StagedOrderSetCustomLineItemTaxRateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

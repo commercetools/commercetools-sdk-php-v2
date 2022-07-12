@@ -22,26 +22,31 @@ use stdClass;
 final class ProductSetPricesActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     private $prices;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -50,6 +55,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -58,6 +64,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -66,6 +73,7 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

@@ -28,51 +28,61 @@ use stdClass;
 final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var null|StandalonePriceReference|StandalonePriceReferenceBuilder
      */
     private $conflictingStandalonePrice;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $currency;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -83,6 +93,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
+
      * @return null|StandalonePriceReference
      */
     public function getConflictingStandalonePrice()
@@ -91,6 +102,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -99,6 +111,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCurrency()
@@ -107,6 +120,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCountry()
@@ -117,6 +131,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -127,6 +142,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -135,6 +151,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -143,6 +160,7 @@ final class DuplicateStandalonePriceScopeErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

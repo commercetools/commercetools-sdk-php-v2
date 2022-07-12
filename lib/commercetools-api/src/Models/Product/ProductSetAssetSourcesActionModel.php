@@ -22,36 +22,43 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setAssetSources';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     protected $sources;
@@ -78,6 +85,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -95,6 +103,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -112,6 +121,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -129,6 +139,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -146,6 +157,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -163,6 +175,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -180,6 +193,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources()

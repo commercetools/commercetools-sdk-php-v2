@@ -20,6 +20,7 @@ interface ProductSelectionAddProductAction extends ProductSelectionUpdateAction
     /**
      * <p>ResourceIdentifier to Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct();
@@ -28,6 +29,7 @@ interface ProductSelectionAddProductAction extends ProductSelectionUpdateAction
      * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
      * If not supplied all Variants are deemed to be included.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection();

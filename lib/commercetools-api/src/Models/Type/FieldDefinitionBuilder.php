@@ -23,26 +23,31 @@ use stdClass;
 final class FieldDefinitionBuilder implements Builder
 {
     /**
+
      * @var null|FieldType|FieldTypeBuilder
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @var ?bool
      */
     private $required;
 
     /**
+
      * @var ?string
      */
     private $inputHint;
@@ -50,6 +55,7 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * <p>Data type of the Custom Field to define.</p>
      *
+
      * @return null|FieldType
      */
     public function getType()
@@ -62,6 +68,7 @@ final class FieldDefinitionBuilder implements Builder
      * Must be unique for a given <a href="ctp:api:type:ResourceTypeId">ResourceTypeId</a>.
      * In case there is a FieldDefinition with the same <code>name</code> in another <a href="ctp:api:type:Type">Type</a>, both FieldDefinitions must have the same <code>type</code>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -72,6 +79,7 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * <p>A human-readable label for the field.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -82,6 +90,7 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * <p>Defines whether the field is required to have a value.</p>
      *
+
      * @return null|bool
      */
     public function getRequired()
@@ -94,6 +103,7 @@ final class FieldDefinitionBuilder implements Builder
      * Defines the visual representation of the field in user interfaces like the Merchant Center.
      * It is only relevant for string-based <a href="ctp:api:type:FieldType">FieldTypes</a> like <a href="ctp:api:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:api:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
      *
+
      * @return null|string
      */
     public function getInputHint()

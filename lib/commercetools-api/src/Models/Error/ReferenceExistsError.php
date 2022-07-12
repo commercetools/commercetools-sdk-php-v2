@@ -18,6 +18,7 @@ interface ReferenceExistsError extends ErrorObject
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
+
      * @return null|string
      */
     public function getReferencedBy();

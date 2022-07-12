@@ -18,6 +18,7 @@ interface ChangeInitialChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface ChangeInitialChange extends Change
     /**
      * <p>Shape of the action for <code>changeInitial</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|bool
      */
     public function getNextValue();

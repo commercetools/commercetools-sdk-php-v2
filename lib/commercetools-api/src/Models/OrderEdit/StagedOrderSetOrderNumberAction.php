@@ -17,6 +17,7 @@ interface StagedOrderSetOrderNumberAction extends StagedOrderUpdateAction
     public const FIELD_ORDER_NUMBER = 'orderNumber';
 
     /**
+
      * @return null|string
      */
     public function getOrderNumber();

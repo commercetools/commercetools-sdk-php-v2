@@ -23,11 +23,13 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setGeoLocation';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?GeoJson
      */
     protected $geoLocation;
@@ -44,6 +46,7 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation()

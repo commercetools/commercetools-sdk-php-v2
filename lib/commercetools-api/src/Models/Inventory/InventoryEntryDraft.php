@@ -27,6 +27,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
      *
+
      * @return null|string
      */
     public function getSku();
@@ -34,6 +35,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the InventoryEntry.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -41,6 +43,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
@@ -48,6 +51,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p>Overall amount of stock.</p>
      *
+
      * @return null|int
      */
     public function getQuantityOnStock();
@@ -55,6 +59,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p>How often the InventoryEntry is restocked (in days).</p>
      *
+
      * @return null|int
      */
     public function getRestockableInDays();
@@ -62,6 +67,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p>Date and time of the next restock.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();
@@ -69,6 +75,7 @@ interface InventoryEntryDraft extends JsonObject
     /**
      * <p>Custom Fields of the InventoryEntry.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

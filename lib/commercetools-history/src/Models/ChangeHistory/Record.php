@@ -33,6 +33,7 @@ interface Record extends JsonObject
     /**
      * <p>Version of the resource after the change.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -40,6 +41,7 @@ interface Record extends JsonObject
     /**
      * <p>Version of the resource before the change.</p>
      *
+
      * @return null|int
      */
     public function getPreviousVersion();
@@ -47,6 +49,7 @@ interface Record extends JsonObject
     /**
      * <p>Type of the change (creation, update or deletion).</p>
      *
+
      * @return null|string
      */
     public function getType();
@@ -54,6 +57,7 @@ interface Record extends JsonObject
     /**
      * <p>Information about the user or the API client who performed the change.</p>
      *
+
      * @return null|ModifiedBy
      */
     public function getModifiedBy();
@@ -61,6 +65,7 @@ interface Record extends JsonObject
     /**
      * <p>Date and time when the change was made.</p>
      *
+
      * @return null|string
      */
     public function getModifiedAt();
@@ -68,6 +73,7 @@ interface Record extends JsonObject
     /**
      * <p>Information that describes the resource after the change.</p>
      *
+
      * @return null|Label
      */
     public function getLabel();
@@ -75,6 +81,7 @@ interface Record extends JsonObject
     /**
      * <p>Information that describes the resource before the change.</p>
      *
+
      * @return null|Label
      */
     public function getPreviousLabel();
@@ -83,6 +90,7 @@ interface Record extends JsonObject
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
      * The value is not identical to the actual array of update actions sent and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
+
      * @return null|ChangeCollection
      */
     public function getChanges();
@@ -90,6 +98,7 @@ interface Record extends JsonObject
     /**
      * <p>Reference to the changed resource.</p>
      *
+
      * @return null|Reference
      */
     public function getResource();
@@ -97,6 +106,7 @@ interface Record extends JsonObject
     /**
      * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
      *
+
      * @return null|KeyReferenceCollection
      */
     public function getStores();
@@ -105,6 +115,7 @@ interface Record extends JsonObject
      * <p><code>true</code> if no change was detected.
      * The version number of the resource can be increased even without any change in the resource.</p>
      *
+
      * @return null|bool
      */
     public function getWithoutChanges();

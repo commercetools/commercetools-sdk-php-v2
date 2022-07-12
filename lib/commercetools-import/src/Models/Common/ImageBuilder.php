@@ -21,16 +21,19 @@ use stdClass;
 final class ImageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $url;
 
     /**
+
      * @var null|AssetDimensions|AssetDimensionsBuilder
      */
     private $dimensions;
 
     /**
+
      * @var ?string
      */
     private $label;
@@ -38,6 +41,7 @@ final class ImageBuilder implements Builder
     /**
      * <p>URL of the image in its original size. The URL must be unique within a single variant. It can be used to obtain the image in different sizes.</p>
      *
+
      * @return null|string
      */
     public function getUrl()
@@ -48,6 +52,7 @@ final class ImageBuilder implements Builder
     /**
      * <p>Dimensions of the original image. This can be used by your application, for example, to determine whether the image is large enough to display a zoom view.</p>
      *
+
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -58,6 +63,7 @@ final class ImageBuilder implements Builder
     /**
      * <p>Custom label that can be used, for example, as an image description.</p>
      *
+
      * @return null|string
      */
     public function getLabel()

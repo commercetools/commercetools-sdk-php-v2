@@ -18,6 +18,7 @@ interface CartDiscountChangeValueAction extends CartDiscountUpdateAction
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|CartDiscountValueDraft
      */
     public function getValue();

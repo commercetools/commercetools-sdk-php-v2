@@ -21,11 +21,13 @@ final class CustomerPasswordUpdatedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'CustomerPasswordUpdated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?bool
      */
     protected $reset;
@@ -42,6 +44,7 @@ final class CustomerPasswordUpdatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class CustomerPasswordUpdatedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>true, if password has been updated during Customer's Password Reset workflow.</p>
      *
+
      * @return null|bool
      */
     public function getReset()

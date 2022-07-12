@@ -21,6 +21,7 @@ use stdClass;
 final class ChannelChangeKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -28,6 +29,7 @@ final class ChannelChangeKeyActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getKey()

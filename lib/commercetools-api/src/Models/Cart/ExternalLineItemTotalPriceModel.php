@@ -22,11 +22,13 @@ use stdClass;
 final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements ExternalLineItemTotalPrice
 {
     /**
+
      * @var ?Money
      */
     protected $price;
 
     /**
+
      * @var ?Money
      */
     protected $totalPrice;
@@ -44,6 +46,7 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     }
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -62,6 +65,7 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice()

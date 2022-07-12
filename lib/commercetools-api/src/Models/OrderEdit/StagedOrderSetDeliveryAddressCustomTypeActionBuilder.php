@@ -27,21 +27,25 @@ use stdClass;
 final class StagedOrderSetDeliveryAddressCustomTypeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
+
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -53,6 +57,7 @@ final class StagedOrderSetDeliveryAddressCustomTypeActionBuilder implements Buil
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> in a Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code> in a Delivery.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -63,6 +68,7 @@ final class StagedOrderSetDeliveryAddressCustomTypeActionBuilder implements Buil
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code> in a Delivery.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

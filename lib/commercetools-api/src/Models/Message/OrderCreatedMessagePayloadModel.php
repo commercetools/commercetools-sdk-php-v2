@@ -23,11 +23,13 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
 {
     public const DISCRIMINATOR_VALUE = 'OrderCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Order
      */
     protected $order;
@@ -44,6 +46,7 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     }
 
     /**
+
      * @return null|Order
      */
     public function getOrder()

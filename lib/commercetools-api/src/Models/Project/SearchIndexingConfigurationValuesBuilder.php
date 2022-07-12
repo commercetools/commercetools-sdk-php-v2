@@ -24,16 +24,19 @@ use stdClass;
 final class SearchIndexingConfigurationValuesBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $status;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
@@ -41,6 +44,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     /**
      * <p>Current status of resource indexing. Present on Projects from 1 February 2019.</p>
      *
+
      * @return null|string
      */
     public function getStatus()
@@ -51,6 +55,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Project was last updated. Only present on Projects last modified after 1 February 2019.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -61,6 +66,7 @@ final class SearchIndexingConfigurationValuesBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()

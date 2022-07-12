@@ -21,6 +21,7 @@ use stdClass;
 final class AttributeEnumTypeBuilder implements Builder
 {
     /**
+
      * @var ?AttributePlainEnumValueCollection
      */
     private $values;
@@ -28,6 +29,7 @@ final class AttributeEnumTypeBuilder implements Builder
     /**
      * <p>Available values that can be assigned to Products.</p>
      *
+
      * @return null|AttributePlainEnumValueCollection
      */
     public function getValues()

@@ -21,21 +21,25 @@ use stdClass;
 final class ExtensionDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|ExtensionDestination|ExtensionDestinationBuilder
      */
     private $destination;
 
     /**
+
      * @var ?ExtensionTriggerCollection
      */
     private $triggers;
 
     /**
+
      * @var ?int
      */
     private $timeoutInMs;
@@ -43,6 +47,7 @@ final class ExtensionDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Extension.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -53,6 +58,7 @@ final class ExtensionDraftBuilder implements Builder
     /**
      * <p>Defines where the Extension can be reached.</p>
      *
+
      * @return null|ExtensionDestination
      */
     public function getDestination()
@@ -63,6 +69,7 @@ final class ExtensionDraftBuilder implements Builder
     /**
      * <p>Describes what triggers the Extension.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()
@@ -77,6 +84,7 @@ final class ExtensionDraftBuilder implements Builder
      * <p>This limit can be increased per Project after we review the performance impact.
      * Please contact our support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the Region, Project key, and use case.</p>
      *
+
      * @return null|int
      */
     public function getTimeoutInMs()

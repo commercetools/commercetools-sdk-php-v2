@@ -23,16 +23,19 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'ProductVariantAdded';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -51,6 +54,7 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -68,6 +72,7 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -86,6 +91,7 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

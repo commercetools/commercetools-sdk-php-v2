@@ -77,6 +77,7 @@ use stdClass;
 final class ReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
@@ -84,6 +85,7 @@ final class ReferenceBuilder implements Builder
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()

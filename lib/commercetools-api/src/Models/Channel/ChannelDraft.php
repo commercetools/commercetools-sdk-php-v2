@@ -28,6 +28,7 @@ interface ChannelDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Channel.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -37,6 +38,7 @@ interface ChannelDraft extends JsonObject
      * Each channel must have at least one role.
      * If not specified, then <code>InventorySupply</code> is assigned by default.</p>
      *
+
      * @return null|array
      */
     public function getRoles();
@@ -44,6 +46,7 @@ interface ChannelDraft extends JsonObject
     /**
      * <p>Name of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -51,6 +54,7 @@ interface ChannelDraft extends JsonObject
     /**
      * <p>Description of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -58,6 +62,7 @@ interface ChannelDraft extends JsonObject
     /**
      * <p>Address where the Channel is located.</p>
      *
+
      * @return null|BaseAddress
      */
     public function getAddress();
@@ -65,6 +70,7 @@ interface ChannelDraft extends JsonObject
     /**
      * <p>Custom fields defined for the Channel.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -73,6 +79,7 @@ interface ChannelDraft extends JsonObject
      * <p>GeoJSON geometry object encoding the geo location of the Channel.
      * Currently, only the <a href="ctp:api:type:GeoJsonPoint">Point</a> type is supported.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation();

@@ -21,11 +21,13 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
 {
     public const DISCRIMINATOR_VALUE = 'removeRoles';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?array
      */
     protected $roles;
@@ -42,6 +44,7 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
     /**
      * <p>Value to remove from the array.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

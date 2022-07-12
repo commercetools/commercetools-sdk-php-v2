@@ -21,26 +21,31 @@ use stdClass;
 final class ChangeInputHintChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
@@ -48,6 +53,7 @@ final class ChangeInputHintChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeInputHint</code> on product types and types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class ChangeInputHintChangeBuilder implements Builder
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -68,6 +75,7 @@ final class ChangeInputHintChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -76,6 +84,7 @@ final class ChangeInputHintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()
@@ -84,6 +93,7 @@ final class ChangeInputHintChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()

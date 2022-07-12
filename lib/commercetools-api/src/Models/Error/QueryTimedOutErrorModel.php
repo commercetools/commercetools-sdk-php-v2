@@ -21,11 +21,13 @@ final class QueryTimedOutErrorModel extends JsonObjectModel implements QueryTime
 {
     public const DISCRIMINATOR_VALUE = 'QueryTimedOut';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class QueryTimedOutErrorModel extends JsonObjectModel implements QueryTime
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class QueryTimedOutErrorModel extends JsonObjectModel implements QueryTime
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

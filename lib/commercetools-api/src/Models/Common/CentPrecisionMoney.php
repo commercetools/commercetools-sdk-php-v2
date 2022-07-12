@@ -16,6 +16,7 @@ interface CentPrecisionMoney extends TypedMoney
     /**
      * <p>The number of default fraction digits for the given currency, like <code>2</code> for EUR or <code>0</code> for JPY.</p>
      *
+
      * @return null|int
      */
     public function getFractionDigits();

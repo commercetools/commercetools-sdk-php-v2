@@ -21,11 +21,13 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'changeParent';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CategoryResourceIdentifier
      */
     protected $parent;
@@ -42,6 +44,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     /**
      * <p>New value to set as parent.</p>
      *
+
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()

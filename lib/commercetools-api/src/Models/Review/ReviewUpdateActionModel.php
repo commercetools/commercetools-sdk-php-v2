@@ -21,6 +21,7 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -52,6 +53,7 @@ final class ReviewUpdateActionModel extends JsonObjectModel implements ReviewUpd
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

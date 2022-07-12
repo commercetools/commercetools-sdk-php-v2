@@ -25,21 +25,25 @@ use Commercetools\History\Models\Common\CustomFieldsBuilder;
 final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ShoppingListLineItemValue|ShoppingListLineItemValueBuilder
      */
     private $lineItem;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $previousValue;
@@ -47,6 +51,7 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLineItemCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -63,6 +69,7 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -71,6 +78,7 @@ final class SetShoppingListLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()

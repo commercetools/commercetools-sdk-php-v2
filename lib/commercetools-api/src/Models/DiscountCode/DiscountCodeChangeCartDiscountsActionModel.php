@@ -22,11 +22,13 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'changeCartDiscounts';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?CartDiscountResourceIdentifierCollection
      */
     protected $cartDiscounts;
@@ -43,6 +45,7 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|CartDiscountResourceIdentifierCollection
      */
     public function getCartDiscounts()

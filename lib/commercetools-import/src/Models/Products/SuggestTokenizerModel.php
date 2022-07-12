@@ -21,6 +21,7 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -43,6 +44,7 @@ final class SuggestTokenizerModel extends JsonObjectModel implements SuggestToke
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

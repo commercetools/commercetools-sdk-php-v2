@@ -18,6 +18,7 @@ interface SetReturnShipmentStateChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface SetReturnShipmentStateChange extends Change
     /**
      * <p>Update action for <code>setReturnShipmentState</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();

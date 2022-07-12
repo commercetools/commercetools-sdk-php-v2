@@ -19,11 +19,13 @@ interface StagedOrderSetParcelTrackingDataAction extends StagedOrderUpdateAction
     public const FIELD_TRACKING_DATA = 'trackingData';
 
     /**
+
      * @return null|string
      */
     public function getParcelId();
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData();

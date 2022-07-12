@@ -23,31 +23,37 @@ use Commercetools\History\Models\Common\PriceBuilder;
 final class SetDiscountedPriceChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $nextValue;
@@ -55,6 +61,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setDiscountedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -63,6 +70,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -71,6 +79,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -79,6 +88,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceId()
@@ -87,6 +97,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Price
      */
     public function getPreviousValue()
@@ -95,6 +106,7 @@ final class SetDiscountedPriceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Price
      */
     public function getNextValue()

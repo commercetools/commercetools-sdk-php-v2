@@ -16,6 +16,7 @@ interface AttributeNameDoesNotExistError extends ErrorObject
     public const FIELD_INVALID_ATTRIBUTE_NAME = 'invalidAttributeName';
 
     /**
+
      * @return null|string
      */
     public function getInvalidAttributeName();

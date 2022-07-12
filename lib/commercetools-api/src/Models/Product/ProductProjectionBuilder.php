@@ -35,111 +35,133 @@ use stdClass;
 final class ProductProjectionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var ?CategoryReferenceCollection
      */
     private $categories;
 
     /**
+
      * @var null|CategoryOrderHints|CategoryOrderHintsBuilder
      */
     private $categoryOrderHints;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
     /**
+
      * @var ?bool
      */
     private $hasStagedChanges;
 
     /**
+
      * @var ?bool
      */
     private $published;
 
     /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $masterVariant;
 
     /**
+
      * @var ?ProductVariantCollection
      */
     private $variants;
 
     /**
+
      * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
+
      * @var null|ReviewRatingStatistics|ReviewRatingStatisticsBuilder
      */
     private $reviewRatingStatistics;
@@ -147,6 +169,7 @@ final class ProductProjectionBuilder implements Builder
     /**
      * <p>The unique ID of the Product.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -157,6 +180,7 @@ final class ProductProjectionBuilder implements Builder
     /**
      * <p>The current version of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -165,6 +189,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -173,6 +198,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -183,6 +209,7 @@ final class ProductProjectionBuilder implements Builder
     /**
      * <p>User-specific unique identifier of the Product.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -191,6 +218,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -199,6 +227,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -207,6 +236,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -215,6 +245,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -225,6 +256,7 @@ final class ProductProjectionBuilder implements Builder
     /**
      * <p>References to categories the product is in.</p>
      *
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories()
@@ -233,6 +265,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -241,6 +274,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -249,6 +283,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -257,6 +292,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -265,6 +301,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -273,6 +310,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getHasStagedChanges()
@@ -281,6 +319,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getPublished()
@@ -289,6 +328,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariant
      */
     public function getMasterVariant()
@@ -297,6 +337,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductVariantCollection
      */
     public function getVariants()
@@ -305,6 +346,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -313,6 +355,7 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+
      * @return null|StateReference
      */
     public function getState()
@@ -323,6 +366,7 @@ final class ProductProjectionBuilder implements Builder
     /**
      * <p>Statistics about the review ratings taken into account for this product.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()

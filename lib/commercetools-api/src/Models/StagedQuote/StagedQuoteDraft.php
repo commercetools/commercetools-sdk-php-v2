@@ -23,6 +23,7 @@ interface StagedQuoteDraft extends JsonObject
     /**
      * <p>The QuoteRequest from which this StagedQuote is created.</p>
      *
+
      * @return null|QuoteRequestResourceIdentifier
      */
     public function getQuoteRequest();
@@ -30,6 +31,7 @@ interface StagedQuoteDraft extends JsonObject
     /**
      * <p>Current version of the QuoteRequest.</p>
      *
+
      * @return null|int
      */
     public function getQuoteRequestVersion();
@@ -37,6 +39,7 @@ interface StagedQuoteDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -48,6 +51,7 @@ interface StagedQuoteDraft extends JsonObject
      * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> are added to the StagedQuote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

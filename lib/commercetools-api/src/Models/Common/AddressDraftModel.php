@@ -22,131 +22,157 @@ use stdClass;
 final class AddressDraftModel extends JsonObjectModel implements AddressDraft
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $country;
 
     /**
+
      * @var ?string
      */
     protected $title;
 
     /**
+
      * @var ?string
      */
     protected $salutation;
 
     /**
+
      * @var ?string
      */
     protected $firstName;
 
     /**
+
      * @var ?string
      */
     protected $lastName;
 
     /**
+
      * @var ?string
      */
     protected $streetName;
 
     /**
+
      * @var ?string
      */
     protected $streetNumber;
 
     /**
+
      * @var ?string
      */
     protected $additionalStreetInfo;
 
     /**
+
      * @var ?string
      */
     protected $postalCode;
 
     /**
+
      * @var ?string
      */
     protected $city;
 
     /**
+
      * @var ?string
      */
     protected $region;
 
     /**
+
      * @var ?string
      */
     protected $state;
 
     /**
+
      * @var ?string
      */
     protected $company;
 
     /**
+
      * @var ?string
      */
     protected $department;
 
     /**
+
      * @var ?string
      */
     protected $building;
 
     /**
+
      * @var ?string
      */
     protected $apartment;
 
     /**
+
      * @var ?string
      */
     protected $pOBox;
 
     /**
+
      * @var ?string
      */
     protected $phone;
 
     /**
+
      * @var ?string
      */
     protected $mobile;
 
     /**
+
      * @var ?string
      */
     protected $email;
 
     /**
+
      * @var ?string
      */
     protected $fax;
 
     /**
+
      * @var ?string
      */
     protected $additionalAddressInfo;
 
     /**
+
      * @var ?string
      */
     protected $externalId;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -214,6 +240,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Unique identifier for the Address. Not recommended to set it manually since the API overwrites this ID when creating an Address for a <a href="ctp:api:type:Customer">Customer</a>. Use <code>key</code> instead and omit this field from the request to let the API generate the ID for the Address.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -233,6 +260,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>User-defined unique identifier for the Address.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -252,6 +280,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -271,6 +300,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Title of the contact, for example 'Dr.'</p>
      *
+
      * @return null|string
      */
     public function getTitle()
@@ -290,6 +320,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
      *
+
      * @return null|string
      */
     public function getSalutation()
@@ -309,6 +340,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Given name (first name) of the contact.</p>
      *
+
      * @return null|string
      */
     public function getFirstName()
@@ -328,6 +360,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Family name (last name) of the contact.</p>
      *
+
      * @return null|string
      */
     public function getLastName()
@@ -347,6 +380,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Name of the street.</p>
      *
+
      * @return null|string
      */
     public function getStreetName()
@@ -366,6 +400,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Street number.</p>
      *
+
      * @return null|string
      */
     public function getStreetNumber()
@@ -385,6 +420,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Further information on the street address.</p>
      *
+
      * @return null|string
      */
     public function getAdditionalStreetInfo()
@@ -404,6 +440,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Postal code.</p>
      *
+
      * @return null|string
      */
     public function getPostalCode()
@@ -423,6 +460,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Name of the city.</p>
      *
+
      * @return null|string
      */
     public function getCity()
@@ -442,6 +480,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Name of the region.</p>
      *
+
      * @return null|string
      */
     public function getRegion()
@@ -461,6 +500,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Name of the state, for example, Colorado.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -480,6 +520,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Name of the company.</p>
      *
+
      * @return null|string
      */
     public function getCompany()
@@ -499,6 +540,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Name of the department.</p>
      *
+
      * @return null|string
      */
     public function getDepartment()
@@ -518,6 +560,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Number or name of the building.</p>
      *
+
      * @return null|string
      */
     public function getBuilding()
@@ -537,6 +580,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Number or name of the apartment.</p>
      *
+
      * @return null|string
      */
     public function getApartment()
@@ -556,6 +600,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Post office box number.</p>
      *
+
      * @return null|string
      */
     public function getPOBox()
@@ -575,6 +620,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Phone number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getPhone()
@@ -594,6 +640,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Mobile phone number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getMobile()
@@ -613,6 +660,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Email address of the contact.</p>
      *
+
      * @return null|string
      */
     public function getEmail()
@@ -632,6 +680,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Fax number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getFax()
@@ -651,6 +700,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Further information on the Address.</p>
      *
+
      * @return null|string
      */
     public function getAdditionalAddressInfo()
@@ -670,6 +720,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>ID for the contact used in an external system.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -689,6 +740,7 @@ final class AddressDraftModel extends JsonObjectModel implements AddressDraft
     /**
      * <p>Custom Fields defined for the Address.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

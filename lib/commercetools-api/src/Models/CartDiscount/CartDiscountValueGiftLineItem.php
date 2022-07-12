@@ -23,6 +23,7 @@ interface CartDiscountValueGiftLineItem extends CartDiscountValue
     /**
      * <p>Reference to a Product.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -30,6 +31,7 @@ interface CartDiscountValueGiftLineItem extends CartDiscountValue
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();
@@ -37,6 +39,7 @@ interface CartDiscountValueGiftLineItem extends CartDiscountValue
     /**
      * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel();
@@ -44,6 +47,7 @@ interface CartDiscountValueGiftLineItem extends CartDiscountValue
     /**
      * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel();

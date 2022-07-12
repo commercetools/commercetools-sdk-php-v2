@@ -22,6 +22,7 @@ use stdClass;
 final class CartDiscountValueAbsoluteBuilder implements Builder
 {
     /**
+
      * @var ?CentPrecisionMoneyCollection
      */
     private $money;
@@ -29,6 +30,7 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     /**
      * <p>Cent precision money values in different currencies.</p>
      *
+
      * @return null|CentPrecisionMoneyCollection
      */
     public function getMoney()

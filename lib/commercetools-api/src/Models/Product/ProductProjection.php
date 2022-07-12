@@ -42,6 +42,7 @@ interface ProductProjection extends BaseResource
     /**
      * <p>The unique ID of the Product.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -49,6 +50,7 @@ interface ProductProjection extends BaseResource
     /**
      * <p>The current version of the Product.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -56,26 +58,31 @@ interface ProductProjection extends BaseResource
     /**
      * <p>User-specific unique identifier of the Product.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug();
@@ -83,61 +90,73 @@ interface ProductProjection extends BaseResource
     /**
      * <p>References to categories the product is in.</p>
      *
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories();
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
 
     /**
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords();
 
     /**
+
      * @return null|bool
      */
     public function getHasStagedChanges();
 
     /**
+
      * @return null|bool
      */
     public function getPublished();
 
     /**
+
      * @return null|ProductVariant
      */
     public function getMasterVariant();
 
     /**
+
      * @return null|ProductVariantCollection
      */
     public function getVariants();
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
 
     /**
+
      * @return null|StateReference
      */
     public function getState();
@@ -145,6 +164,7 @@ interface ProductProjection extends BaseResource
     /**
      * <p>Statistics about the review ratings taken into account for this product.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();

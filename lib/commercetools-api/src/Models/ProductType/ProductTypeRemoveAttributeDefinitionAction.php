@@ -18,6 +18,7 @@ interface ProductTypeRemoveAttributeDefinitionAction extends ProductTypeUpdateAc
     /**
      * <p>Name of the Attribute to remove.</p>
      *
+
      * @return null|string
      */
     public function getName();

@@ -25,41 +25,49 @@ use stdClass;
 final class ProductSetAssetCustomTypeActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
+
      * @var null|FieldContainer|FieldContainerBuilder
      */
     private $fields;
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -68,6 +76,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -76,6 +85,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -84,6 +94,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -92,6 +103,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -103,6 +115,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -113,6 +126,7 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields()

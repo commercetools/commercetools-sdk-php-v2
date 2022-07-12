@@ -20,6 +20,7 @@ interface DiscountCodeInfo extends JsonObject
     /**
      * <p>References a discount code by key.</p>
      *
+
      * @return null|DiscountCodeKeyReference
      */
     public function getDiscountCode();
@@ -27,6 +28,7 @@ interface DiscountCodeInfo extends JsonObject
     /**
      * <p>Maps to <code>DiscountCodeInfo.state</code></p>
      *
+
      * @return null|string
      */
     public function getState();

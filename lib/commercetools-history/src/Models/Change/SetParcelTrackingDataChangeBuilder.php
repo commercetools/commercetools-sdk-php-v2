@@ -25,21 +25,25 @@ use Commercetools\History\Models\Common\TrackingDataBuilder;
 final class SetParcelTrackingDataChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|ParcelChangeValue|ParcelChangeValueBuilder
      */
     private $parcel;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $previousValue;
@@ -47,6 +51,7 @@ final class SetParcelTrackingDataChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setParcelTrackingData</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class SetParcelTrackingDataChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -63,6 +69,7 @@ final class SetParcelTrackingDataChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getNextValue()
@@ -71,6 +78,7 @@ final class SetParcelTrackingDataChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getPreviousValue()

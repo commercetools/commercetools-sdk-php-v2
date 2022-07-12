@@ -21,6 +21,7 @@ interface ProductDiscountSetValidFromAndUntilAction extends ProductDiscountUpdat
      * <p>Value to set.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -29,6 +30,7 @@ interface ProductDiscountSetValidFromAndUntilAction extends ProductDiscountUpdat
      * <p>Value to set.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

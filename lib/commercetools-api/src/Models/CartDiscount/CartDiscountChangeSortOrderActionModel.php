@@ -21,11 +21,13 @@ final class CartDiscountChangeSortOrderActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'changeSortOrder';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $sortOrder;
@@ -42,6 +44,7 @@ final class CartDiscountChangeSortOrderActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class CartDiscountChangeSortOrderActionModel extends JsonObjectModel imple
      * <p>New value to set (between <code>0</code> and <code>1</code>).
      * A Discount with a higher sortOrder is prioritized.</p>
      *
+
      * @return null|string
      */
     public function getSortOrder()

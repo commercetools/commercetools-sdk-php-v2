@@ -16,6 +16,7 @@ interface MyCustomerChangeEmailAction extends MyCustomerUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+
      * @return null|string
      */
     public function getEmail();

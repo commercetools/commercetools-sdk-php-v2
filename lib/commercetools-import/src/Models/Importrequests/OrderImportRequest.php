@@ -19,6 +19,7 @@ interface OrderImportRequest extends ImportRequest
     /**
      * <p>The order import resources of this request.</p>
      *
+
      * @return null|OrderImportCollection
      */
     public function getResources();

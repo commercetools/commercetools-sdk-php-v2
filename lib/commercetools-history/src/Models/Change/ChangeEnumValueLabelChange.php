@@ -20,6 +20,7 @@ interface ChangeEnumValueLabelChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,6 +28,7 @@ interface ChangeEnumValueLabelChange extends Change
     /**
      * <p>Update action for <code>changeEnumValueLabel</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -34,6 +36,7 @@ interface ChangeEnumValueLabelChange extends Change
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -41,16 +44,19 @@ interface ChangeEnumValueLabelChange extends Change
     /**
      * <p>Key of the values that was updated</p>
      *
+
      * @return null|string
      */
     public function getValueKey();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();

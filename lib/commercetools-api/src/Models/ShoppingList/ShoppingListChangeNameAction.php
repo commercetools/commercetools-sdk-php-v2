@@ -17,6 +17,7 @@ interface ShoppingListChangeNameAction extends ShoppingListUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();

@@ -21,11 +21,13 @@ final class InvalidOperationErrorModel extends JsonObjectModel implements Invali
 {
     public const DISCRIMINATOR_VALUE = 'InvalidOperation';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InvalidOperationErrorModel extends JsonObjectModel implements Invali
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InvalidOperationErrorModel extends JsonObjectModel implements Invali
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

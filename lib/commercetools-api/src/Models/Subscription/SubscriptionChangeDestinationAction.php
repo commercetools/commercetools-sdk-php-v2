@@ -16,6 +16,7 @@ interface SubscriptionChangeDestinationAction extends SubscriptionUpdateAction
     public const FIELD_DESTINATION = 'destination';
 
     /**
+
      * @return null|Destination
      */
     public function getDestination();

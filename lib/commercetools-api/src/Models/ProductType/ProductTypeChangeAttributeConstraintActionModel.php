@@ -21,16 +21,19 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'changeAttributeConstraint';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?string
      */
     protected $newValue;
@@ -49,6 +52,7 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -68,6 +72,7 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -87,6 +92,7 @@ final class ProductTypeChangeAttributeConstraintActionModel extends JsonObjectMo
     /**
      * <p><code>None</code></p>
      *
+
      * @return null|string
      */
     public function getNewValue()

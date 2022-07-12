@@ -21,21 +21,25 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?int
      */
     protected $centAmount;
 
     /**
+
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $fractionDigits;
@@ -70,6 +74,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getCentAmount()
@@ -89,6 +94,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -108,6 +114,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     /**
      * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -131,6 +138,7 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
      * <li>Greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getFractionDigits()

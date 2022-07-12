@@ -19,6 +19,7 @@ interface RemovePaymentChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface RemovePaymentChange extends Change
     /**
      * <p>Update action for <code>addPayment</code> &amp; <code>removePayment</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getNextValue();
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPreviousValue();

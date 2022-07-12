@@ -19,6 +19,7 @@ interface DuplicateAttributeValueError extends ErrorObject
     /**
      * <p>The attribute in conflict.</p>
      *
+
      * @return null|Attribute
      */
     public function getAttribute();

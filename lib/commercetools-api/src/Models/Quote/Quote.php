@@ -64,6 +64,7 @@ interface Quote extends BaseResource
     /**
      * <p>Unique identifier of the Quote.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -71,6 +72,7 @@ interface Quote extends BaseResource
     /**
      * <p>Current version of the Quote.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -78,6 +80,7 @@ interface Quote extends BaseResource
     /**
      * <p>User-defined unique identifier of the Quote.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -85,6 +88,7 @@ interface Quote extends BaseResource
     /**
      * <p>Date and time (UTC) the Quote was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -92,6 +96,7 @@ interface Quote extends BaseResource
     /**
      * <p>Date and time (UTC) the Quote was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -99,6 +104,7 @@ interface Quote extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -106,6 +112,7 @@ interface Quote extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -113,6 +120,7 @@ interface Quote extends BaseResource
     /**
      * <p>The Quote Request related to this Quote.</p>
      *
+
      * @return null|QuoteRequestReference
      */
     public function getQuoteRequest();
@@ -120,6 +128,7 @@ interface Quote extends BaseResource
     /**
      * <p>The Staged Quote related to this Quote.</p>
      *
+
      * @return null|StagedQuoteReference
      */
     public function getStagedQuote();
@@ -127,6 +136,7 @@ interface Quote extends BaseResource
     /**
      * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested this Quote.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer();
@@ -135,6 +145,7 @@ interface Quote extends BaseResource
      * <p>Set automatically when <code>customer</code> is set and the Customer is a member of a Customer Group.
      * Used for Product Variant price selection.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -142,6 +153,7 @@ interface Quote extends BaseResource
     /**
      * <p>Expiration date for the Quote.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo();
@@ -149,6 +161,7 @@ interface Quote extends BaseResource
     /**
      * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment();
@@ -156,6 +169,7 @@ interface Quote extends BaseResource
     /**
      * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore();
@@ -163,6 +177,7 @@ interface Quote extends BaseResource
     /**
      * <p>The Line Items for which the Quote is requested.</p>
      *
+
      * @return null|LineItemCollection
      */
     public function getLineItems();
@@ -170,6 +185,7 @@ interface Quote extends BaseResource
     /**
      * <p>The Custom Line Items for which the Quote is requested.</p>
      *
+
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems();
@@ -178,6 +194,7 @@ interface Quote extends BaseResource
      * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
@@ -187,6 +204,7 @@ interface Quote extends BaseResource
      * Will be set automatically in the <code>Platform</code> TaxMode.
      * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
@@ -195,6 +213,7 @@ interface Quote extends BaseResource
      * <p>Used to determine the eligible <a href="ctp:api:type:ShippingMethod">ShippingMethods</a>
      * and rates as well as the tax rate of the Line Items.</p>
      *
+
      * @return null|Address
      */
     public function getShippingAddress();
@@ -202,6 +221,7 @@ interface Quote extends BaseResource
     /**
      * <p>The address used for invoicing.</p>
      *
+
      * @return null|Address
      */
     public function getBillingAddress();
@@ -209,6 +229,7 @@ interface Quote extends BaseResource
     /**
      * <p>The inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode();
@@ -216,6 +237,7 @@ interface Quote extends BaseResource
     /**
      * <p>The tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode();
@@ -223,6 +245,7 @@ interface Quote extends BaseResource
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode();
@@ -230,6 +253,7 @@ interface Quote extends BaseResource
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode();
@@ -237,6 +261,7 @@ interface Quote extends BaseResource
     /**
      * <p>Used for Product Variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -244,6 +269,7 @@ interface Quote extends BaseResource
     /**
      * <p>Set automatically once the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> is set.</p>
      *
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
@@ -251,6 +277,7 @@ interface Quote extends BaseResource
     /**
      * <p>Log of payment transactions related to this quote.</p>
      *
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo();
@@ -258,6 +285,7 @@ interface Quote extends BaseResource
     /**
      * <p>Used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
      *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
@@ -268,6 +296,7 @@ interface Quote extends BaseResource
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
@@ -275,6 +304,7 @@ interface Quote extends BaseResource
     /**
      * <p>Discounts only valid for this Quote, those cannot be associated to any other Cart or Order.</p>
      *
+
      * @return null|DirectDiscountCollection
      */
     public function getDirectDiscounts();
@@ -282,6 +312,7 @@ interface Quote extends BaseResource
     /**
      * <p>Custom Fields of this Quote.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

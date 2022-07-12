@@ -17,6 +17,7 @@ interface MyPaymentAddTransactionAction extends MyPaymentUpdateAction
     public const FIELD_TRANSACTION = 'transaction';
 
     /**
+
      * @return null|TransactionDraft
      */
     public function getTransaction();

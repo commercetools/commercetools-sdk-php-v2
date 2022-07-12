@@ -22,11 +22,13 @@ final class StagedQuoteSetValidToActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setValidTo';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validTo;
@@ -43,6 +45,7 @@ final class StagedQuoteSetValidToActionModel extends JsonObjectModel implements 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class StagedQuoteSetValidToActionModel extends JsonObjectModel implements 
     /**
      * <p>If <code>validTo</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()

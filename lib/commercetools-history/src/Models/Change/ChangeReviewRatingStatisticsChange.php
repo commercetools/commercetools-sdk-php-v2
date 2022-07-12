@@ -21,21 +21,25 @@ interface ChangeReviewRatingStatisticsChange extends Change
     /**
      * <p>Update action for <code>changeReviewRatingStatistics</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|ReviewRatingStatistics
      */
     public function getNextValue();
 
     /**
+
      * @return null|ReviewRatingStatistics
      */
     public function getPreviousValue();

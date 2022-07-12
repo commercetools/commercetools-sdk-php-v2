@@ -18,6 +18,7 @@ interface StagedOrderSetReturnInfoAction extends StagedOrderUpdateAction
     public const FIELD_ITEMS = 'items';
 
     /**
+
      * @return null|ReturnInfoDraftCollection
      */
     public function getItems();

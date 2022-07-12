@@ -21,11 +21,13 @@ final class StateChangeKeyActionModel extends JsonObjectModel implements StateCh
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $key;
@@ -42,6 +44,7 @@ final class StateChangeKeyActionModel extends JsonObjectModel implements StateCh
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class StateChangeKeyActionModel extends JsonObjectModel implements StateCh
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getKey()

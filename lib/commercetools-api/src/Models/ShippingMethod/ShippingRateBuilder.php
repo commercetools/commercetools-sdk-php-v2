@@ -23,21 +23,25 @@ use stdClass;
 final class ShippingRateBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $freeAbove;
 
     /**
+
      * @var ?bool
      */
     private $isMatching;
 
     /**
+
      * @var ?ShippingRatePriceTierCollection
      */
     private $tiers;
@@ -45,6 +49,7 @@ final class ShippingRateBuilder implements Builder
     /**
      * <p>Currency amount of the ShippingRate.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getPrice()
@@ -55,6 +60,7 @@ final class ShippingRateBuilder implements Builder
     /**
      * <p>Shipping is free if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getFreeAbove()
@@ -67,6 +73,7 @@ final class ShippingRateBuilder implements Builder
      * Only appears in response to requests for <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> or
      * <a href="#get-shippingmethods-for-a-location">Get ShippingMethods for a Location</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching()
@@ -77,6 +84,7 @@ final class ShippingRateBuilder implements Builder
     /**
      * <p>Price tiers for the ShippingRate.</p>
      *
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()

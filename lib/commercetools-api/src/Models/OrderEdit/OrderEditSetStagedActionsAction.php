@@ -19,6 +19,7 @@ interface OrderEditSetStagedActionsAction extends OrderEditUpdateAction
     /**
      * <p>The actions to edit the <code>resource</code>.</p>
      *
+
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions();

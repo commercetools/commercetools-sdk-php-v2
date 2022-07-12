@@ -21,16 +21,19 @@ use stdClass;
 final class MissingAttributesDetailsBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $missingAttributeNames;
 
     /**
+
      * @var ?int
      */
     private $missingAttributeValues;
@@ -38,6 +41,7 @@ final class MissingAttributesDetailsBuilder implements Builder
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -48,6 +52,7 @@ final class MissingAttributesDetailsBuilder implements Builder
     /**
      * <p>Number of products missing attribute names.</p>
      *
+
      * @return null|int
      */
     public function getMissingAttributeNames()
@@ -58,6 +63,7 @@ final class MissingAttributesDetailsBuilder implements Builder
     /**
      * <p>Number of products missing attribute values.</p>
      *
+
      * @return null|int
      */
     public function getMissingAttributeValues()

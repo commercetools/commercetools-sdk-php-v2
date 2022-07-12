@@ -19,6 +19,7 @@ interface ChangeAmountAuthorizedChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface ChangeAmountAuthorizedChange extends Change
     /**
      * <p>Internal Update action for <code>changeAmountAuthorized</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Money
      */
     public function getNextValue();

@@ -18,11 +18,13 @@ interface ItemState extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|Reference
      */
     public function getState();

@@ -23,11 +23,13 @@ use stdClass;
 final class StoreAddProductSelectionActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductSelectionResourceIdentifier|ProductSelectionResourceIdentifierBuilder
      */
     private $productSelection;
 
     /**
+
      * @var ?bool
      */
     private $active;
@@ -35,6 +37,7 @@ final class StoreAddProductSelectionActionBuilder implements Builder
     /**
      * <p>Product Selection to add to the Store either activated or deactivated.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
@@ -45,6 +48,7 @@ final class StoreAddProductSelectionActionBuilder implements Builder
     /**
      * <p>Set to <code>true</code> to make all Products assigned to the referenced Product Selection available in the Store.</p>
      *
+
      * @return null|bool
      */
     public function getActive()

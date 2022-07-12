@@ -21,11 +21,13 @@ final class InvalidInputErrorModel extends JsonObjectModel implements InvalidInp
 {
     public const DISCRIMINATOR_VALUE = 'InvalidInput';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InvalidInputErrorModel extends JsonObjectModel implements InvalidInp
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InvalidInputErrorModel extends JsonObjectModel implements InvalidInp
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

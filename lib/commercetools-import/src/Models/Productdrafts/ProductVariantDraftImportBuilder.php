@@ -24,36 +24,43 @@ use stdClass;
 final class ProductVariantDraftImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?PriceDraftImportCollection
      */
     private $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -62,6 +69,7 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -70,6 +78,7 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|PriceDraftImportCollection
      */
     public function getPrices()
@@ -78,6 +87,7 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -86,6 +96,7 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -94,6 +105,7 @@ final class ProductVariantDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets()

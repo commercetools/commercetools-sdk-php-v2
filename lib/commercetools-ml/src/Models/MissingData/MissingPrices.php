@@ -18,6 +18,7 @@ interface MissingPrices extends JsonObject
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -25,6 +26,7 @@ interface MissingPrices extends JsonObject
     /**
      * <p>Id of the <code>ProductVariant</code>.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();

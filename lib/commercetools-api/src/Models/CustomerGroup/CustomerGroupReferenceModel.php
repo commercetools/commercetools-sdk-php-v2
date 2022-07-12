@@ -23,16 +23,19 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
 {
     public const DISCRIMINATOR_VALUE = 'customer-group';
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?CustomerGroup
      */
     protected $obj;
@@ -53,6 +56,7 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -72,6 +76,7 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -91,6 +96,7 @@ final class CustomerGroupReferenceModel extends JsonObjectModel implements Custo
     /**
      * <p>Contains the representation of the expanded CustomerGroup. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomerGroups.</p>
      *
+
      * @return null|CustomerGroup
      */
     public function getObj()

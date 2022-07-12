@@ -39,6 +39,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.value</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -46,6 +47,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.county</code>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -53,6 +55,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -60,6 +63,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.validUntil</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -68,6 +72,7 @@ interface PriceImport extends ImportResource
      * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup();
@@ -76,6 +81,7 @@ interface PriceImport extends ImportResource
      * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
      * If referenced Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel();
@@ -83,6 +89,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
@@ -90,6 +97,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Only the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
      *
+
      * @return null|bool
      */
     public function getPublish();
@@ -97,6 +105,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>The tiered prices for this price.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers();
@@ -104,6 +113,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>The custom fields for this price.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();
@@ -113,6 +123,7 @@ interface PriceImport extends ImportResource
      * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
      * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
+
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant();
@@ -122,6 +133,7 @@ interface PriceImport extends ImportResource
      * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
      * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct();

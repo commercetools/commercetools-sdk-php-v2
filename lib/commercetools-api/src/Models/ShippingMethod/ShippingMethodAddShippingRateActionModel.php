@@ -23,16 +23,19 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'addShippingRate';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ZoneResourceIdentifier
      */
     protected $zone;
 
     /**
+
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
@@ -51,6 +54,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -70,6 +74,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> to which the ShippingRate should be added.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()
@@ -90,6 +95,7 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     /**
      * <p>Value to add to <code>shippingRates</code>.</p>
      *
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()

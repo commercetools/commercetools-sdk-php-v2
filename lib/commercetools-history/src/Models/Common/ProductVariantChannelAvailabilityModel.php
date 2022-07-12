@@ -22,16 +22,19 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
 
 
     /**
+
      * @var ?bool
      */
     protected $isOnStock;
 
     /**
+
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
+
      * @var ?int
      */
     protected $availableQuantity;
@@ -52,6 +55,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsOnStock()
@@ -69,6 +73,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|int
      */
     public function getRestockableInDays()
@@ -86,6 +91,7 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|int
      */
     public function getAvailableQuantity()

@@ -21,6 +21,7 @@ use stdClass;
 final class CategoryChangeParentActionBuilder implements Builder
 {
     /**
+
      * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $parent;
@@ -28,6 +29,7 @@ final class CategoryChangeParentActionBuilder implements Builder
     /**
      * <p>New value to set as parent.</p>
      *
+
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()

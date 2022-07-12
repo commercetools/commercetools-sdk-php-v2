@@ -19,6 +19,7 @@ interface ErrorByExtension extends JsonObject
     /**
      * <p>Unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -26,6 +27,7 @@ interface ErrorByExtension extends JsonObject
     /**
      * <p>User-defined unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getKey();

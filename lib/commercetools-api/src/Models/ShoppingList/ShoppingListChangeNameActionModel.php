@@ -23,11 +23,13 @@ final class ShoppingListChangeNameActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
@@ -44,6 +46,7 @@ final class ShoppingListChangeNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class ShoppingListChangeNameActionModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()

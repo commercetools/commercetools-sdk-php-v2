@@ -21,6 +21,7 @@ use stdClass;
 final class CustomFieldReferenceTypeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $referenceTypeId;
@@ -28,6 +29,7 @@ final class CustomFieldReferenceTypeBuilder implements Builder
     /**
      * <p>Resource type the Custom Field can reference.</p>
      *
+
      * @return null|string
      */
     public function getReferenceTypeId()

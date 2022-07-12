@@ -18,6 +18,7 @@ interface ItemShippingDetailsDraft extends JsonObject
     /**
      * <p>Maps to <code>ItemShippingDetailsDraft.targets</code>.</p>
      *
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets();

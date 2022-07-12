@@ -22,11 +22,13 @@ interface DirectDiscount extends JsonObject
     /**
      * <p>The unique ID of the cart discount.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|CartDiscountValue
      */
     public function getValue();
@@ -34,6 +36,7 @@ interface DirectDiscount extends JsonObject
     /**
      * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
      *
+
      * @return null|CartDiscountTarget
      */
     public function getTarget();

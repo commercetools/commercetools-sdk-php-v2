@@ -24,21 +24,25 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
 
     public const DISCRIMINATOR_VALUE = 'AddLocationChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?Location
      */
     protected $previousValue;
 
     /**
+
      * @var ?Location
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     /**
      * <p>Update action for <code>addLocation</code> on zones</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -97,6 +103,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+
      * @return null|Location
      */
     public function getPreviousValue()
@@ -117,6 +124,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+
      * @return null|Location
      */
     public function getNextValue()

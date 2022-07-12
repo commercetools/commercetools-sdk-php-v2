@@ -21,6 +21,7 @@ interface SetParcelMeasurementsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface SetParcelMeasurementsChange extends Change
     /**
      * <p>Update action for <code>setParcelMeasurements</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ParcelChangeValue
      */
     public function getParcel();
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getNextValue();
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getPreviousValue();

@@ -26,11 +26,13 @@ interface Delivery extends JsonObject
     /**
      * <p>Unique identifier of the Delivery.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -39,16 +41,19 @@ interface Delivery extends JsonObject
      * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
      * Can also be specified individually for each Parcel.</p>
      *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();
@@ -56,6 +61,7 @@ interface Delivery extends JsonObject
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

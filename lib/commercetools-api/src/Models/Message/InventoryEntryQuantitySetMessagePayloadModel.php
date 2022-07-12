@@ -23,31 +23,37 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryQuantitySet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $oldQuantityOnStock;
 
     /**
+
      * @var ?int
      */
     protected $newQuantityOnStock;
 
     /**
+
      * @var ?int
      */
     protected $oldAvailableQuantity;
 
     /**
+
      * @var ?int
      */
     protected $newAvailableQuantity;
 
     /**
+
      * @var ?ChannelReference
      */
     protected $supplyChannel;
@@ -72,6 +78,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -89,6 +96,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|int
      */
     public function getOldQuantityOnStock()
@@ -106,6 +114,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|int
      */
     public function getNewQuantityOnStock()
@@ -123,6 +132,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|int
      */
     public function getOldAvailableQuantity()
@@ -140,6 +150,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+
      * @return null|int
      */
     public function getNewAvailableQuantity()
@@ -159,6 +170,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

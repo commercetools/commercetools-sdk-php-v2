@@ -21,41 +21,49 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setAssetCustomField';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
@@ -84,6 +92,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -101,6 +110,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -118,6 +128,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -135,6 +146,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -152,6 +164,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -169,6 +182,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()
@@ -188,6 +202,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -209,6 +224,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

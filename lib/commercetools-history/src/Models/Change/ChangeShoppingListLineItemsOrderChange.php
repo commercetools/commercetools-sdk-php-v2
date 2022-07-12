@@ -19,21 +19,25 @@ interface ChangeShoppingListLineItemsOrderChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|ShoppingListLineItemValueCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|ShoppingListLineItemValueCollection
      */
     public function getNextValue();

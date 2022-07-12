@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\ReferenceBuilder;
 final class SetCustomerChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class SetCustomerChangeBuilder implements Builder
     /**
      * <p>Shape of the action for <code>setCustomer</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetCustomerChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue()
@@ -56,6 +61,7 @@ final class SetCustomerChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue()

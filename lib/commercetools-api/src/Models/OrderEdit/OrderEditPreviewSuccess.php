@@ -18,11 +18,13 @@ interface OrderEditPreviewSuccess extends OrderEditResult
     public const FIELD_MESSAGE_PAYLOADS = 'messagePayloads';
 
     /**
+
      * @return null|StagedOrder
      */
     public function getPreview();
 
     /**
+
      * @return null|MessagePayloadCollection
      */
     public function getMessagePayloads();

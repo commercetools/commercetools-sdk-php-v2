@@ -21,21 +21,25 @@ use stdClass;
 final class GraphQLRequestBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $query;
 
     /**
+
      * @var ?string
      */
     private $operationName;
 
     /**
+
      * @var null|GraphQLVariablesMap|GraphQLVariablesMapBuilder
      */
     private $variables;
 
     /**
+
      * @return null|string
      */
     public function getQuery()
@@ -44,6 +48,7 @@ final class GraphQLRequestBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getOperationName()
@@ -52,6 +57,7 @@ final class GraphQLRequestBuilder implements Builder
     }
 
     /**
+
      * @return null|GraphQLVariablesMap
      */
     public function getVariables()

@@ -17,11 +17,13 @@ interface CartApplyDeltaToLineItemShippingDetailsTargetsAction extends CartUpdat
     public const FIELD_TARGETS_DELTA = 'targetsDelta';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargetsDelta();

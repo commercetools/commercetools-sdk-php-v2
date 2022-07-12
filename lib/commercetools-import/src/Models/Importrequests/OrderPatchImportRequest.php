@@ -19,6 +19,7 @@ interface OrderPatchImportRequest extends ImportRequest
     /**
      * <p>The order patches of this request</p>
      *
+
      * @return null|OrderPatchImportCollection
      */
     public function getPatches();

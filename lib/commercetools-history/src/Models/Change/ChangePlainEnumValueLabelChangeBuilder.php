@@ -21,26 +21,31 @@ use stdClass;
 final class ChangePlainEnumValueLabelChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $valueKey;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
@@ -48,6 +53,7 @@ final class ChangePlainEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changePlainEnumValueLabel</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -58,6 +64,7 @@ final class ChangePlainEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -68,6 +75,7 @@ final class ChangePlainEnumValueLabelChangeBuilder implements Builder
     /**
      * <p>Key of the values that was updated</p>
      *
+
      * @return null|string
      */
     public function getValueKey()
@@ -76,6 +84,7 @@ final class ChangePlainEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -84,6 +93,7 @@ final class ChangePlainEnumValueLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

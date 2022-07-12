@@ -21,16 +21,19 @@ use stdClass;
 final class CartSetLineItemTaxRateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -39,6 +42,7 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

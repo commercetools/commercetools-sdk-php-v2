@@ -21,11 +21,13 @@ use stdClass;
 final class ImportContainerUpdateDraftBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?string
      */
     private $resourceType;
@@ -33,6 +35,7 @@ final class ImportContainerUpdateDraftBuilder implements Builder
     /**
      * <p>Current version of the ImportContainer.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -44,6 +47,7 @@ final class ImportContainerUpdateDraftBuilder implements Builder
      * <p>The <a href="#importresourcetype">resource type</a> to be imported.
      * If not given, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
      *
+
      * @return null|string
      */
     public function getResourceType()

@@ -21,21 +21,25 @@ interface ProductAddAssetAction extends ProductUpdateAction
     public const FIELD_POSITION = 'position';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+
      * @return null|AssetDraft
      */
     public function getAsset();
@@ -43,6 +47,7 @@ interface ProductAddAssetAction extends ProductUpdateAction
     /**
      * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
      *
+
      * @return null|int
      */
     public function getPosition();

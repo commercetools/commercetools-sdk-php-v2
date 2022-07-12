@@ -21,6 +21,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -42,6 +43,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

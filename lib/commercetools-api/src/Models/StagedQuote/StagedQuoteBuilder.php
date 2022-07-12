@@ -36,71 +36,85 @@ use stdClass;
 final class StagedQuoteBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $stagedQuoteState;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var null|QuoteRequestReference|QuoteRequestReferenceBuilder
      */
     private $quoteRequest;
 
     /**
+
      * @var null|CartReference|CartReferenceBuilder
      */
     private $quotationCart;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validTo;
 
     /**
+
      * @var ?string
      */
     private $sellerComment;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -108,6 +122,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>The unique ID of the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -118,6 +133,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -128,6 +144,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Date and time (UTC) the StagedQuote was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -138,6 +155,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Date and time (UTC) the StagedQuote was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -148,6 +166,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>User-specific unique identifier of the staged quote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -158,6 +177,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -168,6 +188,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -178,6 +199,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -188,6 +210,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -198,6 +221,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>The Quote Request related to this Staged Quote.</p>
      *
+
      * @return null|QuoteRequestReference
      */
     public function getQuoteRequest()
@@ -208,6 +232,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
      *
+
      * @return null|CartReference
      */
     public function getQuotationCart()
@@ -218,6 +243,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Expiration date for the quote.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()
@@ -228,6 +254,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment()
@@ -238,6 +265,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Custom Fields of this Staged Quote.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

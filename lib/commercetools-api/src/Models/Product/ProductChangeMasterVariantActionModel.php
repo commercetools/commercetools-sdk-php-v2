@@ -21,21 +21,25 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeMasterVariant';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -56,6 +60,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -90,6 +96,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -107,6 +114,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

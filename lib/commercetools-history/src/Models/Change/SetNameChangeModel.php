@@ -24,21 +24,25 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
 
     public const DISCRIMINATOR_VALUE = 'SetNameChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -59,6 +63,7 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
     /**
      * <p>Shape of the action for <code>setName</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -113,6 +120,7 @@ final class SetNameChangeModel extends JsonObjectModel implements SetNameChange
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

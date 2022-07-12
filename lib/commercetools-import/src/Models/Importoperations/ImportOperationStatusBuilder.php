@@ -22,16 +22,19 @@ use stdClass;
 final class ImportOperationStatusBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $operationId;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?ErrorObjectCollection
      */
     private $errors;
@@ -39,6 +42,7 @@ final class ImportOperationStatusBuilder implements Builder
     /**
      * <p>The ID of the <a href="#importoperation">ImportOperation</a>.</p>
      *
+
      * @return null|string
      */
     public function getOperationId()
@@ -49,6 +53,7 @@ final class ImportOperationStatusBuilder implements Builder
     /**
      * <p>The validation state of the <a href="#importoperation">ImportOperation</a>.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -60,6 +65,7 @@ final class ImportOperationStatusBuilder implements Builder
      * <p>The validation errors for the <a href="#importoperation">ImportOperation</a>.
      * See <a href="/error">Errors</a>.</p>
      *
+
      * @return null|ErrorObjectCollection
      */
     public function getErrors()

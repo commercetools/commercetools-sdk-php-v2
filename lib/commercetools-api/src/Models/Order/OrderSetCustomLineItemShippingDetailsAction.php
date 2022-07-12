@@ -18,11 +18,13 @@ interface OrderSetCustomLineItemShippingDetailsAction extends OrderUpdateAction
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

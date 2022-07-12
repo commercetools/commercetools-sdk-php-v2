@@ -23,11 +23,13 @@ use stdClass;
 final class MoneyAttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
@@ -37,6 +39,7 @@ final class MoneyAttributeBuilder implements Builder
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -45,6 +48,7 @@ final class MoneyAttributeBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue()

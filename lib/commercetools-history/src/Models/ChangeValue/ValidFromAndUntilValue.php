@@ -18,11 +18,13 @@ interface ValidFromAndUntilValue extends JsonObject
     public const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+
      * @return null|string
      */
     public function getValidFrom();
 
     /**
+
      * @return null|string
      */
     public function getValidUntil();

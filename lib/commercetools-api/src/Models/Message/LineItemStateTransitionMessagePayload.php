@@ -22,16 +22,19 @@ interface LineItemStateTransitionMessagePayload extends OrderMessagePayload
     public const FIELD_TO_STATE = 'toState';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getTransitionDate();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
@@ -39,6 +42,7 @@ interface LineItemStateTransitionMessagePayload extends OrderMessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getFromState();
@@ -46,6 +50,7 @@ interface LineItemStateTransitionMessagePayload extends OrderMessagePayload
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateReference
      */
     public function getToState();

@@ -21,11 +21,13 @@ use stdClass;
 final class ShippingRatePriceTierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @return null|string
      */
     public function getType()

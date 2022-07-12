@@ -21,6 +21,7 @@ final class MyCartUpdateActionModel extends JsonObjectModel implements MyCartUpd
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -68,6 +69,7 @@ final class MyCartUpdateActionModel extends JsonObjectModel implements MyCartUpd
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

@@ -21,11 +21,13 @@ use stdClass;
 final class RemoveParcelFromDeliveryDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @return null|string
      */
     public function getParcelId()

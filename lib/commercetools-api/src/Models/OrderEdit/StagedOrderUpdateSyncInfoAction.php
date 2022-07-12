@@ -23,16 +23,19 @@ interface StagedOrderUpdateSyncInfoAction extends StagedOrderUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel();
 
     /**
+
      * @return null|string
      */
     public function getExternalId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt();

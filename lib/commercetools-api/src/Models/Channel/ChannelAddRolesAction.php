@@ -18,6 +18,7 @@ interface ChannelAddRolesAction extends ChannelUpdateAction
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|array
      */
     public function getRoles();

@@ -22,11 +22,13 @@ use stdClass;
 final class StagedQuoteValidToSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validTo;
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()

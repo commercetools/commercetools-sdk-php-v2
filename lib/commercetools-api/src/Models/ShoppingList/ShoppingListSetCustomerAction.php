@@ -17,6 +17,7 @@ interface ShoppingListSetCustomerAction extends ShoppingListUpdateAction
     public const FIELD_CUSTOMER = 'customer';
 
     /**
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();

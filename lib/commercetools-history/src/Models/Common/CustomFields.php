@@ -18,6 +18,7 @@ interface CustomFields extends JsonObject
     public const FIELD_FIELDS = 'fields';
 
     /**
+
      * @return null|Reference
      */
     public function getType();
@@ -25,6 +26,7 @@ interface CustomFields extends JsonObject
     /**
      * <p>A valid JSON object, based on FieldDefinition.</p>
      *
+
      * @return null|mixed
      */
     public function getFields();

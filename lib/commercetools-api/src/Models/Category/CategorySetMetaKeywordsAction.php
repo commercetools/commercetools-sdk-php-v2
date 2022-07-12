@@ -19,6 +19,7 @@ interface CategorySetMetaKeywordsAction extends CategoryUpdateAction
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();

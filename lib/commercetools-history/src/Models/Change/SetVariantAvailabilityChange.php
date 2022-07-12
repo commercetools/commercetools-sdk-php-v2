@@ -21,6 +21,7 @@ interface SetVariantAvailabilityChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface SetVariantAvailabilityChange extends Change
     /**
      * <p>Update action for <code>setVariantAvailability</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|ProductVariantAvailability
      */
     public function getNextValue();

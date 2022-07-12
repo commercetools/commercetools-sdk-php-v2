@@ -21,11 +21,13 @@ use stdClass;
 final class BooleanFieldBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $value;
 
     /**
+
      * @return null|bool
      */
     public function getValue()

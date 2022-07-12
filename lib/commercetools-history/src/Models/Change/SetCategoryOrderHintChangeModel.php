@@ -24,31 +24,37 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
 
     public const DISCRIMINATOR_VALUE = 'SetCategoryOrderHintChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?string
      */
     protected $categoryId;
 
     /**
+
      * @var ?CategoryOrderHints
      */
     protected $previousValue;
 
     /**
+
      * @var ?CategoryOrderHints
      */
     protected $nextValue;
@@ -73,6 +79,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -92,6 +99,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
     /**
      * <p>Update action for <code>setCategoryOrderHint</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -109,6 +117,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -126,6 +135,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getCategoryId()
@@ -143,6 +153,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getPreviousValue()
@@ -161,6 +172,7 @@ final class SetCategoryOrderHintChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|CategoryOrderHints
      */
     public function getNextValue()

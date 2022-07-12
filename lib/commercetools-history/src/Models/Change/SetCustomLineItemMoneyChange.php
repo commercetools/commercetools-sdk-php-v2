@@ -22,6 +22,7 @@ interface SetCustomLineItemMoneyChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,26 +30,31 @@ interface SetCustomLineItemMoneyChange extends Change
     /**
      * <p>Update action for <code>setCustomLineItemMoney</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem();
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|Money
      */
     public function getNextValue();
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue();

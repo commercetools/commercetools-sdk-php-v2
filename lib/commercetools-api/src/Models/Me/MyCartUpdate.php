@@ -17,11 +17,13 @@ interface MyCartUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|MyCartUpdateActionCollection
      */
     public function getActions();

@@ -16,6 +16,7 @@ interface NumberSetField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|array
      */
     public function getValue();

@@ -19,6 +19,7 @@ interface AddParcelToDeliveryChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface AddParcelToDeliveryChange extends Change
     /**
      * <p>Update action for <code>addParcelToDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|Parcel
      */
     public function getNextValue();

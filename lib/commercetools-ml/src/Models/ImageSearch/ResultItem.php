@@ -20,6 +20,7 @@ interface ResultItem extends JsonObject
     /**
      * <p>The URL of the image.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl();
@@ -27,6 +28,7 @@ interface ResultItem extends JsonObject
     /**
      * <p>An array of product variants containing the image URL.</p>
      *
+
      * @return null|ProductVariantCollection
      */
     public function getProductVariants();

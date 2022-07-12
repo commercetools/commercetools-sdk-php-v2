@@ -21,6 +21,7 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,6 +29,7 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
     /**
      * <p>Update action for <code>changeLocalizedEnumValueOrder</code> on types and product types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -35,6 +37,7 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -42,16 +45,19 @@ interface ChangeLocalizedEnumValueOrderChange extends Change
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+
      * @return null|LocalizedEnumValueCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|LocalizedEnumValueCollection
      */
     public function getPreviousValue();

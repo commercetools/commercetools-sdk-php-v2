@@ -17,6 +17,7 @@ interface CartAddItemShippingAddressAction extends CartUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();

@@ -21,6 +21,7 @@ interface ChangeLabelChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,6 +29,7 @@ interface ChangeLabelChange extends Change
     /**
      * <p>Update action for <code>changeLabel</code> on product types and types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -35,6 +37,7 @@ interface ChangeLabelChange extends Change
     /**
      * <p>The name of the field definition to update (types).</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -42,16 +45,19 @@ interface ChangeLabelChange extends Change
     /**
      * <p>The name of the attribute definition to update (product-type).</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();

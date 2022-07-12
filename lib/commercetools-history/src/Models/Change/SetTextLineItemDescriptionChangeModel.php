@@ -26,26 +26,31 @@ final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'SetTextLineItemDescriptionChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?TextLineItemValue
      */
     protected $textLineItem;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -68,6 +73,7 @@ final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -120,6 +128,7 @@ final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -138,6 +147,7 @@ final class SetTextLineItemDescriptionChangeModel extends JsonObjectModel implem
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

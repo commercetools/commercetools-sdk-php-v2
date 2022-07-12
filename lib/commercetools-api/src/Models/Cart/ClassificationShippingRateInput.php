@@ -18,6 +18,7 @@ interface ClassificationShippingRateInput extends ShippingRateInput
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getKey();
@@ -25,6 +26,7 @@ interface ClassificationShippingRateInput extends ShippingRateInput
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();

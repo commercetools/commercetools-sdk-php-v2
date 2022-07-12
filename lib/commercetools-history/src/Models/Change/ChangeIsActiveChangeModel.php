@@ -22,21 +22,25 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
 
     public const DISCRIMINATOR_VALUE = 'ChangeIsActiveChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?bool
      */
     protected $previousValue;
 
     /**
+
      * @var ?bool
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     /**
      * <p>Shape of the action for <code>changeIsActive</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -93,6 +99,7 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     }
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue()
@@ -110,6 +117,7 @@ final class ChangeIsActiveChangeModel extends JsonObjectModel implements ChangeI
     }
 
     /**
+
      * @return null|bool
      */
     public function getNextValue()

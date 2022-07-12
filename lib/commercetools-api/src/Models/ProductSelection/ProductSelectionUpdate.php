@@ -17,11 +17,13 @@ interface ProductSelectionUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|ProductSelectionUpdateActionCollection
      */
     public function getActions();

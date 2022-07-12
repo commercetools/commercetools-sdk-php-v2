@@ -22,11 +22,13 @@ use stdClass;
 final class ResultItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $imageUrl;
 
     /**
+
      * @var ?ProductVariantCollection
      */
     private $productVariants;
@@ -34,6 +36,7 @@ final class ResultItemBuilder implements Builder
     /**
      * <p>The URL of the image.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -44,6 +47,7 @@ final class ResultItemBuilder implements Builder
     /**
      * <p>An array of product variants containing the image URL.</p>
      *
+
      * @return null|ProductVariantCollection
      */
     public function getProductVariants()

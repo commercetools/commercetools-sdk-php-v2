@@ -21,11 +21,13 @@ final class ProductDiscountValueRelativeDraftModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'relative';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?int
      */
     protected $permyriad;
@@ -42,6 +44,7 @@ final class ProductDiscountValueRelativeDraftModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class ProductDiscountValueRelativeDraftModel extends JsonObjectModel imple
     /**
      * <p>Fraction (per ten thousand) the price is reduced by. For example, <code>1000</code> will result in a 10% price reduction.</p>
      *
+
      * @return null|int
      */
     public function getPermyriad()

@@ -17,6 +17,7 @@ interface ReferenceSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|KeyReferenceCollection
      */
     public function getValue();

@@ -25,16 +25,19 @@ use stdClass;
 final class StagedOrderSetCustomLineItemShippingDetailsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -43,6 +46,7 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionBuilder implements 
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class ChangeSlugChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class ChangeSlugChangeBuilder implements Builder
     /**
      * <p>Shape of the action for <code>changeSlug</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class ChangeSlugChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -56,6 +61,7 @@ final class ChangeSlugChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()

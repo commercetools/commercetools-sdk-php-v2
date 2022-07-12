@@ -17,11 +17,13 @@ interface OrderPaymentStateChangedMessage extends OrderMessage
     public const FIELD_OLD_PAYMENT_STATE = 'oldPaymentState';
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();
 
     /**
+
      * @return null|string
      */
     public function getOldPaymentState();

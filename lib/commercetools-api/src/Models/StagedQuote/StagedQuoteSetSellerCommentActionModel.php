@@ -21,11 +21,13 @@ final class StagedQuoteSetSellerCommentActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setSellerComment';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $sellerComment;
@@ -42,6 +44,7 @@ final class StagedQuoteSetSellerCommentActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedQuoteSetSellerCommentActionModel extends JsonObjectModel imple
     /**
      * <p>If <code>sellerComment</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment()

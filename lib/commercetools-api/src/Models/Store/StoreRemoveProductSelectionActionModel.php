@@ -23,11 +23,13 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'removeProductSelection';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
@@ -44,6 +46,7 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
     /**
      * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()

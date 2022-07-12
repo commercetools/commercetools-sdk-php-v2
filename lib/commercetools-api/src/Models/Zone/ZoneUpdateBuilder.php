@@ -21,11 +21,13 @@ use stdClass;
 final class ZoneUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?ZoneUpdateActionCollection
      */
     private $actions;
@@ -33,6 +35,7 @@ final class ZoneUpdateBuilder implements Builder
     /**
      * <p>Expected version of the Zone on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -43,6 +46,7 @@ final class ZoneUpdateBuilder implements Builder
     /**
      * <p>Update actions to be performed on the Zone.</p>
      *
+
      * @return null|ZoneUpdateActionCollection
      */
     public function getActions()

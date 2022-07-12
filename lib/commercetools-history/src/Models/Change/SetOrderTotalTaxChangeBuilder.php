@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\MoneyBuilder;
 final class SetOrderTotalTaxChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setOrderTotalTax</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -61,6 +67,7 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class SetOrderTotalTaxChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()

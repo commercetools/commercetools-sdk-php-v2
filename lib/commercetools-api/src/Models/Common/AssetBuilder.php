@@ -23,36 +23,43 @@ use stdClass;
 final class AssetBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     private $sources;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?array
      */
     private $tags;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -60,6 +67,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>Unique identifier of the Asset.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -68,6 +76,7 @@ final class AssetBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources()
@@ -78,6 +87,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>Name of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -88,6 +98,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>Description of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -98,6 +109,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
+
      * @return null|array
      */
     public function getTags()
@@ -108,6 +120,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>Custom Fields defined for the Asset.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -118,6 +131,7 @@ final class AssetBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Asset.</p>
      *
+
      * @return null|string
      */
     public function getKey()

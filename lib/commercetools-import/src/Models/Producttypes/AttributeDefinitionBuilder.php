@@ -23,46 +23,55 @@ use stdClass;
 final class AttributeDefinitionBuilder implements Builder
 {
     /**
+
      * @var null|AttributeType|AttributeTypeBuilder
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @var ?bool
      */
     private $isRequired;
 
     /**
+
      * @var ?string
      */
     private $attributeConstraint;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
 
     /**
+
      * @var ?string
      */
     private $inputHint;
 
     /**
+
      * @var ?bool
      */
     private $isSearchable;
 
     /**
+
      * @return null|AttributeType
      */
     public function getType()
@@ -71,6 +80,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -86,6 +96,7 @@ final class AttributeDefinitionBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -94,6 +105,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsRequired()
@@ -102,6 +114,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getAttributeConstraint()
@@ -117,6 +130,7 @@ final class AttributeDefinitionBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip()
@@ -125,6 +139,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getInputHint()
@@ -133,6 +148,7 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsSearchable()

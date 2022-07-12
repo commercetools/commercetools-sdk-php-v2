@@ -21,31 +21,37 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'removeAsset';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?int
      */
     protected $variantId;
 
     /**
+
      * @var ?string
      */
     protected $sku;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
 
     /**
+
      * @var ?string
      */
     protected $assetId;
 
     /**
+
      * @var ?string
      */
     protected $assetKey;
@@ -70,6 +76,7 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -87,6 +94,7 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -104,6 +112,7 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -121,6 +130,7 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()
@@ -138,6 +148,7 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetId()
@@ -155,6 +166,7 @@ final class ProductRemoveAssetActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+
      * @return null|string
      */
     public function getAssetKey()

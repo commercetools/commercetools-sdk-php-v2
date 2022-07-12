@@ -16,6 +16,7 @@ interface CustomerTitleSetMessagePayload extends MessagePayload
     public const FIELD_TITLE = 'title';
 
     /**
+
      * @return null|string
      */
     public function getTitle();

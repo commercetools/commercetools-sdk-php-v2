@@ -20,11 +20,13 @@ use stdClass;
 final class SubRateModel extends JsonObjectModel implements SubRate
 {
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?float
      */
     protected $amount;
@@ -42,6 +44,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -59,6 +62,7 @@ final class SubRateModel extends JsonObjectModel implements SubRate
     }
 
     /**
+
      * @return null|float
      */
     public function getAmount()

@@ -21,16 +21,19 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
 {
     public const DISCRIMINATOR_VALUE = 'setParcelItems';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -49,6 +52,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -83,6 +88,7 @@ final class OrderSetParcelItemsActionModel extends JsonObjectModel implements Or
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

@@ -17,11 +17,13 @@ interface OrderCustomerEmailSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_EMAIL = 'oldEmail';
 
     /**
+
      * @return null|string
      */
     public function getEmail();
 
     /**
+
      * @return null|string
      */
     public function getOldEmail();

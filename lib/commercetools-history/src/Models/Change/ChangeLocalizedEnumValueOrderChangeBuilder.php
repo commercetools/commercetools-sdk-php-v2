@@ -22,26 +22,31 @@ use Commercetools\History\Models\ChangeValue\LocalizedEnumValueCollection;
 final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?LocalizedEnumValueCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?LocalizedEnumValueCollection
      */
     private $previousValue;
@@ -49,6 +54,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeLocalizedEnumValueOrder</code> on types and product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -59,6 +65,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -69,6 +76,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -77,6 +85,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedEnumValueCollection
      */
     public function getNextValue()
@@ -85,6 +94,7 @@ final class ChangeLocalizedEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedEnumValueCollection
      */
     public function getPreviousValue()

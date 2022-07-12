@@ -33,101 +33,121 @@ use stdClass;
 final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?CartDiscountReferenceCollection
      */
     protected $cartDiscounts;
 
     /**
+
      * @var ?string
      */
     protected $cartPredicate;
 
     /**
+
      * @var ?bool
      */
     protected $isActive;
 
     /**
+
      * @var ?ReferenceCollection
      */
     protected $references;
 
     /**
+
      * @var ?int
      */
     protected $maxApplications;
 
     /**
+
      * @var ?int
      */
     protected $maxApplicationsPerCustomer;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?array
      */
     protected $groups;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+
      * @var ?int
      */
     protected $applicationVersion;
@@ -183,6 +203,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Unique identifier of the DiscountCode.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -202,6 +223,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Current version of the DiscountCode.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -221,6 +243,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Date and time (UTC) the DiscountCode was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -244,6 +267,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Date and time (UTC) the DiscountCode was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -267,6 +291,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -287,6 +312,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -307,6 +333,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Name of the DiscountCode.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -327,6 +354,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Description of the DiscountCode.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -347,6 +375,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>User-defined unique identifier of the DiscountCode <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
+
      * @return null|string
      */
     public function getCode()
@@ -366,6 +395,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Reference to CartDiscounts that can be applied to the Cart once the DiscountCode is applied.</p>
      *
+
      * @return null|CartDiscountReferenceCollection
      */
     public function getCartDiscounts()
@@ -385,6 +415,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
      *
+
      * @return null|string
      */
     public function getCartPredicate()
@@ -404,6 +435,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Indicates if the DiscountCode is active and can be applied to the Cart.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive()
@@ -424,6 +456,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      * <p>Array generated from the Cart predicate.
      * It contains the references of all the resources that are addressed in the predicate.</p>
      *
+
      * @return null|ReferenceCollection
      */
     public function getReferences()
@@ -444,6 +477,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      * <p>Number of times the DiscountCode can be applied.
      * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplications()
@@ -464,6 +498,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      * <p>Number of times the DiscountCode can be applied per Customer (anonymous Carts are not supported).
      * DiscountCode application is counted at the time of Order creation or edit. However, Order cancellation or deletion does not decrement the count.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer()
@@ -483,6 +518,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Custom Fields of the DiscountCode.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -503,6 +539,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Groups to which the DiscountCode belongs to.</p>
      *
+
      * @return null|array
      */
     public function getGroups()
@@ -522,6 +559,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Date and time (UTC) from which the DiscountCode is effective.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -545,6 +583,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * <p>Date and time (UTC) until which the DiscountCode is effective.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -569,6 +608,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      * <p>Used and managed by the API and must not be used in customer logic.
      * The value can change at any time due to internal and external factors.</p>
      *
+
      * @return null|int
      */
     public function getApplicationVersion()

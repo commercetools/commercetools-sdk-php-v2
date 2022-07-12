@@ -19,21 +19,25 @@ interface ChangeAmountPlannedChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Money
      */
     public function getNextValue();

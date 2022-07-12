@@ -21,11 +21,13 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'CustomerLastNameSet';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $lastName;
@@ -42,6 +44,7 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getLastName()

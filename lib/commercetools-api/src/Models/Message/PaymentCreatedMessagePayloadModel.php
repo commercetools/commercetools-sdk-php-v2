@@ -23,11 +23,13 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'PaymentCreated';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?Payment
      */
     protected $payment;
@@ -44,6 +46,7 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|Payment
      */
     public function getPayment()

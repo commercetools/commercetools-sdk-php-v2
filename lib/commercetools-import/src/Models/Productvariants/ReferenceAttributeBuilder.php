@@ -23,11 +23,13 @@ use stdClass;
 final class ReferenceAttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|KeyReference|KeyReferenceBuilder
      */
     private $value;
@@ -37,6 +39,7 @@ final class ReferenceAttributeBuilder implements Builder
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -47,6 +50,7 @@ final class ReferenceAttributeBuilder implements Builder
     /**
      * <p>References a resource by key.</p>
      *
+
      * @return null|KeyReference
      */
     public function getValue()

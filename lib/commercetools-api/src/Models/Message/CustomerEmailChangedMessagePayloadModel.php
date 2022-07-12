@@ -21,11 +21,13 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'CustomerEmailChanged';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $email;
@@ -42,6 +44,7 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -59,6 +62,7 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+
      * @return null|string
      */
     public function getEmail()

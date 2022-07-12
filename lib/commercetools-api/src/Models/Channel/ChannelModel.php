@@ -37,71 +37,85 @@ use stdClass;
 final class ChannelModel extends JsonObjectModel implements Channel
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?array
      */
     protected $roles;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+
      * @var ?Address
      */
     protected $address;
 
     /**
+
      * @var ?ReviewRatingStatistics
      */
     protected $reviewRatingStatistics;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?GeoJson
      */
     protected $geoLocation;
@@ -145,6 +159,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Unique identifier of the Channel.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -164,6 +179,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Current version of the Channel.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -183,6 +199,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Date and time (UTC) the Channel was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -206,6 +223,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Date and time (UTC) the Channel was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -229,6 +247,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -249,6 +268,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -269,6 +289,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>User-defined unique identifier of the Channel.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -288,6 +309,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Roles of the Channel.</p>
      *
+
      * @return null|array
      */
     public function getRoles()
@@ -307,6 +329,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Name of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -327,6 +350,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Description of the Channel.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -347,6 +371,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Address where the Channel is located (for example, if the Channel is a physical store).</p>
      *
+
      * @return null|Address
      */
     public function getAddress()
@@ -367,6 +392,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Statistics about the review ratings taken into account for the Channel.</p>
      *
+
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()
@@ -387,6 +413,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>Custom Fields defined for the Channel.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -407,6 +434,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * <p>GeoJSON geometry object encoding the geo location of the Channel.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation()

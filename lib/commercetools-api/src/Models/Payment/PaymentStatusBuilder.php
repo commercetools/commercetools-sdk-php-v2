@@ -23,16 +23,19 @@ use stdClass;
 final class PaymentStatusBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $interfaceCode;
 
     /**
+
      * @var ?string
      */
     private $interfaceText;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
@@ -40,6 +43,7 @@ final class PaymentStatusBuilder implements Builder
     /**
      * <p>A code describing the current status returned by the interface that processes the payment.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceCode()
@@ -50,6 +54,7 @@ final class PaymentStatusBuilder implements Builder
     /**
      * <p>A text describing the current status returned by the interface that processes the payment.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceText()
@@ -58,6 +63,7 @@ final class PaymentStatusBuilder implements Builder
     }
 
     /**
+
      * @return null|StateReference
      */
     public function getState()

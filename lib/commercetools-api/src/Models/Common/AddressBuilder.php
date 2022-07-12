@@ -23,131 +23,157 @@ use stdClass;
 final class AddressBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $streetName;
 
     /**
+
      * @var ?string
      */
     private $streetNumber;
 
     /**
+
      * @var ?string
      */
     private $additionalStreetInfo;
 
     /**
+
      * @var ?string
      */
     private $postalCode;
 
     /**
+
      * @var ?string
      */
     private $city;
 
     /**
+
      * @var ?string
      */
     private $region;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?string
      */
     private $company;
 
     /**
+
      * @var ?string
      */
     private $department;
 
     /**
+
      * @var ?string
      */
     private $building;
 
     /**
+
      * @var ?string
      */
     private $apartment;
 
     /**
+
      * @var ?string
      */
     private $pOBox;
 
     /**
+
      * @var ?string
      */
     private $phone;
 
     /**
+
      * @var ?string
      */
     private $mobile;
 
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $fax;
 
     /**
+
      * @var ?string
      */
     private $additionalAddressInfo;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -155,6 +181,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Unique identifier of the Address.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -165,6 +192,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Address.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -175,6 +203,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -185,6 +214,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Title of the contact, for example 'Dr.'</p>
      *
+
      * @return null|string
      */
     public function getTitle()
@@ -195,6 +225,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
      *
+
      * @return null|string
      */
     public function getSalutation()
@@ -205,6 +236,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Given name (first name) of the contact.</p>
      *
+
      * @return null|string
      */
     public function getFirstName()
@@ -215,6 +247,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Family name (last name) of the contact.</p>
      *
+
      * @return null|string
      */
     public function getLastName()
@@ -225,6 +258,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Name of the street.</p>
      *
+
      * @return null|string
      */
     public function getStreetName()
@@ -235,6 +269,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Street number.</p>
      *
+
      * @return null|string
      */
     public function getStreetNumber()
@@ -245,6 +280,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Further information on the street address.</p>
      *
+
      * @return null|string
      */
     public function getAdditionalStreetInfo()
@@ -255,6 +291,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Postal code.</p>
      *
+
      * @return null|string
      */
     public function getPostalCode()
@@ -265,6 +302,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Name of the city.</p>
      *
+
      * @return null|string
      */
     public function getCity()
@@ -275,6 +313,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Name of the region.</p>
      *
+
      * @return null|string
      */
     public function getRegion()
@@ -285,6 +324,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Name of the state, for example, Colorado.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -295,6 +335,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Name of the company.</p>
      *
+
      * @return null|string
      */
     public function getCompany()
@@ -305,6 +346,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Name of the department.</p>
      *
+
      * @return null|string
      */
     public function getDepartment()
@@ -315,6 +357,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Number or name of the building.</p>
      *
+
      * @return null|string
      */
     public function getBuilding()
@@ -325,6 +368,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Number or name of the apartment.</p>
      *
+
      * @return null|string
      */
     public function getApartment()
@@ -335,6 +379,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Post office box number.</p>
      *
+
      * @return null|string
      */
     public function getPOBox()
@@ -345,6 +390,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Phone number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getPhone()
@@ -355,6 +401,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Mobile phone number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getMobile()
@@ -365,6 +412,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Email address of the contact.</p>
      *
+
      * @return null|string
      */
     public function getEmail()
@@ -375,6 +423,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Fax number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getFax()
@@ -385,6 +434,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Further information on the Address.</p>
      *
+
      * @return null|string
      */
     public function getAdditionalAddressInfo()
@@ -395,6 +445,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>ID for the contact used in an external system.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -405,6 +456,7 @@ final class AddressBuilder implements Builder
     /**
      * <p>Custom Fields defined for the Address.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

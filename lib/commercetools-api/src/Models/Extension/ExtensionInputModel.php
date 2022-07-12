@@ -22,11 +22,13 @@ use stdClass;
 final class ExtensionInputModel extends JsonObjectModel implements ExtensionInput
 {
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?Reference
      */
     protected $resource;
@@ -46,6 +48,7 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     /**
      * <p><code>Create</code> or <code>Update</code> request.</p>
      *
+
      * @return null|string
      */
     public function getAction()
@@ -65,6 +68,7 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
     /**
      * <p>Expanded reference to the resource that triggered the Extension.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()

@@ -22,11 +22,13 @@ interface Attribute extends JsonObject
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|string
      */
     public function getType();

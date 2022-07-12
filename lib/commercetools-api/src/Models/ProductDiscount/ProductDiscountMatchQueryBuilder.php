@@ -23,21 +23,25 @@ use stdClass;
 final class ProductDiscountMatchQueryBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var null|QueryPrice|QueryPriceBuilder
      */
     private $price;
@@ -45,6 +49,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * <p>ID of the specified Product.</p>
      *
+
      * @return null|string
      */
     public function getProductId()
@@ -55,6 +60,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * <p>ID of the specified Product Variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -66,6 +72,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
      * <p>Controls which <a href="/../api/projects/productProjections#current--staged">projected representation</a> is applied for the query.
      * Set to <code>true</code> for the <code>staged</code> Product Projection of the specified Product Variant, set to <code>false</code> for the <code>current</code> one.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -76,6 +83,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * <p>Specified Price of the specified Product Variant.</p>
      *
+
      * @return null|QueryPrice
      */
     public function getPrice()

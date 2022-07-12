@@ -19,16 +19,19 @@ interface ProductImageAddedMessage extends Message
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|Image
      */
     public function getImage();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

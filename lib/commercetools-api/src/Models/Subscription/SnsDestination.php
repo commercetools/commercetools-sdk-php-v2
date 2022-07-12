@@ -18,16 +18,19 @@ interface SnsDestination extends Destination
     public const FIELD_TOPIC_ARN = 'topicArn';
 
     /**
+
      * @return null|string
      */
     public function getAccessKey();
 
     /**
+
      * @return null|string
      */
     public function getAccessSecret();
 
     /**
+
      * @return null|string
      */
     public function getTopicArn();

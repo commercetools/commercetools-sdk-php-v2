@@ -23,16 +23,19 @@ use stdClass;
 final class DiscountCodeInfoBuilder implements Builder
 {
     /**
+
      * @var null|DiscountCodeReference|DiscountCodeReferenceBuilder
      */
     private $discountCode;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()
@@ -41,6 +44,7 @@ final class DiscountCodeInfoBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()

@@ -26,26 +26,31 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
 
     public const DISCRIMINATOR_VALUE = 'SetAssetCustomTypeChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
+
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     /**
      * <p>Update action for <code>setAssetCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -122,6 +130,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()

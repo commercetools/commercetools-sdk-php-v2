@@ -24,21 +24,25 @@ use stdClass;
 final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuoteDraft
 {
     /**
+
      * @var ?QuoteRequestResourceIdentifier
      */
     protected $quoteRequest;
 
     /**
+
      * @var ?int
      */
     protected $quoteRequestVersion;
 
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -62,6 +66,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>The QuoteRequest from which this StagedQuote is created.</p>
      *
+
      * @return null|QuoteRequestResourceIdentifier
      */
     public function getQuoteRequest()
@@ -82,6 +87,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Current version of the QuoteRequest.</p>
      *
+
      * @return null|int
      */
     public function getQuoteRequestVersion()
@@ -101,6 +107,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>User-defined unique identifier for the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -124,6 +131,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
      * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> are added to the StagedQuote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

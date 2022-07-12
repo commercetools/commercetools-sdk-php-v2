@@ -23,11 +23,13 @@ use stdClass;
 final class ProductTypeSetInputTipActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $inputTip;
@@ -35,6 +37,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -45,6 +48,7 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip()

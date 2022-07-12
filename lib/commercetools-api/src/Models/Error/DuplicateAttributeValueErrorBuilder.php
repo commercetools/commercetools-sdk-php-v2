@@ -23,16 +23,19 @@ use stdClass;
 final class DuplicateAttributeValueErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var null|Attribute|AttributeBuilder
      */
     private $attribute;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -41,6 +44,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|Attribute
      */
     public function getAttribute()

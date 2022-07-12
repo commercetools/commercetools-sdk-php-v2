@@ -22,11 +22,13 @@ final class InventoryImportRequestModel extends JsonObjectModel implements Inven
 {
     public const DISCRIMINATOR_VALUE = 'inventory';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?InventoryImportCollection
      */
     protected $resources;
@@ -45,6 +47,7 @@ final class InventoryImportRequestModel extends JsonObjectModel implements Inven
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -64,6 +67,7 @@ final class InventoryImportRequestModel extends JsonObjectModel implements Inven
     /**
      * <p>The inventory import resources of this request.</p>
      *
+
      * @return null|InventoryImportCollection
      */
     public function getResources()

@@ -29,31 +29,37 @@ interface ReturnItem extends JsonObject
     /**
      * <p>Unique identifier of the ReturnItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getComment();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();
@@ -61,16 +67,19 @@ interface ReturnItem extends JsonObject
     /**
      * <p>Custom Fields of this return item.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();

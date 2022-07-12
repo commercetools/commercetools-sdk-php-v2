@@ -21,6 +21,7 @@ interface ZoneDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Zone.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -28,6 +29,7 @@ interface ZoneDraft extends JsonObject
     /**
      * <p>Name of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -35,6 +37,7 @@ interface ZoneDraft extends JsonObject
     /**
      * <p>Description of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getDescription();
@@ -42,6 +45,7 @@ interface ZoneDraft extends JsonObject
     /**
      * <p>List of locations that belong to the Zone.</p>
      *
+
      * @return null|LocationCollection
      */
     public function getLocations();

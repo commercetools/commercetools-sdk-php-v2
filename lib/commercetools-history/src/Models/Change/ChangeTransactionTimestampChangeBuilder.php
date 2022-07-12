@@ -23,21 +23,25 @@ use Commercetools\History\Models\ChangeValue\TransactionChangeValueBuilder;
 final class ChangeTransactionTimestampChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TransactionChangeValue|TransactionChangeValueBuilder
      */
     private $transaction;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class ChangeTransactionTimestampChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeTransactionTimestamp</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class ChangeTransactionTimestampChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TransactionChangeValue
      */
     public function getTransaction()
@@ -61,6 +67,7 @@ final class ChangeTransactionTimestampChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class ChangeTransactionTimestampChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()

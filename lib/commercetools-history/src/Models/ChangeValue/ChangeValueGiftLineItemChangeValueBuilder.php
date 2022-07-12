@@ -23,26 +23,31 @@ use Commercetools\History\Models\Common\ReferenceBuilder;
 final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
 {
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @return null|Reference
      */
     public function getProduct()
@@ -51,6 +56,7 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -59,6 +65,7 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getSupplyChannel()
@@ -67,6 +74,7 @@ final class ChangeValueGiftLineItemChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getDistributionChannel()

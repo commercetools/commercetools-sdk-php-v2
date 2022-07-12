@@ -21,11 +21,13 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
 {
     public const DISCRIMINATOR_VALUE = 'InvalidCredentials';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class InvalidCredentialsErrorModel extends JsonObjectModel implements Inva
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

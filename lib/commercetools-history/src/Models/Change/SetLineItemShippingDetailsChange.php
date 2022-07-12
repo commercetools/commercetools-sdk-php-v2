@@ -20,6 +20,7 @@ interface SetLineItemShippingDetailsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetLineItemShippingDetailsChange extends Change
     /**
      * <p>Update action for <code>setLineItemShippingDetails</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getNextValue();
 
     /**
+
      * @return null|ItemShippingDetails
      */
     public function getPreviousValue();

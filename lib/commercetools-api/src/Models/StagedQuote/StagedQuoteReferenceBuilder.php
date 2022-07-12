@@ -23,11 +23,13 @@ use stdClass;
 final class StagedQuoteReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|StagedQuote|StagedQuoteBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class StagedQuoteReferenceBuilder implements Builder
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -46,6 +49,7 @@ final class StagedQuoteReferenceBuilder implements Builder
      * <p>Contains the representation of the expanded StagedQuote.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StagedQuote.</p>
      *
+
      * @return null|StagedQuote
      */
     public function getObj()

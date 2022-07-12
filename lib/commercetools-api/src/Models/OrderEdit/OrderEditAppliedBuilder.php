@@ -22,21 +22,25 @@ use stdClass;
 final class OrderEditAppliedBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $appliedAt;
 
     /**
+
      * @var null|OrderExcerpt|OrderExcerptBuilder
      */
     private $excerptBeforeEdit;
 
     /**
+
      * @var null|OrderExcerpt|OrderExcerptBuilder
      */
     private $excerptAfterEdit;
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAppliedAt()
@@ -45,6 +49,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+
      * @return null|OrderExcerpt
      */
     public function getExcerptBeforeEdit()
@@ -53,6 +58,7 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
+
      * @return null|OrderExcerpt
      */
     public function getExcerptAfterEdit()

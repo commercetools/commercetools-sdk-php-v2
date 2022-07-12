@@ -21,16 +21,19 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
 {
     public const DISCRIMINATOR_VALUE = 'key-value-document';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
 
     /**
+
      * @var ?string
      */
     protected $container;
@@ -49,6 +52,7 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -68,6 +72,7 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -85,6 +90,7 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
+
      * @return null|string
      */
     public function getContainer()

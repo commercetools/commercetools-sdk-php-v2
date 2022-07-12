@@ -21,6 +21,7 @@ final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedString';
     /**
+
      * @var ?string
      */
     protected $name;
@@ -35,6 +36,7 @@ final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getName()

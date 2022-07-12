@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class CustomFieldExpandedValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
@@ -40,6 +43,7 @@ final class CustomFieldExpandedValueBuilder implements Builder
     /**
      * <p>Name of a custom field.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -48,6 +52,7 @@ final class CustomFieldExpandedValueBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getValue()
@@ -56,6 +61,7 @@ final class CustomFieldExpandedValueBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()

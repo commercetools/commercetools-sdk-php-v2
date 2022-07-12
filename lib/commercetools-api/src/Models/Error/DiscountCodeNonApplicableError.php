@@ -22,31 +22,37 @@ interface DiscountCodeNonApplicableError extends ErrorObject
     public const FIELD_VALIDITY_CHECK_TIME = 'validityCheckTime';
 
     /**
+
      * @return null|string
      */
     public function getDiscountCode();
 
     /**
+
      * @return null|string
      */
     public function getReason();
 
     /**
+
      * @return null|string
      */
     public function getDicountCodeId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidityCheckTime();

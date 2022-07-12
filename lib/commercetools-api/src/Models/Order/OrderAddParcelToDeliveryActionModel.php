@@ -21,26 +21,31 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'addParcelToDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+
      * @var ?ParcelMeasurements
      */
     protected $measurements;
 
     /**
+
      * @var ?TrackingData
      */
     protected $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -63,6 +68,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -80,6 +86,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -97,6 +104,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -115,6 +123,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -133,6 +142,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

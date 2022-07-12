@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\ParcelBuilder;
 final class AddParcelToDeliveryChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var null|Parcel|ParcelBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addParcelToDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -56,6 +61,7 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Parcel
      */
     public function getNextValue()

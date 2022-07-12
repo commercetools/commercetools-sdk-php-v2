@@ -21,16 +21,19 @@ use stdClass;
 final class ItemStateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $state;
 
     /**
+
      * @return null|int
      */
     public function getQuantity()
@@ -39,6 +42,7 @@ final class ItemStateBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getState()

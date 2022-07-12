@@ -24,26 +24,31 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
 
     public const DISCRIMINATOR_VALUE = 'SetAssetTagsChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+
      * @var ?array
      */
     protected $nextValue;
 
     /**
+
      * @var ?array
      */
     protected $previousValue;
@@ -66,6 +71,7 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     /**
      * <p>Update action for <code>setAssetTags</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -120,6 +128,7 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()
@@ -137,6 +146,7 @@ final class SetAssetTagsChangeModel extends JsonObjectModel implements SetAssetT
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()

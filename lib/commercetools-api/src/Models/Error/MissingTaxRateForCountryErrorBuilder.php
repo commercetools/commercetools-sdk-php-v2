@@ -21,26 +21,31 @@ use stdClass;
 final class MissingTaxRateForCountryErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $taxCategoryId;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -49,6 +54,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxCategoryId()
@@ -57,6 +63,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCountry()
@@ -65,6 +72,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()

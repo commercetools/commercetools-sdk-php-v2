@@ -20,6 +20,7 @@ interface ChangeTransactionInteractionIdChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface ChangeTransactionInteractionIdChange extends Change
     /**
      * <p>Update action for <code>changeTransactionInteractionId</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|TransactionChangeValue
      */
     public function getTransaction();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();

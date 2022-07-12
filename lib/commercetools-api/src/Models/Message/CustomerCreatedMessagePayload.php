@@ -17,6 +17,7 @@ interface CustomerCreatedMessagePayload extends MessagePayload
     public const FIELD_CUSTOMER = 'customer';
 
     /**
+
      * @return null|Customer
      */
     public function getCustomer();

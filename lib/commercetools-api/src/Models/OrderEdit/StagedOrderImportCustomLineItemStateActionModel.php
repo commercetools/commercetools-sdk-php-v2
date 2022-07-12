@@ -24,16 +24,19 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'importCustomLineItemState';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?ItemStateCollection
      */
     protected $state;
@@ -52,6 +55,7 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -69,6 +73,7 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -86,6 +91,7 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()

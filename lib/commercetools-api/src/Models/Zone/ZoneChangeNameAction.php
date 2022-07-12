@@ -18,6 +18,7 @@ interface ZoneChangeNameAction extends ZoneUpdateAction
     /**
      * <p>New name of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getName();

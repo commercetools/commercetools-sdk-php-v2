@@ -21,6 +21,7 @@ use stdClass;
 final class ProductTypeChangeAttributeOrderByNameActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $attributeNames;
@@ -28,6 +29,7 @@ final class ProductTypeChangeAttributeOrderByNameActionBuilder implements Builde
     /**
      * <p>Names of Attributes to reorder. This array must include all Attributes currently present on a ProductType in a different order.</p>
      *
+
      * @return null|array
      */
     public function getAttributeNames()

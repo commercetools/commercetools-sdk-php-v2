@@ -21,26 +21,31 @@ use stdClass;
 final class ReferencedResourceNotFoundErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $typeId;
 
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -51,6 +56,7 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
+
      * @return null|string
      */
     public function getTypeId()
@@ -59,6 +65,7 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -67,6 +74,7 @@ final class ReferencedResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

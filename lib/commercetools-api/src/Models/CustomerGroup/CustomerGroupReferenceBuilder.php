@@ -23,11 +23,13 @@ use stdClass;
 final class CustomerGroupReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|CustomerGroup|CustomerGroupBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class CustomerGroupReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded CustomerGroup. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomerGroups.</p>
      *
+
      * @return null|CustomerGroup
      */
     public function getObj()

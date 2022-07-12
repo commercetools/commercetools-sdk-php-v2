@@ -21,11 +21,13 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $description;
@@ -42,6 +44,7 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getDescription()

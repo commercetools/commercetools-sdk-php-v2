@@ -18,6 +18,7 @@ interface StagedOrderSetShippingAddressAction extends StagedOrderUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();

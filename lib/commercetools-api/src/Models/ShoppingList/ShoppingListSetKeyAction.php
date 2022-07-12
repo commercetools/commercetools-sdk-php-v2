@@ -18,6 +18,7 @@ interface ShoppingListSetKeyAction extends ShoppingListUpdateAction
     /**
      * <p>User-specific unique identifier for the shopping list.</p>
      *
+
      * @return null|string
      */
     public function getKey();

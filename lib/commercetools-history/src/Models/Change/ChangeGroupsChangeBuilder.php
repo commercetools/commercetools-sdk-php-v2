@@ -21,16 +21,19 @@ use stdClass;
 final class ChangeGroupsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?array
      */
     private $previousValue;
 
     /**
+
      * @var ?array
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class ChangeGroupsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeGroups</code> on stores</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class ChangeGroupsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class ChangeGroupsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()

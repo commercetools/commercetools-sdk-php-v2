@@ -21,16 +21,19 @@ use stdClass;
 final class DiscountedPriceBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var null|ProductDiscountKeyReference|ProductDiscountKeyReferenceBuilder
      */
     private $discount;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -41,6 +44,7 @@ final class DiscountedPriceBuilder implements Builder
     /**
      * <p>Reference to a ProductDiscount.</p>
      *
+
      * @return null|ProductDiscountKeyReference
      */
     public function getDiscount()

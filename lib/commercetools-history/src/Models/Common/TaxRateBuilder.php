@@ -21,36 +21,43 @@ use stdClass;
 final class TaxRateBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $amount;
 
     /**
+
      * @var ?bool
      */
     private $includedInPrice;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?SubRateCollection
      */
     private $subRates;
@@ -58,6 +65,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>The ID is always set if the tax rate is part of a TaxCategory. The external tax rates in a Cart do not contain an <code>id</code>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -66,6 +74,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -76,6 +85,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>Percentage in the range of [0..1]. The sum of the amounts of all <code>subRates</code>, if there are any.</p>
      *
+
      * @return null|int
      */
     public function getAmount()
@@ -84,6 +94,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIncludedInPrice()
@@ -94,6 +105,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -104,6 +116,7 @@ final class TaxRateBuilder implements Builder
     /**
      * <p>The state in the country</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -112,6 +125,7 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+
      * @return null|SubRateCollection
      */
     public function getSubRates()

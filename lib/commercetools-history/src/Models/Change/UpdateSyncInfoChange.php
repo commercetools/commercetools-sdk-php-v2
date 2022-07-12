@@ -19,6 +19,7 @@ interface UpdateSyncInfoChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface UpdateSyncInfoChange extends Change
     /**
      * <p>Update action for <code>updateSyncInfo</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getChannelId();
 
     /**
+
      * @return null|SyncInfo
      */
     public function getNextValue();

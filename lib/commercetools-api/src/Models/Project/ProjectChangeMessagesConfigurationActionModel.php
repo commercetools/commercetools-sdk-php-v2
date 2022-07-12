@@ -23,11 +23,13 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'changeMessagesConfiguration';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?MessagesConfigurationDraft
      */
     protected $messagesConfiguration;
@@ -44,6 +46,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     /**
      * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
      *
+
      * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration()

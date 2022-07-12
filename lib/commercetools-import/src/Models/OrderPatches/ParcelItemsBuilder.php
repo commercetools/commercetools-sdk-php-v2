@@ -22,16 +22,19 @@ use stdClass;
 final class ParcelItemsBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -40,6 +43,7 @@ final class ParcelItemsBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

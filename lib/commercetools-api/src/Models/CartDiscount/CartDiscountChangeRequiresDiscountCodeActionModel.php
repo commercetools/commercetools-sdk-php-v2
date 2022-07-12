@@ -21,11 +21,13 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'changeRequiresDiscountCode';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?bool
      */
     protected $requiresDiscountCode;
@@ -42,6 +44,7 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -62,6 +65,7 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
      * <p>New value to set.
      * If set to <code>true</code>, the Discount can only be used in connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|bool
      */
     public function getRequiresDiscountCode()

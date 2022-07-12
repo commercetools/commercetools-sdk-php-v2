@@ -26,36 +26,43 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemTaxAmountChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+
      * @var ?string
      */
     protected $variant;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?TaxRate
      */
     protected $nextValue;
 
     /**
+
      * @var ?TaxRate
      */
     protected $previousValue;
@@ -82,6 +89,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -101,6 +109,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     /**
      * <p>Update action for <code>setLineItemTaxAmount</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -118,6 +127,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -136,6 +146,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -153,6 +164,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -172,6 +184,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()
@@ -192,6 +205,7 @@ final class SetLineItemTaxAmountChangeModel extends JsonObjectModel implements S
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()

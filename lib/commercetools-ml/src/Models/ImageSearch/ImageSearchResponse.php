@@ -21,6 +21,7 @@ interface ImageSearchResponse extends JsonObject
     /**
      * <p>The maximum number of results to return from a query.</p>
      *
+
      * @return null|int
      */
     public function getCount();
@@ -28,6 +29,7 @@ interface ImageSearchResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|float
      */
     public function getOffset();
@@ -35,6 +37,7 @@ interface ImageSearchResponse extends JsonObject
     /**
      * <p>The total number of product images that were have been analyzed.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -42,6 +45,7 @@ interface ImageSearchResponse extends JsonObject
     /**
      * <p>An array of image URLs of images that are similar to the query image. If no matching images are found, results is empty.</p>
      *
+
      * @return null|ResultItemCollection
      */
     public function getResults();

@@ -35,81 +35,97 @@ use stdClass;
 final class PaymentBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
      * @var ?string
      */
     private $interfaceId;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amountPlanned;
 
     /**
+
      * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
+
      * @var null|PaymentStatus|PaymentStatusBuilder
      */
     private $paymentStatus;
 
     /**
+
      * @var ?TransactionCollection
      */
     private $transactions;
 
     /**
+
      * @var ?CustomFieldsCollection
      */
     private $interfaceInteractions;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -117,6 +133,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>Unique identifier of the Payment.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -125,6 +142,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -133,6 +151,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -141,6 +160,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -151,6 +171,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -161,6 +182,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -171,6 +193,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -181,6 +204,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -193,6 +217,7 @@ final class PaymentBuilder implements Builder
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceId()
@@ -204,6 +229,7 @@ final class PaymentBuilder implements Builder
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getAmountPlanned()
@@ -212,6 +238,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -220,6 +247,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentStatus
      */
     public function getPaymentStatus()
@@ -230,6 +258,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
      *
+
      * @return null|TransactionCollection
      */
     public function getTransactions()
@@ -243,6 +272,7 @@ final class PaymentBuilder implements Builder
      * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
      * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
      *
+
      * @return null|CustomFieldsCollection
      */
     public function getInterfaceInteractions()
@@ -251,6 +281,7 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -261,6 +292,7 @@ final class PaymentBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Payment.</p>
      *
+
      * @return null|string
      */
     public function getKey()

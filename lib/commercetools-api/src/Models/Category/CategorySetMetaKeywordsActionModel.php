@@ -23,11 +23,13 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setMetaKeywords';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $metaKeywords;
@@ -44,6 +46,7 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -63,6 +66,7 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()

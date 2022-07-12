@@ -18,16 +18,19 @@ interface ProductRemoveVariantAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|int
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

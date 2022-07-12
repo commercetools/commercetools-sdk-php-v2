@@ -23,11 +23,13 @@ final class ProductSelectionProductRemovedMessagePayloadModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionProductRemoved';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?ProductReference
      */
     protected $product;
@@ -44,6 +46,7 @@ final class ProductSelectionProductRemovedMessagePayloadModel extends JsonObject
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -63,6 +66,7 @@ final class ProductSelectionProductRemovedMessagePayloadModel extends JsonObject
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()

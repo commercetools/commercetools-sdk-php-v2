@@ -23,11 +23,13 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'removeDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $deliveryId;
@@ -44,6 +46,7 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -61,6 +64,7 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()

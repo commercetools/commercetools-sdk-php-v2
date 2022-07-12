@@ -18,16 +18,19 @@ interface CustomerResetPassword extends JsonObject
     public const FIELD_VERSION = 'version';
 
     /**
+
      * @return null|string
      */
     public function getTokenValue();
 
     /**
+
      * @return null|string
      */
     public function getNewPassword();
 
     /**
+
      * @return null|int
      */
     public function getVersion();

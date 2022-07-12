@@ -21,11 +21,13 @@ final class ProductVariantKeyReferenceModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'product-variant';
     /**
+
      * @var ?string
      */
     protected $key;
 
     /**
+
      * @var ?string
      */
     protected $typeId;
@@ -42,6 +44,7 @@ final class ProductVariantKeyReferenceModel extends JsonObjectModel implements P
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +64,7 @@ final class ProductVariantKeyReferenceModel extends JsonObjectModel implements P
     /**
      * <p>The type of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId()

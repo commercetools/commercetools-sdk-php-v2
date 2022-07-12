@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\PaymentInfoBuilder;
 final class AddPaymentChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class AddPaymentChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addPayment</code> &amp; <code>removePayment</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class AddPaymentChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class AddPaymentChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPreviousValue()

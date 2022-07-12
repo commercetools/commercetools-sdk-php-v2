@@ -20,6 +20,7 @@ interface ShippingMethodRemoveShippingRateAction extends ShippingMethodUpdateAct
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> from which the ShippingRate should be removed.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone();
@@ -27,6 +28,7 @@ interface ShippingMethodRemoveShippingRateAction extends ShippingMethodUpdateAct
     /**
      * <p>Value to remove from <code>shippingRates</code>.</p>
      *
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();

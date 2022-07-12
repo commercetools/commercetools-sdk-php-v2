@@ -16,6 +16,7 @@ interface ShoppingListChangeTextLineItemsOrderAction extends ShoppingListUpdateA
     public const FIELD_TEXT_LINE_ITEM_ORDER = 'textLineItemOrder';
 
     /**
+
      * @return null|array
      */
     public function getTextLineItemOrder();

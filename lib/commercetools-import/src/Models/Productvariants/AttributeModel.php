@@ -21,11 +21,13 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?string
      */
     protected $type;
@@ -74,6 +76,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -91,6 +94,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

@@ -26,36 +26,43 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemTaxRateChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
+
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+
      * @var ?string
      */
     protected $taxMode;
 
     /**
+
      * @var ?TaxRate
      */
     protected $nextValue;
 
     /**
+
      * @var ?TaxRate
      */
     protected $previousValue;
@@ -82,6 +89,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -101,6 +109,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     /**
      * <p>Update action for <code>setCustomLineItemTaxRate</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -118,6 +127,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -136,6 +146,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -153,6 +164,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -172,6 +184,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()
@@ -192,6 +205,7 @@ final class SetCustomLineItemTaxRateChangeModel extends JsonObjectModel implemen
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()

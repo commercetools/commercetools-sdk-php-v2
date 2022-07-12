@@ -20,11 +20,13 @@ use stdClass;
 final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpdate
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?MyPaymentUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,7 @@ final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpd
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,7 @@ final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpd
     }
 
     /**
+
      * @return null|MyPaymentUpdateActionCollection
      */
     public function getActions()

@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\MoneyBuilder;
 final class SetShippingRateChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class SetShippingRateChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setShippingRate</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetShippingRateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class SetShippingRateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getPreviousValue()

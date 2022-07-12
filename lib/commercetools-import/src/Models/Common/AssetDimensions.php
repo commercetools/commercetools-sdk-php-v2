@@ -19,6 +19,7 @@ interface AssetDimensions extends JsonObject
     /**
      * <p>The width of the asset source.</p>
      *
+
      * @return null|int
      */
     public function getW();
@@ -26,6 +27,7 @@ interface AssetDimensions extends JsonObject
     /**
      * <p>The height of the asset source.</p>
      *
+
      * @return null|int
      */
     public function getH();

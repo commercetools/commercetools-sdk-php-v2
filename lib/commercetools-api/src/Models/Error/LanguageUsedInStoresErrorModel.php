@@ -21,11 +21,13 @@ final class LanguageUsedInStoresErrorModel extends JsonObjectModel implements La
 {
     public const DISCRIMINATOR_VALUE = 'LanguageUsedInStores';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class LanguageUsedInStoresErrorModel extends JsonObjectModel implements La
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class LanguageUsedInStoresErrorModel extends JsonObjectModel implements La
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

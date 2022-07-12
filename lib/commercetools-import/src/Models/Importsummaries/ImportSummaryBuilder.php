@@ -21,11 +21,13 @@ use stdClass;
 final class ImportSummaryBuilder implements Builder
 {
     /**
+
      * @var null|OperationStates|OperationStatesBuilder
      */
     private $states;
 
     /**
+
      * @var ?int
      */
     private $total;
@@ -33,6 +35,7 @@ final class ImportSummaryBuilder implements Builder
     /**
      * <p>The import status of an <a href="/import-container#importcontainer">ImportContainer</a> given by the number of resources in each <a href="/processing-state#processingstate">Processing State</a>.</p>
      *
+
      * @return null|OperationStates
      */
     public function getStates()
@@ -43,6 +46,7 @@ final class ImportSummaryBuilder implements Builder
     /**
      * <p>The total number of <a href="/import-operation#importoperation">ImportOperations</a> received for this Import Summary.</p>
      *
+
      * @return null|int
      */
     public function getTotal()

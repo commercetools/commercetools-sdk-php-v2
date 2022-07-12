@@ -18,6 +18,7 @@ interface ChangeIsActiveChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface ChangeIsActiveChange extends Change
     /**
      * <p>Shape of the action for <code>changeIsActive</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|bool
      */
     public function getNextValue();

@@ -21,16 +21,19 @@ use stdClass;
 final class CustomFieldsBuilder implements Builder
 {
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $type;
 
     /**
+
      * @var ?JsonObject
      */
     private $fields;
 
     /**
+
      * @return null|Reference
      */
     public function getType()
@@ -41,6 +44,7 @@ final class CustomFieldsBuilder implements Builder
     /**
      * <p>A valid JSON object, based on FieldDefinition.</p>
      *
+
      * @return null|JsonObject
      */
     public function getFields()

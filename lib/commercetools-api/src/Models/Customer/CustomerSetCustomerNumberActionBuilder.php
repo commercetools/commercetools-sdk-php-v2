@@ -21,6 +21,7 @@ use stdClass;
 final class CustomerSetCustomerNumberActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customerNumber;
@@ -29,6 +30,7 @@ final class CustomerSetCustomerNumberActionBuilder implements Builder
      * <p>It should be <strong>unique</strong> across a project.
      * Once it's set, it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber()

@@ -19,6 +19,7 @@ interface CategoryImportRequest extends ImportRequest
     /**
      * <p>The category import resources of this request.</p>
      *
+
      * @return null|CategoryImportCollection
      */
     public function getResources();

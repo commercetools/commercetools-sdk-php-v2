@@ -22,6 +22,7 @@ final class ChangeTargetShippingChangeValueModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'shipping';
     /**
+
      * @var ?string
      */
     protected $type;
@@ -36,6 +37,7 @@ final class ChangeTargetShippingChangeValueModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()

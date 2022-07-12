@@ -19,6 +19,7 @@ interface ProductDiscountReference extends Reference
     /**
      * <p>Contains the representation of the expanded ProductDiscount. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductDiscounts.</p>
      *
+
      * @return null|ProductDiscount
      */
     public function getObj();
@@ -26,6 +27,7 @@ interface ProductDiscountReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

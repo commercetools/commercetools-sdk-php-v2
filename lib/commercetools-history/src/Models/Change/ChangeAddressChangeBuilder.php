@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\AddressBuilder;
 final class ChangeAddressChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class ChangeAddressChangeBuilder implements Builder
     /**
      * <p>Update action <code>changeAddress</code> action.</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class ChangeAddressChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class ChangeAddressChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue()

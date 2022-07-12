@@ -18,11 +18,13 @@ interface ProductSetMetaTitleAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

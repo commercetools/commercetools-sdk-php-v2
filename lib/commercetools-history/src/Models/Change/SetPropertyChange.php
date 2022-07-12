@@ -19,6 +19,7 @@ interface SetPropertyChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,6 +27,7 @@ interface SetPropertyChange extends Change
     /**
      * <p>Update action for <code>setProperty</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -33,16 +35,19 @@ interface SetPropertyChange extends Change
     /**
      * <p>Value path to the property that was changed</p>
      *
+
      * @return null|string
      */
     public function getPath();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

@@ -21,11 +21,13 @@ use stdClass;
 final class MessagesConfigurationDraftBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $enabled;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterCreation;
@@ -33,6 +35,7 @@ final class MessagesConfigurationDraftBuilder implements Builder
     /**
      * <p>Setting to <code>true</code> activates the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
      *
+
      * @return null|bool
      */
     public function getEnabled()
@@ -43,6 +46,7 @@ final class MessagesConfigurationDraftBuilder implements Builder
     /**
      * <p>Specifies the number of days each Message should be available via the <a href="/../api/projects/messages">Messages Query</a> API. For Messages older than the specified period, it is not guaranteed that they are still accessible via the API.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterCreation()

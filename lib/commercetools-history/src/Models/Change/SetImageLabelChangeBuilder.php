@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\ImageBuilder;
 final class SetImageLabelChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var null|Image|ImageBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|Image|ImageBuilder
      */
     private $nextValue;
@@ -45,6 +49,7 @@ final class SetImageLabelChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setImageLabel</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetImageLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -61,6 +67,7 @@ final class SetImageLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Image
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class SetImageLabelChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Image
      */
     public function getNextValue()

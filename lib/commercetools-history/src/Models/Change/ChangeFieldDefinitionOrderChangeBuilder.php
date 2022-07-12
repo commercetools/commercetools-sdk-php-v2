@@ -22,16 +22,19 @@ use Commercetools\History\Models\ChangeValue\FieldDefinitionOrderValueCollection
 final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?FieldDefinitionOrderValueCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?FieldDefinitionOrderValueCollection
      */
     private $nextValue;
@@ -39,6 +42,7 @@ final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeFieldDefinitionOrder</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -47,6 +51,7 @@ final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|FieldDefinitionOrderValueCollection
      */
     public function getPreviousValue()
@@ -55,6 +60,7 @@ final class ChangeFieldDefinitionOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|FieldDefinitionOrderValueCollection
      */
     public function getNextValue()

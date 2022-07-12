@@ -19,11 +19,13 @@ interface SimilarProductPair extends JsonObject
     /**
      * <p>The probability of product similarity.</p>
      *
+
      * @return null|float
      */
     public function getConfidence();
 
     /**
+
      * @return null|SimilarProductCollection
      */
     public function getProducts();

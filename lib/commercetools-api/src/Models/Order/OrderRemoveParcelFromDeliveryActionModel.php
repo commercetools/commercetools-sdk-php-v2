@@ -21,11 +21,13 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'removeParcelFromDelivery';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $parcelId;
@@ -42,6 +44,7 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -59,6 +62,7 @@ final class OrderRemoveParcelFromDeliveryActionModel extends JsonObjectModel imp
     }
 
     /**
+
      * @return null|string
      */
     public function getParcelId()

@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetInputTipChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class SetInputTipChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setInputTip</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -55,6 +60,7 @@ final class SetInputTipChangeBuilder implements Builder
     /**
      * <p>The name of the updated attribute.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -63,6 +69,7 @@ final class SetInputTipChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -71,6 +78,7 @@ final class SetInputTipChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

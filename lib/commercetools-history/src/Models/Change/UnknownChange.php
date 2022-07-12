@@ -18,21 +18,25 @@ interface UnknownChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();

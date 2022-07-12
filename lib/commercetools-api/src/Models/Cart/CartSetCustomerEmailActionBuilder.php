@@ -21,11 +21,13 @@ use stdClass;
 final class CartSetCustomerEmailActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @return null|string
      */
     public function getEmail()

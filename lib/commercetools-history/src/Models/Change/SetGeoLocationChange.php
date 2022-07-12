@@ -21,21 +21,25 @@ interface SetGeoLocationChange extends Change
     /**
      * <p>Update action for <code>setGeoLocation</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|GeoLocation
      */
     public function getNextValue();
 
     /**
+
      * @return null|GeoLocation
      */
     public function getPreviousValue();

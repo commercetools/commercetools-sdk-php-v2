@@ -17,6 +17,7 @@ interface CustomerSetAuthenticationModeAction extends CustomerUpdateAction
     public const FIELD_PASSWORD = 'password';
 
     /**
+
      * @return null|string
      */
     public function getAuthMode();
@@ -24,6 +25,7 @@ interface CustomerSetAuthenticationModeAction extends CustomerUpdateAction
     /**
      * <p>Required when <code>authMode</code> is <code>Password</code></p>
      *
+
      * @return null|string
      */
     public function getPassword();

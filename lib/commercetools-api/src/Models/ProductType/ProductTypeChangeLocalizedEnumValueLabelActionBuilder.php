@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|AttributeLocalizedEnumValue|AttributeLocalizedEnumValueBuilder
      */
     private $newValue;
@@ -33,6 +35,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     /**
      * <p>New value to set. Must be different from the existing value.</p>
      *
+
      * @return null|AttributeLocalizedEnumValue
      */
     public function getNewValue()

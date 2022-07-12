@@ -21,21 +21,25 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $name;
 
     /**
+
      * @var ?mixed
      */
     protected $value;
 
     /**
+
      * @var ?bool
      */
     protected $staged;
@@ -56,6 +60,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -92,6 +98,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     /**
      * <p>The same update behavior as for Set Attribute applies.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()
@@ -109,6 +116,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

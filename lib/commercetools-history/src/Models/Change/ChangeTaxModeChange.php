@@ -18,6 +18,7 @@ interface ChangeTaxModeChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface ChangeTaxModeChange extends Change
     /**
      * <p>Shape of the action for <code>changeTaxMode</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();

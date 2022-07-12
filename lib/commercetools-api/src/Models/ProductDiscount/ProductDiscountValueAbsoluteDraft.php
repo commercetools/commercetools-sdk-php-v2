@@ -19,6 +19,7 @@ interface ProductDiscountValueAbsoluteDraft extends ProductDiscountValueDraft
     /**
      * <p>Money values in different currencies. An absolute <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> will only match a price if this array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
      *
+
      * @return null|CentPrecisionMoneyDraftCollection
      */
     public function getMoney();

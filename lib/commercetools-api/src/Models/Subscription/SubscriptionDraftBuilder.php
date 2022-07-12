@@ -21,31 +21,37 @@ use stdClass;
 final class SubscriptionDraftBuilder implements Builder
 {
     /**
+
      * @var ?ChangeSubscriptionCollection
      */
     private $changes;
 
     /**
+
      * @var null|Destination|DestinationBuilder
      */
     private $destination;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     private $messages;
 
     /**
+
      * @var null|DeliveryFormat|DeliveryFormatBuilder
      */
     private $format;
 
     /**
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -54,6 +60,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Destination
      */
     public function getDestination()
@@ -64,6 +71,7 @@ final class SubscriptionDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -72,6 +80,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -80,6 +89,7 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryFormat
      */
     public function getFormat()

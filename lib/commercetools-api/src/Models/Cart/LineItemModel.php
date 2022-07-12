@@ -38,111 +38,133 @@ use stdClass;
 final class LineItemModel extends JsonObjectModel implements LineItem
 {
     /**
+
      * @var ?string
      */
     protected $id;
 
     /**
+
      * @var ?string
      */
     protected $productId;
 
     /**
+
      * @var ?string
      */
     protected $productKey;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $productSlug;
 
     /**
+
      * @var ?ProductTypeReference
      */
     protected $productType;
 
     /**
+
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
+
      * @var ?Price
      */
     protected $price;
 
     /**
+
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
 
     /**
+
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
+
      * @var ?int
      */
     protected $quantity;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+
      * @var ?ChannelReference
      */
     protected $supplyChannel;
 
     /**
+
      * @var ?ChannelReference
      */
     protected $distributionChannel;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
+
      * @var ?string
      */
     protected $priceMode;
 
     /**
+
      * @var ?string
      */
     protected $lineItemMode;
 
     /**
+
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -202,6 +224,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>Unique identifier of the LineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -219,6 +242,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -239,6 +263,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
      * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
      *
+
      * @return null|string
      */
     public function getProductKey()
@@ -258,6 +283,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>The product name.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -281,6 +307,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * It is empty if the product has been deleted.
      * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -299,6 +326,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -320,6 +348,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
      * It can manually be updated with the Recalculate update action.</p>
      *
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -341,6 +370,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
      * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
+
      * @return null|Price
      */
     public function getPrice()
@@ -361,6 +391,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -384,6 +415,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -405,6 +437,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The amount of a LineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -425,6 +458,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -446,6 +480,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -466,6 +501,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -488,6 +524,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * The channel has
      * the role InventorySupply.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -509,6 +546,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The distribution channel is used to select a ProductPrice.
      * The channel has the role ProductDistribution.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel()
@@ -527,6 +565,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -544,6 +583,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceMode()
@@ -561,6 +601,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemMode()
@@ -578,6 +619,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -598,6 +640,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails()
@@ -620,6 +663,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
      * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

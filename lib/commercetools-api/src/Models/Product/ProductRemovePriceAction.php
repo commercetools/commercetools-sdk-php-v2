@@ -19,11 +19,13 @@ interface ProductRemovePriceAction extends ProductUpdateAction
     /**
      * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
      *
+
      * @return null|string
      */
     public function getPriceId();
 
     /**
+
      * @return null|bool
      */
     public function getStaged();

@@ -26,26 +26,31 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'ChangeTextLineItemNameChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?TextLineItemValue
      */
     protected $textLineItem;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
+
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -68,6 +73,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>changeTextLineItemName</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -104,6 +111,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -122,6 +130,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -140,6 +149,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue()

@@ -22,11 +22,13 @@ use stdClass;
 final class ExternalTaxAmountDraftModel extends JsonObjectModel implements ExternalTaxAmountDraft
 {
     /**
+
      * @var ?Money
      */
     protected $totalGross;
 
     /**
+
      * @var ?ExternalTaxRateDraft
      */
     protected $taxRate;
@@ -46,6 +48,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     /**
      * <p>The total gross amount of the item (totalNet + taxes).</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross()
@@ -64,6 +67,7 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getTaxRate()

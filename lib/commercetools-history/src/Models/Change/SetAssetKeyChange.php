@@ -22,26 +22,31 @@ interface SetAssetKeyChange extends Change
     /**
      * <p>Update action for <code>setAssetKey</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();

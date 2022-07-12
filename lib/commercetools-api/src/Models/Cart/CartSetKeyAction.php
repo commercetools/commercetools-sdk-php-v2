@@ -16,6 +16,7 @@ interface CartSetKeyAction extends CartUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|string
      */
     public function getKey();

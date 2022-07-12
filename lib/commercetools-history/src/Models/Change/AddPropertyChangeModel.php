@@ -22,21 +22,25 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
 
     public const DISCRIMINATOR_VALUE = 'AddPropertyChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $path;
 
     /**
+
      * @var ?mixed
      */
     protected $nextValue;
@@ -57,6 +61,7 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +81,7 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     /**
      * <p>Update action for <code>addProperty</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -95,6 +101,7 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     /**
      * <p>Value path to the property that was added</p>
      *
+
      * @return null|string
      */
     public function getPath()
@@ -112,6 +119,7 @@ final class AddPropertyChangeModel extends JsonObjectModel implements AddPropert
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()

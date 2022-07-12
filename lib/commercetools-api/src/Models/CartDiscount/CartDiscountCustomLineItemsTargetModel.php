@@ -21,11 +21,13 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'customLineItems';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $predicate;
@@ -42,6 +44,7 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -61,6 +64,7 @@ final class CartDiscountCustomLineItemsTargetModel extends JsonObjectModel imple
     /**
      * <p>Valid <a href="/../api/projects/predicates#customlineitem-field-identifiers">CustomLineItem target predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()

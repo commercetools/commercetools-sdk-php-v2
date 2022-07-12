@@ -21,16 +21,19 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'changeTransactionInteractionId';
     /**
+
      * @var ?string
      */
     protected $action;
 
     /**
+
      * @var ?string
      */
     protected $transactionId;
 
     /**
+
      * @var ?string
      */
     protected $interactionId;
@@ -49,6 +52,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()
@@ -66,6 +70,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -83,6 +88,7 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     }
 
     /**
+
      * @return null|string
      */
     public function getInteractionId()

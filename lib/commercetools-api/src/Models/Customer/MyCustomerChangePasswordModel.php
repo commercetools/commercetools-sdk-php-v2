@@ -20,16 +20,19 @@ use stdClass;
 final class MyCustomerChangePasswordModel extends JsonObjectModel implements MyCustomerChangePassword
 {
     /**
+
      * @var ?int
      */
     protected $version;
 
     /**
+
      * @var ?string
      */
     protected $currentPassword;
 
     /**
+
      * @var ?string
      */
     protected $newPassword;
@@ -49,6 +52,7 @@ final class MyCustomerChangePasswordModel extends JsonObjectModel implements MyC
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -66,6 +70,7 @@ final class MyCustomerChangePasswordModel extends JsonObjectModel implements MyC
     }
 
     /**
+
      * @return null|string
      */
     public function getCurrentPassword()
@@ -83,6 +88,7 @@ final class MyCustomerChangePasswordModel extends JsonObjectModel implements MyC
     }
 
     /**
+
      * @return null|string
      */
     public function getNewPassword()

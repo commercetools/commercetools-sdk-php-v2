@@ -21,11 +21,13 @@ use stdClass;
 final class TaskTokenBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $taskId;
 
     /**
+
      * @var ?string
      */
     private $uriPath;
@@ -33,6 +35,7 @@ final class TaskTokenBuilder implements Builder
     /**
      * <p>The ID for the task. Used to find the status of the task.</p>
      *
+
      * @return null|string
      */
     public function getTaskId()
@@ -43,6 +46,7 @@ final class TaskTokenBuilder implements Builder
     /**
      * <p>The URI path to poll for the status of the task.</p>
      *
+
      * @return null|string
      */
     public function getUriPath()

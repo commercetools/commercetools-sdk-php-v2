@@ -23,16 +23,19 @@ use stdClass;
 final class ProductRemoveFromCategoryActionBuilder implements Builder
 {
     /**
+
      * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $category;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -41,6 +44,7 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getStaged()

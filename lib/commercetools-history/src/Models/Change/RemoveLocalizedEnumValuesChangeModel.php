@@ -24,21 +24,25 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'RemoveLocalizedEnumValuesChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $attributeName;
 
     /**
+
      * @var ?LocalizedEnumValue
      */
     protected $previousValue;
@@ -59,6 +63,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -78,6 +83,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     /**
      * <p>Update action for <code>removeEnumValues</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -97,6 +103,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -114,6 +121,7 @@ final class RemoveLocalizedEnumValuesChangeModel extends JsonObjectModel impleme
     }
 
     /**
+
      * @return null|LocalizedEnumValue
      */
     public function getPreviousValue()

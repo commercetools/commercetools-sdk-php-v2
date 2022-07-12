@@ -21,6 +21,7 @@ final class ProductUnpublishActionModel extends JsonObjectModel implements Produ
 {
     public const DISCRIMINATOR_VALUE = 'unpublish';
     /**
+
      * @var ?string
      */
     protected $action;
@@ -35,6 +36,7 @@ final class ProductUnpublishActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+
      * @return null|string
      */
     public function getAction()

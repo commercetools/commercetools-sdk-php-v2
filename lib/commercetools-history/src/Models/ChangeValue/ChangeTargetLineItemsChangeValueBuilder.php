@@ -21,11 +21,13 @@ use stdClass;
 final class ChangeTargetLineItemsChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $predicate;
 
     /**
+
      * @return null|string
      */
     public function getPredicate()

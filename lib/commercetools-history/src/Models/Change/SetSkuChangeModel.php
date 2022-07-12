@@ -22,26 +22,31 @@ final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
 
     public const DISCRIMINATOR_VALUE = 'SetSkuChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?string
      */
     protected $previousValue;
 
     /**
+
      * @var ?string
      */
     protected $nextValue;
@@ -64,6 +69,7 @@ final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -83,6 +89,7 @@ final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
     /**
      * <p>Update action for <code>setSku</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -100,6 +107,7 @@ final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -117,6 +125,7 @@ final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -134,6 +143,7 @@ final class SetSkuChangeModel extends JsonObjectModel implements SetSkuChange
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

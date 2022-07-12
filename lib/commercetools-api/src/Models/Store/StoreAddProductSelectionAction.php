@@ -20,6 +20,7 @@ interface StoreAddProductSelectionAction extends StoreUpdateAction
     /**
      * <p>Product Selection to add to the Store either activated or deactivated.</p>
      *
+
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection();
@@ -27,6 +28,7 @@ interface StoreAddProductSelectionAction extends StoreUpdateAction
     /**
      * <p>Set to <code>true</code> to make all Products assigned to the referenced Product Selection available in the Store.</p>
      *
+
      * @return null|bool
      */
     public function getActive();

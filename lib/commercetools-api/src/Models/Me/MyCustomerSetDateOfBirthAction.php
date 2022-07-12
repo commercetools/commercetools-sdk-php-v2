@@ -17,6 +17,7 @@ interface MyCustomerSetDateOfBirthAction extends MyCustomerUpdateAction
     public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();

@@ -17,11 +17,13 @@ interface InvalidItemShippingDetailsError extends ErrorObject
     public const FIELD_ITEM_ID = 'itemId';
 
     /**
+
      * @return null|string
      */
     public function getSubject();
 
     /**
+
      * @return null|string
      */
     public function getItemId();

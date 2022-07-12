@@ -24,26 +24,31 @@ final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVa
 
     public const DISCRIMINATOR_VALUE = 'RemoveVariantChange';
     /**
+
      * @var ?string
      */
     protected $type;
 
     /**
+
      * @var ?string
      */
     protected $change;
 
     /**
+
      * @var ?string
      */
     protected $catalogData;
 
     /**
+
      * @var ?Variant
      */
     protected $previousValue;
 
     /**
+
      * @var ?Variant
      */
     protected $nextValue;
@@ -66,6 +71,7 @@ final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVa
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -85,6 +91,7 @@ final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVa
     /**
      * <p>Update action for <code>removeVariant</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -102,6 +109,7 @@ final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVa
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +127,7 @@ final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVa
     }
 
     /**
+
      * @return null|Variant
      */
     public function getPreviousValue()
@@ -137,6 +146,7 @@ final class RemoveVariantChangeModel extends JsonObjectModel implements RemoveVa
     }
 
     /**
+
      * @return null|Variant
      */
     public function getNextValue()

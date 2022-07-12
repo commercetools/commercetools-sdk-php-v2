@@ -23,6 +23,7 @@ use stdClass;
 final class StandalonePriceExternalDiscountSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
@@ -30,6 +31,7 @@ final class StandalonePriceExternalDiscountSetMessagePayloadBuilder implements B
     /**
      * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()

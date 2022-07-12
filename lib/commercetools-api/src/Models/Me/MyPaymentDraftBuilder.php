@@ -27,21 +27,25 @@ use stdClass;
 final class MyPaymentDraftBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amountPlanned;
 
     /**
+
      * @var null|PaymentMethodInfo|PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|MyTransactionDraft|MyTransactionDraftBuilder
      */
     private $transaction;
@@ -50,6 +54,7 @@ final class MyPaymentDraftBuilder implements Builder
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
+
      * @return null|Money
      */
     public function getAmountPlanned()
@@ -58,6 +63,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -66,6 +72,7 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -77,6 +84,7 @@ final class MyPaymentDraftBuilder implements Builder
      * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
      * TransactionTypes.</p>
      *
+
      * @return null|MyTransactionDraft
      */
     public function getTransaction()

@@ -21,11 +21,13 @@ use stdClass;
 final class CartSetDirectDiscountsActionBuilder implements Builder
 {
     /**
+
      * @var ?DirectDiscountDraftCollection
      */
     private $discounts;
 
     /**
+
      * @return null|DirectDiscountDraftCollection
      */
     public function getDiscounts()

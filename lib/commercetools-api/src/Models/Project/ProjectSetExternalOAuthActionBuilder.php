@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectSetExternalOAuthActionBuilder implements Builder
 {
     /**
+
      * @var null|ExternalOAuth|ExternalOAuthBuilder
      */
     private $externalOAuth;
@@ -28,6 +29,7 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|ExternalOAuth
      */
     public function getExternalOAuth()

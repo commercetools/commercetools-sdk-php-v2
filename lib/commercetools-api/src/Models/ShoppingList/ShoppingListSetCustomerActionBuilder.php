@@ -23,11 +23,13 @@ use stdClass;
 final class ShoppingListSetCustomerActionBuilder implements Builder
 {
     /**
+
      * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
     /**
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

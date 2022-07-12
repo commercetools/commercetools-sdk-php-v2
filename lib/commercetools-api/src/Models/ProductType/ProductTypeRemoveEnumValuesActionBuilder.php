@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?array
      */
     private $keys;
@@ -33,6 +35,7 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
     /**
      * <p>Keys of <a href="ctp:api:type:AttributeEnumType">AttributeEnumType</a> or <a href="ctp:api:type:AttributeLocalizedEnumType">AttributeLocalizedEnumType</a> to remove.</p>
      *
+
      * @return null|array
      */
     public function getKeys()

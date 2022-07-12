@@ -19,6 +19,7 @@ interface AttributeNestedType extends AttributeType
     /**
      * <p>References a product type by key.</p>
      *
+
      * @return null|ProductTypeKeyReference
      */
     public function getTypeReference();

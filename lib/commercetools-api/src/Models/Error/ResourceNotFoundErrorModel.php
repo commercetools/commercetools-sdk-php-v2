@@ -21,11 +21,13 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
 {
     public const DISCRIMINATOR_VALUE = 'ResourceNotFound';
     /**
+
      * @var ?string
      */
     protected $code;
 
     /**
+
      * @var ?string
      */
     protected $message;
@@ -42,6 +44,7 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+
      * @return null|string
      */
     public function getCode()
@@ -59,6 +62,7 @@ final class ResourceNotFoundErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+
      * @return null|string
      */
     public function getMessage()

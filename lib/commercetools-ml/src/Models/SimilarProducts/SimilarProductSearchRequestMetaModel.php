@@ -20,6 +20,7 @@ use stdClass;
 final class SimilarProductSearchRequestMetaModel extends JsonObjectModel implements SimilarProductSearchRequestMeta
 {
     /**
+
      * @var ?SimilarityMeasures
      */
     protected $similarityMeasures;
@@ -37,6 +38,7 @@ final class SimilarProductSearchRequestMetaModel extends JsonObjectModel impleme
     /**
      * <p>The SimilarityMeasures used in this search.</p>
      *
+
      * @return null|SimilarityMeasures
      */
     public function getSimilarityMeasures()
