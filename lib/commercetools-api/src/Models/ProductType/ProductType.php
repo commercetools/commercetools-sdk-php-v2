@@ -49,7 +49,7 @@ interface ProductType extends BaseResource
     public function getCreatedAt();
 
     /**
-     * <p>Date and time (UTC) the Channel was last updated.</p>
+     * <p>Date and time (UTC) the ProductType was last updated.</p>
      *
 
      * @return null|DateTimeImmutable
