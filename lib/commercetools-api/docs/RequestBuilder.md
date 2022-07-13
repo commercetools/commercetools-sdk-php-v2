@@ -4106,6 +4106,20 @@ $request = $builder
                 ->productTypes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productTypes()->head()`
+
+Check if Product Types exist. Responds with a `200 OK` status if any Product Types match the Query Predicate, or `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTypes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->productTypes()->post(null)`
 
 null
@@ -4134,6 +4148,21 @@ $request = $builder
                 ->productTypes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->productTypes()->withId("ID")->head()`
+
+Checks if a Product Type with given `id` exists. Responds with a `200 OK` status if the `Product Type` exists or `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTypes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->post(null)`
 
@@ -4179,6 +4208,21 @@ $request = $builder
                 ->productTypes()
                 ->withKey("key")
                 ->get();
+```
+## `withProjectKey("projectKey")->productTypes()->withKey("key")->head()`
+
+Checks if a Product Type with given `key` exists. Responds with a `200 OK` status if the `Product Type` exists or `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTypes()
+                ->withKey("key")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->post(null)`
 
