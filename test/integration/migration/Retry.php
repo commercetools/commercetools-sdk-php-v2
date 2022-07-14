@@ -32,25 +32,9 @@ class Retry extends MigrationService implements MigrationInterface
         $clientOptions = [
             'middlewares' => [
                 'retry' => Middleware::retry(
-                    function ($retries, RequestInterface $request, ResponseInterface $response = null, $error = null) use ($maxRetries) {
-                        if ($response instanceof ResponseInterface && $response->getStatusCode() < 500) {
-                            return false;
-                        }
-                        if ($retries > $maxRetries) {
-                            return false;
-                        }
-                        if ($error instanceof ServiceUnavailableException) {
-                            return true;
-                        }
-                        if ($error instanceof ServerException && $error->getCode() == 503) {
-                            return true;
-                        }
-                        if ($response instanceof ResponseInterface && $response->getStatusCode() == 503) {
-                            return true;
-                        }
-                        return false;
-                    },
-                    [RetryMiddleware::class, 'exponentialDelay']
+                    function ($retries, RequestInterface $request, ResponseInterface $response = null, RequestException $error = null) use ($maxRetries) {
+                        return $retries < $maxRetries && ($error instanceof ConnectException || $response && $response->getStatusCode() >= 500);
+                    }
                 )
             ]
         ];

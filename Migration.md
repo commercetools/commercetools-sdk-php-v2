@@ -23,31 +23,21 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
 
 1.x
 ```php
-        $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
-        $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
-        $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-        $config = Config::fromArray([
-            'client_id' => $clientId,
-            'client_secret' => $clientSecret,
-            'project' => $projectKey
-        ]);
-        $config->setOauthUrl(self::OAUTH_URL)->setApiUrl(self::API_URL);
-        $client = Client::ofConfig($config);
+        $client = Client::ofConfig(
+            ConfigV1::of()->setClientId(self::CLIENT_ID)->setClientSecret(self::CLIENT_SECRET)->setProject(self::PROJECT_KEY)
+        );
         $request = RequestBuilder::of()->project()->get();
-        $response = $client->execute($request);
+        $result = $request->mapFromResponse($response);
 ```
 2.x
 *For the rest of the Migration Guideline this part below will be replaced with* **$builder = $this->builder();**
 
-In the below example the class *ClientCredentialsConfig* takes a default value for OAUTH_URL, the same is for the class *Config* which takes a default value for the API_URL, but it can be defined in this way:
+In the below example the class *ClientCredentialsConfig* takes a default value for OAUTH_URL (see the class *ClientCredentials*), the same is for the class *Config* which takes a default value for the API_URL, but it can be defined in this way:
 ```php
-        $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
-        $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
-        $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), [], $oauthUrl = 'https://auth.us-central1.gcp.commercetools.com');
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials(self::CLIENT_ID, self::CLIENT_SECRET), [], $oauthUrl = 'https://auth.us-central1.gcp.commercetools.com');
         $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3], $apiUrl = 'https://api.us-central1.gcp.commercetools.com'), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
-        $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
+        $request = $apiRequestBuilder->withProjectKey(self::PROJECT_KEY)->get();
         $client = $request->execute();
 ```
 
@@ -67,7 +57,7 @@ In both versions is the **execute()** method which sets the timeout. In alternat
         $request = $this->builder()->with()->categories()->get();
         $response = $request->execute($options);
 ```
-The setup of the timeout in the **ClientFactory**: the default value for the timeout is "60", see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
+There is the possibility in the v2 to set up the *Timout* at Client Creation level: the default value for the timeout is "60", see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
 ```php
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
         $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3, 'timeout' => 45]), $authConfig);
@@ -96,7 +86,7 @@ Like as the [timeout](#timeout-setting), in alternative, the 2.x version is able
         $request = $builder->with()->categories()->get()->withHeader("foo", "bar");
         $result = $request->execute();
 ```
-The setup of the headers in the **ClientFactory**: the default value for the headers is an empty array, see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
+There is the possibility in the v2 to set up the *Header* at Client Creation level: the default value for the headers is an empty array, see the *createGuzzleClientWithOptions()* method, otherwise it could be set up in the way described below:
 ```php
         $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret));
         $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3, 'headers' => ["foo" => "bar"]]), $authConfig);
@@ -207,7 +197,7 @@ The main difference is how to build the request, as explained in the [Create Com
 1.x
 ```php
         $client = $this->client();
-        $categoryDraft = CategoryDraft::fromArray(json_decode(file_get_contents(__DIR__ . "/categoryDraft.json")));
+        $categoryDraft = CategoryDraft::fromArray(json_decode(file_get_contents(__DIR__ . "/categoryDraft.json")));    
         $request = RequestBuilder::of()->categories()->create($categoryDraft);
         $response = $this->execute($client, $request);
         $result = $request->mapFromResponse($response);
@@ -217,7 +207,6 @@ The main difference is how to build the request, as explained in the [Create Com
         $builder = $this->builder();
         /** @var CategoryDraft $categoryDraft */
         $categoryDraft = CategoryDraftModel::fromArray(json_decode(file_get_contents(__DIR__ . "/categoryDraft.json"), true));
-
         $request = $builder->with()->categories()->post($categoryDraft);
         $result = $request->execute();
 ```

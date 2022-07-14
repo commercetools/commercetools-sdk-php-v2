@@ -178,7 +178,7 @@ class MigrationTest extends ApiTestCase
         $request = $builder->with()->categories()->post($categoryDraft);
         $category = $request->execute();
 
-        $request = $builder->with()->categories()->get()->withWhere("key = :key")->withPredicateVar("key", $key);
+        $request = $builder->with()->categories()->get()->withWhere("key = :key")->withPredicateVar("key", $category->getKey());
         $resultWithPredicateVar = $request->execute();
 
         assertEquals($category->getKey(), $resultWithPredicateVar->getResults()->current()->getKey());

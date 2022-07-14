@@ -23,16 +23,7 @@ class Query extends MigrationService implements MigrationInterface
     {
         $builder = $this->builderV2();
         /** @var Category $category */
-        $request = $builder->with()->categories()->get()->withWhere("key = :inputKey")->withPredicateVar("inputKey", $category->getKey());
-
-        return $request->execute();
-    }
-
-    public function v2WithWhere()
-    {
-        $builder = $this->builderV2();
-        /** @var Category $category */
-        $request = $builder->with()->categories()->get()->withWhere(sprintf("id=\"%s\"", $category->getId()));
+        $request = $builder->with()->categories()->get()->withWhere("key = :key")->withPredicateVar("key", $category->getKey());
 
         return $request->execute();
     }
