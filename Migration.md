@@ -5,14 +5,14 @@ This guide helps developers to migrate from the version 1.x to the version 2.x o
 ## Table of content
 
 * [Client Configuration and Creation](#client-configuration-and-creation)
-* [Timeout Setting](#timout-setting)
+* [Timeout Setting](#timeout-setting)
 * [Headers](#headers)
 * [Retry](#retry)
 * [Draft Builder](#draft-builder)
 * [Create Command](#create-command)
 * [Create From Json](#create-from-json)
 * [Update Command](#update-command)
-* [Query - GetById](#query-getbyid)
+* [Query - Get By Id](#query-get-by-id)
 * [Query](#query)
 
 <a id="client-configuration-and-creation"></a>
@@ -41,7 +41,7 @@ In the below example the class *ClientCredentialsConfig* takes a default value f
         $client = $request->execute();
 ```
 
-<a id="timout-setting"></a>
+<a id="timeout-setting"></a>
 ### Timeout Setting
 In both versions is the **execute()** method which sets the timeout. In alternative, the 2.x version is able to set the timeout from the creation of the client through **ClientFactory** (the example is below).
 
@@ -250,8 +250,8 @@ Here the differences:
         $categoryUpdated = $request->execute();
 ```
 
-<a id="query-getbyid"></a>
-### Query - GetById
+<a id="query-get-by-id"></a>
+### Query - Get By Id
 The *Query by Id* command is slightly different compared to the [Create Command](#create-command) and to the [Update Command](#update-command).
 Here how to create the related request:
 - Follow the first 2 points of the [Create Command](#create-command);
