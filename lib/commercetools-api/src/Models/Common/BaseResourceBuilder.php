@@ -164,6 +164,8 @@ use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;
 use Commercetools\Api\Models\Message\StoreDeletedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessage;
+use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessage;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessageBuilder;
 use Commercetools\Api\Models\Order\Order;

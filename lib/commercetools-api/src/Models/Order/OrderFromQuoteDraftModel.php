@@ -109,6 +109,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     * <p>The <code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     *
 
      * @return null|int
      */

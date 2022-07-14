@@ -32,6 +32,8 @@ interface OrderFromQuoteDraft extends JsonObject
     public function getQuote();
 
     /**
+     * <p>The <code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     *
 
      * @return null|int
      */
