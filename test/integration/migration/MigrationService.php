@@ -20,8 +20,6 @@ class MigrationService
     public const CLIENT_SECRET = 'my_client_secret';
     public const PROJECT_KEY = 'my_project_key';
 
-    private $oAuth;
-    private $api;
     private $clientId;
     private $secret;
     private $project;

@@ -7,6 +7,7 @@ use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config as ConfigV2;
 use Commercetools\Api\Models\Category\Category as CategoryV2;
 use Commercetools\Api\Models\Category\CategoryBuilder;
+use Commercetools\Api\Models\Category\CategoryChangeNameActionBuilder;
 use Commercetools\Api\Models\Category\CategoryChangeNameActionModel;
 use Commercetools\Api\Models\Category\CategoryDraft;
 use Commercetools\Api\Models\Category\CategoryDraftBuilder;
@@ -28,13 +29,14 @@ class MigrationTest extends ApiTestCase
     public $clientId = 'bme-3iUSJonevnAqdovBgJMp';
     public $clientSecret = 'f-xA0DFe3ooO1bMRZZUS4WjAUKE0KgO9';
     public $projectKey = 'barbara-mc-test';
-    public $apiUri = 'https://api.us-central1.gcp.commercetools.com';
-    public $authUrl = 'https://auth.us-central1.gcp.commercetools.com';
+    // The below values are defined as default in the related classes. This test is to demonstrate how to set up the API_URL and the OAUTH_URL
+    public $apiUrl = 'https://api.europe-west1.gcp.commercetools.com';
+    public $oAuthUrl = 'https://auth.europe-west1.gcp.commercetools.com/oauth/token';
 
     public function testClient()
     {
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), null, $this->authUrl);
-        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3], $this->apiUri), $authConfig);
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), [], $this->oAuthUrl);
+        $client = ClientFactory::of()->createGuzzleClient(new ConfigV2(['maxRetries' => 3], $this->apiUrl), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $client = $request->execute();
@@ -146,14 +148,13 @@ class MigrationTest extends ApiTestCase
 
 
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
-        $updateAction = CategoryChangeNameActionModel::of();
-        $updateAction->setName($newName);
-        $updateCollection = CategoryUpdateActionCollection::of()->add($updateAction);
         /** @var CategoryV2 $category */
         $request = $builder->with()->categories()->withId($category->getId())
             ->post(
                 CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateCollection)->build()
+                    ->withActions(
+                        CategoryUpdateActionCollection::of()->add(CategoryChangeNameActionBuilder::of()->withName($newName)->build())
+                    )->build()
             );
         $categoryUpdated = $request->execute();
 

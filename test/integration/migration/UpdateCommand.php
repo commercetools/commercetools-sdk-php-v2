@@ -3,6 +3,7 @@
 namespace Commercetools\IntegrationTest\migration;
 
 use Commercetools\Api\Models\Category\Category as CategoryV2;
+use Commercetools\Api\Models\Category\CategoryChangeNameActionBuilder;
 use Commercetools\Api\Models\Category\CategoryChangeNameActionModel;
 use Commercetools\Api\Models\Category\CategoryUpdateActionCollection;
 use Commercetools\Api\Models\Category\CategoryUpdateBuilder;
@@ -31,14 +32,13 @@ class UpdateCommand extends MigrationService implements MigrationInterface
         $builder = $this->builderV2();
 
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
-        $updateAction = CategoryChangeNameActionModel::of();
-        $updateAction->setName($newName);
-        $updateCollection = CategoryUpdateActionCollection::of()->add($updateAction);
         /** @var CategoryV2 $category */
         $request = $builder->with()->categories()->withId($category->getId())
             ->post(
                 CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateCollection)->build()
+                    ->withActions(
+                        CategoryUpdateActionCollection::of()->add(CategoryChangeNameActionBuilder::of()->withName($newName)->build())
+                    )->build()
             );
 
         return $request->execute();

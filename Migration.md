@@ -39,13 +39,13 @@ The benefit of the 2.x, is that through the **ClientFactory** class, there is th
 2.x
 *For the rest of the Migration Guideline this part below will be replaced with* **$builder = $this->builder();**
 
-In the below example the class *ClientCredentialsConfig* takes a default value for AUTH_URI, the same is for the class *Config* which takes a default value for the API_URL, but it can be defined in this way:
+In the below example the class *ClientCredentialsConfig* takes a default value for OAUTH_URL, the same is for the class *Config* which takes a default value for the API_URL, but it can be defined in this way:
 ```php
         $clientId = $_ENV['CTP_CLIENT_ID'] ?? '';
         $clientSecret = $_ENV['CTP_CLIENT_SECRET'] ?? '';
         $projectKey = $_ENV['CTP_PROJECT'] ?? '';
-        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), null, self::OAUTH_URL);
-        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3], self::API_URL), $authConfig);
+        $authConfig = new ClientCredentialsConfig(new ClientCredentials($this->clientId, $this->clientSecret), [], $oauthUrl = 'https://auth.us-central1.gcp.commercetools.com');
+        $client = ClientFactory::of()->createGuzzleClient(new Config(['maxRetries' => 3], $apiUrl = 'https://api.us-central1.gcp.commercetools.com'), $authConfig);
         $apiRequestBuilder = new ApiRequestBuilder($client);
         $request = $apiRequestBuilder->withProjectKey($this->projectKey)->get();
         $client = $request->execute();
@@ -170,10 +170,10 @@ As can be seen below, setters are being replaced by withers methods, thanks to t
 In the 2.x, we replaced the **RequestBuilder** class with **ApiRequestBuilder** to build the request (see [Client Configuration and Creation](#client-configuration-and-creation) section). 
 There are not dedicated methods to build a request, like in this case the *create* method, but to have a request, it needs to have a draft to build and which is passed into the *post()* method.
 In details:
-- Call the **with()** method from the ApiRequestBuilder, it will get the Project Key, 
-- Choose the Resource/Endpoint/Domain to call in this case is */categories* (the method to call is **categories()**)
-- Call the method **post()** and passing in it the draft object (in this case the CategoryDraft) to create a request (in this case **ByProjectKeyCategoriesPost** request).
-- Run the **execute()** method to create a new object (in this case a new Category object)
+- Call the **with()** method from the ApiRequestBuilder, it will get the Project Key; 
+- Choose the Resource/Endpoint/Domain to call in this case is */categories* (the method to call is **categories()**);
+- Call the method **post()** and passing in it the draft object (in this case the CategoryDraft) to create a request (in this case **ByProjectKeyCategoriesPost** request);
+- Run the **execute()** method to create a new object (in this case a new Category object).
 
 Here below the differences between the two versions:
 
@@ -226,9 +226,8 @@ The main difference is how to build the request, as explained in the [Create Com
 ### Update Command
 Like the [Create Command](#create-command), there are not dedicate methods to build a request, like in this case the *update* method.
 So to create this kind of requests, like the example below:
-- Call the static method *of()* of the Action Model class, and then set the related property that it needs to be changed, in this case the class is *CategoryChangeNameActionModel*,
-- Call the static method *of()* of the Update Action Collection and then call the *add()* method to pass the Action Model object, in this case as Update Action Collection, it's used the *CategoryUpdateActionCollection*,
-- Create the Update Builder object, having the version (using *withVersion()* method) from the object that has to be modified and passing the collection of Actions through the method *withActions()*   
+- Create the Update Builder object, having the version (using *withVersion()* method) from the object that has to be modified; 
+- Pass all the Update Action Collections in the *withActions()* method, which are needed to be executed;   
 - Now the creation of the request:
   - follow the first 2 points of the [Create Command](#create-command)
   - Call the *withId() or withKey()* methods to select the object to update,
@@ -251,14 +250,13 @@ Here the differences:
 ```php
         $builder = $this->builder();
         $newName = LocalizedStringBuilder::of()->put('en', "new-name")->build();
-        $updateAction = CategoryChangeNameActionModel::of();
-        $updateAction->setName($newName);
-        $updateCollection = CategoryUpdateActionCollection::of()->add($updateAction);
         /** @var Category $category */
         $request = $builder->with()->categories()->withId($category->getId())
             ->post(
                 CategoryUpdateBuilder::of()->withVersion($category->getVersion())
-                    ->withActions($updateCollection)->build()
+                    ->withActions(
+                        CategoryUpdateActionCollection::of()->add(CategoryChangeNameActionBuilder::of()->withName($newName)->build())
+                    )->build()
             );
         $categoryUpdated = $request->execute();
 ```
@@ -267,10 +265,10 @@ Here the differences:
 ### Query - GetById
 The *Query by Id* command is slightly different compared to the [Create Command](#create-command) and to the [Update Command](#update-command).
 Here how to create the related request:
-- follow the first 2 points of the [Create Command](#create-command)
-- call the *withId()* method to select the Id that we are looking for,
-- call the *get()* method to retrieve the related object of our request, which in the case below is *ByProjectKeyCategoriesByIDGet* object,
-- then it's possible to add other kind of filters such as *withExpand()*, of course it depends about the structure of our APIs.
+- Follow the first 2 points of the [Create Command](#create-command);
+- Call the *withId()* method to select the Id that we are looking for;
+- Call the *get()* method to retrieve the related object of our request, which in the case below is *ByProjectKeyCategoriesByIDGet* object;
+- Then it's possible to add other kind of filters such as *withExpand()*, of course it depends about the structure of our APIs.
 
 1.x
 ```php
