@@ -72,5 +72,10 @@
     "phpunit/phpunit": "^9.0 | 8.5.22",
     "cache/array-adapter": "^1.0",
     "symplify/easy-coding-standard": "dev-main#3723f5bad743e7cdff8c933ed6b29a2a936e9fbb"
+  },
+  "config": {
+    "allow-plugins": {
+      "ocramius/package-versions": true
+    }
   }
 }
