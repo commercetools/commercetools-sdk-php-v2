@@ -31,6 +31,7 @@ interface ProductImport extends ImportResource
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     public const FIELD_STATE = 'state';
     public const FIELD_PUBLISH = 'publish';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
      * <p>Maps to <code>Product.name</code>.</p>
@@ -170,6 +171,14 @@ interface ProductImport extends ImportResource
     public function getPublish();
 
     /**
+     * <p>Determines the type of Prices used for <a href="/../api/projects/products#price-selection">Product Price Selection</a> as well as for <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -228,4 +237,9 @@ interface ProductImport extends ImportResource
      * @param ?bool $publish
      */
     public function setPublish(?bool $publish): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

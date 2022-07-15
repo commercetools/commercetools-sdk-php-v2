@@ -111,6 +111,12 @@ final class ProductImportBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
+
      * @return null|string
      */
     public function getKey()
@@ -292,6 +298,17 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * <p>Determines the type of Prices used for <a href="/../api/projects/products#price-selection">Product Price Selection</a> as well as for <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
+    }
+
+    /**
      * @param ?string $key
      * @return $this
      */
@@ -435,6 +452,17 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -559,7 +587,8 @@ final class ProductImportBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryKeyReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
             $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state,
-            $this->publish
+            $this->publish,
+            $this->priceMode
         );
     }
 

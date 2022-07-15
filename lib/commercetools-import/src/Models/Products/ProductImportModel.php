@@ -108,6 +108,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      */
     protected $publish;
 
+    /**
+
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -125,7 +131,8 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         ?TaxCategoryKeyReference $taxCategory = null,
         ?SearchKeywords $searchKeywords = null,
         ?StateKeyReference $state = null,
-        ?bool $publish = null
+        ?bool $publish = null,
+        ?string $priceMode = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -140,6 +147,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
         $this->publish = $publish;
+        $this->priceMode = $priceMode;
     }
 
     /**
@@ -451,6 +459,26 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         return $this->publish;
     }
 
+    /**
+     * <p>Determines the type of Prices used for <a href="/../api/projects/products#price-selection">Product Price Selection</a> as well as for <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
 
     /**
      * @param ?string $key
@@ -554,5 +582,13 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }
