@@ -517,7 +517,7 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
-     * <p>Determines the type of Prices used for <a href="/../api/projects/products#price-selection">Product Price Selection</a> as well as for <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details.</p>
+     * <p>Determines the type of Prices the API uses. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
      *
 
      * @return null|string
