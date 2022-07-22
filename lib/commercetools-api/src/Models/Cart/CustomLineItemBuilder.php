@@ -110,6 +110,12 @@ final class CustomLineItemBuilder implements Builder
     private $shippingDetails;
 
     /**
+
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
      * <p>Unique identifier of the CustomLineItem.</p>
      *
 
@@ -250,6 +256,18 @@ final class CustomLineItemBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item: <code>Standard</code> = yes, <code>External</code> = no.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -396,6 +414,17 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -498,7 +527,8 @@ final class CustomLineItemBuilder implements Builder
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
             $this->discountedPricePerQuantity,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->priceMode
         );
     }
 

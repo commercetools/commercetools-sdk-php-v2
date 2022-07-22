@@ -40,6 +40,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'applyDeltaToCustomLineItemShippingDetailsTargets' => CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel::class,
        'applyDeltaToLineItemShippingDetailsTargets' => CartApplyDeltaToLineItemShippingDetailsTargetsActionModel::class,
        'changeCustomLineItemMoney' => CartChangeCustomLineItemMoneyActionModel::class,
+       'changeCustomLineItemPriceMode' => CartChangeCustomLineItemPriceModeActionModel::class,
        'changeCustomLineItemQuantity' => CartChangeCustomLineItemQuantityActionModel::class,
        'changeLineItemQuantity' => CartChangeLineItemQuantityActionModel::class,
        'changeTaxCalculationMode' => CartChangeTaxCalculationModeActionModel::class,

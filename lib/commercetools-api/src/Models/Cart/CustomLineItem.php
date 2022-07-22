@@ -32,6 +32,7 @@ interface CustomLineItem extends JsonObject
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
      * <p>Unique identifier of the CustomLineItem.</p>
@@ -138,6 +139,15 @@ interface CustomLineItem extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item: <code>Standard</code> = yes, <code>External</code> = no.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -201,4 +211,9 @@ interface CustomLineItem extends JsonObject
      * @param ?ItemShippingDetails $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

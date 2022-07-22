@@ -108,6 +108,12 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
      */
     protected $shippingDetails;
 
+    /**
+
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -125,7 +131,8 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         ?TaxRate $taxRate = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?CustomFields $custom = null,
-        ?ItemShippingDetails $shippingDetails = null
+        ?ItemShippingDetails $shippingDetails = null,
+        ?string $priceMode = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -140,6 +147,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
+        $this->priceMode = $priceMode;
     }
 
     /**
@@ -410,6 +418,27 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         return $this->shippingDetails;
     }
 
+    /**
+     * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item: <code>Standard</code> = yes, <code>External</code> = no.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
 
     /**
      * @param ?string $id
@@ -513,5 +542,13 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }
