@@ -160,6 +160,12 @@ final class LineItemBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $inventoryMode;
+
+    /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $shippingDetails;
@@ -389,6 +395,18 @@ final class LineItemBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
     }
 
     /**
@@ -636,6 +654,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?ItemShippingDetails $shippingDetails
      * @return $this
      */
@@ -812,6 +841,7 @@ final class LineItemBuilder implements Builder
             $this->priceMode,
             $this->lineItemMode,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->lastModifiedAt
         );

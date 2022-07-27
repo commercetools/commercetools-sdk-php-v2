@@ -159,6 +159,12 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
 
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
@@ -194,6 +200,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?string $priceMode = null,
         ?string $lineItemMode = null,
         ?CustomFields $custom = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetails $shippingDetails = null,
         ?DateTimeImmutable $lastModifiedAt = null
     ) {
@@ -217,6 +224,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->priceMode = $priceMode;
         $this->lineItemMode = $lineItemMode;
         $this->custom = $custom;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
         $this->lastModifiedAt = $lastModifiedAt;
     }
@@ -638,6 +646,27 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
      * <p>Container for line item specific address(es).</p>
      *
 
@@ -843,6 +872,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
     }
 
     /**

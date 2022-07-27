@@ -95,6 +95,12 @@ final class LineItemDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $inventoryMode;
+
+    /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -218,6 +224,18 @@ final class LineItemDraftBuilder implements Builder
     public function getExternalTotalPrice()
     {
         return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
+    }
+
+    /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
     }
 
     /**
@@ -353,6 +371,17 @@ final class LineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
@@ -454,6 +483,7 @@ final class LineItemDraftBuilder implements Builder
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice,
             $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice,
+            $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }

@@ -28,6 +28,7 @@ interface LineItemDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_EXTERNAL_PRICE = 'externalPrice';
     public const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
@@ -119,6 +120,15 @@ interface LineItemDraft extends JsonObject
     public function getExternalTotalPrice();
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode();
+
+    /**
      * <p>Container for line item specific address(es).</p>
      *
 
@@ -180,6 +190,11 @@ interface LineItemDraft extends JsonObject
      * @param ?ExternalLineItemTotalPrice $externalTotalPrice
      */
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?ItemShippingDetailsDraft $shippingDetails

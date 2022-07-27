@@ -94,6 +94,12 @@ final class LineItemImportDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $inventoryMode;
+
+    /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -202,6 +208,18 @@ final class LineItemImportDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
     }
 
     /**
@@ -324,6 +342,17 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
+
+        return $this;
+    }
+
+    /**
      * @param ?ItemShippingDetailsDraft $shippingDetails
      * @return $this
      */
@@ -435,6 +464,7 @@ final class LineItemImportDraftBuilder implements Builder
             $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
         );
     }

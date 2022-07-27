@@ -94,6 +94,12 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
 
     /**
 
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -114,6 +120,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         ?CustomFieldsDraft $custom = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->productId = $productId;
@@ -127,6 +134,7 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
         $this->custom = $custom;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
     }
 
@@ -361,6 +369,27 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     }
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
      * <p>Container for line item specific address(es).</p>
      *
 
@@ -468,6 +497,14 @@ final class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
     {
         $this->externalTotalPrice = $externalTotalPrice;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
     }
 
     /**

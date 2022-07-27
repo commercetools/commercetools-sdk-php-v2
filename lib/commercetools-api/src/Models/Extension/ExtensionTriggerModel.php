@@ -52,7 +52,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     }
 
     /**
-     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
+     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, <code>customer</code>, <code>quote-request</code>, <code>staged-quote</code>, and <code>quote</code> are supported.</p>
      *
 
      * @return null|string

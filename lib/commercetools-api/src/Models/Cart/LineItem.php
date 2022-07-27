@@ -43,6 +43,7 @@ interface LineItem extends JsonObject
     public const FIELD_PRICE_MODE = 'priceMode';
     public const FIELD_LINE_ITEM_MODE = 'lineItemMode';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
@@ -208,6 +209,15 @@ interface LineItem extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode();
+
+    /**
      * <p>Container for line item specific address(es).</p>
      *
 
@@ -324,6 +334,11 @@ interface LineItem extends JsonObject
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?ItemShippingDetails $shippingDetails

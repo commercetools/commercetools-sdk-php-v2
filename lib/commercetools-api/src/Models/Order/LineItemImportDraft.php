@@ -29,6 +29,7 @@ interface LineItemImportDraft extends JsonObject
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_TAX_RATE = 'taxRate';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
@@ -108,6 +109,15 @@ interface LineItemImportDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode();
+
+    /**
 
      * @return null|ItemShippingDetailsDraft
      */
@@ -162,6 +172,11 @@ interface LineItemImportDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?ItemShippingDetailsDraft $shippingDetails

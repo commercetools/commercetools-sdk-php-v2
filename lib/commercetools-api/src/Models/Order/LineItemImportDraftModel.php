@@ -93,6 +93,12 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
 
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -112,6 +118,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?TaxRate $taxRate = null,
         ?CustomFieldsDraft $custom = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null
     ) {
         $this->productId = $productId;
@@ -124,6 +131,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->distributionChannel = $distributionChannel;
         $this->taxRate = $taxRate;
         $this->custom = $custom;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
     }
 
@@ -331,6 +339,27 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
 
      * @return null|ItemShippingDetailsDraft
      */
@@ -428,6 +457,14 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
     }
 
     /**
