@@ -183,24 +183,6 @@ class ByProjectKeyProductsKeyByKeyGet extends ApiRequest implements PriceSelecti
 
     /**
      *
-     * @psalm-param scalar|scalar[] $localeProjection
-     */
-    public function withLocaleProjection($localeProjection): ByProjectKeyProductsKeyByKeyGet
-    {
-        return $this->withQueryParam('localeProjection', $localeProjection);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $storeProjection
-     */
-    public function withStoreProjection($storeProjection): ByProjectKeyProductsKeyByKeyGet
-    {
-        return $this->withQueryParam('storeProjection', $storeProjection);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsKeyByKeyGet

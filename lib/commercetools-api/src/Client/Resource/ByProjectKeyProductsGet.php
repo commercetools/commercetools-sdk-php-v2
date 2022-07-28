@@ -186,24 +186,6 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
 
     /**
      *
-     * @psalm-param scalar|scalar[] $localeProjection
-     */
-    public function withLocaleProjection($localeProjection): ByProjectKeyProductsGet
-    {
-        return $this->withQueryParam('localeProjection', $localeProjection);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $storeProjection
-     */
-    public function withStoreProjection($storeProjection): ByProjectKeyProductsGet
-    {
-        return $this->withQueryParam('storeProjection', $storeProjection);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsGet

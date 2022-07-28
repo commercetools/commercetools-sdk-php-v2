@@ -31,11 +31,13 @@ use Psr\Http\Message\ResponseInterface;
 
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsKeyByKeyGet>
+ * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsKeyByKeyGet>
+ * @template-implements StoreProjecting<ByProjectKeyProductProjectionsKeyByKeyGet>
  * @template-implements Expandable<ByProjectKeyProductProjectionsKeyByKeyGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsKeyByKeyGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsKeyByKeyGet>
  */
-class ByProjectKeyProductProjectionsKeyByKeyGet extends ApiRequest implements PriceSelecting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsKeyByKeyGet extends ApiRequest implements PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body

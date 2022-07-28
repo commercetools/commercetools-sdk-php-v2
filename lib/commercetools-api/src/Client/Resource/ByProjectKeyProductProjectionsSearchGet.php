@@ -33,11 +33,13 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements Sortable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Paging<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsSearchGet>
+ * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsSearchGet>
+ * @template-implements StoreProjecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Expandable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Errorable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsSearchGet>
  */
-class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sortable, Paging, PriceSelecting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sortable, Paging, PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body

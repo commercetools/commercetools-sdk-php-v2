@@ -188,24 +188,6 @@ class ByProjectKeyProductsByIDPost extends ApiRequest implements PriceSelecting,
 
     /**
      *
-     * @psalm-param scalar|scalar[] $localeProjection
-     */
-    public function withLocaleProjection($localeProjection): ByProjectKeyProductsByIDPost
-    {
-        return $this->withQueryParam('localeProjection', $localeProjection);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $storeProjection
-     */
-    public function withStoreProjection($storeProjection): ByProjectKeyProductsByIDPost
-    {
-        return $this->withQueryParam('storeProjection', $storeProjection);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyProductsByIDPost
