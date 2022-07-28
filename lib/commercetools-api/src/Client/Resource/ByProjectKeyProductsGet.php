@@ -150,6 +150,15 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
 
     /**
      *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyProductsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductsGet
@@ -227,15 +236,6 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
     public function withWithTotal($withTotal): ByProjectKeyProductsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $where
-     */
-    public function withWhere($where): ByProjectKeyProductsGet
-    {
-        return $this->withQueryParam('where', $where);
     }
 
     /**

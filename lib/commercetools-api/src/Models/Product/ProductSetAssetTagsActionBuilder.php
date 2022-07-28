@@ -57,6 +57,8 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     private $tags;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -66,6 +68,8 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -75,6 +79,8 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
 
      * @return null|bool
      */
@@ -84,6 +90,8 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -93,6 +101,8 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -102,6 +112,8 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
 
      * @return null|array
      */

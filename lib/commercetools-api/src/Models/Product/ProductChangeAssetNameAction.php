@@ -22,36 +22,48 @@ interface ProductChangeAssetNameAction extends ProductUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
 
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
     public function getAssetKey();
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
 
      * @return null|LocalizedString
      */

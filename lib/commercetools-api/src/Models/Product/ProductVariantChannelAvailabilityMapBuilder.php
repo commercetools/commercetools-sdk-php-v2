@@ -9,25 +9,38 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Commercetools\Base\MapperMap;
 use stdClass;
 
 /**
  * @implements Builder<ProductVariantChannelAvailabilityMap>
+ * @extends MapperMap<ProductVariantChannelAvailabilityMap>
  */
-final class ProductVariantChannelAvailabilityMapBuilder implements Builder
+final class ProductVariantChannelAvailabilityMapBuilder extends MapperMap implements Builder
 {
-    public function build(): ProductVariantChannelAvailabilityMap
+    /**
+     * @psalm-return callable(string):?ProductVariantChannelAvailabilityMap
+     */
+    protected function mapper()
     {
-        return new ProductVariantChannelAvailabilityMapModel(
-        );
+        return
+            /**
+             * @psalm-return ?ProductVariantChannelAvailabilityMap
+             */
+            function (string $key) {
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = ProductVariantChannelAvailabilityMapModel::of($data);
+                }
+                return $data;
+            };
     }
 
-    public static function of(): ProductVariantChannelAvailabilityMapBuilder
+    /**
+     * @return ProductVariantChannelAvailabilityMap
+     */
+    public function build()
     {
-        return new self();
+        return new ProductVariantChannelAvailabilityMapModel($this->toArray());
     }
 }

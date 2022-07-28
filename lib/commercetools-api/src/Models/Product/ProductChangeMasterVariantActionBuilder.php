@@ -39,6 +39,8 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to become the Master Variant.</p>
+     *
 
      * @return null|int
      */
@@ -48,6 +50,8 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to become the Master Variant.</p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Master Variant is changed. If <code>false</code>, both the current and staged Master Variant are changed.</p>
+     *
 
      * @return null|bool
      */

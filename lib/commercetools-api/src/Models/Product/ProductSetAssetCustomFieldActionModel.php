@@ -110,6 +110,8 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -128,6 +130,8 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -146,6 +150,8 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
 
      * @return null|bool
      */
@@ -164,6 +170,8 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -182,6 +190,8 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */

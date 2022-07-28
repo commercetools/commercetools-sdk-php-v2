@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -43,7 +42,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
 
     /**
 
-     * @var ?PriceDraftCollection
+     * @var ?EmbeddedPriceDraftCollection
      */
     protected $prices;
 
@@ -78,7 +77,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     public function __construct(
         ?string $sku = null,
         ?string $key = null,
-        ?PriceDraftCollection $prices = null,
+        ?EmbeddedPriceDraftCollection $prices = null,
         ?ImageCollection $images = null,
         ?AttributeCollection $attributes = null,
         ?bool $staged = null,
@@ -113,6 +112,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
 
      * @return null|string
      */
@@ -131,6 +132,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
 
      * @return null|string
      */
@@ -149,8 +152,10 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>EmbeddedPrices for the Product Variant.</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
     {
@@ -160,13 +165,15 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = PriceDraftCollection::fromArray($data);
+            $this->prices = EmbeddedPriceDraftCollection::fromArray($data);
         }
 
         return $this->prices;
     }
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
@@ -185,6 +192,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>Attributes for the Product Variant.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -203,6 +212,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>If <code>true</code> the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
+     *
 
      * @return null|bool
      */
@@ -221,6 +232,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetCollection
      */
@@ -256,9 +269,9 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      */
-    public function setPrices(?PriceDraftCollection $prices): void
+    public function setPrices(?EmbeddedPriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }

@@ -35,6 +35,8 @@ final class ProductSetMetaKeywordsActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -44,6 +46,8 @@ final class ProductSetMetaKeywordsActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>metaKeywords</code> is updated. If <code>false</code>, both the current and staged <code>metaKeywords</code> are updated.</p>
+     *
 
      * @return null|bool
      */

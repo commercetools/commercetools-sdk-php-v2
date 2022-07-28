@@ -67,6 +67,8 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -76,6 +78,8 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -85,6 +89,8 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
 
      * @return null|bool
      */
@@ -94,6 +100,8 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -103,6 +111,8 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */

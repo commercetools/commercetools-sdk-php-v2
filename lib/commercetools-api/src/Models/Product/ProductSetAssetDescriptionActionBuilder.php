@@ -59,6 +59,8 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     private $description;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -68,6 +70,8 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -77,6 +81,8 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
 
      * @return null|bool
      */
@@ -86,6 +92,8 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -95,6 +103,8 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -104,6 +114,8 @@ final class ProductSetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|LocalizedString
      */

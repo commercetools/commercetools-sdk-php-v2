@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\PriceDraft;
-use Commercetools\Api\Models\Common\PriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -42,7 +40,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
 
     /**
 
-     * @var ?PriceDraft
+     * @var ?EmbeddedPriceDraft
      */
     protected $price;
 
@@ -59,7 +57,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     public function __construct(
         ?int $variantId = null,
         ?string $sku = null,
-        ?PriceDraft $price = null,
+        ?EmbeddedPriceDraft $price = null,
         ?bool $staged = null
     ) {
         $this->variantId = $variantId;
@@ -88,6 +86,8 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -106,6 +106,8 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -124,8 +126,10 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>EmbeddedPrice to add to the Product Variant.</p>
+     *
 
-     * @return null|PriceDraft
+     * @return null|EmbeddedPriceDraft
      */
     public function getPrice()
     {
@@ -136,13 +140,15 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
                 return null;
             }
 
-            $this->price = PriceDraftModel::of($data);
+            $this->price = EmbeddedPriceDraftModel::of($data);
         }
 
         return $this->price;
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>prices</code> is updated. If <code>false</code>, both the current and staged <code>prices</code> are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -178,9 +184,9 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * @param ?PriceDraft $price
+     * @param ?EmbeddedPriceDraft $price
      */
-    public function setPrice(?PriceDraft $price): void
+    public function setPrice(?EmbeddedPriceDraft $price): void
     {
         $this->price = $price;
     }

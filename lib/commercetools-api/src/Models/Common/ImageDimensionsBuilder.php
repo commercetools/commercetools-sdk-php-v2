@@ -33,6 +33,8 @@ final class ImageDimensionsBuilder implements Builder
     private $h;
 
     /**
+     * <p>Width of the image.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class ImageDimensionsBuilder implements Builder
     }
 
     /**
+     * <p>Height of the image.</p>
+     *
 
      * @return null|int
      */

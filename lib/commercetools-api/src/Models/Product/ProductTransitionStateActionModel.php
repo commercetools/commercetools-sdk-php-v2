@@ -72,6 +72,8 @@ final class ProductTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The State to transition to. If there is no existing State, this must be an initial State.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */
@@ -91,6 +93,8 @@ final class ProductTransitionStateActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>If <code>true</code>, validations are disabled.</p>
+     *
 
      * @return null|bool
      */

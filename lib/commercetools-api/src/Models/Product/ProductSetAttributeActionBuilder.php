@@ -51,6 +51,8 @@ final class ProductSetAttributeActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -60,6 +62,8 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -69,6 +73,8 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * <p>The name of the Attribute to set.</p>
+     *
 
      * @return null|string
      */
@@ -78,9 +84,18 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * <p>If the attribute exists and the value is omitted or set to <code>null</code>, the attribute is removed.
-     * If the attribute exists and a value is provided, the new value is applied.
-     * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>
+     * <p>Value to set for the Attribute. If empty, any existing value will be removed.</p>
+     * <p>The <a href="ctp:api:type:AttributeType">AttributeType</a> determines the format of the Attribute <code>value</code> to be provided:</p>
+     * <ul>
+     * <li>For <a href="ctp:api:type:AttributeEnumType">Enum Type</a> and <a href="ctp:api:type:AttributeLocalizedEnumType">Localized Enum Type</a>,
+     * use the <code>key</code> of the <a href="ctp:api:type:AttributePlainEnumValue">Plain Enum Value</a> or <a href="ctp:api:type:AttributeLocalizedEnumValue">Localized Enum Value</a> objects,
+     * or the complete objects as <code>value</code>.</li>
+     * <li>For <a href="ctp:api:type:AttributeLocalizableTextType">Localizable Text Type</a>, use the <a href="ctp:api:type:LocalizedString">LocalizedString</a> object as <code>value</code>.</li>
+     * <li>For <a href="ctp:api:type:AttributeMoneyType">Money Type</a> Attributes, use the <a href="ctp:api:type:Money">Money</a> object as <code>value</code>.</li>
+     * <li>For <a href="ctp:api:type:AttributeSetType">Set Type</a> Attributes, use the entire <code>set</code> object  as <code>value</code>.</li>
+     * <li>For <a href="ctp:api:type:AttributeNestedType">Nested Type</a> Attributes, use the list of values of all Attributes of the nested Product as <code>value</code>.</li>
+     * <li>For <a href="ctp:api:type:AttributeReferenceType">Reference Type</a> Attributes, use the <a href="ctp:api:type:Reference">Reference</a> object as <code>value</code>.</li>
+     * </ul>
      *
 
      * @return null|mixed
@@ -91,6 +106,8 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Attribute is set. If <code>false</code>, both current and staged Attribute is set.</p>
+     *
 
      * @return null|bool
      */

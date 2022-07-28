@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -37,7 +36,7 @@ final class ProductAddVariantActionBuilder implements Builder
 
     /**
 
-     * @var ?PriceDraftCollection
+     * @var ?EmbeddedPriceDraftCollection
      */
     private $prices;
 
@@ -66,6 +65,8 @@ final class ProductAddVariantActionBuilder implements Builder
     private $assets;
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
 
      * @return null|string
      */
@@ -75,6 +76,8 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
 
      * @return null|string
      */
@@ -84,8 +87,10 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>EmbeddedPrices for the Product Variant.</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
     {
@@ -93,6 +98,8 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
@@ -102,6 +109,8 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>Attributes for the Product Variant.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -111,6 +120,8 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code> the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
+     *
 
      * @return null|bool
      */
@@ -120,6 +131,8 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetCollection
      */
@@ -151,10 +164,10 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      * @return $this
      */
-    public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?EmbeddedPriceDraftCollection $prices)
     {
         $this->prices = $prices;
 

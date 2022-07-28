@@ -27,6 +27,8 @@ final class CustomTokenizerBuilder implements Builder
     private $inputs;
 
     /**
+     * <p>Contains custom tokens.</p>
+     *
 
      * @return null|array
      */

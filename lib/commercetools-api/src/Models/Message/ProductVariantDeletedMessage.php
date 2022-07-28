@@ -18,6 +18,8 @@ interface ProductVariantDeletedMessage extends Message
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
+     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     *
 
      * @return null|ProductVariant
      */

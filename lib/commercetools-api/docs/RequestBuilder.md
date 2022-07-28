@@ -4256,10 +4256,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-You can use the query endpoint to get the full representations of products.
-REMARK: We suggest to use the performance optimized search endpoint which has a bunch functionalities,
-the query API lacks like sorting on custom attributes, etc.
-
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4273,7 +4270,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->head()`
 
-Checks if products exist.
+Check if Products exist. Responds with a `200 OK` status if any Products match the Query Predicate, or `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4287,9 +4284,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->post(null)`
 
-To create a new product, send a representation that is going to become the initial staged representation
-of the new product in the master catalog. If price selection query parameters are provided,
-the selected prices will be added to the response.
+To create a new Product, send a representation that is going to become the initial _staged_ representation of the new Product in the master catalog.
+If [Price Selection](ctp:api:type:ProductPriceSelection) query parameters are provided, selected Prices will be added to the response.
+Produces the [ProductCreatedMessage](/message-types#productcreatedmessage).
 
 
 ### Example
@@ -4304,7 +4301,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-Gets the full representation of a product by ID.
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4319,7 +4316,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->head()`
 
-Checks if product with given ID exists.
+Check if a Product exists with a specified `id`. Responds with a `200 OK` status if the Product exists or `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4334,7 +4331,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-null
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4349,7 +4346,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-null
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+Produces the [ProductDeletedMessage](/message-types#productdeletedmessage).
 
 ### Example
 ```php
@@ -4364,7 +4362,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->images()->post(null)`
 
-Uploads a binary image file to a given product variant. The supported image formats are JPEG, PNG and GIF.
+Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAddedMessage](/message-types#productimageaddedmessage) when the `Small` version of the image has been uploaded to the CDN.
 
 
 ### Example
@@ -4397,7 +4395,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-Gets the full representation of a product by Key.
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4412,7 +4410,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->head()`
 
-Checks if product with given key exists.
+Check if a Product exists with a specified `key`. Responds with a `200 OK` status if the Product exists or `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4442,7 +4440,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-null
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+Produces the [ProductDeletedMessage](/message-types#productdeletedmessage).
 
 ### Example
 ```php

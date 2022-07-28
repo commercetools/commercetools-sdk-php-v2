@@ -45,6 +45,8 @@ final class ProductRemoveImageActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -54,6 +56,8 @@ final class ProductRemoveImageActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -63,7 +67,7 @@ final class ProductRemoveImageActionBuilder implements Builder
     }
 
     /**
-     * <p>The URL of the image.</p>
+     * <p>The URL of the image to remove.</p>
      *
 
      * @return null|string
@@ -74,6 +78,8 @@ final class ProductRemoveImageActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged image is removed. If <code>false</code>, both the current and staged image is removed.</p>
+     *
 
      * @return null|bool
      */

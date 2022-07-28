@@ -11,7 +11,6 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
-use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Api\Models\Common\ScopedPrice;
 use Commercetools\Api\Models\Common\ScopedPriceModel;
@@ -46,7 +45,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
 
     /**
 
-     * @var ?PriceCollection
+     * @var ?EmbeddedPriceCollection
      */
     protected $prices;
 
@@ -106,7 +105,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         ?int $id = null,
         ?string $sku = null,
         ?string $key = null,
-        ?PriceCollection $prices = null,
+        ?EmbeddedPriceCollection $prices = null,
         ?AttributeCollection $attributes = null,
         ?Price $price = null,
         ?ImageCollection $images = null,
@@ -131,7 +130,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
+     * <p>A unique, sequential identifier of the Product Variant within the Product.</p>
      *
 
      * @return null|int
@@ -151,6 +150,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */
@@ -169,8 +170,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * <p>User-defined unique identifier of the ProductVariant.
-     * <em>ProductVariant keys are different from Product keys.</em></p>
+     * <p>User-defined unique identifier of the ProductVariant.</p>
+     * <p>This is different from <a href="ctp:api:type:Product">Product</a> <code>key</code>.</p>
      *
 
      * @return null|string
@@ -190,8 +191,11 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>The Embedded Prices of the Product Variant.
+     * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
-     * @return null|PriceCollection
+     * @return null|EmbeddedPriceCollection
      */
     public function getPrices()
     {
@@ -201,13 +205,15 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = PriceCollection::fromArray($data);
+            $this->prices = EmbeddedPriceCollection::fromArray($data);
         }
 
         return $this->prices;
     }
 
     /**
+     * <p>Attributes of the Product Variant.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -226,6 +232,9 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>Only available when <a href="#price-selection">Price selection</a> is used.
+     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     *
 
      * @return null|Price
      */
@@ -245,6 +254,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>Images of the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
@@ -263,6 +274,8 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>Media assets of the Product Variant.</p>
+     *
 
      * @return null|AssetCollection
      */
@@ -281,6 +294,10 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>Set if the Product Variant is tracked by <a href="ctp:api:type:InventoryEntry">Inventory</a>.
+     * Can be used as an optimization to reduce calls to the Inventory service.
+     * May not contain the latest Inventory State (it is <a href="/general-concepts#eventual-consistency">eventually consistent</a>).</p>
+     *
 
      * @return null|ProductVariantAvailability
      */
@@ -300,6 +317,9 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p><code>true</code> if the Product Variant matches the search query.
+     * Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request.</p>
+     *
 
      * @return null|bool
      */
@@ -318,6 +338,10 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request
+     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
+     *
 
      * @return null|ScopedPrice
      */
@@ -337,6 +361,9 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request
+     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
 
      * @return null|bool
      */
@@ -380,9 +407,9 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * @param ?PriceCollection $prices
+     * @param ?EmbeddedPriceCollection $prices
      */
-    public function setPrices(?PriceCollection $prices): void
+    public function setPrices(?EmbeddedPriceCollection $prices): void
     {
         $this->prices = $prices;
     }

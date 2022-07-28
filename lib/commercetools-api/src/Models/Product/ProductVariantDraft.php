@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -24,14 +23,15 @@ interface ProductVariantDraft extends JsonObject
     public const FIELD_ASSETS = 'assets';
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
-     * <p>User-defined unique identifier for the ProductVariant.
-     * <em>ProductVariant keys are different from Product keys.</em></p>
+     * <p>User-defined unique identifier for the ProductVariant.</p>
      *
 
      * @return null|string
@@ -39,24 +39,33 @@ interface ProductVariantDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p>The Embedded Prices for the Product Variant.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices();
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
 
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetDraftCollection
      */
@@ -73,9 +82,9 @@ interface ProductVariantDraft extends JsonObject
     public function setKey(?string $key): void;
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      */
-    public function setPrices(?PriceDraftCollection $prices): void;
+    public function setPrices(?EmbeddedPriceDraftCollection $prices): void;
 
     /**
      * @param ?AttributeCollection $attributes

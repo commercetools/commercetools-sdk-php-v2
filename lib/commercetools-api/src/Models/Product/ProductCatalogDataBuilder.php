@@ -45,6 +45,8 @@ final class ProductCatalogDataBuilder implements Builder
     private $hasStagedChanges;
 
     /**
+     * <p><code>true</code> if the Product is published.</p>
+     *
 
      * @return null|bool
      */
@@ -54,6 +56,8 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * <p>Current (published) data of the Product.</p>
+     *
 
      * @return null|ProductData
      */
@@ -63,6 +67,8 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * <p>Staged (unpublished) data of the Product.</p>
+     *
 
      * @return null|ProductData
      */
@@ -72,6 +78,8 @@ final class ProductCatalogDataBuilder implements Builder
     }
 
     /**
+     * <p><code>true</code> if the <code>staged</code> data is different from the <code>current</code> data.</p>
+     *
 
      * @return null|bool
      */

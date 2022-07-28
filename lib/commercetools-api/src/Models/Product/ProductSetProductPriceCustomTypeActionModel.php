@@ -90,6 +90,8 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p>The <code>id</code> of the Embedded Price to update.</p>
+     *
 
      * @return null|string
      */
@@ -108,6 +110,8 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price is updated.</p>
+     *
 
      * @return null|bool
      */
@@ -127,7 +131,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Price with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the Price.</p>
+     * If absent, any existing Type and Custom Fields are removed from the Embedded Price.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -148,7 +152,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Price.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Embedded Price.</p>
      *
 
      * @return null|FieldContainer

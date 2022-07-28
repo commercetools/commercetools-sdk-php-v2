@@ -35,9 +35,7 @@ final class ProductChangeSlugActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>Every slug must be unique across a project, but a product can have the same slug for different languages.
-     * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
-     * Maximum size is <code>256</code>.</p>
+     * <p>Value to set. Must not be empty. A Product can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>. Must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -48,6 +46,8 @@ final class ProductChangeSlugActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>slug</code> is updated. If <code>false</code>, both the current and staged <code>slug</code> are updated.</p>
+     *
 
      * @return null|bool
      */

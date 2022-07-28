@@ -47,6 +47,8 @@ final class ProductAddExternalImageActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -56,6 +58,8 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -65,6 +69,8 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to add to <code>images</code>.</p>
+     *
 
      * @return null|Image
      */
@@ -74,6 +80,8 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     *
 
      * @return null|bool
      */

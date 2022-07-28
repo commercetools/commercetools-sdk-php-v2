@@ -17,12 +17,16 @@ interface ImageDimensions extends JsonObject
     public const FIELD_H = 'h';
 
     /**
+     * <p>Width of the image.</p>
+     *
 
      * @return null|int
      */
     public function getW();
 
     /**
+     * <p>Height of the image.</p>
+     *
 
      * @return null|int
      */

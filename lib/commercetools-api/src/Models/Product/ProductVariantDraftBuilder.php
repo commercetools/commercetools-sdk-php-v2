@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -37,7 +36,7 @@ final class ProductVariantDraftBuilder implements Builder
 
     /**
 
-     * @var ?PriceDraftCollection
+     * @var ?EmbeddedPriceDraftCollection
      */
     private $prices;
 
@@ -60,6 +59,8 @@ final class ProductVariantDraftBuilder implements Builder
     private $assets;
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */
@@ -69,8 +70,7 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier for the ProductVariant.
-     * <em>ProductVariant keys are different from Product keys.</em></p>
+     * <p>User-defined unique identifier for the ProductVariant.</p>
      *
 
      * @return null|string
@@ -81,8 +81,11 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+     * <p>The Embedded Prices for the Product Variant.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
     {
@@ -90,6 +93,8 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -99,6 +104,8 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
@@ -108,6 +115,8 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetDraftCollection
      */
@@ -139,10 +148,10 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      * @return $this
      */
-    public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?EmbeddedPriceDraftCollection $prices)
     {
         $this->prices = $prices;
 

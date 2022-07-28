@@ -18,12 +18,16 @@ interface ProductChangeNameAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>Value to set. Must not be empty.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>If <code>true</code>, only the staged <code>name</code> is updated. If <code>false</code>, both the current and staged <code>name</code> are updated.</p>
+     *
 
      * @return null|bool
      */

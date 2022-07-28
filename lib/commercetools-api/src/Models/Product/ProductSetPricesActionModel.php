@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -41,7 +40,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
 
     /**
 
-     * @var ?PriceDraftCollection
+     * @var ?EmbeddedPriceDraftCollection
      */
     protected $prices;
 
@@ -58,7 +57,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     public function __construct(
         ?int $variantId = null,
         ?string $sku = null,
-        ?PriceDraftCollection $prices = null,
+        ?EmbeddedPriceDraftCollection $prices = null,
         ?bool $staged = null
     ) {
         $this->variantId = $variantId;
@@ -87,6 +86,8 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -105,6 +106,8 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -123,8 +126,11 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
+     * <p>The Embedded Prices to set.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
     {
@@ -134,13 +140,15 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = PriceDraftCollection::fromArray($data);
+            $this->prices = EmbeddedPriceDraftCollection::fromArray($data);
         }
 
         return $this->prices;
     }
 
     /**
+     * <p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -176,9 +184,9 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      */
-    public function setPrices(?PriceDraftCollection $prices): void
+    public function setPrices(?EmbeddedPriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }

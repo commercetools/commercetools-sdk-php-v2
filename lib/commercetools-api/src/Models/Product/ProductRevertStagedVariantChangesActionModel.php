@@ -62,6 +62,8 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to revert.</p>
+     *
 
      * @return null|int
      */

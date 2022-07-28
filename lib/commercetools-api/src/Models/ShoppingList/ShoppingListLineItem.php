@@ -95,6 +95,8 @@ interface ShoppingListLineItem extends JsonObject
     public function getQuantity();
 
     /**
+     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     *
 
      * @return null|ProductVariant
      */

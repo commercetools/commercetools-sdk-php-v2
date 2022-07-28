@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -25,42 +24,56 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public const FIELD_ASSETS = 'assets';
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>EmbeddedPrices for the Product Variant.</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices();
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+     * <p>Attributes for the Product Variant.</p>
+     *
 
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+     * <p>If <code>true</code> the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
+     *
 
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetCollection
      */
@@ -77,9 +90,9 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public function setKey(?string $key): void;
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      */
-    public function setPrices(?PriceDraftCollection $prices): void;
+    public function setPrices(?EmbeddedPriceDraftCollection $prices): void;
 
     /**
      * @param ?ImageCollection $images

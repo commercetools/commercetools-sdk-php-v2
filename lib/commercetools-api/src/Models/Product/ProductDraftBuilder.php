@@ -132,8 +132,7 @@ final class ProductDraftBuilder implements Builder
     private $priceMode;
 
     /**
-     * <p>A predefined product type assigned to the product.
-     * All products must have a product type.</p>
+     * <p>The Product Type defining the Attributes for the Product. Cannot be changed later.</p>
      *
 
      * @return null|ProductTypeResourceIdentifier
@@ -144,6 +143,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the Product.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -153,10 +154,9 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>Human-readable identifiers usually used as deep-link URLs for the product.
-     * A slug must be unique across a project, but a product can have the same slug for different languages.
-     * Slugs have a maximum size of 256.
-     * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>
+     * <p>User-defined identifier used in a deep-link URL for the Product.
+     * It must be unique across a Project, but a Product can have the same slug in different <a href="ctp:api:type:Locale">Locales</a>.
+     * It must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
 
      * @return null|LocalizedString
@@ -178,6 +178,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Product.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -187,7 +189,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>Categories assigned to the product.</p>
+     * <p>Categories assigned to the Product.</p>
      *
 
      * @return null|CategoryResourceIdentifierCollection
@@ -198,6 +200,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Numerical values to allow ordering of Products within a specified Category.</p>
+     *
 
      * @return null|CategoryOrderHints
      */
@@ -207,6 +211,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Title of the Product displayed in search results.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -216,6 +222,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the Product displayed in search results.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -225,6 +233,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Keywords that give additional information about the Product to search engines.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -234,8 +244,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>The master product variant.
-     * Required if the <code>variants</code> array has product variants.</p>
+     * <p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided also.</p>
      *
 
      * @return null|ProductVariantDraft
@@ -246,7 +255,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>An array of related product variants.</p>
+     * <p>The additional Product Variants for the Product.</p>
      *
 
      * @return null|ProductVariantDraftCollection
@@ -257,6 +266,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>The Tax Category to be assigned to the Product.</p>
+     *
 
      * @return null|TaxCategoryResourceIdentifier
      */
@@ -266,6 +277,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>Used by <a href="ctp:api:type:ProductSuggestions">Product Suggestions</a>, but is also considered for a <a href="/projects/products-search#full-text-search">full text search</a>.</p>
+     *
 
      * @return null|SearchKeywords
      */
@@ -275,6 +288,8 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
+     * <p>State to be assigned to the Product.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */
@@ -284,7 +299,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>If <code>true</code>, the product is published immediately.</p>
+     * <p>If <code>true</code>, the Product is published immediately to the current projection.</p>
      *
 
      * @return null|bool
@@ -295,7 +310,7 @@ final class ProductDraftBuilder implements Builder
     }
 
     /**
-     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     * <p>Specifies the type of prices used when looking up a price for the Product.</p>
      *
 
      * @return null|string

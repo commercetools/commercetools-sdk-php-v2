@@ -44,6 +44,8 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
     }
 
     /**
+     * <p>Width of the image.</p>
+     *
 
      * @return null|int
      */
@@ -62,6 +64,8 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
     }
 
     /**
+     * <p>Height of the image.</p>
+     *
 
      * @return null|int
      */

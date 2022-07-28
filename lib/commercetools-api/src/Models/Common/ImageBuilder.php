@@ -39,6 +39,8 @@ final class ImageBuilder implements Builder
     private $label;
 
     /**
+     * <p>URL of the image in its original size that must be unique within a single <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * <p>Dimensions of the original image.</p>
+     *
 
      * @return null|ImageDimensions
      */
@@ -57,6 +61,8 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * <p>Custom label for the image.</p>
+     *
 
      * @return null|string
      */

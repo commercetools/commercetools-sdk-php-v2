@@ -62,6 +62,8 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     }
 
     /**
+     * <p>Contains custom tokens.</p>
+     *
 
      * @return null|array
      */

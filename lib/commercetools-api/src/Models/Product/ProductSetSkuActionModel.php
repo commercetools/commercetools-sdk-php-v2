@@ -78,6 +78,8 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -96,8 +98,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
-     * <p>SKU must be unique.
-     * If left blank or set to <code>null</code>, the sku is unset/removed.</p>
+     * <p>Value to set. Must be unique. If empty, any existing value will be removed.</p>
      *
 
      * @return null|string
@@ -117,6 +118,8 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>sku</code> is updated. If <code>false</code>, both the current and staged <code>sku</code> are updated.</p>
+     *
 
      * @return null|bool
      */

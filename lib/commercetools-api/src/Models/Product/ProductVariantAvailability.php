@@ -13,34 +13,47 @@ use Commercetools\Base\JsonObject;
 
 interface ProductVariantAvailability extends JsonObject
 {
+    public const FIELD_CHANNELS = 'channels';
     public const FIELD_IS_ON_STOCK = 'isOnStock';
     public const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
-    public const FIELD_CHANNELS = 'channels';
 
     /**
+     * <p>For each <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with a supply Channel, an entry is added to <code>channels</code>.</p>
+     *
+
+     * @return null|ProductVariantChannelAvailabilityMap
+     */
+    public function getChannels();
+
+    /**
+     * <p>Indicates whether a Product Variant is in stock.</p>
+     *
 
      * @return null|bool
      */
     public function getIsOnStock();
 
     /**
+     * <p>Number of days to restock a Product Variant once it is out of stock.</p>
+     *
 
      * @return null|int
      */
     public function getRestockableInDays();
 
     /**
+     * <p>Number of items of the Product Variant that are in stock.</p>
+     *
 
      * @return null|int
      */
     public function getAvailableQuantity();
 
     /**
-
-     * @return null|ProductVariantChannelAvailabilityMap
+     * @param ?ProductVariantChannelAvailabilityMap $channels
      */
-    public function getChannels();
+    public function setChannels(?ProductVariantChannelAvailabilityMap $channels): void;
 
     /**
      * @param ?bool $isOnStock
@@ -56,9 +69,4 @@ interface ProductVariantAvailability extends JsonObject
      * @param ?int $availableQuantity
      */
     public function setAvailableQuantity(?int $availableQuantity): void;
-
-    /**
-     * @param ?ProductVariantChannelAvailabilityMap $channels
-     */
-    public function setChannels(?ProductVariantChannelAvailabilityMap $channels): void;
 }

@@ -45,6 +45,8 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     private $assetOrder;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -54,6 +56,8 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +67,8 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>assets</code> is updated. If <code>false</code>, both the current and staged <code>assets</code> are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -72,6 +78,8 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
+     * <p>All existing Asset <code>id</code>s of the ProductVariant in the desired new order.</p>
+     *
 
      * @return null|array
      */

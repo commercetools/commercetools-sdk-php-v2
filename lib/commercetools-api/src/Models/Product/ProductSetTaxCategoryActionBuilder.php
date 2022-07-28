@@ -29,7 +29,7 @@ final class ProductSetTaxCategoryActionBuilder implements Builder
     private $taxCategory;
 
     /**
-     * <p>If left blank or set to <code>null</code>, the tax category is unset/removed.</p>
+     * <p>The Tax Category to set. If empty, any existing value will be removed.</p>
      *
 
      * @return null|TaxCategoryResourceIdentifier

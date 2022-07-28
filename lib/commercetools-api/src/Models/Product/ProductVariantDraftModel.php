@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -36,7 +35,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
 
     /**
 
-     * @var ?PriceDraftCollection
+     * @var ?EmbeddedPriceDraftCollection
      */
     protected $prices;
 
@@ -65,7 +64,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     public function __construct(
         ?string $sku = null,
         ?string $key = null,
-        ?PriceDraftCollection $prices = null,
+        ?EmbeddedPriceDraftCollection $prices = null,
         ?AttributeCollection $attributes = null,
         ?ImageCollection $images = null,
         ?AssetDraftCollection $assets = null
@@ -79,6 +78,8 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
 
      * @return null|string
      */
@@ -97,8 +98,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
-     * <p>User-defined unique identifier for the ProductVariant.
-     * <em>ProductVariant keys are different from Product keys.</em></p>
+     * <p>User-defined unique identifier for the ProductVariant.</p>
      *
 
      * @return null|string
@@ -118,8 +118,11 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+     * <p>The Embedded Prices for the Product Variant.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
     {
@@ -129,13 +132,15 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = PriceDraftCollection::fromArray($data);
+            $this->prices = EmbeddedPriceDraftCollection::fromArray($data);
         }
 
         return $this->prices;
     }
 
     /**
+     * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -154,6 +159,8 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
 
      * @return null|ImageCollection
      */
@@ -172,6 +179,8 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
 
      * @return null|AssetDraftCollection
      */
@@ -207,9 +216,9 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      */
-    public function setPrices(?PriceDraftCollection $prices): void
+    public function setPrices(?EmbeddedPriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }

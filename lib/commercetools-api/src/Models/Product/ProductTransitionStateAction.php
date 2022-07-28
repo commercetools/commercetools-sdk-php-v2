@@ -18,12 +18,16 @@ interface ProductTransitionStateAction extends ProductUpdateAction
     public const FIELD_FORCE = 'force';
 
     /**
+     * <p>The State to transition to. If there is no existing State, this must be an initial State.</p>
+     *
 
      * @return null|StateResourceIdentifier
      */
     public function getState();
 
     /**
+     * <p>If <code>true</code>, validations are disabled.</p>
+     *
 
      * @return null|bool
      */

@@ -27,6 +27,8 @@ final class ProductPublishActionBuilder implements Builder
     private $scope;
 
     /**
+     * <p><code>All</code> or <code>Prices</code></p>
+     *
 
      * @return null|string
      */

@@ -41,6 +41,8 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     private $discounted;
 
     /**
+     * <p>The <code>id</code> of the EmbeddedPrice to set the Discount.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged EmbeddedPrice is updated. If <code>false</code>, both the current and staged EmbeddedPrice are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -59,6 +63,9 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.
+     * The referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> must have the Type <code>external</code>, be active, and its predicate must match the referenced Price.</p>
+     *
 
      * @return null|DiscountedPriceDraft
      */

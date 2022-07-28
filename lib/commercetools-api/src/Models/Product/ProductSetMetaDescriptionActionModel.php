@@ -72,6 +72,8 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -91,6 +93,8 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>metaDescription</code> is updated. If <code>false</code>, both the current and staged <code>metaDescription</code> are updated.</p>
+     *
 
      * @return null|bool
      */

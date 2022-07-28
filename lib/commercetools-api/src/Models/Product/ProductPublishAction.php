@@ -16,6 +16,8 @@ interface ProductPublishAction extends ProductUpdateAction
     public const FIELD_SCOPE = 'scope';
 
     /**
+     * <p><code>All</code> or <code>Prices</code></p>
+     *
 
      * @return null|string
      */

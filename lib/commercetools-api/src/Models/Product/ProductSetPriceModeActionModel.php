@@ -62,7 +62,7 @@ final class ProductSetPriceModeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * <p>Specifies which type of prices should be used when looking up a price for this product. If not set, <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> is used.</p>
+     * <p>Specifies which type of Prices should be used when looking up a price for the Product.</p>
      *
 
      * @return null|string

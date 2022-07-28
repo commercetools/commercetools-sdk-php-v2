@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\PriceDraft;
-use Commercetools\Api\Models\Common\PriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -36,7 +34,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
 
     /**
 
-     * @var ?PriceDraft
+     * @var ?EmbeddedPriceDraft
      */
     protected $price;
 
@@ -52,7 +50,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
      */
     public function __construct(
         ?string $priceId = null,
-        ?PriceDraft $price = null,
+        ?EmbeddedPriceDraft $price = null,
         ?bool $staged = null
     ) {
         $this->priceId = $priceId;
@@ -80,7 +78,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
+     * <p>The <code>id</code> of the EmbeddedPrice to update.</p>
      *
 
      * @return null|string
@@ -100,8 +98,10 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>Value to set.</p>
+     *
 
-     * @return null|PriceDraft
+     * @return null|EmbeddedPriceDraft
      */
     public function getPrice()
     {
@@ -112,13 +112,15 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
                 return null;
             }
 
-            $this->price = PriceDraftModel::of($data);
+            $this->price = EmbeddedPriceDraftModel::of($data);
         }
 
         return $this->price;
     }
 
     /**
+     * <p>If <code>true</code>, only the staged EmbeddedPrice is updated. If <code>false</code>, both the current and staged EmbeddedPrice are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -146,9 +148,9 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * @param ?PriceDraft $price
+     * @param ?EmbeddedPriceDraft $price
      */
-    public function setPrice(?PriceDraft $price): void
+    public function setPrice(?EmbeddedPriceDraft $price): void
     {
         $this->price = $price;
     }

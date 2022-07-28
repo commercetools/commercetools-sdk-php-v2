@@ -78,6 +78,8 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>The <code>id</code> of the Category to add the <code>orderHint</code>.</p>
+     *
 
      * @return null|string
      */
@@ -96,6 +98,8 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>A string representing a number between 0 and 1. Must start with <code>0.</code> and cannot end with <code>0</code>. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */
@@ -114,6 +118,8 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>categoryOrderHints</code> is updated. If <code>false</code>, both the current and staged <code>categoryOrderHints</code> are updated.</p>
+     *
 
      * @return null|bool
      */

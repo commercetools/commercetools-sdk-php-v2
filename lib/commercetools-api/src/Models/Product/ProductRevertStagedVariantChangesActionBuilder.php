@@ -27,6 +27,8 @@ final class ProductRevertStagedVariantChangesActionBuilder implements Builder
     private $variantId;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to revert.</p>
+     *
 
      * @return null|int
      */

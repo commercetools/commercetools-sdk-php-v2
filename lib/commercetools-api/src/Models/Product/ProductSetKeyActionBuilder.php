@@ -27,8 +27,7 @@ final class ProductSetKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * <p>User-specific unique identifier for the product.
-     * If left blank or set to <code>null</code>, the product key is unset/removed.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
 
      * @return null|string

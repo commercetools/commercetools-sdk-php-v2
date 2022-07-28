@@ -19,19 +19,23 @@ interface ProductRemoveImageAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
-     * <p>The URL of the image.</p>
+     * <p>The URL of the image to remove.</p>
      *
 
      * @return null|string
@@ -39,6 +43,8 @@ interface ProductRemoveImageAction extends ProductUpdateAction
     public function getImageUrl();
 
     /**
+     * <p>If <code>true</code>, only the staged image is removed. If <code>false</code>, both the current and staged image is removed.</p>
+     *
 
      * @return null|bool
      */

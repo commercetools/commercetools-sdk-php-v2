@@ -224,6 +224,8 @@ final class ProductPublishedMessageBuilder implements Builder
     }
 
     /**
+     * <p>The scope controls which part of the product information is published.</p>
+     *
 
      * @return null|string
      */

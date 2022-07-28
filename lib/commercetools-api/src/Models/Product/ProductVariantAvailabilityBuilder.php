@@ -22,6 +22,12 @@ final class ProductVariantAvailabilityBuilder implements Builder
 {
     /**
 
+     * @var null|ProductVariantChannelAvailabilityMap|ProductVariantChannelAvailabilityMapBuilder
+     */
+    private $channels;
+
+    /**
+
      * @var ?bool
      */
     private $isOnStock;
@@ -39,12 +45,19 @@ final class ProductVariantAvailabilityBuilder implements Builder
     private $availableQuantity;
 
     /**
+     * <p>For each <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with a supply Channel, an entry is added to <code>channels</code>.</p>
+     *
 
-     * @var null|ProductVariantChannelAvailabilityMap|ProductVariantChannelAvailabilityMapBuilder
+     * @return null|ProductVariantChannelAvailabilityMap
      */
-    private $channels;
+    public function getChannels()
+    {
+        return $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels;
+    }
 
     /**
+     * <p>Indicates whether a Product Variant is in stock.</p>
+     *
 
      * @return null|bool
      */
@@ -54,6 +67,8 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+     * <p>Number of days to restock a Product Variant once it is out of stock.</p>
+     *
 
      * @return null|int
      */
@@ -63,6 +78,8 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
+     * <p>Number of items of the Product Variant that are in stock.</p>
+     *
 
      * @return null|int
      */
@@ -72,12 +89,14 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
-
-     * @return null|ProductVariantChannelAvailabilityMap
+     * @param ?ProductVariantChannelAvailabilityMap $channels
+     * @return $this
      */
-    public function getChannels()
+    public function withChannels(?ProductVariantChannelAvailabilityMap $channels)
     {
-        return $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels;
+        $this->channels = $channels;
+
+        return $this;
     }
 
     /**
@@ -114,17 +133,6 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
-     * @param ?ProductVariantChannelAvailabilityMap $channels
-     * @return $this
-     */
-    public function withChannels(?ProductVariantChannelAvailabilityMap $channels)
-    {
-        $this->channels = $channels;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withChannels() instead
      * @return $this
      */
@@ -138,10 +146,10 @@ final class ProductVariantAvailabilityBuilder implements Builder
     public function build(): ProductVariantAvailability
     {
         return new ProductVariantAvailabilityModel(
+            $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels,
             $this->isOnStock,
             $this->restockableInDays,
-            $this->availableQuantity,
-            $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels
+            $this->availableQuantity
         );
     }
 

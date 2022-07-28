@@ -404,6 +404,8 @@ final class ProductPublishedMessageModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * <p>The scope controls which part of the product information is published.</p>
+     *
 
      * @return null|string
      */

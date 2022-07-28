@@ -16,6 +16,8 @@ interface CustomTokenizer extends SuggestTokenizer
     public const FIELD_INPUTS = 'inputs';
 
     /**
+     * <p>Contains custom tokens.</p>
+     *
 
      * @return null|array
      */

@@ -102,6 +102,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -120,6 +122,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -138,6 +142,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
 
      * @return null|bool
      */
@@ -156,6 +162,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -174,6 +182,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
 
      * @return null|string
      */
@@ -192,6 +202,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
 
      * @return null|array
      */

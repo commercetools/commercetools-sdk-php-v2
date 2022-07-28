@@ -88,6 +88,8 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -106,6 +108,8 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -124,6 +128,8 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to add to <code>images</code>.</p>
+     *
 
      * @return null|Image
      */
@@ -143,6 +149,8 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     *
 
      * @return null|bool
      */

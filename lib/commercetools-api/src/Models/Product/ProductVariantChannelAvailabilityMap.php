@@ -8,10 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
+use Commercetools\Base\CMap;
 
-interface ProductVariantChannelAvailabilityMap extends JsonObject
+interface ProductVariantChannelAvailabilityMap extends CMap
 {
-    public const FIELD_PATTERN0 = '//';
 }

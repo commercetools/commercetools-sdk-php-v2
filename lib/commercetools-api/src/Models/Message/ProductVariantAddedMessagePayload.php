@@ -18,6 +18,8 @@ interface ProductVariantAddedMessagePayload extends MessagePayload
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     *
 
      * @return null|ProductVariant
      */

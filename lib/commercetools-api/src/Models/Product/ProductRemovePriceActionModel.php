@@ -70,7 +70,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
+     * <p>The <code>id</code> of the EmbeddedPrice to remove.</p>
      *
 
      * @return null|string
@@ -90,6 +90,8 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>If <code>true</code>, only the staged EmbeddedPrice is removed. If <code>false</code>, both the current and staged EmbeddedPrice are removed.</p>
+     *
 
      * @return null|bool
      */

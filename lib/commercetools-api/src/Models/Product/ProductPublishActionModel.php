@@ -62,6 +62,8 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p><code>All</code> or <code>Prices</code></p>
+     *
 
      * @return null|string
      */

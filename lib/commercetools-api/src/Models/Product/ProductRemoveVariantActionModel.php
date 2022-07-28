@@ -78,6 +78,8 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to remove.</p>
+     *
 
      * @return null|int
      */
@@ -96,6 +98,8 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to remove.</p>
+     *
 
      * @return null|string
      */
@@ -114,6 +118,8 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     }
 
     /**
+     * <p>If <code>true</code>, only the staged ProductVariant is removed. If <code>false</code>, both the current and staged ProductVariant is removed.</p>
+     *
 
      * @return null|bool
      */

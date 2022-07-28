@@ -117,6 +117,8 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>The scope controls which part of the product information is published.</p>
+     *
 
      * @return null|string
      */

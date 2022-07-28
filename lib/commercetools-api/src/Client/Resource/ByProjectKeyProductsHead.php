@@ -136,4 +136,13 @@ class ByProjectKeyProductsHead extends ApiRequest implements Errorable, Deprecat
             }
         );
     }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyProductsHead
+    {
+        return $this->withQueryParam('where', $where);
+    }
 }

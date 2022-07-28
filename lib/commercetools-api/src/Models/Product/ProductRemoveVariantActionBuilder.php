@@ -39,6 +39,8 @@ final class ProductRemoveVariantActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to remove.</p>
+     *
 
      * @return null|int
      */
@@ -48,6 +50,8 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to remove.</p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged ProductVariant is removed. If <code>false</code>, both the current and staged ProductVariant is removed.</p>
+     *
 
      * @return null|bool
      */

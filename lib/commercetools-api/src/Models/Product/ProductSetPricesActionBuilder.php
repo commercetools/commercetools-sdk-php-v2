@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -35,7 +34,7 @@ final class ProductSetPricesActionBuilder implements Builder
 
     /**
 
-     * @var ?PriceDraftCollection
+     * @var ?EmbeddedPriceDraftCollection
      */
     private $prices;
 
@@ -46,6 +45,8 @@ final class ProductSetPricesActionBuilder implements Builder
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|int
      */
@@ -55,6 +56,8 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
 
      * @return null|string
      */
@@ -64,8 +67,11 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * <p>The Embedded Prices to set.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
 
-     * @return null|PriceDraftCollection
+     * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
     {
@@ -73,6 +79,8 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -104,10 +112,10 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
-     * @param ?PriceDraftCollection $prices
+     * @param ?EmbeddedPriceDraftCollection $prices
      * @return $this
      */
-    public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?EmbeddedPriceDraftCollection $prices)
     {
         $this->prices = $prices;
 

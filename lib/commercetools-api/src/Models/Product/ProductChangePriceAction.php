@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -19,7 +18,7 @@ interface ProductChangePriceAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
+     * <p>The <code>id</code> of the EmbeddedPrice to update.</p>
      *
 
      * @return null|string
@@ -27,12 +26,16 @@ interface ProductChangePriceAction extends ProductUpdateAction
     public function getPriceId();
 
     /**
+     * <p>Value to set.</p>
+     *
 
-     * @return null|PriceDraft
+     * @return null|EmbeddedPriceDraft
      */
     public function getPrice();
 
     /**
+     * <p>If <code>true</code>, only the staged EmbeddedPrice is updated. If <code>false</code>, both the current and staged EmbeddedPrice are updated.</p>
+     *
 
      * @return null|bool
      */
@@ -44,9 +47,9 @@ interface ProductChangePriceAction extends ProductUpdateAction
     public function setPriceId(?string $priceId): void;
 
     /**
-     * @param ?PriceDraft $price
+     * @param ?EmbeddedPriceDraft $price
      */
-    public function setPrice(?PriceDraft $price): void;
+    public function setPrice(?EmbeddedPriceDraft $price): void;
 
     /**
      * @param ?bool $staged

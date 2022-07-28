@@ -33,6 +33,8 @@ final class SearchKeywordBuilder implements Builder
     private $suggestTokenizer;
 
     /**
+     * <p>Text to return in the result of a <a href="ctp:api:type:ProductSuggestionsSuggestQuery">suggest query</a>.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
+     * <p>If no tokenizer is defined, the <code>text</code> is used as a single token.</p>
+     *
 
      * @return null|SuggestTokenizer
      */
