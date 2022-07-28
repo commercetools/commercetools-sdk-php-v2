@@ -94,6 +94,14 @@ $response = $client->send($request);
 $project = $request->mapFromResponse($response);
 ```
 
+### Migration Guidelines
+To migrate from the 1.x to the 2.x, there is a guideline below:
+* [Migration guidelines from v1 to v2](./Migration.md)
+
+### Documentation
+
+* [Documentation](https://commercetools.github.io/commercetools-sdk-php-v2/docs/html/index.html)
+
 ## License
 
 MIT
