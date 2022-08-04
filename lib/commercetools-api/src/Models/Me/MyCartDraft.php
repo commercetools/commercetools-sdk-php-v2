@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -138,8 +137,10 @@ interface MyCartDraft extends JsonObject
     public function getStore();
 
     /**
+     * <p>The code of existing DiscountCodes.</p>
+     *
 
-     * @return null|DiscountCodeInfoCollection
+     * @return null|array
      */
     public function getDiscountCodes();
 
@@ -214,7 +215,7 @@ interface MyCartDraft extends JsonObject
     public function setStore(?StoreKeyReference $store): void;
 
     /**
-     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @param ?array $discountCodes
      */
-    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
+    public function setDiscountCodes(?array $discountCodes): void;
 }

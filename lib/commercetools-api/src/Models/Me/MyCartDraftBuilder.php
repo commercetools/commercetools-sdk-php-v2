@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
@@ -116,7 +115,7 @@ final class MyCartDraftBuilder implements Builder
 
     /**
 
-     * @var ?DiscountCodeInfoCollection
+     * @var ?array
      */
     private $discountCodes;
 
@@ -265,8 +264,10 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>The code of existing DiscountCodes.</p>
+     *
 
-     * @return null|DiscountCodeInfoCollection
+     * @return null|array
      */
     public function getDiscountCodes()
     {
@@ -428,10 +429,10 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @param ?array $discountCodes
      * @return $this
      */
-    public function withDiscountCodes(?DiscountCodeInfoCollection $discountCodes)
+    public function withDiscountCodes(?array $discountCodes)
     {
         $this->discountCodes = $discountCodes;
 
