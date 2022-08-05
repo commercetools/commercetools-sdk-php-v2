@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -20,6 +21,7 @@ interface QuoteRequestDraft extends JsonObject
     public const FIELD_KEY = 'key';
     public const FIELD_COMMENT = 'comment';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
@@ -62,6 +64,15 @@ interface QuoteRequestDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
      * @param ?CartResourceIdentifier $cart
      */
     public function setCart(?CartResourceIdentifier $cart): void;
@@ -85,4 +96,9 @@ interface QuoteRequestDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
 }

@@ -38,6 +38,8 @@ use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceBuilder;
 use Commercetools\Api\Models\StagedQuote\StagedQuoteReference;
 use Commercetools\Api\Models\StagedQuote\StagedQuoteReferenceBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -240,6 +242,12 @@ final class QuoteBuilder implements Builder
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
 
     /**
      * <p>Unique identifier of the Quote.</p>
@@ -591,6 +599,18 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -932,6 +952,17 @@ final class QuoteBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -1096,6 +1127,17 @@ final class QuoteBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): Quote
     {
         return new QuoteModel(
@@ -1129,7 +1171,8 @@ final class QuoteBuilder implements Builder
             $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->directDiscounts,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

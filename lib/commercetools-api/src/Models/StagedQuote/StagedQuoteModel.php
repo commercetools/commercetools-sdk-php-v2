@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceModel;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -118,6 +120,12 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
      */
     protected $custom;
 
+    /**
+
+     * @var ?StateReference
+     */
+    protected $state;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -136,7 +144,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         ?CartReference $quotationCart = null,
         ?DateTimeImmutable $validTo = null,
         ?string $sellerComment = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?StateReference $state = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -152,6 +161,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         $this->validTo = $validTo;
         $this->sellerComment = $sellerComment;
         $this->custom = $custom;
+        $this->state = $state;
     }
 
     /**
@@ -452,6 +462,28 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         return $this->custom;
     }
 
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
 
     /**
      * @param ?string $id
@@ -563,6 +595,14 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
     }
 
 

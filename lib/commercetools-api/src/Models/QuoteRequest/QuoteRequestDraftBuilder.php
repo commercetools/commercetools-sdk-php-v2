@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -53,6 +55,12 @@ final class QuoteRequestDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
 
     /**
      * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
@@ -107,6 +115,18 @@ final class QuoteRequestDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -165,6 +185,17 @@ final class QuoteRequestDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCart() instead
      * @return $this
      */
@@ -186,6 +217,17 @@ final class QuoteRequestDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): QuoteRequestDraft
     {
         return new QuoteRequestDraftModel(
@@ -193,7 +235,8 @@ final class QuoteRequestDraftBuilder implements Builder
             $this->cartVersion,
             $this->key,
             $this->comment,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

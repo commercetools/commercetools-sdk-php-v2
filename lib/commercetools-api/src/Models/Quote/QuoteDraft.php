@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Quote;
 
 use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifier;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -19,6 +20,7 @@ interface QuoteDraft extends JsonObject
     public const FIELD_STAGED_QUOTE_VERSION = 'stagedQuoteVersion';
     public const FIELD_KEY = 'key';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>The StagedQuote from which this Quote is created.</p>
@@ -57,6 +59,15 @@ interface QuoteDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
      * @param ?StagedQuoteResourceIdentifier $stagedQuote
      */
     public function setStagedQuote(?StagedQuoteResourceIdentifier $stagedQuote): void;
@@ -75,4 +86,9 @@ interface QuoteDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
 }

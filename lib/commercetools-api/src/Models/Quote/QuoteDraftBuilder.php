@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Quote;
 
 use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifier;
 use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifierBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -47,6 +49,12 @@ final class QuoteDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
 
     /**
      * <p>The StagedQuote from which this Quote is created.</p>
@@ -97,6 +105,18 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
      * @param ?StagedQuoteResourceIdentifier $stagedQuote
      * @return $this
      */
@@ -141,6 +161,17 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStagedQuote() instead
      * @return $this
      */
@@ -162,13 +193,25 @@ final class QuoteDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): QuoteDraft
     {
         return new QuoteDraftModel(
             $this->stagedQuote instanceof StagedQuoteResourceIdentifierBuilder ? $this->stagedQuote->build() : $this->stagedQuote,
             $this->stagedQuoteVersion,
             $this->key,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

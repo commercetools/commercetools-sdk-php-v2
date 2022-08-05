@@ -34,6 +34,8 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Order\PaymentInfoModel;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -224,6 +226,12 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      */
     protected $custom;
 
+    /**
+
+     * @var ?StateReference
+     */
+    protected $state;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -257,7 +265,8 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         ?ShippingRateInput $shippingRateInput = null,
         ?AddressCollection $itemShippingAddresses = null,
         ?DirectDiscountCollection $directDiscounts = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?StateReference $state = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -288,6 +297,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->directDiscounts = $directDiscounts;
         $this->custom = $custom;
+        $this->state = $state;
     }
 
     /**
@@ -899,6 +909,28 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         return $this->custom;
     }
 
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
 
     /**
      * @param ?string $id
@@ -1130,6 +1162,14 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
     }
 
 

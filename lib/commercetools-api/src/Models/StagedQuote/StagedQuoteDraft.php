@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\StagedQuote;
 
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifier;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -19,6 +20,7 @@ interface StagedQuoteDraft extends JsonObject
     public const FIELD_QUOTE_REQUEST_VERSION = 'quoteRequestVersion';
     public const FIELD_KEY = 'key';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>The QuoteRequest from which this StagedQuote is created.</p>
@@ -57,6 +59,15 @@ interface StagedQuoteDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
      * @param ?QuoteRequestResourceIdentifier $quoteRequest
      */
     public function setQuoteRequest(?QuoteRequestResourceIdentifier $quoteRequest): void;
@@ -75,4 +86,9 @@ interface StagedQuoteDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
 }

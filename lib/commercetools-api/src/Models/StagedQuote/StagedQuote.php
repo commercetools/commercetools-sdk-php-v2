@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -31,6 +32,7 @@ interface StagedQuote extends BaseResource
     public const FIELD_VALID_TO = 'validTo';
     public const FIELD_SELLER_COMMENT = 'sellerComment';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
@@ -145,6 +147,15 @@ interface StagedQuote extends BaseResource
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -213,4 +224,9 @@ interface StagedQuote extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
 }

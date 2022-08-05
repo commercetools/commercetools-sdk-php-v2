@@ -25,6 +25,7 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\StagedQuote\StagedQuoteReference;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -60,6 +61,7 @@ interface Quote extends BaseResource
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
 
     /**
      * <p>Unique identifier of the Quote.</p>
@@ -318,6 +320,15 @@ interface Quote extends BaseResource
     public function getCustom();
 
     /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -471,4 +482,9 @@ interface Quote extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
 }

@@ -36,6 +36,7 @@ final class StagedQuoteUpdateActionModel extends JsonObjectModel implements Stag
        'setCustomType' => StagedQuoteSetCustomTypeActionModel::class,
        'setSellerComment' => StagedQuoteSetSellerCommentActionModel::class,
        'setValidTo' => StagedQuoteSetValidToActionModel::class,
+       'transitionState' => StagedQuoteTransitionStateActionModel::class,
     ];
 
     /**

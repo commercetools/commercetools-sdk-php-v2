@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -118,6 +120,12 @@ final class StagedQuoteBuilder implements Builder
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
+
+    /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
@@ -271,6 +279,18 @@ final class StagedQuoteBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -428,6 +448,17 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -493,6 +524,17 @@ final class StagedQuoteBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): StagedQuote
     {
         return new StagedQuoteModel(
@@ -509,7 +551,8 @@ final class StagedQuoteBuilder implements Builder
             $this->quotationCart instanceof CartReferenceBuilder ? $this->quotationCart->build() : $this->quotationCart,
             $this->validTo,
             $this->sellerComment,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

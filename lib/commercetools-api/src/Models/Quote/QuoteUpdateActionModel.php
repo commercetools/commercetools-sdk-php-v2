@@ -34,6 +34,7 @@ final class QuoteUpdateActionModel extends JsonObjectModel implements QuoteUpdat
        'changeQuoteState' => QuoteChangeQuoteStateActionModel::class,
        'setCustomField' => QuoteSetCustomFieldActionModel::class,
        'setCustomType' => QuoteSetCustomTypeActionModel::class,
+       'transitionState' => QuoteTransitionStateActionModel::class,
     ];
 
     /**

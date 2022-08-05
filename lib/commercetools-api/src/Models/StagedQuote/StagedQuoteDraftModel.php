@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\StagedQuote;
 
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifier;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestResourceIdentifierModel;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -47,6 +49,12 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
      */
     protected $custom;
 
+    /**
+
+     * @var ?StateReference
+     */
+    protected $state;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -55,12 +63,14 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
         ?QuoteRequestResourceIdentifier $quoteRequest = null,
         ?int $quoteRequestVersion = null,
         ?string $key = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?StateReference $state = null
     ) {
         $this->quoteRequest = $quoteRequest;
         $this->quoteRequestVersion = $quoteRequestVersion;
         $this->key = $key;
         $this->custom = $custom;
+        $this->state = $state;
     }
 
     /**
@@ -149,6 +159,28 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
         return $this->custom;
     }
 
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
 
     /**
      * @param ?QuoteRequestResourceIdentifier $quoteRequest
@@ -180,5 +212,13 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
     }
 }
