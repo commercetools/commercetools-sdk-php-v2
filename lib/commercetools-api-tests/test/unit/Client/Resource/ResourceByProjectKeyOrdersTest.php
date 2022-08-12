@@ -13,6 +13,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersByID;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersEdits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersImport;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersOrderNumberByOrderNumber;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersQuotes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyOrdersSearch;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
@@ -229,6 +230,17 @@ class ResourceByProjectKeyOrdersTest extends TestCase
                 ResourceByProjectKeyOrdersImport::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/orders/import'
+            ],
+            'ResourceByProjectKeyOrdersQuotes' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersQuotes {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->orders()
+                        ->orderQuote();
+                },
+                ResourceByProjectKeyOrdersQuotes::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/orders/quotes'
             ],
             'ResourceByProjectKeyOrdersOrderNumberByOrderNumber' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyOrdersOrderNumberByOrderNumber {

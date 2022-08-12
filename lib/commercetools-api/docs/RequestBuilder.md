@@ -3561,6 +3561,21 @@ $request = $builder
                 ->withOrderNumber("orderNumber")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->orders()->orderQuote()->post(null)`
+
+Create an Order from a Quote
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->orderQuote()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->orders()->search()->post(null)`
 
 null

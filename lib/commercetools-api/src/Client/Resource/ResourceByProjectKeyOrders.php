@@ -36,6 +36,14 @@ class ResourceByProjectKeyOrders extends ApiResource
     }
     /**
      */
+    public function orderQuote(): ResourceByProjectKeyOrdersQuotes
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyOrdersQuotes($args, $this->getClient());
+    }
+    /**
+     */
     public function withOrderNumber(string $orderNumber = null): ResourceByProjectKeyOrdersOrderNumberByOrderNumber
     {
         $args = $this->getArgs();
