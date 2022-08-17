@@ -141,6 +141,12 @@ final class StandalonePriceBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var null|StagedStandalonePrice|StagedStandalonePriceBuilder
+     */
+    private $staged;
+
+    /**
      * <p>Unique identifier of the StandalonePrice.</p>
      *
 
@@ -326,6 +332,17 @@ final class StandalonePriceBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has staged changes.</p>
+     *
+
+     * @return null|StagedStandalonePrice
+     */
+    public function getStaged()
+    {
+        return $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged;
     }
 
     /**
@@ -516,6 +533,17 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
+     * @param ?StagedStandalonePrice $staged
+     * @return $this
+     */
+    public function withStaged(?StagedStandalonePrice $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -592,6 +620,17 @@ final class StandalonePriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withStaged() instead
+     * @return $this
+     */
+    public function withStagedBuilder(?StagedStandalonePriceBuilder $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): StandalonePrice
     {
         return new StandalonePriceModel(
@@ -611,7 +650,8 @@ final class StandalonePriceBuilder implements Builder
             $this->validUntil,
             $this->tiers,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged
         );
     }
 

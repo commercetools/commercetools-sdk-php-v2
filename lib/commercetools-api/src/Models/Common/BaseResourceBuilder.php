@@ -164,6 +164,8 @@ use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageBuilder;
+use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessage;
+use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreCreatedMessage;

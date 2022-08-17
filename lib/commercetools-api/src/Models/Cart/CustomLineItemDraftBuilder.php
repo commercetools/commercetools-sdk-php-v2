@@ -78,6 +78,12 @@ final class CustomLineItemDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -157,6 +163,21 @@ final class CustomLineItemDraftBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -248,6 +269,17 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -323,7 +355,8 @@ final class CustomLineItemDraftBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->priceMode
         );
     }
 

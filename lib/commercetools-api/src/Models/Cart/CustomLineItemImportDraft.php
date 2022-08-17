@@ -28,6 +28,7 @@ interface CustomLineItemImportDraft extends JsonObject
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
 
@@ -91,6 +92,18 @@ interface CustomLineItemImportDraft extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -134,4 +147,9 @@ interface CustomLineItemImportDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

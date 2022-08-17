@@ -101,6 +101,12 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
      */
     protected $value;
 
+    /**
+
+     * @var ?bool
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -116,7 +122,8 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?Money $value = null
+        ?Money $value = null,
+        ?bool $staged = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -129,6 +136,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->value = $value;
+        $this->staged = $staged;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -371,6 +379,26 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         return $this->value;
     }
 
+    /**
+     * <p>Whether the new value was applied to the current or the staged representation of the StandalonePrice. Staged changes are stored on the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?string $id
@@ -458,6 +486,14 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     public function setValue(?Money $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 
 

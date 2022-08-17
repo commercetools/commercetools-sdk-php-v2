@@ -260,7 +260,7 @@ final class CustomLineItemBuilder implements Builder
 
     /**
      * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
-     * are applied to the Custom Line Item: <code>Standard</code> = yes, <code>External</code> = no.</p>
+     * are applied to the Custom Line Item.</p>
      *
 
      * @return null|string

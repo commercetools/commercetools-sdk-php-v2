@@ -80,6 +80,12 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
      */
     protected $externalTaxRate;
 
+    /**
+
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -91,7 +97,8 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         ?string $slug = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?CustomFieldsDraft $custom = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $priceMode = null
     ) {
         $this->money = $money;
         $this->name = $name;
@@ -100,6 +107,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         $this->taxCategory = $taxCategory;
         $this->custom = $custom;
         $this->externalTaxRate = $externalTaxRate;
+        $this->priceMode = $priceMode;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -261,6 +269,30 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         return $this->externalTaxRate;
     }
 
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
 
     /**
      * @param ?Money $money
@@ -316,5 +348,13 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }

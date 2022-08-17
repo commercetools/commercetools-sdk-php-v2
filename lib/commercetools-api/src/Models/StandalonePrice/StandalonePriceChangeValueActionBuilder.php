@@ -29,6 +29,12 @@ final class StandalonePriceChangeValueActionBuilder implements Builder
     private $value;
 
     /**
+
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
      * <p>New value to set. Must not be empty.</p>
      *
 
@@ -40,12 +46,34 @@ final class StandalonePriceChangeValueActionBuilder implements Builder
     }
 
     /**
+     * <p>If set to <code>true</code> the update action applies to the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>. If set to <code>false</code>, the update action applies to the current <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
+    }
+
+    /**
      * @param ?Money $value
      * @return $this
      */
     public function withValue(?Money $value)
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $staged
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
 
         return $this;
     }
@@ -64,7 +92,8 @@ final class StandalonePriceChangeValueActionBuilder implements Builder
     public function build(): StandalonePriceChangeValueAction
     {
         return new StandalonePriceChangeValueActionModel(
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->staged
         );
     }
 

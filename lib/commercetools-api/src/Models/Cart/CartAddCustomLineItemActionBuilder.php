@@ -71,6 +71,12 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     private $externalTaxRate;
 
     /**
+
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
@@ -140,6 +146,21 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -220,6 +241,17 @@ final class CartAddCustomLineItemActionBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMoney() instead
      * @return $this
      */
@@ -283,7 +315,8 @@ final class CartAddCustomLineItemActionBuilder implements Builder
             $this->slug,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate
+            $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
+            $this->priceMode
         );
     }
 

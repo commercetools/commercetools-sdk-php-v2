@@ -84,6 +84,12 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
      */
     protected $shippingDetails;
 
+    /**
+
+     * @var ?string
+     */
+    protected $priceMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -97,7 +103,8 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         ?TaxRate $taxRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?CustomFieldsDraft $custom = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?string $priceMode = null
     ) {
         $this->name = $name;
         $this->quantity = $quantity;
@@ -108,6 +115,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         $this->taxCategory = $taxCategory;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
+        $this->priceMode = $priceMode;
     }
 
     /**
@@ -285,6 +293,30 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         return $this->shippingDetails;
     }
 
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -356,5 +388,13 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }

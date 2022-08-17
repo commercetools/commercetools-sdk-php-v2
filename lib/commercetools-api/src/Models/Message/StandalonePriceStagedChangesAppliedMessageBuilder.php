@@ -12,10 +12,10 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Api\Models\StandalonePrice\StagedStandalonePrice;
+use Commercetools\Api\Models\StandalonePrice\StagedStandalonePriceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -25,9 +25,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<StandalonePriceValueChangedMessage>
+ * @implements Builder<StandalonePriceStagedChangesAppliedMessage>
  */
-final class StandalonePriceValueChangedMessageBuilder implements Builder
+final class StandalonePriceStagedChangesAppliedMessageBuilder implements Builder
 {
     /**
 
@@ -91,15 +91,9 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
 
     /**
 
-     * @var null|Money|MoneyBuilder
+     * @var null|StagedStandalonePrice|StagedStandalonePriceBuilder
      */
-    private $value;
-
-    /**
-
-     * @var ?bool
-     */
-    private $staged;
+    private $stagedChanges;
 
     /**
      * <p>Unique identifier of the Message.</p>
@@ -200,25 +194,14 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>The new value of the updated StandalonePrice.</p>
+     * <p>Applied changes of the <a href="/../api/projects/standalone-prices">StandalonePrice</a> after the <a href="ctp:api:types:StandalonePriceApplyStagedChangesAction">Apply Staged Changes</a> update action.</p>
      *
 
-     * @return null|Money
+     * @return null|StagedStandalonePrice
      */
-    public function getValue()
+    public function getStagedChanges()
     {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
-    }
-
-    /**
-     * <p>Whether the new value was applied to the current or the staged representation of the StandalonePrice. Staged changes are stored on the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>.</p>
-     *
-
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
+        return $this->stagedChanges instanceof StagedStandalonePriceBuilder ? $this->stagedChanges->build() : $this->stagedChanges;
     }
 
     /**
@@ -332,23 +315,12 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?Money $value
+     * @param ?StagedStandalonePrice $stagedChanges
      * @return $this
      */
-    public function withValue(?Money $value)
+    public function withStagedChanges(?StagedStandalonePrice $stagedChanges)
     {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * @param ?bool $staged
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
+        $this->stagedChanges = $stagedChanges;
 
         return $this;
     }
@@ -398,19 +370,19 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
     }
 
     /**
-     * @deprecated use withValue() instead
+     * @deprecated use withStagedChanges() instead
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withStagedChangesBuilder(?StagedStandalonePriceBuilder $stagedChanges)
     {
-        $this->value = $value;
+        $this->stagedChanges = $stagedChanges;
 
         return $this;
     }
 
-    public function build(): StandalonePriceValueChangedMessage
+    public function build(): StandalonePriceStagedChangesAppliedMessage
     {
-        return new StandalonePriceValueChangedMessageModel(
+        return new StandalonePriceStagedChangesAppliedMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -421,12 +393,11 @@ final class StandalonePriceValueChangedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
-            $this->staged
+            $this->stagedChanges instanceof StagedStandalonePriceBuilder ? $this->stagedChanges->build() : $this->stagedChanges
         );
     }
 
-    public static function of(): StandalonePriceValueChangedMessageBuilder
+    public static function of(): StandalonePriceStagedChangesAppliedMessageBuilder
     {
         return new self();
     }

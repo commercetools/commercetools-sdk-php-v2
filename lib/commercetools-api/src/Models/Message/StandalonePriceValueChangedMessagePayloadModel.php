@@ -34,14 +34,22 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
      */
     protected $value;
 
+    /**
+
+     * @var ?bool
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $value = null
+        ?Money $value = null,
+        ?bool $staged = null
     ) {
         $this->value = $value;
+        $this->staged = $staged;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -84,6 +92,26 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
         return $this->value;
     }
 
+    /**
+     * <p>Whether the new value was applied to the current or the staged representation of the StandalonePrice. Staged changes are stored on the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?Money $value
@@ -91,5 +119,13 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     public function setValue(?Money $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

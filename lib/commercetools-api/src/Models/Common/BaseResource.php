@@ -86,6 +86,7 @@ use Commercetools\Api\Models\Message\StandalonePriceCreatedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDeletedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessage;
+use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessage;
 use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;

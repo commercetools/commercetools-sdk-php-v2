@@ -36,6 +36,7 @@ interface StandalonePrice extends BaseResource
     public const FIELD_TIERS = 'tiers';
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STAGED = 'staged';
 
     /**
      * <p>Unique identifier of the StandalonePrice.</p>
@@ -175,6 +176,14 @@ interface StandalonePrice extends BaseResource
     public function getCustom();
 
     /**
+     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has staged changes.</p>
+     *
+
+     * @return null|StagedStandalonePrice
+     */
+    public function getStaged();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -258,4 +267,9 @@ interface StandalonePrice extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?StagedStandalonePrice $staged
+     */
+    public function setStaged(?StagedStandalonePrice $staged): void;
 }

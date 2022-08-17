@@ -139,6 +139,12 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
      */
     protected $custom;
 
+    /**
+
+     * @var ?StagedStandalonePrice
+     */
+    protected $staged;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -160,7 +166,8 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         ?DateTimeImmutable $validUntil = null,
         ?PriceTierCollection $tiers = null,
         ?DiscountedPrice $discounted = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?StagedStandalonePrice $staged = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -179,6 +186,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->staged = $staged;
     }
 
     /**
@@ -545,6 +553,27 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         return $this->custom;
     }
 
+    /**
+     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has staged changes.</p>
+     *
+
+     * @return null|StagedStandalonePrice
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->staged = StagedStandalonePriceModel::of($data);
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?string $id
@@ -680,6 +709,14 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StagedStandalonePrice $staged
+     */
+    public function setStaged(?StagedStandalonePrice $staged): void
+    {
+        $this->staged = $staged;
     }
 
 
