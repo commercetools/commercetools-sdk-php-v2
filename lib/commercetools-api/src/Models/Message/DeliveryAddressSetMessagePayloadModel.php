@@ -80,6 +80,8 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -98,6 +100,8 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
+     *
 
      * @return null|Address
      */
@@ -117,6 +121,8 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

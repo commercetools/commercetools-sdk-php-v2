@@ -50,6 +50,8 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     private $taxedPrice;
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
 
      * @return null|string
      */
@@ -59,6 +61,8 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
+     *
 
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
@@ -68,8 +72,7 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
 
      * @return null|Money
@@ -80,6 +83,8 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
+     *
 
      * @return null|TaxedItemPrice
      */

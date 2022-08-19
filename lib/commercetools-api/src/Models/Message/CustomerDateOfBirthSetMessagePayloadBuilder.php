@@ -28,6 +28,8 @@ final class CustomerDateOfBirthSetMessagePayloadBuilder implements Builder
     private $dateOfBirth;
 
     /**
+     * <p>The <code>dateOfBirth</code> that was set during the <a href="ctp:api:type:CustomerSetDateOfBirthAction">Set Date of Birth</a> update action.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

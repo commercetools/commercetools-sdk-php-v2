@@ -35,6 +35,8 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     private $parcel;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Parcel">Parcel</a> that was removed from the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|Parcel
      */

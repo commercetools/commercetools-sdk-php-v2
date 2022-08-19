@@ -18,18 +18,24 @@ interface OrderCustomLineItemQuantityChangedMessage extends OrderMessage
     public const FIELD_OLD_QUANTITY = 'oldQuantity';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
 
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
+     *
 
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity before the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
+     *
 
      * @return null|int
      */

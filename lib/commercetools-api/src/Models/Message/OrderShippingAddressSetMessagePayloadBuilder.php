@@ -35,6 +35,8 @@ final class OrderShippingAddressSetMessagePayloadBuilder implements Builder
     private $oldAddress;
 
     /**
+     * <p>Shipping address on the Order after the <a href="ctp:api:type:OrderSetShippingAddressAction">Set Shipping Address</a> update action.</p>
+     *
 
      * @return null|Address
      */
@@ -44,6 +46,8 @@ final class OrderShippingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Shipping address on the Order before the <a href="ctp:api:type:OrderSetShippingAddressAction">Set Shipping Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

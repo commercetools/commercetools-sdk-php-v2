@@ -80,6 +80,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
@@ -98,6 +100,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -116,6 +120,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>The <a href="ctp:api:type:TrackingData">Tracking Data</a> that was added to the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|TrackingData
      */

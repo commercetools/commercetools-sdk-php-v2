@@ -64,6 +64,8 @@ final class DeliveryRemovedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>The <a href="ctp:api:type:Delivery">Delivery</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|Delivery
      */

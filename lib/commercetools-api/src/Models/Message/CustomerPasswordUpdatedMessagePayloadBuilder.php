@@ -27,7 +27,7 @@ final class CustomerPasswordUpdatedMessagePayloadBuilder implements Builder
     private $reset;
 
     /**
-     * <p>true, if password has been updated during Customer's Password Reset workflow.</p>
+     * <p>Whether the Customer's password was updated during the <a href="/../api/projects/customers#customers-password-reset">Customer's Password Reset</a> workflow.</p>
      *
 
      * @return null|bool

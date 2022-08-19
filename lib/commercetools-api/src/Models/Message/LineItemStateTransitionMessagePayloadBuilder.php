@@ -54,6 +54,8 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     private $toState;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:LineItem">Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -72,6 +76,8 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Number of <a href="ctp:api:type:LineItem">Line Items</a> for which the <a href="ctp:api:type:State">State</a> was transitioned.</p>
+     *
 
      * @return null|int
      */
@@ -81,7 +87,7 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the <a href="ctp:api:type:LineItem">Line Item</a> was transitioned from.</p>
      *
 
      * @return null|StateReference
@@ -92,7 +98,7 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> the <a href="ctp:api:type:LineItem">Line Item</a> was transitioned to.</p>
      *
 
      * @return null|StateReference

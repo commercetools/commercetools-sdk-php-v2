@@ -62,6 +62,8 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>The <code>lastName</code> that was set during the <a href="ctp:api:type:CustomerSetLastNameAction">Set Last Name</a> update action.</p>
+     *
 
      * @return null|string
      */

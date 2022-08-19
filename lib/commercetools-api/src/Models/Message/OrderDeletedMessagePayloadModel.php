@@ -64,6 +64,8 @@ final class OrderDeletedMessagePayloadModel extends JsonObjectModel implements O
     }
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that has been deleted.</p>
+     *
 
      * @return null|Order
      */

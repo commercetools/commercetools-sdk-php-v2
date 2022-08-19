@@ -41,6 +41,8 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     private $staged;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> to which the <a href="ctp:api:type:Image">Image</a> was added.</p>
+     *
 
      * @return null|int
      */
@@ -50,6 +52,8 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Image">Image</a> that was added.</p>
+     *
 
      * @return null|Image
      */
@@ -59,6 +63,8 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

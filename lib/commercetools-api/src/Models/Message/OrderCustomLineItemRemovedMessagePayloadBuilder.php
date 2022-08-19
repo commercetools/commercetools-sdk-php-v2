@@ -35,6 +35,8 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
     private $customLineItem;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class OrderCustomLineItemRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|CustomLineItem
      */

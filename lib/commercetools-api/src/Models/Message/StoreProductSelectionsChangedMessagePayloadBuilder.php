@@ -40,6 +40,8 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     private $updatedProductSelections;
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -49,6 +51,8 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -58,6 +62,8 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were updated in the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */

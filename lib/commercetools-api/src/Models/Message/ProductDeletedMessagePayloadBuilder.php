@@ -35,6 +35,8 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     private $currentProjection;
 
     /**
+     * <p>List of image URLs that were removed during the <a href="ctp:api:type:Product">Delete Product</a> request.</p>
+     *
 
      * @return null|array
      */
@@ -44,6 +46,8 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the deleted <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|ProductProjection
      */

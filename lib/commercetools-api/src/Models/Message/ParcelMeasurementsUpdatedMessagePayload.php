@@ -19,18 +19,24 @@ interface ParcelMeasurementsUpdatedMessagePayload extends OrderMessagePayload
     public const FIELD_MEASUREMENTS = 'measurements';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
     public function getParcelId();
 
     /**
+     * <p>The <a href="ctp:api:type:ParcelMeasurements">Parcel Measurements</a> that were set on the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|ParcelMeasurements
      */

@@ -64,6 +64,8 @@ final class OrderImportedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that was imported.</p>
+     *
 
      * @return null|Order
      */

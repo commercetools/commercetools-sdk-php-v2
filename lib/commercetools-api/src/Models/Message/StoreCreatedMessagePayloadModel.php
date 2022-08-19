@@ -108,7 +108,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The <code>name</code> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
 
      * @return null|LocalizedString
@@ -129,6 +129,8 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>Languages of the <a href="ctp:api:type:Store">Store</a> that was created. Languages are represented as <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tags</a>.</p>
+     *
 
      * @return null|array
      */
@@ -147,6 +149,8 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p><a href="ctp:api:type:ChannelRoleEnum">Distribution Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
 
      * @return null|ChannelReferenceCollection
      */
@@ -165,6 +169,8 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p><a href="ctp:api:type:ChannelRoleEnum">Supply Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
 
      * @return null|ChannelReferenceCollection
      */
@@ -183,6 +189,8 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -201,7 +209,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p><a href="ctp:api:type:CustomFields">Custom Fields</a> on the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
 
      * @return null|CustomFields

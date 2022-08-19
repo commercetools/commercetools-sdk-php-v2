@@ -16,6 +16,8 @@ interface CustomerFirstNameSetMessagePayload extends MessagePayload
     public const FIELD_FIRST_NAME = 'firstName';
 
     /**
+     * <p>The <code>firstName</code> that was set during the <a href="ctp:api:type:CustomerSetFirstNameAction">Set First Name</a> update action.</p>
+     *
 
      * @return null|string
      */

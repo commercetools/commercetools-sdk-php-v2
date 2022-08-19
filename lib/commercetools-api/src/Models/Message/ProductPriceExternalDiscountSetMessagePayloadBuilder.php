@@ -59,6 +59,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     private $staged;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which the Discount was set.</p>
+     *
 
      * @return null|int
      */
@@ -68,6 +70,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     }
 
     /**
+     * <p>Key of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which the Discount was set.</p>
+     *
 
      * @return null|string
      */
@@ -77,6 +81,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which Discount was set.</p>
+     *
 
      * @return null|string
      */
@@ -86,6 +92,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Price</a>.</p>
+     *
 
      * @return null|string
      */
@@ -95,6 +103,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     }
 
     /**
+     * <p>Discounted Price for the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which Discount was set.</p>
+     *
 
      * @return null|DiscountedPrice
      */
@@ -104,6 +114,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

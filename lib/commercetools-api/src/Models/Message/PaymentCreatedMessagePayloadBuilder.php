@@ -29,6 +29,8 @@ final class PaymentCreatedMessagePayloadBuilder implements Builder
     private $payment;
 
     /**
+     * <p><a href="ctp:api:type:Payment">Payment</a> that was created.</p>
+     *
 
      * @return null|Payment
      */

@@ -17,6 +17,8 @@ interface CustomerCreatedMessagePayload extends MessagePayload
     public const FIELD_CUSTOMER = 'customer';
 
     /**
+     * <p><a href="ctp:api:type:Customer">Customer</a> that was created.</p>
+     *
 
      * @return null|Customer
      */

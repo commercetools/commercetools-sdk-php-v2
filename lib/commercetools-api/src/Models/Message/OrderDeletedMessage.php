@@ -17,6 +17,8 @@ interface OrderDeletedMessage extends OrderMessage
     public const FIELD_ORDER = 'order';
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that has been deleted.</p>
+     *
 
      * @return null|Order
      */

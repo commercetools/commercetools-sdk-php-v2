@@ -41,6 +41,8 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     private $scope;
 
     /**
+     * <p>List of image URLs which were removed during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
 
      * @return null|array
      */
@@ -50,6 +52,8 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the <a href="ctp:api:type:Product">Product</a> at the time of creation.</p>
+     *
 
      * @return null|ProductProjection
      */
@@ -59,7 +63,7 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>The scope controls which part of the product information is published.</p>
+     * <p><a href="ctp:api:type:ProductPublishScope">Publishing Scope</a> that was used during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
      *
 
      * @return null|string

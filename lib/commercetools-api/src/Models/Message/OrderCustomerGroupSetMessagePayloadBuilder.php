@@ -35,7 +35,7 @@ final class OrderCustomerGroupSetMessagePayloadBuilder implements Builder
     private $oldCustomerGroup;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderSetCustomerGroupAction">Set Customer Group</a> update action.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -46,7 +46,7 @@ final class OrderCustomerGroupSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:StagedOrderSetCustomerGroupAction">Set Customer Group</a> update action.</p>
      *
 
      * @return null|CustomerGroupReference

@@ -62,6 +62,8 @@ final class CustomerEmailChangedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>The <code>email</code> that was set during the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
 
      * @return null|string
      */

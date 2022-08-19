@@ -79,6 +79,8 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> after the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -115,6 +119,8 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> before the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

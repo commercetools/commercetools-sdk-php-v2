@@ -19,18 +19,24 @@ interface ProductImageAddedMessage extends Message
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> to which the <a href="ctp:api:type:Image">Image</a> was added.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p><a href="ctp:api:type:Image">Image</a> that was added.</p>
+     *
 
      * @return null|Image
      */
     public function getImage();
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

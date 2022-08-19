@@ -64,6 +64,8 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><a href="ctp:api:type:Category">Category</a> that was created.</p>
+     *
 
      * @return null|Category
      */

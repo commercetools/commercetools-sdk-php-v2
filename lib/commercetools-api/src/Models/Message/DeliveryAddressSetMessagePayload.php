@@ -19,18 +19,24 @@ interface DeliveryAddressSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_ADDRESS = 'oldAddress';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
+     *
 
      * @return null|Address
      */
     public function getAddress();
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

@@ -37,7 +37,7 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
     private $variantSelection;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Product">Product</a> that was added to the <a href="ctp:api:type:ProductSelection">Product Selection</a>.</p>
      *
 
      * @return null|ProductReference
@@ -48,7 +48,7 @@ final class ProductSelectionProductAddedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
+     * <p>Product Variant Selection after the <a href="ctp:api:type:ProductSelectionAddProductAction">Add Product</a> update action.</p>
      *
 
      * @return null|ProductVariantSelection

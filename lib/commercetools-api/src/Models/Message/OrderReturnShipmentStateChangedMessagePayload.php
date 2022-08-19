@@ -17,12 +17,16 @@ interface OrderReturnShipmentStateChangedMessagePayload extends OrderMessagePayl
     public const FIELD_RETURN_SHIPMENT_STATE = 'returnShipmentState';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
 
      * @return null|string
      */
     public function getReturnItemId();
 
     /**
+     * <p>State of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> after the <a href="ctp:api:type:OrderSetReturnShipmentStateAction">Set Return Shipment State</a> update action.</p>
+     *
 
      * @return null|string
      */

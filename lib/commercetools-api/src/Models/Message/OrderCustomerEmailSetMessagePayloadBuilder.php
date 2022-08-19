@@ -33,6 +33,8 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     private $oldEmail;
 
     /**
+     * <p>Email address on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerEmailAction">Set Customer Email</a> update action.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Email address on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerEmailAction">Set Customer Email</a> update action.</p>
+     *
 
      * @return null|string
      */

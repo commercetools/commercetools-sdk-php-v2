@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\ProductSelection\ProductSelectionType;
-use Commercetools\Api\Models\ProductSelection\ProductSelectionTypeModel;
+use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionType;
+use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionTypeModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -30,7 +30,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
 
     /**
 
-     * @var ?ProductSelectionType
+     * @var ?IndividualProductSelectionType
      */
     protected $productSelection;
 
@@ -39,7 +39,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductSelectionType $productSelection = null
+        ?IndividualProductSelectionType $productSelection = null
     ) {
         $this->productSelection = $productSelection;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -64,8 +64,10 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+     * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
+     *
 
-     * @return null|ProductSelectionType
+     * @return null|IndividualProductSelectionType
      */
     public function getProductSelection()
     {
@@ -75,8 +77,8 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
             if (is_null($data)) {
                 return null;
             }
-            $className = ProductSelectionTypeModel::resolveDiscriminatorClass($data);
-            $this->productSelection = $className::of($data);
+
+            $this->productSelection = IndividualProductSelectionTypeModel::of($data);
         }
 
         return $this->productSelection;
@@ -84,9 +86,9 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
 
 
     /**
-     * @param ?ProductSelectionType $productSelection
+     * @param ?IndividualProductSelectionType $productSelection
      */
-    public function setProductSelection(?ProductSelectionType $productSelection): void
+    public function setProductSelection(?IndividualProductSelectionType $productSelection): void
     {
         $this->productSelection = $productSelection;
     }

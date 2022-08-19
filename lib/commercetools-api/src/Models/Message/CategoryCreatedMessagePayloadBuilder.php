@@ -29,6 +29,8 @@ final class CategoryCreatedMessagePayloadBuilder implements Builder
     private $category;
 
     /**
+     * <p><a href="ctp:api:type:Category">Category</a> that was created.</p>
+     *
 
      * @return null|Category
      */

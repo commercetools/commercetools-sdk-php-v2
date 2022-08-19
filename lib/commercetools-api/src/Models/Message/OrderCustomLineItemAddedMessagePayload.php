@@ -17,6 +17,8 @@ interface OrderCustomLineItemAddedMessagePayload extends OrderMessagePayload
     public const FIELD_CUSTOM_LINE_ITEM = 'customLineItem';
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|CustomLineItem
      */

@@ -62,6 +62,8 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+     * <p>Array containing details about the <a href="ctp:api:type:Price">Prices</a> that were updated.</p>
+     *
 
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
      */

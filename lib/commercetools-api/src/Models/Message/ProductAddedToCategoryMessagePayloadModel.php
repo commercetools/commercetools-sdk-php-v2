@@ -72,7 +72,7 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p><a href="ctp:api:type:Category">Category</a> the <a href="ctp:api:type:Product">Product</a> was added to.</p>
      *
 
      * @return null|CategoryReference
@@ -93,6 +93,8 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

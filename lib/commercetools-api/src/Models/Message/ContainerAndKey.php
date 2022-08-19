@@ -25,7 +25,7 @@ interface ContainerAndKey extends JsonObject
     public function getKey();
 
     /**
-     * <p>Namespace to group Custom Objects.</p>
+     * <p>Namespace to group <a href="ctp:api:type:CustomObject">Custom Objects</a>.</p>
      *
 
      * @return null|string

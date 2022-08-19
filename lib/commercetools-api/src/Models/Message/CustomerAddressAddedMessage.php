@@ -17,6 +17,8 @@ interface CustomerAddressAddedMessage extends Message
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was added during the <a href="ctp:api:type:CustomerAddAddressAction">Add Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

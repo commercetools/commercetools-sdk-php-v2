@@ -20,25 +20,31 @@ interface ReviewRatingSetMessage extends Message
     public const FIELD_TARGET = 'target';
 
     /**
+     * <p>The <code>rating</code> of the <a href="ctp:api:type:Review">Review</a> before the <a href="ctp:api:type:ReviewSetRatingAction">Set Rating</a> update action.</p>
+     *
 
      * @return null|float
      */
     public function getOldRating();
 
     /**
+     * <p>The <code>rating</code> of the <a href="ctp:api:type:Review">Review</a> after the <a href="ctp:api:type:ReviewSetRatingAction">Set Rating</a> update action.</p>
+     *
 
      * @return null|float
      */
     public function getNewRating();
 
     /**
+     * <p>Whether the <a href="ctp:api:type:Review">Review</a> was taken into account in the ratings statistics of the target.</p>
+     *
 
      * @return null|bool
      */
     public function getIncludedInStatistics();
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource that the <a href="ctp:api:type:Review">Review</a> belongs to.</p>
      *
 
      * @return null|Reference

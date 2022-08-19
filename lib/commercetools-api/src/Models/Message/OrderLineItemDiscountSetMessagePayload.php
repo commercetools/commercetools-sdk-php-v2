@@ -22,20 +22,23 @@ interface OrderLineItemDiscountSetMessagePayload extends OrderMessagePayload
     public const FIELD_TAXED_PRICE = 'taxedPrice';
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
 
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
+     *
 
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
 
      * @return null|Money
@@ -43,6 +46,8 @@ interface OrderLineItemDiscountSetMessagePayload extends OrderMessagePayload
     public function getTotalPrice();
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
+     *
 
      * @return null|TaxedItemPrice
      */

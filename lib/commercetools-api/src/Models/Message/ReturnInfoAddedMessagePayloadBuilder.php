@@ -18,9 +18,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<OrderReturnInfoAddedMessagePayload>
+ * @implements Builder<ReturnInfoAddedMessagePayload>
  */
-final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
+final class ReturnInfoAddedMessagePayloadBuilder implements Builder
 {
     /**
 
@@ -29,6 +29,8 @@ final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
     private $returnInfo;
 
     /**
+     * <p>The <a href="ctp:api:type:ReturnInfo">ReturnInfo</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|ReturnInfo
      */
@@ -59,14 +61,14 @@ final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
         return $this;
     }
 
-    public function build(): OrderReturnInfoAddedMessagePayload
+    public function build(): ReturnInfoAddedMessagePayload
     {
-        return new OrderReturnInfoAddedMessagePayloadModel(
+        return new ReturnInfoAddedMessagePayloadModel(
             $this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo
         );
     }
 
-    public static function of(): OrderReturnInfoAddedMessagePayloadBuilder
+    public static function of(): ReturnInfoAddedMessagePayloadBuilder
     {
         return new self();
     }

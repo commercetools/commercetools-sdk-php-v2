@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\OrderEdit\OrderEdit;
 use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
 use Commercetools\Api\Models\OrderEdit\OrderEditAppliedModel;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceModel;
+use Commercetools\Api\Models\OrderEdit\OrderEditModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -32,7 +32,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
 
     /**
 
-     * @var ?OrderEditReference
+     * @var ?OrderEdit
      */
     protected $edit;
 
@@ -47,7 +47,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?OrderEditReference $edit = null,
+        ?OrderEdit $edit = null,
         ?OrderEditApplied $result = null
     ) {
         $this->edit = $edit;
@@ -74,10 +74,10 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     * <p><a href="ctp:api:type:OrderEdit">OrderEdit</a> that was applied.</p>
      *
 
-     * @return null|OrderEditReference
+     * @return null|OrderEdit
      */
     public function getEdit()
     {
@@ -88,13 +88,15 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
                 return null;
             }
 
-            $this->edit = OrderEditReferenceModel::of($data);
+            $this->edit = OrderEditModel::of($data);
         }
 
         return $this->edit;
     }
 
     /**
+     * <p>Information about a successfully applied <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     *
 
      * @return null|OrderEditApplied
      */
@@ -115,9 +117,9 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
 
 
     /**
-     * @param ?OrderEditReference $edit
+     * @param ?OrderEdit $edit
      */
-    public function setEdit(?OrderEditReference $edit): void
+    public function setEdit(?OrderEdit $edit): void
     {
         $this->edit = $edit;
     }

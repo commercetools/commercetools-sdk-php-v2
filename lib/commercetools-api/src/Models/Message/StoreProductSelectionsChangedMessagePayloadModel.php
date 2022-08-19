@@ -79,6 +79,8 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -97,6 +99,8 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -115,6 +119,8 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were updated in the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */

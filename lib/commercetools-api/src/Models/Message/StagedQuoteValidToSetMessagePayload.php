@@ -17,6 +17,8 @@ interface StagedQuoteValidToSetMessagePayload extends MessagePayload
     public const FIELD_VALID_TO = 'validTo';
 
     /**
+     * <p>Expiration date for the Staged Quote after the <a href="ctp:api:type:StagedQuoteSetValidToAction">Set Valid To</a> update action.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

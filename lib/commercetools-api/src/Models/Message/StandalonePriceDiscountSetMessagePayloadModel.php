@@ -64,7 +64,7 @@ final class StandalonePriceDiscountSetMessagePayloadModel extends JsonObjectMode
     }
 
     /**
-     * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
+     * <p>The new <code>discounted</code> value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
      * @return null|DiscountedPrice

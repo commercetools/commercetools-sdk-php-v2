@@ -40,6 +40,8 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     private $oldItems;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
@@ -49,6 +51,8 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> after the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -58,6 +62,8 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> before the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

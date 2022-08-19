@@ -33,7 +33,7 @@ final class QuoteStateChangedMessagePayloadBuilder implements Builder
     private $oldQuoteState;
 
     /**
-     * <p>Predefined states tracking the status of the Quote.</p>
+     * <p>State of the Quote after the <a href="ctp:api:type:QuoteChangeQuoteStateAction">Change Quote State</a> update action.</p>
      *
 
      * @return null|string
@@ -44,7 +44,7 @@ final class QuoteStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Predefined states tracking the status of the Quote.</p>
+     * <p>State of the Quote before the <a href="ctp:api:type:QuoteChangeQuoteStateAction">Change Quote State</a> update action.</p>
      *
 
      * @return null|string

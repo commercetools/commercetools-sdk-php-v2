@@ -64,6 +64,8 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:Review">Review</a> that was created.</p>
+     *
 
      * @return null|Review
      */

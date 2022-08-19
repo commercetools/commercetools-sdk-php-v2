@@ -29,6 +29,8 @@ final class ReviewCreatedMessagePayloadBuilder implements Builder
     private $review;
 
     /**
+     * <p><a href="ctp:api:type:Review">Review</a> that was created.</p>
+     *
 
      * @return null|Review
      */

@@ -62,6 +62,8 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p>The <code>companyName</code> that was set during the <a href="ctp:api:type:CustomerSetCompanyNameAction">Set Company Name</a> update action.</p>
+     *
 
      * @return null|string
      */

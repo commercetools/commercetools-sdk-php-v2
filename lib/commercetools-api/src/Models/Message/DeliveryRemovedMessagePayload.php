@@ -17,6 +17,8 @@ interface DeliveryRemovedMessagePayload extends OrderMessagePayload
     public const FIELD_DELIVERY = 'delivery';
 
     /**
+     * <p>The <a href="ctp:api:type:Delivery">Delivery</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|Delivery
      */

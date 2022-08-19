@@ -70,6 +70,8 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:Payment">Payment</a> for which the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action was applied.</p>
+     *
 
      * @return null|string
      */
@@ -88,6 +90,8 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p>The <code>interfaceCode</code> that was set during the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action.</p>
+     *
 
      * @return null|string
      */

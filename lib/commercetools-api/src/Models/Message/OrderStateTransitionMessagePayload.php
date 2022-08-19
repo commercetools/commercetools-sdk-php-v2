@@ -19,7 +19,7 @@ interface OrderStateTransitionMessagePayload extends OrderMessagePayload
     public const FIELD_FORCE = 'force';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> after the <a href="ctp:api:type:OrderTransitionStateAction">Transition State</a> update action.</p>
      *
 
      * @return null|StateReference
@@ -27,7 +27,7 @@ interface OrderStateTransitionMessagePayload extends OrderMessagePayload
     public function getState();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> before the <a href="ctp:api:type:OrderTransitionStateAction">Transition State</a> update action.</p>
      *
 
      * @return null|StateReference
@@ -35,6 +35,8 @@ interface OrderStateTransitionMessagePayload extends OrderMessagePayload
     public function getOldState();
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:OrderTransitionStateAction">Transition State</a> update action.</p>
+     *
 
      * @return null|bool
      */

@@ -64,6 +64,8 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p><a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that was created.</p>
+     *
 
      * @return null|InventoryEntry
      */

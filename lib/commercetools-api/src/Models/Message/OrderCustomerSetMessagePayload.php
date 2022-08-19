@@ -21,7 +21,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     public const FIELD_OLD_CUSTOMER_GROUP = 'oldCustomerGroup';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
 
      * @return null|CustomerReference
@@ -29,7 +29,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     public function getCustomer();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -37,7 +37,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     public function getCustomerGroup();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
 
      * @return null|CustomerReference
@@ -45,7 +45,7 @@ interface OrderCustomerSetMessagePayload extends OrderMessagePayload
     public function getOldCustomer();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
 
      * @return null|CustomerGroupReference

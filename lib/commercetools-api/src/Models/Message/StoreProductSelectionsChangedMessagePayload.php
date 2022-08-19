@@ -19,18 +19,24 @@ interface StoreProductSelectionsChangedMessagePayload extends MessagePayload
     public const FIELD_UPDATED_PRODUCT_SELECTIONS = 'updatedProductSelections';
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
     public function getAddedProductSelections();
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
     public function getRemovedProductSelections();
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were updated in the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */

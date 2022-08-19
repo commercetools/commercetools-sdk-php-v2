@@ -17,6 +17,8 @@ interface CategoryCreatedMessage extends Message
     public const FIELD_CATEGORY = 'category';
 
     /**
+     * <p><a href="ctp:api:type:Category">Category</a> that was created.</p>
+     *
 
      * @return null|Category
      */

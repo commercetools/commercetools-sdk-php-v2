@@ -87,6 +87,8 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -105,6 +107,8 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
@@ -123,6 +127,8 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> after the <a href="ctp:api:type:OrderSetParcelItemsAction">Set Parcel Items</a> update action.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */
@@ -141,6 +147,8 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> before the <a href="ctp:api:type:OrderSetParcelItemsAction">Set Parcel Items</a> update action.</p>
+     *
 
      * @return null|DeliveryItemCollection
      */

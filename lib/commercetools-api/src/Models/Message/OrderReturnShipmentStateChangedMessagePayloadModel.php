@@ -70,6 +70,8 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ReturnItem">ReturnItem</a>.</p>
+     *
 
      * @return null|string
      */
@@ -88,6 +90,8 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>State of the <a href="ctp:api:type:ReturnItem">ReturnItem</a> after the <a href="ctp:api:type:OrderSetReturnShipmentStateAction">Set Return Shipment State</a> update action.</p>
+     *
 
      * @return null|string
      */

@@ -64,6 +64,8 @@ final class CustomerAddressAddedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was added during the <a href="ctp:api:type:CustomerAddAddressAction">Add Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

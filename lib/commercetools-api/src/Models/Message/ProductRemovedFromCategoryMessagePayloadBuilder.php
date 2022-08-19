@@ -35,7 +35,7 @@ final class ProductRemovedFromCategoryMessagePayloadBuilder implements Builder
     private $staged;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p><a href="ctp:api:type:Category">Category</a> the <a href="ctp:api:type:Product">Product</a> was removed from.</p>
      *
 
      * @return null|CategoryReference
@@ -46,6 +46,8 @@ final class ProductRemovedFromCategoryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

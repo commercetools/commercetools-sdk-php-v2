@@ -177,7 +177,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
      * @return null|string
@@ -197,6 +197,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
 
      * @return null|int
      */
@@ -215,6 +217,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -237,6 +241,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -259,7 +265,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
      *
 
      * @return null|LastModifiedBy
@@ -301,6 +307,9 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
 
      * @return null|int
      */
@@ -319,7 +328,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
 
      * @return null|Reference
@@ -340,6 +349,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
 
      * @return null|int
      */
@@ -358,6 +369,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
 
      * @return null|string
      */
@@ -376,6 +389,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
 
      * @return null|UserProvidedIdentifiers
      */
@@ -395,7 +410,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The <code>name</code> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
 
      * @return null|LocalizedString
@@ -416,6 +431,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p>Languages of the <a href="ctp:api:type:Store">Store</a> that was created. Languages are represented as <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tags</a>.</p>
+     *
 
      * @return null|array
      */
@@ -434,6 +451,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p><a href="ctp:api:type:ChannelRoleEnum">Distribution Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
 
      * @return null|ChannelReferenceCollection
      */
@@ -452,6 +471,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p><a href="ctp:api:type:ChannelRoleEnum">Supply Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
 
      * @return null|ChannelReferenceCollection
      */
@@ -470,6 +491,8 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
 
      * @return null|ProductSelectionSettingCollection
      */
@@ -488,7 +511,7 @@ final class StoreCreatedMessageModel extends JsonObjectModel implements StoreCre
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p><a href="ctp:api:type:CustomFields">Custom Fields</a> on the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
 
      * @return null|CustomFields

@@ -64,6 +64,8 @@ final class CustomerAddressChangedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was set during the <a href="ctp:api:type:CustomerChangeAddressAction">Change Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

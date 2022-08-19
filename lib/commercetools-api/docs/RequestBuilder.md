@@ -388,7 +388,7 @@ $request = $builder
 
 Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
-Creating a Category produces the [CategoryCreatedMessage](/../api/message-types#categorycreatedmessage).
+Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
 
 
 ### Example
@@ -2429,7 +2429,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
-Produces the [InventoryEntryCreatedMessage](ctp:api:type:InventoryEntryCreatedMessage).
+Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
 
 ### Example
 ```php
@@ -2473,7 +2473,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->delete()`
 
-Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
+Produces the [InventoryEntryDeleted](ctp:api:type:InventoryEntryDeletedMessage) Message.
 
 ### Example
 ```php
@@ -2518,7 +2518,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withKey("key")->delete()`
 
-Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
+Produces the [InventoryEntryDeleted](ctp:api:type:InventoryEntryDeletedMessage) Message.
 
 ### Example
 ```php
@@ -3253,7 +3253,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3267,7 +3267,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->withId("ID")->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -4301,7 +4301,7 @@ $request = $builder
 
 To create a new Product, send a representation that is going to become the initial _staged_ representation of the new Product in the master catalog.
 If [Price Selection](ctp:api:type:ProductPriceSelection) query parameters are provided, selected Prices will be added to the response.
-Produces the [ProductCreatedMessage](/message-types#productcreatedmessage).
+Produces the [ProductCreated](/projects/messages#product-created) Message.
 
 
 ### Example
@@ -4362,7 +4362,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
 If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
-Produces the [ProductDeletedMessage](/message-types#productdeletedmessage).
+Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
 
 ### Example
 ```php
@@ -4377,7 +4377,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->images()->post(null)`
 
-Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAddedMessage](/message-types#productimageaddedmessage) when the `Small` version of the image has been uploaded to the CDN.
+Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAdded](/projects/messages#product-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
 
 
 ### Example
@@ -4456,7 +4456,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
 If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
-Produces the [ProductDeletedMessage](/message-types#productdeletedmessage).
+Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
 
 ### Example
 ```php
@@ -5263,7 +5263,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->post(null)`
 
-Produces the [StandalonePriceCreatedMessage](ctp:api:type:StandalonePriceCreatedMessage).
+Produces the [StandalonePriceCreated](ctp:api:type:StandalonePriceCreatedMessage) Message.
 
 
 ### Example
@@ -5308,7 +5308,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
 
-Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+Produces the [StandalonePriceDeleted](ctp:api:type:StandalonePriceDeletedMessage) Message.
 
 
 ### Example
@@ -5354,7 +5354,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
 
-Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+Produces the [StandalonePriceDeleted](ctp:api:type:StandalonePriceDeletedMessage) Message.
 
 
 ### Example

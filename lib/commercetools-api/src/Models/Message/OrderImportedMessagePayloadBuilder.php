@@ -29,6 +29,8 @@ final class OrderImportedMessagePayloadBuilder implements Builder
     private $order;
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that was imported.</p>
+     *
 
      * @return null|Order
      */

@@ -18,12 +18,16 @@ interface OrderShippingAddressSetMessage extends OrderMessage
     public const FIELD_OLD_ADDRESS = 'oldAddress';
 
     /**
+     * <p>Shipping address on the Order after the <a href="ctp:api:type:OrderSetShippingAddressAction">Set Shipping Address</a> update action.</p>
+     *
 
      * @return null|Address
      */
     public function getAddress();
 
     /**
+     * <p>Shipping address on the Order before the <a href="ctp:api:type:OrderSetShippingAddressAction">Set Shipping Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

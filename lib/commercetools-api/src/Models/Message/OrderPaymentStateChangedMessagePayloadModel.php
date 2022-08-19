@@ -70,6 +70,8 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+     * <p><a href="ctp:api:type:PaymentState">PaymentState</a> after the <a href="ctp:api:type:OrderChangePaymentStateAction">Change Payment State</a> update action.</p>
+     *
 
      * @return null|string
      */
@@ -88,6 +90,8 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+     * <p><a href="ctp:api:type:PaymentState">PaymentState</a> before the <a href="ctp:api:type:OrderChangePaymentStateAction">Change Payment State</a> update action.</p>
+     *
 
      * @return null|string
      */

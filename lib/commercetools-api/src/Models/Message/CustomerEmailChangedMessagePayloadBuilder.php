@@ -27,6 +27,8 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
     private $email;
 
     /**
+     * <p>The <code>email</code> that was set during the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
 
      * @return null|string
      */

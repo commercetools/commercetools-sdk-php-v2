@@ -18,12 +18,16 @@ interface OrderShippingInfoSetMessage extends OrderMessage
     public const FIELD_OLD_SHIPPING_INFO = 'oldShippingInfo';
 
     /**
+     * <p><a href="ctp:api:type:ShippingInfo">ShippingInfo</a> after the <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Set Shipping Method</a> or <a href="ctp:api:type:StagedOrderSetCustomShippingMethodAction">Set Custom Shipping Method</a> update action.</p>
+     *
 
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
 
     /**
+     * <p><a href="ctp:api:type:ShippingInfo">ShippingInfo</a> before the <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Set Shipping Method</a> or <a href="ctp:api:type:StagedOrderSetCustomShippingMethodAction">Set Custom Shipping Method</a> update action.</p>
+     *
 
      * @return null|ShippingInfo
      */

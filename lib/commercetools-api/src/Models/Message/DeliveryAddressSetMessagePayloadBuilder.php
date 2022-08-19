@@ -41,6 +41,8 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     private $oldAddress;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
+     *
 
      * @return null|Address
      */
@@ -59,6 +63,8 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

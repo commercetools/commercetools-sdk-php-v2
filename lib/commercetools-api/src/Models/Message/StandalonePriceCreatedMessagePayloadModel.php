@@ -64,7 +64,7 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
-     * <p>The Standalone Price as it was created.</p>
+     * <p><a href="ctp:api:type:StandalonePrice">Standalone Price</a> that was created.</p>
      *
 
      * @return null|StandalonePrice

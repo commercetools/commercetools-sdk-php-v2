@@ -8,8 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Order\ReturnInfo;
-use Commercetools\Api\Models\Order\ReturnInfoModel;
+use Commercetools\Api\Models\Order\ReturnInfoCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -19,9 +18,9 @@ use stdClass;
 /**
  * @internal
  */
-final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel implements OrderReturnInfoAddedMessagePayload
+final class ReturnInfoSetMessagePayloadModel extends JsonObjectModel implements ReturnInfoSetMessagePayload
 {
-    public const DISCRIMINATOR_VALUE = 'ReturnInfoAdded';
+    public const DISCRIMINATOR_VALUE = 'ReturnInfoSet';
     /**
 
      * @var ?string
@@ -30,7 +29,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
 
     /**
 
-     * @var ?ReturnInfo
+     * @var ?ReturnInfoCollection
      */
     protected $returnInfo;
 
@@ -39,7 +38,7 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ReturnInfo $returnInfo = null
+        ?ReturnInfoCollection $returnInfo = null
     ) {
         $this->returnInfo = $returnInfo;
         $this->type = static::DISCRIMINATOR_VALUE;
@@ -64,19 +63,20 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>The <a href="ctp:api:type:ReturnInfo">ReturnInfo</a> that was set on the <a href="ctp:api:type:Order">Order</a> or <a href="ctp:api:type:OrderEdit">Order Edit</a>.</p>
+     *
 
-     * @return null|ReturnInfo
+     * @return null|ReturnInfoCollection
      */
     public function getReturnInfo()
     {
         if (is_null($this->returnInfo)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_RETURN_INFO);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->returnInfo = ReturnInfoModel::of($data);
+            $this->returnInfo = ReturnInfoCollection::fromArray($data);
         }
 
         return $this->returnInfo;
@@ -84,9 +84,9 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
 
 
     /**
-     * @param ?ReturnInfo $returnInfo
+     * @param ?ReturnInfoCollection $returnInfo
      */
-    public function setReturnInfo(?ReturnInfo $returnInfo): void
+    public function setReturnInfo(?ReturnInfoCollection $returnInfo): void
     {
         $this->returnInfo = $returnInfo;
     }

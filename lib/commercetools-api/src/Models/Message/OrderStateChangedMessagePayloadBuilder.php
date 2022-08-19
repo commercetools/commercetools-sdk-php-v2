@@ -33,6 +33,8 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     private $oldOrderState;
 
     /**
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> after the <a href="ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> before the <a href="ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
+     *
 
      * @return null|string
      */

@@ -18,7 +18,7 @@ interface ProductVariantDeletedMessage extends Message
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
-     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
      *
 
      * @return null|ProductVariant
@@ -26,6 +26,8 @@ interface ProductVariantDeletedMessage extends Message
     public function getVariant();
 
     /**
+     * <p>List of image URLs that were removed with the <a href="ctp:api:type:ProductRemoveVariantAction">Remove Product Variant</a> update action.</p>
+     *
 
      * @return null|array
      */

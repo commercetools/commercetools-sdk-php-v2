@@ -41,6 +41,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     private $trackingData;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|string
      */
@@ -59,6 +63,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>The <a href="ctp:api:type:TrackingData">Tracking Data</a> that was added to the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
 
      * @return null|TrackingData
      */

@@ -19,12 +19,16 @@ interface ParcelAddedToDeliveryMessage extends OrderMessage
     public const FIELD_PARCEL = 'parcel';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|Delivery
      */
     public function getDelivery();
 
     /**
+     * <p><a href="ctp:api:type:Parcel">Parcel</a> that was added to the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|Parcel
      */

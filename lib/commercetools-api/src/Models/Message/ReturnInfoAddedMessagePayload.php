@@ -12,11 +12,13 @@ use Commercetools\Api\Models\Order\ReturnInfo;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface OrderReturnInfoAddedMessage extends OrderMessage
+interface ReturnInfoAddedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_RETURN_INFO = 'returnInfo';
 
     /**
+     * <p>The <a href="ctp:api:type:ReturnInfo">ReturnInfo</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|ReturnInfo
      */

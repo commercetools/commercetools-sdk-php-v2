@@ -29,6 +29,8 @@ final class OrderCustomLineItemAddedMessagePayloadBuilder implements Builder
     private $customLineItem;
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|CustomLineItem
      */

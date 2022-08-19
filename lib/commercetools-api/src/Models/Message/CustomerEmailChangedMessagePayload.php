@@ -16,6 +16,8 @@ interface CustomerEmailChangedMessagePayload extends MessagePayload
     public const FIELD_EMAIL = 'email';
 
     /**
+     * <p>The <code>email</code> that was set during the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
 
      * @return null|string
      */

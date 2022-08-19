@@ -29,6 +29,8 @@ final class CustomerCreatedMessagePayloadBuilder implements Builder
     private $customer;
 
     /**
+     * <p><a href="ctp:api:type:Customer">Customer</a> that was created.</p>
+     *
 
      * @return null|Customer
      */

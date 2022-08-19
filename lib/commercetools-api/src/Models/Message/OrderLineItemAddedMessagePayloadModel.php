@@ -72,6 +72,8 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|LineItem
      */
@@ -91,6 +93,8 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
 
      * @return null|int
      */

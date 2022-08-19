@@ -72,6 +72,8 @@ final class OrderShippingAddressSetMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Shipping address on the Order after the <a href="ctp:api:type:OrderSetShippingAddressAction">Set Shipping Address</a> update action.</p>
+     *
 
      * @return null|Address
      */
@@ -91,6 +93,8 @@ final class OrderShippingAddressSetMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Shipping address on the Order before the <a href="ctp:api:type:OrderSetShippingAddressAction">Set Shipping Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

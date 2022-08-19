@@ -78,6 +78,8 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which the Discount was set.</p>
+     *
 
      * @return null|int
      */
@@ -96,6 +98,8 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Key of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
 
      * @return null|string
      */
@@ -114,6 +118,8 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
 
      * @return null|string
      */
@@ -132,6 +138,8 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Price</a>.</p>
+     *
 
      * @return null|string
      */
@@ -150,6 +158,8 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Discounted Price for the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
 
      * @return null|DiscountedPrice
      */
@@ -169,6 +179,8 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">ProductProjection</a>.</p>
+     *
 
      * @return null|bool
      */

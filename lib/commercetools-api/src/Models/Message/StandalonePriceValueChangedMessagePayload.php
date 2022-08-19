@@ -18,7 +18,7 @@ interface StandalonePriceValueChangedMessagePayload extends MessagePayload
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>The new value of the updated StandalonePrice.</p>
+     * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
      * @return null|Money

@@ -70,6 +70,8 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p><a href="ctp:api:type:ShipmentState">ShipmentState</a> after the <a href="ctp:api:type:OrderChangeShipmentStateAction">Change Shipment State</a> update action.</p>
+     *
 
      * @return null|string
      */
@@ -88,6 +90,8 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p><a href="ctp:api:type:ShipmentState">ShipmentState</a> before the <a href="ctp:api:type:OrderChangeShipmentStateAction">Change Shipment State</a> update action.</p>
+     *
 
      * @return null|string
      */

@@ -70,7 +70,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Predefined states tracking the status of the Quote Request in the negotiation process.</p>
+     * <p>State of the Quote Request after the <a href="ctp:api:type:QuoteRequestChangeQuoteRequestStateAction">Change Quote Request State</a> update action.</p>
      *
 
      * @return null|string
@@ -90,7 +90,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
-     * <p>Predefined states tracking the status of the Quote Request in the negotiation process.</p>
+     * <p>State of the Quote Request before the <a href="ctp:api:type:QuoteRequestChangeQuoteRequestStateAction">Change Quote Request State</a> update action.</p>
      *
 
      * @return null|string

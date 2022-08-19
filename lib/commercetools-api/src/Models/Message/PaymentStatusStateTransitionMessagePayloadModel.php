@@ -72,7 +72,7 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Payment">Payment</a> after the <a href="ctp:api:type:PaymentTransitionStateAction">Transition State</a> update action.</p>
      *
 
      * @return null|StateReference
@@ -93,6 +93,8 @@ final class PaymentStatusStateTransitionMessagePayloadModel extends JsonObjectMo
     }
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:PaymentChangeTransactionStateAction">Change Transaction State</a> update action.</p>
+     *
 
      * @return null|bool
      */

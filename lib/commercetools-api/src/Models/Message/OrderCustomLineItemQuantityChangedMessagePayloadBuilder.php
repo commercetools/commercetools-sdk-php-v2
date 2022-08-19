@@ -39,6 +39,8 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     private $oldQuantity;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     }
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
+     *
 
      * @return null|int
      */
@@ -57,6 +61,8 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadBuilder implements B
     }
 
     /**
+     * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity before the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
+     *
 
      * @return null|int
      */

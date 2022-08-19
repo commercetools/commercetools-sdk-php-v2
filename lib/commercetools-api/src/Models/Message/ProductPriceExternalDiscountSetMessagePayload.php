@@ -22,36 +22,48 @@ interface ProductPriceExternalDiscountSetMessagePayload extends MessagePayload
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which the Discount was set.</p>
+     *
 
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>Key of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which the Discount was set.</p>
+     *
 
      * @return null|string
      */
     public function getVariantKey();
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which Discount was set.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Price</a>.</p>
+     *
 
      * @return null|string
      */
     public function getPriceId();
 
     /**
+     * <p>Discounted Price for the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which Discount was set.</p>
+     *
 
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

@@ -63,7 +63,7 @@ final class StagedQuoteStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><code>true</code>, if <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:StagedQuoteTransitionStateAction">Transition State</a> update action.</p>
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:StagedQuoteTransitionStateAction">Transition State</a> update action.</p>
      *
 
      * @return null|bool

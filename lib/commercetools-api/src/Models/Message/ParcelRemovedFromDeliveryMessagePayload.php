@@ -18,12 +18,16 @@ interface ParcelRemovedFromDeliveryMessagePayload extends OrderMessagePayload
     public const FIELD_PARCEL = 'parcel';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+     * <p><a href="ctp:api:type:Parcel">Parcel</a> that was removed from the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
 
      * @return null|Parcel
      */

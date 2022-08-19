@@ -42,6 +42,8 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     private $taxedPrice;
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
 
      * @return null|string
      */
@@ -51,6 +53,8 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+     * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
+     *
 
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
@@ -60,6 +64,8 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> after the Discount recalculation.</p>
+     *
 
      * @return null|TaxedItemPrice
      */

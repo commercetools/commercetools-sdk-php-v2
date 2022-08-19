@@ -64,7 +64,7 @@ final class ContainerAndKeyModel extends JsonObjectModel implements ContainerAnd
     }
 
     /**
-     * <p>Namespace to group Custom Objects.</p>
+     * <p>Namespace to group <a href="ctp:api:type:CustomObject">Custom Objects</a>.</p>
      *
 
      * @return null|string

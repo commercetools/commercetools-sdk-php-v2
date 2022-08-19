@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -22,49 +20,9 @@ use stdClass;
  */
 final class ProductSelectionDeletedMessagePayloadBuilder implements Builder
 {
-    /**
-
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
-     *
-
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @param ?LocalizedString $name
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withName() instead
-     * @return $this
-     */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     public function build(): ProductSelectionDeletedMessagePayload
     {
         return new ProductSelectionDeletedMessagePayloadModel(
-            $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name
         );
     }
 

@@ -35,7 +35,7 @@ final class ProductVariantAddedMessagePayloadBuilder implements Builder
     private $staged;
 
     /**
-     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
      *
 
      * @return null|ProductVariant
@@ -46,6 +46,8 @@ final class ProductVariantAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
 
      * @return null|bool
      */

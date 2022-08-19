@@ -72,7 +72,7 @@ final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The slug of the <a href="ctp:api:type:Product">Product</a> after the <a href="ctp:api:type:ProductChangeSlugAction">Change Slug</a> update action.</p>
      *
 
      * @return null|LocalizedString
@@ -93,7 +93,7 @@ final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The slug of the <a href="ctp:api:type:Product">Product</a> before the <a href="ctp:api:type:ProductChangeSlugAction">Change Slug</a> update action.</p>
      *
 
      * @return null|LocalizedString

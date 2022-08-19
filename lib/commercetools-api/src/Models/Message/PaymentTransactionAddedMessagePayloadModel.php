@@ -64,6 +64,8 @@ final class PaymentTransactionAddedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
+     * <p><a href="ctp:api:type:Transaction">Transaction</a> that was added to the <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
 
      * @return null|Transaction
      */

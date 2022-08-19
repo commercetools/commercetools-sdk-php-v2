@@ -19,7 +19,7 @@ interface OrderDiscountCodeStateSetMessage extends OrderMessage
     public const FIELD_OLD_STATE = 'oldState';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p><a href="ctp:api:type:DiscountCode">DiscountCode</a> that changed due to the recalculation.</p>
      *
 
      * @return null|DiscountCodeReference
@@ -27,12 +27,16 @@ interface OrderDiscountCodeStateSetMessage extends OrderMessage
     public function getDiscountCode();
 
     /**
+     * <p><a href="ctp:api:type:DiscountCodeState">DiscountCodeState</a> after the recalculation.</p>
+     *
 
      * @return null|string
      */
     public function getState();
 
     /**
+     * <p><a href="ctp:api:type:DiscountCodeState">DiscountCodeState</a> before the recalculation.</p>
+     *
 
      * @return null|string
      */

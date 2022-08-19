@@ -16,6 +16,8 @@ interface CustomerCompanyNameSetMessage extends Message
     public const FIELD_COMPANY_NAME = 'companyName';
 
     /**
+     * <p>The <code>companyName</code> that was set during the <a href="ctp:api:type:CustomerSetCompanyNameAction">Set Company Name</a> update action.</p>
+     *
 
      * @return null|string
      */

@@ -12,8 +12,6 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -95,12 +93,6 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
      */
     protected $resourceUserProvidedIdentifiers;
 
-    /**
-
-     * @var ?LocalizedString
-     */
-    protected $name;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -115,8 +107,7 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
         ?int $sequenceNumber = null,
         ?Reference $resource = null,
         ?int $resourceVersion = null,
-        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?LocalizedString $name = null
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -128,12 +119,11 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->name = $name;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
      * @return null|string
@@ -153,6 +143,8 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
 
      * @return null|int
      */
@@ -171,6 +163,8 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -193,6 +187,8 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -215,7 +211,7 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
      *
 
      * @return null|LastModifiedBy
@@ -257,6 +253,9 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
 
      * @return null|int
      */
@@ -275,7 +274,7 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
 
      * @return null|Reference
@@ -296,6 +295,8 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
 
      * @return null|int
      */
@@ -314,6 +315,8 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
 
      * @return null|string
      */
@@ -332,6 +335,8 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
 
      * @return null|UserProvidedIdentifiers
      */
@@ -348,27 +353,6 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
         }
 
         return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
-     *
-
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
     }
 
 
@@ -450,14 +434,6 @@ final class ProductSelectionDeletedMessageModel extends JsonObjectModel implemen
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @param ?LocalizedString $name
-     */
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
     }
 
 

@@ -82,7 +82,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Product">Product</a> for which the Product Variant Selection changed.</p>
      *
 
      * @return null|ProductReference
@@ -103,7 +103,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
-     * <p>The former Product Variant Selection if any.</p>
+     * <p>Product Variant Selection before the <a href="ctp:api:type:ProductSelectionSetVariantSelectionAction">Set Variant Selection</a> update action.</p>
      *
 
      * @return null|ProductVariantSelection
@@ -124,7 +124,7 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
-     * <p>The updated Product Variant Selection if any.</p>
+     * <p>Product Variant Selection after the <a href="ctp:api:type:ProductSelectionSetVariantSelectionAction">Set Variant Selection</a> update action.</p>
      *
 
      * @return null|ProductVariantSelection

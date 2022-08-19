@@ -74,7 +74,7 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Product">Product</a> that was added to the <a href="ctp:api:type:ProductSelection">Product Selection</a>.</p>
      *
 
      * @return null|ProductReference
@@ -95,7 +95,7 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
     }
 
     /**
-     * <p>Polymorphic base type for Product Variant Selections. The actual type is determined by the <code>type</code> field.</p>
+     * <p>Product Variant Selection after the <a href="ctp:api:type:ProductSelectionAddProductAction">Add Product</a> update action.</p>
      *
 
      * @return null|ProductVariantSelection
@@ -108,8 +108,8 @@ final class ProductSelectionProductAddedMessagePayloadModel extends JsonObjectMo
             if (is_null($data)) {
                 return null;
             }
-            $className = ProductVariantSelectionModel::resolveDiscriminatorClass($data);
-            $this->variantSelection = $className::of($data);
+
+            $this->variantSelection = ProductVariantSelectionModel::of($data);
         }
 
         return $this->variantSelection;

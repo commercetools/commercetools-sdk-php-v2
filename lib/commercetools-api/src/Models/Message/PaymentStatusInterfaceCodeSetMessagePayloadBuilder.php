@@ -33,6 +33,8 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     private $interfaceCode;
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:Payment">Payment</a> for which the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action was applied.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p>The <code>interfaceCode</code> that was set during the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action.</p>
+     *
 
      * @return null|string
      */

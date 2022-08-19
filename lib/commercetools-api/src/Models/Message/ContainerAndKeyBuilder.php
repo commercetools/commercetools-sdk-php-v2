@@ -44,7 +44,7 @@ final class ContainerAndKeyBuilder implements Builder
     }
 
     /**
-     * <p>Namespace to group Custom Objects.</p>
+     * <p>Namespace to group <a href="ctp:api:type:CustomObject">Custom Objects</a>.</p>
      *
 
      * @return null|string

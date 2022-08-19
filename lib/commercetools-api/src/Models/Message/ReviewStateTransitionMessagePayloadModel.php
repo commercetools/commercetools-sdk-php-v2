@@ -106,7 +106,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> before the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
 
      * @return null|StateReference
@@ -127,7 +127,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> after the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
 
      * @return null|StateReference
@@ -148,6 +148,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Whether the old <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target before the state transition.</p>
+     *
 
      * @return null|bool
      */
@@ -166,6 +168,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Whether the new <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target after the state transition.</p>
+     *
 
      * @return null|bool
      */
@@ -184,7 +188,7 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource that the <a href="ctp:api:type:Review">Review</a> belongs to.</p>
      *
 
      * @return null|Reference
@@ -205,6 +209,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
+     *
 
      * @return null|bool
      */

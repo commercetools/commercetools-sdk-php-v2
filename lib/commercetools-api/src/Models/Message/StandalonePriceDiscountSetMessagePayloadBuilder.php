@@ -29,7 +29,7 @@ final class StandalonePriceDiscountSetMessagePayloadBuilder implements Builder
     private $discounted;
 
     /**
-     * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
+     * <p>The new <code>discounted</code> value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
 
      * @return null|DiscountedPrice

@@ -35,6 +35,8 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     private $oldShippingInfo;
 
     /**
+     * <p><a href="ctp:api:type:ShippingInfo">ShippingInfo</a> after the <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Set Shipping Method</a> or <a href="ctp:api:type:StagedOrderSetCustomShippingMethodAction">Set Custom Shipping Method</a> update action.</p>
+     *
 
      * @return null|ShippingInfo
      */
@@ -44,6 +46,8 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ShippingInfo">ShippingInfo</a> before the <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Set Shipping Method</a> or <a href="ctp:api:type:StagedOrderSetCustomShippingMethodAction">Set Custom Shipping Method</a> update action.</p>
+     *
 
      * @return null|ShippingInfo
      */

@@ -29,6 +29,8 @@ final class InventoryEntryCreatedMessagePayloadBuilder implements Builder
     private $inventoryEntry;
 
     /**
+     * <p><a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that was created.</p>
+     *
 
      * @return null|InventoryEntry
      */

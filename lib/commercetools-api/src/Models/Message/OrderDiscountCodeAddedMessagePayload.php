@@ -17,7 +17,7 @@ interface OrderDiscountCodeAddedMessagePayload extends OrderMessagePayload
     public const FIELD_DISCOUNT_CODE = 'discountCode';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p><a href="ctp:api:type:DiscountCode">DiscountCode</a> that was added.</p>
      *
 
      * @return null|DiscountCodeReference

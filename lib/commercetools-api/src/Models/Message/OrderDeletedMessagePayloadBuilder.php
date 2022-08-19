@@ -29,6 +29,8 @@ final class OrderDeletedMessagePayloadBuilder implements Builder
     private $order;
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that has been deleted.</p>
+     *
 
      * @return null|Order
      */

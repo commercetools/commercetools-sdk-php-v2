@@ -20,7 +20,7 @@ interface ProductSelectionVariantSelectionChangedMessage extends Message
     public const FIELD_NEW_VARIANT_SELECTION = 'newVariantSelection';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Product">Product</a> for which the Product Variant Selection changed.</p>
      *
 
      * @return null|ProductReference
@@ -28,7 +28,7 @@ interface ProductSelectionVariantSelectionChangedMessage extends Message
     public function getProduct();
 
     /**
-     * <p>The former Product Variant Selection if any.</p>
+     * <p>Product Variant Selection before the <a href="ctp:api:type:ProductSelectionSetVariantSelectionAction">Set Variant Selection</a> update action.</p>
      *
 
      * @return null|ProductVariantSelection
@@ -36,7 +36,7 @@ interface ProductSelectionVariantSelectionChangedMessage extends Message
     public function getOldVariantSelection();
 
     /**
-     * <p>The updated Product Variant Selection if any.</p>
+     * <p>Product Variant Selection after the <a href="ctp:api:type:ProductSelectionSetVariantSelectionAction">Set Variant Selection</a> update action.</p>
      *
 
      * @return null|ProductVariantSelection

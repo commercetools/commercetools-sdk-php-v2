@@ -29,7 +29,7 @@ final class ProductSelectionProductRemovedMessagePayloadBuilder implements Build
     private $product;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Product">Product</a> that was removed from the Product Selection.</p>
      *
 
      * @return null|ProductReference

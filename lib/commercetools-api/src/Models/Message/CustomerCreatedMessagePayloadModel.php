@@ -64,6 +64,8 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><a href="ctp:api:type:Customer">Customer</a> that was created.</p>
+     *
 
      * @return null|Customer
      */

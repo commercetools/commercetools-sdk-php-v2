@@ -64,6 +64,8 @@ final class CustomerAddressRemovedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was removed during the <a href="ctp:api:type:CustomerRemoveAddressAction">Remove Address</a> update action.</p>
+     *
 
      * @return null|Address
      */

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\ProductSelection\ProductSelectionType;
+use Commercetools\Api\Models\ProductSelection\IndividualProductSelectionType;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -17,13 +17,15 @@ interface ProductSelectionCreatedMessagePayload extends MessagePayload
     public const FIELD_PRODUCT_SELECTION = 'productSelection';
 
     /**
+     * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
+     *
 
-     * @return null|ProductSelectionType
+     * @return null|IndividualProductSelectionType
      */
     public function getProductSelection();
 
     /**
-     * @param ?ProductSelectionType $productSelection
+     * @param ?IndividualProductSelectionType $productSelection
      */
-    public function setProductSelection(?ProductSelectionType $productSelection): void;
+    public function setProductSelection(?IndividualProductSelectionType $productSelection): void;
 }
