@@ -43,6 +43,7 @@ interface Quote extends BaseResource
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_VALID_TO = 'validTo';
     public const FIELD_SELLER_COMMENT = 'sellerComment';
+    public const FIELD_BUYER_COMMENT = 'buyerComment';
     public const FIELD_STORE = 'store';
     public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
@@ -120,7 +121,7 @@ interface Quote extends BaseResource
     public function getCreatedBy();
 
     /**
-     * <p>The Quote Request related to this Quote.</p>
+     * <p>Quote Request related to the Quote.</p>
      *
 
      * @return null|QuoteRequestReference
@@ -128,7 +129,7 @@ interface Quote extends BaseResource
     public function getQuoteRequest();
 
     /**
-     * <p>The Staged Quote related to this Quote.</p>
+     * <p>Staged Quote related to the Quote.</p>
      *
 
      * @return null|StagedQuoteReference
@@ -136,7 +137,7 @@ interface Quote extends BaseResource
     public function getStagedQuote();
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested this Quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -161,12 +162,20 @@ interface Quote extends BaseResource
     public function getValidTo();
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
 
      * @return null|string
      */
     public function getSellerComment();
+
+    /**
+     * <p>Message from the <a href="/../api/quotes-overview#buyer">Buyer</a> included in the <a href="ctp:api:type:QuoteRequestQuoteRenegotiationAction">renegotiation request</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getBuyerComment();
 
     /**
      * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
@@ -193,7 +202,7 @@ interface Quote extends BaseResource
     public function getCustomLineItems();
 
     /**
-     * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
+     * <p>Sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
 
@@ -221,7 +230,7 @@ interface Quote extends BaseResource
     public function getShippingAddress();
 
     /**
-     * <p>The address used for invoicing.</p>
+     * <p>Address used for invoicing.</p>
      *
 
      * @return null|Address
@@ -229,7 +238,7 @@ interface Quote extends BaseResource
     public function getBillingAddress();
 
     /**
-     * <p>The inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
 
      * @return null|string
@@ -237,7 +246,7 @@ interface Quote extends BaseResource
     public function getInventoryMode();
 
     /**
-     * <p>The tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
 
      * @return null|string
@@ -277,7 +286,7 @@ interface Quote extends BaseResource
     public function getShippingInfo();
 
     /**
-     * <p>Log of payment transactions related to this quote.</p>
+     * <p>Log of payment transactions related to the Quote.</p>
      *
 
      * @return null|PaymentInfo
@@ -304,7 +313,7 @@ interface Quote extends BaseResource
     public function getItemShippingAddresses();
 
     /**
-     * <p>Discounts only valid for this Quote, those cannot be associated to any other Cart or Order.</p>
+     * <p>Discounts that are only valid for the Quote and cannot be associated to any other Cart or Order.</p>
      *
 
      * @return null|DirectDiscountCollection
@@ -312,7 +321,7 @@ interface Quote extends BaseResource
     public function getDirectDiscounts();
 
     /**
-     * <p>Custom Fields of this Quote.</p>
+     * <p>Custom Fields on the Quote.</p>
      *
 
      * @return null|CustomFields
@@ -392,6 +401,11 @@ interface Quote extends BaseResource
      * @param ?string $sellerComment
      */
     public function setSellerComment(?string $sellerComment): void;
+
+    /**
+     * @param ?string $buyerComment
+     */
+    public function setBuyerComment(?string $buyerComment): void;
 
     /**
      * @param ?StoreKeyReference $store

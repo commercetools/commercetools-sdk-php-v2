@@ -48,7 +48,7 @@ interface QuoteRequestDraft extends JsonObject
     public function getKey();
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
      *
 
      * @return null|string

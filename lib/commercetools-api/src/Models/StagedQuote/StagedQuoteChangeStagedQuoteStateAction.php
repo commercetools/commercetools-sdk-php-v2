@@ -16,7 +16,7 @@ interface StagedQuoteChangeStagedQuoteStateAction extends StagedQuoteUpdateActio
     public const FIELD_STAGED_QUOTE_STATE = 'stagedQuoteState';
 
     /**
-     * <p>The new quote staged state to be set for the Quote Staged.</p>
+     * <p>New state to be set for the Staged Quote.</p>
      *
 
      * @return null|string

@@ -126,7 +126,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
-     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     * <p>ResourceIdentifier of the Cart from which this order is created.</p>
      *
 
      * @return null|CartResourceIdentifier

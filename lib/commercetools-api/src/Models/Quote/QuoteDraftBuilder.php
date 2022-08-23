@@ -57,7 +57,7 @@ final class QuoteDraftBuilder implements Builder
     private $state;
 
     /**
-     * <p>The StagedQuote from which this Quote is created.</p>
+     * <p>StagedQuote from which the Quote is created.</p>
      *
 
      * @return null|StagedQuoteResourceIdentifier

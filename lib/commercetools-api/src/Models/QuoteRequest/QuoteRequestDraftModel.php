@@ -143,7 +143,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     }
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
      *
 
      * @return null|string

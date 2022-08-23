@@ -62,7 +62,7 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The new quote state to be set for the Quote.</p>
+     * <p>New state to be set for the Quote.</p>
      *
 
      * @return null|string

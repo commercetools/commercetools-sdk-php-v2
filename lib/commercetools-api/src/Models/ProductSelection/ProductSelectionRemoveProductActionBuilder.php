@@ -29,7 +29,7 @@ final class ProductSelectionRemoveProductActionBuilder implements Builder
     private $product;
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
 
      * @return null|ProductResourceIdentifier

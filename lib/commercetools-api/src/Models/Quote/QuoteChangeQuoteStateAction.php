@@ -16,7 +16,7 @@ interface QuoteChangeQuoteStateAction extends QuoteUpdateAction
     public const FIELD_QUOTE_STATE = 'quoteState';
 
     /**
-     * <p>The new quote state to be set for the Quote.</p>
+     * <p>New state to be set for the Quote.</p>
      *
 
      * @return null|string

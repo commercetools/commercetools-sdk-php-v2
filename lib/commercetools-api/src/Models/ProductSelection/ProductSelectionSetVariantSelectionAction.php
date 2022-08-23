@@ -18,7 +18,7 @@ interface ProductSelectionSetVariantSelectionAction extends ProductSelectionUpda
     public const FIELD_VARIANT_SELECTION = 'variantSelection';
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
 
      * @return null|ProductResourceIdentifier

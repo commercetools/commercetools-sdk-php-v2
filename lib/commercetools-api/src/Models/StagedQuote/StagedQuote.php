@@ -99,7 +99,7 @@ interface StagedQuote extends BaseResource
     public function getStagedQuoteState();
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -107,7 +107,7 @@ interface StagedQuote extends BaseResource
     public function getCustomer();
 
     /**
-     * <p>The Quote Request related to this Staged Quote.</p>
+     * <p>Quote Request related to the Staged Quote.</p>
      *
 
      * @return null|QuoteRequestReference
@@ -115,7 +115,7 @@ interface StagedQuote extends BaseResource
     public function getQuoteRequest();
 
     /**
-     * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
+     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items. May contain either <a href="ctp:api:type:DirectDiscount">DirectDiscounts</a> or <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
 
      * @return null|CartReference
@@ -123,7 +123,7 @@ interface StagedQuote extends BaseResource
     public function getQuotationCart();
 
     /**
-     * <p>Expiration date for the quote.</p>
+     * <p>Expiration date for the Quote.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -131,7 +131,7 @@ interface StagedQuote extends BaseResource
     public function getValidTo();
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
 
      * @return null|string
@@ -139,7 +139,7 @@ interface StagedQuote extends BaseResource
     public function getSellerComment();
 
     /**
-     * <p>Custom Fields of this Staged Quote.</p>
+     * <p>Custom Fields of the Staged Quote.</p>
      *
 
      * @return null|CustomFields
@@ -147,7 +147,7 @@ interface StagedQuote extends BaseResource
     public function getCustom();
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
 

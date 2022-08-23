@@ -35,7 +35,7 @@ final class ProductSelectionAddProductActionBuilder implements Builder
     private $variantSelection;
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
 
      * @return null|ProductResourceIdentifier

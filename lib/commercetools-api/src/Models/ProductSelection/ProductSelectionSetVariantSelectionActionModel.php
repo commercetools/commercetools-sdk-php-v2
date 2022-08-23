@@ -72,7 +72,7 @@ final class ProductSelectionSetVariantSelectionActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
 
      * @return null|ProductResourceIdentifier

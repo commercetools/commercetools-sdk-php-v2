@@ -72,7 +72,7 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
 
      * @return null|ProductResourceIdentifier

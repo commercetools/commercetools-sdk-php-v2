@@ -27,7 +27,7 @@ final class StagedQuoteChangeStagedQuoteStateActionBuilder implements Builder
     private $stagedQuoteState;
 
     /**
-     * <p>The new quote staged state to be set for the Quote Staged.</p>
+     * <p>New state to be set for the Staged Quote.</p>
      *
 
      * @return null|string

@@ -57,7 +57,7 @@ final class StagedQuoteDraftBuilder implements Builder
     private $state;
 
     /**
-     * <p>The QuoteRequest from which this StagedQuote is created.</p>
+     * <p>QuoteRequest from which the StagedQuote is created.</p>
      *
 
      * @return null|QuoteRequestResourceIdentifier
@@ -105,7 +105,7 @@ final class StagedQuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
 

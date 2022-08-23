@@ -124,7 +124,7 @@ interface QuoteRequest extends BaseResource
     public function getQuoteRequestState();
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
      *
 
      * @return null|string
@@ -157,7 +157,7 @@ interface QuoteRequest extends BaseResource
     public function getStore();
 
     /**
-     * <p>The Line Items for which a quote is requested.</p>
+     * <p>The Line Items for which a Quote is requested.</p>
      *
 
      * @return null|LineItemCollection
@@ -165,7 +165,7 @@ interface QuoteRequest extends BaseResource
     public function getLineItems();
 
     /**
-     * <p>The Custom Line Items for which a quote is requested.</p>
+     * <p>The Custom Line Items for which a Quote is requested.</p>
      *
 
      * @return null|CustomLineItemCollection
@@ -173,7 +173,7 @@ interface QuoteRequest extends BaseResource
     public function getCustomLineItems();
 
     /**
-     * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
+     * <p>Sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
 
@@ -201,7 +201,7 @@ interface QuoteRequest extends BaseResource
     public function getShippingAddress();
 
     /**
-     * <p>The address used for invoicing.</p>
+     * <p>Address used for invoicing.</p>
      *
 
      * @return null|Address
@@ -209,7 +209,7 @@ interface QuoteRequest extends BaseResource
     public function getBillingAddress();
 
     /**
-     * <p>The inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
 
      * @return null|string
@@ -217,7 +217,7 @@ interface QuoteRequest extends BaseResource
     public function getInventoryMode();
 
     /**
-     * <p>The tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
 
      * @return null|string
@@ -257,7 +257,7 @@ interface QuoteRequest extends BaseResource
     public function getShippingInfo();
 
     /**
-     * <p>Log of payment transactions related to this quote.</p>
+     * <p>Log of payment transactions related to the Quote.</p>
      *
 
      * @return null|PaymentInfo
@@ -284,7 +284,7 @@ interface QuoteRequest extends BaseResource
     public function getItemShippingAddresses();
 
     /**
-     * <p>Discounts only valid for this Quote, those cannot be associated to any other Cart or Order.</p>
+     * <p>Discounts that are only valid for the Quote and cannot be associated to any other Cart or Order.</p>
      *
 
      * @return null|DirectDiscountCollection
@@ -292,7 +292,7 @@ interface QuoteRequest extends BaseResource
     public function getDirectDiscounts();
 
     /**
-     * <p>Custom Fields of this Quote Request.</p>
+     * <p>Custom Fields of the Quote Request.</p>
      *
 
      * @return null|CustomFields
@@ -300,7 +300,7 @@ interface QuoteRequest extends BaseResource
     public function getCustom();
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * <p><a href="ctp:api:type:State">State</a> of the Quote Request.
      * This reference can point to a State in a custom workflow.</p>
      *
 

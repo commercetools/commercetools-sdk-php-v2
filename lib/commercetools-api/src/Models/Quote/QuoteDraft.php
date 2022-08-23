@@ -23,7 +23,7 @@ interface QuoteDraft extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
-     * <p>The StagedQuote from which this Quote is created.</p>
+     * <p>StagedQuote from which the Quote is created.</p>
      *
 
      * @return null|StagedQuoteResourceIdentifier

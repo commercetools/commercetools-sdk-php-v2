@@ -137,6 +137,12 @@ final class QuoteBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $buyerComment;
+
+    /**
+
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
@@ -327,7 +333,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The Quote Request related to this Quote.</p>
+     * <p>Quote Request related to the Quote.</p>
      *
 
      * @return null|QuoteRequestReference
@@ -338,7 +344,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The Staged Quote related to this Quote.</p>
+     * <p>Staged Quote related to the Quote.</p>
      *
 
      * @return null|StagedQuoteReference
@@ -349,7 +355,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested this Quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -383,7 +389,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
 
      * @return null|string
@@ -391,6 +397,17 @@ final class QuoteBuilder implements Builder
     public function getSellerComment()
     {
         return $this->sellerComment;
+    }
+
+    /**
+     * <p>Message from the <a href="/../api/quotes-overview#buyer">Buyer</a> included in the <a href="ctp:api:type:QuoteRequestQuoteRenegotiationAction">renegotiation request</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getBuyerComment()
+    {
+        return $this->buyerComment;
     }
 
     /**
@@ -427,7 +444,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
+     * <p>Sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
 
@@ -464,7 +481,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The address used for invoicing.</p>
+     * <p>Address used for invoicing.</p>
      *
 
      * @return null|Address
@@ -475,7 +492,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
 
      * @return null|string
@@ -486,7 +503,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>The tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
 
      * @return null|string
@@ -541,7 +558,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>Log of payment transactions related to this quote.</p>
+     * <p>Log of payment transactions related to the Quote.</p>
      *
 
      * @return null|PaymentInfo
@@ -577,7 +594,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>Discounts only valid for this Quote, those cannot be associated to any other Cart or Order.</p>
+     * <p>Discounts that are only valid for the Quote and cannot be associated to any other Cart or Order.</p>
      *
 
      * @return null|DirectDiscountCollection
@@ -588,7 +605,7 @@ final class QuoteBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this Quote.</p>
+     * <p>Custom Fields on the Quote.</p>
      *
 
      * @return null|CustomFields
@@ -749,6 +766,17 @@ final class QuoteBuilder implements Builder
     public function withSellerComment(?string $sellerComment)
     {
         $this->sellerComment = $sellerComment;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $buyerComment
+     * @return $this
+     */
+    public function withBuyerComment(?string $buyerComment)
+    {
+        $this->buyerComment = $buyerComment;
 
         return $this;
     }
@@ -1154,6 +1182,7 @@ final class QuoteBuilder implements Builder
             $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->validTo,
             $this->sellerComment,
+            $this->buyerComment,
             $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
             $this->lineItems,
             $this->customLineItems,

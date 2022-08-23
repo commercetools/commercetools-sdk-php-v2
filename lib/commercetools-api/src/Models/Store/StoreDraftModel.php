@@ -151,7 +151,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>ResourceIdentifier to a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifierCollection
@@ -171,7 +171,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>ResourceIdentifier to a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>ResourceIdentifier of a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifierCollection

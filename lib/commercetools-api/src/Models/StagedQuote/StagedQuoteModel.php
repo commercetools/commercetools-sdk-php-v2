@@ -335,7 +335,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
 
      * @return null|CustomerReference
@@ -356,7 +356,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The Quote Request related to this Staged Quote.</p>
+     * <p>Quote Request related to the Staged Quote.</p>
      *
 
      * @return null|QuoteRequestReference
@@ -377,7 +377,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
+     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items. May contain either <a href="ctp:api:type:DirectDiscount">DirectDiscounts</a> or <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
 
      * @return null|CartReference
@@ -398,7 +398,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>Expiration date for the quote.</p>
+     * <p>Expiration date for the Quote.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -422,7 +422,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
 
      * @return null|string
@@ -442,7 +442,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>Custom Fields of this Staged Quote.</p>
+     * <p>Custom Fields of the Staged Quote.</p>
      *
 
      * @return null|CustomFields
@@ -463,7 +463,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p><a href="ctp:api:type:State">State</a> of this Staged Quote.
+     * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
 

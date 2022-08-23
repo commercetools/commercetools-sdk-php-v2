@@ -27,7 +27,7 @@ final class QuoteRequestChangeQuoteRequestStateActionBuilder implements Builder
     private $quoteRequestState;
 
     /**
-     * <p>The new state to be set for the Quote Request.</p>
+     * <p>New state to be set for the Quote Request.</p>
      *
 
      * @return null|string

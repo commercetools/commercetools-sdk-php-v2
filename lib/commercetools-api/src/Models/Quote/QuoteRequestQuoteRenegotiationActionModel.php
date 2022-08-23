@@ -6,10 +6,8 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\ProductSelection;
+namespace Commercetools\Api\Models\Quote;
 
-use Commercetools\Api\Models\Product\ProductResourceIdentifier;
-use Commercetools\Api\Models\Product\ProductResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -19,9 +17,9 @@ use stdClass;
 /**
  * @internal
  */
-final class ProductSelectionRemoveProductActionModel extends JsonObjectModel implements ProductSelectionRemoveProductAction
+final class QuoteRequestQuoteRenegotiationActionModel extends JsonObjectModel implements QuoteRequestQuoteRenegotiationAction
 {
-    public const DISCRIMINATOR_VALUE = 'removeProduct';
+    public const DISCRIMINATOR_VALUE = 'requestQuoteRenegotiation';
     /**
 
      * @var ?string
@@ -30,18 +28,18 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
 
     /**
 
-     * @var ?ProductResourceIdentifier
+     * @var ?string
      */
-    protected $product;
+    protected $buyerComment;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductResourceIdentifier $product = null
+        ?string $buyerComment = null
     ) {
-        $this->product = $product;
+        $this->buyerComment = $buyerComment;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -64,32 +62,31 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>ResourceIdentifier of the Product</p>
+     * <p>Message from the <a href="/api/quotes-overview#buyer">Buyer</a> regarding the Quote renegotiation request.</p>
      *
 
-     * @return null|ProductResourceIdentifier
+     * @return null|string
      */
-    public function getProduct()
+    public function getBuyerComment()
     {
-        if (is_null($this->product)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT);
+        if (is_null($this->buyerComment)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_BUYER_COMMENT);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->product = ProductResourceIdentifierModel::of($data);
+            $this->buyerComment = (string) $data;
         }
 
-        return $this->product;
+        return $this->buyerComment;
     }
 
 
     /**
-     * @param ?ProductResourceIdentifier $product
+     * @param ?string $buyerComment
      */
-    public function setProduct(?ProductResourceIdentifier $product): void
+    public function setBuyerComment(?string $buyerComment): void
     {
-        $this->product = $product;
+        $this->buyerComment = $buyerComment;
     }
 }

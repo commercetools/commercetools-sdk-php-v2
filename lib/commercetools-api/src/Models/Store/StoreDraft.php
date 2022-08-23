@@ -50,7 +50,7 @@ interface StoreDraft extends JsonObject
     public function getLanguages();
 
     /**
-     * <p>ResourceIdentifier to a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifierCollection
@@ -58,7 +58,7 @@ interface StoreDraft extends JsonObject
     public function getDistributionChannels();
 
     /**
-     * <p>ResourceIdentifier to a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>ResourceIdentifier of a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifierCollection

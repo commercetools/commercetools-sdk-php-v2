@@ -67,7 +67,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     private $state;
 
     /**
-     * <p>ResourceIdentifier to the Quote from which this order is created. If the quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
      *
 
      * @return null|QuoteResourceIdentifier
@@ -78,7 +78,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
-     * <p>The <code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
      *
 
      * @return null|int

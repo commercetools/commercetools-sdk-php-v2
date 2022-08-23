@@ -92,7 +92,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     * <p>ResourceIdentifier of the Cart from which this order is created.</p>
      *
 
      * @return null|CartResourceIdentifier

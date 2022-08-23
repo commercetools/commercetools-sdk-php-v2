@@ -35,7 +35,7 @@ interface OrderFromCartDraft extends JsonObject
     public function getId();
 
     /**
-     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     * <p>ResourceIdentifier of the Cart from which this order is created.</p>
      *
 
      * @return null|CartResourceIdentifier
