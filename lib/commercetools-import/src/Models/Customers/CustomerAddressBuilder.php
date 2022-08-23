@@ -13,6 +13,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use stdClass;
 
 /**
@@ -163,6 +165,12 @@ final class CustomerAddressBuilder implements Builder
      * @var ?string
      */
     private $externalId;
+
+    /**
+
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
 
     /**
      * <p>User-defined identifier for the address.
@@ -383,6 +391,17 @@ final class CustomerAddressBuilder implements Builder
     public function getExternalId()
     {
         return $this->externalId;
+    }
+
+    /**
+     * <p>Custom Fields for the address.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -649,6 +668,27 @@ final class CustomerAddressBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?Custom $custom
+     * @return $this
+     */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
 
     public function build(): CustomerAddress
     {
@@ -676,7 +716,8 @@ final class CustomerAddressBuilder implements Builder
             $this->email,
             $this->fax,
             $this->additionalAddressInfo,
-            $this->externalId
+            $this->externalId,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );
     }
 

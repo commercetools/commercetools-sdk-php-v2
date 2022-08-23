@@ -10,6 +10,7 @@ namespace Commercetools\Import\Models\Customers;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Customfields\Custom;
 
 interface CustomerAddress extends JsonObject
 {
@@ -37,6 +38,7 @@ interface CustomerAddress extends JsonObject
     public const FIELD_FAX = 'fax';
     public const FIELD_ADDITIONAL_ADDRESS_INFO = 'additionalAddressInfo';
     public const FIELD_EXTERNAL_ID = 'externalId';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>User-defined identifier for the address.
@@ -188,6 +190,14 @@ interface CustomerAddress extends JsonObject
     public function getExternalId();
 
     /**
+     * <p>Custom Fields for the address.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom();
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -306,4 +316,9 @@ interface CustomerAddress extends JsonObject
      * @param ?string $externalId
      */
     public function setExternalId(?string $externalId): void;
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void;
 }

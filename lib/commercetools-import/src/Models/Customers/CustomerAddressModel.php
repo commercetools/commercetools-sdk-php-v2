@@ -12,6 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use stdClass;
 
 /**
@@ -163,6 +165,12 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
      */
     protected $externalId;
 
+    /**
+
+     * @var ?Custom
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -191,7 +199,8 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
         ?string $email = null,
         ?string $fax = null,
         ?string $additionalAddressInfo = null,
-        ?string $externalId = null
+        ?string $externalId = null,
+        ?Custom $custom = null
     ) {
         $this->key = $key;
         $this->title = $title;
@@ -217,6 +226,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
+        $this->custom = $custom;
     }
 
     /**
@@ -656,6 +666,27 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
         return $this->externalId;
     }
 
+    /**
+     * <p>Custom Fields for the address.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?string $key
@@ -847,5 +878,13 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 }
