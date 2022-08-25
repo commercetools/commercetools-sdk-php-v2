@@ -76,7 +76,7 @@ interface EmbeddedPriceDraft extends JsonObject
     public function getDiscounted();
 
     /**
-     * <p>Sets the date from which the EmbeddedPrice is valid.</p>
+     * <p>Sets the date from which the EmbeddedPrice is valid. Must be at least 1 ms before <code>validUntil</code>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -84,7 +84,7 @@ interface EmbeddedPriceDraft extends JsonObject
     public function getValidFrom();
 
     /**
-     * <p>Sets the date until the EmbeddedPrice is valid.</p>
+     * <p>Sets the date until the EmbeddedPrice is valid. Must be at least 1 ms after <code>validFrom</code>.</p>
      *
 
      * @return null|DateTimeImmutable

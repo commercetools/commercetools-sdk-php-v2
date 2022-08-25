@@ -166,7 +166,7 @@ final class StandalonePriceDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the date from which the Price is valid.</p>
+     * <p>Sets the date from which the Price is valid. Must be at least 1 ms before <code>validUntil</code>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -177,7 +177,7 @@ final class StandalonePriceDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the date until the Price is valid.</p>
+     * <p>Sets the date until the Price is valid. Must be at least 1 ms after <code>validFrom</code>.</p>
      *
 
      * @return null|DateTimeImmutable

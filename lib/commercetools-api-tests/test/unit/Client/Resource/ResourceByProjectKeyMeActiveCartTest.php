@@ -90,6 +90,18 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyMeActiveCartGet_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->me()
+                        ->activeCart()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                'test_projectKey/me/active-cart?expand=expand',
+            ],
             'ByProjectKeyMeActiveCartGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
