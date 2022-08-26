@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Prices\TaxRate;
 
 interface LineItemImportDraft extends JsonObject
@@ -27,6 +28,7 @@ interface LineItemImportDraft extends JsonObject
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_TAX_RATE = 'taxRate';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Maps to <code>LineItem.productId</code>.</p>
@@ -111,6 +113,14 @@ interface LineItemImportDraft extends JsonObject
     public function getShippingDetails();
 
     /**
+     * <p>Custom Fields for this Line Item.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom();
+
+    /**
      * @param ?ProductKeyReference $product
      */
     public function setProduct(?ProductKeyReference $product): void;
@@ -159,4 +169,9 @@ interface LineItemImportDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void;
 }

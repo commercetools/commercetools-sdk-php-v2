@@ -18,6 +18,8 @@ use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use Commercetools\Import\Models\Prices\TaxRate;
 use Commercetools\Import\Models\Prices\TaxRateModel;
 use stdClass;
@@ -87,6 +89,12 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      */
     protected $shippingDetails;
 
+    /**
+
+     * @var ?Custom
+     */
+    protected $custom;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -101,7 +109,8 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         ?ChannelKeyReference $supplyChannel = null,
         ?ChannelKeyReference $distributionChannel = null,
         ?TaxRate $taxRate = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?Custom $custom = null
     ) {
         $this->product = $product;
         $this->name = $name;
@@ -113,6 +122,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->distributionChannel = $distributionChannel;
         $this->taxRate = $taxRate;
         $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
     }
 
     /**
@@ -325,6 +335,27 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         return $this->shippingDetails;
     }
 
+    /**
+     * <p>Custom Fields for this Line Item.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
 
     /**
      * @param ?ProductKeyReference $product
@@ -404,5 +435,13 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 }
