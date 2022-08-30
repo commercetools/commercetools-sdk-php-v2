@@ -20,25 +20,25 @@ use stdClass;
 final class ProductVariantAvailabilityModel extends JsonObjectModel implements ProductVariantAvailability
 {
     /**
-
+     *
      * @var ?ProductVariantChannelAvailabilityMap
      */
     protected $channels;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isOnStock;
 
     /**
-
+     *
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
-
+     *
      * @var ?int
      */
     protected $availableQuantity;
@@ -62,7 +62,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     /**
      * <p>For each <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with a supply Channel, an entry is added to <code>channels</code>.</p>
      *
-
+     *
      * @return null|ProductVariantChannelAvailabilityMap
      */
     public function getChannels()
@@ -83,7 +83,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     /**
      * <p>Indicates whether a Product Variant is in stock.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsOnStock()
@@ -103,7 +103,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     /**
      * <p>Number of days to restock a Product Variant once it is out of stock.</p>
      *
-
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -123,7 +123,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     /**
      * <p>Number of items of the Product Variant that are in stock.</p>
      *
-
+     *
      * @return null|int
      */
     public function getAvailableQuantity()

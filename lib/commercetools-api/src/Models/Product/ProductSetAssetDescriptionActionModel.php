@@ -23,43 +23,43 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setAssetDescription';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
@@ -74,7 +74,8 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
         ?bool $staged = null,
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?LocalizedString $description = null
+        ?LocalizedString $description = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -82,11 +83,11 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->description = $description;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -106,7 +107,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -126,7 +127,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -146,7 +147,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -166,7 +167,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>id</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -186,7 +187,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>key</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -206,7 +207,7 @@ final class ProductSetAssetDescriptionActionModel extends JsonObjectModel implem
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

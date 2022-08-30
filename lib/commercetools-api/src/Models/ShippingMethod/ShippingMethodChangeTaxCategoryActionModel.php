@@ -23,13 +23,13 @@ final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxCategory';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
@@ -39,14 +39,15 @@ final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TaxCategoryResourceIdentifier $taxCategory = null
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?string $action = null
     ) {
         $this->taxCategory = $taxCategory;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class ShippingMethodChangeTaxCategoryActionModel extends JsonObjectModel i
     /**
      * <p>Value to set.</p>
      *
-
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()

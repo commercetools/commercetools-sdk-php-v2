@@ -21,19 +21,19 @@ final class CustomerSetAuthenticationModeActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setAuthenticationMode';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $authMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $password;
@@ -44,15 +44,16 @@ final class CustomerSetAuthenticationModeActionModel extends JsonObjectModel imp
      */
     public function __construct(
         ?string $authMode = null,
-        ?string $password = null
+        ?string $password = null,
+        ?string $action = null
     ) {
         $this->authMode = $authMode;
         $this->password = $password;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,7 +71,7 @@ final class CustomerSetAuthenticationModeActionModel extends JsonObjectModel imp
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAuthMode()
@@ -90,7 +91,7 @@ final class CustomerSetAuthenticationModeActionModel extends JsonObjectModel imp
     /**
      * <p>Required when <code>authMode</code> is <code>Password</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getPassword()

@@ -20,31 +20,31 @@ use stdClass;
 final class StandalonePricePagedQueryResponseModel extends JsonObjectModel implements StandalonePricePagedQueryResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?StandalonePriceCollection
      */
     protected $results;
@@ -70,7 +70,7 @@ final class StandalonePricePagedQueryResponseModel extends JsonObjectModel imple
     /**
      * <p>Number of requested results.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -90,7 +90,7 @@ final class StandalonePricePagedQueryResponseModel extends JsonObjectModel imple
     /**
      * <p>Offset supplied by the client or server default. It is the number of elements skipped, not a page number.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -110,7 +110,7 @@ final class StandalonePricePagedQueryResponseModel extends JsonObjectModel imple
     /**
      * <p>Actual number of results returned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -134,7 +134,7 @@ final class StandalonePricePagedQueryResponseModel extends JsonObjectModel imple
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
      * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -154,7 +154,7 @@ final class StandalonePricePagedQueryResponseModel extends JsonObjectModel imple
     /**
      * <p><a href="ctp:api:type:StandalonePrice">StandalonePrices</a> matching the query.</p>
      *
-
+     *
      * @return null|StandalonePriceCollection
      */
     public function getResults()

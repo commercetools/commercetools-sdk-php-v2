@@ -21,25 +21,25 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeMasterVariant';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -51,16 +51,17 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     public function __construct(
         ?int $variantId = null,
         ?string $sku = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,7 +81,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>id</code> of the ProductVariant to become the Master Variant.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -100,7 +101,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>sku</code> of the ProductVariant to become the Master Variant.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -120,7 +121,7 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     /**
      * <p>If <code>true</code>, only the staged Master Variant is changed. If <code>false</code>, both the current and staged Master Variant are changed.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

@@ -23,19 +23,19 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'ProductStateTransition';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $force;
@@ -46,15 +46,16 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
      */
     public function __construct(
         ?StateReference $state = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $type = null
     ) {
         $this->state = $state;
         $this->force = $force;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     /**
      * <p>Product <a href="ctp:api:type:State">State</a> after the <a href="ctp:api:type:ProductTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()
@@ -95,7 +96,7 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     /**
      * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:ProductTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getForce()

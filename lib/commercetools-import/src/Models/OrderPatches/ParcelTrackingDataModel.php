@@ -22,13 +22,13 @@ use stdClass;
 final class ParcelTrackingDataModel extends JsonObjectModel implements ParcelTrackingData
 {
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
@@ -46,7 +46,7 @@ final class ParcelTrackingDataModel extends JsonObjectModel implements ParcelTra
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -64,7 +64,7 @@ final class ParcelTrackingDataModel extends JsonObjectModel implements ParcelTra
     }
 
     /**
-
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()

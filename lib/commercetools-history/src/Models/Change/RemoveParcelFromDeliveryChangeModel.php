@@ -24,25 +24,25 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'RemoveParcelFromDeliveryChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?Parcel
      */
     protected $previousValue;
@@ -54,16 +54,17 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     public function __construct(
         ?string $change = null,
         ?string $deliveryId = null,
-        ?Parcel $previousValue = null
+        ?Parcel $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->deliveryId = $deliveryId;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     /**
      * <p>Update action for <code>removeParcelFromDelivery</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -119,7 +120,7 @@ final class RemoveParcelFromDeliveryChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|Parcel
      */
     public function getPreviousValue()

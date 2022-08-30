@@ -22,25 +22,25 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
 
     public const DISCRIMINATOR_VALUE = 'RemovePropertyChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $path;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -52,16 +52,17 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     public function __construct(
         ?string $change = null,
         ?string $path = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->path = $path;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -81,7 +82,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     /**
      * <p>Update action for <code>removeProperty</code> on custom objects</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     /**
      * <p>Value path to the property that was removed</p>
      *
-
+     *
      * @return null|string
      */
     public function getPath()
@@ -119,7 +120,7 @@ final class RemovePropertyChangeModel extends JsonObjectModel implements RemoveP
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

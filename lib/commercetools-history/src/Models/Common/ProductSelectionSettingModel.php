@@ -22,13 +22,13 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
 
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $productSelection;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $active;
@@ -47,7 +47,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getProductSelection()
@@ -66,7 +66,7 @@ final class ProductSelectionSettingModel extends JsonObjectModel implements Prod
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getActive()

@@ -94,6 +94,12 @@ final class LineItemBuilder implements Builder
 
     /**
 
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
+
+    /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
@@ -121,6 +127,12 @@ final class LineItemBuilder implements Builder
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
+
+    /**
+
+     * @var ?MethodTaxRateCollection
+     */
+    private $perMethodTaxRate;
 
     /**
 
@@ -278,6 +290,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * <p>Taxed price of the Shipping Method that is set automatically after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        return $this->taxedPricePortions;
+    }
+
+    /**
      * <p>The total price of this line item.
      * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
@@ -334,6 +357,18 @@ final class LineItemBuilder implements Builder
     public function getTaxRate()
     {
         return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        return $this->perMethodTaxRate;
     }
 
     /**
@@ -533,6 +568,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     * @return $this
+     */
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+
+        return $this;
+    }
+
+    /**
      * @param ?TypedMoney $totalPrice
      * @return $this
      */
@@ -583,6 +629,17 @@ final class LineItemBuilder implements Builder
     public function withTaxRate(?TaxRate $taxRate)
     {
         $this->taxRate = $taxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     * @return $this
+     */
+    public function withPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate)
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
 
         return $this;
     }
@@ -830,11 +887,13 @@ final class LineItemBuilder implements Builder
             $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
             $this->price instanceof PriceBuilder ? $this->price->build() : $this->price,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedPricePortions,
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->quantity,
             $this->addedAt,
             $this->state,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->perMethodTaxRate,
             $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->discountedPricePerQuantity,

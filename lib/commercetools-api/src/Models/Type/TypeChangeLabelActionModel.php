@@ -23,19 +23,19 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
 {
     public const DISCRIMINATOR_VALUE = 'changeLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $label;
@@ -46,15 +46,16 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
      */
     public function __construct(
         ?string $fieldName = null,
-        ?LocalizedString $label = null
+        ?LocalizedString $label = null,
+        ?string $action = null
     ) {
         $this->fieldName = $fieldName;
         $this->label = $label;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
     /**
      * <p>Name of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -94,7 +95,7 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLabel()

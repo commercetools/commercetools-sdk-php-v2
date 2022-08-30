@@ -23,25 +23,25 @@ final class QuoteRequestStateTransitionMessagePayloadModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'QuoteRequestStateTransition';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $oldState;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $force;
@@ -53,16 +53,17 @@ final class QuoteRequestStateTransitionMessagePayloadModel extends JsonObjectMod
     public function __construct(
         ?StateReference $state = null,
         ?StateReference $oldState = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $type = null
     ) {
         $this->state = $state;
         $this->oldState = $oldState;
         $this->force = $force;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +83,7 @@ final class QuoteRequestStateTransitionMessagePayloadModel extends JsonObjectMod
     /**
      * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Quote">Quote</a> after the <a href="ctp:api:type:QuoteRequestTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()
@@ -103,7 +104,7 @@ final class QuoteRequestStateTransitionMessagePayloadModel extends JsonObjectMod
     /**
      * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Quote">Quote</a> before the <a href="ctp:api:type:QuoteRequestTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getOldState()
@@ -124,7 +125,7 @@ final class QuoteRequestStateTransitionMessagePayloadModel extends JsonObjectMod
     /**
      * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:QuoteRequestTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getForce()

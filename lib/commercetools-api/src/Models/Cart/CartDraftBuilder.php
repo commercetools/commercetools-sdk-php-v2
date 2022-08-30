@@ -165,6 +165,24 @@ final class CartDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingMode;
+
+    /**
+
+     * @var ?CustomShippingDraftCollection
+     */
+    private $customShipping;
+
+    /**
+
+     * @var ?ShippingDraftCollection
+     */
+    private $shipping;
+
+    /**
+
      * @var null|ShippingRateInputDraft|ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
@@ -414,6 +432,42 @@ final class CartDraftBuilder implements Builder
     public function getOrigin()
     {
         return $this->origin;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If <code>Multi</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        return $this->shippingMode;
+    }
+
+    /**
+     * <p>Custom Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomShippingDraftCollection
+     */
+    public function getCustomShipping()
+    {
+        return $this->customShipping;
+    }
+
+    /**
+     * <p>Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|ShippingDraftCollection
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 
     /**
@@ -700,6 +754,39 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMode
+     * @return $this
+     */
+    public function withShippingMode(?string $shippingMode)
+    {
+        $this->shippingMode = $shippingMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomShippingDraftCollection $customShipping
+     * @return $this
+     */
+    public function withCustomShipping(?CustomShippingDraftCollection $customShipping)
+    {
+        $this->customShipping = $customShipping;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShippingDraftCollection $shipping
+     * @return $this
+     */
+    public function withShipping(?ShippingDraftCollection $shipping)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
      * @param ?ShippingRateInputDraft $shippingRateInput
      * @return $this
      */
@@ -845,6 +932,9 @@ final class CartDraftBuilder implements Builder
             $this->locale,
             $this->deleteDaysAfterLastModification,
             $this->origin,
+            $this->shippingMode,
+            $this->customShipping,
+            $this->shipping,
             $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->discountCodes

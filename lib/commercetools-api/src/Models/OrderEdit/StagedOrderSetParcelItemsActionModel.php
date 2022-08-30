@@ -24,19 +24,19 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setParcelItems';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -47,15 +47,16 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $parcelId = null,
-        ?DeliveryItemCollection $items = null
+        ?DeliveryItemCollection $items = null,
+        ?string $action = null
     ) {
         $this->parcelId = $parcelId;
         $this->items = $items;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -73,7 +74,7 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -91,7 +92,7 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()

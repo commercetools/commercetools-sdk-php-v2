@@ -20,31 +20,31 @@ use stdClass;
 final class ImportContainerPagedResponseModel extends JsonObjectModel implements ImportContainerPagedResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?ImportContainerCollection
      */
     protected $results;
@@ -70,7 +70,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -90,7 +90,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -110,7 +110,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The actual number of results returned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -130,7 +130,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The total number of results matching the query.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -150,7 +150,7 @@ final class ImportContainerPagedResponseModel extends JsonObjectModel implements
     /**
      * <p>The array of Import Containers matching the query.</p>
      *
-
+     *
      * @return null|ImportContainerCollection
      */
     public function getResults()

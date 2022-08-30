@@ -24,31 +24,31 @@ final class ChangeMasterVariantChangeModel extends JsonObjectModel implements Ch
 
     public const DISCRIMINATOR_VALUE = 'ChangeMasterVariantChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
-
+     *
      * @var ?Variant
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?Variant
      */
     protected $nextValue;
@@ -61,17 +61,18 @@ final class ChangeMasterVariantChangeModel extends JsonObjectModel implements Ch
         ?string $change = null,
         ?string $catalogData = null,
         ?Variant $previousValue = null,
-        ?Variant $nextValue = null
+        ?Variant $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -91,7 +92,7 @@ final class ChangeMasterVariantChangeModel extends JsonObjectModel implements Ch
     /**
      * <p>Update action for <code>changeMasterVariant</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -109,7 +110,7 @@ final class ChangeMasterVariantChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -127,7 +128,7 @@ final class ChangeMasterVariantChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
-
+     *
      * @return null|Variant
      */
     public function getPreviousValue()
@@ -146,7 +147,7 @@ final class ChangeMasterVariantChangeModel extends JsonObjectModel implements Ch
     }
 
     /**
-
+     *
      * @return null|Variant
      */
     public function getNextValue()

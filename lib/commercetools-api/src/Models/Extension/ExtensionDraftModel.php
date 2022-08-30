@@ -20,25 +20,25 @@ use stdClass;
 final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?ExtensionDestination
      */
     protected $destination;
 
     /**
-
+     *
      * @var ?ExtensionTriggerCollection
      */
     protected $triggers;
 
     /**
-
+     *
      * @var ?int
      */
     protected $timeoutInMs;
@@ -62,7 +62,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     /**
      * <p>User-defined unique identifier for the Extension.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -82,7 +82,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     /**
      * <p>Defines where the Extension can be reached.</p>
      *
-
+     *
      * @return null|ExtensionDestination
      */
     public function getDestination()
@@ -103,7 +103,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     /**
      * <p>Describes what triggers the Extension.</p>
      *
-
+     *
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()
@@ -127,7 +127,7 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
      * <p>This limit can be increased per Project after we review the performance impact.
      * Please contact our support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the Region, Project key, and use case.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTimeoutInMs()

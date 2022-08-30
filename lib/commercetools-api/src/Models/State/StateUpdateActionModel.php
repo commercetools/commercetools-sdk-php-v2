@@ -21,7 +21,7 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
@@ -46,12 +46,13 @@ final class StateUpdateActionModel extends JsonObjectModel implements StateUpdat
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()

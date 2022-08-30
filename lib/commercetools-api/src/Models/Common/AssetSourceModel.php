@@ -20,25 +20,25 @@ use stdClass;
 final class AssetSourceModel extends JsonObjectModel implements AssetSource
 {
     /**
-
+     *
      * @var ?string
      */
     protected $uri;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?AssetDimensions
      */
     protected $dimensions;
 
     /**
-
+     *
      * @var ?string
      */
     protected $contentType;
@@ -62,7 +62,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     /**
      * <p>URI of the AssetSource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getUri()
@@ -82,7 +82,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     /**
      * <p>User-defined unique identifier of the AssetSource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -102,7 +102,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     /**
      * <p>Width and height of the AssetSource.</p>
      *
-
+     *
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -123,7 +123,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     /**
      * <p>Indicates the type of content, for example <code>application/pdf</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getContentType()

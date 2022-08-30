@@ -23,13 +23,13 @@ final class StoreAddDistributionChannelActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'addDistributionChannel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -39,14 +39,15 @@ final class StoreAddDistributionChannelActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ChannelResourceIdentifier $distributionChannel = null
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?string $action = null
     ) {
         $this->distributionChannel = $distributionChannel;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class StoreAddDistributionChannelActionModel extends JsonObjectModel imple
     /**
      * <p>Value to append. Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannelError</a> error.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

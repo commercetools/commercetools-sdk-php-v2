@@ -36,9 +36,12 @@ interface Cart extends BaseResource
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
     public const FIELD_CART_STATE = 'cartState';
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
@@ -168,6 +171,15 @@ interface Cart extends BaseResource
     public function getTaxedPrice();
 
     /**
+     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
+     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice();
+
+    /**
 
      * @return null|string
      */
@@ -186,6 +198,23 @@ interface Cart extends BaseResource
      * @return null|Address
      */
     public function getBillingAddress();
+
+    /**
+     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode();
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method of a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>It is automatically updated after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping();
 
     /**
 
@@ -235,7 +264,8 @@ interface Cart extends BaseResource
     public function getCountry();
 
     /**
-     * <p>Set automatically once the ShippingMethod is set.</p>
+     * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Set automatically once the ShippingMethod is set.</p>
      *
 
      * @return null|ShippingInfo
@@ -400,6 +430,11 @@ interface Cart extends BaseResource
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
 
     /**
+     * @param ?TaxedPrice $taxedShippingPrice
+     */
+    public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void;
+
+    /**
      * @param ?string $cartState
      */
     public function setCartState(?string $cartState): void;
@@ -413,6 +448,16 @@ interface Cart extends BaseResource
      * @param ?Address $billingAddress
      */
     public function setBillingAddress(?Address $billingAddress): void;
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void;
+
+    /**
+     * @param ?ShippingCollection $shipping
+     */
+    public function setShipping(?ShippingCollection $shipping): void;
 
     /**
      * @param ?string $inventoryMode

@@ -21,19 +21,19 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'removeEnumValues';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?array
      */
     protected $keys;
@@ -44,15 +44,16 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?string $attributeName = null,
-        ?array $keys = null
+        ?array $keys = null,
+        ?string $action = null
     ) {
         $this->attributeName = $attributeName;
         $this->keys = $keys;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -92,7 +93,7 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     /**
      * <p>Keys of <a href="ctp:api:type:AttributeEnumType">AttributeEnumType</a> or <a href="ctp:api:type:AttributeLocalizedEnumType">AttributeLocalizedEnumType</a> to remove.</p>
      *
-
+     *
      * @return null|array
      */
     public function getKeys()

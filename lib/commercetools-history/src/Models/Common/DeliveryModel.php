@@ -22,37 +22,37 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
-
+     *
      * @var ?ParcelCollection
      */
     protected $parcels;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $address;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -79,7 +79,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -97,7 +97,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCreatedAt()
@@ -115,7 +115,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -133,7 +133,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|ParcelCollection
      */
     public function getParcels()
@@ -151,7 +151,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getAddress()
@@ -172,7 +172,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

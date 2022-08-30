@@ -22,49 +22,49 @@ use stdClass;
 final class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition
 {
     /**
-
+     *
      * @var ?AttributeType
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $label;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isRequired;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeConstraint;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $inputTip;
 
     /**
-
+     *
      * @var ?string
      */
     protected $inputHint;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isSearchable;
@@ -94,7 +94,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|AttributeType
      */
     public function getType()
@@ -113,7 +113,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()
@@ -138,7 +138,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
      * }
      * </code></pre>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -157,7 +157,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getIsRequired()
@@ -175,7 +175,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAttributeConstraint()
@@ -200,7 +200,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
      * }
      * </code></pre>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getInputTip()
@@ -219,7 +219,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInputHint()
@@ -237,7 +237,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getIsSearchable()

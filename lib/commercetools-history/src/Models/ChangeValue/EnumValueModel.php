@@ -22,13 +22,13 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $label;
@@ -47,7 +47,7 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -65,7 +65,7 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLabel()

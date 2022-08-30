@@ -21,19 +21,19 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'ConcurrentModification';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?int
      */
     protected $currentVersion;
@@ -44,15 +44,16 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?string $message = null,
-        ?int $currentVersion = null
+        ?int $currentVersion = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->currentVersion = $currentVersion;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -70,7 +71,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -88,7 +89,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCurrentVersion()

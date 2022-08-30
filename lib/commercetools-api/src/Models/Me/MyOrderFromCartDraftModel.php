@@ -20,13 +20,13 @@ use stdClass;
 final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrderFromCartDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
@@ -46,7 +46,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     /**
      * <p>Unique identifier of the Cart that initiates an Order creation.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -64,7 +64,7 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()

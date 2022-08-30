@@ -32,55 +32,55 @@ use stdClass;
 final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedPriceDraft
 {
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -114,7 +114,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets the money value of the EmbeddedPrice.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getValue()
@@ -135,7 +135,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets the country for which the EmbeddedPrice is valid. If not set, the Price is valid for any country.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -155,7 +155,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -176,7 +176,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets the product distribution <a href="ctp:api:type:Channel">Channel</a> for which the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -202,7 +202,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
      * <li>A <code>predicate</code> which matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a> is referenced from.</li>
      * </ul>
      *
-
+     *
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
@@ -223,7 +223,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets the date from which the EmbeddedPrice is valid. Must be at least 1 ms before <code>validUntil</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -247,7 +247,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets the date until the EmbeddedPrice is valid. Must be at least 1 ms after <code>validFrom</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -271,7 +271,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Sets Price tiers.</p>
      *
-
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -291,7 +291,7 @@ final class EmbeddedPriceDraftModel extends JsonObjectModel implements EmbeddedP
     /**
      * <p>Custom Fields for the EmbeddedPrice.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

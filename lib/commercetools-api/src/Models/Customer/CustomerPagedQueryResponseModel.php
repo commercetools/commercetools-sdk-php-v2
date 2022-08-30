@@ -20,31 +20,31 @@ use stdClass;
 final class CustomerPagedQueryResponseModel extends JsonObjectModel implements CustomerPagedQueryResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?CustomerCollection
      */
     protected $results;
@@ -70,7 +70,7 @@ final class CustomerPagedQueryResponseModel extends JsonObjectModel implements C
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -88,7 +88,7 @@ final class CustomerPagedQueryResponseModel extends JsonObjectModel implements C
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -106,7 +106,7 @@ final class CustomerPagedQueryResponseModel extends JsonObjectModel implements C
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -126,7 +126,7 @@ final class CustomerPagedQueryResponseModel extends JsonObjectModel implements C
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -144,7 +144,7 @@ final class CustomerPagedQueryResponseModel extends JsonObjectModel implements C
     }
 
     /**
-
+     *
      * @return null|CustomerCollection
      */
     public function getResults()

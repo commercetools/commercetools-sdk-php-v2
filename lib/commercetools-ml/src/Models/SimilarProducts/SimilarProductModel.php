@@ -22,19 +22,19 @@ use stdClass;
 final class SimilarProductModel extends JsonObjectModel implements SimilarProduct
 {
     /**
-
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?SimilarProductMeta
      */
     protected $meta;
@@ -56,7 +56,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     /**
      * <p>Reference to Product</p>
      *
-
+     *
      * @return null|ProductReference
      */
     public function getProduct()
@@ -77,7 +77,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     /**
      * <p>ID of the ProductVariant that was compared.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -97,7 +97,7 @@ final class SimilarProductModel extends JsonObjectModel implements SimilarProduc
     /**
      * <p>Supplementary information about the data used for similarity estimation. This information helps you understand the estimated confidence score, but it should not be used to identify a product.</p>
      *
-
+     *
      * @return null|SimilarProductMeta
      */
     public function getMeta()

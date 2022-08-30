@@ -21,19 +21,19 @@ final class AttributeNameDoesNotExistErrorModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'AttributeNameDoesNotExist';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?string
      */
     protected $invalidAttributeName;
@@ -44,15 +44,16 @@ final class AttributeNameDoesNotExistErrorModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?string $message = null,
-        ?string $invalidAttributeName = null
+        ?string $invalidAttributeName = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->invalidAttributeName = $invalidAttributeName;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -70,7 +71,7 @@ final class AttributeNameDoesNotExistErrorModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -88,7 +89,7 @@ final class AttributeNameDoesNotExistErrorModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInvalidAttributeName()

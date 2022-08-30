@@ -23,25 +23,25 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
 
     public const DISCRIMINATOR_VALUE = 'SetTransitionsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ReferenceCollection
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?ReferenceCollection
      */
     protected $nextValue;
@@ -53,16 +53,17 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     public function __construct(
         ?string $change = null,
         ?ReferenceCollection $previousValue = null,
-        ?ReferenceCollection $nextValue = null
+        ?ReferenceCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +83,7 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     /**
      * <p>Shape of the action for <code>setTransitions</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -100,7 +101,7 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     }
 
     /**
-
+     *
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -118,7 +119,7 @@ final class SetTransitionsChangeModel extends JsonObjectModel implements SetTran
     }
 
     /**
-
+     *
      * @return null|ReferenceCollection
      */
     public function getNextValue()

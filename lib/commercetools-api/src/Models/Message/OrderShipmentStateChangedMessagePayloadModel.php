@@ -21,19 +21,19 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'OrderShipmentStateChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $oldShipmentState;
@@ -44,15 +44,16 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
      */
     public function __construct(
         ?string $shipmentState = null,
-        ?string $oldShipmentState = null
+        ?string $oldShipmentState = null,
+        ?string $type = null
     ) {
         $this->shipmentState = $shipmentState;
         $this->oldShipmentState = $oldShipmentState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -72,7 +73,7 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:ShipmentState">ShipmentState</a> after the <a href="ctp:api:type:OrderChangeShipmentStateAction">Change Shipment State</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -92,7 +93,7 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:ShipmentState">ShipmentState</a> before the <a href="ctp:api:type:OrderChangeShipmentStateAction">Change Shipment State</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOldShipmentState()

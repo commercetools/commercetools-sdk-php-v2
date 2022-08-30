@@ -21,13 +21,13 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'lineItems';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $predicate;
@@ -37,14 +37,15 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $predicate = null
+        ?string $predicate = null,
+        ?string $type = null
     ) {
         $this->predicate = $predicate;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -64,7 +65,7 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
     /**
      * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPredicate()

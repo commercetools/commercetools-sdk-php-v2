@@ -18,6 +18,7 @@ interface ParcelItemsUpdatedMessage extends OrderMessage
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_ITEMS = 'items';
     public const FIELD_OLD_ITEMS = 'oldItems';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
@@ -52,6 +53,14 @@ interface ParcelItemsUpdatedMessage extends OrderMessage
     public function getOldItems();
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?string $parcelId
      */
     public function setParcelId(?string $parcelId): void;
@@ -70,4 +79,9 @@ interface ParcelItemsUpdatedMessage extends OrderMessage
      * @param ?DeliveryItemCollection $oldItems
      */
     public function setOldItems(?DeliveryItemCollection $oldItems): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

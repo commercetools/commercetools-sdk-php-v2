@@ -21,19 +21,19 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteStateChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $stagedQuoteState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $oldStagedQuoteState;
@@ -44,15 +44,16 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
      */
     public function __construct(
         ?string $stagedQuoteState = null,
-        ?string $oldStagedQuoteState = null
+        ?string $oldStagedQuoteState = null,
+        ?string $type = null
     ) {
         $this->stagedQuoteState = $stagedQuoteState;
         $this->oldStagedQuoteState = $oldStagedQuoteState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -72,7 +73,7 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>State of the Staged Quote after the <a href="ctp:api:type:StagedQuoteChangeStagedQuoteStateAction">Change Staged Quote State</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -92,7 +93,7 @@ final class StagedQuoteStateChangedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>State of the Staged Quote before the <a href="ctp:api:type:StagedQuoteChangeStagedQuoteStateAction">Change Staged Quote State</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOldStagedQuoteState()

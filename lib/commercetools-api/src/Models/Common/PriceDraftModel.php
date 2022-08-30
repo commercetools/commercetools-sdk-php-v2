@@ -27,55 +27,55 @@ use stdClass;
 final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 {
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
     /**
-
+     *
      * @var ?PriceTierDraftCollection
      */
     protected $tiers;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -109,7 +109,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Money value of this Price.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getValue()
@@ -130,7 +130,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is only valid for the specified country.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -150,7 +150,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
-
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -171,7 +171,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -192,7 +192,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is valid only valid from the specified date and time.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -216,7 +216,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is valid only valid until the specified date and time.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -247,7 +247,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
      * <li>A <code>predicate</code> that matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Price is referenced from.</li>
      * </ul>
      *
-
+     *
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
@@ -268,7 +268,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
      *
-
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()
@@ -288,7 +288,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Custom Fields for the Price.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

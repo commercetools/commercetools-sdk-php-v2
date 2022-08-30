@@ -21,19 +21,19 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
 {
     public const DISCRIMINATOR_VALUE = 'applyDeltaToCustomLineItemShippingDetailsTargets';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?ItemShippingTargetCollection
      */
     protected $targetsDelta;
@@ -44,15 +44,16 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?ItemShippingTargetCollection $targetsDelta = null
+        ?ItemShippingTargetCollection $targetsDelta = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->targetsDelta = $targetsDelta;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,7 +71,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -88,7 +89,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel exte
     }
 
     /**
-
+     *
      * @return null|ItemShippingTargetCollection
      */
     public function getTargetsDelta()

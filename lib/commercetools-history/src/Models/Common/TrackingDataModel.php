@@ -22,31 +22,31 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $trackingId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $carrier;
 
     /**
-
+     *
      * @var ?string
      */
     protected $provider;
 
     /**
-
+     *
      * @var ?string
      */
     protected $providerTransaction;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isReturn;
@@ -73,7 +73,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     /**
      * <p>The ID to track one parcel.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTrackingId()
@@ -93,7 +93,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     /**
      * <p>The carrier that delivers the parcel.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCarrier()
@@ -111,7 +111,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProvider()
@@ -129,7 +129,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProviderTransaction()
@@ -149,7 +149,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     /**
      * <p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsReturn()

@@ -35,79 +35,79 @@ use stdClass;
 final class ProductModel extends JsonObjectModel implements Product
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?ProductTypeReference
      */
     protected $productType;
 
     /**
-
+     *
      * @var ?ProductCatalogData
      */
     protected $masterData;
 
     /**
-
+     *
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
 
     /**
-
+     *
      * @var ?ReviewRatingStatistics
      */
     protected $reviewRatingStatistics;
 
     /**
-
+     *
      * @var ?string
      */
     protected $priceMode;
@@ -149,7 +149,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Unique identifier of the Product.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -169,7 +169,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Current version of the Product.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -189,7 +189,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Date and time (UTC) the Product was initially created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -213,7 +213,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Date and time (UTC) the Product was last updated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -237,7 +237,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -258,7 +258,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -280,7 +280,7 @@ final class ProductModel extends JsonObjectModel implements Product
      * <p>User-defined unique identifier of the Product.</p>
      * <p>This is different from the <code>key</code> of a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -300,7 +300,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>The Product Type defining the Attributes of the Product. Cannot be changed.</p>
      *
-
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -321,7 +321,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Contains the current and the staged representation of the product information.</p>
      *
-
+     *
      * @return null|ProductCatalogData
      */
     public function getMasterData()
@@ -342,7 +342,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>The <a href="ctp:api:type:TaxCategory">TaxCategory</a> of the Product.</p>
      *
-
+     *
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -363,7 +363,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p><a href="ctp:api:type:State">State</a> of the Product.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()
@@ -384,7 +384,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Review statistics of the Product.</p>
      *
-
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()
@@ -405,7 +405,7 @@ final class ProductModel extends JsonObjectModel implements Product
     /**
      * <p>Type of Price to be used when looking up a price for the Product.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPriceMode()

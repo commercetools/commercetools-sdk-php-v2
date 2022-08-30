@@ -22,13 +22,13 @@ final class OrderPatchImportRequestModel extends JsonObjectModel implements Orde
 {
     public const DISCRIMINATOR_VALUE = 'order-patch';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?OrderPatchImportCollection
      */
     protected $patches;
@@ -38,16 +38,17 @@ final class OrderPatchImportRequestModel extends JsonObjectModel implements Orde
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?OrderPatchImportCollection $patches = null
+        ?OrderPatchImportCollection $patches = null,
+        ?string $type = null
     ) {
         $this->patches = $patches;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -67,7 +68,7 @@ final class OrderPatchImportRequestModel extends JsonObjectModel implements Orde
     /**
      * <p>The order patches of this request</p>
      *
-
+     *
      * @return null|OrderPatchImportCollection
      */
     public function getPatches()

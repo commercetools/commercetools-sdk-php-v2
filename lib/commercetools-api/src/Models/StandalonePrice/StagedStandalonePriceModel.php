@@ -24,13 +24,13 @@ use stdClass;
 final class StagedStandalonePriceModel extends JsonObjectModel implements StagedStandalonePrice
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
-
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
@@ -50,7 +50,7 @@ final class StagedStandalonePriceModel extends JsonObjectModel implements Staged
     /**
      * <p>Money value of the StagedStandalonePrice.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -71,7 +71,7 @@ final class StagedStandalonePriceModel extends JsonObjectModel implements Staged
     /**
      * <p>Discounted price for the StagedStandalonePrice.</p>
      *
-
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()

@@ -21,19 +21,19 @@ final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanS
 {
     public const DISCRIMINATOR_VALUE = 'boolean-set';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?array
      */
     protected $value;
@@ -44,11 +44,12 @@ final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanS
      */
     public function __construct(
         ?string $name = null,
-        ?array $value = null
+        ?array $value = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -56,7 +57,7 @@ final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanS
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -74,7 +75,7 @@ final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanS
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -92,7 +93,7 @@ final class BooleanSetAttributeModel extends JsonObjectModel implements BooleanS
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getValue()

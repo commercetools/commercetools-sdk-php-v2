@@ -21,13 +21,13 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxRoundingMode';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxRoundingMode;
@@ -37,14 +37,15 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $taxRoundingMode = null
+        ?string $taxRoundingMode = null,
+        ?string $action = null
     ) {
         $this->taxRoundingMode = $taxRoundingMode;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class CartChangeTaxRoundingModeActionModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTaxRoundingMode()

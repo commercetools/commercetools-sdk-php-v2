@@ -23,19 +23,19 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setMetaTitle';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
      */
     public function __construct(
         ?LocalizedString $metaTitle = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->metaTitle = $metaTitle;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -95,7 +96,7 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     /**
      * <p>If <code>true</code>, only the staged <code>metaTitle</code> is updated. If <code>false</code>, both the current and staged <code>metaTitle</code> are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

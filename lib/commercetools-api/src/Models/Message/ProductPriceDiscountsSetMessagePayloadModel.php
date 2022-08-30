@@ -21,13 +21,13 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'ProductPriceDiscountsSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     protected $updatedPrices;
@@ -37,14 +37,15 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices = null
+        ?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices = null,
+        ?string $type = null
     ) {
         $this->updatedPrices = $updatedPrices;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -64,7 +65,7 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>Array containing details about the <a href="ctp:api:type:Price">Prices</a> that were updated.</p>
      *
-
+     *
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
      */
     public function getUpdatedPrices()

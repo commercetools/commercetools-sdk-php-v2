@@ -77,13 +77,13 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
@@ -127,16 +127,17 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $id = null
+        ?string $id = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -156,7 +157,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()

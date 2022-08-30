@@ -25,25 +25,25 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setAddressCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
 
     /**
-
+     *
      * @var ?string
      */
     protected $addressId;
@@ -55,16 +55,17 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     public function __construct(
         ?TypeResourceIdentifier $type = null,
         ?FieldContainer $fields = null,
-        ?string $addressId = null
+        ?string $addressId = null,
+        ?string $action = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
         $this->addressId = $addressId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -85,7 +86,7 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code>.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -106,7 +107,7 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code>.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()
@@ -125,7 +126,7 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAddressId()

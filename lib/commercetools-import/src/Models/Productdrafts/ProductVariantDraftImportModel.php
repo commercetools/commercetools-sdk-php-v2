@@ -23,37 +23,37 @@ use stdClass;
 final class ProductVariantDraftImportModel extends JsonObjectModel implements ProductVariantDraftImport
 {
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?PriceDraftImportCollection
      */
     protected $prices;
 
     /**
-
+     *
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
-
+     *
      * @var ?ImageCollection
      */
     protected $images;
 
     /**
-
+     *
      * @var ?AssetCollection
      */
     protected $assets;
@@ -79,7 +79,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -97,7 +97,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -115,7 +115,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
-
+     *
      * @return null|PriceDraftImportCollection
      */
     public function getPrices()
@@ -133,7 +133,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
-
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -151,7 +151,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
-
+     *
      * @return null|ImageCollection
      */
     public function getImages()
@@ -169,7 +169,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     }
 
     /**
-
+     *
      * @return null|AssetCollection
      */
     public function getAssets()

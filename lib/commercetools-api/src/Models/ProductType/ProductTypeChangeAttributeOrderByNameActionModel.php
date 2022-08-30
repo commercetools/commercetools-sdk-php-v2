@@ -21,13 +21,13 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'changeAttributeOrderByName';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?array
      */
     protected $attributeNames;
@@ -37,14 +37,15 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $attributeNames = null
+        ?array $attributeNames = null,
+        ?string $action = null
     ) {
         $this->attributeNames = $attributeNames;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
     /**
      * <p>Names of Attributes to reorder. This array must include all Attributes currently present on a ProductType in a different order.</p>
      *
-
+     *
      * @return null|array
      */
     public function getAttributeNames()

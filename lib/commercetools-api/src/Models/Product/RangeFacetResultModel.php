@@ -21,13 +21,13 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
 {
     public const DISCRIMINATOR_VALUE = 'range';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FacetRangeCollection
      */
     protected $ranges;
@@ -37,14 +37,15 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?FacetRangeCollection $ranges = null
+        ?FacetRangeCollection $ranges = null,
+        ?string $type = null
     ) {
         $this->ranges = $ranges;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -62,7 +63,7 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     }
 
     /**
-
+     *
      * @return null|FacetRangeCollection
      */
     public function getRanges()

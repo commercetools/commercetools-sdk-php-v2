@@ -20,13 +20,13 @@ use stdClass;
 final class AttributeModel extends JsonObjectModel implements Attribute
 {
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
@@ -46,7 +46,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     /**
      * <p>Name of the Attribute.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -76,7 +76,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
      * <li>For <a href="ctp:api:type:AttributeReferenceType">Reference Type</a> Attributes, use the <a href="ctp:api:type:Reference">Reference</a> object as <code>value</code>.</li>
      * </ul>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()

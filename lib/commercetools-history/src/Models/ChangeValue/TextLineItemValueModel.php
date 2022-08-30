@@ -24,13 +24,13 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -49,7 +49,7 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -67,7 +67,7 @@ final class TextLineItemValueModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()

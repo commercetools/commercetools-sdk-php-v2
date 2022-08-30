@@ -23,31 +23,31 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
 
     public const DISCRIMINATOR_VALUE = 'SetDeliveryItemsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $previousValue;
@@ -60,17 +60,18 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
         ?string $change = null,
         ?string $deliveryId = null,
         ?DeliveryItemCollection $nextValue = null,
-        ?DeliveryItemCollection $previousValue = null
+        ?DeliveryItemCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->deliveryId = $deliveryId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -90,7 +91,7 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     /**
      * <p>Update action for <code>setDeliveryItems</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -108,7 +109,7 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -126,7 +127,7 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getNextValue()
@@ -144,7 +145,7 @@ final class SetDeliveryItemsChangeModel extends JsonObjectModel implements SetDe
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getPreviousValue()

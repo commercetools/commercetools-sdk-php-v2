@@ -22,13 +22,13 @@ final class ShippingMethodChangeValueModel extends JsonObjectModel implements Sh
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
@@ -47,7 +47,7 @@ final class ShippingMethodChangeValueModel extends JsonObjectModel implements Sh
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -65,7 +65,7 @@ final class ShippingMethodChangeValueModel extends JsonObjectModel implements Sh
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()

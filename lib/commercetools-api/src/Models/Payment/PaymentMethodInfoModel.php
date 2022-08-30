@@ -22,19 +22,19 @@ use stdClass;
 final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMethodInfo
 {
     /**
-
+     *
      * @var ?string
      */
     protected $paymentInterface;
 
     /**
-
+     *
      * @var ?string
      */
     protected $method;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -58,7 +58,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
      * Cannot be changed once it has been set.
      * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPaymentInterface()
@@ -80,7 +80,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
      * e.g.
      * a conventional string representing Credit Card, Cash Advance etc.</p>
      *
-
+     *
      * @return null|string
      */
     public function getMethod()
@@ -101,7 +101,7 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
      * <p>A human-readable, localized name for the payment method, e.g.
      * 'Credit Card'.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()

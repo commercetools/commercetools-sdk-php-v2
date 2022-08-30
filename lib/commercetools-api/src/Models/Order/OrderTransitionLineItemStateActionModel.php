@@ -24,37 +24,37 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'transitionLineItemState';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $fromState;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $toState;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $actualTransitionDate;
@@ -68,18 +68,19 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
         ?int $quantity = null,
         ?StateResourceIdentifier $fromState = null,
         ?StateResourceIdentifier $toState = null,
-        ?DateTimeImmutable $actualTransitionDate = null
+        ?DateTimeImmutable $actualTransitionDate = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
         $this->toState = $toState;
         $this->actualTransitionDate = $actualTransitionDate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -97,7 +98,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -115,7 +116,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -135,7 +136,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getFromState()
@@ -156,7 +157,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getToState()
@@ -175,7 +176,7 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate()

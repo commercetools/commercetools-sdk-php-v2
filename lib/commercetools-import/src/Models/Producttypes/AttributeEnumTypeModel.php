@@ -21,13 +21,13 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
 {
     public const DISCRIMINATOR_VALUE = 'enum';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?AttributePlainEnumValueCollection
      */
     protected $values;
@@ -37,14 +37,15 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?AttributePlainEnumValueCollection $values = null
+        ?AttributePlainEnumValueCollection $values = null,
+        ?string $name = null
     ) {
         $this->values = $values;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()
@@ -62,7 +63,7 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     }
 
     /**
-
+     *
      * @return null|AttributePlainEnumValueCollection
      */
     public function getValues()

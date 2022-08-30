@@ -22,37 +22,37 @@ use stdClass;
 final class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?EmbeddedPriceDraftCollection
      */
     protected $prices;
 
     /**
-
+     *
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
-
+     *
      * @var ?ImageCollection
      */
     protected $images;
 
     /**
-
+     *
      * @var ?AssetDraftCollection
      */
     protected $assets;
@@ -80,7 +80,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     /**
      * <p>User-defined unique SKU of the Product Variant.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -100,7 +100,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     /**
      * <p>User-defined unique identifier for the ProductVariant.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -121,7 +121,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
      * <p>The Embedded Prices for the Product Variant.
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
-
+     *
      * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
@@ -141,7 +141,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     /**
      * <p>Attributes according to the respective <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a>.</p>
      *
-
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -161,7 +161,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     /**
      * <p>Images for the Product Variant.</p>
      *
-
+     *
      * @return null|ImageCollection
      */
     public function getImages()
@@ -181,7 +181,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     /**
      * <p>Media assets for the Product Variant.</p>
      *
-
+     *
      * @return null|AssetDraftCollection
      */
     public function getAssets()

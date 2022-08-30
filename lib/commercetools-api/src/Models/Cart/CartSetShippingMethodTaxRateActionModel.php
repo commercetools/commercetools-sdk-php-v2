@@ -21,13 +21,13 @@ final class CartSetShippingMethodTaxRateActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setShippingMethodTaxRate';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -37,14 +37,15 @@ final class CartSetShippingMethodTaxRateActionModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ExternalTaxRateDraft $externalTaxRate = null
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $action = null
     ) {
         $this->externalTaxRate = $externalTaxRate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class CartSetShippingMethodTaxRateActionModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

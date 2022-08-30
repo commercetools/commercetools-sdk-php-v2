@@ -22,31 +22,31 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'ChangeAttributeConstraintChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -59,17 +59,18 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
         ?string $change = null,
         ?string $attributeName = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->attributeName = $attributeName;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -87,7 +88,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -107,7 +108,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     /**
      * <p>name of the updated attribute</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -125,7 +126,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -143,7 +144,7 @@ final class ChangeAttributeConstraintChangeModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNextValue()

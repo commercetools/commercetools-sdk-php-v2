@@ -21,13 +21,13 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeCurrencies';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?array
      */
     protected $currencies;
@@ -37,14 +37,15 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $currencies = null
+        ?array $currencies = null,
+        ?string $action = null
     ) {
         $this->currencies = $currencies;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Must not be empty.</p>
      *
-
+     *
      * @return null|array
      */
     public function getCurrencies()

@@ -21,7 +21,7 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionDeleted';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -31,12 +31,13 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()

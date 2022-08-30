@@ -25,31 +25,31 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
 
     public const DISCRIMINATOR_VALUE = 'RemoveFromCategoryChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $category;
 
     /**
-
+     *
      * @var ?ReferenceCollection
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?ReferenceCollection
      */
     protected $nextValue;
@@ -62,17 +62,18 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
         ?string $change = null,
         ?Reference $category = null,
         ?ReferenceCollection $previousValue = null,
-        ?ReferenceCollection $nextValue = null
+        ?ReferenceCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->category = $category;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -92,7 +93,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
     /**
      * <p>Update action for <code>addToCategory</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -110,7 +111,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getCategory()
@@ -129,7 +130,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-
+     *
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -147,7 +148,7 @@ final class RemoveFromCategoryChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-
+     *
      * @return null|ReferenceCollection
      */
     public function getNextValue()

@@ -20,25 +20,25 @@ use stdClass;
 final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $description;
 
     /**
-
+     *
      * @var ?LocationCollection
      */
     protected $locations;
@@ -62,7 +62,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     /**
      * <p>User-defined unique identifier for the Zone.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -82,7 +82,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     /**
      * <p>Name of the Zone.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -102,7 +102,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     /**
      * <p>Description of the Zone.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDescription()
@@ -122,7 +122,7 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     /**
      * <p>List of locations that belong to the Zone.</p>
      *
-
+     *
      * @return null|LocationCollection
      */
     public function getLocations()

@@ -23,31 +23,31 @@ use stdClass;
 final class DeliveryModel extends JsonObjectModel implements Delivery
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
-
+     *
      * @var ?ParcelCollection
      */
     protected $parcels;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $address;
@@ -71,7 +71,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -89,7 +89,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -111,7 +111,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -129,7 +129,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|ParcelCollection
      */
     public function getParcels()
@@ -147,7 +147,7 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getAddress()

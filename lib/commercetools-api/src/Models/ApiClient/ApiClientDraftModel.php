@@ -20,31 +20,31 @@ use stdClass;
 final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $scope;
 
     /**
-
+     *
      * @var ?int
      */
     protected $deleteDaysAfterCreation;
 
     /**
-
+     *
      * @var ?int
      */
     protected $accessTokenValiditySeconds;
 
     /**
-
+     *
      * @var ?int
      */
     protected $refreshTokenValiditySeconds;
@@ -70,7 +70,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     /**
      * <p>Name of the APIClient.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -90,7 +90,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     /**
      * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getScope()
@@ -110,7 +110,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     /**
      * <p>If set, the Client will be deleted after the specified amount of days.</p>
      *
-
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterCreation()
@@ -130,7 +130,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     /**
      * <p>Expiration time in seconds for each access token obtained by the APIClient. If not set the default value applies.</p>
      *
-
+     *
      * @return null|int
      */
     public function getAccessTokenValiditySeconds()
@@ -150,7 +150,7 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     /**
      * <p>Inactivity expiration time in seconds for each refresh token obtained by the APIClient. The expiration time for refresh tokens is restarted each time the token is used. If not set the default value applies.</p>
      *
-
+     *
      * @return null|int
      */
     public function getRefreshTokenValiditySeconds()

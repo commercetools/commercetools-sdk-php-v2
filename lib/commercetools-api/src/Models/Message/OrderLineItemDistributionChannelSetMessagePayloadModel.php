@@ -23,19 +23,19 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemDistributionChannelSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?ChannelReference
      */
     protected $distributionChannel;
@@ -46,15 +46,16 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?ChannelReference $distributionChannel = null
+        ?ChannelReference $distributionChannel = null,
+        ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->distributionChannel = $distributionChannel;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -94,7 +95,7 @@ final class OrderLineItemDistributionChannelSetMessagePayloadModel extends JsonO
     /**
      * <p><a href="ctp:api:type:Channel">Distribution Channel</a> that was set.</p>
      *
-
+     *
      * @return null|ChannelReference
      */
     public function getDistributionChannel()

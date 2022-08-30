@@ -22,19 +22,19 @@ use stdClass;
 final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRateDraft
 {
     /**
-
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $freeAbove;
 
     /**
-
+     *
      * @var ?ShippingRatePriceTierCollection
      */
     protected $tiers;
@@ -56,7 +56,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     /**
      * <p>Money value of the ShippingRate.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -77,7 +77,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     /**
      * <p>Shipping is free if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getFreeAbove()
@@ -98,7 +98,7 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     /**
      * <p>Price tiers for the ShippingRate.</p>
      *
-
+     *
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()

@@ -21,13 +21,13 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
 {
     public const DISCRIMINATOR_VALUE = 'changeType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -37,14 +37,15 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $type = null
+        ?string $type = null,
+        ?string $action = null
     ) {
         $this->type = $type;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -65,7 +66,7 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
      * <p>Resource or object types the State shall be assigned to.
      * Must not be empty.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()

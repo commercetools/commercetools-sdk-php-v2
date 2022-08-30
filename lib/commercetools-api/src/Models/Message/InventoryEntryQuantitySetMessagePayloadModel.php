@@ -23,37 +23,37 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryQuantitySet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $oldQuantityOnStock;
 
     /**
-
+     *
      * @var ?int
      */
     protected $newQuantityOnStock;
 
     /**
-
+     *
      * @var ?int
      */
     protected $oldAvailableQuantity;
 
     /**
-
+     *
      * @var ?int
      */
     protected $newAvailableQuantity;
 
     /**
-
+     *
      * @var ?ChannelReference
      */
     protected $supplyChannel;
@@ -67,18 +67,19 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
         ?int $newQuantityOnStock = null,
         ?int $oldAvailableQuantity = null,
         ?int $newAvailableQuantity = null,
-        ?ChannelReference $supplyChannel = null
+        ?ChannelReference $supplyChannel = null,
+        ?string $type = null
     ) {
         $this->oldQuantityOnStock = $oldQuantityOnStock;
         $this->newQuantityOnStock = $newQuantityOnStock;
         $this->oldAvailableQuantity = $oldAvailableQuantity;
         $this->newAvailableQuantity = $newAvailableQuantity;
         $this->supplyChannel = $supplyChannel;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -98,7 +99,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Quantity on stock for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> before the quantity was updated.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOldQuantityOnStock()
@@ -118,7 +119,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Quantity on stock for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> after the quantity was updated.</p>
      *
-
+     *
      * @return null|int
      */
     public function getNewQuantityOnStock()
@@ -138,7 +139,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Available quantity for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> before the quantity was updated.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOldAvailableQuantity()
@@ -158,7 +159,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Available quantity for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> after the quantity was updated.</p>
      *
-
+     *
      * @return null|int
      */
     public function getNewAvailableQuantity()
@@ -178,7 +179,7 @@ final class InventoryEntryQuantitySetMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Channel">Channel</a> where the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> quantity was set.</p>
      *
-
+     *
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

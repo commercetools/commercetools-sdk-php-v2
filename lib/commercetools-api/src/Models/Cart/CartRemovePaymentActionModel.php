@@ -23,13 +23,13 @@ final class CartRemovePaymentActionModel extends JsonObjectModel implements Cart
 {
     public const DISCRIMINATOR_VALUE = 'removePayment';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?PaymentResourceIdentifier
      */
     protected $payment;
@@ -39,14 +39,15 @@ final class CartRemovePaymentActionModel extends JsonObjectModel implements Cart
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?PaymentResourceIdentifier $payment = null
+        ?PaymentResourceIdentifier $payment = null,
+        ?string $action = null
     ) {
         $this->payment = $payment;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class CartRemovePaymentActionModel extends JsonObjectModel implements Cart
     }
 
     /**
-
+     *
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

@@ -20,13 +20,13 @@ use stdClass;
 final class MissingPricesProductCountModel extends JsonObjectModel implements MissingPricesProductCount
 {
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $missingPrices;
@@ -44,7 +44,7 @@ final class MissingPricesProductCountModel extends JsonObjectModel implements Mi
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -62,7 +62,7 @@ final class MissingPricesProductCountModel extends JsonObjectModel implements Mi
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getMissingPrices()

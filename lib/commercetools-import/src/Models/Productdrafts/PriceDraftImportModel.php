@@ -32,61 +32,61 @@ use stdClass;
 final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftImport
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupKeyReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelKeyReference
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?Custom
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
-
+     *
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -120,7 +120,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -141,7 +141,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -161,7 +161,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     /**
      * <p>References a customer group by key.</p>
      *
-
+     *
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -182,7 +182,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     /**
      * <p>References a channel by key.</p>
      *
-
+     *
      * @return null|ChannelKeyReference
      */
     public function getChannel()
@@ -201,7 +201,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -223,7 +223,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -247,7 +247,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     /**
      * <p>The custom fields for this category.</p>
      *
-
+     *
      * @return null|Custom
      */
     public function getCustom()
@@ -268,7 +268,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
-
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -289,7 +289,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     /**
      * <p>The tiered prices for this price.</p>
      *
-
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -307,7 +307,7 @@ final class PriceDraftImportModel extends JsonObjectModel implements PriceDraftI
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()

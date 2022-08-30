@@ -23,19 +23,19 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'addProduct';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ProductResourceIdentifier
      */
     protected $product;
 
     /**
-
+     *
      * @var ?ProductVariantSelection
      */
     protected $variantSelection;
@@ -46,15 +46,16 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
      */
     public function __construct(
         ?ProductResourceIdentifier $product = null,
-        ?ProductVariantSelection $variantSelection = null
+        ?ProductVariantSelection $variantSelection = null,
+        ?string $action = null
     ) {
         $this->product = $product;
         $this->variantSelection = $variantSelection;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
     /**
      * <p>ResourceIdentifier of the Product</p>
      *
-
+     *
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()
@@ -96,7 +97,7 @@ final class ProductSelectionAddProductActionModel extends JsonObjectModel implem
      * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.
      * If not supplied all Variants are deemed to be included.</p>
      *
-
+     *
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection()

@@ -20,37 +20,37 @@ use stdClass;
 final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel implements ProductProjectionPagedSearchResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?ProductProjectionCollection
      */
     protected $results;
 
     /**
-
+     *
      * @var ?FacetResults
      */
     protected $facets;
@@ -78,7 +78,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -96,7 +96,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -114,7 +114,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -134,7 +134,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -152,7 +152,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|ProductProjectionCollection
      */
     public function getResults()
@@ -170,7 +170,7 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|FacetResults
      */
     public function getFacets()

@@ -22,43 +22,43 @@ use stdClass;
 final class AssetModel extends JsonObjectModel implements Asset
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?AssetSourceCollection
      */
     protected $sources;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?array
      */
     protected $tags;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -88,7 +88,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * <p>Unique identifier of the Asset.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -106,7 +106,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
-
+     *
      * @return null|AssetSourceCollection
      */
     public function getSources()
@@ -126,7 +126,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * <p>Name of the Asset.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -147,7 +147,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * <p>Description of the Asset.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -168,7 +168,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
-
+     *
      * @return null|array
      */
     public function getTags()
@@ -188,7 +188,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * <p>Custom Fields defined for the Asset.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -209,7 +209,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * <p>User-defined unique identifier of the Asset.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

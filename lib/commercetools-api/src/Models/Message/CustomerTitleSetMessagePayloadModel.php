@@ -21,13 +21,13 @@ final class CustomerTitleSetMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'CustomerTitleSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $title;
@@ -37,14 +37,15 @@ final class CustomerTitleSetMessagePayloadModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $title = null
+        ?string $title = null,
+        ?string $type = null
     ) {
         $this->title = $title;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -64,7 +65,7 @@ final class CustomerTitleSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p>The <code>title</code> that was set during the <a href="ctp:api:type:CustomerSetTitleAction">Set Title</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTitle()

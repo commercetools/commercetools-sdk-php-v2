@@ -21,7 +21,7 @@ final class CustomFieldDateTimeTypeModel extends JsonObjectModel implements Cust
 {
     public const DISCRIMINATOR_VALUE = 'DateTime';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
@@ -31,12 +31,13 @@ final class CustomFieldDateTimeTypeModel extends JsonObjectModel implements Cust
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $name = null
     ) {
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()

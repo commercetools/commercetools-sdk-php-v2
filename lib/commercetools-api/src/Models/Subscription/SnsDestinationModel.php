@@ -21,25 +21,25 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
 {
     public const DISCRIMINATOR_VALUE = 'SNS';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $accessKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $accessSecret;
 
     /**
-
+     *
      * @var ?string
      */
     protected $topicArn;
@@ -51,16 +51,17 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     public function __construct(
         ?string $accessKey = null,
         ?string $accessSecret = null,
-        ?string $topicArn = null
+        ?string $topicArn = null,
+        ?string $type = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
         $this->topicArn = $topicArn;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -78,7 +79,7 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -96,7 +97,7 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAccessSecret()
@@ -114,7 +115,7 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTopicArn()

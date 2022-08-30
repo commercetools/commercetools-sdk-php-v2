@@ -24,19 +24,19 @@ final class AddTransactionChangeModel extends JsonObjectModel implements AddTran
 
     public const DISCRIMINATOR_VALUE = 'AddTransactionChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?Transaction
      */
     protected $nextValue;
@@ -47,15 +47,16 @@ final class AddTransactionChangeModel extends JsonObjectModel implements AddTran
      */
     public function __construct(
         ?string $change = null,
-        ?Transaction $nextValue = null
+        ?Transaction $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -75,7 +76,7 @@ final class AddTransactionChangeModel extends JsonObjectModel implements AddTran
     /**
      * <p>Update action for <code>addTransaction</code> on payments</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,7 +94,7 @@ final class AddTransactionChangeModel extends JsonObjectModel implements AddTran
     }
 
     /**
-
+     *
      * @return null|Transaction
      */
     public function getNextValue()

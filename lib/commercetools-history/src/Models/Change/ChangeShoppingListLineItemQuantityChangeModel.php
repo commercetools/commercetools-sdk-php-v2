@@ -24,31 +24,31 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
 
     public const DISCRIMINATOR_VALUE = 'ChangeShoppingListLineItemQuantityChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ShoppingListLineItemValue
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?int
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?int
      */
     protected $nextValue;
@@ -61,17 +61,18 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
         ?string $change = null,
         ?ShoppingListLineItemValue $lineItem = null,
         ?int $previousValue = null,
-        ?int $nextValue = null
+        ?int $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -89,7 +90,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -107,7 +108,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
-
+     *
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -126,7 +127,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getPreviousValue()
@@ -144,7 +145,7 @@ final class ChangeShoppingListLineItemQuantityChangeModel extends JsonObjectMode
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getNextValue()

@@ -20,13 +20,13 @@ use stdClass;
 final class AssignedProductSelectionModel extends JsonObjectModel implements AssignedProductSelection
 {
     /**
-
+     *
      * @var ?ProductSelectionReference
      */
     protected $productSelection;
 
     /**
-
+     *
      * @var ?ProductVariantSelection
      */
     protected $variantSelection;
@@ -46,7 +46,7 @@ final class AssignedProductSelectionModel extends JsonObjectModel implements Ass
     /**
      * <p>Reference to the Product Selection that this assignment is part of.</p>
      *
-
+     *
      * @return null|ProductSelectionReference
      */
     public function getProductSelection()
@@ -67,7 +67,7 @@ final class AssignedProductSelectionModel extends JsonObjectModel implements Ass
     /**
      * <p>Selects which Variants of the newly added Product will be included, or excluded, from the Product Selection.</p>
      *
-
+     *
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection()

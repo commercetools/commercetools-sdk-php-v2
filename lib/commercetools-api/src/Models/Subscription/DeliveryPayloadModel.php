@@ -25,25 +25,25 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $projectKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $notificationType;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
@@ -65,16 +65,17 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
     public function __construct(
         ?string $projectKey = null,
         ?Reference $resource = null,
-        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $notificationType = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->notificationType = static::DISCRIMINATOR_VALUE;
+        $this->notificationType = $notificationType;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProjectKey()
@@ -92,7 +93,7 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNotificationType()
@@ -112,7 +113,7 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -133,7 +134,7 @@ final class DeliveryPayloadModel extends JsonObjectModel implements DeliveryPayl
     /**
      * <p>User-provided identifiers present on the resource for which the Message is created. The value of the identifier stored in the Message corresponds to the one that was set on the resource at the version shown in <code>resourceVersion</code>.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()

@@ -21,13 +21,13 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeIsActive';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isActive;
@@ -37,14 +37,15 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $isActive = null
+        ?bool $isActive = null,
+        ?string $action = null
     ) {
         $this->isActive = $isActive;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
     /**
      * <p>New value to set. Set to <code>true</code> to activate the DiscountCode for all matching Discounts.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsActive()

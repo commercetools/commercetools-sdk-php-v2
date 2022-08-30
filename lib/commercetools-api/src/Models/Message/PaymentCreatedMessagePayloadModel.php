@@ -23,13 +23,13 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'PaymentCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Payment
      */
     protected $payment;
@@ -39,14 +39,15 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Payment $payment = null
+        ?Payment $payment = null,
+        ?string $type = null
     ) {
         $this->payment = $payment;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
     /**
      * <p><a href="ctp:api:type:Payment">Payment</a> that was created.</p>
      *
-
+     *
      * @return null|Payment
      */
     public function getPayment()

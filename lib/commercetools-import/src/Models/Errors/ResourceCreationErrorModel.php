@@ -21,19 +21,19 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
 {
     public const DISCRIMINATOR_VALUE = 'ResourceCreation';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $resource;
@@ -44,15 +44,16 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
      */
     public function __construct(
         ?string $message = null,
-        $resource = null
+        $resource = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->resource = $resource;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -70,7 +71,7 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -88,7 +89,7 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getResource()

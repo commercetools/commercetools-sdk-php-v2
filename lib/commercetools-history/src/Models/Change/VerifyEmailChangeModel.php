@@ -22,13 +22,13 @@ final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmai
 
     public const DISCRIMINATOR_VALUE = 'VerifyEmailChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
@@ -38,14 +38,15 @@ final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmai
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $change = null
+        ?string $change = null,
+        ?string $type = null
     ) {
         $this->change = $change;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -63,7 +64,7 @@ final class VerifyEmailChangeModel extends JsonObjectModel implements VerifyEmai
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()

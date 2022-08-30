@@ -25,19 +25,19 @@ final class ChannelSetAddressCustomTypeActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setAddressCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -48,15 +48,16 @@ final class ChannelSetAddressCustomTypeActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -77,7 +78,7 @@ final class ChannelSetAddressCustomTypeActionModel extends JsonObjectModel imple
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code>.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -98,7 +99,7 @@ final class ChannelSetAddressCustomTypeActionModel extends JsonObjectModel imple
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code>.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

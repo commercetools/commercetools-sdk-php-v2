@@ -20,13 +20,13 @@ use stdClass;
 final class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $label;
@@ -44,7 +44,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -62,7 +62,7 @@ final class AttributePlainEnumValueModel extends JsonObjectModel implements Attr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLabel()

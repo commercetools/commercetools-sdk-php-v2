@@ -21,7 +21,7 @@ final class StagedQuoteDeletedMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteDeleted';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -31,12 +31,13 @@ final class StagedQuoteDeletedMessagePayloadModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()

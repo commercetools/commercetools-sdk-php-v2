@@ -26,31 +26,31 @@ use stdClass;
 final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuoteDraft
 {
     /**
-
+     *
      * @var ?QuoteRequestResourceIdentifier
      */
     protected $quoteRequest;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quoteRequestVersion;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
@@ -76,7 +76,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>QuoteRequest from which the StagedQuote is created.</p>
      *
-
+     *
      * @return null|QuoteRequestResourceIdentifier
      */
     public function getQuoteRequest()
@@ -97,7 +97,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Current version of the QuoteRequest.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuoteRequestVersion()
@@ -117,7 +117,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>User-defined unique identifier for the StagedQuote.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -141,7 +141,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
      * <li>If empty, the Custom Fields on the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> are added to the StagedQuote automatically.</li>
      * </ul>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -163,7 +163,7 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
      * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
      * This reference can point to a State in a custom workflow.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()

@@ -22,25 +22,25 @@ use stdClass;
 final class ProductTypeImportModel extends JsonObjectModel implements ProductTypeImport
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $description;
 
     /**
-
+     *
      * @var ?AttributeDefinitionCollection
      */
     protected $attributes;
@@ -62,7 +62,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -82,7 +82,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     /**
      * <p>Maps to <code>ProductType.name</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -102,7 +102,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     /**
      * <p>Maps to <code>ProductType.description</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDescription()
@@ -122,7 +122,7 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     /**
      * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
      *
-
+     *
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

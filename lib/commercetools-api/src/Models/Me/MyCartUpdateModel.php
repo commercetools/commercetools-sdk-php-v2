@@ -20,13 +20,13 @@ use stdClass;
 final class MyCartUpdateModel extends JsonObjectModel implements MyCartUpdate
 {
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?MyCartUpdateActionCollection
      */
     protected $actions;
@@ -44,7 +44,7 @@ final class MyCartUpdateModel extends JsonObjectModel implements MyCartUpdate
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -62,7 +62,7 @@ final class MyCartUpdateModel extends JsonObjectModel implements MyCartUpdate
     }
 
     /**
-
+     *
      * @return null|MyCartUpdateActionCollection
      */
     public function getActions()

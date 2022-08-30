@@ -22,13 +22,13 @@ use stdClass;
 final class DeliveryAddressDraftModel extends JsonObjectModel implements DeliveryAddressDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $address;
@@ -46,7 +46,7 @@ final class DeliveryAddressDraftModel extends JsonObjectModel implements Deliver
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -64,7 +64,7 @@ final class DeliveryAddressDraftModel extends JsonObjectModel implements Deliver
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getAddress()

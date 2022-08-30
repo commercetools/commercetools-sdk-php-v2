@@ -23,31 +23,31 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
 {
     public const DISCRIMINATOR_VALUE = 'CartScore';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $score;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
-
+     *
      * @var ?PriceFunction
      */
     protected $priceFunction;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isMatching;
@@ -60,17 +60,18 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
         ?int $score = null,
         ?Money $price = null,
         ?PriceFunction $priceFunction = null,
-        ?bool $isMatching = null
+        ?bool $isMatching = null,
+        ?string $type = null
     ) {
         $this->score = $score;
         $this->price = $price;
         $this->priceFunction = $priceFunction;
         $this->isMatching = $isMatching;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -90,7 +91,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     /**
      * <p>Abstract value for categorizing a Cart. The range starts at <code>0</code>. The default price covers <code>0</code>, tiers start at <code>1</code>. See <a href="/../tutorials/shipping-rate">Using Tiered Shipping Rates</a> for details and examples.</p>
      *
-
+     *
      * @return null|int
      */
     public function getScore()
@@ -110,7 +111,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     /**
      * <p>Defines a fixed price for the <code>score</code>.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -131,7 +132,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     /**
      * <p>Dynamically calculates a Price for a range of scores.</p>
      *
-
+     *
      * @return null|PriceFunction
      */
     public function getPriceFunction()
@@ -152,7 +153,7 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsMatching()

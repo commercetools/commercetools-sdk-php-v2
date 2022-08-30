@@ -21,7 +21,7 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
@@ -50,12 +50,13 @@ final class DiscountCodeUpdateActionModel extends JsonObjectModel implements Dis
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()

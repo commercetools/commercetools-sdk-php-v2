@@ -22,13 +22,13 @@ final class DateTimeFieldModel extends JsonObjectModel implements DateTimeField
 {
     public const DISCRIMINATOR_VALUE = 'DateTime';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $value;
@@ -38,16 +38,17 @@ final class DateTimeFieldModel extends JsonObjectModel implements DateTimeField
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DateTimeImmutable $value = null
+        ?DateTimeImmutable $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -65,7 +66,7 @@ final class DateTimeFieldModel extends JsonObjectModel implements DateTimeField
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValue()

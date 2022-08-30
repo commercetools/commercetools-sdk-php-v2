@@ -21,13 +21,13 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
 {
     public const DISCRIMINATOR_VALUE = 'publish';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $scope;
@@ -37,14 +37,15 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $scope = null
+        ?string $scope = null,
+        ?string $action = null
     ) {
         $this->scope = $scope;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     /**
      * <p><code>All</code> or <code>Prices</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getScope()

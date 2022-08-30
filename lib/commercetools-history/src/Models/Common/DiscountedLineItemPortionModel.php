@@ -22,13 +22,13 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
 
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $discount;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $discountedAmount;
@@ -47,7 +47,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getDiscount()
@@ -66,7 +66,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getDiscountedAmount()

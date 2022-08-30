@@ -21,31 +21,31 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'ReferencedResourceNotFound';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -58,17 +58,18 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
         ?string $message = null,
         ?string $typeId = null,
         ?string $id = null,
-        ?string $key = null
+        ?string $key = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->typeId = $typeId;
         $this->id = $id;
         $this->key = $key;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -86,7 +87,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -106,7 +107,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     /**
      * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -124,7 +125,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -142,7 +143,7 @@ final class ReferencedResourceNotFoundErrorModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()

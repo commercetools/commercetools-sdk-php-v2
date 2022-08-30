@@ -23,13 +23,13 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'addDiscountCode';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $code;
@@ -39,14 +39,15 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $code = null
+        ?string $code = null,
+        ?string $action = null
     ) {
         $this->code = $code;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()

@@ -23,25 +23,25 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
 {
     public const DISCRIMINATOR_VALUE = 'CartValue';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $minimumCentAmount;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isMatching;
@@ -53,16 +53,17 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     public function __construct(
         ?int $minimumCentAmount = null,
         ?Money $price = null,
-        ?bool $isMatching = null
+        ?bool $isMatching = null,
+        ?string $type = null
     ) {
         $this->minimumCentAmount = $minimumCentAmount;
         $this->price = $price;
         $this->isMatching = $isMatching;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +83,7 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     /**
      * <p>Minimum total price of a Cart for which a shipping rate applies.</p>
      *
-
+     *
      * @return null|int
      */
     public function getMinimumCentAmount()
@@ -102,7 +103,7 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     /**
      * <p>Fixed shipping rate Price for a CartValue.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -123,7 +124,7 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsMatching()

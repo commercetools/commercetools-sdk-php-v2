@@ -31,61 +31,61 @@ use stdClass;
 final class CustomLineItemImportDraftModel extends JsonObjectModel implements CustomLineItemImportDraft
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $money;
 
     /**
-
+     *
      * @var ?string
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
-
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
-
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
 
     /**
-
+     *
      * @var ?string
      */
     protected $priceMode;
@@ -119,7 +119,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -141,7 +141,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -161,7 +161,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     /**
      * <p>The cost to add to the cart. The amount can be negative.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -180,7 +180,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSlug()
@@ -198,7 +198,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-
+     *
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -216,7 +216,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -235,7 +235,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -256,7 +256,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     /**
      * <p>The custom fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -275,7 +275,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -300,7 +300,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
      * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
      * </ul>
      *
-
+     *
      * @return null|string
      */
     public function getPriceMode()

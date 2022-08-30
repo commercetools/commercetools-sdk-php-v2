@@ -21,13 +21,13 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
 {
     public const DISCRIMINATOR_VALUE = 'recalculate';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $updateProductData;
@@ -37,14 +37,15 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $updateProductData = null
+        ?bool $updateProductData = null,
+        ?string $action = null
     ) {
         $this->updateProductData = $updateProductData;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getUpdateProductData()

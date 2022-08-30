@@ -23,13 +23,13 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'setLocalizedDescription';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $localizedDescription;
@@ -39,14 +39,15 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $localizedDescription = null
+        ?LocalizedString $localizedDescription = null,
+        ?string $action = null
     ) {
         $this->localizedDescription = $localizedDescription;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class ShippingMethodSetLocalizedDescriptionActionModel extends JsonObjectM
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()

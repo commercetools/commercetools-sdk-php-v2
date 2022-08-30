@@ -22,25 +22,25 @@ use stdClass;
 final class ProductDiscountMatchQueryModel extends JsonObjectModel implements ProductDiscountMatchQuery
 {
     /**
-
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?QueryPrice
      */
     protected $price;
@@ -64,7 +64,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     /**
      * <p>ID of the specified Product.</p>
      *
-
+     *
      * @return null|string
      */
     public function getProductId()
@@ -84,7 +84,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     /**
      * <p>ID of the specified Product Variant.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -105,7 +105,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
      * <p>Controls which <a href="/../api/projects/productProjections#current--staged">projected representation</a> is applied for the query.
      * Set to <code>true</code> for the <code>staged</code> Product Projection of the specified Product Variant, set to <code>false</code> for the <code>current</code> one.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -125,7 +125,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     /**
      * <p>Specified Price of the specified Product Variant.</p>
      *
-
+     *
      * @return null|QueryPrice
      */
     public function getPrice()

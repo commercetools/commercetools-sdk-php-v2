@@ -23,13 +23,13 @@ final class CustomerAddressChangedMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'CustomerAddressChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $address;
@@ -39,14 +39,15 @@ final class CustomerAddressChangedMessagePayloadModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Address $address = null
+        ?Address $address = null,
+        ?string $type = null
     ) {
         $this->address = $address;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class CustomerAddressChangedMessagePayloadModel extends JsonObjectModel im
     /**
      * <p><a href="ctp:api:type:Address">Address</a> that was set during the <a href="ctp:api:type:CustomerChangeAddressAction">Change Address</a> update action.</p>
      *
-
+     *
      * @return null|Address
      */
     public function getAddress()

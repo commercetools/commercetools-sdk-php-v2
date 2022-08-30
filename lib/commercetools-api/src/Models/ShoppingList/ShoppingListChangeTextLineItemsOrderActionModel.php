@@ -21,13 +21,13 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'changeTextLineItemsOrder';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?array
      */
     protected $textLineItemOrder;
@@ -37,14 +37,15 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $textLineItemOrder = null
+        ?array $textLineItemOrder = null,
+        ?string $action = null
     ) {
         $this->textLineItemOrder = $textLineItemOrder;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectMo
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getTextLineItemOrder()

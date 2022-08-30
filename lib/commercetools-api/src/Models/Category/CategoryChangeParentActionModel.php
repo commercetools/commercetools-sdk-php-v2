@@ -21,13 +21,13 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'changeParent';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?CategoryResourceIdentifier
      */
     protected $parent;
@@ -37,14 +37,15 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CategoryResourceIdentifier $parent = null
+        ?CategoryResourceIdentifier $parent = null,
+        ?string $action = null
     ) {
         $this->parent = $parent;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     /**
      * <p>New value to set as parent.</p>
      *
-
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()

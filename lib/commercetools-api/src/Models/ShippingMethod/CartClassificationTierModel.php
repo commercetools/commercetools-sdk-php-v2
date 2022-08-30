@@ -23,25 +23,25 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
 {
     public const DISCRIMINATOR_VALUE = 'CartClassification';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $value;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isMatching;
@@ -53,16 +53,17 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     public function __construct(
         ?string $value = null,
         ?Money $price = null,
-        ?bool $isMatching = null
+        ?bool $isMatching = null,
+        ?string $type = null
     ) {
         $this->value = $value;
         $this->price = $price;
         $this->isMatching = $isMatching;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +83,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     /**
      * <p><code>key</code> selected from the <code>values</code> of the <a href="/projects/project#cartclassificationtype">CartClassificationType</a> configured in the Project.</p>
      *
-
+     *
      * @return null|string
      */
     public function getValue()
@@ -102,7 +103,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     /**
      * <p>Fixed shipping rate for the selected classification.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -123,7 +124,7 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     /**
      * <p>Appears in response to <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> if the shipping rate matches the search query.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsMatching()

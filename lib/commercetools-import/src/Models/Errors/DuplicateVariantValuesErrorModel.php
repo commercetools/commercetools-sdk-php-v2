@@ -21,19 +21,19 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateVariantValues';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?VariantValues
      */
     protected $variantValues;
@@ -44,15 +44,16 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?string $message = null,
-        ?VariantValues $variantValues = null
+        ?VariantValues $variantValues = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->variantValues = $variantValues;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -70,7 +71,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -90,7 +91,7 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     /**
      * <p>The offending variant values.</p>
      *
-
+     *
      * @return null|VariantValues
      */
     public function getVariantValues()

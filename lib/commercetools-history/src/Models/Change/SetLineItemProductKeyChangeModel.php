@@ -24,43 +24,43 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemProductKeyChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $variant;
 
     /**
-
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -75,7 +75,8 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
         ?string $lineItemId = null,
         ?string $variant = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
@@ -83,11 +84,11 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
         $this->variant = $variant;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -107,7 +108,7 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setLineItemProductKey</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -125,7 +126,7 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -144,7 +145,7 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -162,7 +163,7 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getVariant()
@@ -180,7 +181,7 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -198,7 +199,7 @@ final class SetLineItemProductKeyChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNextValue()

@@ -23,13 +23,13 @@ final class StateSetDescriptionActionModel extends JsonObjectModel implements St
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
@@ -39,14 +39,15 @@ final class StateSetDescriptionActionModel extends JsonObjectModel implements St
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $description = null
+        ?LocalizedString $description = null,
+        ?string $action = null
     ) {
         $this->description = $description;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -67,7 +68,7 @@ final class StateSetDescriptionActionModel extends JsonObjectModel implements St
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

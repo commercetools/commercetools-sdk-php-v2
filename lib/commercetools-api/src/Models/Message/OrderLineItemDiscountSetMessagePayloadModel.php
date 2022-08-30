@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
+use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
 use Commercetools\Api\Models\Common\Money;
@@ -26,34 +27,40 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemDiscountSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $totalPrice;
 
     /**
-
+     *
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
+
+    /**
+     *
+     * @var ?MethodTaxedPriceCollection
+     */
+    protected $taxedPricePortions;
 
 
     /**
@@ -63,17 +70,20 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         ?string $lineItemId = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?Money $totalPrice = null,
-        ?TaxedItemPrice $taxedPrice = null
+        ?TaxedItemPrice $taxedPrice = null,
+        ?MethodTaxedPriceCollection $taxedPricePortions = null,
+        ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->taxedPricePortions = $taxedPricePortions;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +103,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>Unique identifier for the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -113,7 +123,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
      *
-
+     *
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -133,7 +143,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getTotalPrice()
@@ -154,7 +164,7 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     /**
      * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
-
+     *
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -170,6 +180,26 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         }
 
         return $this->taxedPrice;
+    }
+
+    /**
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>..</p>
+     *
+     *
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        if (is_null($this->taxedPricePortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxedPricePortions = MethodTaxedPriceCollection::fromArray($data);
+        }
+
+        return $this->taxedPricePortions;
     }
 
 
@@ -203,5 +233,13 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
+    }
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
     }
 }

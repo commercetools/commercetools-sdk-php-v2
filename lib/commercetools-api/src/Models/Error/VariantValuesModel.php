@@ -22,19 +22,19 @@ use stdClass;
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?PriceDraftCollection
      */
     protected $prices;
 
     /**
-
+     *
      * @var ?AttributeCollection
      */
     protected $attributes;
@@ -54,7 +54,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -72,7 +72,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
-
+     *
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -90,7 +90,7 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
-
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()

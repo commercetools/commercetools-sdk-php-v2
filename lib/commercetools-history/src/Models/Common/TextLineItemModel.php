@@ -22,37 +22,37 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $addedAt;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
@@ -79,7 +79,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAddedAt()
@@ -97,7 +97,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -116,7 +116,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -135,7 +135,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -153,7 +153,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -172,7 +172,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()

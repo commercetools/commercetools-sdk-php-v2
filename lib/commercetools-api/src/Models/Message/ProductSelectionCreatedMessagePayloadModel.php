@@ -23,13 +23,13 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?IndividualProductSelectionType
      */
     protected $productSelection;
@@ -39,14 +39,15 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?IndividualProductSelectionType $productSelection = null
+        ?IndividualProductSelectionType $productSelection = null,
+        ?string $type = null
     ) {
         $this->productSelection = $productSelection;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class ProductSelectionCreatedMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>The <code>type</code> and <code>name</code> of the individual Product Selection.</p>
      *
-
+     *
      * @return null|IndividualProductSelectionType
      */
     public function getProductSelection()

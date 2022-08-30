@@ -20,19 +20,19 @@ use stdClass;
 final class FacetTermModel extends JsonObjectModel implements FacetTerm
 {
     /**
-
+     *
      * @var ?mixed
      */
     protected $term;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $productCount;
@@ -52,7 +52,7 @@ final class FacetTermModel extends JsonObjectModel implements FacetTerm
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getTerm()
@@ -70,7 +70,7 @@ final class FacetTermModel extends JsonObjectModel implements FacetTerm
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -88,7 +88,7 @@ final class FacetTermModel extends JsonObjectModel implements FacetTerm
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getProductCount()

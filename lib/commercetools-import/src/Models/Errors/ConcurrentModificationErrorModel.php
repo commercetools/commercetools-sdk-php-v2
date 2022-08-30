@@ -21,31 +21,31 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'ConcurrentModification';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?int
      */
     protected $specifiedVersion;
 
     /**
-
+     *
      * @var ?int
      */
     protected $currentVersion;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $conflictedResource;
@@ -58,17 +58,18 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
         ?string $message = null,
         ?int $specifiedVersion = null,
         ?int $currentVersion = null,
-        $conflictedResource = null
+        $conflictedResource = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->specifiedVersion = $specifiedVersion;
         $this->currentVersion = $currentVersion;
         $this->conflictedResource = $conflictedResource;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -86,7 +87,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -106,7 +107,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     /**
      * <p>The version specified in the failed request.</p>
      *
-
+     *
      * @return null|int
      */
     public function getSpecifiedVersion()
@@ -126,7 +127,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     /**
      * <p>The current version of the resource.</p>
      *
-
+     *
      * @return null|int
      */
     public function getCurrentVersion()
@@ -146,7 +147,7 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     /**
      * <p>The resource in conflict.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getConflictedResource()

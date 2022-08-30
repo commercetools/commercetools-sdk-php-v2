@@ -21,31 +21,31 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setAssetCustomField';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
@@ -58,17 +58,18 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
         ?string $assetId = null,
         ?string $assetKey = null,
         ?string $name = null,
-        $value = null
+        $value = null,
+        ?string $action = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->name = $name;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -88,7 +89,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -108,7 +109,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -128,7 +129,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -150,7 +151,7 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()

@@ -22,19 +22,19 @@ use stdClass;
 final class MissingImagesModel extends JsonObjectModel implements MissingImages
 {
     /**
-
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $imageCount;
@@ -54,7 +54,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     }
 
     /**
-
+     *
      * @return null|ProductReference
      */
     public function getProduct()
@@ -75,7 +75,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     /**
      * <p>ID of the variant</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -95,7 +95,7 @@ final class MissingImagesModel extends JsonObjectModel implements MissingImages
     /**
      * <p>Number of images the variant contains.</p>
      *
-
+     *
      * @return null|int
      */
     public function getImageCount()

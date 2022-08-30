@@ -23,13 +23,13 @@ final class OrderCustomLineItemAddedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemAdded';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?CustomLineItem
      */
     protected $customLineItem;
@@ -39,14 +39,15 @@ final class OrderCustomLineItemAddedMessagePayloadModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomLineItem $customLineItem = null
+        ?CustomLineItem $customLineItem = null,
+        ?string $type = null
     ) {
         $this->customLineItem = $customLineItem;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class OrderCustomLineItemAddedMessagePayloadModel extends JsonObjectModel 
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
      *
-
+     *
      * @return null|CustomLineItem
      */
     public function getCustomLineItem()

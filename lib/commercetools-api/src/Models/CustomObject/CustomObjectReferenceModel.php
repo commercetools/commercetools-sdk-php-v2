@@ -23,19 +23,19 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
 {
     public const DISCRIMINATOR_VALUE = 'key-value-document';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?CustomObject
      */
     protected $obj;
@@ -46,17 +46,18 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
      */
     public function __construct(
         ?string $id = null,
-        ?CustomObject $obj = null
+        ?CustomObject $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -76,7 +77,7 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomObject">CustomObject</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -96,7 +97,7 @@ final class CustomObjectReferenceModel extends JsonObjectModel implements Custom
     /**
      * <p>Contains the representation of the expanded CustomObject. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomObjects.</p>
      *
-
+     *
      * @return null|CustomObject
      */
     public function getObj()

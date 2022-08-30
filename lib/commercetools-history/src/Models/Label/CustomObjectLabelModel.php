@@ -22,19 +22,19 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
 
     public const DISCRIMINATOR_VALUE = 'CustomObjectLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $container;
@@ -45,15 +45,16 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
      */
     public function __construct(
         ?string $key = null,
-        ?string $container = null
+        ?string $container = null,
+        ?string $type = null
     ) {
         $this->key = $key;
         $this->container = $container;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -71,7 +72,7 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -89,7 +90,7 @@ final class CustomObjectLabelModel extends JsonObjectModel implements CustomObje
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getContainer()

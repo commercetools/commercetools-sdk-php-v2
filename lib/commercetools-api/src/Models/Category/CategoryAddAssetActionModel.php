@@ -23,19 +23,19 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
 {
     public const DISCRIMINATOR_VALUE = 'addAsset';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?AssetDraft
      */
     protected $asset;
 
     /**
-
+     *
      * @var ?int
      */
     protected $position;
@@ -46,15 +46,16 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
      */
     public function __construct(
         ?AssetDraft $asset = null,
-        ?int $position = null
+        ?int $position = null,
+        ?string $action = null
     ) {
         $this->asset = $asset;
         $this->position = $position;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     /**
      * <p>Value to append.</p>
      *
-
+     *
      * @return null|AssetDraft
      */
     public function getAsset()
@@ -95,7 +96,7 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     /**
      * <p>Position in the array at which the Asset should be put. When specified, the value must be between <code>0</code> and the total number of Assets minus <code>1</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getPosition()

@@ -21,25 +21,25 @@ final class OrderSetDeliveryAddressCustomFieldActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'setDeliveryAddressCustomField';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
@@ -51,16 +51,17 @@ final class OrderSetDeliveryAddressCustomFieldActionModel extends JsonObjectMode
     public function __construct(
         ?string $deliveryId = null,
         ?string $name = null,
-        $value = null
+        $value = null,
+        ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->name = $name;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -78,7 +79,7 @@ final class OrderSetDeliveryAddressCustomFieldActionModel extends JsonObjectMode
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -98,7 +99,7 @@ final class OrderSetDeliveryAddressCustomFieldActionModel extends JsonObjectMode
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -120,7 +121,7 @@ final class OrderSetDeliveryAddressCustomFieldActionModel extends JsonObjectMode
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()

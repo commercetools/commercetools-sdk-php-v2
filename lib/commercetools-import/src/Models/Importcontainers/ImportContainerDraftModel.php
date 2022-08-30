@@ -20,13 +20,13 @@ use stdClass;
 final class ImportContainerDraftModel extends JsonObjectModel implements ImportContainerDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $resourceType;
@@ -47,7 +47,7 @@ final class ImportContainerDraftModel extends JsonObjectModel implements ImportC
      * <p>User-defined unique identifier of the ImportContainer.
      * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -68,7 +68,7 @@ final class ImportContainerDraftModel extends JsonObjectModel implements ImportC
      * <p>The <a href="#importresourcetype">resource type</a> to be imported.
      * If not given, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getResourceType()

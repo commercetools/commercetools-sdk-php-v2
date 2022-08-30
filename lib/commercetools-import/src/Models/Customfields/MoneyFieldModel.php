@@ -23,13 +23,13 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
 {
     public const DISCRIMINATOR_VALUE = 'Money';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $value;
@@ -39,16 +39,17 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TypedMoney $value = null
+        ?TypedMoney $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class MoneyFieldModel extends JsonObjectModel implements MoneyField
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getValue()

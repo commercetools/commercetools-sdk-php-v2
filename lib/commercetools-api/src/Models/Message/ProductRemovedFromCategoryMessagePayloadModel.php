@@ -23,19 +23,19 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'ProductRemovedFromCategory';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?CategoryReference
      */
     protected $category;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
      */
     public function __construct(
         ?CategoryReference $category = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $type = null
     ) {
         $this->category = $category;
         $this->staged = $staged;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
     /**
      * <p><a href="ctp:api:type:Category">Category</a> the <a href="ctp:api:type:Product">Product</a> was removed from.</p>
      *
-
+     *
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -95,7 +96,7 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
     /**
      * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

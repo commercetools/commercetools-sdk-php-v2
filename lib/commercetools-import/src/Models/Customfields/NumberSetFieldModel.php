@@ -21,13 +21,13 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
 {
     public const DISCRIMINATOR_VALUE = 'NumberSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?array
      */
     protected $value;
@@ -37,16 +37,17 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $value = null
+        ?array $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -64,7 +65,7 @@ final class NumberSetFieldModel extends JsonObjectModel implements NumberSetFiel
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getValue()

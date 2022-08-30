@@ -26,37 +26,37 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemDistributionChannelChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?string
      */
     protected $variant;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $previousValue;
@@ -70,18 +70,19 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
         ?LocalizedString $lineItem = null,
         ?string $variant = null,
         ?Reference $nextValue = null,
-        ?Reference $previousValue = null
+        ?Reference $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->variant = $variant;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -101,7 +102,7 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
     /**
      * <p>Update action for <code>setLineItemDistributionChannel</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -119,7 +120,7 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -138,7 +139,7 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getVariant()
@@ -156,7 +157,7 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getNextValue()
@@ -175,7 +176,7 @@ final class SetLineItemDistributionChannelChangeModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getPreviousValue()

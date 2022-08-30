@@ -20,25 +20,25 @@ use stdClass;
 final class CustomObjectDraftModel extends JsonObjectModel implements CustomObjectDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $container;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
@@ -62,7 +62,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     /**
      * <p>Namespace to group CustomObjects.</p>
      *
-
+     *
      * @return null|string
      */
     public function getContainer()
@@ -82,7 +82,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     /**
      * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -104,7 +104,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
      * For values of type <a href="ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed.
      * If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()
@@ -124,7 +124,7 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     /**
      * <p>Current version of the CustomObject.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()

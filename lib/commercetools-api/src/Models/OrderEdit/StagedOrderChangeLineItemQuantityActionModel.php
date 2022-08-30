@@ -27,31 +27,31 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $externalPrice;
 
     /**
-
+     *
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
@@ -64,17 +64,18 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
         ?string $lineItemId = null,
         ?int $quantity = null,
         ?Money $externalPrice = null,
-        ?ExternalLineItemTotalPrice $externalTotalPrice = null
+        ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -92,7 +93,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -110,7 +111,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -131,7 +132,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getExternalPrice()
@@ -150,7 +151,7 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()

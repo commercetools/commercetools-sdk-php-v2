@@ -26,19 +26,19 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
 
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $address;
 
     /**
-
+     *
      * @var ?ParcelCollection
      */
     protected $parcels;
@@ -59,7 +59,7 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -77,7 +77,7 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getAddress()
@@ -96,7 +96,7 @@ final class DeliveryChangeValueModel extends JsonObjectModel implements Delivery
     }
 
     /**
-
+     *
      * @return null|ParcelCollection
      */
     public function getParcels()

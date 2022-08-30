@@ -21,19 +21,19 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'removePrice';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -44,15 +44,16 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
      */
     public function __construct(
         ?string $priceId = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     /**
      * <p>The <code>id</code> of the EmbeddedPrice to remove.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -92,7 +93,7 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     /**
      * <p>If <code>true</code>, only the staged EmbeddedPrice is removed. If <code>false</code>, both the current and staged EmbeddedPrice are removed.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

@@ -21,19 +21,19 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'addBillingAddressId';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $addressId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $addressKey;
@@ -44,15 +44,16 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
      */
     public function __construct(
         ?string $addressId = null,
-        ?string $addressKey = null
+        ?string $addressKey = null,
+        ?string $action = null
     ) {
         $this->addressId = $addressId;
         $this->addressKey = $addressKey;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,7 +71,7 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAddressId()
@@ -88,7 +89,7 @@ final class MyCustomerAddBillingAddressIdActionModel extends JsonObjectModel imp
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAddressKey()

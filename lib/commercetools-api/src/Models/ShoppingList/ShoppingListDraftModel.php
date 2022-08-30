@@ -28,67 +28,67 @@ use stdClass;
 final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingListDraft
 {
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?ShoppingListLineItemDraftCollection
      */
     protected $lineItems;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?TextLineItemDraftCollection
      */
     protected $textLineItems;
 
     /**
-
+     *
      * @var ?string
      */
     protected $anonymousId;
 
     /**
-
+     *
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -126,7 +126,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     /**
      * <p>The custom fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -145,7 +145,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -166,7 +166,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
-
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -184,7 +184,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -205,7 +205,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     /**
      * <p>User-defined unique identifier for the ShoppingList.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -223,7 +223,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-
+     *
      * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems()
@@ -241,7 +241,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -264,7 +264,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
      * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -283,7 +283,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-
+     *
      * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems()
@@ -303,7 +303,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     /**
      * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
-
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -321,7 +321,7 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-
+     *
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

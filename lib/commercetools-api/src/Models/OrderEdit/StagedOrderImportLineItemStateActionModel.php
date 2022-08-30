@@ -24,19 +24,19 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'importLineItemState';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
@@ -47,15 +47,16 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?ItemStateCollection $state = null
+        ?ItemStateCollection $state = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->state = $state;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -73,7 +74,7 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -91,7 +92,7 @@ final class StagedOrderImportLineItemStateActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|ItemStateCollection
      */
     public function getState()

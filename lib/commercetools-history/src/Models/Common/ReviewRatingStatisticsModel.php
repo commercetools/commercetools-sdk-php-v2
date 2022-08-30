@@ -22,31 +22,31 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
 
 
     /**
-
+     *
      * @var ?int
      */
     protected $averageRating;
 
     /**
-
+     *
      * @var ?int
      */
     protected $highestRating;
 
     /**
-
+     *
      * @var ?int
      */
     protected $lowestRating;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $ratingsDistribution;
@@ -73,7 +73,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     /**
      * <p>Average rating of one target This number is rounded with 5 decimals.</p>
      *
-
+     *
      * @return null|int
      */
     public function getAverageRating()
@@ -93,7 +93,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     /**
      * <p>Highest rating of one target</p>
      *
-
+     *
      * @return null|int
      */
     public function getHighestRating()
@@ -113,7 +113,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     /**
      * <p>Lowest rating of one target</p>
      *
-
+     *
      * @return null|int
      */
     public function getLowestRating()
@@ -133,7 +133,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     /**
      * <p>Number of ratings taken into account</p>
      *
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -153,7 +153,7 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     /**
      * <p>The full distribution of the ratings. The keys are the different ratings and the values are the count of reviews having this rating. Only the used ratings appear in this object.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getRatingsDistribution()

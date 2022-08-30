@@ -133,6 +133,12 @@ final class CartBuilder implements Builder
 
     /**
 
+     * @var null|TaxedPrice|TaxedPriceBuilder
+     */
+    private $taxedShippingPrice;
+
+    /**
+
      * @var ?string
      */
     private $cartState;
@@ -148,6 +154,18 @@ final class CartBuilder implements Builder
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
+
+    /**
+
+     * @var ?string
+     */
+    private $shippingMode;
+
+    /**
+
+     * @var ?ShippingCollection
+     */
+    private $shipping;
 
     /**
 
@@ -412,6 +430,18 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
+     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice()
+    {
+        return $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice;
+    }
+
+    /**
 
      * @return null|string
      */
@@ -438,6 +468,29 @@ final class CartBuilder implements Builder
     public function getBillingAddress()
     {
         return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+    }
+
+    /**
+     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        return $this->shippingMode;
+    }
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method of a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>It is automatically updated after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 
     /**
@@ -506,7 +559,8 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Set automatically once the ShippingMethod is set.</p>
+     * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Set automatically once the ShippingMethod is set.</p>
      *
 
      * @return null|ShippingInfo
@@ -797,6 +851,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPrice $taxedShippingPrice
+     * @return $this
+     */
+    public function withTaxedShippingPrice(?TaxedPrice $taxedShippingPrice)
+    {
+        $this->taxedShippingPrice = $taxedShippingPrice;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $cartState
      * @return $this
      */
@@ -825,6 +890,28 @@ final class CartBuilder implements Builder
     public function withBillingAddress(?Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingMode
+     * @return $this
+     */
+    public function withShippingMode(?string $shippingMode)
+    {
+        $this->shippingMode = $shippingMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShippingCollection $shipping
+     * @return $this
+     */
+    public function withShipping(?ShippingCollection $shipping)
+    {
+        $this->shipping = $shipping;
 
         return $this;
     }
@@ -1083,6 +1170,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @deprecated use withTaxedShippingPrice() instead
+     * @return $this
+     */
+    public function withTaxedShippingPriceBuilder(?TaxedPriceBuilder $taxedShippingPrice)
+    {
+        $this->taxedShippingPrice = $taxedShippingPrice;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withShippingAddress() instead
      * @return $this
      */
@@ -1177,9 +1275,12 @@ final class CartBuilder implements Builder
             $this->customLineItems,
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
             $this->cartState,
             $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
+            $this->shippingMode,
+            $this->shipping,
             $this->inventoryMode,
             $this->taxMode,
             $this->taxRoundingMode,

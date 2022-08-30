@@ -23,19 +23,19 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
 {
     public const DISCRIMINATOR_VALUE = 'type';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?Type
      */
     protected $obj;
@@ -46,17 +46,18 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
      */
     public function __construct(
         ?string $id = null,
-        ?Type $obj = null
+        ?Type $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -76,7 +77,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Type">Type</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -97,7 +98,7 @@ final class TypeReferenceModel extends JsonObjectModel implements TypeReference
      * <p>Contains the representation of the expanded Type.
      * Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Types.</p>
      *
-
+     *
      * @return null|Type
      */
     public function getObj()

@@ -25,19 +25,19 @@ final class StagedOrderSetParcelTrackingDataActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setParcelTrackingData';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
@@ -48,15 +48,16 @@ final class StagedOrderSetParcelTrackingDataActionModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $parcelId = null,
-        ?TrackingData $trackingData = null
+        ?TrackingData $trackingData = null,
+        ?string $action = null
     ) {
         $this->parcelId = $parcelId;
         $this->trackingData = $trackingData;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class StagedOrderSetParcelTrackingDataActionModel extends JsonObjectModel 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -92,7 +93,7 @@ final class StagedOrderSetParcelTrackingDataActionModel extends JsonObjectModel 
     }
 
     /**
-
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()

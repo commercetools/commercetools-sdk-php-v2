@@ -21,7 +21,7 @@ final class CartValueTypeModel extends JsonObjectModel implements CartValueType
 {
     public const DISCRIMINATOR_VALUE = 'CartValue';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -31,12 +31,13 @@ final class CartValueTypeModel extends JsonObjectModel implements CartValueType
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()

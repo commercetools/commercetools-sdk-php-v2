@@ -22,43 +22,43 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $money;
 
     /**
-
+     *
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $totalPrice;
 
     /**
-
+     *
      * @var ?string
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
@@ -89,7 +89,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>The unique ID of this CustomLineItem.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -107,7 +107,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -126,7 +126,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -145,7 +145,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-
+     *
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -164,7 +164,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getTotalPrice()
@@ -185,7 +185,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSlug()
@@ -205,7 +205,7 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     /**
      * <p>The amount of a CustomLineItem in the cart. Must be a positive integer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()

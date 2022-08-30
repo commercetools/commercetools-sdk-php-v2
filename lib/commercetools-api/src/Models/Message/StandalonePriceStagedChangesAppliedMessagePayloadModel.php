@@ -23,13 +23,13 @@ final class StandalonePriceStagedChangesAppliedMessagePayloadModel extends JsonO
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceStagedChangesApplied';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?StagedStandalonePrice
      */
     protected $stagedChanges;
@@ -39,14 +39,15 @@ final class StandalonePriceStagedChangesAppliedMessagePayloadModel extends JsonO
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StagedStandalonePrice $stagedChanges = null
+        ?StagedStandalonePrice $stagedChanges = null,
+        ?string $type = null
     ) {
         $this->stagedChanges = $stagedChanges;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class StandalonePriceStagedChangesAppliedMessagePayloadModel extends JsonO
     /**
      * <p>Applied changes of the <a href="/../api/projects/standalone-prices">StandalonePrice</a> after the <a href="ctp:api:types:StandalonePriceApplyStagedChangesAction">Apply Staged Changes</a> update action.</p>
      *
-
+     *
      * @return null|StagedStandalonePrice
      */
     public function getStagedChanges()

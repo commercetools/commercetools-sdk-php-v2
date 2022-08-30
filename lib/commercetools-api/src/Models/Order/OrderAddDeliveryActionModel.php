@@ -25,31 +25,37 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
 {
     public const DISCRIMINATOR_VALUE = 'addDelivery';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
+    /**
+     *
      * @var ?BaseAddress
      */
     protected $address;
 
     /**
-
+     *
      * @var ?ParcelDraftCollection
      */
     protected $parcels;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -60,19 +66,22 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
      */
     public function __construct(
         ?DeliveryItemCollection $items = null,
+        ?string $shippingKey = null,
         ?BaseAddress $address = null,
         ?ParcelDraftCollection $parcels = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $action = null
     ) {
         $this->items = $items;
+        $this->shippingKey = $shippingKey;
         $this->address = $address;
         $this->parcels = $parcels;
         $this->custom = $custom;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -90,7 +99,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -108,7 +117,27 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
 
+        return $this->shippingKey;
+    }
+
+    /**
+     *
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -127,7 +156,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|ParcelDraftCollection
      */
     public function getParcels()
@@ -147,7 +176,7 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -172,6 +201,14 @@ final class OrderAddDeliveryActionModel extends JsonObjectModel implements Order
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 
     /**

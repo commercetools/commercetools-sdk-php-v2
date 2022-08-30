@@ -29,49 +29,49 @@ use stdClass;
 final class MyPaymentModel extends JsonObjectModel implements MyPayment
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?string
      */
     protected $anonymousId;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $amountPlanned;
 
     /**
-
+     *
      * @var ?PaymentMethodInfo
      */
     protected $paymentMethodInfo;
 
     /**
-
+     *
      * @var ?TransactionCollection
      */
     protected $transactions;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -103,7 +103,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     /**
      * <p>Unique identifier of the MyPayment.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -121,7 +121,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -141,7 +141,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
-
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -162,7 +162,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
-
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -183,7 +183,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getAmountPlanned()
@@ -202,7 +202,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-
+     *
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -224,7 +224,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
      * <p>A list of financial transactions of different TransactionTypes
      * with different TransactionStates.</p>
      *
-
+     *
      * @return null|TransactionCollection
      */
     public function getTransactions()
@@ -242,7 +242,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

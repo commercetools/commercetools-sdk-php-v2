@@ -26,67 +26,67 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
 {
     public const DISCRIMINATOR_VALUE = 'Message';
     /**
-
+     *
      * @var ?string
      */
     protected $projectKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $notificationType;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
-
+     *
      * @var ?PayloadNotIncluded
      */
     protected $payloadNotIncluded;
@@ -105,7 +105,8 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
         ?DateTimeImmutable $lastModifiedAt = null,
         ?int $sequenceNumber = null,
         ?int $resourceVersion = null,
-        ?PayloadNotIncluded $payloadNotIncluded = null
+        ?PayloadNotIncluded $payloadNotIncluded = null,
+        ?string $notificationType = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
@@ -117,11 +118,11 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
         $this->sequenceNumber = $sequenceNumber;
         $this->resourceVersion = $resourceVersion;
         $this->payloadNotIncluded = $payloadNotIncluded;
-        $this->notificationType = static::DISCRIMINATOR_VALUE;
+        $this->notificationType = $notificationType ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProjectKey()
@@ -139,7 +140,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNotificationType()
@@ -159,7 +160,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -180,7 +181,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     /**
      * <p>User-provided identifiers present on the resource for which the Message is created. The value of the identifier stored in the Message corresponds to the one that was set on the resource at the version shown in <code>resourceVersion</code>.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -199,7 +200,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -217,7 +218,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -235,7 +236,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -257,7 +258,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -279,7 +280,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -297,7 +298,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -315,7 +316,7 @@ final class MessageDeliveryPayloadModel extends JsonObjectModel implements Messa
     }
 
     /**
-
+     *
      * @return null|PayloadNotIncluded
      */
     public function getPayloadNotIncluded()

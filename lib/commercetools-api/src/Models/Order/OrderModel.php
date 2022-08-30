@@ -13,6 +13,7 @@ use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
+use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingInfoModel;
 use Commercetools\Api\Models\Cart\ShippingRateInput;
@@ -56,181 +57,199 @@ use stdClass;
 final class OrderModel extends JsonObjectModel implements Order
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $completedAt;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderNumber;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customerId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customerEmail;
 
     /**
-
+     *
      * @var ?string
      */
     protected $anonymousId;
 
     /**
-
+     *
      * @var ?StoreKeyReference
      */
     protected $store;
 
     /**
-
+     *
      * @var ?LineItemCollection
      */
     protected $lineItems;
 
     /**
-
+     *
      * @var ?CustomLineItemCollection
      */
     protected $customLineItems;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
-
+     *
      * @var ?TaxedPrice
      */
     protected $taxedPrice;
 
     /**
+     *
+     * @var ?TaxedPrice
+     */
+    protected $taxedShippingPrice;
 
+    /**
+     *
      * @var ?Address
      */
     protected $shippingAddress;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $billingAddress;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $shippingMode;
 
+    /**
+     *
+     * @var ?ShippingCollection
+     */
+    protected $shipping;
+
+    /**
+     *
      * @var ?string
      */
     protected $taxMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxRoundingMode;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderState;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $paymentState;
 
     /**
-
+     *
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
 
     /**
-
+     *
      * @var ?SyncInfoCollection
      */
     protected $syncInfo;
 
     /**
-
+     *
      * @var ?ReturnInfoCollection
      */
     protected $returnInfo;
 
     /**
-
+     *
      * @var ?DiscountCodeInfoCollection
      */
     protected $discountCodes;
@@ -242,67 +261,67 @@ final class OrderModel extends JsonObjectModel implements Order
     protected $lastMessageSequenceNumber;
 
     /**
-
+     *
      * @var ?CartReference
      */
     protected $cart;
 
     /**
-
+     *
      * @var ?QuoteReference
      */
     protected $quote;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?PaymentInfo
      */
     protected $paymentInfo;
 
     /**
-
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
-
+     *
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $origin;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxCalculationMode;
 
     /**
-
+     *
      * @var ?ShippingRateInput
      */
     protected $shippingRateInput;
 
     /**
-
+     *
      * @var ?AddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
-
+     *
      * @var ?CartDiscountReferenceCollection
      */
     protected $refusedGifts;
@@ -328,8 +347,11 @@ final class OrderModel extends JsonObjectModel implements Order
         ?CustomLineItemCollection $customLineItems = null,
         ?TypedMoney $totalPrice = null,
         ?TaxedPrice $taxedPrice = null,
+        ?TaxedPrice $taxedShippingPrice = null,
         ?Address $shippingAddress = null,
         ?Address $billingAddress = null,
+        ?string $shippingMode = null,
+        ?ShippingCollection $shipping = null,
         ?string $taxMode = null,
         ?string $taxRoundingMode = null,
         ?CustomerGroupReference $customerGroup = null,
@@ -371,8 +393,11 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->customLineItems = $customLineItems;
         $this->totalPrice = $totalPrice;
         $this->taxedPrice = $taxedPrice;
+        $this->taxedShippingPrice = $taxedShippingPrice;
         $this->shippingAddress = $shippingAddress;
         $this->billingAddress = $billingAddress;
+        $this->shippingMode = $shippingMode;
+        $this->shipping = $shipping;
         $this->taxMode = $taxMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->customerGroup = $customerGroup;
@@ -402,7 +427,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Unique identifier of the Order.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -422,7 +447,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>The current version of the order.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -440,7 +465,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -462,7 +487,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -486,7 +511,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -507,7 +532,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -528,7 +553,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>This field will only be present if it was set for Order Import</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt()
@@ -555,7 +580,7 @@ final class OrderModel extends JsonObjectModel implements Order
      * It should be unique across a project.
      * Once it's set it cannot be changed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderNumber()
@@ -573,7 +598,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomerId()
@@ -591,7 +616,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomerEmail()
@@ -611,7 +636,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
-
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -629,7 +654,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -648,7 +673,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|LineItemCollection
      */
     public function getLineItems()
@@ -666,7 +691,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems()
@@ -684,7 +709,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -705,7 +730,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>The taxes are calculated based on the shipping address.</p>
      *
-
+     *
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -724,7 +749,32 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
+     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
+     *
+     *
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice()
+    {
+        if (is_null($this->taxedShippingPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TAXED_SHIPPING_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
 
+            $this->taxedShippingPrice = TaxedPriceModel::of($data);
+        }
+
+        return $this->taxedShippingPrice;
+    }
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method.</p>
+     * <p>For <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>, it is updated automatically after the Shipping Methods are added.</p>
+     *
+     *
      * @return null|Address
      */
     public function getShippingAddress()
@@ -743,7 +793,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getBillingAddress()
@@ -762,7 +812,48 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
+     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        if (is_null($this->shippingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingMode = (string) $data;
+        }
 
+        return $this->shippingMode;
+    }
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method for <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
+     * <p>It is updated automatically after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+     *
+     * @return null|ShippingCollection
+     */
+    public function getShipping()
+    {
+        if (is_null($this->shipping)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_SHIPPING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shipping = ShippingCollection::fromArray($data);
+        }
+
+        return $this->shipping;
+    }
+
+    /**
+     *
      * @return null|string
      */
     public function getTaxMode()
@@ -782,7 +873,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -803,7 +894,7 @@ final class OrderModel extends JsonObjectModel implements Order
      * <p>Set when the customer is set and the customer is a member of a customer group.
      * Used for product variant price selection.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -825,7 +916,7 @@ final class OrderModel extends JsonObjectModel implements Order
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -845,7 +936,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>One of the four predefined OrderStates.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderState()
@@ -865,7 +956,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>This reference can point to a state in a custom workflow.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()
@@ -884,7 +975,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -902,7 +993,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPaymentState()
@@ -922,7 +1013,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Set if the ShippingMethod is set.</p>
      *
-
+     *
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -941,7 +1032,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|SyncInfoCollection
      */
     public function getSyncInfo()
@@ -959,7 +1050,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo()
@@ -977,7 +1068,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes()
@@ -1018,7 +1109,7 @@ final class OrderModel extends JsonObjectModel implements Order
      * <p>Set when this order was created from a cart.
      * The cart will have the state <code>Ordered</code>.</p>
      *
-
+     *
      * @return null|CartReference
      */
     public function getCart()
@@ -1039,7 +1130,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Set when this order was created from a quote.</p>
      *
-
+     *
      * @return null|QuoteReference
      */
     public function getQuote()
@@ -1058,7 +1149,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -1077,7 +1168,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -1096,7 +1187,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLocale()
@@ -1114,7 +1205,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInventoryMode()
@@ -1132,7 +1223,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getOrigin()
@@ -1152,7 +1243,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -1172,7 +1263,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
-
+     *
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -1193,7 +1284,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
-
+     *
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()
@@ -1213,7 +1304,7 @@ final class OrderModel extends JsonObjectModel implements Order
     /**
      * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
      *
-
+     *
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts()
@@ -1360,6 +1451,14 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
+     * @param ?TaxedPrice $taxedShippingPrice
+     */
+    public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void
+    {
+        $this->taxedShippingPrice = $taxedShippingPrice;
+    }
+
+    /**
      * @param ?Address $shippingAddress
      */
     public function setShippingAddress(?Address $shippingAddress): void
@@ -1373,6 +1472,22 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setBillingAddress(?Address $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
+    }
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void
+    {
+        $this->shippingMode = $shippingMode;
+    }
+
+    /**
+     * @param ?ShippingCollection $shipping
+     */
+    public function setShipping(?ShippingCollection $shipping): void
+    {
+        $this->shipping = $shipping;
     }
 
     /**

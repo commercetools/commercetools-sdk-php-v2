@@ -22,43 +22,43 @@ use stdClass;
 final class StateDraftModel extends JsonObjectModel implements StateDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $initial;
 
     /**
-
+     *
      * @var ?array
      */
     protected $roles;
 
     /**
-
+     *
      * @var ?StateResourceIdentifierCollection
      */
     protected $transitions;
@@ -88,7 +88,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     /**
      * <p>User-defined unique identifier for the State.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -108,7 +108,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     /**
      * <p>Specify to which resource or object type the State is assigned to.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -128,7 +128,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     /**
      * <p>Name of the State.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -149,7 +149,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     /**
      * <p>Description of the State.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -170,7 +170,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     /**
      * <p>Set to <code>false</code> if the State is not the first step in a workflow.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getInitial()
@@ -190,7 +190,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     /**
      * <p>If suitable, assign predifined roles the State can fulfill in case the State's <code>type</code> is <code>LineItemState</code> or <code>ReviewState</code>.</p>
      *
-
+     *
      * @return null|array
      */
     public function getRoles()
@@ -215,7 +215,7 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
      * <li>Do not set this field at all to turn off validation and allowing transitions to any other State of the same <code>type</code> as the current State.</li>
      * </ul>
      *
-
+     *
      * @return null|StateResourceIdentifierCollection
      */
     public function getTransitions()

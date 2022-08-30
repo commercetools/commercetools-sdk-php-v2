@@ -24,25 +24,25 @@ use stdClass;
 final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
 {
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
-
+     *
      * @var ?ParcelDraftCollection
      */
     protected $parcels;
 
     /**
-
+     *
      * @var ?AddressDraft
      */
     protected $address;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -67,7 +67,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
      * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
      * Can also be specified individually for each Parcel.</p>
      *
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -85,7 +85,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
-
+     *
      * @return null|ParcelDraftCollection
      */
     public function getParcels()
@@ -103,7 +103,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
-
+     *
      * @return null|AddressDraft
      */
     public function getAddress()
@@ -124,7 +124,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

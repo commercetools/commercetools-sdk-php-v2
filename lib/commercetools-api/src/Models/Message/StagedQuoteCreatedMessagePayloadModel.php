@@ -23,13 +23,13 @@ final class StagedQuoteCreatedMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?StagedQuote
      */
     protected $stagedQuote;
@@ -39,14 +39,15 @@ final class StagedQuoteCreatedMessagePayloadModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StagedQuote $stagedQuote = null
+        ?StagedQuote $stagedQuote = null,
+        ?string $type = null
     ) {
         $this->stagedQuote = $stagedQuote;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class StagedQuoteCreatedMessagePayloadModel extends JsonObjectModel implem
     /**
      * <p><a href="/../api/projects/staged-quotes">Staged Quote</a> that was created.</p>
      *
-
+     *
      * @return null|StagedQuote
      */
     public function getStagedQuote()

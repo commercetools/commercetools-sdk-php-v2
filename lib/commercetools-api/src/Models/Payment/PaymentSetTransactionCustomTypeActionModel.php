@@ -25,25 +25,25 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'setTransactionCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $transactionId;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -55,16 +55,17 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     public function __construct(
         ?string $transactionId = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->transactionId = $transactionId;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -82,7 +83,7 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTransactionId()
@@ -103,7 +104,7 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Transaction with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Transaction.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -124,7 +125,7 @@ final class PaymentSetTransactionCustomTypeActionModel extends JsonObjectModel i
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Transaction.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

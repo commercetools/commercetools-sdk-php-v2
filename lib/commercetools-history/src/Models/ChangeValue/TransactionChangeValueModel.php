@@ -22,19 +22,19 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $interactionId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $timestamp;
@@ -55,7 +55,7 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -73,7 +73,7 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInteractionId()
@@ -91,7 +91,7 @@ final class TransactionChangeValueModel extends JsonObjectModel implements Trans
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTimestamp()

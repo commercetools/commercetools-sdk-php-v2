@@ -23,19 +23,19 @@ final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemShippingDetails';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -46,15 +46,16 @@ final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectM
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->shippingDetails = $shippingDetails;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectM
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -90,7 +91,7 @@ final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectM
     }
 
     /**
-
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

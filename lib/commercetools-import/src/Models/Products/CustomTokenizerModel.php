@@ -21,13 +21,13 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
 {
     public const DISCRIMINATOR_VALUE = 'custom';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?array
      */
     protected $inputs;
@@ -37,14 +37,15 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $inputs = null
+        ?array $inputs = null,
+        ?string $type = null
     ) {
         $this->inputs = $inputs;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -62,7 +63,7 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getInputs()

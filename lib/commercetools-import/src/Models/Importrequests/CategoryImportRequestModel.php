@@ -22,13 +22,13 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
 {
     public const DISCRIMINATOR_VALUE = 'category';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?CategoryImportCollection
      */
     protected $resources;
@@ -38,16 +38,17 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CategoryImportCollection $resources = null
+        ?CategoryImportCollection $resources = null,
+        ?string $type = null
     ) {
         $this->resources = $resources;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -67,7 +68,7 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
     /**
      * <p>The category import resources of this request.</p>
      *
-
+     *
      * @return null|CategoryImportCollection
      */
     public function getResources()

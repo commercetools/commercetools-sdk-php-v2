@@ -23,13 +23,13 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
 {
     public const DISCRIMINATOR_VALUE = 'setCustomer';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
@@ -39,14 +39,15 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomerResourceIdentifier $customer = null
+        ?CustomerResourceIdentifier $customer = null,
+        ?string $action = null
     ) {
         $this->customer = $customer;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class ReviewSetCustomerActionModel extends JsonObjectModel implements Revi
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

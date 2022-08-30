@@ -21,13 +21,13 @@ use stdClass;
 final class ParcelItemsModel extends JsonObjectModel implements ParcelItems
 {
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -45,7 +45,7 @@ final class ParcelItemsModel extends JsonObjectModel implements ParcelItems
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -63,7 +63,7 @@ final class ParcelItemsModel extends JsonObjectModel implements ParcelItems
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()

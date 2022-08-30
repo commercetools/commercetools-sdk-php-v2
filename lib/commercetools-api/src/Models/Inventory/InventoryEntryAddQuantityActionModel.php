@@ -21,13 +21,13 @@ final class InventoryEntryAddQuantityActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'addQuantity';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
@@ -37,14 +37,15 @@ final class InventoryEntryAddQuantityActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $quantity = null
+        ?int $quantity = null,
+        ?string $action = null
     ) {
         $this->quantity = $quantity;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class InventoryEntryAddQuantityActionModel extends JsonObjectModel impleme
     /**
      * <p>Value to add to <code>quantityOnStock</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()

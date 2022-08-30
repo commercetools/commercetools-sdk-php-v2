@@ -32,11 +32,13 @@ interface LineItem extends JsonObject
     public const FIELD_VARIANT = 'variant';
     public const FIELD_PRICE = 'price';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAXED_PRICE_PORTIONS = 'taxedPricePortions';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_ADDED_AT = 'addedAt';
     public const FIELD_STATE = 'state';
     public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_PER_METHOD_TAX_RATE = 'perMethodTaxRate';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
@@ -122,6 +124,14 @@ interface LineItem extends JsonObject
     public function getTaxedPrice();
 
     /**
+     * <p>Taxed price of the Shipping Method that is set automatically after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions();
+
+    /**
      * <p>The total price of this line item.
      * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
@@ -164,6 +174,15 @@ interface LineItem extends JsonObject
      * @return null|TaxRate
      */
     public function getTaxRate();
+
+    /**
+     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate();
 
     /**
      * <p>The supply channel identifies the inventory entries that should be reserved.
@@ -281,6 +300,11 @@ interface LineItem extends JsonObject
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
 
     /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void;
+
+    /**
      * @param ?TypedMoney $totalPrice
      */
     public function setTotalPrice(?TypedMoney $totalPrice): void;
@@ -304,6 +328,11 @@ interface LineItem extends JsonObject
      * @param ?TaxRate $taxRate
      */
     public function setTaxRate(?TaxRate $taxRate): void;
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     */
+    public function setPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate): void;
 
     /**
      * @param ?ChannelReference $supplyChannel

@@ -20,43 +20,43 @@ use stdClass;
 final class TaxRateModel extends JsonObjectModel implements TaxRate
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?float
      */
     protected $amount;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $includedInPrice;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?string
      */
     protected $state;
 
     /**
-
+     *
      * @var ?SubRateCollection
      */
     protected $subRates;
@@ -84,7 +84,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -102,7 +102,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()
@@ -120,7 +120,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getAmount()
@@ -138,7 +138,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getIncludedInPrice()
@@ -158,7 +158,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -176,7 +176,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getState()
@@ -194,7 +194,7 @@ final class TaxRateModel extends JsonObjectModel implements TaxRate
     }
 
     /**
-
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()

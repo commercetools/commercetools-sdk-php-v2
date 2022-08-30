@@ -30,73 +30,73 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceExternalDiscountSet';
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
-
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
@@ -116,7 +116,8 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?DiscountedPrice $discounted = null
+        ?DiscountedPrice $discounted = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -129,13 +130,13 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->discounted = $discounted;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -155,7 +156,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -175,7 +176,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>Date and time (UTC) the Message was generated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -199,7 +200,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>Value of <code>createdAt</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -223,7 +224,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>Value of <code>createdBy</code>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -244,7 +245,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -266,7 +267,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
      * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
      * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
      *
-
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -286,7 +287,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -307,7 +308,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>Version of the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -327,7 +328,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -347,7 +348,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -368,7 +369,7 @@ final class StandalonePriceExternalDiscountSetMessageModel extends JsonObjectMod
     /**
      * <p>The <code>discounted</code> value of the <a href="ctp:api:type:StandalonePrice">StandalonePrice</a> after the <a href="ctp:api:type:StandalonePriceSetDiscountedPriceAction">Set Discounted Price</a> update action.</p>
      *
-
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()

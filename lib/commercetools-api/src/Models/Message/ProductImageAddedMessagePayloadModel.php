@@ -23,25 +23,25 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'ProductImageAdded';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?Image
      */
     protected $image;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -53,16 +53,17 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     public function __construct(
         ?int $variantId = null,
         ?Image $image = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $type = null
     ) {
         $this->variantId = $variantId;
         $this->image = $image;
         $this->staged = $staged;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +83,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> to which the <a href="ctp:api:type:Image">Image</a> was added.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -102,7 +103,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * <p><a href="ctp:api:type:Image">Image</a> that was added.</p>
      *
-
+     *
      * @return null|Image
      */
     public function getImage()
@@ -123,7 +124,7 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

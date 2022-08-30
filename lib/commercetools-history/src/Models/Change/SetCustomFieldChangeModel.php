@@ -22,37 +22,37 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
 
     public const DISCRIMINATOR_VALUE = 'SetCustomFieldChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customTypeId;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -66,18 +66,19 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
         ?string $name = null,
         ?string $customTypeId = null,
          $nextValue = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->name = $name;
         $this->customTypeId = $customTypeId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -97,7 +98,7 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     /**
      * <p>Update action for setting a custom field</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -117,7 +118,7 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     /**
      * <p>Custom field name</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -135,7 +136,7 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomTypeId()
@@ -153,7 +154,7 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getNextValue()
@@ -171,7 +172,7 @@ final class SetCustomFieldChangeModel extends JsonObjectModel implements SetCust
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

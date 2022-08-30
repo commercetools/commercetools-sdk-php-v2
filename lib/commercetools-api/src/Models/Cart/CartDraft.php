@@ -41,6 +41,9 @@ interface CartDraft extends JsonObject
     public const FIELD_LOCALE = 'locale';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ORIGIN = 'origin';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_CUSTOM_SHIPPING = 'customShipping';
+    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
@@ -215,6 +218,33 @@ interface CartDraft extends JsonObject
     public function getOrigin();
 
     /**
+     * <ul>
+     * <li>If <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If <code>Multi</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode();
+
+    /**
+     * <p>Custom Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomShippingDraftCollection
+     */
+    public function getCustomShipping();
+
+    /**
+     * <p>Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|ShippingDraftCollection
+     */
+    public function getShipping();
+
+    /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.
      * Based on the definition of ShippingRateInputType.
      * If CartClassification is defined, it must be ClassificationShippingRateInput.
@@ -355,6 +385,21 @@ interface CartDraft extends JsonObject
      * @param ?string $origin
      */
     public function setOrigin(?string $origin): void;
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void;
+
+    /**
+     * @param ?CustomShippingDraftCollection $customShipping
+     */
+    public function setCustomShipping(?CustomShippingDraftCollection $customShipping): void;
+
+    /**
+     * @param ?ShippingDraftCollection $shipping
+     */
+    public function setShipping(?ShippingDraftCollection $shipping): void;
 
     /**
      * @param ?ShippingRateInputDraft $shippingRateInput

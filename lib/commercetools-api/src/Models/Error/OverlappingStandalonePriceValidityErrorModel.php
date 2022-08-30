@@ -28,73 +28,73 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'OverlappingStandalonePriceValidity';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?StandalonePriceReference
      */
     protected $conflictingStandalonePrice;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $currency;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $conflictingValidFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $conflictingValidUntil;
@@ -114,7 +114,8 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
         ?DateTimeImmutable $conflictingValidFrom = null,
-        ?DateTimeImmutable $conflictingValidUntil = null
+        ?DateTimeImmutable $conflictingValidUntil = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->conflictingStandalonePrice = $conflictingStandalonePrice;
@@ -127,11 +128,11 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
         $this->validUntil = $validUntil;
         $this->conflictingValidFrom = $conflictingValidFrom;
         $this->conflictingValidUntil = $conflictingValidUntil;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -149,7 +150,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -169,7 +170,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
-
+     *
      * @return null|StandalonePriceReference
      */
     public function getConflictingStandalonePrice()
@@ -188,7 +189,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -206,7 +207,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCurrency()
@@ -224,7 +225,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -244,7 +245,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
-
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -265,7 +266,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -284,7 +285,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -306,7 +307,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -328,7 +329,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getConflictingValidFrom()
@@ -350,7 +351,7 @@ final class OverlappingStandalonePriceValidityErrorModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getConflictingValidUntil()

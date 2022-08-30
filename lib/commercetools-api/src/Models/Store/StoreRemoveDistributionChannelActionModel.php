@@ -23,13 +23,13 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'removeDistributionChannel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -39,14 +39,15 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ChannelResourceIdentifier $distributionChannel = null
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?string $action = null
     ) {
         $this->distributionChannel = $distributionChannel;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class StoreRemoveDistributionChannelActionModel extends JsonObjectModel im
     /**
      * <p>Value to remove. ResourceIdentifier of a Channel with the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

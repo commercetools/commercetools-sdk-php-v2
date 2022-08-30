@@ -22,13 +22,13 @@ final class StagedQuoteValidToSetMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteValidToSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validTo;
@@ -38,14 +38,15 @@ final class StagedQuoteValidToSetMessagePayloadModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DateTimeImmutable $validTo = null
+        ?DateTimeImmutable $validTo = null,
+        ?string $type = null
     ) {
         $this->validTo = $validTo;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -65,7 +66,7 @@ final class StagedQuoteValidToSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p>Expiration date for the Staged Quote after the <a href="ctp:api:type:StagedQuoteSetValidToAction">Set Valid To</a> update action.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidTo()

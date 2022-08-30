@@ -25,25 +25,25 @@ final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -55,16 +55,17 @@ final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel
     public function __construct(
         ?string $lineItemId = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -82,7 +83,7 @@ final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -103,7 +104,7 @@ final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the LineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the LineItem.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -124,7 +125,7 @@ final class ShoppingListSetLineItemCustomTypeActionModel extends JsonObjectModel
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the LineItem.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

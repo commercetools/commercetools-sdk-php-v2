@@ -41,6 +41,12 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     private $oldAddress;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
      *
 
@@ -71,6 +77,17 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     public function getOldAddress()
     {
         return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -107,6 +124,17 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withAddress() instead
      * @return $this
      */
@@ -133,7 +161,8 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
         return new DeliveryAddressSetMessagePayloadModel(
             $this->deliveryId,
             $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
-            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress
+            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress,
+            $this->shippingKey
         );
     }
 

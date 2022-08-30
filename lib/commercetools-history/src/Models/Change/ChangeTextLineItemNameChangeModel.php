@@ -26,31 +26,31 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'ChangeTextLineItemNameChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?TextLineItemValue
      */
     protected $textLineItem;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -63,17 +63,18 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
         ?string $change = null,
         ?TextLineItemValue $textLineItem = null,
         ?LocalizedString $nextValue = null,
-        ?LocalizedString $previousValue = null
+        ?LocalizedString $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->textLineItem = $textLineItem;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>changeTextLineItemName</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,7 +112,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -130,7 +131,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -149,7 +150,7 @@ final class ChangeTextLineItemNameChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()

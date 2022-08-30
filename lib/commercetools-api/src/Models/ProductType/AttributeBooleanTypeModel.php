@@ -21,7 +21,7 @@ final class AttributeBooleanTypeModel extends JsonObjectModel implements Attribu
 {
     public const DISCRIMINATOR_VALUE = 'boolean';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
@@ -31,12 +31,13 @@ final class AttributeBooleanTypeModel extends JsonObjectModel implements Attribu
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $name = null
     ) {
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()

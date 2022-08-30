@@ -23,37 +23,37 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
 {
     public const DISCRIMINATOR_VALUE = 'removeLineItem';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $externalPrice;
 
     /**
-
+     *
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
 
     /**
-
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetailsToRemove;
@@ -67,18 +67,19 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
         ?int $quantity = null,
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
-        ?ItemShippingDetailsDraft $shippingDetailsToRemove = null
+        ?ItemShippingDetailsDraft $shippingDetailsToRemove = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
         $this->externalPrice = $externalPrice;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->shippingDetailsToRemove = $shippingDetailsToRemove;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -96,7 +97,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -114,7 +115,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -135,7 +136,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getExternalPrice()
@@ -154,7 +155,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-
+     *
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()
@@ -173,7 +174,7 @@ final class CartRemoveLineItemActionModel extends JsonObjectModel implements Car
     }
 
     /**
-
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetailsToRemove()

@@ -32,67 +32,67 @@ use stdClass;
 final class StandalonePriceDraftModel extends JsonObjectModel implements StandalonePriceDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?PriceTierDraftCollection
      */
     protected $tiers;
 
     /**
-
+     *
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -130,7 +130,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>User-defined unique identifier for the StandalonePrice.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -151,7 +151,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
      * <p>Specifies to which <a href="ctp:api:type:ProductVariant">ProductVariant</a> the API associates this Price.
      * It is not validated to exist in product variants.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -171,7 +171,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the money value of this Price.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getValue()
@@ -192,7 +192,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the country for which this Price is valid.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -212,7 +212,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
-
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -233,7 +233,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -254,7 +254,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the date from which the Price is valid. Must be at least 1 ms before <code>validUntil</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -278,7 +278,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the date until the Price is valid. Must be at least 1 ms after <code>validFrom</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -302,7 +302,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets price tiers.</p>
      *
-
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()
@@ -322,7 +322,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets a discounted price for this Price that is different from the base price with <code>value</code>.</p>
      *
-
+     *
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()
@@ -343,7 +343,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Custom Fields for the StandalonePrice.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

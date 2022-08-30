@@ -23,13 +23,13 @@ final class CategoryChangeNameActionModel extends JsonObjectModel implements Cat
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -39,14 +39,15 @@ final class CategoryChangeNameActionModel extends JsonObjectModel implements Cat
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class CategoryChangeNameActionModel extends JsonObjectModel implements Cat
     /**
      * <p>New value to set. Must not be empty.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()

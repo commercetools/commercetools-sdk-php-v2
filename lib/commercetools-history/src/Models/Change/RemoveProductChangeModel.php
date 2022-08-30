@@ -24,19 +24,19 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
 
     public const DISCRIMINATOR_VALUE = 'RemoveProductChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $previousValue;
@@ -47,15 +47,16 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
      */
     public function __construct(
         ?string $change = null,
-        ?Reference $previousValue = null
+        ?Reference $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -75,7 +76,7 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
     /**
      * <p>Update action for when a product is unassigned from a product selection</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,7 +94,7 @@ final class RemoveProductChangeModel extends JsonObjectModel implements RemovePr
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getPreviousValue()

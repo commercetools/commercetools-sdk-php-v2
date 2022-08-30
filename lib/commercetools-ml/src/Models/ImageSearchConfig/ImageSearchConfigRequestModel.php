@@ -20,7 +20,7 @@ use stdClass;
 final class ImageSearchConfigRequestModel extends JsonObjectModel implements ImageSearchConfigRequest
 {
     /**
-
+     *
      * @var ?ImageSearchConfigUpdateActionCollection
      */
     protected $actions;
@@ -38,7 +38,7 @@ final class ImageSearchConfigRequestModel extends JsonObjectModel implements Ima
     /**
      * <p>The list of update actions to be performed on the project.</p>
      *
-
+     *
      * @return null|ImageSearchConfigUpdateActionCollection
      */
     public function getActions()

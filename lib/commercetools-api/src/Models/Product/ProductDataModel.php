@@ -23,67 +23,67 @@ use stdClass;
 final class ProductDataModel extends JsonObjectModel implements ProductData
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?CategoryReferenceCollection
      */
     protected $categories;
 
     /**
-
+     *
      * @var ?CategoryOrderHints
      */
     protected $categoryOrderHints;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
-
+     *
      * @var ?ProductVariant
      */
     protected $masterVariant;
 
     /**
-
+     *
      * @var ?ProductVariantCollection
      */
     protected $variants;
 
     /**
-
+     *
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
@@ -121,7 +121,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Name of the Product.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -142,7 +142,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p><a href="ctp:api:type:Category">Categories</a> assigned to the Product.</p>
      *
-
+     *
      * @return null|CategoryReferenceCollection
      */
     public function getCategories()
@@ -162,7 +162,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Numerical values to allow ordering of Products within a specified Category.</p>
      *
-
+     *
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints()
@@ -183,7 +183,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Description of the Product.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -206,7 +206,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
      * Must be unique across a Project, but can be the same for Products in different <a href="ctp:api:type:Locale">Locales</a>.
      * Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -227,7 +227,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Title of the Product displayed in search results.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -248,7 +248,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Description of the Product displayed in search results below the meta title.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -269,7 +269,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Keywords that give additional information about the Product to search engines.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -290,7 +290,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>The Master Variant of the Product.</p>
      *
-
+     *
      * @return null|ProductVariant
      */
     public function getMasterVariant()
@@ -311,7 +311,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Additional Product Variants.</p>
      *
-
+     *
      * @return null|ProductVariantCollection
      */
     public function getVariants()
@@ -331,7 +331,7 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * <p>Used by <a href="ctp:api:type:ProductSuggestions">Product Suggestions</a>, but is also considered for a full text search.</p>
      *
-
+     *
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()

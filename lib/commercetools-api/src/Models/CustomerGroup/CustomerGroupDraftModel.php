@@ -22,19 +22,19 @@ use stdClass;
 final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerGroupDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $groupName;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -56,7 +56,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     /**
      * <p>User-defined unique identifier for the CustomerGroup.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -77,7 +77,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
      * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the Project.
      * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
      *
-
+     *
      * @return null|string
      */
     public function getGroupName()
@@ -97,7 +97,7 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     /**
      * <p>Custom Fields for the CustomerGroup.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

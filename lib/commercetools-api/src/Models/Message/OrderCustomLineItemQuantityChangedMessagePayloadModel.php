@@ -21,25 +21,25 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemQuantityChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?int
      */
     protected $oldQuantity;
@@ -51,16 +51,17 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     public function __construct(
         ?string $customLineItemId = null,
         ?int $quantity = null,
-        ?int $oldQuantity = null
+        ?int $oldQuantity = null,
+        ?string $type = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
         $this->oldQuantity = $oldQuantity;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -80,7 +81,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -100,7 +101,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -120,7 +121,7 @@ final class OrderCustomLineItemQuantityChangedMessagePayloadModel extends JsonOb
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity before the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOldQuantity()

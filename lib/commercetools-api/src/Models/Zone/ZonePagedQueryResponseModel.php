@@ -20,31 +20,31 @@ use stdClass;
 final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZonePagedQueryResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?ZoneCollection
      */
     protected $results;
@@ -70,7 +70,7 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -90,7 +90,7 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -110,7 +110,7 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     /**
      * <p>Actual number of results returned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -134,7 +134,7 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
      * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -154,7 +154,7 @@ final class ZonePagedQueryResponseModel extends JsonObjectModel implements ZoneP
     /**
      * <p><a href="ctp:api:type:Zone">Zones</a> matching the query.</p>
      *
-
+     *
      * @return null|ZoneCollection
      */
     public function getResults()

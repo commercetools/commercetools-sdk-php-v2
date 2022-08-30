@@ -21,13 +21,13 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
 {
     public const DISCRIMINATOR_VALUE = 'changeStatus';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $status;
@@ -37,14 +37,15 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $status = null
+        ?string $status = null,
+        ?string $action = null
     ) {
         $this->status = $status;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class ChangeStatusUpdateActionModel extends JsonObjectModel implements Cha
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getStatus()

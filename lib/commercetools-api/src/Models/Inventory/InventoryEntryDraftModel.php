@@ -25,43 +25,43 @@ use stdClass;
 final class InventoryEntryDraftModel extends JsonObjectModel implements InventoryEntryDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantityOnStock;
 
     /**
-
+     *
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $expectedDelivery;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -91,7 +91,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -111,7 +111,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p>User-defined unique identifier for the InventoryEntry.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -131,7 +131,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -152,7 +152,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p>Overall amount of stock.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -172,7 +172,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p>How often the InventoryEntry is restocked (in days).</p>
      *
-
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -192,7 +192,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p>Date and time of the next restock.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -216,7 +216,7 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * <p>Custom Fields of the InventoryEntry.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

@@ -23,19 +23,19 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
      */
     public function __construct(
         ?LocalizedString $name = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->name = $name;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Value to set. Must not be empty.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -95,7 +96,7 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     /**
      * <p>If <code>true</code>, only the staged <code>name</code> is updated. If <code>false</code>, both the current and staged <code>name</code> are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

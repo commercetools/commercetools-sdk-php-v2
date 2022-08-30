@@ -25,31 +25,31 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setProductPriceCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -62,17 +62,18 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
         ?string $priceId = null,
         ?bool $staged = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -92,7 +93,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     /**
      * <p>The <code>id</code> of the Embedded Price to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -112,7 +113,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     /**
      * <p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price is updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -133,7 +134,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Price with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Embedded Price.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -154,7 +155,7 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Embedded Price.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

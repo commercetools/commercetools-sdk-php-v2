@@ -24,25 +24,25 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
 
     public const DISCRIMINATOR_VALUE = 'AddPlainEnumValueChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?EnumValue
      */
     protected $nextValue;
@@ -54,16 +54,17 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     public function __construct(
         ?string $change = null,
         ?string $attributeName = null,
-        ?EnumValue $nextValue = null
+        ?EnumValue $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->attributeName = $attributeName;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     /**
      * <p>Update action for <code>addPlainEnumValue</code> on product types</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -103,7 +104,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     /**
      * <p>The name of the attribute updated.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -121,7 +122,7 @@ final class AddPlainEnumValueChangeModel extends JsonObjectModel implements AddP
     }
 
     /**
-
+     *
      * @return null|EnumValue
      */
     public function getNextValue()

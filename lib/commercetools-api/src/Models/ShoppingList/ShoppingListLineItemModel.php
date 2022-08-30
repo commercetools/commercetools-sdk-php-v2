@@ -29,67 +29,67 @@ use stdClass;
 final class ShoppingListLineItemModel extends JsonObjectModel implements ShoppingListLineItem
 {
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $deactivatedAt;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $productSlug;
 
     /**
-
+     *
      * @var ?ProductTypeReference
      */
     protected $productType;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
@@ -125,7 +125,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -149,7 +149,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     /**
      * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -168,7 +168,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getDeactivatedAt()
@@ -192,7 +192,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     /**
      * <p>Unique identifier of the ShoppingListLineItem.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -212,7 +212,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -231,7 +231,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProductId()
@@ -251,7 +251,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -272,7 +272,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
      *
-
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -291,7 +291,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -311,7 +311,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     /**
      * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
      *
-
+     *
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -330,7 +330,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVariantId()

@@ -23,13 +23,13 @@ final class ShoppingListSetSlugActionModel extends JsonObjectModel implements Sh
 {
     public const DISCRIMINATOR_VALUE = 'setSlug';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
@@ -39,14 +39,15 @@ final class ShoppingListSetSlugActionModel extends JsonObjectModel implements Sh
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $slug = null
+        ?LocalizedString $slug = null,
+        ?string $action = null
     ) {
         $this->slug = $slug;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ShoppingListSetSlugActionModel extends JsonObjectModel implements Sh
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()

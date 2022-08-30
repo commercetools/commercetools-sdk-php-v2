@@ -21,19 +21,19 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
 {
     public const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueOrder';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?AttributeLocalizedEnumValueCollection
      */
     protected $values;
@@ -44,15 +44,16 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
      */
     public function __construct(
         ?string $attributeName = null,
-        ?AttributeLocalizedEnumValueCollection $values = null
+        ?AttributeLocalizedEnumValueCollection $values = null,
+        ?string $action = null
     ) {
         $this->attributeName = $attributeName;
         $this->values = $values;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -92,7 +93,7 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
     /**
      * <p>Values must be equal to the values of the Attribute enum values (except for the order). If not, an <a href="/errors#product-types-400-enum-values-must-match">EnumValuesMustMatch</a> error code will be returned.</p>
      *
-
+     *
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues()

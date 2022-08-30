@@ -23,25 +23,25 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemCustomField';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
@@ -53,16 +53,17 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     public function __construct(
         ?string $customLineItemId = null,
         ?string $name = null,
-        $value = null
+        $value = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->name = $name;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,7 +81,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -100,7 +101,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -122,7 +123,7 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()

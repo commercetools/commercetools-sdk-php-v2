@@ -21,31 +21,31 @@ final class AttributeDefinitionAlreadyExistsErrorModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'AttributeDefinitionAlreadyExists';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?string
      */
     protected $conflictingProductTypeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $conflictingProductTypeName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $conflictingAttributeName;
@@ -58,17 +58,18 @@ final class AttributeDefinitionAlreadyExistsErrorModel extends JsonObjectModel i
         ?string $message = null,
         ?string $conflictingProductTypeId = null,
         ?string $conflictingProductTypeName = null,
-        ?string $conflictingAttributeName = null
+        ?string $conflictingAttributeName = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->conflictingProductTypeId = $conflictingProductTypeId;
         $this->conflictingProductTypeName = $conflictingProductTypeName;
         $this->conflictingAttributeName = $conflictingAttributeName;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -86,7 +87,7 @@ final class AttributeDefinitionAlreadyExistsErrorModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -104,7 +105,7 @@ final class AttributeDefinitionAlreadyExistsErrorModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getConflictingProductTypeId()
@@ -122,7 +123,7 @@ final class AttributeDefinitionAlreadyExistsErrorModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getConflictingProductTypeName()
@@ -140,7 +141,7 @@ final class AttributeDefinitionAlreadyExistsErrorModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getConflictingAttributeName()

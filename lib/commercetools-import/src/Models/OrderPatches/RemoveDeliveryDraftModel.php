@@ -20,7 +20,7 @@ use stdClass;
 final class RemoveDeliveryDraftModel extends JsonObjectModel implements RemoveDeliveryDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
@@ -36,7 +36,7 @@ final class RemoveDeliveryDraftModel extends JsonObjectModel implements RemoveDe
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()

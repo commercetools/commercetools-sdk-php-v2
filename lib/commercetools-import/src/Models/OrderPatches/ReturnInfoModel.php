@@ -21,19 +21,19 @@ use stdClass;
 final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
 {
     /**
-
+     *
      * @var ?ReturnItemDraftCollection
      */
     protected $items;
 
     /**
-
+     *
      * @var ?string
      */
     protected $returnTrackingId;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $returnDate;
@@ -53,7 +53,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     }
 
     /**
-
+     *
      * @return null|ReturnItemDraftCollection
      */
     public function getItems()
@@ -73,7 +73,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     /**
      * <p>Maps to <code>ReturnInfo.returnTrackingId</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getReturnTrackingId()
@@ -93,7 +93,7 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     /**
      * <p>Maps to <code>ReturnInfo.returnDate</code></p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getReturnDate()

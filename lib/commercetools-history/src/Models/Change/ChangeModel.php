@@ -22,13 +22,13 @@ final class ChangeModel extends JsonObjectModel implements Change
 
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
@@ -309,14 +309,16 @@ final class ChangeModel extends JsonObjectModel implements Change
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $change = null
+        ?string $change = null,
+        ?string $type = null
     ) {
         $this->change = $change;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
+
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -334,7 +336,7 @@ final class ChangeModel extends JsonObjectModel implements Change
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()

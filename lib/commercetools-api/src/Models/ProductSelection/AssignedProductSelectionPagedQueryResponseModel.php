@@ -20,31 +20,31 @@ use stdClass;
 final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectModel implements AssignedProductSelectionPagedQueryResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?AssignedProductSelectionCollection
      */
     protected $results;
@@ -70,7 +70,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -90,7 +90,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -110,7 +110,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     /**
      * <p>Actual number of results returned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -134,7 +134,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
      * To get <code>total</code>, pass the query parameter <code>withTotal</code> set to <code>true</code>.
      * When the results are filtered with a <a href="/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/limits#queries">limit</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -154,7 +154,7 @@ final class AssignedProductSelectionPagedQueryResponseModel extends JsonObjectMo
     /**
      * <p>References to ProductSelection that are assigned to the Product.</p>
      *
-
+     *
      * @return null|AssignedProductSelectionCollection
      */
     public function getResults()

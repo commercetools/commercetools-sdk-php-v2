@@ -22,25 +22,25 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $uri;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?AssetDimensions
      */
     protected $dimensions;
 
     /**
-
+     *
      * @var ?string
      */
     protected $contentType;
@@ -63,7 +63,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getUri()
@@ -81,7 +81,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -99,7 +99,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     }
 
     /**
-
+     *
      * @return null|AssetDimensions
      */
     public function getDimensions()
@@ -118,7 +118,7 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getContentType()

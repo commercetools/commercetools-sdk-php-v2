@@ -21,31 +21,31 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeAssetOrder';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?array
      */
     protected $assetOrder;
@@ -58,17 +58,18 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
         ?int $variantId = null,
         ?string $sku = null,
         ?bool $staged = null,
-        ?array $assetOrder = null
+        ?array $assetOrder = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->staged = $staged;
         $this->assetOrder = $assetOrder;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -88,7 +89,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -108,7 +109,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -128,7 +129,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     /**
      * <p>If <code>true</code>, only the staged <code>assets</code> is updated. If <code>false</code>, both the current and staged <code>assets</code> are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -148,7 +149,7 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     /**
      * <p>All existing Asset <code>id</code>s of the ProductVariant in the desired new order.</p>
      *
-
+     *
      * @return null|array
      */
     public function getAssetOrder()

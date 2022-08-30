@@ -26,31 +26,31 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
 
     public const DISCRIMINATOR_VALUE = 'SetShoppingListLineItemCustomTypeChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ShoppingListLineItemValue
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -63,17 +63,18 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
         ?string $change = null,
         ?ShoppingListLineItemValue $lineItem = null,
         ?CustomFields $nextValue = null,
-        ?CustomFields $previousValue = null
+        ?CustomFields $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     /**
      * <p>Update action for <code>setLineItemCustomType</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,7 +112,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -130,7 +131,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -149,7 +150,7 @@ final class SetShoppingListLineItemCustomTypeChangeModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getPreviousValue()

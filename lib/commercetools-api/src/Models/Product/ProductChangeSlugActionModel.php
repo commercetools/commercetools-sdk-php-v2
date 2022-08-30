@@ -23,19 +23,19 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = 'changeSlug';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
      */
     public function __construct(
         ?LocalizedString $slug = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->slug = $slug;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Value to set. Must not be empty. A Product can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>. Must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -95,7 +96,7 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     /**
      * <p>If <code>true</code>, only the staged <code>slug</code> is updated. If <code>false</code>, both the current and staged <code>slug</code> are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

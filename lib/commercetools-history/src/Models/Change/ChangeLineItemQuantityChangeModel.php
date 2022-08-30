@@ -24,37 +24,37 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'ChangeLineItemQuantityChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?int
      */
     protected $previousValue;
@@ -68,18 +68,19 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
         ?LocalizedString $lineItem = null,
         ?string $lineItemId = null,
         ?int $nextValue = null,
-        ?int $previousValue = null
+        ?int $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->lineItemId = $lineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -99,7 +100,7 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>changeLineItemQuantity</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -117,7 +118,7 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -136,7 +137,7 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -156,7 +157,7 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     /**
      * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getNextValue()
@@ -176,7 +177,7 @@ final class ChangeLineItemQuantityChangeModel extends JsonObjectModel implements
     /**
      * <p>The amount of a LineItem in the cart. Must be a positive integer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getPreviousValue()

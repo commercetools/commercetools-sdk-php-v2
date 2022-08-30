@@ -23,19 +23,19 @@ final class QuoteRequestTransitionStateActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'transitionState';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $force;
@@ -46,15 +46,16 @@ final class QuoteRequestTransitionStateActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?StateResourceIdentifier $state = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $action = null
     ) {
         $this->state = $state;
         $this->force = $force;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -75,7 +76,7 @@ final class QuoteRequestTransitionStateActionModel extends JsonObjectModel imple
      * <p>Value to set.
      * If there is no State yet, this must be an initial State.</p>
      *
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -96,7 +97,7 @@ final class QuoteRequestTransitionStateActionModel extends JsonObjectModel imple
     /**
      * <p>Switch validations on or off.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getForce()

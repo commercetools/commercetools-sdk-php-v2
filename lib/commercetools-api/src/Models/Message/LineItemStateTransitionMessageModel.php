@@ -30,97 +30,97 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'LineItemStateTransition';
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $transitionDate;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $fromState;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $toState;
@@ -144,7 +144,8 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
         ?DateTimeImmutable $transitionDate = null,
         ?int $quantity = null,
         ?StateReference $fromState = null,
-        ?StateReference $toState = null
+        ?StateReference $toState = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -161,13 +162,13 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
         $this->quantity = $quantity;
         $this->fromState = $fromState;
         $this->toState = $toState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -187,7 +188,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -207,7 +208,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Date and time (UTC) the Message was generated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -231,7 +232,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Value of <code>createdAt</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -255,7 +256,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Value of <code>createdBy</code>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -276,7 +277,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -298,7 +299,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
      * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
      * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
      *
-
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -318,7 +319,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -339,7 +340,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Version of the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -359,7 +360,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -379,7 +380,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -400,7 +401,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -420,7 +421,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:LineItem">Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getTransitionDate()
@@ -444,7 +445,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p>Number of <a href="ctp:api:type:LineItem">Line Items</a> for which the <a href="ctp:api:type:State">State</a> was transitioned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -464,7 +465,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:State">State</a> the <a href="ctp:api:type:LineItem">Line Item</a> was transitioned from.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getFromState()
@@ -485,7 +486,7 @@ final class LineItemStateTransitionMessageModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:State">State</a> the <a href="ctp:api:type:LineItem">Line Item</a> was transitioned to.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getToState()

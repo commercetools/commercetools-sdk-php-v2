@@ -23,13 +23,13 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
 {
     public const DISCRIMINATOR_VALUE = 'store';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -39,16 +39,17 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -68,7 +69,7 @@ final class StoreKeyReferenceModel extends JsonObjectModel implements StoreKeyRe
     /**
      * <p>Unique and immutable key of the referenced <a href="ctp:api:type:Store">Store</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

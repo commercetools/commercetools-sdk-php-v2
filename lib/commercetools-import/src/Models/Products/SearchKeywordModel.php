@@ -20,13 +20,13 @@ use stdClass;
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
     /**
-
+     *
      * @var ?string
      */
     protected $text;
 
     /**
-
+     *
      * @var ?SuggestTokenizer
      */
     protected $suggestTokenizer;
@@ -44,7 +44,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getText()
@@ -64,7 +64,7 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     /**
      * <p>The tokenizer defines the tokens that are used to match against the <a href="/../products-suggestions#suggest-query">Suggest Query</a> input.</p>
      *
-
+     *
      * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer()

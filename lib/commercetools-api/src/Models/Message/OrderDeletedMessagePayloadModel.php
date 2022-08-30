@@ -23,13 +23,13 @@ final class OrderDeletedMessagePayloadModel extends JsonObjectModel implements O
 {
     public const DISCRIMINATOR_VALUE = 'OrderDeleted';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Order
      */
     protected $order;
@@ -39,14 +39,15 @@ final class OrderDeletedMessagePayloadModel extends JsonObjectModel implements O
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Order $order = null
+        ?Order $order = null,
+        ?string $type = null
     ) {
         $this->order = $order;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class OrderDeletedMessagePayloadModel extends JsonObjectModel implements O
     /**
      * <p><a href="ctp:api:type:Order">Order</a> that has been deleted.</p>
      *
-
+     *
      * @return null|Order
      */
     public function getOrder()

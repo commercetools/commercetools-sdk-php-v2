@@ -21,13 +21,13 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
@@ -37,14 +37,15 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $name = null
+        ?string $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
     /**
      * <p>New name of the Zone.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()

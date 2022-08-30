@@ -30,103 +30,103 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $oldState;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $newState;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $oldIncludedInStatistics;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $newIncludedInStatistics;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $target;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $force;
@@ -151,7 +151,8 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         ?bool $oldIncludedInStatistics = null,
         ?bool $newIncludedInStatistics = null,
         ?Reference $target = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -169,13 +170,13 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         $this->newIncludedInStatistics = $newIncludedInStatistics;
         $this->target = $target;
         $this->force = $force;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -195,7 +196,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -215,7 +216,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Date and time (UTC) the Message was generated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -239,7 +240,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Value of <code>createdAt</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -263,7 +264,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Value of <code>createdBy</code>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -284,7 +285,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -306,7 +307,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
      * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
      * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
      *
-
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -326,7 +327,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -347,7 +348,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Version of the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -367,7 +368,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -387,7 +388,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -408,7 +409,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> before the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getOldState()
@@ -429,7 +430,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> after the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getNewState()
@@ -450,7 +451,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Whether the old <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target before the state transition.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getOldIncludedInStatistics()
@@ -470,7 +471,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Whether the new <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target after the state transition.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getNewIncludedInStatistics()
@@ -490,7 +491,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the resource that the <a href="ctp:api:type:Review">Review</a> belongs to.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getTarget()
@@ -511,7 +512,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     /**
      * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getForce()

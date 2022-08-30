@@ -28,55 +28,55 @@ use stdClass;
 final class ShippingInfoImportDraftModel extends JsonObjectModel implements ShippingInfoImportDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $shippingMethodName;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $price;
 
     /**
-
+     *
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
 
     /**
-
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
-
+     *
      * @var ?TaxCategoryKeyReference
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?ShippingMethodKeyReference
      */
     protected $shippingMethod;
 
     /**
-
+     *
      * @var ?DeliveryCollection
      */
     protected $deliveries;
 
     /**
-
+     *
      * @var ?DiscountedLineItemPriceDraft
      */
     protected $discountedPrice;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shippingMethodState;
@@ -108,7 +108,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShippingMethodName()
@@ -126,7 +126,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getPrice()
@@ -145,7 +145,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -164,7 +164,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -185,7 +185,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>References a tax category by key.</p>
      *
-
+     *
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -206,7 +206,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>References a shipping method by key.</p>
      *
-
+     *
      * @return null|ShippingMethodKeyReference
      */
     public function getShippingMethod()
@@ -227,7 +227,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referencable by an <code>id</code>.</p>
      *
-
+     *
      * @return null|DeliveryCollection
      */
     public function getDeliveries()
@@ -245,7 +245,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice()
@@ -264,7 +264,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShippingMethodState()

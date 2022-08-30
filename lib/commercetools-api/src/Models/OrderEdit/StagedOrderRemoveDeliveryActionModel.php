@@ -23,13 +23,13 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'removeDelivery';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
@@ -39,14 +39,15 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $deliveryId = null
+        ?string $deliveryId = null,
+        ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()

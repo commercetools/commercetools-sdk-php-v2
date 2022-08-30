@@ -24,43 +24,43 @@ use stdClass;
 final class MissingAttributesModel extends JsonObjectModel implements MissingAttributes
 {
     /**
-
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
-
+     *
      * @var ?ProductTypeReference
      */
     protected $productType;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?array
      */
     protected $missingAttributeValues;
 
     /**
-
+     *
      * @var ?array
      */
     protected $missingAttributeNames;
 
     /**
-
+     *
      * @var ?AttributeCount
      */
     protected $attributeCount;
 
     /**
-
+     *
      * @var ?AttributeCoverage
      */
     protected $attributeCoverage;
@@ -88,7 +88,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
     /**
-
+     *
      * @return null|ProductReference
      */
     public function getProduct()
@@ -107,7 +107,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
     /**
-
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -128,7 +128,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     /**
      * <p>ID of a ProductVariant.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -148,7 +148,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     /**
      * <p>The names of the attributes of the product type that the variant is missing, sorted by attribute importance in descending order.</p>
      *
-
+     *
      * @return null|array
      */
     public function getMissingAttributeValues()
@@ -168,7 +168,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     /**
      * <p>The names of the attributes of the product type that the variant is missing, sorted by attribute importance in descending order.</p>
      *
-
+     *
      * @return null|array
      */
     public function getMissingAttributeNames()
@@ -186,7 +186,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
     /**
-
+     *
      * @return null|AttributeCount
      */
     public function getAttributeCount()
@@ -205,7 +205,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
     /**
-
+     *
      * @return null|AttributeCoverage
      */
     public function getAttributeCoverage()

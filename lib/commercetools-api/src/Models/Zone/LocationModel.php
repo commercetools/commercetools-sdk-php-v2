@@ -20,13 +20,13 @@ use stdClass;
 final class LocationModel extends JsonObjectModel implements Location
 {
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?string
      */
     protected $state;
@@ -46,7 +46,7 @@ final class LocationModel extends JsonObjectModel implements Location
     /**
      * <p>Country code of the geographic location.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -66,7 +66,7 @@ final class LocationModel extends JsonObjectModel implements Location
     /**
      * <p>State within the country.</p>
      *
-
+     *
      * @return null|string
      */
     public function getState()

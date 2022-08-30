@@ -24,31 +24,31 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
 
     public const DISCRIMINATOR_VALUE = 'SetDeliveryAddressChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $previousValue;
@@ -61,17 +61,18 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
         ?string $change = null,
         ?string $deliveryId = null,
         ?Address $nextValue = null,
-        ?Address $previousValue = null
+        ?Address $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->deliveryId = $deliveryId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -91,7 +92,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     /**
      * <p>Update action for <code>setDeliveryAddress</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -109,7 +110,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -127,7 +128,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getNextValue()
@@ -146,7 +147,7 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getPreviousValue()

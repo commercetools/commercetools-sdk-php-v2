@@ -24,37 +24,37 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
 
     public const DISCRIMINATOR_VALUE = 'ChangeLabelChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -68,18 +68,19 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
         ?string $fieldName = null,
         ?string $attributeName = null,
         ?LocalizedString $nextValue = null,
-        ?LocalizedString $previousValue = null
+        ?LocalizedString $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->fieldName = $fieldName;
         $this->attributeName = $attributeName;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -99,7 +100,7 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
     /**
      * <p>Update action for <code>changeLabel</code> on product types and types</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -119,7 +120,7 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
     /**
      * <p>The name of the field definition to update (types).</p>
      *
-
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -139,7 +140,7 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
     /**
      * <p>The name of the attribute definition to update (product-type).</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -157,7 +158,7 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -176,7 +177,7 @@ final class ChangeLabelChangeModel extends JsonObjectModel implements ChangeLabe
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()

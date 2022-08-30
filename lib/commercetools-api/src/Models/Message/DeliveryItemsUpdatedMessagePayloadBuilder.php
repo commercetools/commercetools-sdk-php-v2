@@ -40,6 +40,12 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     private $oldItems;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -70,6 +76,17 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     public function getOldItems()
     {
         return $this->oldItems;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -105,13 +122,25 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
 
     public function build(): DeliveryItemsUpdatedMessagePayload
     {
         return new DeliveryItemsUpdatedMessagePayloadModel(
             $this->deliveryId,
             $this->items,
-            $this->oldItems
+            $this->oldItems,
+            $this->shippingKey
         );
     }
 

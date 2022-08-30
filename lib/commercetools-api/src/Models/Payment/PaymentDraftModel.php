@@ -27,13 +27,13 @@ use stdClass;
 final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
 {
     /**
-
+     *
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?string
      */
     protected $anonymousId;
@@ -45,73 +45,73 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     protected $externalId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $interfaceId;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $amountPlanned;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $amountAuthorized;
 
     /**
-
+     *
      * @var ?string
      */
     protected $authorizedUntil;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $amountPaid;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $amountRefunded;
 
     /**
-
+     *
      * @var ?PaymentMethodInfo
      */
     protected $paymentMethodInfo;
 
     /**
-
+     *
      * @var ?PaymentStatusDraft
      */
     protected $paymentStatus;
 
     /**
-
+     *
      * @var ?TransactionDraftCollection
      */
     protected $transactions;
 
     /**
-
+     *
      * @var ?CustomFieldsDraftCollection
      */
     protected $interfaceInteractions;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -157,7 +157,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     /**
      * <p>A reference to the customer this payment belongs to.</p>
      *
-
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -178,7 +178,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     /**
      * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
-
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -218,7 +218,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * Cannot be changed once it has been set.
      * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
      *
-
+     *
      * @return null|string
      */
     public function getInterfaceId()
@@ -239,7 +239,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * <p>How much money this payment intends to receive from the customer.
      * The value usually matches the cart or order gross total.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getAmountPlanned()
@@ -261,7 +261,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getAmountAuthorized()
@@ -280,7 +280,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAuthorizedUntil()
@@ -301,7 +301,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getAmountPaid()
@@ -323,7 +323,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getAmountRefunded()
@@ -342,7 +342,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-
+     *
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo()
@@ -361,7 +361,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-
+     *
      * @return null|PaymentStatusDraft
      */
     public function getPaymentStatus()
@@ -382,7 +382,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     /**
      * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
      *
-
+     *
      * @return null|TransactionDraftCollection
      */
     public function getTransactions()
@@ -405,7 +405,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
      * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
      * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
      *
-
+     *
      * @return null|CustomFieldsDraftCollection
      */
     public function getInterfaceInteractions()
@@ -423,7 +423,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -444,7 +444,7 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     /**
      * <p>User-defined unique identifier for the Payment.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

@@ -21,37 +21,37 @@ use stdClass;
 final class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?float
      */
     protected $amount;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?string
      */
     protected $state;
 
     /**
-
+     *
      * @var ?SubRateCollection
      */
     protected $subRates;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $includedInPrice;
@@ -77,7 +77,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()
@@ -100,7 +100,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      * If <code>subRates</code> are specified
      * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
-
+     *
      * @return null|float
      */
     public function getAmount()
@@ -120,7 +120,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -140,7 +140,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     /**
      * <p>The state in the country</p>
      *
-
+     *
      * @return null|string
      */
     public function getState()
@@ -162,7 +162,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      * the US) where the total tax is a combination of multiple taxes (e.g.
      * state and local taxes).</p>
      *
-
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -182,7 +182,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     /**
      * <p>The default value for <code>includedInPrice</code> is FALSE.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIncludedInPrice()

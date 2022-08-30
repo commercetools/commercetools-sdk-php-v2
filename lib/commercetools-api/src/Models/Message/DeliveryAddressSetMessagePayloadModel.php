@@ -23,28 +23,34 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryAddressSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $address;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $oldAddress;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -53,16 +59,19 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     public function __construct(
         ?string $deliveryId = null,
         ?Address $address = null,
-        ?Address $oldAddress = null
+        ?Address $oldAddress = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->address = $address;
         $this->oldAddress = $oldAddress;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +91,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -102,7 +111,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     /**
      * <p><a href="ctp:api:type:Address">Address</a> after the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
      *
-
+     *
      * @return null|Address
      */
     public function getAddress()
@@ -123,7 +132,7 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     /**
      * <p><a href="ctp:api:type:Address">Address</a> before the <a href="ctp:api:type:OrderSetDeliveryAddressAction">Set Delivery Address</a> update action.</p>
      *
-
+     *
      * @return null|Address
      */
     public function getOldAddress()
@@ -139,6 +148,26 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->oldAddress;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
 
@@ -164,5 +193,13 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     public function setOldAddress(?Address $oldAddress): void
     {
         $this->oldAddress = $oldAddress;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }

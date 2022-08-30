@@ -20,13 +20,13 @@ use stdClass;
 final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingListUpdate
 {
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?ShoppingListUpdateActionCollection
      */
     protected $actions;
@@ -44,7 +44,7 @@ final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingL
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -62,7 +62,7 @@ final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingL
     }
 
     /**
-
+     *
      * @return null|ShoppingListUpdateActionCollection
      */
     public function getActions()

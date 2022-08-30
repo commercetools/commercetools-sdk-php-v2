@@ -20,13 +20,13 @@ use stdClass;
 final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensions
 {
     /**
-
+     *
      * @var ?int
      */
     protected $w;
 
     /**
-
+     *
      * @var ?int
      */
     protected $h;
@@ -46,7 +46,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
     /**
      * <p>Width of the image.</p>
      *
-
+     *
      * @return null|int
      */
     public function getW()
@@ -66,7 +66,7 @@ final class ImageDimensionsModel extends JsonObjectModel implements ImageDimensi
     /**
      * <p>Height of the image.</p>
      *
-
+     *
      * @return null|int
      */
     public function getH()

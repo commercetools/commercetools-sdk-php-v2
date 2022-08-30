@@ -20,31 +20,31 @@ use stdClass;
 final class MissingPricesPagedQueryResultModel extends JsonObjectModel implements MissingPricesPagedQueryResult
 {
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?MissingPricesCollection
      */
     protected $results;
 
     /**
-
+     *
      * @var ?MissingPricesMeta
      */
     protected $meta;
@@ -68,7 +68,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -86,7 +86,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -106,7 +106,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -124,7 +124,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|MissingPricesCollection
      */
     public function getResults()
@@ -142,7 +142,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|MissingPricesMeta
      */
     public function getMeta()

@@ -21,13 +21,13 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -37,14 +37,15 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $action = null
     ) {
         $this->key = $key;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
      * 256 characters).
      * If not provided an existing key will be removed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

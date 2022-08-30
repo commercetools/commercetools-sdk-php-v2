@@ -37,6 +37,12 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     private $parcel;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -59,6 +65,17 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
+
+    /**
      * @param ?Delivery $delivery
      * @return $this
      */
@@ -76,6 +93,17 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     public function withParcel(?Parcel $parcel)
     {
         $this->parcel = $parcel;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -106,7 +134,8 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     {
         return new ParcelAddedToDeliveryMessagePayloadModel(
             $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery,
-            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel
+            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel,
+            $this->shippingKey
         );
     }
 

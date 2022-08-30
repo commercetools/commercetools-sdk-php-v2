@@ -23,22 +23,28 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'ParcelRemovedFromDelivery';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?Parcel
      */
     protected $parcel;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -46,15 +52,18 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
      */
     public function __construct(
         ?string $deliveryId = null,
-        ?Parcel $parcel = null
+        ?Parcel $parcel = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->parcel = $parcel;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +83,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -94,7 +103,7 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:Parcel">Parcel</a> that was removed from the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
-
+     *
      * @return null|Parcel
      */
     public function getParcel()
@@ -112,6 +121,26 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
         return $this->parcel;
     }
 
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
 
     /**
      * @param ?string $deliveryId
@@ -127,5 +156,13 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     public function setParcel(?Parcel $parcel): void
     {
         $this->parcel = $parcel;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }

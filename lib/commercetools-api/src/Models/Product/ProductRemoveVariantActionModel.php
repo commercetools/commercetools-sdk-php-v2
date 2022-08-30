@@ -21,25 +21,25 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'removeVariant';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -51,16 +51,17 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     public function __construct(
         ?int $id = null,
         ?string $sku = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->id = $id;
         $this->sku = $sku;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,7 +81,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     /**
      * <p>The <code>id</code> of the ProductVariant to remove.</p>
      *
-
+     *
      * @return null|int
      */
     public function getId()
@@ -100,7 +101,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     /**
      * <p>The <code>sku</code> of the ProductVariant to remove.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -120,7 +121,7 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     /**
      * <p>If <code>true</code>, only the staged ProductVariant is removed. If <code>false</code>, both the current and staged ProductVariant is removed.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

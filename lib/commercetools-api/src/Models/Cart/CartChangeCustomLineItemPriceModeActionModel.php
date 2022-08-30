@@ -21,19 +21,19 @@ final class CartChangeCustomLineItemPriceModeActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeCustomLineItemPriceMode';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $mode;
@@ -44,15 +44,16 @@ final class CartChangeCustomLineItemPriceModeActionModel extends JsonObjectModel
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?string $mode = null
+        ?string $mode = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->mode = $mode;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class CartChangeCustomLineItemPriceModeActionModel extends JsonObjectModel
     /**
      * <p>ID of the Custom Line Item to be updated.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -92,7 +93,7 @@ final class CartChangeCustomLineItemPriceModeActionModel extends JsonObjectModel
     /**
      * <p>New value to set.</p>
      *
-
+     *
      * @return null|string
      */
     public function getMode()

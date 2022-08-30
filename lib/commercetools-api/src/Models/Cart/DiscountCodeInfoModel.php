@@ -22,13 +22,13 @@ use stdClass;
 final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCodeInfo
 {
     /**
-
+     *
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $state;
@@ -46,7 +46,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     }
 
     /**
-
+     *
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()
@@ -65,7 +65,7 @@ final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCod
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getState()

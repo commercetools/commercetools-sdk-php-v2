@@ -25,37 +25,37 @@ use stdClass;
 final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?OrderReference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?StagedOrderUpdateActionCollection
      */
     protected $stagedActions;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?string
      */
     protected $comment;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $dryRun;
@@ -83,7 +83,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     /**
      * <p>User-defined unique identifier for the OrderEdit.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -103,7 +103,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     /**
      * <p>The order to be updated with this edit.</p>
      *
-
+     *
      * @return null|OrderReference
      */
     public function getResource()
@@ -124,7 +124,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     /**
      * <p>The actions to apply to <code>resource</code>.</p>
      *
-
+     *
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions()
@@ -144,7 +144,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     /**
      * <p>The custom fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -165,7 +165,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     /**
      * <p>This field can be used to add additional textual information regarding the edit.</p>
      *
-
+     *
      * @return null|string
      */
     public function getComment()
@@ -185,7 +185,7 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     /**
      * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getDryRun()

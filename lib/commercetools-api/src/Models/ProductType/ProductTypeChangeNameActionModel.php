@@ -21,13 +21,13 @@ final class ProductTypeChangeNameActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
@@ -37,14 +37,15 @@ final class ProductTypeChangeNameActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $name = null
+        ?string $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ProductTypeChangeNameActionModel extends JsonObjectModel implements 
     /**
      * <p>New value to set.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()

@@ -21,25 +21,25 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -51,16 +51,17 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     public function __construct(
         ?string $name = null,
         $value = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->name = $name;
         $this->value = $value;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,7 +81,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     /**
      * <p>The name of the Attribute to set.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -111,7 +112,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
      * <li>For <a href="ctp:api:type:AttributeReferenceType">Reference Type</a> Attributes, use the <a href="ctp:api:type:Reference">Reference</a> object as <code>value</code>.</li>
      * </ul>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()
@@ -131,7 +132,7 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     /**
      * <p>If <code>true</code>, only the staged Attributes are set. If <code>false</code>, both the current and staged Attributes are set.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

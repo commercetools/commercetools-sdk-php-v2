@@ -23,13 +23,13 @@ final class ChannelSetAddressActionModel extends JsonObjectModel implements Chan
 {
     public const DISCRIMINATOR_VALUE = 'setAddress';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?BaseAddress
      */
     protected $address;
@@ -39,14 +39,15 @@ final class ChannelSetAddressActionModel extends JsonObjectModel implements Chan
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?BaseAddress $address = null
+        ?BaseAddress $address = null,
+        ?string $action = null
     ) {
         $this->address = $address;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class ChannelSetAddressActionModel extends JsonObjectModel implements Chan
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|BaseAddress
      */
     public function getAddress()

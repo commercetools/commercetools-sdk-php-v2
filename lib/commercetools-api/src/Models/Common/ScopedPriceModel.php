@@ -27,61 +27,61 @@ use stdClass;
 final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $currentValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelReference
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -117,7 +117,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Platform-generated unique identifier of the Price.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -137,7 +137,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Original value of the Price.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -158,7 +158,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>If available, either the original price <code>value</code> or <code>discounted</code> value.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getCurrentValue()
@@ -179,7 +179,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Country code of the geographic location.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -199,7 +199,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Reference to a CustomerGroup.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -220,7 +220,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Reference to a Channel.</p>
      *
-
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -241,7 +241,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Date and time from which the Price is valid.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -265,7 +265,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Date and time until which the Price is valid.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -290,7 +290,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
      * <p>Is set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the <a href="ctp:api:type:Cart">Cart</a> uses the discounted value for the <a href="ctp:api:type:CartAddLineItem">Cart Price calculation</a>.</p>
      * <p>When a <a href="ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> is applied and the fractional part of the discounted Price is 0.5, the discounted Price is <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">rounded half down</a> in favor of the Customer.</p>
      *
-
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -311,7 +311,7 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     /**
      * <p>Custom Fields for the Price.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

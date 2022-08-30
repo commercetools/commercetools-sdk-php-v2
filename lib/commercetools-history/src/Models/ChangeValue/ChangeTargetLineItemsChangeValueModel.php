@@ -22,13 +22,13 @@ final class ChangeTargetLineItemsChangeValueModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'lineItems';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $predicate;
@@ -38,14 +38,15 @@ final class ChangeTargetLineItemsChangeValueModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $predicate = null
+        ?string $predicate = null,
+        ?string $type = null
     ) {
         $this->predicate = $predicate;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -63,7 +64,7 @@ final class ChangeTargetLineItemsChangeValueModel extends JsonObjectModel implem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPredicate()

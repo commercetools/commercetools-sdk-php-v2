@@ -24,25 +24,25 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
 
     public const DISCRIMINATOR_VALUE = 'AddDeliveryChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?DeliveryChangeValue
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?DeliveryChangeValue
      */
     protected $previousValue;
@@ -54,16 +54,17 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     public function __construct(
         ?string $change = null,
         ?DeliveryChangeValue $nextValue = null,
-        ?DeliveryChangeValue $previousValue = null
+        ?DeliveryChangeValue $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     /**
      * <p>Update action for <code>addDelivery</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     }
 
     /**
-
+     *
      * @return null|DeliveryChangeValue
      */
     public function getNextValue()
@@ -120,7 +121,7 @@ final class AddDeliveryChangeModel extends JsonObjectModel implements AddDeliver
     }
 
     /**
-
+     *
      * @return null|DeliveryChangeValue
      */
     public function getPreviousValue()

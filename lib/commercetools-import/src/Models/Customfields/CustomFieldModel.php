@@ -21,7 +21,7 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -59,14 +59,15 @@ final class CustomFieldModel extends JsonObjectModel implements CustomField
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
      * <p>The type of this field.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()

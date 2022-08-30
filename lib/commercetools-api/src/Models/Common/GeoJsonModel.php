@@ -21,7 +21,7 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -38,12 +38,13 @@ final class GeoJsonModel extends JsonObjectModel implements GeoJson
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()

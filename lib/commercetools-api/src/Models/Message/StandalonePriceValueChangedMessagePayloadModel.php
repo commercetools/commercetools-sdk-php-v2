@@ -23,19 +23,19 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceValueChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
      */
     public function __construct(
         ?Money $value = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $type = null
     ) {
         $this->value = $value;
         $this->staged = $staged;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     /**
      * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getValue()
@@ -95,7 +96,7 @@ final class StandalonePriceValueChangedMessagePayloadModel extends JsonObjectMod
     /**
      * <p>Whether the new value was applied to the current or the staged representation of the StandalonePrice. Staged changes are stored on the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

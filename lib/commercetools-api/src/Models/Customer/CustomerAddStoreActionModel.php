@@ -23,13 +23,13 @@ final class CustomerAddStoreActionModel extends JsonObjectModel implements Custo
 {
     public const DISCRIMINATOR_VALUE = 'addStore';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -39,14 +39,15 @@ final class CustomerAddStoreActionModel extends JsonObjectModel implements Custo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StoreResourceIdentifier $store = null
+        ?StoreResourceIdentifier $store = null,
+        ?string $action = null
     ) {
         $this->store = $store;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class CustomerAddStoreActionModel extends JsonObjectModel implements Custo
     /**
      * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
      *
-
+     *
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

@@ -30,88 +30,94 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'ParcelTrackingDataUpdated';
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -130,7 +136,9 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $deliveryId = null,
         ?string $parcelId = null,
-        ?TrackingData $trackingData = null
+        ?TrackingData $trackingData = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -145,13 +153,14 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
         $this->deliveryId = $deliveryId;
         $this->parcelId = $parcelId;
         $this->trackingData = $trackingData;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -171,7 +180,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -191,7 +200,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Date and time (UTC) the Message was generated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -215,7 +224,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Value of <code>createdAt</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -239,7 +248,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Value of <code>createdBy</code>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -260,7 +269,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -282,7 +291,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
      * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
      * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
      *
-
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -302,7 +311,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -323,7 +332,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Version of the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -343,7 +352,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -363,7 +372,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -384,7 +393,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -404,7 +413,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -424,7 +433,7 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     /**
      * <p>The <a href="ctp:api:type:TrackingData">Tracking Data</a> that was added to the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
      *
-
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -440,6 +449,26 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
         }
 
         return $this->trackingData;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
 
@@ -545,6 +574,14 @@ final class ParcelTrackingDataUpdatedMessageModel extends JsonObjectModel implem
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 
 

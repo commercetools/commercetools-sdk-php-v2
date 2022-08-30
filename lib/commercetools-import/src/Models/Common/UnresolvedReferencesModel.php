@@ -20,13 +20,13 @@ use stdClass;
 final class UnresolvedReferencesModel extends JsonObjectModel implements UnresolvedReferences
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
@@ -44,7 +44,7 @@ final class UnresolvedReferencesModel extends JsonObjectModel implements Unresol
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -64,7 +64,7 @@ final class UnresolvedReferencesModel extends JsonObjectModel implements Unresol
     /**
      * <p>The type of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()

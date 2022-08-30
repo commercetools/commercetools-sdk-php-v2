@@ -20,13 +20,13 @@ use stdClass;
 final class SearchIndexingConfigurationModel extends JsonObjectModel implements SearchIndexingConfiguration
 {
     /**
-
+     *
      * @var ?SearchIndexingConfigurationValues
      */
     protected $products;
 
     /**
-
+     *
      * @var ?SearchIndexingConfigurationValues
      */
     protected $orders;
@@ -46,7 +46,7 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     /**
      * <p>Configuration for the <a href="/../api/projects/products-search">Product Projection Search</a> and <a href="/../api/projects/products-suggestions">Product Suggestions</a> endpoints.</p>
      *
-
+     *
      * @return null|SearchIndexingConfigurationValues
      */
     public function getProducts()
@@ -67,7 +67,7 @@ final class SearchIndexingConfigurationModel extends JsonObjectModel implements 
     /**
      * <p>Configuration for the <a href="/../api/projects/order-search">Order Search</a> feature.</p>
      *
-
+     *
      * @return null|SearchIndexingConfigurationValues
      */
     public function getOrders()

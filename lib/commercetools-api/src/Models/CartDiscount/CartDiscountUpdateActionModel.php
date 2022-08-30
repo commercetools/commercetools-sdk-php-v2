@@ -21,7 +21,7 @@ final class CartDiscountUpdateActionModel extends JsonObjectModel implements Car
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
@@ -52,12 +52,13 @@ final class CartDiscountUpdateActionModel extends JsonObjectModel implements Car
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()

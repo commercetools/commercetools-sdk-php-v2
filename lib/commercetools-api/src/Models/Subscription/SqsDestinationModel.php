@@ -21,31 +21,31 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
 {
     public const DISCRIMINATOR_VALUE = 'SQS';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $accessKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $accessSecret;
 
     /**
-
+     *
      * @var ?string
      */
     protected $queueUrl;
 
     /**
-
+     *
      * @var ?string
      */
     protected $region;
@@ -58,17 +58,18 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         ?string $accessKey = null,
         ?string $accessSecret = null,
         ?string $queueUrl = null,
-        ?string $region = null
+        ?string $region = null,
+        ?string $type = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
         $this->queueUrl = $queueUrl;
         $this->region = $region;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -86,7 +87,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -104,7 +105,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAccessSecret()
@@ -122,7 +123,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getQueueUrl()
@@ -140,7 +141,7 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getRegion()

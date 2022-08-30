@@ -21,25 +21,25 @@ final class MoneyModel extends JsonObjectModel implements Money
 {
     public const DISCRIMINATOR_VALUE = 'centPrecision';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
-
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
-
+     *
      * @var ?string
      */
     protected $currencyCode;
@@ -51,16 +51,17 @@ final class MoneyModel extends JsonObjectModel implements Money
     public function __construct(
         ?int $fractionDigits = null,
         ?int $centAmount = null,
-        ?string $currencyCode = null
+        ?string $currencyCode = null,
+        ?string $type = null
     ) {
         $this->fractionDigits = $fractionDigits;
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -78,7 +79,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getFractionDigits()
@@ -96,7 +97,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -116,7 +117,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCurrencyCode()

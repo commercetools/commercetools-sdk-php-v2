@@ -20,7 +20,7 @@ use stdClass;
 final class UpdateActionModel extends JsonObjectModel implements UpdateAction
 {
     /**
-
+     *
      * @var ?string
      */
     protected $action;
@@ -36,7 +36,7 @@ final class UpdateActionModel extends JsonObjectModel implements UpdateAction
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()

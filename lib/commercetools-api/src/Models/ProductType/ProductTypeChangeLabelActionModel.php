@@ -23,19 +23,19 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'changeLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $label;
@@ -46,15 +46,16 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $attributeName = null,
-        ?LocalizedString $label = null
+        ?LocalizedString $label = null,
+        ?string $action = null
     ) {
         $this->attributeName = $attributeName;
         $this->label = $label;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -94,7 +95,7 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
     /**
      * <p>New value to set. Must not be empty.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLabel()

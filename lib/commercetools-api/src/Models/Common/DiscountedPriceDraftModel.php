@@ -22,13 +22,13 @@ use stdClass;
 final class DiscountedPriceDraftModel extends JsonObjectModel implements DiscountedPriceDraft
 {
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
-
+     *
      * @var ?ProductDiscountReference
      */
     protected $discount;
@@ -48,7 +48,7 @@ final class DiscountedPriceDraftModel extends JsonObjectModel implements Discoun
     /**
      * <p>Sets the money value for the discounted price.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getValue()
@@ -69,7 +69,7 @@ final class DiscountedPriceDraftModel extends JsonObjectModel implements Discoun
     /**
      * <p>Relates the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> to the discounted price.</p>
      *
-
+     *
      * @return null|ProductDiscountReference
      */
     public function getDiscount()

@@ -21,13 +21,13 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeTriggers';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ExtensionTriggerCollection
      */
     protected $triggers;
@@ -37,14 +37,15 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ExtensionTriggerCollection $triggers = null
+        ?ExtensionTriggerCollection $triggers = null,
+        ?string $action = null
     ) {
         $this->triggers = $triggers;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Must not be empty.</p>
      *
-
+     *
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()

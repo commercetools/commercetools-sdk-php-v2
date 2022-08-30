@@ -24,13 +24,13 @@ final class AssetChangeValueModel extends JsonObjectModel implements AssetChange
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -49,7 +49,7 @@ final class AssetChangeValueModel extends JsonObjectModel implements AssetChange
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -67,7 +67,7 @@ final class AssetChangeValueModel extends JsonObjectModel implements AssetChange
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()

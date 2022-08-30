@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
+use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -115,6 +116,12 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
+
+    /**
+
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -272,6 +279,17 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>..</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        return $this->taxedPricePortions;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -426,6 +444,17 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     * @return $this
+     */
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -507,7 +536,8 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
             $this->lineItemId,
             $this->discountedPricePerQuantity,
             $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
-            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice
+            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedPricePortions
         );
     }
 

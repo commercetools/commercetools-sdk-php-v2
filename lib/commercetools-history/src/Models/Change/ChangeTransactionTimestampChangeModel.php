@@ -24,31 +24,31 @@ final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'ChangeTransactionTimestampChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?TransactionChangeValue
      */
     protected $transaction;
 
     /**
-
+     *
      * @var ?string
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $previousValue;
@@ -61,17 +61,18 @@ final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implem
         ?string $change = null,
         ?TransactionChangeValue $transaction = null,
         ?string $nextValue = null,
-        ?string $previousValue = null
+        ?string $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->transaction = $transaction;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -91,7 +92,7 @@ final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>changeTransactionTimestamp</code> on payments</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -109,7 +110,7 @@ final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implem
     }
 
     /**
-
+     *
      * @return null|TransactionChangeValue
      */
     public function getTransaction()
@@ -128,7 +129,7 @@ final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNextValue()
@@ -146,7 +147,7 @@ final class ChangeTransactionTimestampChangeModel extends JsonObjectModel implem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPreviousValue()

@@ -25,25 +25,25 @@ final class OrderSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setDeliveryAddressCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -55,16 +55,17 @@ final class OrderSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel
     public function __construct(
         ?string $deliveryId = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -82,7 +83,7 @@ final class OrderSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -103,7 +104,7 @@ final class OrderSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> in a Delivery with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code> in a Delivery.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -124,7 +125,7 @@ final class OrderSetDeliveryAddressCustomTypeActionModel extends JsonObjectModel
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code> in a Delivery.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

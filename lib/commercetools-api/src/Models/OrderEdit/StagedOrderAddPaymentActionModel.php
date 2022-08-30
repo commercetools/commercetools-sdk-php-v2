@@ -25,13 +25,13 @@ final class StagedOrderAddPaymentActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'addPayment';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?PaymentResourceIdentifier
      */
     protected $payment;
@@ -41,14 +41,15 @@ final class StagedOrderAddPaymentActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?PaymentResourceIdentifier $payment = null
+        ?PaymentResourceIdentifier $payment = null,
+        ?string $action = null
     ) {
         $this->payment = $payment;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,7 +69,7 @@ final class StagedOrderAddPaymentActionModel extends JsonObjectModel implements 
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
-
+     *
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

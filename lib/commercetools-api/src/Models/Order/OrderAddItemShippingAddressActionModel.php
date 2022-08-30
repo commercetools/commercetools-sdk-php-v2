@@ -23,13 +23,13 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'addItemShippingAddress';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?BaseAddress
      */
     protected $address;
@@ -39,14 +39,15 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?BaseAddress $address = null
+        ?BaseAddress $address = null,
+        ?string $action = null
     ) {
         $this->address = $address;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class OrderAddItemShippingAddressActionModel extends JsonObjectModel imple
     }
 
     /**
-
+     *
      * @return null|BaseAddress
      */
     public function getAddress()

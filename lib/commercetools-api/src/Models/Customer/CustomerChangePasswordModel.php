@@ -20,25 +20,25 @@ use stdClass;
 final class CustomerChangePasswordModel extends JsonObjectModel implements CustomerChangePassword
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?string
      */
     protected $currentPassword;
 
     /**
-
+     *
      * @var ?string
      */
     protected $newPassword;
@@ -62,7 +62,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     /**
      * <p>Unique identifier of the Customer.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -80,7 +80,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -98,7 +98,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCurrentPassword()
@@ -116,7 +116,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNewPassword()

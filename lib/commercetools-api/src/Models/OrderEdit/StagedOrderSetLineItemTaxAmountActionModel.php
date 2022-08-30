@@ -25,19 +25,19 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemTaxAmount';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
@@ -48,15 +48,16 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?ExternalTaxAmountDraft $externalTaxAmount = null
+        ?ExternalTaxAmountDraft $externalTaxAmount = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->externalTaxAmount = $externalTaxAmount;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -92,7 +93,7 @@ final class StagedOrderSetLineItemTaxAmountActionModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|ExternalTaxAmountDraft
      */
     public function getExternalTaxAmount()

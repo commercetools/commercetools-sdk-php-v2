@@ -25,31 +25,31 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?CustomerReference
      */
     protected $oldCustomer;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $oldCustomerGroup;
@@ -62,17 +62,18 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
         ?CustomerReference $customer = null,
         ?CustomerGroupReference $customerGroup = null,
         ?CustomerReference $oldCustomer = null,
-        ?CustomerGroupReference $oldCustomerGroup = null
+        ?CustomerGroupReference $oldCustomerGroup = null,
+        ?string $type = null
     ) {
         $this->customer = $customer;
         $this->customerGroup = $customerGroup;
         $this->oldCustomer = $oldCustomer;
         $this->oldCustomerGroup = $oldCustomerGroup;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -92,7 +93,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
-
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -113,7 +114,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -134,7 +135,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:Customer">Customer</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
-
+     *
      * @return null|CustomerReference
      */
     public function getOldCustomer()
@@ -155,7 +156,7 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerIdAction">Set Customer Id</a> update action.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getOldCustomerGroup()

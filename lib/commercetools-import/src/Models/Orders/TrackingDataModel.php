@@ -20,31 +20,31 @@ use stdClass;
 final class TrackingDataModel extends JsonObjectModel implements TrackingData
 {
     /**
-
+     *
      * @var ?string
      */
     protected $trackingId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $carrier;
 
     /**
-
+     *
      * @var ?string
      */
     protected $provider;
 
     /**
-
+     *
      * @var ?string
      */
     protected $providerTransaction;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isReturn;
@@ -68,7 +68,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTrackingId()
@@ -86,7 +86,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCarrier()
@@ -104,7 +104,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProvider()
@@ -122,7 +122,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProviderTransaction()
@@ -140,7 +140,7 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getIsReturn()

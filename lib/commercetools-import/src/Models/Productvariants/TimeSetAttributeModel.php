@@ -21,19 +21,19 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
 {
     public const DISCRIMINATOR_VALUE = 'time-set';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?DateTimeImmutableCollection
      */
     protected $value;
@@ -44,11 +44,12 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
      */
     public function __construct(
         ?string $name = null,
-        ?DateTimeImmutableCollection $value = null
+        ?DateTimeImmutableCollection $value = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -56,7 +57,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -74,7 +75,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -92,7 +93,7 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutableCollection
      */
     public function getValue()

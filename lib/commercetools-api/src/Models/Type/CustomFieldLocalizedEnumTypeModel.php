@@ -21,13 +21,13 @@ final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedEnum';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?CustomFieldLocalizedEnumValueCollection
      */
     protected $values;
@@ -37,14 +37,15 @@ final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFieldLocalizedEnumValueCollection $values = null
+        ?CustomFieldLocalizedEnumValueCollection $values = null,
+        ?string $name = null
     ) {
         $this->values = $values;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()
@@ -64,7 +65,7 @@ final class CustomFieldLocalizedEnumTypeModel extends JsonObjectModel implements
     /**
      * <p>Allowed values.</p>
      *
-
+     *
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues()

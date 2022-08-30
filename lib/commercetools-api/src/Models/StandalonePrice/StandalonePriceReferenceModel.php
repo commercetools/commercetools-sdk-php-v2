@@ -23,19 +23,19 @@ final class StandalonePriceReferenceModel extends JsonObjectModel implements Sta
 {
     public const DISCRIMINATOR_VALUE = 'standalone-price';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?StandalonePrice
      */
     protected $obj;
@@ -46,17 +46,18 @@ final class StandalonePriceReferenceModel extends JsonObjectModel implements Sta
      */
     public function __construct(
         ?string $id = null,
-        ?StandalonePrice $obj = null
+        ?StandalonePrice $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -76,7 +77,7 @@ final class StandalonePriceReferenceModel extends JsonObjectModel implements Sta
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -96,7 +97,7 @@ final class StandalonePriceReferenceModel extends JsonObjectModel implements Sta
     /**
      * <p>Contains the representation of the expanded StandalonePrice. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StandalonePrice.</p>
      *
-
+     *
      * @return null|StandalonePrice
      */
     public function getObj()

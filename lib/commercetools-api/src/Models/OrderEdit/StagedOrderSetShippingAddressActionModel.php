@@ -25,13 +25,13 @@ final class StagedOrderSetShippingAddressActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setShippingAddress';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?BaseAddress
      */
     protected $address;
@@ -41,14 +41,15 @@ final class StagedOrderSetShippingAddressActionModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?BaseAddress $address = null
+        ?BaseAddress $address = null,
+        ?string $action = null
     ) {
         $this->address = $address;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class StagedOrderSetShippingAddressActionModel extends JsonObjectModel imp
     }
 
     /**
-
+     *
      * @return null|BaseAddress
      */
     public function getAddress()

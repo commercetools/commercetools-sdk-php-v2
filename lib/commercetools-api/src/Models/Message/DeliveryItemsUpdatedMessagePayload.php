@@ -17,6 +17,7 @@ interface DeliveryItemsUpdatedMessagePayload extends OrderMessagePayload
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_ITEMS = 'items';
     public const FIELD_OLD_ITEMS = 'oldItems';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
@@ -43,6 +44,14 @@ interface DeliveryItemsUpdatedMessagePayload extends OrderMessagePayload
     public function getOldItems();
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
@@ -56,4 +65,9 @@ interface DeliveryItemsUpdatedMessagePayload extends OrderMessagePayload
      * @param ?DeliveryItemCollection $oldItems
      */
     public function setOldItems(?DeliveryItemCollection $oldItems): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

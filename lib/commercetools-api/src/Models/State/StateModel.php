@@ -29,85 +29,85 @@ use stdClass;
 final class StateModel extends JsonObjectModel implements State
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $initial;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $builtIn;
 
     /**
-
+     *
      * @var ?array
      */
     protected $roles;
 
     /**
-
+     *
      * @var ?StateReferenceCollection
      */
     protected $transitions;
@@ -151,7 +151,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Unique identifier of the State.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -171,7 +171,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Current version of the State.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -191,7 +191,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Date and time (UTC) the State was initially created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -215,7 +215,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Date and time (UTC) the State was last updated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -239,7 +239,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -260,7 +260,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -281,7 +281,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>User-defined unique identifier of the State.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -301,7 +301,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Indicates to which resource or object types the State is assigned to.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -321,7 +321,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Name of the State.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -342,7 +342,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Description of the State.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -363,7 +363,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p><code>true</code> for an initial State, the first State in a workflow.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getInitial()
@@ -383,7 +383,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p><code>true</code> for States that are an integral part of the <a href="ctp:api:type:Project">Project</a>. Those States cannot be deleted and their <code>key</code> cannot be changed.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getBuiltIn()
@@ -403,7 +403,7 @@ final class StateModel extends JsonObjectModel implements State
     /**
      * <p>Roles the State can fulfill for <a href="ctp:api:type:Review">Reviews</a> and <a href="ctp:api:type:LineItem">Line Items</a>.</p>
      *
-
+     *
      * @return null|array
      */
     public function getRoles()
@@ -427,7 +427,7 @@ final class StateModel extends JsonObjectModel implements State
      * <li>if not set, the validation is turned off and the current State can be transitioned to any other State of the same <code>type</code> as the current State.</li>
      * </ul>
      *
-
+     *
      * @return null|StateReferenceCollection
      */
     public function getTransitions()

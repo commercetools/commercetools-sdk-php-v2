@@ -22,13 +22,13 @@ final class UnpublishChangeModel extends JsonObjectModel implements UnpublishCha
 
     public const DISCRIMINATOR_VALUE = 'UnpublishChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
@@ -38,14 +38,15 @@ final class UnpublishChangeModel extends JsonObjectModel implements UnpublishCha
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $change = null
+        ?string $change = null,
+        ?string $type = null
     ) {
         $this->change = $change;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -63,7 +64,7 @@ final class UnpublishChangeModel extends JsonObjectModel implements UnpublishCha
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()

@@ -23,19 +23,19 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'OrderShippingRateInputSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ShippingRateInput
      */
     protected $shippingRateInput;
 
     /**
-
+     *
      * @var ?ShippingRateInput
      */
     protected $oldShippingRateInput;
@@ -46,15 +46,16 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
      */
     public function __construct(
         ?ShippingRateInput $shippingRateInput = null,
-        ?ShippingRateInput $oldShippingRateInput = null
+        ?ShippingRateInput $oldShippingRateInput = null,
+        ?string $type = null
     ) {
         $this->shippingRateInput = $shippingRateInput;
         $this->oldShippingRateInput = $oldShippingRateInput;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:ShippingRateInput">ShippingRateInput</a> after the <a href="ctp:api:type:StagedOrderSetShippingRateInputAction">Set ShippingRateInput</a> update action.</p>
      *
-
+     *
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -95,7 +96,7 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     /**
      * <p><a href="ctp:api:type:ShippingRateInput">ShippingRateInput</a> before the <a href="ctp:api:type:StagedOrderSetShippingRateInputAction">Set ShippingRateInput</a> update action.</p>
      *
-
+     *
      * @return null|ShippingRateInput
      */
     public function getOldShippingRateInput()

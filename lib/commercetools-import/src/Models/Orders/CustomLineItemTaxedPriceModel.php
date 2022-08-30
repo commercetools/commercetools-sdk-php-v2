@@ -22,13 +22,13 @@ use stdClass;
 final class CustomLineItemTaxedPriceModel extends JsonObjectModel implements CustomLineItemTaxedPrice
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalNet;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalGross;
@@ -46,7 +46,7 @@ final class CustomLineItemTaxedPriceModel extends JsonObjectModel implements Cus
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -65,7 +65,7 @@ final class CustomLineItemTaxedPriceModel extends JsonObjectModel implements Cus
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalGross()

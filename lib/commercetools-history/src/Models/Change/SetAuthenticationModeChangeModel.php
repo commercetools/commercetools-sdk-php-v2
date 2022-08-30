@@ -22,25 +22,25 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetAuthenticationModeChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -52,16 +52,17 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     public function __construct(
         ?string $change = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -81,7 +82,7 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setAuthenticationMode</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -99,7 +100,7 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -117,7 +118,7 @@ final class SetAuthenticationModeChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNextValue()

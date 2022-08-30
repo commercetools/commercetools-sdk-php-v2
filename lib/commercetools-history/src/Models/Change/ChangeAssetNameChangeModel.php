@@ -26,31 +26,31 @@ final class ChangeAssetNameChangeModel extends JsonObjectModel implements Change
 
     public const DISCRIMINATOR_VALUE = 'ChangeAssetNameChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -63,17 +63,18 @@ final class ChangeAssetNameChangeModel extends JsonObjectModel implements Change
         ?string $change = null,
         ?AssetChangeValue $asset = null,
         ?LocalizedString $nextValue = null,
-        ?LocalizedString $previousValue = null
+        ?LocalizedString $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->asset = $asset;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class ChangeAssetNameChangeModel extends JsonObjectModel implements Change
     /**
      * <p>Update action for <code>changeAssetName</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,7 +112,7 @@ final class ChangeAssetNameChangeModel extends JsonObjectModel implements Change
     }
 
     /**
-
+     *
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -130,7 +131,7 @@ final class ChangeAssetNameChangeModel extends JsonObjectModel implements Change
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -149,7 +150,7 @@ final class ChangeAssetNameChangeModel extends JsonObjectModel implements Change
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()

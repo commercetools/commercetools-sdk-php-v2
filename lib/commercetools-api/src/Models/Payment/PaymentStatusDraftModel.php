@@ -22,19 +22,19 @@ use stdClass;
 final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentStatusDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $interfaceCode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $interfaceText;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
@@ -54,7 +54,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInterfaceCode()
@@ -72,7 +72,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInterfaceText()
@@ -92,7 +92,7 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()

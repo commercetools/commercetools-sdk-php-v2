@@ -21,13 +21,13 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeOrderHint';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderHint;
@@ -37,14 +37,15 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $orderHint = null
+        ?string $orderHint = null,
+        ?string $action = null
     ) {
         $this->orderHint = $orderHint;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Must be a decimal value between 0 and 1.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderHint()

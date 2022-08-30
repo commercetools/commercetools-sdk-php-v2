@@ -107,6 +107,12 @@ final class DeliveryItemsUpdatedMessageBuilder implements Builder
     private $oldItems;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -248,6 +254,17 @@ final class DeliveryItemsUpdatedMessageBuilder implements Builder
     public function getOldItems()
     {
         return $this->oldItems;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -394,6 +411,17 @@ final class DeliveryItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -452,7 +480,8 @@ final class DeliveryItemsUpdatedMessageBuilder implements Builder
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->deliveryId,
             $this->items,
-            $this->oldItems
+            $this->oldItems,
+            $this->shippingKey
         );
     }
 

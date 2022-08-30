@@ -23,13 +23,13 @@ final class OrderPaymentAddedMessagePayloadModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'OrderPaymentAdded';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?PaymentReference
      */
     protected $payment;
@@ -39,14 +39,15 @@ final class OrderPaymentAddedMessagePayloadModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?PaymentReference $payment = null
+        ?PaymentReference $payment = null,
+        ?string $type = null
     ) {
         $this->payment = $payment;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class OrderPaymentAddedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * <p><a href="ctp:api:type:Payment">Payment</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
      *
-
+     *
      * @return null|PaymentReference
      */
     public function getPayment()

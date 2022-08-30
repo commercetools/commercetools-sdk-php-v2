@@ -22,19 +22,19 @@ final class StoreDistributionChannelsChangedMessagePayloadModel extends JsonObje
 {
     public const DISCRIMINATOR_VALUE = 'StoreDistributionChannelsChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $addedDistributionChannels;
 
     /**
-
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $removedDistributionChannels;
@@ -45,15 +45,16 @@ final class StoreDistributionChannelsChangedMessagePayloadModel extends JsonObje
      */
     public function __construct(
         ?ChannelReferenceCollection $addedDistributionChannels = null,
-        ?ChannelReferenceCollection $removedDistributionChannels = null
+        ?ChannelReferenceCollection $removedDistributionChannels = null,
+        ?string $type = null
     ) {
         $this->addedDistributionChannels = $addedDistributionChannels;
         $this->removedDistributionChannels = $removedDistributionChannels;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -73,7 +74,7 @@ final class StoreDistributionChannelsChangedMessagePayloadModel extends JsonObje
     /**
      * <p>Product distribution Channels that have been added to the <a href="/../api/projects/stores">Store</a>.</p>
      *
-
+     *
      * @return null|ChannelReferenceCollection
      */
     public function getAddedDistributionChannels()
@@ -93,7 +94,7 @@ final class StoreDistributionChannelsChangedMessagePayloadModel extends JsonObje
     /**
      * <p>Product distribution Channels that have been removed from the <a href="/../api/projects/stores">Store</a>.</p>
      *
-
+     *
      * @return null|ChannelReferenceCollection
      */
     public function getRemovedDistributionChannels()

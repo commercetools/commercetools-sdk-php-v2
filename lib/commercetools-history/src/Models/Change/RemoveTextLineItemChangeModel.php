@@ -24,25 +24,25 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
 
     public const DISCRIMINATOR_VALUE = 'RemoveTextLineItemChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?TextLineItem
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?TextLineItem
      */
     protected $nextValue;
@@ -54,16 +54,17 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
     public function __construct(
         ?string $change = null,
         ?TextLineItem $previousValue = null,
-        ?TextLineItem $nextValue = null
+        ?TextLineItem $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -81,7 +82,7 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -99,7 +100,7 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-
+     *
      * @return null|TextLineItem
      */
     public function getPreviousValue()
@@ -118,7 +119,7 @@ final class RemoveTextLineItemChangeModel extends JsonObjectModel implements Rem
     }
 
     /**
-
+     *
      * @return null|TextLineItem
      */
     public function getNextValue()

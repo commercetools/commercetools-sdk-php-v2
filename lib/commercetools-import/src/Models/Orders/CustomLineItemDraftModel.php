@@ -28,73 +28,73 @@ use stdClass;
 final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLineItemDraft
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $money;
 
     /**
-
+     *
      * @var ?CustomLineItemTaxedPrice
      */
     protected $taxedPrice;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
-
+     *
      * @var ?string
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?float
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
-
+     *
      * @var ?TaxCategoryKeyReference
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
-
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
 
     /**
-
+     *
      * @var ?DiscountedLineItemPriceDraftCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
-
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
@@ -139,7 +139,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
      * }
      * </code></pre>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -158,7 +158,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getMoney()
@@ -177,7 +177,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|CustomLineItemTaxedPrice
      */
     public function getTaxedPrice()
@@ -196,7 +196,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -215,7 +215,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSlug()
@@ -233,7 +233,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getQuantity()
@@ -251,7 +251,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -271,7 +271,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     /**
      * <p>References a tax category by key.</p>
      *
-
+     *
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -290,7 +290,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -309,7 +309,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -328,7 +328,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|DiscountedLineItemPriceDraftCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -346,7 +346,7 @@ final class CustomLineItemDraftModel extends JsonObjectModel implements CustomLi
     }
 
     /**
-
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()

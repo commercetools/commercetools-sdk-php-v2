@@ -24,25 +24,25 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
 
     public const DISCRIMINATOR_VALUE = 'ChangeReviewRatingStatisticsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ReviewRatingStatistics
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?ReviewRatingStatistics
      */
     protected $previousValue;
@@ -54,16 +54,17 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     public function __construct(
         ?string $change = null,
         ?ReviewRatingStatistics $nextValue = null,
-        ?ReviewRatingStatistics $previousValue = null
+        ?ReviewRatingStatistics $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     /**
      * <p>Update action for <code>changeReviewRatingStatistics</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getNextValue()
@@ -120,7 +121,7 @@ final class ChangeReviewRatingStatisticsChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getPreviousValue()

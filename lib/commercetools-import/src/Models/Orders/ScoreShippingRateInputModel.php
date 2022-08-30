@@ -21,13 +21,13 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
 {
     public const DISCRIMINATOR_VALUE = 'Score';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?float
      */
     protected $score;
@@ -37,14 +37,15 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?float $score = null
+        ?float $score = null,
+        ?string $type = null
     ) {
         $this->score = $score;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -62,7 +63,7 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getScore()

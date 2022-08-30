@@ -21,13 +21,13 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
 {
     public const DISCRIMINATOR_VALUE = 'setOrderNumber';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderNumber;
@@ -37,14 +37,15 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $orderNumber = null
+        ?string $orderNumber = null,
+        ?string $action = null
     ) {
         $this->orderNumber = $orderNumber;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getOrderNumber()

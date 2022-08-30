@@ -23,19 +23,19 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'ProductVariantDeleted';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
-
+     *
      * @var ?array
      */
     protected $removedImageUrls;
@@ -46,15 +46,16 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
      */
     public function __construct(
         ?ProductVariant $variant = null,
-        ?array $removedImageUrls = null
+        ?array $removedImageUrls = null,
+        ?string $type = null
     ) {
         $this->variant = $variant;
         $this->removedImageUrls = $removedImageUrls;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
      *
-
+     *
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -95,7 +96,7 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p>List of image URLs that were removed with the <a href="ctp:api:type:ProductRemoveVariantAction">Remove Product Variant</a> update action.</p>
      *
-
+     *
      * @return null|array
      */
     public function getRemovedImageUrls()

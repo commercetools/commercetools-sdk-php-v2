@@ -30,67 +30,67 @@ use stdClass;
 final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $uniquenessValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
-
+     *
      * @var ?string
      */
     protected $authorName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $title;
 
     /**
-
+     *
      * @var ?string
      */
     protected $text;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $target;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
-
+     *
      * @var ?int
      */
     protected $rating;
 
     /**
-
+     *
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -128,7 +128,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>User-defined unique identifier for the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -149,7 +149,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
      * <p>If set, this value must be unique among Reviews.
      * For example, if you want to have only one Review per Customer and per Product, you can set the value to Customer <code>id</code> + Product <code>id</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getUniquenessValue()
@@ -169,7 +169,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Language in which the content of the Review is written.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLocale()
@@ -189,7 +189,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Name of the author.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAuthorName()
@@ -209,7 +209,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Title of the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTitle()
@@ -229,7 +229,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Content of the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getText()
@@ -249,7 +249,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Identifies the target of the Review. Can be a <a href="ctp:api:type:Product">Product</a> or a <a href="ctp:api:type:Channel">Channel</a>, specified as <a href="ctp:api:type:ProductResourceIdentifier">ProductResourceIdentifier</a> or <a href="ctp:api:type:ChannelResourceIdentifier">ChannelResourceIdentifier</a>, respectively.</p>
      *
-
+     *
      * @return ?mixed
      */
     public function getTarget()
@@ -269,7 +269,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>State of the Review. Used for approval processes, see <a href="/../tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
      *
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -292,7 +292,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
      * This rating can represent the number of stars, a percentage, or a like (+1)/dislike (-1).
      * A rating is used in the ratings statistics of the targeted object, unless the Review is in a State that does not have the role <code>ReviewIncludedInStatistics</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getRating()
@@ -312,7 +312,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Customer who created the Review.</p>
      *
-
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -333,7 +333,7 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * <p>Custom Fields for the Review.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

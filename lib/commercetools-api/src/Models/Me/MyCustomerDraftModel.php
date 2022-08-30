@@ -25,91 +25,91 @@ use stdClass;
 final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $email;
 
     /**
-
+     *
      * @var ?string
      */
     protected $password;
 
     /**
-
+     *
      * @var ?string
      */
     protected $firstName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lastName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $middleName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $title;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
 
     /**
-
+     *
      * @var ?string
      */
     protected $companyName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $vatId;
 
     /**
-
+     *
      * @var ?BaseAddressCollection
      */
     protected $addresses;
 
     /**
-
+     *
      * @var ?int
      */
     protected $defaultShippingAddress;
 
     /**
-
+     *
      * @var ?int
      */
     protected $defaultBillingAddress;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
-
+     *
      * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
@@ -153,7 +153,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getEmail()
@@ -171,7 +171,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPassword()
@@ -189,7 +189,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getFirstName()
@@ -207,7 +207,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLastName()
@@ -225,7 +225,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMiddleName()
@@ -243,7 +243,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTitle()
@@ -261,7 +261,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -283,7 +283,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCompanyName()
@@ -301,7 +301,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getVatId()
@@ -321,7 +321,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     /**
      * <p>Sets the ID of each address to be unique in the addresses list.</p>
      *
-
+     *
      * @return null|BaseAddressCollection
      */
     public function getAddresses()
@@ -342,7 +342,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
      * <p>The index of the address in the addresses array.
      * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-
+     *
      * @return null|int
      */
     public function getDefaultShippingAddress()
@@ -363,7 +363,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
      * <p>The index of the address in the addresses array.
      * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
-
+     *
      * @return null|int
      */
     public function getDefaultBillingAddress()
@@ -383,7 +383,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     /**
      * <p>The custom fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -402,7 +402,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLocale()
@@ -420,7 +420,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-
+     *
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()

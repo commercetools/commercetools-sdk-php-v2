@@ -37,109 +37,109 @@ use stdClass;
 final class ReviewModel extends JsonObjectModel implements Review
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $uniquenessValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
-
+     *
      * @var ?string
      */
     protected $authorName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $title;
 
     /**
-
+     *
      * @var ?string
      */
     protected $text;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $target;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $includedInStatistics;
 
     /**
-
+     *
      * @var ?int
      */
     protected $rating;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
 
     /**
-
+     *
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -191,7 +191,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Unique identifier of the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -211,7 +211,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Current version of the Review.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -231,7 +231,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Date and time (UTC) the Review was initially created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -255,7 +255,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Date and time (UTC) the Review was last updated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -279,7 +279,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -300,7 +300,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -321,7 +321,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>User-defined unique identifier of the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -341,7 +341,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Must be unique among Reviews. For example, if this value is set to Customer <code>id</code> + Product <code>id</code>, only one Review per Customer and per Product is allowed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getUniquenessValue()
@@ -361,7 +361,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Language in which the content of the Review is written.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLocale()
@@ -381,7 +381,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Name of the author.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAuthorName()
@@ -401,7 +401,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Title of the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTitle()
@@ -421,7 +421,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Content of the Review.</p>
      *
-
+     *
      * @return null|string
      */
     public function getText()
@@ -441,7 +441,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Identifies the target of the Review. Can be a <a href="ctp:api:type:Product">Product</a> or a <a href="ctp:api:type:Channel">Channel</a>, specified as <a href="ctp:api:type:ProductReference">ProductReference</a> or <a href="ctp:api:type:ChannelReference">ChannelReference</a>, respectively.</p>
      *
-
+     *
      * @return ?mixed
      */
     public function getTarget()
@@ -463,7 +463,7 @@ final class ReviewModel extends JsonObjectModel implements Review
      * A Review is per default used in the statistics, unless the Review is in a state that does not have the <a href="ctp:api:type:StateRoleEnum">role</a> <code>ReviewIncludedInStatistics</code>.
      * If the role of a <a href="ctp:api:type:State">State</a> is modified after the calculation of this field, the calculation is not updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIncludedInStatistics()
@@ -483,7 +483,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Rating of the Product or Channel.</p>
      *
-
+     *
      * @return null|int
      */
     public function getRating()
@@ -503,7 +503,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>State of the Review. Used for approval processes, see <a href="/../tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()
@@ -524,7 +524,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Customer who created the Review.</p>
      *
-
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -545,7 +545,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * <p>Custom Fields of the Review.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

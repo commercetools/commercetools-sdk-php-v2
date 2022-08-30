@@ -25,31 +25,31 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
 
     public const DISCRIMINATOR_VALUE = 'SetAssetSourcesChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
-
+     *
      * @var ?AssetSourceCollection
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?AssetSourceCollection
      */
     protected $previousValue;
@@ -62,17 +62,18 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
         ?string $change = null,
         ?AssetChangeValue $asset = null,
         ?AssetSourceCollection $nextValue = null,
-        ?AssetSourceCollection $previousValue = null
+        ?AssetSourceCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->asset = $asset;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -92,7 +93,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     /**
      * <p>Update action for <code>setAssetSources</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -110,7 +111,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
-
+     *
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -129,7 +130,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
-
+     *
      * @return null|AssetSourceCollection
      */
     public function getNextValue()
@@ -147,7 +148,7 @@ final class SetAssetSourcesChangeModel extends JsonObjectModel implements SetAss
     }
 
     /**
-
+     *
      * @return null|AssetSourceCollection
      */
     public function getPreviousValue()

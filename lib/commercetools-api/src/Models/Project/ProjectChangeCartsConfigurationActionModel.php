@@ -21,13 +21,13 @@ final class ProjectChangeCartsConfigurationActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'changeCartsConfiguration';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?CartsConfiguration
      */
     protected $cartsConfiguration;
@@ -37,14 +37,15 @@ final class ProjectChangeCartsConfigurationActionModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CartsConfiguration $cartsConfiguration = null
+        ?CartsConfiguration $cartsConfiguration = null,
+        ?string $action = null
     ) {
         $this->cartsConfiguration = $cartsConfiguration;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ProjectChangeCartsConfigurationActionModel extends JsonObjectModel i
     /**
      * <p>Configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
      *
-
+     *
      * @return null|CartsConfiguration
      */
     public function getCartsConfiguration()

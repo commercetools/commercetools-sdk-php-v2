@@ -25,73 +25,73 @@ use stdClass;
 final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?CategoryResourceIdentifier
      */
     protected $parent;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderHint;
 
     /**
-
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?AssetDraftCollection
      */
     protected $assets;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -131,7 +131,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Name of the Category.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -154,7 +154,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
      * A Category can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>.
      * Valid slugs must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -175,7 +175,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Description of the Category.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -197,7 +197,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
      * <p>Parent Category of the Category.
      * The parent can be set by its <code>id</code> or <code>key</code>.</p>
      *
-
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()
@@ -219,7 +219,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
      * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.
      * If not set, a random value will be assigned.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -239,7 +239,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
      *
-
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -259,7 +259,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Name of the Category used by external search engines for improved search engine performance.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -280,7 +280,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Description of the Category used by external search engines for improved search engine performance.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -301,7 +301,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Keywords related to the Category for improved search engine performance.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -322,7 +322,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Custom Fields for the Category.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -343,7 +343,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>Media related to the Category.</p>
      *
-
+     *
      * @return null|AssetDraftCollection
      */
     public function getAssets()
@@ -363,7 +363,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * <p>User-defined unique identifier for the Category.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

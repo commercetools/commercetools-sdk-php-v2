@@ -20,19 +20,19 @@ use stdClass;
 final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
 {
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?GraphQLErrorLocationCollection
      */
     protected $locations;
 
     /**
-
+     *
      * @var ?array
      */
     protected $path;
@@ -52,7 +52,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -70,7 +70,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     }
 
     /**
-
+     *
      * @return null|GraphQLErrorLocationCollection
      */
     public function getLocations()
@@ -88,7 +88,7 @@ final class GraphQLErrorModel extends JsonObjectModel implements GraphQLError
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getPath()

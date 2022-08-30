@@ -29,73 +29,73 @@ use stdClass;
 final class CategoryImportModel extends JsonObjectModel implements CategoryImport
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?CategoryKeyReference
      */
     protected $parent;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderHint;
 
     /**
-
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
-
+     *
      * @var ?AssetCollection
      */
     protected $assets;
 
     /**
-
+     *
      * @var ?Custom
      */
     protected $custom;
@@ -133,7 +133,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -153,7 +153,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.name</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -175,7 +175,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
      * <p>Maps to <code>Category.slug</code>.
      * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -196,7 +196,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.description</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -219,7 +219,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
      * The Reference to the parent <a href="/../api/projects/categories#category">Category</a> with which the Category is associated.
      * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
      *
-
+     *
      * @return null|CategoryKeyReference
      */
     public function getParent()
@@ -240,7 +240,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.orderHint</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -260,7 +260,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.externalId</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -280,7 +280,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.metaTitle</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -301,7 +301,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.metaDescription</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -322,7 +322,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>Maps to <code>Category.metaKeywords</code>.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -341,7 +341,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
-
+     *
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -361,7 +361,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * <p>The custom fields for this Category.</p>
      *
-
+     *
      * @return null|Custom
      */
     public function getCustom()

@@ -21,13 +21,13 @@ final class ProductTypeChangeDescriptionActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'changeDescription';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $description;
@@ -37,14 +37,15 @@ final class ProductTypeChangeDescriptionActionModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $description = null
+        ?string $description = null,
+        ?string $action = null
     ) {
         $this->description = $description;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ProductTypeChangeDescriptionActionModel extends JsonObjectModel impl
     /**
      * <p>New value to set.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDescription()

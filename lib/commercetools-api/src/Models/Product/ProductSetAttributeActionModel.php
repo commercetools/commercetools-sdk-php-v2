@@ -21,37 +21,37 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setAttribute';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -65,18 +65,19 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
         ?string $sku = null,
         ?string $name = null,
         $value = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->name = $name;
         $this->value = $value;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -96,7 +97,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -116,7 +117,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -136,7 +137,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The name of the Attribute to set.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -167,7 +168,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
      * <li>For <a href="ctp:api:type:AttributeReferenceType">Reference Type</a> Attributes, use the <a href="ctp:api:type:Reference">Reference</a> object as <code>value</code>.</li>
      * </ul>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()
@@ -187,7 +188,7 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     /**
      * <p>If <code>true</code>, only the staged Attribute is set. If <code>false</code>, both current and staged Attribute is set.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

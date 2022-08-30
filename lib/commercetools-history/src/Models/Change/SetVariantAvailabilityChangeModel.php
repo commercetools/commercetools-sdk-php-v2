@@ -24,37 +24,37 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'SetVariantAvailabilityChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
-
+     *
      * @var ?string
      */
     protected $variant;
 
     /**
-
+     *
      * @var ?ProductVariantAvailability
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?ProductVariantAvailability
      */
     protected $nextValue;
@@ -68,18 +68,19 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
         ?string $catalogData = null,
         ?string $variant = null,
         ?ProductVariantAvailability $previousValue = null,
-        ?ProductVariantAvailability $nextValue = null
+        ?ProductVariantAvailability $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
         $this->variant = $variant;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -99,7 +100,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>setVariantAvailability</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -117,7 +118,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -135,7 +136,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getVariant()
@@ -153,7 +154,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|ProductVariantAvailability
      */
     public function getPreviousValue()
@@ -172,7 +173,7 @@ final class SetVariantAvailabilityChangeModel extends JsonObjectModel implements
     }
 
     /**
-
+     *
      * @return null|ProductVariantAvailability
      */
     public function getNextValue()

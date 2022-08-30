@@ -23,49 +23,49 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = 'addVariant';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?EmbeddedPriceDraftCollection
      */
     protected $prices;
 
     /**
-
+     *
      * @var ?ImageCollection
      */
     protected $images;
 
     /**
-
+     *
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?AssetCollection
      */
     protected $assets;
@@ -81,7 +81,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         ?ImageCollection $images = null,
         ?AttributeCollection $attributes = null,
         ?bool $staged = null,
-        ?AssetCollection $assets = null
+        ?AssetCollection $assets = null,
+        ?string $action = null
     ) {
         $this->sku = $sku;
         $this->key = $key;
@@ -90,11 +91,11 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         $this->attributes = $attributes;
         $this->staged = $staged;
         $this->assets = $assets;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -114,7 +115,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Value to set. Must be unique.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -134,7 +135,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Value to set. Must be unique.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -154,7 +155,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>EmbeddedPrices for the Product Variant.</p>
      *
-
+     *
      * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
@@ -174,7 +175,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Images for the Product Variant.</p>
      *
-
+     *
      * @return null|ImageCollection
      */
     public function getImages()
@@ -194,7 +195,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Attributes for the Product Variant.</p>
      *
-
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -214,7 +215,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>If <code>true</code> the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -234,7 +235,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     /**
      * <p>Media assets for the Product Variant.</p>
      *
-
+     *
      * @return null|AssetCollection
      */
     public function getAssets()

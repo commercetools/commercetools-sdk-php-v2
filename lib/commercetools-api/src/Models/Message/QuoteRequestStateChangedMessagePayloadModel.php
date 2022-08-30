@@ -21,19 +21,19 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'QuoteRequestStateChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $quoteRequestState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $oldQuoteRequestState;
@@ -44,15 +44,16 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $quoteRequestState = null,
-        ?string $oldQuoteRequestState = null
+        ?string $oldQuoteRequestState = null,
+        ?string $type = null
     ) {
         $this->quoteRequestState = $quoteRequestState;
         $this->oldQuoteRequestState = $oldQuoteRequestState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -72,7 +73,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>State of the Quote Request after the <a href="ctp:api:type:QuoteRequestChangeQuoteRequestStateAction">Change Quote Request State</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getQuoteRequestState()
@@ -92,7 +93,7 @@ final class QuoteRequestStateChangedMessagePayloadModel extends JsonObjectModel 
     /**
      * <p>State of the Quote Request before the <a href="ctp:api:type:QuoteRequestChangeQuoteRequestStateAction">Change Quote Request State</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOldQuoteRequestState()

@@ -33,6 +33,12 @@ final class ItemShippingTargetBuilder implements Builder
     private $quantity;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingMethodKey;
+
+    /**
      * <p>The key of the address in the cart's <code>itemShippingAddresses</code></p>
      *
 
@@ -57,6 +63,18 @@ final class ItemShippingTargetBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>It connects Line Item quantities with individual shipping addresses.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMethodKey()
+    {
+        return $this->shippingMethodKey;
+    }
+
+    /**
      * @param ?string $addressKey
      * @return $this
      */
@@ -78,12 +96,24 @@ final class ItemShippingTargetBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $shippingMethodKey
+     * @return $this
+     */
+    public function withShippingMethodKey(?string $shippingMethodKey)
+    {
+        $this->shippingMethodKey = $shippingMethodKey;
+
+        return $this;
+    }
+
 
     public function build(): ItemShippingTarget
     {
         return new ItemShippingTargetModel(
             $this->addressKey,
-            $this->quantity
+            $this->quantity,
+            $this->shippingMethodKey
         );
     }
 

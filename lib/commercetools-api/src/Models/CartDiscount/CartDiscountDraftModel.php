@@ -25,79 +25,79 @@ use stdClass;
 final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscountDraft
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?CartDiscountValueDraft
      */
     protected $value;
 
     /**
-
+     *
      * @var ?string
      */
     protected $cartPredicate;
 
     /**
-
+     *
      * @var ?CartDiscountTarget
      */
     protected $target;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sortOrder;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isActive;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $requiresDiscountCode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $stackingMode;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -139,7 +139,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Name of the CartDiscount.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -160,7 +160,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>User-defined unique identifier for the CartDiscount.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -180,7 +180,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Description of the CartDiscount.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -202,7 +202,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
      * <p>Effect of the CartDiscount.
      * For a target, relative or absolute discount values, or a fixed item price value can be specified. If no target is specified, a gift line item can be added to the cart.</p>
      *
-
+     *
      * @return null|CartDiscountValueDraft
      */
     public function getValue()
@@ -223,7 +223,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Valid <a href="/../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCartPredicate()
@@ -243,7 +243,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a <a href="ctp:api:type:CartDiscountTarget">CartDiscountTarget</a> must be set.</p>
      *
-
+     *
      * @return null|CartDiscountTarget
      */
     public function getTarget()
@@ -266,7 +266,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
      * A Discount with a higher sortOrder is prioritized.
      * The sort order must be unambiguous among all CartDiscounts.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSortOrder()
@@ -286,7 +286,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Only active Discounts can be applied to the Cart.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsActive()
@@ -306,7 +306,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Date and time (UTC) from which the Discount is effective.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -330,7 +330,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Date and time (UTC) until which the Discount is effective.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -354,7 +354,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>States whether the Discount can only be used in a connection with a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getRequiresDiscountCode()
@@ -374,7 +374,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Specifies whether the application of this discount causes the following discounts to be ignored.</p>
      *
-
+     *
      * @return null|string
      */
     public function getStackingMode()
@@ -394,7 +394,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * <p>Custom Fields of the CartDiscount.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

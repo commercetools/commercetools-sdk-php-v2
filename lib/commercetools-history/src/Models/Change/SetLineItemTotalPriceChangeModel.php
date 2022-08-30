@@ -26,31 +26,31 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemTotalPriceChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $previousValue;
@@ -63,17 +63,18 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
         ?string $change = null,
         ?LocalizedString $lineItem = null,
         ?Money $nextValue = null,
-        ?Money $previousValue = null
+        ?Money $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setLineItemTotalPrice</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,7 +112,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -130,7 +131,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getNextValue()
@@ -149,7 +150,7 @@ final class SetLineItemTotalPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getPreviousValue()

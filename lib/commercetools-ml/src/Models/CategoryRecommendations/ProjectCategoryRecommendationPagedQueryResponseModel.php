@@ -20,31 +20,31 @@ use stdClass;
 final class ProjectCategoryRecommendationPagedQueryResponseModel extends JsonObjectModel implements ProjectCategoryRecommendationPagedQueryResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?ProjectCategoryRecommendationCollection
      */
     protected $results;
 
     /**
-
+     *
      * @var ?ProjectCategoryRecommendationMeta
      */
     protected $meta;
@@ -68,7 +68,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -86,7 +86,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -106,7 +106,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseModel extends JsonObj
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -124,7 +124,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
-
+     *
      * @return null|ProjectCategoryRecommendationCollection
      */
     public function getResults()
@@ -142,7 +142,7 @@ final class ProjectCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
-
+     *
      * @return null|ProjectCategoryRecommendationMeta
      */
     public function getMeta()

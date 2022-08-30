@@ -21,25 +21,25 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateField';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?string
      */
     protected $field;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $duplicateValue;
@@ -51,16 +51,17 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     public function __construct(
         ?string $message = null,
         ?string $field = null,
-        $duplicateValue = null
+        $duplicateValue = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->field = $field;
         $this->duplicateValue = $duplicateValue;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -78,7 +79,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -98,7 +99,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     /**
      * <p>The name of the field.</p>
      *
-
+     *
      * @return null|string
      */
     public function getField()
@@ -118,7 +119,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     /**
      * <p>The offending duplicate value.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getDuplicateValue()

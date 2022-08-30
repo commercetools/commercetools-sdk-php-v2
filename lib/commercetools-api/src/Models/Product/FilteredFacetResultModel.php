@@ -21,19 +21,19 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
 {
     public const DISCRIMINATOR_VALUE = 'filter';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $productCount;
@@ -44,15 +44,16 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
      */
     public function __construct(
         ?int $count = null,
-        ?int $productCount = null
+        ?int $productCount = null,
+        ?string $type = null
     ) {
         $this->count = $count;
         $this->productCount = $productCount;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -70,7 +71,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -88,7 +89,7 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getProductCount()

@@ -21,19 +21,19 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemTotalPrice';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
@@ -44,15 +44,16 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?ExternalLineItemTotalPrice $externalTotalPrice = null
+        ?ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->externalTotalPrice = $externalTotalPrice;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,7 +71,7 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -88,7 +89,7 @@ final class CartSetLineItemTotalPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-
+     *
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()

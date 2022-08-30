@@ -23,13 +23,13 @@ final class QuoteRequestCreatedMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'QuoteRequestCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?QuoteRequest
      */
     protected $quoteRequest;
@@ -39,14 +39,15 @@ final class QuoteRequestCreatedMessagePayloadModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?QuoteRequest $quoteRequest = null
+        ?QuoteRequest $quoteRequest = null,
+        ?string $type = null
     ) {
         $this->quoteRequest = $quoteRequest;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class QuoteRequestCreatedMessagePayloadModel extends JsonObjectModel imple
     /**
      * <p><a href="/../api/projects/quote-requests">Quote Request</a> that was created.</p>
      *
-
+     *
      * @return null|QuoteRequest
      */
     public function getQuoteRequest()

@@ -22,25 +22,25 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setAssetSources';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?AssetSourceCollection
      */
     protected $sources;
@@ -52,16 +52,17 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     public function __construct(
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?AssetSourceCollection $sources = null
+        ?AssetSourceCollection $sources = null,
+        ?string $action = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->sources = $sources;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -81,7 +82,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -101,7 +102,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -121,7 +122,7 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     /**
      * <p>Must not be empty. At least one entry is required.</p>
      *
-
+     *
      * @return null|AssetSourceCollection
      */
     public function getSources()

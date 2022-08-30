@@ -21,19 +21,19 @@ final class CartSetCustomLineItemTaxAmountActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'setCustomLineItemTaxAmount';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?ExternalTaxAmountDraft
      */
     protected $externalTaxAmount;
@@ -44,15 +44,16 @@ final class CartSetCustomLineItemTaxAmountActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?ExternalTaxAmountDraft $externalTaxAmount = null
+        ?ExternalTaxAmountDraft $externalTaxAmount = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->externalTaxAmount = $externalTaxAmount;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,7 +71,7 @@ final class CartSetCustomLineItemTaxAmountActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -88,7 +89,7 @@ final class CartSetCustomLineItemTaxAmountActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|ExternalTaxAmountDraft
      */
     public function getExternalTaxAmount()

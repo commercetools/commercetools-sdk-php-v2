@@ -22,13 +22,13 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'product-type';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ProductTypeImportCollection
      */
     protected $resources;
@@ -38,16 +38,17 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductTypeImportCollection $resources = null
+        ?ProductTypeImportCollection $resources = null,
+        ?string $type = null
     ) {
         $this->resources = $resources;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -67,7 +68,7 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
     /**
      * <p>The product type import resources of this request.</p>
      *
-
+     *
      * @return null|ProductTypeImportCollection
      */
     public function getResources()

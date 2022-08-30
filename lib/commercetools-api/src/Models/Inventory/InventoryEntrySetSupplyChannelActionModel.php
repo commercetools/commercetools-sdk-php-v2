@@ -23,13 +23,13 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'setSupplyChannel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
@@ -39,14 +39,15 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ChannelResourceIdentifier $supplyChannel = null
+        ?ChannelResourceIdentifier $supplyChannel = null,
+        ?string $action = null
     ) {
         $this->supplyChannel = $supplyChannel;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

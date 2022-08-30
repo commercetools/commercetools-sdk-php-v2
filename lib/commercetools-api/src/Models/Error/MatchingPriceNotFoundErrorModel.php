@@ -25,49 +25,49 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
 {
     public const DISCRIMINATOR_VALUE = 'MatchingPriceNotFound';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $currency;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelReference
      */
     protected $channel;
@@ -83,7 +83,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         ?string $currency = null,
         ?string $country = null,
         ?CustomerGroupReference $customerGroup = null,
-        ?ChannelReference $channel = null
+        ?ChannelReference $channel = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->productId = $productId;
@@ -92,11 +93,11 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         $this->country = $country;
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -114,7 +115,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -132,7 +133,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProductId()
@@ -150,7 +151,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -168,7 +169,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCurrency()
@@ -186,7 +187,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -206,7 +207,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -227,7 +228,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelReference
      */
     public function getChannel()

@@ -20,31 +20,31 @@ use stdClass;
 final class SimilarityMeasuresModel extends JsonObjectModel implements SimilarityMeasures
 {
     /**
-
+     *
      * @var ?int
      */
     protected $name;
 
     /**
-
+     *
      * @var ?int
      */
     protected $description;
 
     /**
-
+     *
      * @var ?int
      */
     protected $attribute;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantCount;
 
     /**
-
+     *
      * @var ?int
      */
     protected $price;
@@ -70,7 +70,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     /**
      * <p>Importance of the <code>name</code> attribute in overall similarity.</p>
      *
-
+     *
      * @return null|int
      */
     public function getName()
@@ -90,7 +90,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     /**
      * <p>Importance of the <code>description</code> attribute in overall similarity.</p>
      *
-
+     *
      * @return null|int
      */
     public function getDescription()
@@ -110,7 +110,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     /**
      * <p>Importance of the <code>description</code> attribute in overall similarity.</p>
      *
-
+     *
      * @return null|int
      */
     public function getAttribute()
@@ -130,7 +130,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     /**
      * <p>Importance of the number of product variants in overall similarity.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantCount()
@@ -150,7 +150,7 @@ final class SimilarityMeasuresModel extends JsonObjectModel implements Similarit
     /**
      * <p>Importance of the <code>price</code> attribute in overall similarity.</p>
      *
-
+     *
      * @return null|int
      */
     public function getPrice()

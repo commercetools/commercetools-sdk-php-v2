@@ -21,43 +21,43 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'setAssetTags';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?array
      */
     protected $tags;
@@ -72,7 +72,8 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
         ?bool $staged = null,
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?array $tags = null
+        ?array $tags = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -80,11 +81,11 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->tags = $tags;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -104,7 +105,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -124,7 +125,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -144,7 +145,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     /**
      * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -164,7 +165,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The <code>id</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -184,7 +185,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     /**
      * <p>The <code>key</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -204,7 +205,7 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
-
+     *
      * @return null|array
      */
     public function getTags()

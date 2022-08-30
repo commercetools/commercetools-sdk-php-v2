@@ -53,181 +53,181 @@ use stdClass;
 final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $quoteRequestState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $comment;
 
     /**
-
+     *
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?StoreKeyReference
      */
     protected $store;
 
     /**
-
+     *
      * @var ?LineItemCollection
      */
     protected $lineItems;
 
     /**
-
+     *
      * @var ?CustomLineItemCollection
      */
     protected $customLineItems;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
-
+     *
      * @var ?TaxedPrice
      */
     protected $taxedPrice;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $shippingAddress;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $billingAddress;
 
     /**
-
+     *
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxRoundingMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxCalculationMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
 
     /**
-
+     *
      * @var ?PaymentInfo
      */
     protected $paymentInfo;
 
     /**
-
+     *
      * @var ?ShippingRateInput
      */
     protected $shippingRateInput;
 
     /**
-
+     *
      * @var ?AddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
-
+     *
      * @var ?DirectDiscountCollection
      */
     protected $directDiscounts;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
@@ -303,7 +303,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Unique identifier of the QuoteRequest.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -323,7 +323,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Current version of the QuoteRequest.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -343,7 +343,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Date and time (UTC) the QuoteRequest was initially created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -367,7 +367,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Date and time (UTC) the QuoteRequest was last updated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -391,7 +391,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>User-defined unique identifier of the QuoteRequest.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -411,7 +411,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -432,7 +432,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -453,7 +453,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Indicates the current state of the Quote Request in the negotiation process.</p>
      *
-
+     *
      * @return null|string
      */
     public function getQuoteRequestState()
@@ -473,7 +473,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Message from the Buyer included in the Quote Request.</p>
      *
-
+     *
      * @return null|string
      */
     public function getComment()
@@ -493,7 +493,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who raised the request.</p>
      *
-
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -515,7 +515,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      * <p>Set automatically when <code>customer</code> is set and the Customer is a member of a Customer Group.
      * Used for Product Variant price selection.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -536,7 +536,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
      *
-
+     *
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -557,7 +557,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>The Line Items for which a Quote is requested.</p>
      *
-
+     *
      * @return null|LineItemCollection
      */
     public function getLineItems()
@@ -577,7 +577,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>The Custom Line Items for which a Quote is requested.</p>
      *
-
+     *
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems()
@@ -598,7 +598,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      * <p>Sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -621,7 +621,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      * Will be set automatically in the <code>Platform</code> TaxMode.
      * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
      *
-
+     *
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -643,7 +643,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      * <p>Used to determine the eligible <a href="ctp:api:type:ShippingMethod">ShippingMethods</a>
      * and rates as well as the tax rate of the Line Items.</p>
      *
-
+     *
      * @return null|Address
      */
     public function getShippingAddress()
@@ -664,7 +664,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Address used for invoicing.</p>
      *
-
+     *
      * @return null|Address
      */
     public function getBillingAddress()
@@ -685,7 +685,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getInventoryMode()
@@ -705,7 +705,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTaxMode()
@@ -725,7 +725,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -745,7 +745,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -765,7 +765,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Used for Product Variant price selection.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -785,7 +785,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Set automatically once the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> is set.</p>
      *
-
+     *
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -806,7 +806,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Log of payment transactions related to the Quote.</p>
      *
-
+     *
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -827,7 +827,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
      *
-
+     *
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -851,7 +851,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
-
+     *
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()
@@ -871,7 +871,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Discounts that are only valid for the Quote and cannot be associated to any other Cart or Order.</p>
      *
-
+     *
      * @return null|DirectDiscountCollection
      */
     public function getDirectDiscounts()
@@ -891,7 +891,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     /**
      * <p>Custom Fields of the Quote Request.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -913,7 +913,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      * <p><a href="ctp:api:type:State">State</a> of the Quote Request.
      * This reference can point to a State in a custom workflow.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getState()

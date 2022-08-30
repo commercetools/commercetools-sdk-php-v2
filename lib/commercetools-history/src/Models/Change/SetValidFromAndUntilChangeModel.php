@@ -24,25 +24,25 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
 
     public const DISCRIMINATOR_VALUE = 'SetValidFromAndUntilChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ValidFromAndUntilValue
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?ValidFromAndUntilValue
      */
     protected $nextValue;
@@ -54,16 +54,17 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
     public function __construct(
         ?string $change = null,
         ?ValidFromAndUntilValue $previousValue = null,
-        ?ValidFromAndUntilValue $nextValue = null
+        ?ValidFromAndUntilValue $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -81,7 +82,7 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
     /**
      * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
      *
-
+     *
      * @return null|ValidFromAndUntilValue
      */
     public function getPreviousValue()
@@ -122,7 +123,7 @@ final class SetValidFromAndUntilChangeModel extends JsonObjectModel implements S
     /**
      * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
      *
-
+     *
      * @return null|ValidFromAndUntilValue
      */
     public function getNextValue()

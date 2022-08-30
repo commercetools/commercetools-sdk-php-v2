@@ -21,13 +21,13 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setMethodInfoMethod';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $method;
@@ -37,14 +37,15 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $method = null
+        ?string $method = null,
+        ?string $action = null
     ) {
         $this->method = $method;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class MyPaymentSetMethodInfoMethodActionModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMethod()

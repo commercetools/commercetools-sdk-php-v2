@@ -22,25 +22,25 @@ use stdClass;
 final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
 {
     /**
-
+     *
      * @var ?ParcelMeasurements
      */
     protected $measurements;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -62,7 +62,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
-
+     *
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -81,7 +81,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
-
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -102,7 +102,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     /**
      * <p>The delivery items contained in this parcel.</p>
      *
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -122,7 +122,7 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     /**
      * <p>Custom Fields of this parcel.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

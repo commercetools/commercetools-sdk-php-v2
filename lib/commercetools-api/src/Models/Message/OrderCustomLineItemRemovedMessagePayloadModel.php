@@ -23,19 +23,19 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemRemoved';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?CustomLineItem
      */
     protected $customLineItem;
@@ -46,15 +46,16 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?CustomLineItem $customLineItem = null
+        ?CustomLineItem $customLineItem = null,
+        ?string $type = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->customLineItem = $customLineItem;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -94,7 +95,7 @@ final class OrderCustomLineItemRemovedMessagePayloadModel extends JsonObjectMode
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
      *
-
+     *
      * @return null|CustomLineItem
      */
     public function getCustomLineItem()

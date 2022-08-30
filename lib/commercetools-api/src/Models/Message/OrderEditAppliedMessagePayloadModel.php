@@ -25,19 +25,19 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'OrderEditApplied';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?OrderEdit
      */
     protected $edit;
 
     /**
-
+     *
      * @var ?OrderEditApplied
      */
     protected $result;
@@ -48,15 +48,16 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?OrderEdit $edit = null,
-        ?OrderEditApplied $result = null
+        ?OrderEditApplied $result = null,
+        ?string $type = null
     ) {
         $this->edit = $edit;
         $this->result = $result;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -76,7 +77,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p><a href="ctp:api:type:OrderEdit">OrderEdit</a> that was applied.</p>
      *
-
+     *
      * @return null|OrderEdit
      */
     public function getEdit()
@@ -97,7 +98,7 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     /**
      * <p>Information about a successfully applied <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
      *
-
+     *
      * @return null|OrderEditApplied
      */
     public function getResult()

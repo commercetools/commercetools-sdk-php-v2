@@ -21,25 +21,25 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
 {
     public const DISCRIMINATOR_VALUE = 'setSku';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -51,16 +51,17 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     public function __construct(
         ?int $variantId = null,
         ?string $sku = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,7 +81,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -100,7 +101,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     /**
      * <p>Value to set. Must be unique. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -120,7 +121,7 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     /**
      * <p>If <code>true</code>, only the staged <code>sku</code> is updated. If <code>false</code>, both the current and staged <code>sku</code> are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

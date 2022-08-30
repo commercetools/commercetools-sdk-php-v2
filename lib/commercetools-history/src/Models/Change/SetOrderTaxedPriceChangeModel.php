@@ -24,31 +24,31 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
 
     public const DISCRIMINATOR_VALUE = 'SetOrderTaxedPriceChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxMode;
 
     /**
-
+     *
      * @var ?TaxedItemPrice
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?TaxedItemPrice
      */
     protected $previousValue;
@@ -61,17 +61,18 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
         ?string $change = null,
         ?string $taxMode = null,
         ?TaxedItemPrice $nextValue = null,
-        ?TaxedItemPrice $previousValue = null
+        ?TaxedItemPrice $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->taxMode = $taxMode;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -91,7 +92,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     /**
      * <p>Update action for <code>setOrderTaxedPrice</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -109,7 +110,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTaxMode()
@@ -127,7 +128,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-
+     *
      * @return null|TaxedItemPrice
      */
     public function getNextValue()
@@ -146,7 +147,7 @@ final class SetOrderTaxedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
-
+     *
      * @return null|TaxedItemPrice
      */
     public function getPreviousValue()

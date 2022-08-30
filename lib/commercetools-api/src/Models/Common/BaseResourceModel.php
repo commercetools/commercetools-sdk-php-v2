@@ -235,25 +235,25 @@ use stdClass;
 final class BaseResourceModel extends JsonObjectModel implements BaseResource
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -275,7 +275,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -293,7 +293,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -311,7 +311,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -333,7 +333,7 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

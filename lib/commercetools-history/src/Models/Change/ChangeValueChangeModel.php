@@ -24,25 +24,25 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
 
     public const DISCRIMINATOR_VALUE = 'ChangeValueChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ChangeValueChangeValue
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?ChangeValueChangeValue
      */
     protected $previousValue;
@@ -54,16 +54,17 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     public function __construct(
         ?string $change = null,
         ?ChangeValueChangeValue $nextValue = null,
-        ?ChangeValueChangeValue $previousValue = null
+        ?ChangeValueChangeValue $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     /**
      * <p>Update action for <code>changeValue</code> on cart discounts and product discounts</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     }
 
     /**
-
+     *
      * @return null|ChangeValueChangeValue
      */
     public function getNextValue()
@@ -120,7 +121,7 @@ final class ChangeValueChangeModel extends JsonObjectModel implements ChangeValu
     }
 
     /**
-
+     *
      * @return null|ChangeValueChangeValue
      */
     public function getPreviousValue()

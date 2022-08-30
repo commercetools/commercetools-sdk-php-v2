@@ -26,37 +26,37 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'addTextLineItem';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -70,18 +70,19 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
         ?LocalizedString $description = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $action = null
     ) {
         $this->name = $name;
         $this->description = $description;
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
         $this->custom = $custom;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -101,7 +102,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -122,7 +123,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -141,7 +142,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -159,7 +160,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -183,7 +184,7 @@ final class ShoppingListAddTextLineItemActionModel extends JsonObjectModel imple
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

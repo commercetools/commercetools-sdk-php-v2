@@ -22,25 +22,25 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
 
     public const DISCRIMINATOR_VALUE = 'CustomerLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $firstName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lastName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customerNumber;
@@ -52,16 +52,17 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     public function __construct(
         ?string $firstName = null,
         ?string $lastName = null,
-        ?string $customerNumber = null
+        ?string $customerNumber = null,
+        ?string $type = null
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->customerNumber = $customerNumber;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -79,7 +80,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getFirstName()
@@ -97,7 +98,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLastName()
@@ -115,7 +116,7 @@ final class CustomerLabelModel extends JsonObjectModel implements CustomerLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomerNumber()

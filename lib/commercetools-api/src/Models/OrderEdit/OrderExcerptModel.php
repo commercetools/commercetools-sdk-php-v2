@@ -24,19 +24,19 @@ use stdClass;
 final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
-
+     *
      * @var ?TaxedPrice
      */
     protected $taxedPrice;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
@@ -56,7 +56,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -75,7 +75,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
-
+     *
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -94,7 +94,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()

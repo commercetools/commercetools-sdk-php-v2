@@ -31,37 +31,37 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
 {
     public const DISCRIMINATOR_VALUE = 'setShippingAddressAndCustomShippingMethod';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?BaseAddress
      */
     protected $address;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shippingMethodName;
 
     /**
-
+     *
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
 
     /**
-
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -75,18 +75,19 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
         ?string $shippingMethodName = null,
         ?ShippingRateDraft $shippingRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $action = null
     ) {
         $this->address = $address;
         $this->shippingMethodName = $shippingMethodName;
         $this->shippingRate = $shippingRate;
         $this->taxCategory = $taxCategory;
         $this->externalTaxRate = $externalTaxRate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -104,7 +105,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     }
 
     /**
-
+     *
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -123,7 +124,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShippingMethodName()
@@ -141,7 +142,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     }
 
     /**
-
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -162,7 +163,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
-
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -181,7 +182,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     }
 
     /**
-
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

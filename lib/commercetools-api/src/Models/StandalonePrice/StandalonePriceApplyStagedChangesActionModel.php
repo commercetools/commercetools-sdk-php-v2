@@ -21,7 +21,7 @@ final class StandalonePriceApplyStagedChangesActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'applyStagedChanges';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
@@ -31,12 +31,13 @@ final class StandalonePriceApplyStagedChangesActionModel extends JsonObjectModel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()

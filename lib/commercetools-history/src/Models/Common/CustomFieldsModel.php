@@ -22,13 +22,13 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $type;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $fields;
@@ -47,7 +47,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getType()
@@ -68,7 +68,7 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
     /**
      * <p>A valid JSON object, based on FieldDefinition.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getFields()

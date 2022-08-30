@@ -21,13 +21,13 @@ final class MyCartRemoveItemShippingAddressActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'removeItemShippingAddress';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $addressKey;
@@ -37,14 +37,15 @@ final class MyCartRemoveItemShippingAddressActionModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $addressKey = null
+        ?string $addressKey = null,
+        ?string $action = null
     ) {
         $this->addressKey = $addressKey;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class MyCartRemoveItemShippingAddressActionModel extends JsonObjectModel i
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAddressKey()

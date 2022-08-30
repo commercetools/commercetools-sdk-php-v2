@@ -22,19 +22,19 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
 
     public const DISCRIMINATOR_VALUE = 'OrderLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customerEmail;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderNumber;
@@ -45,15 +45,16 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
      */
     public function __construct(
         ?string $customerEmail = null,
-        ?string $orderNumber = null
+        ?string $orderNumber = null,
+        ?string $type = null
     ) {
         $this->customerEmail = $customerEmail;
         $this->orderNumber = $orderNumber;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -71,7 +72,7 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomerEmail()
@@ -89,7 +90,7 @@ final class OrderLabelModel extends JsonObjectModel implements OrderLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getOrderNumber()

@@ -23,19 +23,19 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'setTextLineItemDescription';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $textLineItemId;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
@@ -46,15 +46,16 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
      */
     public function __construct(
         ?string $textLineItemId = null,
-        ?LocalizedString $description = null
+        ?LocalizedString $description = null,
+        ?string $action = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->description = $description;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTextLineItemId()
@@ -92,7 +93,7 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

@@ -22,13 +22,13 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
 {
     public const DISCRIMINATOR_VALUE = 'price';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?PriceImportCollection
      */
     protected $resources;
@@ -38,16 +38,17 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?PriceImportCollection $resources = null
+        ?PriceImportCollection $resources = null,
+        ?string $type = null
     ) {
         $this->resources = $resources;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -67,7 +68,7 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     /**
      * <p>The price import resources of this request.</p>
      *
-
+     *
      * @return null|PriceImportCollection
      */
     public function getResources()

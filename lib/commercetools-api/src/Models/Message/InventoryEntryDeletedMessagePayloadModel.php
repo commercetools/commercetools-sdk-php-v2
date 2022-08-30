@@ -23,19 +23,19 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?ChannelReference
      */
     protected $supplyChannel;
@@ -46,15 +46,16 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
      */
     public function __construct(
         ?string $sku = null,
-        ?ChannelReference $supplyChannel = null
+        ?ChannelReference $supplyChannel = null,
+        ?string $type = null
     ) {
         $this->sku = $sku;
         $this->supplyChannel = $supplyChannel;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -74,7 +75,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p>The <code>sku</code> of the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that was deleted.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -94,7 +95,7 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Channel">Channel</a> where the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> was deleted.</p>
      *
-
+     *
      * @return null|ChannelReference
      */
     public function getSupplyChannel()

@@ -23,19 +23,19 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
 {
     public const DISCRIMINATOR_VALUE = 'setCartTotalTax';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $externalTotalGross;
 
     /**
-
+     *
      * @var ?TaxPortionDraftCollection
      */
     protected $externalTaxPortions;
@@ -46,15 +46,16 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
      */
     public function __construct(
         ?Money $externalTotalGross = null,
-        ?TaxPortionDraftCollection $externalTaxPortions = null
+        ?TaxPortionDraftCollection $externalTaxPortions = null,
+        ?string $action = null
     ) {
         $this->externalTotalGross = $externalTotalGross;
         $this->externalTaxPortions = $externalTaxPortions;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     /**
      * <p>The total gross amount of the cart (totalNet + taxes).</p>
      *
-
+     *
      * @return null|Money
      */
     public function getExternalTotalGross()
@@ -93,7 +94,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     }
 
     /**
-
+     *
      * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()

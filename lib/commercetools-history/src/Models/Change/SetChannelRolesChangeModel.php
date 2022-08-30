@@ -22,25 +22,25 @@ final class SetChannelRolesChangeModel extends JsonObjectModel implements SetCha
 
     public const DISCRIMINATOR_VALUE = 'SetChannelRolesChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?array
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?array
      */
     protected $nextValue;
@@ -52,16 +52,17 @@ final class SetChannelRolesChangeModel extends JsonObjectModel implements SetCha
     public function __construct(
         ?string $change = null,
         ?array $previousValue = null,
-        ?array $nextValue = null
+        ?array $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -79,7 +80,7 @@ final class SetChannelRolesChangeModel extends JsonObjectModel implements SetCha
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -97,7 +98,7 @@ final class SetChannelRolesChangeModel extends JsonObjectModel implements SetCha
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getPreviousValue()
@@ -115,7 +116,7 @@ final class SetChannelRolesChangeModel extends JsonObjectModel implements SetCha
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getNextValue()

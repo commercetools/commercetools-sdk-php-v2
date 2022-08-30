@@ -21,13 +21,13 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
 {
     public const DISCRIMINATOR_VALUE = 'setVatId';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $vatId;
@@ -37,14 +37,15 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $vatId = null
+        ?string $vatId = null,
+        ?string $action = null
     ) {
         $this->vatId = $vatId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getVatId()

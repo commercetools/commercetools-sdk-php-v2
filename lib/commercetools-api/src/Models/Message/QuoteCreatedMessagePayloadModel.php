@@ -23,13 +23,13 @@ final class QuoteCreatedMessagePayloadModel extends JsonObjectModel implements Q
 {
     public const DISCRIMINATOR_VALUE = 'QuoteCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Quote
      */
     protected $quote;
@@ -39,14 +39,15 @@ final class QuoteCreatedMessagePayloadModel extends JsonObjectModel implements Q
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Quote $quote = null
+        ?Quote $quote = null,
+        ?string $type = null
     ) {
         $this->quote = $quote;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class QuoteCreatedMessagePayloadModel extends JsonObjectModel implements Q
     /**
      * <p><a href="/../api/projects/quotes">Quote</a> that was created.</p>
      *
-
+     *
      * @return null|Quote
      */
     public function getQuote()

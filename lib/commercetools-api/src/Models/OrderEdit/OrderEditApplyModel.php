@@ -20,13 +20,13 @@ use stdClass;
 final class OrderEditApplyModel extends JsonObjectModel implements OrderEditApply
 {
     /**
-
+     *
      * @var ?int
      */
     protected $editVersion;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
@@ -44,7 +44,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getEditVersion()
@@ -62,7 +62,7 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getResourceVersion()

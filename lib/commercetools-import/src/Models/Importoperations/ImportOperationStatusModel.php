@@ -21,19 +21,19 @@ use stdClass;
 final class ImportOperationStatusModel extends JsonObjectModel implements ImportOperationStatus
 {
     /**
-
+     *
      * @var ?string
      */
     protected $operationId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $state;
 
     /**
-
+     *
      * @var ?ErrorObjectCollection
      */
     protected $errors;
@@ -55,7 +55,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     /**
      * <p>The ID of the <a href="#importoperation">ImportOperation</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOperationId()
@@ -75,7 +75,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
     /**
      * <p>The validation state of the <a href="#importoperation">ImportOperation</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getState()
@@ -96,7 +96,7 @@ final class ImportOperationStatusModel extends JsonObjectModel implements Import
      * <p>The validation errors for the <a href="#importoperation">ImportOperation</a>.
      * See <a href="/error">Errors</a>.</p>
      *
-
+     *
      * @return null|ErrorObjectCollection
      */
     public function getErrors()

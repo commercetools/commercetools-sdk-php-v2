@@ -22,7 +22,7 @@ final class ChangeTargetShippingChangeValueModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'shipping';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -32,12 +32,13 @@ final class ChangeTargetShippingChangeValueModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()

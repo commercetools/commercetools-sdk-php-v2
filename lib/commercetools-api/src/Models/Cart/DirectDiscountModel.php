@@ -24,19 +24,19 @@ use stdClass;
 final class DirectDiscountModel extends JsonObjectModel implements DirectDiscount
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?CartDiscountValue
      */
     protected $value;
 
     /**
-
+     *
      * @var ?CartDiscountTarget
      */
     protected $target;
@@ -58,7 +58,7 @@ final class DirectDiscountModel extends JsonObjectModel implements DirectDiscoun
     /**
      * <p>The unique ID of the cart discount.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -76,7 +76,7 @@ final class DirectDiscountModel extends JsonObjectModel implements DirectDiscoun
     }
 
     /**
-
+     *
      * @return null|CartDiscountValue
      */
     public function getValue()
@@ -97,7 +97,7 @@ final class DirectDiscountModel extends JsonObjectModel implements DirectDiscoun
     /**
      * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
      *
-
+     *
      * @return null|CartDiscountTarget
      */
     public function getTarget()

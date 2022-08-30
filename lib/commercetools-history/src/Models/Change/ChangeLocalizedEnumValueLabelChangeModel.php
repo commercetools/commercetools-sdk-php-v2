@@ -24,43 +24,43 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
 
     public const DISCRIMINATOR_VALUE = 'ChangeLocalizedEnumValueLabelChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $valueKey;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -75,7 +75,8 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
         ?string $attributeName = null,
         ?string $valueKey = null,
         ?LocalizedString $previousValue = null,
-        ?LocalizedString $nextValue = null
+        ?LocalizedString $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->fieldName = $fieldName;
@@ -83,11 +84,11 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
         $this->valueKey = $valueKey;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -107,7 +108,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     /**
      * <p>Update action for <code>changeLocalizedEnumValueLabel</code> on types</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -127,7 +128,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     /**
      * <p>The name of the field definition updated.</p>
      *
-
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -147,7 +148,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     /**
      * <p>The name of the attribute updated.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -167,7 +168,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     /**
      * <p>Key of the values that was updated</p>
      *
-
+     *
      * @return null|string
      */
     public function getValueKey()
@@ -185,7 +186,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -204,7 +205,7 @@ final class ChangeLocalizedEnumValueLabelChangeModel extends JsonObjectModel imp
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()

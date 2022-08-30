@@ -27,43 +27,43 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
 {
     public const DISCRIMINATOR_VALUE = 'StoreCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?array
      */
     protected $languages;
 
     /**
-
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $distributionChannels;
 
     /**
-
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $supplyChannels;
 
     /**
-
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $productSelections;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -78,7 +78,8 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
         ?ProductSelectionSettingCollection $productSelections = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->languages = $languages;
@@ -86,11 +87,11 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
         $this->custom = $custom;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -110,7 +111,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p>The <code>name</code> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -131,7 +132,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p>Languages of the <a href="ctp:api:type:Store">Store</a> that was created. Languages are represented as <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tags</a>.</p>
      *
-
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -151,7 +152,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p><a href="ctp:api:type:ChannelRoleEnum">Distribution Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
-
+     *
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -171,7 +172,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p><a href="ctp:api:type:ChannelRoleEnum">Supply Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
-
+     *
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
@@ -191,7 +192,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
-
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -211,7 +212,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     /**
      * <p><a href="ctp:api:type:CustomFields">Custom Fields</a> on the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

@@ -28,43 +28,43 @@ use stdClass;
 final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppingListDraft
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?ShoppingListLineItemDraftCollection
      */
     protected $lineItems;
 
     /**
-
+     *
      * @var ?TextLineItemDraftCollection
      */
     protected $textLineItems;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
-
+     *
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -92,7 +92,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -111,7 +111,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -130,7 +130,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     }
 
     /**
-
+     *
      * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems()
@@ -148,7 +148,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     }
 
     /**
-
+     *
      * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems()
@@ -168,7 +168,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     /**
      * <p>The custom fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -189,7 +189,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
-
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -207,7 +207,7 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     }
 
     /**
-
+     *
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

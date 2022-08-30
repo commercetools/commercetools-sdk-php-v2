@@ -23,13 +23,13 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'CustomerCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Customer
      */
     protected $customer;
@@ -39,14 +39,15 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Customer $customer = null
+        ?Customer $customer = null,
+        ?string $type = null
     ) {
         $this->customer = $customer;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     /**
      * <p><a href="ctp:api:type:Customer">Customer</a> that was created.</p>
      *
-
+     *
      * @return null|Customer
      */
     public function getCustomer()

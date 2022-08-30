@@ -21,19 +21,19 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'importCustomLineItemState';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
@@ -44,15 +44,16 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?ItemStateCollection $state = null
+        ?ItemStateCollection $state = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->state = $state;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,7 +71,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -88,7 +89,7 @@ final class OrderImportCustomLineItemStateActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|ItemStateCollection
      */
     public function getState()

@@ -21,13 +21,13 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = 'customer-group';
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
@@ -37,14 +37,15 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -64,7 +65,7 @@ final class CustomerGroupKeyReferenceModel extends JsonObjectModel implements Cu
     /**
      * <p>The type of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()

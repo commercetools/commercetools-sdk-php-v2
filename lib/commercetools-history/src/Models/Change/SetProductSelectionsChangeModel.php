@@ -23,25 +23,25 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
 
     public const DISCRIMINATOR_VALUE = 'SetProductSelectionsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $nextValue;
@@ -53,16 +53,17 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     public function __construct(
         ?string $change = null,
         ?ProductSelectionSettingCollection $previousValue = null,
-        ?ProductSelectionSettingCollection $nextValue = null
+        ?ProductSelectionSettingCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +83,7 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     /**
      * <p>Update action for <code>setProductSelections</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -100,7 +101,7 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     }
 
     /**
-
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getPreviousValue()
@@ -118,7 +119,7 @@ final class SetProductSelectionsChangeModel extends JsonObjectModel implements S
     }
 
     /**
-
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getNextValue()

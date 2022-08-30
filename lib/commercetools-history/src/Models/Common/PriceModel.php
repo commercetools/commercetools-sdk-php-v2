@@ -22,13 +22,13 @@ final class PriceModel extends JsonObjectModel implements Price
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
@@ -47,7 +47,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -65,7 +65,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getValue()

@@ -22,13 +22,13 @@ use stdClass;
 final class ParcelMeasurementDraftModel extends JsonObjectModel implements ParcelMeasurementDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?ParcelMeasurements
      */
     protected $measurements;
@@ -46,7 +46,7 @@ final class ParcelMeasurementDraftModel extends JsonObjectModel implements Parce
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -64,7 +64,7 @@ final class ParcelMeasurementDraftModel extends JsonObjectModel implements Parce
     }
 
     /**
-
+     *
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()

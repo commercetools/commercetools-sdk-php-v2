@@ -24,19 +24,19 @@ final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAsse
 
     public const DISCRIMINATOR_VALUE = 'RemoveAssetChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?Asset
      */
     protected $previousValue;
@@ -47,15 +47,16 @@ final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAsse
      */
     public function __construct(
         ?string $change = null,
-        ?Asset $previousValue = null
+        ?Asset $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -75,7 +76,7 @@ final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAsse
     /**
      * <p>Update action for <code>removeAsset</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,7 +94,7 @@ final class RemoveAssetChangeModel extends JsonObjectModel implements RemoveAsse
     }
 
     /**
-
+     *
      * @return null|Asset
      */
     public function getPreviousValue()

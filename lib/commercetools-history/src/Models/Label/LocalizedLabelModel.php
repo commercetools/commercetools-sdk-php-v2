@@ -24,13 +24,13 @@ final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabe
 
     public const DISCRIMINATOR_VALUE = 'LocalizedLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $value;
@@ -40,14 +40,15 @@ final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $value = null
+        ?LocalizedString $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -65,7 +66,7 @@ final class LocalizedLabelModel extends JsonObjectModel implements LocalizedLabe
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getValue()

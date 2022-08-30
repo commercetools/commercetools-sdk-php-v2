@@ -41,6 +41,12 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     private $trackingData;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -71,6 +77,17 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     public function getTrackingData()
     {
         return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -107,6 +124,17 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withTrackingData() instead
      * @return $this
      */
@@ -122,7 +150,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
         return new ParcelTrackingDataUpdatedMessagePayloadModel(
             $this->deliveryId,
             $this->parcelId,
-            $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData
+            $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData,
+            $this->shippingKey
         );
     }
 

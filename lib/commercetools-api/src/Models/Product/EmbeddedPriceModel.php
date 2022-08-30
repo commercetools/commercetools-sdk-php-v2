@@ -32,61 +32,61 @@ use stdClass;
 final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?ChannelReference
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
-
+     *
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
-
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -122,7 +122,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Unique identifier of the EmbeddedPrice.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -142,7 +142,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Money value of the EmbeddedPrice.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -163,7 +163,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Country for which the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCountry()
@@ -183,7 +183,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -204,7 +204,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Product distribution <a href="ctp:api:type:Channel">Channel</a> for which the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -225,7 +225,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Date from which the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -249,7 +249,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Date until the EmbeddedPrice is valid.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -273,7 +273,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Price tiers if any are defined.</p>
      *
-
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -302,7 +302,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
      * <li>if the Product changes and the external Product Discount predicate does not match the discounted Price any more.</li>
      * </ul>
      *
-
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -323,7 +323,7 @@ final class EmbeddedPriceModel extends JsonObjectModel implements EmbeddedPrice
     /**
      * <p>Custom Fields for the EmbeddedPrice.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

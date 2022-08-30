@@ -21,37 +21,37 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'setImageLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $imageUrl;
 
     /**
-
+     *
      * @var ?string
      */
     protected $label;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -65,18 +65,19 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
         ?int $variantId = null,
         ?string $imageUrl = null,
         ?string $label = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->sku = $sku;
         $this->variantId = $variantId;
         $this->imageUrl = $imageUrl;
         $this->label = $label;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -96,7 +97,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -116,7 +117,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -136,7 +137,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     /**
      * <p>The URL of the image to set the label.</p>
      *
-
+     *
      * @return null|string
      */
     public function getImageUrl()
@@ -156,7 +157,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLabel()
@@ -176,7 +177,7 @@ final class ProductSetImageLabelActionModel extends JsonObjectModel implements P
     /**
      * <p>If <code>true</code>, only the staged image is updated. If <code>false</code>, both the current and staged image is updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

@@ -23,28 +23,34 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'ParcelTrackingDataUpdated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -53,16 +59,19 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     public function __construct(
         ?string $deliveryId = null,
         ?string $parcelId = null,
-        ?TrackingData $trackingData = null
+        ?TrackingData $trackingData = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->parcelId = $parcelId;
         $this->trackingData = $trackingData;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -82,7 +91,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -102,7 +111,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -122,7 +131,7 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     /**
      * <p>The <a href="ctp:api:type:TrackingData">Tracking Data</a> that was added to the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
      *
-
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -138,6 +147,26 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->trackingData;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
 
@@ -163,5 +192,13 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }

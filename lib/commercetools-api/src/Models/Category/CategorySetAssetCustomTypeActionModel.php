@@ -25,31 +25,31 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setAssetCustomType';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -62,17 +62,18 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
         ?string $assetId = null,
         ?string $assetKey = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -92,7 +93,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -112,7 +113,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -133,7 +134,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -154,7 +155,7 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

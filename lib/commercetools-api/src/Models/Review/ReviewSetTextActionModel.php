@@ -21,13 +21,13 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
 {
     public const DISCRIMINATOR_VALUE = 'setText';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $text;
@@ -37,14 +37,15 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $text = null
+        ?string $text = null,
+        ?string $action = null
     ) {
         $this->text = $text;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getText()

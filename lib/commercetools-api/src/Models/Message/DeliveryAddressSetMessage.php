@@ -17,6 +17,7 @@ interface DeliveryAddressSetMessage extends OrderMessage
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_ADDRESS = 'address';
     public const FIELD_OLD_ADDRESS = 'oldAddress';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Parcel</a>.</p>
@@ -43,6 +44,14 @@ interface DeliveryAddressSetMessage extends OrderMessage
     public function getOldAddress();
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?string $deliveryId
      */
     public function setDeliveryId(?string $deliveryId): void;
@@ -56,4 +65,9 @@ interface DeliveryAddressSetMessage extends OrderMessage
      * @param ?Address $oldAddress
      */
     public function setOldAddress(?Address $oldAddress): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

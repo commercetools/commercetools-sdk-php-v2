@@ -23,13 +23,13 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerGroup';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
@@ -39,14 +39,15 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomerGroupResourceIdentifier $customerGroup = null
+        ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?string $action = null
     ) {
         $this->customerGroup = $customerGroup;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
-
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

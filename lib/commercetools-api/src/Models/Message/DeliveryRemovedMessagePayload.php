@@ -15,6 +15,7 @@ use Commercetools\Base\JsonObject;
 interface DeliveryRemovedMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DELIVERY = 'delivery';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
      * <p>The <a href="ctp:api:type:Delivery">Delivery</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
@@ -25,7 +26,20 @@ interface DeliveryRemovedMessagePayload extends OrderMessagePayload
     public function getDelivery();
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?Delivery $delivery
      */
     public function setDelivery(?Delivery $delivery): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

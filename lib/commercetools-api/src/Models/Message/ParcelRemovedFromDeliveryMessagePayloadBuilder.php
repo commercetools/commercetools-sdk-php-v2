@@ -35,6 +35,12 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     private $parcel;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -54,6 +60,17 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     public function getParcel()
     {
         return $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -79,6 +96,17 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withParcel() instead
      * @return $this
      */
@@ -93,7 +121,8 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     {
         return new ParcelRemovedFromDeliveryMessagePayloadModel(
             $this->deliveryId,
-            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel
+            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel,
+            $this->shippingKey
         );
     }
 

@@ -23,19 +23,19 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'product-discount';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?ProductDiscount
      */
     protected $obj;
@@ -46,17 +46,18 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
      */
     public function __construct(
         ?string $id = null,
-        ?ProductDiscount $obj = null
+        ?ProductDiscount $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -76,7 +77,7 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -96,7 +97,7 @@ final class ProductDiscountReferenceModel extends JsonObjectModel implements Pro
     /**
      * <p>Contains the representation of the expanded ProductDiscount. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductDiscounts.</p>
      *
-
+     *
      * @return null|ProductDiscount
      */
     public function getObj()

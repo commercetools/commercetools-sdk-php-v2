@@ -23,19 +23,19 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeValue';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
      */
     public function __construct(
         ?Money $value = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->value = $value;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
     /**
      * <p>New value to set. Must not be empty.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getValue()
@@ -95,7 +96,7 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
     /**
      * <p>If set to <code>true</code> the update action applies to the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>. If set to <code>false</code>, the update action applies to the current <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

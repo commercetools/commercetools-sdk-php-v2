@@ -22,19 +22,19 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
 {
     public const DISCRIMINATOR_VALUE = 'date';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $value;
@@ -45,11 +45,12 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
      */
     public function __construct(
         ?string $name = null,
-        ?DateTimeImmutable $value = null
+        ?DateTimeImmutable $value = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -57,7 +58,7 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -75,7 +76,7 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getValue()

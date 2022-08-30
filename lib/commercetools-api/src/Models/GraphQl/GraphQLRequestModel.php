@@ -20,19 +20,19 @@ use stdClass;
 final class GraphQLRequestModel extends JsonObjectModel implements GraphQLRequest
 {
     /**
-
+     *
      * @var ?string
      */
     protected $query;
 
     /**
-
+     *
      * @var ?string
      */
     protected $operationName;
 
     /**
-
+     *
      * @var ?GraphQLVariablesMap
      */
     protected $variables;
@@ -52,7 +52,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getQuery()
@@ -70,7 +70,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getOperationName()
@@ -88,7 +88,7 @@ final class GraphQLRequestModel extends JsonObjectModel implements GraphQLReques
     }
 
     /**
-
+     *
      * @return null|GraphQLVariablesMap
      */
     public function getVariables()

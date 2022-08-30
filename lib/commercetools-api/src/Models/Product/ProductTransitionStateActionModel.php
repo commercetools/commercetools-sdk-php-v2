@@ -23,19 +23,19 @@ final class ProductTransitionStateActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'transitionState';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $force;
@@ -46,15 +46,16 @@ final class ProductTransitionStateActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?StateResourceIdentifier $state = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $action = null
     ) {
         $this->state = $state;
         $this->force = $force;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductTransitionStateActionModel extends JsonObjectModel implements
     /**
      * <p>The State to transition to. If there is no existing State, this must be an initial State.</p>
      *
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -95,7 +96,7 @@ final class ProductTransitionStateActionModel extends JsonObjectModel implements
     /**
      * <p>If <code>true</code>, validations are disabled.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getForce()

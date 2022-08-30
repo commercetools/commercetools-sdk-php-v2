@@ -21,13 +21,13 @@ final class DiscountCodeKeyReferenceModel extends JsonObjectModel implements Dis
 {
     public const DISCRIMINATOR_VALUE = 'discount-code';
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
@@ -37,14 +37,15 @@ final class DiscountCodeKeyReferenceModel extends JsonObjectModel implements Dis
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -64,7 +65,7 @@ final class DiscountCodeKeyReferenceModel extends JsonObjectModel implements Dis
     /**
      * <p>The type of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()

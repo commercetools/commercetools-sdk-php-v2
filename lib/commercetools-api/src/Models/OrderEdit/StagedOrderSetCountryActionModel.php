@@ -23,13 +23,13 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setCountry';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $country;
@@ -39,14 +39,15 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $country = null
+        ?string $country = null,
+        ?string $action = null
     ) {
         $this->country = $country;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class StagedOrderSetCountryActionModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCountry()

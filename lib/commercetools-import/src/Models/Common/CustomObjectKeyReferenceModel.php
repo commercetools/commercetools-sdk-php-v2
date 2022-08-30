@@ -21,19 +21,19 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
 {
     public const DISCRIMINATOR_VALUE = 'key-value-document';
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $container;
@@ -44,15 +44,16 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
      */
     public function __construct(
         ?string $key = null,
-        ?string $container = null
+        ?string $container = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
         $this->container = $container;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -72,7 +73,7 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     /**
      * <p>The type of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -90,7 +91,7 @@ final class CustomObjectKeyReferenceModel extends JsonObjectModel implements Cus
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getContainer()

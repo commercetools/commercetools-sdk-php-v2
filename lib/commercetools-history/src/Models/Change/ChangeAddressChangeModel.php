@@ -24,25 +24,25 @@ final class ChangeAddressChangeModel extends JsonObjectModel implements ChangeAd
 
     public const DISCRIMINATOR_VALUE = 'ChangeAddressChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?Address
      */
     protected $previousValue;
@@ -54,16 +54,17 @@ final class ChangeAddressChangeModel extends JsonObjectModel implements ChangeAd
     public function __construct(
         ?string $change = null,
         ?Address $nextValue = null,
-        ?Address $previousValue = null
+        ?Address $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class ChangeAddressChangeModel extends JsonObjectModel implements ChangeAd
     /**
      * <p>Update action <code>changeAddress</code> action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class ChangeAddressChangeModel extends JsonObjectModel implements ChangeAd
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getNextValue()
@@ -120,7 +121,7 @@ final class ChangeAddressChangeModel extends JsonObjectModel implements ChangeAd
     }
 
     /**
-
+     *
      * @return null|Address
      */
     public function getPreviousValue()

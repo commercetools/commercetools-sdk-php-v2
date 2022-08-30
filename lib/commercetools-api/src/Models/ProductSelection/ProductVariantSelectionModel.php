@@ -21,7 +21,7 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -39,14 +39,15 @@ final class ProductVariantSelectionModel extends JsonObjectModel implements Prod
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
      * <p>Determines whether the SKUs are to be included in, or excluded from, the Product Selection.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()

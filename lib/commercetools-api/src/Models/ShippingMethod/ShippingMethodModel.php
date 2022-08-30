@@ -33,55 +33,55 @@ use stdClass;
 final class ShippingMethodModel extends JsonObjectModel implements ShippingMethod
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $localizedName;
@@ -93,37 +93,37 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $description;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $localizedDescription;
 
     /**
-
+     *
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?ZoneRateCollection
      */
     protected $zoneRates;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isDefault;
 
     /**
-
+     *
      * @var ?string
      */
     protected $predicate;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -171,7 +171,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Unique identifier of the ShippingMethod.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -191,7 +191,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Current version of the ShippingMethod.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -211,7 +211,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Date and time (UTC) the ShippingMethod was initially created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -235,7 +235,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Date and time (UTC) the ShippingMethod was last updated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -259,7 +259,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -280,7 +280,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -301,7 +301,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>User-defined unique identifier of the ShippingMethod.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -321,7 +321,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Name of the ShippingMethod.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -341,7 +341,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Localized name of the ShippingMethod.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedName()
@@ -382,7 +382,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Localized description of the ShippingMethod.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()
@@ -403,7 +403,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> of all ZoneRates of the ShippingMethod.</p>
      *
-
+     *
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -424,7 +424,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific Zones.</p>
      *
-
+     *
      * @return null|ZoneRateCollection
      */
     public function getZoneRates()
@@ -444,7 +444,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>If <code>true</code> this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsDefault()
@@ -464,7 +464,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPredicate()
@@ -484,7 +484,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     /**
      * <p>Custom Fields of the ShippingMethod.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()

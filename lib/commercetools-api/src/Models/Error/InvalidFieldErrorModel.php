@@ -21,31 +21,31 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
 {
     public const DISCRIMINATOR_VALUE = 'InvalidField';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?string
      */
     protected $field;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $invalidValue;
 
     /**
-
+     *
      * @var ?array
      */
     protected $allowedValues;
@@ -58,17 +58,18 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
         ?string $message = null,
         ?string $field = null,
         $invalidValue = null,
-        ?array $allowedValues = null
+        ?array $allowedValues = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->field = $field;
         $this->invalidValue = $invalidValue;
         $this->allowedValues = $allowedValues;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -86,7 +87,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -104,7 +105,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getField()
@@ -122,7 +123,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getInvalidValue()
@@ -140,7 +141,7 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getAllowedValues()

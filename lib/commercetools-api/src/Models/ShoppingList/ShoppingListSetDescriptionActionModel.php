@@ -23,13 +23,13 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setDescription';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
@@ -39,14 +39,15 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $description = null
+        ?LocalizedString $description = null,
+        ?string $action = null
     ) {
         $this->description = $description;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()

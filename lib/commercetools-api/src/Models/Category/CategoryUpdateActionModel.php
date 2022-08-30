@@ -21,7 +21,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
@@ -59,12 +59,13 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()

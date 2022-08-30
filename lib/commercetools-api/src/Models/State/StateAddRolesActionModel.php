@@ -21,13 +21,13 @@ final class StateAddRolesActionModel extends JsonObjectModel implements StateAdd
 {
     public const DISCRIMINATOR_VALUE = 'addRoles';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?array
      */
     protected $roles;
@@ -37,14 +37,15 @@ final class StateAddRolesActionModel extends JsonObjectModel implements StateAdd
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $roles = null
+        ?array $roles = null,
+        ?string $action = null
     ) {
         $this->roles = $roles;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class StateAddRolesActionModel extends JsonObjectModel implements StateAdd
     /**
      * <p>Value to append to the array.</p>
      *
-
+     *
      * @return null|array
      */
     public function getRoles()

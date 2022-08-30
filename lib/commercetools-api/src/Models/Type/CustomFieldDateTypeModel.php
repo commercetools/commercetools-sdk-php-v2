@@ -21,7 +21,7 @@ final class CustomFieldDateTypeModel extends JsonObjectModel implements CustomFi
 {
     public const DISCRIMINATOR_VALUE = 'Date';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
@@ -31,12 +31,13 @@ final class CustomFieldDateTypeModel extends JsonObjectModel implements CustomFi
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $name = null
     ) {
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()

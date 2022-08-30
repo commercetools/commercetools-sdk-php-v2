@@ -23,31 +23,31 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'ExtensionUpdateActionsFailed';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $localizedMessage;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $extensionExtraInfo;
 
     /**
-
+     *
      * @var ?ErrorByExtension
      */
     protected $errorByExtension;
@@ -60,17 +60,18 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
         ?string $message = null,
         ?LocalizedString $localizedMessage = null,
         ?JsonObject $extensionExtraInfo = null,
-        ?ErrorByExtension $errorByExtension = null
+        ?ErrorByExtension $errorByExtension = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->localizedMessage = $localizedMessage;
         $this->extensionExtraInfo = $extensionExtraInfo;
         $this->errorByExtension = $errorByExtension;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -88,7 +89,7 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -108,7 +109,7 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedMessage()
@@ -127,7 +128,7 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getExtensionExtraInfo()
@@ -145,7 +146,7 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
-
+     *
      * @return null|ErrorByExtension
      */
     public function getErrorByExtension()

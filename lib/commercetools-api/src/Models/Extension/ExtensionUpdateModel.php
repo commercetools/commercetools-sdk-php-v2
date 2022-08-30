@@ -20,13 +20,13 @@ use stdClass;
 final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpdate
 {
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?ExtensionUpdateActionCollection
      */
     protected $actions;
@@ -46,7 +46,7 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
     /**
      * <p>Expected version of the Extension on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -66,7 +66,7 @@ final class ExtensionUpdateModel extends JsonObjectModel implements ExtensionUpd
     /**
      * <p>Update actions to be performed on the Extension.</p>
      *
-
+     *
      * @return null|ExtensionUpdateActionCollection
      */
     public function getActions()

@@ -22,19 +22,19 @@ final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
 
     public const DISCRIMINATOR_VALUE = 'ReviewLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $title;
@@ -45,15 +45,16 @@ final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
      */
     public function __construct(
         ?string $key = null,
-        ?string $title = null
+        ?string $title = null,
+        ?string $type = null
     ) {
         $this->key = $key;
         $this->title = $title;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -71,7 +72,7 @@ final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -89,7 +90,7 @@ final class ReviewLabelModel extends JsonObjectModel implements ReviewLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTitle()

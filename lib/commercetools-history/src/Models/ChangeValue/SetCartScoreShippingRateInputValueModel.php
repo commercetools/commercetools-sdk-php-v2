@@ -22,13 +22,13 @@ final class SetCartScoreShippingRateInputValueModel extends JsonObjectModel impl
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $score;
@@ -47,7 +47,7 @@ final class SetCartScoreShippingRateInputValueModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -65,7 +65,7 @@ final class SetCartScoreShippingRateInputValueModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getScore()

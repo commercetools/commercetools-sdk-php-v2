@@ -22,25 +22,25 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
 
 
     /**
-
+     *
      * @var ?int
      */
     protected $heightInMillimeter;
 
     /**
-
+     *
      * @var ?int
      */
     protected $lengthInMillimeter;
 
     /**
-
+     *
      * @var ?int
      */
     protected $widthInMillimeter;
 
     /**
-
+     *
      * @var ?int
      */
     protected $weightInGram;
@@ -63,7 +63,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getHeightInMillimeter()
@@ -81,7 +81,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getLengthInMillimeter()
@@ -99,7 +99,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getWidthInMillimeter()
@@ -117,7 +117,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getWeightInGram()

@@ -20,25 +20,25 @@ use stdClass;
 final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMeasurements
 {
     /**
-
+     *
      * @var ?float
      */
     protected $heightInMillimeter;
 
     /**
-
+     *
      * @var ?float
      */
     protected $lengthInMillimeter;
 
     /**
-
+     *
      * @var ?float
      */
     protected $widthInMillimeter;
 
     /**
-
+     *
      * @var ?float
      */
     protected $weightInGram;
@@ -60,7 +60,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getHeightInMillimeter()
@@ -78,7 +78,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getLengthInMillimeter()
@@ -96,7 +96,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getWidthInMillimeter()
@@ -114,7 +114,7 @@ final class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMea
     }
 
     /**
-
+     *
      * @return null|float
      */
     public function getWeightInGram()

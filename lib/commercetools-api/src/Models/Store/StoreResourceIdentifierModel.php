@@ -23,19 +23,19 @@ final class StoreResourceIdentifierModel extends JsonObjectModel implements Stor
 {
     public const DISCRIMINATOR_VALUE = 'store';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -46,17 +46,18 @@ final class StoreResourceIdentifierModel extends JsonObjectModel implements Stor
      */
     public function __construct(
         ?string $id = null,
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -76,7 +77,7 @@ final class StoreResourceIdentifierModel extends JsonObjectModel implements Stor
     /**
      * <p>Unique ID of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -96,7 +97,7 @@ final class StoreResourceIdentifierModel extends JsonObjectModel implements Stor
     /**
      * <p>Unique key of the referenced <a href="ctp:api:type:Store">Store</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

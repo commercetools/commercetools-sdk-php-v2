@@ -24,43 +24,43 @@ use stdClass;
 final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFromQuoteDraft
 {
     /**
-
+     *
      * @var ?QuoteResourceIdentifier
      */
     protected $quote;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderNumber;
 
     /**
-
+     *
      * @var ?string
      */
     protected $paymentState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderState;
 
     /**
-
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
@@ -90,7 +90,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     /**
      * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
      *
-
+     *
      * @return null|QuoteResourceIdentifier
      */
     public function getQuote()
@@ -111,7 +111,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     /**
      * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -135,7 +135,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
      * Once it's set it cannot be changed.
      * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderNumber()
@@ -153,7 +153,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPaymentState()
@@ -171,7 +171,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -191,7 +191,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     /**
      * <p>Order will be created with <code>Open</code> status by default.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderState()
@@ -209,7 +209,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()

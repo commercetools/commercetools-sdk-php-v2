@@ -21,13 +21,13 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
 {
     public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
@@ -37,14 +37,15 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $deleteDaysAfterLastModification = null
+        ?int $deleteDaysAfterLastModification = null,
+        ?string $action = null
     ) {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class MyShoppingListSetDeleteDaysAfterLastModificationActionModel extends 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()

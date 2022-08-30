@@ -21,19 +21,19 @@ final class StoreLanguagesChangedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'StoreLanguagesChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?array
      */
     protected $addedLanguages;
 
     /**
-
+     *
      * @var ?array
      */
     protected $removedLanguages;
@@ -44,15 +44,16 @@ final class StoreLanguagesChangedMessagePayloadModel extends JsonObjectModel imp
      */
     public function __construct(
         ?array $addedLanguages = null,
-        ?array $removedLanguages = null
+        ?array $removedLanguages = null,
+        ?string $type = null
     ) {
         $this->addedLanguages = $addedLanguages;
         $this->removedLanguages = $removedLanguages;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -72,7 +73,7 @@ final class StoreLanguagesChangedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Locale">Locales</a> added to the <a href="ctp:api:type:Store">Store</a> after the <a href="ctp:api:type:StoreSetLanguagesAction">Set Languages</a> update action.</p>
      *
-
+     *
      * @return null|array
      */
     public function getAddedLanguages()
@@ -92,7 +93,7 @@ final class StoreLanguagesChangedMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p><a href="ctp:api:type:Locale">Locales</a> removed from the <a href="ctp:api:type:Store">Store</a> during the <a href="ctp:api:type:StoreSetLanguagesAction">Set Languages</a> update action.</p>
      *
-
+     *
      * @return null|array
      */
     public function getRemovedLanguages()

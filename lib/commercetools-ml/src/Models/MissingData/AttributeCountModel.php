@@ -20,19 +20,19 @@ use stdClass;
 final class AttributeCountModel extends JsonObjectModel implements AttributeCount
 {
     /**
-
+     *
      * @var ?int
      */
     protected $productTypeAttributes;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantAttributes;
 
     /**
-
+     *
      * @var ?int
      */
     protected $missingAttributeValues;
@@ -54,7 +54,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     /**
      * <p>Number of attributes defined in the product type.</p>
      *
-
+     *
      * @return null|int
      */
     public function getProductTypeAttributes()
@@ -74,7 +74,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     /**
      * <p>Number of attributes defined in the variant.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantAttributes()
@@ -94,7 +94,7 @@ final class AttributeCountModel extends JsonObjectModel implements AttributeCoun
     /**
      * <p>Number of attributes missing values in the variant.</p>
      *
-
+     *
      * @return null|int
      */
     public function getMissingAttributeValues()

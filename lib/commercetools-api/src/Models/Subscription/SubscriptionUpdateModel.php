@@ -20,13 +20,13 @@ use stdClass;
 final class SubscriptionUpdateModel extends JsonObjectModel implements SubscriptionUpdate
 {
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?SubscriptionUpdateActionCollection
      */
     protected $actions;
@@ -44,7 +44,7 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -62,7 +62,7 @@ final class SubscriptionUpdateModel extends JsonObjectModel implements Subscript
     }
 
     /**
-
+     *
      * @return null|SubscriptionUpdateActionCollection
      */
     public function getActions()

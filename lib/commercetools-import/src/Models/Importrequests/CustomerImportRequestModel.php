@@ -22,13 +22,13 @@ final class CustomerImportRequestModel extends JsonObjectModel implements Custom
 {
     public const DISCRIMINATOR_VALUE = 'customer';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?CustomerImportCollection
      */
     protected $resources;
@@ -38,16 +38,17 @@ final class CustomerImportRequestModel extends JsonObjectModel implements Custom
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomerImportCollection $resources = null
+        ?CustomerImportCollection $resources = null,
+        ?string $type = null
     ) {
         $this->resources = $resources;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -67,7 +68,7 @@ final class CustomerImportRequestModel extends JsonObjectModel implements Custom
     /**
      * <p>The customer import resources of this request.</p>
      *
-
+     *
      * @return null|CustomerImportCollection
      */
     public function getResources()

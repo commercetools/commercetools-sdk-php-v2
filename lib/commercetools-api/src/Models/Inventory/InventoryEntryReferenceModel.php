@@ -23,19 +23,19 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
 {
     public const DISCRIMINATOR_VALUE = 'inventory-entry';
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?InventoryEntry
      */
     protected $obj;
@@ -46,17 +46,18 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
      */
     public function __construct(
         ?string $id = null,
-        ?InventoryEntry $obj = null
+        ?InventoryEntry $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -76,7 +77,7 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -96,7 +97,7 @@ final class InventoryEntryReferenceModel extends JsonObjectModel implements Inve
     /**
      * <p>Contains the representation of the expanded InventoryEntry. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for InventoryEntries.</p>
      *
-
+     *
      * @return null|InventoryEntry
      */
     public function getObj()

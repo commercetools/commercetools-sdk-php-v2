@@ -22,25 +22,25 @@ final class MoneyModel extends JsonObjectModel implements Money
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $currencyCode;
 
     /**
-
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
-
+     *
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -65,7 +65,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCurrencyCode()
@@ -83,7 +83,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -101,7 +101,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getFractionDigits()
@@ -119,7 +119,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()

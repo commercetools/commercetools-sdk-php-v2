@@ -22,25 +22,25 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetApplicationVersionChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?int
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?int
      */
     protected $nextValue;
@@ -52,16 +52,17 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     public function __construct(
         ?string $change = null,
         ?int $previousValue = null,
-        ?int $nextValue = null
+        ?int $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -81,7 +82,7 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     /**
      * <p>Internal Update action for <code>setApplicationVersion</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -99,7 +100,7 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getPreviousValue()
@@ -117,7 +118,7 @@ final class SetApplicationVersionChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getNextValue()

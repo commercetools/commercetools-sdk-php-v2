@@ -23,13 +23,13 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setTaxCategory';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
@@ -39,14 +39,15 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TaxCategoryResourceIdentifier $taxCategory = null
+        ?TaxCategoryResourceIdentifier $taxCategory = null,
+        ?string $action = null
     ) {
         $this->taxCategory = $taxCategory;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
     /**
      * <p>The Tax Category to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()

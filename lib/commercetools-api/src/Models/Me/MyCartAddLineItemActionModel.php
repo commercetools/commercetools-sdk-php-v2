@@ -34,79 +34,79 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
 {
     public const DISCRIMINATOR_VALUE = 'addLineItem';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
 
     /**
-
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
 
     /**
-
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $externalPrice;
 
     /**
-
+     *
      * @var ?ExternalLineItemTotalPrice
      */
     protected $externalTotalPrice;
 
     /**
-
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
@@ -127,7 +127,8 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         ?Money $externalPrice = null,
         ?ExternalLineItemTotalPrice $externalTotalPrice = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
-        ?DateTimeImmutable $addedAt = null
+        ?DateTimeImmutable $addedAt = null,
+        ?string $action = null
     ) {
         $this->custom = $custom;
         $this->distributionChannel = $distributionChannel;
@@ -141,11 +142,11 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         $this->externalTotalPrice = $externalTotalPrice;
         $this->shippingDetails = $shippingDetails;
         $this->addedAt = $addedAt;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -165,7 +166,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -186,7 +187,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -205,7 +206,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -224,7 +225,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getProductId()
@@ -242,7 +243,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -260,7 +261,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -278,7 +279,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -298,7 +299,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -320,7 +321,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getExternalPrice()
@@ -339,7 +340,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()
@@ -358,7 +359,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -377,7 +378,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()

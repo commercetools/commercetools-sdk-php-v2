@@ -24,31 +24,31 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
 
     public const DISCRIMINATOR_VALUE = 'QuoteLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $stagedQuote;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $quoteRequest;
@@ -61,17 +61,18 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
         ?string $key = null,
         ?Reference $customer = null,
         ?Reference $stagedQuote = null,
-        ?Reference $quoteRequest = null
+        ?Reference $quoteRequest = null,
+        ?string $type = null
     ) {
         $this->key = $key;
         $this->customer = $customer;
         $this->stagedQuote = $stagedQuote;
         $this->quoteRequest = $quoteRequest;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -89,7 +90,7 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -107,7 +108,7 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getCustomer()
@@ -126,7 +127,7 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getStagedQuote()
@@ -145,7 +146,7 @@ final class QuoteLabelModel extends JsonObjectModel implements QuoteLabel
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getQuoteRequest()

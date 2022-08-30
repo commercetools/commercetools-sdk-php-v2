@@ -22,13 +22,13 @@ use stdClass;
 final class CustomerSigninModel extends JsonObjectModel implements CustomerSignin
 {
     /**
-
+     *
      * @var ?string
      */
     protected $email;
 
     /**
-
+     *
      * @var ?string
      */
     protected $password;
@@ -40,25 +40,25 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     protected $anonymousCartId;
 
     /**
-
+     *
      * @var ?CartResourceIdentifier
      */
     protected $anonymousCart;
 
     /**
-
+     *
      * @var ?string
      */
     protected $anonymousCartSignInMode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $anonymousId;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $updateProductData;
@@ -86,7 +86,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getEmail()
@@ -104,7 +104,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPassword()
@@ -142,7 +142,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
-
+     *
      * @return null|CartResourceIdentifier
      */
     public function getAnonymousCart()
@@ -161,7 +161,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAnonymousCartSignInMode()
@@ -179,7 +179,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -197,7 +197,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getUpdateProductData()

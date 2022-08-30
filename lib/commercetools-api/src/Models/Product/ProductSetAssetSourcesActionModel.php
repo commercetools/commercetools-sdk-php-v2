@@ -22,43 +22,43 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setAssetSources';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?AssetSourceCollection
      */
     protected $sources;
@@ -73,7 +73,8 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         ?bool $staged = null,
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?AssetSourceCollection $sources = null
+        ?AssetSourceCollection $sources = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -81,11 +82,11 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->sources = $sources;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -105,7 +106,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -125,7 +126,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -145,7 +146,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     /**
      * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code> both the current and staged Asset is updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -165,7 +166,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     /**
      * <p>The <code>id</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -185,7 +186,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     /**
      * <p>The <code>key</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -205,7 +206,7 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     /**
      * <p>Value to set.</p>
      *
-
+     *
      * @return null|AssetSourceCollection
      */
     public function getSources()

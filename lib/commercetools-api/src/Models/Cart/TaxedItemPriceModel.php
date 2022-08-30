@@ -22,19 +22,19 @@ use stdClass;
 final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPrice
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalNet;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalGross;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $totalTax;
@@ -54,7 +54,7 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -75,7 +75,7 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     /**
      * <p>TaxedItemPrice fields can not be used in query predicates.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalGross()
@@ -96,7 +96,7 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     /**
      * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getTotalTax()

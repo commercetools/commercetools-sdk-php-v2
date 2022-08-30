@@ -41,6 +41,12 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     private $measurements;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
      *
 
@@ -71,6 +77,17 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     public function getMeasurements()
     {
         return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -107,6 +124,17 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMeasurements() instead
      * @return $this
      */
@@ -122,7 +150,8 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
         return new ParcelMeasurementsUpdatedMessagePayloadModel(
             $this->deliveryId,
             $this->parcelId,
-            $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements
+            $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements,
+            $this->shippingKey
         );
     }
 

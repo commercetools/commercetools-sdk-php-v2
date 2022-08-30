@@ -25,13 +25,13 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
 {
     public const DISCRIMINATOR_VALUE = 'setTarget';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $target;
@@ -41,14 +41,15 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?JsonObject $target = null
+        ?JsonObject $target = null,
+        ?string $action = null
     ) {
         $this->target = $target;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,7 +69,7 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     /**
      * <p>Value to set, specified as <a href="ctp:api:type:ProductResourceIdentifier">ProductResourceIdentifier</a> or <a href="ctp:api:type:ChannelResourceIdentifier">ChannelResourceIdentifier</a>, respectively. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return ?mixed
      */
     public function getTarget()

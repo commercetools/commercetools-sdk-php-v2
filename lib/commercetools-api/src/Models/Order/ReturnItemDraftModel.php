@@ -22,37 +22,37 @@ use stdClass;
 final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDraft
 {
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $comment;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -78,7 +78,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -96,7 +96,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -114,7 +114,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -132,7 +132,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getComment()
@@ -150,7 +150,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -170,7 +170,7 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
     /**
      * <p>Custom Fields of this return item.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

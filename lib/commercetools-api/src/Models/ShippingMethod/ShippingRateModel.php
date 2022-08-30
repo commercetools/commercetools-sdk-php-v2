@@ -22,25 +22,25 @@ use stdClass;
 final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $price;
 
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $freeAbove;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isMatching;
 
     /**
-
+     *
      * @var ?ShippingRatePriceTierCollection
      */
     protected $tiers;
@@ -64,7 +64,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     /**
      * <p>Currency amount of the ShippingRate.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getPrice()
@@ -85,7 +85,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     /**
      * <p>Shipping is free if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
-
+     *
      * @return null|TypedMoney
      */
     public function getFreeAbove()
@@ -108,7 +108,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      * Only appears in response to requests for <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> or
      * <a href="#get-shippingmethods-for-a-location">Get ShippingMethods for a Location</a>.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsMatching()
@@ -128,7 +128,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     /**
      * <p>Price tiers for the ShippingRate.</p>
      *
-
+     *
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()

@@ -21,31 +21,31 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
-
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
-
+     *
      * @var ?string
      */
     protected $currencyCode;
 
     /**
-
+     *
      * @var ?int
      */
     protected $preciseAmount;
@@ -58,17 +58,18 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
         ?int $fractionDigits = null,
         ?int $centAmount = null,
         ?string $currencyCode = null,
-        ?int $preciseAmount = null
+        ?int $preciseAmount = null,
+        ?string $type = null
     ) {
         $this->fractionDigits = $fractionDigits;
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
         $this->preciseAmount = $preciseAmount;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -86,7 +87,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getFractionDigits()
@@ -104,7 +105,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -124,7 +125,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCurrencyCode()
@@ -142,7 +143,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getPreciseAmount()

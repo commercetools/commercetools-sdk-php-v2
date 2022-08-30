@@ -21,13 +21,13 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setTimeoutInMs';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $timeoutInMs;
@@ -37,14 +37,15 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $timeoutInMs = null
+        ?int $timeoutInMs = null,
+        ?string $action = null
     ) {
         $this->timeoutInMs = $timeoutInMs;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,7 +69,7 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
      * <p>This limit can be increased per Project after we review the performance impact.
      * Please contact our support via the <a href="https://support.commercetools.com/">Support Portal</a> and provide the Region, Project key, and use case.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTimeoutInMs()

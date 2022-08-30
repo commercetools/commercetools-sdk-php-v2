@@ -21,31 +21,31 @@ use stdClass;
 final class ImportContainerModel extends JsonObjectModel implements ImportContainer
 {
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?string
      */
     protected $resourceType;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -72,7 +72,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
      * <p>User-defined unique identifier for the ImportContainer.
      * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -93,7 +93,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
      * <p>The <a href="#importresourcetype">resource type</a> the ImportContainer is able to handle.
      * If not present, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getResourceType()
@@ -113,7 +113,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     /**
      * <p>The version of the ImportContainer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -133,7 +133,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     /**
      * <p>The time when the ImportContainer was created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -157,7 +157,7 @@ final class ImportContainerModel extends JsonObjectModel implements ImportContai
     /**
      * <p>The last time when the ImportContainer was modified.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

@@ -22,25 +22,25 @@ final class ChangeQuoteStateChangeModel extends JsonObjectModel implements Chang
 
     public const DISCRIMINATOR_VALUE = 'ChangeQuoteStateChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $previousValue;
@@ -52,16 +52,17 @@ final class ChangeQuoteStateChangeModel extends JsonObjectModel implements Chang
     public function __construct(
         ?string $change = null,
         ?string $nextValue = null,
-        ?string $previousValue = null
+        ?string $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -79,7 +80,7 @@ final class ChangeQuoteStateChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -97,7 +98,7 @@ final class ChangeQuoteStateChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNextValue()
@@ -115,7 +116,7 @@ final class ChangeQuoteStateChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPreviousValue()

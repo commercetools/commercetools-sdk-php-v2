@@ -20,31 +20,31 @@ use stdClass;
 final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements MyPaymentPagedQueryResponse
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $count;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?MyPaymentCollection
      */
     protected $results;
@@ -70,7 +70,7 @@ final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements 
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -88,7 +88,7 @@ final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getCount()
@@ -106,7 +106,7 @@ final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -126,7 +126,7 @@ final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements 
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -144,7 +144,7 @@ final class MyPaymentPagedQueryResponseModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|MyPaymentCollection
      */
     public function getResults()

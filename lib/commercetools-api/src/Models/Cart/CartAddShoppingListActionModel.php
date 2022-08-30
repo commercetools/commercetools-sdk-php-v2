@@ -25,25 +25,25 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
 {
     public const DISCRIMINATOR_VALUE = 'addShoppingList';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ShoppingListResourceIdentifier
      */
     protected $shoppingList;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $supplyChannel;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -55,16 +55,17 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     public function __construct(
         ?ShoppingListResourceIdentifier $shoppingList = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
-        ?ChannelResourceIdentifier $distributionChannel = null
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?string $action = null
     ) {
         $this->shoppingList = $shoppingList;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -84,7 +85,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
-
+     *
      * @return null|ShoppingListResourceIdentifier
      */
     public function getShoppingList()
@@ -105,7 +106,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()
@@ -126,7 +127,7 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()

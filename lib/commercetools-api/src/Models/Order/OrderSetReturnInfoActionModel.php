@@ -21,13 +21,13 @@ final class OrderSetReturnInfoActionModel extends JsonObjectModel implements Ord
 {
     public const DISCRIMINATOR_VALUE = 'setReturnInfo';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ReturnInfoDraftCollection
      */
     protected $items;
@@ -37,14 +37,15 @@ final class OrderSetReturnInfoActionModel extends JsonObjectModel implements Ord
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ReturnInfoDraftCollection $items = null
+        ?ReturnInfoDraftCollection $items = null,
+        ?string $action = null
     ) {
         $this->items = $items;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class OrderSetReturnInfoActionModel extends JsonObjectModel implements Ord
     }
 
     /**
-
+     *
      * @return null|ReturnInfoDraftCollection
      */
     public function getItems()

@@ -21,7 +21,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
@@ -48,14 +48,15 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()

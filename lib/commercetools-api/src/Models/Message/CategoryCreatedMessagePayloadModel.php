@@ -23,13 +23,13 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'CategoryCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?Category
      */
     protected $category;
@@ -39,14 +39,15 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Category $category = null
+        ?Category $category = null,
+        ?string $type = null
     ) {
         $this->category = $category;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     /**
      * <p><a href="ctp:api:type:Category">Category</a> that was created.</p>
      *
-
+     *
      * @return null|Category
      */
     public function getCategory()

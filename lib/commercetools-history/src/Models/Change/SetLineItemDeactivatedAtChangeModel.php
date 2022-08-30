@@ -24,31 +24,31 @@ final class SetLineItemDeactivatedAtChangeModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemDeactivatedAtChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ShoppingListLineItemValue
      */
     protected $lineItem;
 
     /**
-
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -61,17 +61,18 @@ final class SetLineItemDeactivatedAtChangeModel extends JsonObjectModel implemen
         ?string $change = null,
         ?ShoppingListLineItemValue $lineItem = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -91,7 +92,7 @@ final class SetLineItemDeactivatedAtChangeModel extends JsonObjectModel implemen
     /**
      * <p>Update action for <code>setLineItemDeactivatedAt</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -109,7 +110,7 @@ final class SetLineItemDeactivatedAtChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -128,7 +129,7 @@ final class SetLineItemDeactivatedAtChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -146,7 +147,7 @@ final class SetLineItemDeactivatedAtChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getNextValue()

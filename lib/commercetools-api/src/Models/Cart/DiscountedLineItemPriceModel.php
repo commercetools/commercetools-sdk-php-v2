@@ -22,13 +22,13 @@ use stdClass;
 final class DiscountedLineItemPriceModel extends JsonObjectModel implements DiscountedLineItemPrice
 {
     /**
-
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
-
+     *
      * @var ?DiscountedLineItemPortionCollection
      */
     protected $includedDiscounts;
@@ -46,7 +46,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
-
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -65,7 +65,7 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
     }
 
     /**
-
+     *
      * @return null|DiscountedLineItemPortionCollection
      */
     public function getIncludedDiscounts()

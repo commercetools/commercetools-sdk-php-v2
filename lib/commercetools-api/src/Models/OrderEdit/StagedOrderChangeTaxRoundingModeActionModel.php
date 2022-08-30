@@ -23,13 +23,13 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'changeTaxRoundingMode';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $taxRoundingMode;
@@ -39,14 +39,15 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $taxRoundingMode = null
+        ?string $taxRoundingMode = null,
+        ?string $action = null
     ) {
         $this->taxRoundingMode = $taxRoundingMode;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class StagedOrderChangeTaxRoundingModeActionModel extends JsonObjectModel 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTaxRoundingMode()

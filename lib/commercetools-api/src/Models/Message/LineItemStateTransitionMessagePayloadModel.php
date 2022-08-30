@@ -24,37 +24,37 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'LineItemStateTransition';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $transitionDate;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $fromState;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $toState;
@@ -68,18 +68,19 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
         ?DateTimeImmutable $transitionDate = null,
         ?int $quantity = null,
         ?StateReference $fromState = null,
-        ?StateReference $toState = null
+        ?StateReference $toState = null,
+        ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->transitionDate = $transitionDate;
         $this->quantity = $quantity;
         $this->fromState = $fromState;
         $this->toState = $toState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -99,7 +100,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -119,7 +120,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>Date and time (UTC) when the transition of the <a href="ctp:api:type:LineItem">Line Item</a> <a href="ctp:api:type:State">State</a> was performed.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getTransitionDate()
@@ -143,7 +144,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     /**
      * <p>Number of <a href="ctp:api:type:LineItem">Line Items</a> for which the <a href="ctp:api:type:State">State</a> was transitioned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -163,7 +164,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     /**
      * <p><a href="ctp:api:type:State">State</a> the <a href="ctp:api:type:LineItem">Line Item</a> was transitioned from.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getFromState()
@@ -184,7 +185,7 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     /**
      * <p><a href="ctp:api:type:State">State</a> the <a href="ctp:api:type:LineItem">Line Item</a> was transitioned to.</p>
      *
-
+     *
      * @return null|StateReference
      */
     public function getToState()

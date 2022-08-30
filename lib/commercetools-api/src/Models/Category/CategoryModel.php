@@ -32,115 +32,115 @@ use stdClass;
 final class CategoryModel extends JsonObjectModel implements Category
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?CategoryReferenceCollection
      */
     protected $ancestors;
 
     /**
-
+     *
      * @var ?CategoryReference
      */
     protected $parent;
 
     /**
-
+     *
      * @var ?string
      */
     protected $orderHint;
 
     /**
-
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?AssetCollection
      */
     protected $assets;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -194,7 +194,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Unique identifier of the Category.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -214,7 +214,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Current version of the Category.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -234,7 +234,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Date and time (UTC) the Category was initially created.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -258,7 +258,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Date and time (UTC) the Category was last updated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -282,7 +282,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -303,7 +303,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -324,7 +324,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Name of the Category.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -348,7 +348,7 @@ final class CategoryModel extends JsonObjectModel implements Category
      * Valid slugs match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.
      * For <a href="/../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in a Project.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -369,7 +369,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Description of the Category.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -390,7 +390,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Contains the parent path towards the root Category.</p>
      *
-
+     *
      * @return null|CategoryReferenceCollection
      */
     public function getAncestors()
@@ -410,7 +410,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Parent Category of this Category.</p>
      *
-
+     *
      * @return null|CategoryReference
      */
     public function getParent()
@@ -431,7 +431,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Decimal value between 0 and 1 used to order Categories that are on the same level in the Category tree.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -451,7 +451,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
      *
-
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -471,7 +471,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Name of the Category used by external search engines for improved search engine performance.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -492,7 +492,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Description of the Category used by external search engines for improved search engine performance.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -513,7 +513,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Keywords related to the Category for improved search engine performance.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -534,7 +534,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Custom Fields for the Category.</p>
      *
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -555,7 +555,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>Media related to the Category.</p>
      *
-
+     *
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -575,7 +575,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p>User-defined unique identifier of the Category.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

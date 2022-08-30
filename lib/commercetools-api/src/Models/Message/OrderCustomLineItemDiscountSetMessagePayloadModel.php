@@ -24,25 +24,25 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemDiscountSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
-
+     *
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
@@ -54,16 +54,17 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     public function __construct(
         ?string $customLineItemId = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
-        ?TaxedItemPrice $taxedPrice = null
+        ?TaxedItemPrice $taxedPrice = null,
+        ?string $type = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->taxedPrice = $taxedPrice;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     /**
      * <p>Unique identifier for the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -103,7 +104,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     /**
      * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
      *
-
+     *
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -123,7 +124,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     /**
      * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> after the Discount recalculation.</p>
      *
-
+     *
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

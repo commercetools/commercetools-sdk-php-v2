@@ -24,25 +24,25 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
 
     public const DISCRIMINATOR_VALUE = 'AddPaymentChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?PaymentInfo
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?PaymentInfo
      */
     protected $previousValue;
@@ -54,16 +54,17 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     public function __construct(
         ?string $change = null,
         ?PaymentInfo $nextValue = null,
-        ?PaymentInfo $previousValue = null
+        ?PaymentInfo $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     /**
      * <p>Update action for <code>addPayment</code> &amp; <code>removePayment</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     }
 
     /**
-
+     *
      * @return null|PaymentInfo
      */
     public function getNextValue()
@@ -120,7 +121,7 @@ final class AddPaymentChangeModel extends JsonObjectModel implements AddPaymentC
     }
 
     /**
-
+     *
      * @return null|PaymentInfo
      */
     public function getPreviousValue()

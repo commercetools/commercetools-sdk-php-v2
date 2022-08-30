@@ -20,13 +20,13 @@ use stdClass;
 final class MessageSubscriptionModel extends JsonObjectModel implements MessageSubscription
 {
     /**
-
+     *
      * @var ?string
      */
     protected $resourceTypeId;
 
     /**
-
+     *
      * @var ?array
      */
     protected $types;
@@ -44,7 +44,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getResourceTypeId()
@@ -62,7 +62,7 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getTypes()

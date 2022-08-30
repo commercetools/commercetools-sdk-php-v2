@@ -33,181 +33,181 @@ use stdClass;
 final class CustomerModel extends JsonObjectModel implements Customer
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customerNumber;
 
     /**
-
+     *
      * @var ?string
      */
     protected $email;
 
     /**
-
+     *
      * @var ?string
      */
     protected $password;
 
     /**
-
+     *
      * @var ?string
      */
     protected $firstName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lastName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $middleName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $title;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
 
     /**
-
+     *
      * @var ?string
      */
     protected $companyName;
 
     /**
-
+     *
      * @var ?string
      */
     protected $vatId;
 
     /**
-
+     *
      * @var ?AddressCollection
      */
     protected $addresses;
 
     /**
-
+     *
      * @var ?string
      */
     protected $defaultShippingAddressId;
 
     /**
-
+     *
      * @var ?array
      */
     protected $shippingAddressIds;
 
     /**
-
+     *
      * @var ?string
      */
     protected $defaultBillingAddressId;
 
     /**
-
+     *
      * @var ?array
      */
     protected $billingAddressIds;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isEmailVerified;
 
     /**
-
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
-
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
-
+     *
      * @var ?string
      */
     protected $salutation;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?StoreKeyReferenceCollection
      */
     protected $stores;
 
     /**
-
+     *
      * @var ?string
      */
     protected $authenticationMode;
@@ -283,7 +283,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>Unique identifier of the Customer.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -303,7 +303,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>The current version of the customer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -321,7 +321,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -343,7 +343,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -367,7 +367,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -388,7 +388,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -411,7 +411,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
      * It should be unique across a project.
      * Once the field was set it cannot be changed anymore.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCustomerNumber()
@@ -433,7 +433,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
      * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
      * For more information, see Email uniquenes.</p>
      *
-
+     *
      * @return null|string
      */
     public function getEmail()
@@ -453,7 +453,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getPassword()
@@ -471,7 +471,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getFirstName()
@@ -489,7 +489,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLastName()
@@ -507,7 +507,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMiddleName()
@@ -525,7 +525,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTitle()
@@ -543,7 +543,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -565,7 +565,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCompanyName()
@@ -583,7 +583,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getVatId()
@@ -603,7 +603,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>The addresses have unique IDs in the addresses list</p>
      *
-
+     *
      * @return null|AddressCollection
      */
     public function getAddresses()
@@ -623,7 +623,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>The address ID in the addresses list</p>
      *
-
+     *
      * @return null|string
      */
     public function getDefaultShippingAddressId()
@@ -643,7 +643,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>The IDs from the addresses list which are used as shipping addresses</p>
      *
-
+     *
      * @return null|array
      */
     public function getShippingAddressIds()
@@ -663,7 +663,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>The address ID in the addresses list</p>
      *
-
+     *
      * @return null|string
      */
     public function getDefaultBillingAddressId()
@@ -683,7 +683,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>The IDs from the addresses list which are used as billing addresses</p>
      *
-
+     *
      * @return null|array
      */
     public function getBillingAddressIds()
@@ -701,7 +701,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|bool
      */
     public function getIsEmailVerified()
@@ -719,7 +719,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -737,7 +737,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -756,7 +756,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -775,7 +775,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLocale()
@@ -793,7 +793,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSalutation()
@@ -813,7 +813,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>User-defined unique identifier of the Customer.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -835,7 +835,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
      * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
      * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
-
+     *
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores()
@@ -855,7 +855,7 @@ final class CustomerModel extends JsonObjectModel implements Customer
     /**
      * <p>Defines whether a Customer has a password.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAuthenticationMode()

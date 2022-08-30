@@ -22,19 +22,19 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $syncedAt;
@@ -55,7 +55,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getChannel()
@@ -76,7 +76,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     /**
      * <p>Can be used to reference an external order instance, file etc.</p>
      *
-
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -94,7 +94,7 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSyncedAt()

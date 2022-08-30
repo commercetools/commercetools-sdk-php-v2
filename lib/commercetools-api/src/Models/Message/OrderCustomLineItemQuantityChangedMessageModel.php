@@ -28,85 +28,85 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomLineItemQuantityChanged';
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?int
      */
     protected $oldQuantity;
@@ -128,7 +128,8 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?string $customLineItemId = null,
         ?int $quantity = null,
-        ?int $oldQuantity = null
+        ?int $oldQuantity = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -143,13 +144,13 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
         $this->oldQuantity = $oldQuantity;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -169,7 +170,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -189,7 +190,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Date and time (UTC) the Message was generated.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -213,7 +214,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Value of <code>createdAt</code>.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -237,7 +238,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Value of <code>createdBy</code>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -258,7 +259,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -280,7 +281,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
      * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
      * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
      *
-
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -300,7 +301,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|Reference
      */
     public function getResource()
@@ -321,7 +322,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Version of the resource on which the change or action was performed.</p>
      *
-
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -341,7 +342,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -361,7 +362,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
      *
-
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -382,7 +383,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p>Unique identifier of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -402,7 +403,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
      *
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -422,7 +423,7 @@ final class OrderCustomLineItemQuantityChangedMessageModel extends JsonObjectMod
     /**
      * <p><a href="ctp:api:type:CustomLineItem">Custom Line Item</a> quantity before the <a href="ctp:api:type:StagedOrderChangeCustomLineItemQuantityAction">Change Custom Line Item Quantity</a> update action.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOldQuantity()

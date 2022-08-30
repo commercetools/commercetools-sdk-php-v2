@@ -22,13 +22,13 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
 {
     public const DISCRIMINATOR_VALUE = 'CartClassification';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?CustomFieldLocalizedEnumValueCollection
      */
     protected $values;
@@ -38,14 +38,15 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFieldLocalizedEnumValueCollection $values = null
+        ?CustomFieldLocalizedEnumValueCollection $values = null,
+        ?string $type = null
     ) {
         $this->values = $values;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -65,7 +66,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     /**
      * <p>The classification items that can be used for specifying any <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
      *
-
+     *
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues()

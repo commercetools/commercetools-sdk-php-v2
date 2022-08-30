@@ -21,19 +21,19 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'addPlainEnumValue';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
-
+     *
      * @var ?AttributePlainEnumValue
      */
     protected $value;
@@ -44,15 +44,16 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
      */
     public function __construct(
         ?string $attributeName = null,
-        ?AttributePlainEnumValue $value = null
+        ?AttributePlainEnumValue $value = null,
+        ?string $action = null
     ) {
         $this->attributeName = $attributeName;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -92,7 +93,7 @@ final class ProductTypeAddPlainEnumValueActionModel extends JsonObjectModel impl
     /**
      * <p>Value to append to the array.</p>
      *
-
+     *
      * @return null|AttributePlainEnumValue
      */
     public function getValue()

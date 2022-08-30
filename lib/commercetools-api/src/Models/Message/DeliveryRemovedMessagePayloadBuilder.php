@@ -29,6 +29,12 @@ final class DeliveryRemovedMessagePayloadBuilder implements Builder
     private $delivery;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>The <a href="ctp:api:type:Delivery">Delivery</a> that was removed from the <a href="ctp:api:type:Order">Order</a>.</p>
      *
 
@@ -40,12 +46,34 @@ final class DeliveryRemovedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
+
+    /**
      * @param ?Delivery $delivery
      * @return $this
      */
     public function withDelivery(?Delivery $delivery)
     {
         $this->delivery = $delivery;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -64,7 +92,8 @@ final class DeliveryRemovedMessagePayloadBuilder implements Builder
     public function build(): DeliveryRemovedMessagePayload
     {
         return new DeliveryRemovedMessagePayloadModel(
-            $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery
+            $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery,
+            $this->shippingKey
         );
     }
 

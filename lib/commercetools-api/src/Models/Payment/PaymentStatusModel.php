@@ -22,19 +22,19 @@ use stdClass;
 final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
 {
     /**
-
+     *
      * @var ?string
      */
     protected $interfaceCode;
 
     /**
-
+     *
      * @var ?string
      */
     protected $interfaceText;
 
     /**
-
+     *
      * @var ?StateReference
      */
     protected $state;
@@ -56,7 +56,7 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     /**
      * <p>A code describing the current status returned by the interface that processes the payment.</p>
      *
-
+     *
      * @return null|string
      */
     public function getInterfaceCode()
@@ -76,7 +76,7 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     /**
      * <p>A text describing the current status returned by the interface that processes the payment.</p>
      *
-
+     *
      * @return null|string
      */
     public function getInterfaceText()
@@ -94,7 +94,7 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     }
 
     /**
-
+     *
      * @return null|StateReference
      */
     public function getState()

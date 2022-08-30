@@ -32,73 +32,73 @@ use stdClass;
 final class OrderEditModel extends JsonObjectModel implements OrderEdit
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
-
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?OrderReference
      */
     protected $resource;
 
     /**
-
+     *
      * @var ?StagedOrderUpdateActionCollection
      */
     protected $stagedActions;
 
     /**
-
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?OrderEditResult
      */
     protected $result;
 
     /**
-
+     *
      * @var ?string
      */
     protected $comment;
@@ -138,7 +138,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>Unique identifier of the OrderEdit.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -158,7 +158,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>The current version of the OrderEdit.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -176,7 +176,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -198,7 +198,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -222,7 +222,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -243,7 +243,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
-
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -264,7 +264,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>User-defined unique identifier of the OrderEdit.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -284,7 +284,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>The order to be updated with this edit.</p>
      *
-
+     *
      * @return null|OrderReference
      */
     public function getResource()
@@ -306,7 +306,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
      * <p>The actions to apply to the Order.
      * Cannot be updated after the edit has been applied.</p>
      *
-
+     *
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions()
@@ -324,7 +324,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     }
 
     /**
-
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -346,7 +346,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
      * <p>Contains a preview of the changes in case of unapplied edit.
      * For applied edits, it contains the summary of the changes.</p>
      *
-
+     *
      * @return null|OrderEditResult
      */
     public function getResult()
@@ -367,7 +367,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     /**
      * <p>This field can be used to add textual information regarding the edit.</p>
      *
-
+     *
      * @return null|string
      */
     public function getComment()

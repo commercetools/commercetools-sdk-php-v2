@@ -22,25 +22,25 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
 
     public const DISCRIMINATOR_VALUE = 'ChangeGroupsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?array
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?array
      */
     protected $nextValue;
@@ -52,16 +52,17 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     public function __construct(
         ?string $change = null,
         ?array $previousValue = null,
-        ?array $nextValue = null
+        ?array $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -81,7 +82,7 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     /**
      * <p>Update action for <code>changeGroups</code> on stores</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -99,7 +100,7 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getPreviousValue()
@@ -117,7 +118,7 @@ final class ChangeGroupsChangeModel extends JsonObjectModel implements ChangeGro
     }
 
     /**
-
+     *
      * @return null|array
      */
     public function getNextValue()

@@ -20,19 +20,19 @@ use stdClass;
 final class HitModel extends JsonObjectModel implements Hit
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?float
      */
     protected $relevance;
@@ -54,7 +54,7 @@ final class HitModel extends JsonObjectModel implements Hit
     /**
      * <p>Unique identifier of the Order.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -74,7 +74,7 @@ final class HitModel extends JsonObjectModel implements Hit
     /**
      * <p>Current version of the Order.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -94,7 +94,7 @@ final class HitModel extends JsonObjectModel implements Hit
     /**
      * <p>The higher the value is, the more relevant the hit is for the search request.</p>
      *
-
+     *
      * @return null|float
      */
     public function getRelevance()

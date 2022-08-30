@@ -23,13 +23,13 @@ final class MyShoppingListChangeNameActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -39,14 +39,15 @@ final class MyShoppingListChangeNameActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class MyShoppingListChangeNameActionModel extends JsonObjectModel implemen
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()

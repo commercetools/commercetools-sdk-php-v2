@@ -20,19 +20,19 @@ use stdClass;
 final class MissingAttributesDetailsModel extends JsonObjectModel implements MissingAttributesDetails
 {
     /**
-
+     *
      * @var ?int
      */
     protected $total;
 
     /**
-
+     *
      * @var ?int
      */
     protected $missingAttributeNames;
 
     /**
-
+     *
      * @var ?int
      */
     protected $missingAttributeValues;
@@ -54,7 +54,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     /**
      * <p>Number of products scanned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTotal()
@@ -74,7 +74,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     /**
      * <p>Number of products missing attribute names.</p>
      *
-
+     *
      * @return null|int
      */
     public function getMissingAttributeNames()
@@ -94,7 +94,7 @@ final class MissingAttributesDetailsModel extends JsonObjectModel implements Mis
     /**
      * <p>Number of products missing attribute values.</p>
      *
-
+     *
      * @return null|int
      */
     public function getMissingAttributeValues()

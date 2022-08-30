@@ -21,49 +21,49 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'setAssetCustomField';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $value;
@@ -79,7 +79,8 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
         ?string $assetId = null,
         ?string $assetKey = null,
         ?string $name = null,
-        $value = null
+        $value = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -88,11 +89,11 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
         $this->assetKey = $assetKey;
         $this->name = $name;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -112,7 +113,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -132,7 +133,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -152,7 +153,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -172,7 +173,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>id</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -192,7 +193,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>The <code>key</code> of the Asset to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -212,7 +213,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -234,7 +235,7 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
-
+     *
      * @return null|mixed
      */
     public function getValue()

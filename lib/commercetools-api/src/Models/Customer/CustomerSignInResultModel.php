@@ -22,13 +22,13 @@ use stdClass;
 final class CustomerSignInResultModel extends JsonObjectModel implements CustomerSignInResult
 {
     /**
-
+     *
      * @var ?Customer
      */
     protected $customer;
 
     /**
-
+     *
      * @var ?Cart
      */
     protected $cart;
@@ -46,7 +46,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
     }
 
     /**
-
+     *
      * @return null|Customer
      */
     public function getCustomer()
@@ -68,7 +68,7 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
      * <p>A cart that is associated to the customer.
      * Empty if the customer does not have a cart yet.</p>
      *
-
+     *
      * @return null|Cart
      */
     public function getCart()

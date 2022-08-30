@@ -23,25 +23,25 @@ final class ChangeTextLineItemsOrderChangeModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'ChangeTextLineItemsOrderChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?TextLineItemValueCollection
      */
     protected $previousValue;
 
     /**
-
+     *
      * @var ?TextLineItemValueCollection
      */
     protected $nextValue;
@@ -53,16 +53,17 @@ final class ChangeTextLineItemsOrderChangeModel extends JsonObjectModel implemen
     public function __construct(
         ?string $change = null,
         ?TextLineItemValueCollection $previousValue = null,
-        ?TextLineItemValueCollection $nextValue = null
+        ?TextLineItemValueCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -80,7 +81,7 @@ final class ChangeTextLineItemsOrderChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -98,7 +99,7 @@ final class ChangeTextLineItemsOrderChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|TextLineItemValueCollection
      */
     public function getPreviousValue()
@@ -116,7 +117,7 @@ final class ChangeTextLineItemsOrderChangeModel extends JsonObjectModel implemen
     }
 
     /**
-
+     *
      * @return null|TextLineItemValueCollection
      */
     public function getNextValue()

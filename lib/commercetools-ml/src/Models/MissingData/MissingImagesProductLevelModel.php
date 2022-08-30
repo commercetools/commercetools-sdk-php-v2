@@ -20,13 +20,13 @@ use stdClass;
 final class MissingImagesProductLevelModel extends JsonObjectModel implements MissingImagesProductLevel
 {
     /**
-
+     *
      * @var ?int
      */
     protected $missingImages;
 
     /**
-
+     *
      * @var ?int
      */
     protected $total;
@@ -46,7 +46,7 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
     /**
      * <p>Number of products missing images.</p>
      *
-
+     *
      * @return null|int
      */
     public function getMissingImages()
@@ -66,7 +66,7 @@ final class MissingImagesProductLevelModel extends JsonObjectModel implements Mi
     /**
      * <p>Number of products scanned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getTotal()

@@ -23,37 +23,37 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
 
     public const DISCRIMINATOR_VALUE = 'TransitionLineItemStateChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $stateId;
 
     /**
-
+     *
      * @var ?ItemStateCollection
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?ItemStateCollection
      */
     protected $previousValue;
@@ -67,18 +67,19 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
         ?string $lineItemId = null,
         ?string $stateId = null,
         ?ItemStateCollection $nextValue = null,
-        ?ItemStateCollection $previousValue = null
+        ?ItemStateCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItemId = $lineItemId;
         $this->stateId = $stateId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -98,7 +99,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     /**
      * <p>Update action for <code>transitionLineItemState</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -116,7 +117,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -134,7 +135,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getStateId()
@@ -152,7 +153,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|ItemStateCollection
      */
     public function getNextValue()
@@ -170,7 +171,7 @@ final class TransitionLineItemStateChangeModel extends JsonObjectModel implement
     }
 
     /**
-
+     *
      * @return null|ItemStateCollection
      */
     public function getPreviousValue()

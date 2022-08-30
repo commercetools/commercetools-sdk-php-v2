@@ -21,19 +21,19 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeEnumValueLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
-
+     *
      * @var ?CustomFieldEnumValue
      */
     protected $value;
@@ -44,15 +44,16 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?string $fieldName = null,
-        ?CustomFieldEnumValue $value = null
+        ?CustomFieldEnumValue $value = null,
+        ?string $action = null
     ) {
         $this->fieldName = $fieldName;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,7 +73,7 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -93,7 +94,7 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
      * <p>New value to set.
      * Must not be empty.</p>
      *
-
+     *
      * @return null|CustomFieldEnumValue
      */
     public function getValue()

@@ -24,19 +24,19 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
 
     public const DISCRIMINATOR_VALUE = 'QuoteRequestLabel';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
 
     /**
-
+     *
      * @var ?Reference
      */
     protected $customer;
@@ -47,15 +47,16 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
      */
     public function __construct(
         ?string $key = null,
-        ?Reference $customer = null
+        ?Reference $customer = null,
+        ?string $type = null
     ) {
         $this->key = $key;
         $this->customer = $customer;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -73,7 +74,7 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getKey()
@@ -91,7 +92,7 @@ final class QuoteRequestLabelModel extends JsonObjectModel implements QuoteReque
     }
 
     /**
-
+     *
      * @return null|Reference
      */
     public function getCustomer()

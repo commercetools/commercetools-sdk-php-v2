@@ -21,13 +21,13 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeGroups';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?array
      */
     protected $groups;
@@ -37,14 +37,15 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $groups = null
+        ?array $groups = null,
+        ?string $action = null
     ) {
         $this->groups = $groups;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     /**
      * <p>New value to set. An empty array removes the DiscountCode from all groups.</p>
      *
-
+     *
      * @return null|array
      */
     public function getGroups()

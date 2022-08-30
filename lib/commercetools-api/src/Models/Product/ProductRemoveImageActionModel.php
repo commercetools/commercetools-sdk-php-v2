@@ -21,31 +21,31 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'removeImage';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?string
      */
     protected $imageUrl;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -58,17 +58,18 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
         ?int $variantId = null,
         ?string $sku = null,
         ?string $imageUrl = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->imageUrl = $imageUrl;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -88,7 +89,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -108,7 +109,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -128,7 +129,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     /**
      * <p>The URL of the image to remove.</p>
      *
-
+     *
      * @return null|string
      */
     public function getImageUrl()
@@ -148,7 +149,7 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     /**
      * <p>If <code>true</code>, only the staged image is removed. If <code>false</code>, both the current and staged image is removed.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

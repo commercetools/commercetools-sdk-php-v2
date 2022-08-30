@@ -23,13 +23,13 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'ProductCreated';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ProductProjection
      */
     protected $productProjection;
@@ -39,14 +39,15 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductProjection $productProjection = null
+        ?ProductProjection $productProjection = null,
+        ?string $type = null
     ) {
         $this->productProjection = $productProjection;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +67,7 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     /**
      * <p>The staged <a href="ctp:api:type:ProductProjection">Product Projection</a> of the <a href="ctp:api:type:Product">Product</a> at the time of creation.</p>
      *
-
+     *
      * @return null|ProductProjection
      */
     public function getProductProjection()

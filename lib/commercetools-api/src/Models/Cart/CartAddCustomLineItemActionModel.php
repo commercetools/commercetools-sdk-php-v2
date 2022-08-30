@@ -29,55 +29,55 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'addCustomLineItem';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $money;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
-
+     *
      * @var ?string
      */
     protected $slug;
 
     /**
-
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
 
     /**
-
+     *
      * @var ?string
      */
     protected $priceMode;
@@ -94,7 +94,8 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?CustomFieldsDraft $custom = null,
         ?ExternalTaxRateDraft $externalTaxRate = null,
-        ?string $priceMode = null
+        ?string $priceMode = null,
+        ?string $action = null
     ) {
         $this->money = $money;
         $this->name = $name;
@@ -104,11 +105,11 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
         $this->custom = $custom;
         $this->externalTaxRate = $externalTaxRate;
         $this->priceMode = $priceMode;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -129,7 +130,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -150,7 +151,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -169,7 +170,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -187,7 +188,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getSlug()
@@ -207,7 +208,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
-
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -228,7 +229,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
-
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -247,7 +248,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -272,7 +273,7 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
      * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
      * </ul>
      *
-
+     *
      * @return null|string
      */
     public function getPriceMode()

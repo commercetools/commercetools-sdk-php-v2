@@ -22,49 +22,49 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
 
 
     /**
-
+     *
      * @var ?AttributeType
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $label;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isRequired;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeConstraint;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $inputTip;
 
     /**
-
+     *
      * @var ?string
      */
     protected $inputHint;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $isSearchable;
@@ -95,7 +95,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|AttributeType
      */
     public function getType()
@@ -116,7 +116,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     /**
      * <p>The unique name of the attribute used in the API. The name must be between two and 256 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>). When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types, otherwise an AttributeDefinitionAlreadyExists error code will be returned. An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -134,7 +134,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -155,7 +155,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     /**
      * <p>Whether the attribute is required to have a value.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsRequired()
@@ -173,7 +173,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAttributeConstraint()
@@ -191,7 +191,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getInputTip()
@@ -210,7 +210,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getInputHint()
@@ -230,7 +230,7 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     /**
      * <p>Whether the attribute's values should generally be enabled in product search. This determines whether the value is stored in products for matching terms in the context of full-text search queries  and can be used in facets &amp; filters as part of product search queries. The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there. The max size of a searchable field is <strong>restricted to 10922 characters</strong>. This constraint is enforced at both product creation and product update. If the length of the input exceeds the maximum size an InvalidField error is returned.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIsSearchable()

@@ -26,31 +26,31 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetParcelTrackingDataChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ParcelChangeValue
      */
     protected $parcel;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?TrackingData
      */
     protected $previousValue;
@@ -63,17 +63,18 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
         ?string $change = null,
         ?ParcelChangeValue $parcel = null,
         ?TrackingData $nextValue = null,
-        ?TrackingData $previousValue = null
+        ?TrackingData $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->parcel = $parcel;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setParcelTrackingData</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,7 +112,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -130,7 +131,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|TrackingData
      */
     public function getNextValue()
@@ -149,7 +150,7 @@ final class SetParcelTrackingDataChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|TrackingData
      */
     public function getPreviousValue()

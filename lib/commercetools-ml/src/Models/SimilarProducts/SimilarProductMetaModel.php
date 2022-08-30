@@ -24,25 +24,25 @@ use stdClass;
 final class SimilarProductMetaModel extends JsonObjectModel implements SimilarProductMeta
 {
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantCount;
@@ -66,7 +66,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     /**
      * <p>Localized product name used for similarity estimation.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -87,7 +87,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     /**
      * <p>Localized product description used for similarity estimation.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -108,7 +108,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     /**
      * <p>The product price in cents using the currency defined in SimilarProductSearchRequest If multiple prices exist, the median value is taken as a representative amount.</p>
      *
-
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -129,7 +129,7 @@ final class SimilarProductMetaModel extends JsonObjectModel implements SimilarPr
     /**
      * <p>Total number of variants associated with the product.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantCount()

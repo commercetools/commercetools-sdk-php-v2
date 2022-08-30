@@ -22,13 +22,13 @@ final class InventoryImportRequestModel extends JsonObjectModel implements Inven
 {
     public const DISCRIMINATOR_VALUE = 'inventory';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?InventoryImportCollection
      */
     protected $resources;
@@ -38,16 +38,17 @@ final class InventoryImportRequestModel extends JsonObjectModel implements Inven
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?InventoryImportCollection $resources = null
+        ?InventoryImportCollection $resources = null,
+        ?string $type = null
     ) {
         $this->resources = $resources;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -67,7 +68,7 @@ final class InventoryImportRequestModel extends JsonObjectModel implements Inven
     /**
      * <p>The inventory import resources of this request.</p>
      *
-
+     *
      * @return null|InventoryImportCollection
      */
     public function getResources()

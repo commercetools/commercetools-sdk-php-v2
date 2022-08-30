@@ -23,25 +23,25 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
 {
     public const DISCRIMINATOR_VALUE = 'MissingRoleOnChannel';
     /**
-
+     *
      * @var ?string
      */
     protected $code;
 
     /**
-
+     *
      * @var ?string
      */
     protected $message;
 
     /**
-
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
-
+     *
      * @var ?string
      */
     protected $missingRole;
@@ -53,16 +53,17 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     public function __construct(
         ?string $message = null,
         ?ChannelResourceIdentifier $channel = null,
-        ?string $missingRole = null
+        ?string $missingRole = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->channel = $channel;
         $this->missingRole = $missingRole;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCode()
@@ -80,7 +81,7 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getMessage()
@@ -100,7 +101,7 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
-
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -121,7 +122,7 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     /**
      * <p>Describes the purpose and type of the Channel. A Channel can have one or more roles.</p>
      *
-
+     *
      * @return null|string
      */
     public function getMissingRole()

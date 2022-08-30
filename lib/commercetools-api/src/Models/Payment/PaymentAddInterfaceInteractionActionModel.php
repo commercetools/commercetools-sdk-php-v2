@@ -25,19 +25,19 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'addInterfaceInteraction';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
-
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -48,15 +48,16 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -93,7 +94,7 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
     }
 
     /**
-
+     *
      * @return null|FieldContainer
      */
     public function getFields()

@@ -21,25 +21,25 @@ final class AWSLambdaDestinationModel extends JsonObjectModel implements AWSLamb
 {
     public const DISCRIMINATOR_VALUE = 'AWSLambda';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $arn;
 
     /**
-
+     *
      * @var ?string
      */
     protected $accessKey;
 
     /**
-
+     *
      * @var ?string
      */
     protected $accessSecret;
@@ -51,16 +51,17 @@ final class AWSLambdaDestinationModel extends JsonObjectModel implements AWSLamb
     public function __construct(
         ?string $arn = null,
         ?string $accessKey = null,
-        ?string $accessSecret = null
+        ?string $accessSecret = null,
+        ?string $type = null
     ) {
         $this->arn = $arn;
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -80,7 +81,7 @@ final class AWSLambdaDestinationModel extends JsonObjectModel implements AWSLamb
     /**
      * <p>Amazon Resource Name (ARN) of the Lambda function in the format <code>arn:aws:lambda:&lt;region&gt;:&lt;accountid&gt;:function:&lt;functionName&gt;</code>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getArn()
@@ -100,7 +101,7 @@ final class AWSLambdaDestinationModel extends JsonObjectModel implements AWSLamb
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -120,7 +121,7 @@ final class AWSLambdaDestinationModel extends JsonObjectModel implements AWSLamb
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAccessSecret()

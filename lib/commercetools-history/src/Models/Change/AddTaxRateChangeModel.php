@@ -24,19 +24,19 @@ final class AddTaxRateChangeModel extends JsonObjectModel implements AddTaxRateC
 
     public const DISCRIMINATOR_VALUE = 'AddTaxRateChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?TaxRate
      */
     protected $nextValue;
@@ -47,15 +47,16 @@ final class AddTaxRateChangeModel extends JsonObjectModel implements AddTaxRateC
      */
     public function __construct(
         ?string $change = null,
-        ?TaxRate $nextValue = null
+        ?TaxRate $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -75,7 +76,7 @@ final class AddTaxRateChangeModel extends JsonObjectModel implements AddTaxRateC
     /**
      * <p>Update action for <code>addTaxRate</code> on tax categories</p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,7 +96,7 @@ final class AddTaxRateChangeModel extends JsonObjectModel implements AddTaxRateC
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
-
+     *
      * @return null|TaxRate
      */
     public function getNextValue()

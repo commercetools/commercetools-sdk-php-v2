@@ -21,19 +21,19 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerEmailSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $email;
 
     /**
-
+     *
      * @var ?string
      */
     protected $oldEmail;
@@ -44,15 +44,16 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
      */
     public function __construct(
         ?string $email = null,
-        ?string $oldEmail = null
+        ?string $oldEmail = null,
+        ?string $type = null
     ) {
         $this->email = $email;
         $this->oldEmail = $oldEmail;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -72,7 +73,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p>Email address on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerEmailAction">Set Customer Email</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getEmail()
@@ -92,7 +93,7 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * <p>Email address on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerEmailAction">Set Customer Email</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getOldEmail()

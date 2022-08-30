@@ -21,13 +21,13 @@ final class StagedQuoteSellerCommentSetMessagePayloadModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'StagedQuoteSellerCommentSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sellerComment;
@@ -37,14 +37,15 @@ final class StagedQuoteSellerCommentSetMessagePayloadModel extends JsonObjectMod
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $sellerComment = null
+        ?string $sellerComment = null,
+        ?string $type = null
     ) {
         $this->sellerComment = $sellerComment;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -64,7 +65,7 @@ final class StagedQuoteSellerCommentSetMessagePayloadModel extends JsonObjectMod
     /**
      * <p><code>sellerComment</code> on the <a href="ctp:api:type:StagedQuote">StagedQuote</a> after a successful <a href="ctp:api:type:StagedQuoteSetSellerCommentAction">Set Seller Comment</a> update action.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSellerComment()

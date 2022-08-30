@@ -23,19 +23,19 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
 {
     public const DISCRIMINATOR_VALUE = 'ltext';
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $value;
@@ -46,11 +46,12 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
      */
     public function __construct(
         ?string $name = null,
-        ?LocalizedString $value = null
+        ?LocalizedString $value = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -58,7 +59,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
-
+     *
      * @return null|string
      */
     public function getName()
@@ -76,7 +77,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -101,7 +102,7 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
      * }
      * </code></pre>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getValue()

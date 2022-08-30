@@ -24,43 +24,43 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemCustomFieldChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $name;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
-
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -75,7 +75,8 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
          $nextValue = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->name = $name;
@@ -83,11 +84,11 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
         $this->customLineItemId = $customLineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -107,7 +108,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     /**
      * <p>Update action for <code>setCustomLineItemCustomField</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -125,7 +126,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getName()
@@ -143,7 +144,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -162,7 +163,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -180,7 +181,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getNextValue()
@@ -198,7 +199,7 @@ final class SetCustomLineItemCustomFieldChangeModel extends JsonObjectModel impl
     }
 
     /**
-
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

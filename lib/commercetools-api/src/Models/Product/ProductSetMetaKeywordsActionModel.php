@@ -23,19 +23,19 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setMetaKeywords';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -46,15 +46,16 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?LocalizedString $metaKeywords = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->metaKeywords = $metaKeywords;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,7 +75,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
-
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -95,7 +96,7 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     /**
      * <p>If <code>true</code>, only the staged <code>metaKeywords</code> is updated. If <code>false</code>, both the current and staged <code>metaKeywords</code> are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

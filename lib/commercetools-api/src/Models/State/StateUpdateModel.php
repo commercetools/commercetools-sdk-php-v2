@@ -20,13 +20,13 @@ use stdClass;
 final class StateUpdateModel extends JsonObjectModel implements StateUpdate
 {
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?StateUpdateActionCollection
      */
     protected $actions;
@@ -46,7 +46,7 @@ final class StateUpdateModel extends JsonObjectModel implements StateUpdate
     /**
      * <p>Expected version of the State on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -66,7 +66,7 @@ final class StateUpdateModel extends JsonObjectModel implements StateUpdate
     /**
      * <p>Update actions to be performed on the State.</p>
      *
-
+     *
      * @return null|StateUpdateActionCollection
      */
     public function getActions()

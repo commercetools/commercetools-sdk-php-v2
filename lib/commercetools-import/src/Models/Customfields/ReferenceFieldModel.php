@@ -23,13 +23,13 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
 {
     public const DISCRIMINATOR_VALUE = 'Reference';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?KeyReference
      */
     protected $value;
@@ -39,16 +39,17 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?KeyReference $value = null
+        ?KeyReference $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
      *
-
+     *
      * @return null|string
      */
     public function getType()
@@ -68,7 +69,7 @@ final class ReferenceFieldModel extends JsonObjectModel implements ReferenceFiel
     /**
      * <p>References a resource by key</p>
      *
-
+     *
      * @return null|KeyReference
      */
     public function getValue()

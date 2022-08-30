@@ -21,13 +21,13 @@ final class QuoteRequestQuoteRenegotiationActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'requestQuoteRenegotiation';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?string
      */
     protected $buyerComment;
@@ -37,14 +37,15 @@ final class QuoteRequestQuoteRenegotiationActionModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $buyerComment = null
+        ?string $buyerComment = null,
+        ?string $action = null
     ) {
         $this->buyerComment = $buyerComment;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class QuoteRequestQuoteRenegotiationActionModel extends JsonObjectModel im
     /**
      * <p>Message from the <a href="/api/quotes-overview#buyer">Buyer</a> regarding the Quote renegotiation request.</p>
      *
-
+     *
      * @return null|string
      */
     public function getBuyerComment()

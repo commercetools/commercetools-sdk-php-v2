@@ -20,13 +20,13 @@ use stdClass;
 final class ImportContainerUpdateDraftModel extends JsonObjectModel implements ImportContainerUpdateDraft
 {
     /**
-
+     *
      * @var ?int
      */
     protected $version;
 
     /**
-
+     *
      * @var ?string
      */
     protected $resourceType;
@@ -46,7 +46,7 @@ final class ImportContainerUpdateDraftModel extends JsonObjectModel implements I
     /**
      * <p>Current version of the ImportContainer.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVersion()
@@ -67,7 +67,7 @@ final class ImportContainerUpdateDraftModel extends JsonObjectModel implements I
      * <p>The <a href="#importresourcetype">resource type</a> to be imported.
      * If not given, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
      *
-
+     *
      * @return null|string
      */
     public function getResourceType()

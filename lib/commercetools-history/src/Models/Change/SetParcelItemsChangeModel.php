@@ -25,31 +25,31 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
 
     public const DISCRIMINATOR_VALUE = 'SetParcelItemsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ParcelChangeValue
      */
     protected $parcel;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?DeliveryItemCollection
      */
     protected $previousValue;
@@ -62,17 +62,18 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
         ?string $change = null,
         ?ParcelChangeValue $parcel = null,
         ?DeliveryItemCollection $nextValue = null,
-        ?DeliveryItemCollection $previousValue = null
+        ?DeliveryItemCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->parcel = $parcel;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -92,7 +93,7 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     /**
      * <p>Update action for <code>setParcelItems</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -110,7 +111,7 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
-
+     *
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -129,7 +130,7 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getNextValue()
@@ -147,7 +148,7 @@ final class SetParcelItemsChangeModel extends JsonObjectModel implements SetParc
     }
 
     /**
-
+     *
      * @return null|DeliveryItemCollection
      */
     public function getPreviousValue()

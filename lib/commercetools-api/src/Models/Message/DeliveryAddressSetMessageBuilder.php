@@ -108,6 +108,12 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     private $oldAddress;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
 
@@ -249,6 +255,17 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     public function getOldAddress()
     {
         return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -395,6 +412,17 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -475,7 +503,8 @@ final class DeliveryAddressSetMessageBuilder implements Builder
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->deliveryId,
             $this->address instanceof AddressBuilder ? $this->address->build() : $this->address,
-            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress
+            $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress,
+            $this->shippingKey
         );
     }
 

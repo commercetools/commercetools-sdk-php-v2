@@ -21,19 +21,19 @@ use stdClass;
 final class SimilarProductsTaskStatusModel extends JsonObjectModel implements SimilarProductsTaskStatus
 {
     /**
-
+     *
      * @var ?string
      */
     protected $state;
 
     /**
-
+     *
      * @var ?DateTimeImmutable
      */
     protected $expires;
 
     /**
-
+     *
      * @var ?SimilarProductsPagedQueryResult
      */
     protected $result;
@@ -53,7 +53,7 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getState()
@@ -73,7 +73,7 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
     /**
      * <p>The expiry date of the result. You cannot access the result after the expiry date. Default: 1 day after the result first becomes available. This is only available when the TaskStatus state is SUCCESS.</p>
      *
-
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpires()
@@ -97,7 +97,7 @@ final class SimilarProductsTaskStatusModel extends JsonObjectModel implements Si
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-
+     *
      * @return null|SimilarProductsPagedQueryResult
      */
     public function getResult()

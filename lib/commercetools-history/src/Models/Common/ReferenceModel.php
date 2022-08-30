@@ -22,13 +22,13 @@ final class ReferenceModel extends JsonObjectModel implements Reference
 
 
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $typeId;
@@ -47,7 +47,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getId()
@@ -65,7 +65,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getTypeId()

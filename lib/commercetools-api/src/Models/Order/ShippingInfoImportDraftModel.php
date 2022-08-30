@@ -30,55 +30,55 @@ use stdClass;
 final class ShippingInfoImportDraftModel extends JsonObjectModel implements ShippingInfoImportDraft
 {
     /**
-
+     *
      * @var ?string
      */
     protected $shippingMethodName;
 
     /**
-
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
-
+     *
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
 
     /**
-
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
-
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
-
+     *
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
-
+     *
      * @var ?DeliveryDraftCollection
      */
     protected $deliveries;
 
     /**
-
+     *
      * @var ?DiscountedLineItemPriceDraft
      */
     protected $discountedPrice;
 
     /**
-
+     *
      * @var ?string
      */
     protected $shippingMethodState;
@@ -110,7 +110,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getShippingMethodName()
@@ -128,7 +128,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -149,7 +149,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>The shipping rate used to determine the price.</p>
      *
-
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -168,7 +168,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -187,7 +187,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -208,7 +208,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>Not set if custom shipping method is used.</p>
      *
-
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -229,7 +229,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
-
+     *
      * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
@@ -247,7 +247,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     }
 
     /**
-
+     *
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice()
@@ -268,7 +268,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     /**
      * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
      *
-
+     *
      * @return null|string
      */
     public function getShippingMethodState()

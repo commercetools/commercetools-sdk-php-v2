@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
+use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -20,6 +21,7 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAXED_PRICE_PORTIONS = 'taxedPricePortions';
 
     /**
      * <p>Unique identifier for the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
@@ -54,6 +56,14 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
     public function getTaxedPrice();
 
     /**
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>..</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions();
+
+    /**
      * @param ?string $lineItemId
      */
     public function setLineItemId(?string $lineItemId): void;
@@ -72,4 +82,9 @@ interface OrderLineItemDiscountSetMessage extends OrderMessage
      * @param ?TaxedItemPrice $taxedPrice
      */
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
+
+    /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void;
 }

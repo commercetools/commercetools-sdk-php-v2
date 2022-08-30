@@ -21,31 +21,31 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
 {
     public const DISCRIMINATOR_VALUE = 'setPrices';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
-
+     *
      * @var ?EmbeddedPriceDraftCollection
      */
     protected $prices;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
@@ -58,17 +58,18 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
         ?int $variantId = null,
         ?string $sku = null,
         ?EmbeddedPriceDraftCollection $prices = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->prices = $prices;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -88,7 +89,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     /**
      * <p>The <code>id</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -108,7 +109,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     /**
      * <p>The <code>sku</code> of the ProductVariant to update.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSku()
@@ -129,7 +130,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
      * <p>The Embedded Prices to set.
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
-
+     *
      * @return null|EmbeddedPriceDraftCollection
      */
     public function getPrices()
@@ -149,7 +150,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     /**
      * <p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()

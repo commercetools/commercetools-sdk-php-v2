@@ -20,13 +20,13 @@ use stdClass;
 final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExtension
 {
     /**
-
+     *
      * @var ?string
      */
     protected $id;
 
     /**
-
+     *
      * @var ?string
      */
     protected $key;
@@ -46,7 +46,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     /**
      * <p>Unique identifier of the Extension.</p>
      *
-
+     *
      * @return null|string
      */
     public function getId()
@@ -66,7 +66,7 @@ final class ErrorByExtensionModel extends JsonObjectModel implements ErrorByExte
     /**
      * <p>User-defined unique identifier of the Extension.</p>
      *
-
+     *
      * @return null|string
      */
     public function getKey()

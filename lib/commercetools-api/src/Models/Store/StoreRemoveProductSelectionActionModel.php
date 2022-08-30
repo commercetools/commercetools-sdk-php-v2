@@ -23,13 +23,13 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'removeProductSelection';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
@@ -39,14 +39,15 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductSelectionResourceIdentifier $productSelection = null
+        ?ProductSelectionResourceIdentifier $productSelection = null,
+        ?string $action = null
     ) {
         $this->productSelection = $productSelection;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class StoreRemoveProductSelectionActionModel extends JsonObjectModel imple
     /**
      * <p>Value to remove. The removed Product Selection is made offline.</p>
      *
-
+     *
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()

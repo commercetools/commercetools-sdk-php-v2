@@ -22,13 +22,13 @@ final class ReturnInfoSetMessagePayloadModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'ReturnInfoSet';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?ReturnInfoCollection
      */
     protected $returnInfo;
@@ -38,14 +38,15 @@ final class ReturnInfoSetMessagePayloadModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ReturnInfoCollection $returnInfo = null
+        ?ReturnInfoCollection $returnInfo = null,
+        ?string $type = null
     ) {
         $this->returnInfo = $returnInfo;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -65,7 +66,7 @@ final class ReturnInfoSetMessagePayloadModel extends JsonObjectModel implements 
     /**
      * <p>The <a href="ctp:api:type:ReturnInfo">ReturnInfo</a> that was set on the <a href="ctp:api:type:Order">Order</a> or <a href="ctp:api:type:OrderEdit">Order Edit</a>.</p>
      *
-
+     *
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo()

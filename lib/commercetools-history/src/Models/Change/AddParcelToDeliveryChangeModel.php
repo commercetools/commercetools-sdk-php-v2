@@ -24,25 +24,25 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
 
     public const DISCRIMINATOR_VALUE = 'AddParcelToDeliveryChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
-
+     *
      * @var ?Parcel
      */
     protected $nextValue;
@@ -54,16 +54,17 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     public function __construct(
         ?string $change = null,
         ?string $deliveryId = null,
-        ?Parcel $nextValue = null
+        ?Parcel $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->deliveryId = $deliveryId;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -83,7 +84,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     /**
      * <p>Update action for <code>addParcelToDelivery</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,7 +102,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -119,7 +120,7 @@ final class AddParcelToDeliveryChangeModel extends JsonObjectModel implements Ad
     }
 
     /**
-
+     *
      * @return null|Parcel
      */
     public function getNextValue()

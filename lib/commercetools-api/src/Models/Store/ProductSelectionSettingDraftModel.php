@@ -22,13 +22,13 @@ use stdClass;
 final class ProductSelectionSettingDraftModel extends JsonObjectModel implements ProductSelectionSettingDraft
 {
     /**
-
+     *
      * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $active;
@@ -48,7 +48,7 @@ final class ProductSelectionSettingDraftModel extends JsonObjectModel implements
     /**
      * <p>Resource Identifier of a ProductSelection.</p>
      *
-
+     *
      * @return null|ProductSelectionResourceIdentifier
      */
     public function getProductSelection()
@@ -69,7 +69,7 @@ final class ProductSelectionSettingDraftModel extends JsonObjectModel implements
     /**
      * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getActive()

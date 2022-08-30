@@ -21,13 +21,13 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
 {
     public const DISCRIMINATOR_VALUE = 'removeRoles';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?array
      */
     protected $roles;
@@ -37,14 +37,15 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $roles = null
+        ?array $roles = null,
+        ?string $action = null
     ) {
         $this->roles = $roles;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,7 +65,7 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
     /**
      * <p>Value to remove from the array.</p>
      *
-
+     *
      * @return null|array
      */
     public function getRoles()

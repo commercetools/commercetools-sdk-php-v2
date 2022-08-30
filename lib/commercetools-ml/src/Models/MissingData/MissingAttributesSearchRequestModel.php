@@ -20,73 +20,73 @@ use stdClass;
 final class MissingAttributesSearchRequestModel extends JsonObjectModel implements MissingAttributesSearchRequest
 {
     /**
-
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
-
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
-
+     *
      * @var ?int
      */
     protected $productSetLimit;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $includeVariants;
 
     /**
-
+     *
      * @var ?float
      */
     protected $coverageMin;
 
     /**
-
+     *
      * @var ?float
      */
     protected $coverageMax;
 
     /**
-
+     *
      * @var ?string
      */
     protected $sortBy;
 
     /**
-
+     *
      * @var ?bool
      */
     protected $showMissingAttributeNames;
 
     /**
-
+     *
      * @var ?array
      */
     protected $productIds;
 
     /**
-
+     *
      * @var ?array
      */
     protected $productTypeIds;
 
     /**
-
+     *
      * @var ?string
      */
     protected $attributeName;
@@ -126,7 +126,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getLimit()
@@ -146,7 +146,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
-
+     *
      * @return null|int
      */
     public function getOffset()
@@ -166,7 +166,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -186,7 +186,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Maximum number of products to scan.</p>
      *
-
+     *
      * @return null|int
      */
     public function getProductSetLimit()
@@ -206,7 +206,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getIncludeVariants()
@@ -226,7 +226,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Minimum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-
+     *
      * @return null|float
      */
     public function getCoverageMin()
@@ -246,7 +246,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>Maximum attribute coverage of variants to display, applied to both coverage types.</p>
      *
-
+     *
      * @return null|float
      */
     public function getCoverageMax()
@@ -267,7 +267,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
      * <p>Default value: <code>coverageAttributeValues</code> - Allowed values: [<code>coverageAttributeValues</code>, <code>coverageAttributeNames</code>]
      * <code>coverageAttributeValues</code> shows the product variants with the most missing attribute values first and <code>coverageAttributeNames</code> the ones with the most missing attribute names.</p>
      *
-
+     *
      * @return null|string
      */
     public function getSortBy()
@@ -287,7 +287,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
     /**
      * <p>If true, the <code>missingAttributeNames</code> will be included in the results.</p>
      *
-
+     *
      * @return null|bool
      */
     public function getShowMissingAttributeNames()
@@ -308,7 +308,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
      * <p>Filters results by the provided Product IDs.
      * Cannot be applied in combination with any other filter.</p>
      *
-
+     *
      * @return null|array
      */
     public function getProductIds()
@@ -329,7 +329,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
      * <p>Filters results by the provided product type IDs.
      * Cannot be applied in combination with any other filter.</p>
      *
-
+     *
      * @return null|array
      */
     public function getProductTypeIds()
@@ -350,7 +350,7 @@ final class MissingAttributesSearchRequestModel extends JsonObjectModel implemen
      * <p>Filters results by the provided attribute name. If provided,  products are only checked for this attribute. Therefore, only products of product types which define the attribute name are considered. These product type IDs
      * are then listed in <code>MissingAttributesMeta</code>. The  <code>attributeCount</code> and <code>attributeCoverage</code> fields are not part of the response when using this filter. Cannot be applied in combination with any other filter.</p>
      *
-
+     *
      * @return null|string
      */
     public function getAttributeName()

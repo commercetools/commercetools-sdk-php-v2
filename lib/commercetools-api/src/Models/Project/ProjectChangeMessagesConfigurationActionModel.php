@@ -23,13 +23,13 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'changeMessagesConfiguration';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?MessagesConfigurationDraft
      */
     protected $messagesConfiguration;
@@ -39,14 +39,15 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MessagesConfigurationDraft $messagesConfiguration = null
+        ?MessagesConfigurationDraft $messagesConfiguration = null,
+        ?string $action = null
     ) {
         $this->messagesConfiguration = $messagesConfiguration;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +67,7 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     /**
      * <p>Configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
      *
-
+     *
      * @return null|MessagesConfigurationDraft
      */
     public function getMessagesConfiguration()

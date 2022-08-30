@@ -21,13 +21,13 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
 {
     public const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
     /**
-
+     *
      * @var ?string
      */
     protected $action;
 
     /**
-
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
@@ -37,14 +37,15 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $deleteDaysAfterLastModification = null
+        ?int $deleteDaysAfterLastModification = null,
+        ?string $action = null
     ) {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,7 +63,7 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     }
 
     /**
-
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()

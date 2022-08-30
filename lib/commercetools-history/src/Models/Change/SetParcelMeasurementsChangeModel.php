@@ -26,31 +26,31 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetParcelMeasurementsChange';
     /**
-
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-
+     *
      * @var ?string
      */
     protected $change;
 
     /**
-
+     *
      * @var ?ParcelChangeValue
      */
     protected $parcel;
 
     /**
-
+     *
      * @var ?ParcelMeasurements
      */
     protected $nextValue;
 
     /**
-
+     *
      * @var ?ParcelMeasurements
      */
     protected $previousValue;
@@ -63,17 +63,18 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
         ?string $change = null,
         ?ParcelChangeValue $parcel = null,
         ?ParcelMeasurements $nextValue = null,
-        ?ParcelMeasurements $previousValue = null
+        ?ParcelMeasurements $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->parcel = $parcel;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-
+     *
      * @return null|string
      */
     public function getType()
@@ -93,7 +94,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setParcelMeasurements</code></p>
      *
-
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,7 +112,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|ParcelChangeValue
      */
     public function getParcel()
@@ -130,7 +131,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|ParcelMeasurements
      */
     public function getNextValue()
@@ -149,7 +150,7 @@ final class SetParcelMeasurementsChangeModel extends JsonObjectModel implements 
     }
 
     /**
-
+     *
      * @return null|ParcelMeasurements
      */
     public function getPreviousValue()
