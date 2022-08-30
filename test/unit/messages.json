@@ -1,0 +1,62 @@
+{
+  "limit": 20,
+  "offset": 0,
+  "count": 1,
+  "total": 1,
+  "results": [
+    {
+      "id": "d33a637f-7f93-410f-9c8c-b84e7fb71ef9",
+      "version": 1,
+      "versionModifiedAt": "2022-08-24T12:10:46.504Z",
+      "sequenceNumber": 1,
+      "resource": {
+        "typeId": "category",
+        "id": "44adba4b-6b67-4764-9177-49bf92bcb7e6"
+      },
+      "resourceVersion": 1,
+      "resourceUserProvidedIdentifiers": {
+        "key": "ValidateMemoryLogging-M4BUENEOYX",
+        "slug": {
+          "en": "Slug822022833"
+        }
+      },
+      "type": "CategoryCreated",
+      "category": {
+        "id": "44adba4b-6b67-4764-9177-49bf92bcb7e6",
+        "version": 1,
+        "versionModifiedAt": "2022-08-24T12:10:46.504Z",
+        "lastMessageSequenceNumber": 1,
+        "createdAt": "2022-08-24T12:10:46.504Z",
+        "lastModifiedAt": "2022-08-24T12:10:46.504Z",
+        "lastModifiedBy": {
+          "clientId": "h-QvaF3NpsjPBWeXa6TUOnq0",
+          "isPlatformClient": false
+        },
+        "createdBy": {
+          "clientId": "h-QvaF3NpsjPBWeXa6TUOnq0",
+          "isPlatformClient": false
+        },
+        "key": "ValidateMemoryLogging-M4BUENEOYX",
+        "name": {
+          "en": "Name822022833"
+        },
+        "slug": {
+          "en": "Slug822022833"
+        },
+        "ancestors": [],
+        "orderHint": "0.18452355685",
+        "assets": []
+      },
+      "createdAt": "2022-08-24T12:10:46.504Z",
+      "lastModifiedAt": "2022-08-24T12:10:46.504Z",
+      "lastModifiedBy": {
+        "clientId": "h-QvaF3NpsjPBWeXa6TUOnq0",
+        "isPlatformClient": false
+      },
+      "createdBy": {
+        "clientId": "h-QvaF3NpsjPBWeXa6TUOnq0",
+        "isPlatformClient": false
+      }
+    }
+  ]
+}
