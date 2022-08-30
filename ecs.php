@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 ini_set("memory_limit", "-1");
 use Commercetools\Tools\SummaryOnlyOutputFormatter;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use ECSPrefix202208\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 
