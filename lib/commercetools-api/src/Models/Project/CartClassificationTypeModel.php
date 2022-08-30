@@ -63,7 +63,7 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     }
 
     /**
-     * <p>The classification items that can be used for specifiying any <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>The classification items that can be used for specifying any <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
      *
 
      * @return null|CustomFieldLocalizedEnumValueCollection
