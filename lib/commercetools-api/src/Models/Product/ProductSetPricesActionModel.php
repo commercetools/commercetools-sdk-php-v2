@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -40,7 +41,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
 
     /**
      *
-     * @var ?EmbeddedPriceDraftCollection
+     * @var ?PriceDraftCollection
      */
     protected $prices;
 
@@ -57,7 +58,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     public function __construct(
         ?int $variantId = null,
         ?string $sku = null,
-        ?EmbeddedPriceDraftCollection $prices = null,
+        ?PriceDraftCollection $prices = null,
         ?bool $staged = null,
         ?string $action = null
     ) {
@@ -131,7 +132,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
      *
-     * @return null|EmbeddedPriceDraftCollection
+     * @return null|PriceDraftCollection
      */
     public function getPrices()
     {
@@ -141,7 +142,7 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = EmbeddedPriceDraftCollection::fromArray($data);
+            $this->prices = PriceDraftCollection::fromArray($data);
         }
 
         return $this->prices;
@@ -185,9 +186,9 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
     }
 
     /**
-     * @param ?EmbeddedPriceDraftCollection $prices
+     * @param ?PriceDraftCollection $prices
      */
-    public function setPrices(?EmbeddedPriceDraftCollection $prices): void
+    public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }

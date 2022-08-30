@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceBuilder;
+use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\ScopedPrice;
 use Commercetools\Api\Models\Common\ScopedPriceBuilder;
 use Commercetools\Base\Builder;
@@ -46,7 +47,7 @@ final class ProductVariantBuilder implements Builder
 
     /**
 
-     * @var ?EmbeddedPriceCollection
+     * @var ?PriceCollection
      */
     private $prices;
 
@@ -137,7 +138,7 @@ final class ProductVariantBuilder implements Builder
      * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
 
-     * @return null|EmbeddedPriceCollection
+     * @return null|PriceCollection
      */
     public function getPrices()
     {
@@ -273,10 +274,10 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * @param ?EmbeddedPriceCollection $prices
+     * @param ?PriceCollection $prices
      * @return $this
      */
-    public function withPrices(?EmbeddedPriceCollection $prices)
+    public function withPrices(?PriceCollection $prices)
     {
         $this->prices = $prices;
 

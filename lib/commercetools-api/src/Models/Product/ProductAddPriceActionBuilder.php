@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraft;
+use Commercetools\Api\Models\Common\PriceDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -34,7 +36,7 @@ final class ProductAddPriceActionBuilder implements Builder
 
     /**
 
-     * @var null|EmbeddedPriceDraft|EmbeddedPriceDraftBuilder
+     * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
@@ -67,14 +69,14 @@ final class ProductAddPriceActionBuilder implements Builder
     }
 
     /**
-     * <p>EmbeddedPrice to add to the Product Variant.</p>
+     * <p>Embedded Price to add to the Product Variant.</p>
      *
 
-     * @return null|EmbeddedPriceDraft
+     * @return null|PriceDraft
      */
     public function getPrice()
     {
-        return $this->price instanceof EmbeddedPriceDraftBuilder ? $this->price->build() : $this->price;
+        return $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price;
     }
 
     /**
@@ -111,10 +113,10 @@ final class ProductAddPriceActionBuilder implements Builder
     }
 
     /**
-     * @param ?EmbeddedPriceDraft $price
+     * @param ?PriceDraft $price
      * @return $this
      */
-    public function withPrice(?EmbeddedPriceDraft $price)
+    public function withPrice(?PriceDraft $price)
     {
         $this->price = $price;
 
@@ -136,7 +138,7 @@ final class ProductAddPriceActionBuilder implements Builder
      * @deprecated use withPrice() instead
      * @return $this
      */
-    public function withPriceBuilder(?EmbeddedPriceDraftBuilder $price)
+    public function withPriceBuilder(?PriceDraftBuilder $price)
     {
         $this->price = $price;
 
@@ -148,7 +150,7 @@ final class ProductAddPriceActionBuilder implements Builder
         return new ProductAddPriceActionModel(
             $this->variantId,
             $this->sku,
-            $this->price instanceof EmbeddedPriceDraftBuilder ? $this->price->build() : $this->price,
+            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->staged
         );
     }

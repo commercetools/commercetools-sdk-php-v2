@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -35,10 +36,10 @@ interface ProductAddPriceAction extends ProductUpdateAction
     public function getSku();
 
     /**
-     * <p>EmbeddedPrice to add to the Product Variant.</p>
+     * <p>Embedded Price to add to the Product Variant.</p>
      *
 
-     * @return null|EmbeddedPriceDraft
+     * @return null|PriceDraft
      */
     public function getPrice();
 
@@ -61,9 +62,9 @@ interface ProductAddPriceAction extends ProductUpdateAction
     public function setSku(?string $sku): void;
 
     /**
-     * @param ?EmbeddedPriceDraft $price
+     * @param ?PriceDraft $price
      */
-    public function setPrice(?EmbeddedPriceDraft $price): void;
+    public function setPrice(?PriceDraft $price): void;
 
     /**
      * @param ?bool $staged

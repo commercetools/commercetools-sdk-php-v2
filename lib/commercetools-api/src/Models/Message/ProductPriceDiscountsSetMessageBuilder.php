@@ -205,7 +205,7 @@ final class ProductPriceDiscountsSetMessageBuilder implements Builder
     }
 
     /**
-     * <p>Array containing details about the <a href="ctp:api:type:Price">Prices</a> that were updated.</p>
+     * <p>Array containing details about the <a href="ctp:api:type:Price">Embedded Prices</a> that were updated.</p>
      *
 
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection

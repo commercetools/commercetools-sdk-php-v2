@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -35,7 +36,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
 
     /**
      *
-     * @var ?EmbeddedPriceDraftCollection
+     * @var ?PriceDraftCollection
      */
     protected $prices;
 
@@ -64,7 +65,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     public function __construct(
         ?string $sku = null,
         ?string $key = null,
-        ?EmbeddedPriceDraftCollection $prices = null,
+        ?PriceDraftCollection $prices = null,
         ?AttributeCollection $attributes = null,
         ?ImageCollection $images = null,
         ?AssetDraftCollection $assets = null
@@ -122,7 +123,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
      *
-     * @return null|EmbeddedPriceDraftCollection
+     * @return null|PriceDraftCollection
      */
     public function getPrices()
     {
@@ -132,7 +133,7 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = EmbeddedPriceDraftCollection::fromArray($data);
+            $this->prices = PriceDraftCollection::fromArray($data);
         }
 
         return $this->prices;
@@ -216,9 +217,9 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     }
 
     /**
-     * @param ?EmbeddedPriceDraftCollection $prices
+     * @param ?PriceDraftCollection $prices
      */
-    public function setPrices(?EmbeddedPriceDraftCollection $prices): void
+    public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }

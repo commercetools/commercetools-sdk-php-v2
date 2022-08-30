@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraft;
+use Commercetools\Api\Models\Common\PriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -34,7 +36,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
 
     /**
      *
-     * @var ?EmbeddedPriceDraft
+     * @var ?PriceDraft
      */
     protected $price;
 
@@ -50,7 +52,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
      */
     public function __construct(
         ?string $priceId = null,
-        ?EmbeddedPriceDraft $price = null,
+        ?PriceDraft $price = null,
         ?bool $staged = null,
         ?string $action = null
     ) {
@@ -79,7 +81,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>The <code>id</code> of the EmbeddedPrice to update.</p>
+     * <p>The <code>id</code> of the Embedded Price to update.</p>
      *
      *
      * @return null|string
@@ -102,7 +104,7 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
      * <p>Value to set.</p>
      *
      *
-     * @return null|EmbeddedPriceDraft
+     * @return null|PriceDraft
      */
     public function getPrice()
     {
@@ -113,14 +115,14 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
                 return null;
             }
 
-            $this->price = EmbeddedPriceDraftModel::of($data);
+            $this->price = PriceDraftModel::of($data);
         }
 
         return $this->price;
     }
 
     /**
-     * <p>If <code>true</code>, only the staged EmbeddedPrice is updated. If <code>false</code>, both the current and staged EmbeddedPrice are updated.</p>
+     * <p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
      *
      *
      * @return null|bool
@@ -149,9 +151,9 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * @param ?EmbeddedPriceDraft $price
+     * @param ?PriceDraft $price
      */
-    public function setPrice(?EmbeddedPriceDraft $price): void
+    public function setPrice(?PriceDraft $price): void
     {
         $this->price = $price;
     }

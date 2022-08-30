@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -39,7 +40,7 @@ interface ProductSetPricesAction extends ProductUpdateAction
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
 
-     * @return null|EmbeddedPriceDraftCollection
+     * @return null|PriceDraftCollection
      */
     public function getPrices();
 
@@ -62,9 +63,9 @@ interface ProductSetPricesAction extends ProductUpdateAction
     public function setSku(?string $sku): void;
 
     /**
-     * @param ?EmbeddedPriceDraftCollection $prices
+     * @param ?PriceDraftCollection $prices
      */
-    public function setPrices(?EmbeddedPriceDraftCollection $prices): void;
+    public function setPrices(?PriceDraftCollection $prices): void;
 
     /**
      * @param ?bool $staged

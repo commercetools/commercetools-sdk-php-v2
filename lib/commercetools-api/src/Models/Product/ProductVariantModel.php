@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
+use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Api\Models\Common\ScopedPrice;
 use Commercetools\Api\Models\Common\ScopedPriceModel;
@@ -45,7 +46,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
 
     /**
      *
-     * @var ?EmbeddedPriceCollection
+     * @var ?PriceCollection
      */
     protected $prices;
 
@@ -105,7 +106,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         ?int $id = null,
         ?string $sku = null,
         ?string $key = null,
-        ?EmbeddedPriceCollection $prices = null,
+        ?PriceCollection $prices = null,
         ?AttributeCollection $attributes = null,
         ?Price $price = null,
         ?ImageCollection $images = null,
@@ -195,7 +196,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
      * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
      *
-     * @return null|EmbeddedPriceCollection
+     * @return null|PriceCollection
      */
     public function getPrices()
     {
@@ -205,7 +206,7 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = EmbeddedPriceCollection::fromArray($data);
+            $this->prices = PriceCollection::fromArray($data);
         }
 
         return $this->prices;
@@ -407,9 +408,9 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * @param ?EmbeddedPriceCollection $prices
+     * @param ?PriceCollection $prices
      */
-    public function setPrices(?EmbeddedPriceCollection $prices): void
+    public function setPrices(?PriceCollection $prices): void
     {
         $this->prices = $prices;
     }

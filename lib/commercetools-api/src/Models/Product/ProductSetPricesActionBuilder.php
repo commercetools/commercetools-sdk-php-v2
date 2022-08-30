@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -34,7 +35,7 @@ final class ProductSetPricesActionBuilder implements Builder
 
     /**
 
-     * @var ?EmbeddedPriceDraftCollection
+     * @var ?PriceDraftCollection
      */
     private $prices;
 
@@ -71,7 +72,7 @@ final class ProductSetPricesActionBuilder implements Builder
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
 
-     * @return null|EmbeddedPriceDraftCollection
+     * @return null|PriceDraftCollection
      */
     public function getPrices()
     {
@@ -112,10 +113,10 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
-     * @param ?EmbeddedPriceDraftCollection $prices
+     * @param ?PriceDraftCollection $prices
      * @return $this
      */
-    public function withPrices(?EmbeddedPriceDraftCollection $prices)
+    public function withPrices(?PriceDraftCollection $prices)
     {
         $this->prices = $prices;
 

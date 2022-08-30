@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Product;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
+use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\ScopedPrice;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -60,7 +61,7 @@ interface ProductVariant extends JsonObject
      * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
      *
 
-     * @return null|EmbeddedPriceCollection
+     * @return null|PriceCollection
      */
     public function getPrices();
 
@@ -151,9 +152,9 @@ interface ProductVariant extends JsonObject
     public function setKey(?string $key): void;
 
     /**
-     * @param ?EmbeddedPriceCollection $prices
+     * @param ?PriceCollection $prices
      */
-    public function setPrices(?EmbeddedPriceCollection $prices): void;
+    public function setPrices(?PriceCollection $prices): void;
 
     /**
      * @param ?AttributeCollection $attributes

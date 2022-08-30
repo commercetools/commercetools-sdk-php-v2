@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraft;
+use Commercetools\Api\Models\Common\PriceDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -40,7 +42,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
 
     /**
      *
-     * @var ?EmbeddedPriceDraft
+     * @var ?PriceDraft
      */
     protected $price;
 
@@ -57,7 +59,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     public function __construct(
         ?int $variantId = null,
         ?string $sku = null,
-        ?EmbeddedPriceDraft $price = null,
+        ?PriceDraft $price = null,
         ?bool $staged = null,
         ?string $action = null
     ) {
@@ -127,10 +129,10 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * <p>EmbeddedPrice to add to the Product Variant.</p>
+     * <p>Embedded Price to add to the Product Variant.</p>
      *
      *
-     * @return null|EmbeddedPriceDraft
+     * @return null|PriceDraft
      */
     public function getPrice()
     {
@@ -141,7 +143,7 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
                 return null;
             }
 
-            $this->price = EmbeddedPriceDraftModel::of($data);
+            $this->price = PriceDraftModel::of($data);
         }
 
         return $this->price;
@@ -185,9 +187,9 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * @param ?EmbeddedPriceDraft $price
+     * @param ?PriceDraft $price
      */
-    public function setPrice(?EmbeddedPriceDraft $price): void
+    public function setPrice(?PriceDraft $price): void
     {
         $this->price = $price;
     }

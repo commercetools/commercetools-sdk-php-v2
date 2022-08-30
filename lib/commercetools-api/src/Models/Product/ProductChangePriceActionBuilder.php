@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Product;
 
+use Commercetools\Api\Models\Common\PriceDraft;
+use Commercetools\Api\Models\Common\PriceDraftBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,7 +30,7 @@ final class ProductChangePriceActionBuilder implements Builder
 
     /**
 
-     * @var null|EmbeddedPriceDraft|EmbeddedPriceDraftBuilder
+     * @var null|PriceDraft|PriceDraftBuilder
      */
     private $price;
 
@@ -39,7 +41,7 @@ final class ProductChangePriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * <p>The <code>id</code> of the EmbeddedPrice to update.</p>
+     * <p>The <code>id</code> of the Embedded Price to update.</p>
      *
 
      * @return null|string
@@ -53,15 +55,15 @@ final class ProductChangePriceActionBuilder implements Builder
      * <p>Value to set.</p>
      *
 
-     * @return null|EmbeddedPriceDraft
+     * @return null|PriceDraft
      */
     public function getPrice()
     {
-        return $this->price instanceof EmbeddedPriceDraftBuilder ? $this->price->build() : $this->price;
+        return $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price;
     }
 
     /**
-     * <p>If <code>true</code>, only the staged EmbeddedPrice is updated. If <code>false</code>, both the current and staged EmbeddedPrice are updated.</p>
+     * <p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
      *
 
      * @return null|bool
@@ -83,10 +85,10 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
-     * @param ?EmbeddedPriceDraft $price
+     * @param ?PriceDraft $price
      * @return $this
      */
-    public function withPrice(?EmbeddedPriceDraft $price)
+    public function withPrice(?PriceDraft $price)
     {
         $this->price = $price;
 
@@ -108,7 +110,7 @@ final class ProductChangePriceActionBuilder implements Builder
      * @deprecated use withPrice() instead
      * @return $this
      */
-    public function withPriceBuilder(?EmbeddedPriceDraftBuilder $price)
+    public function withPriceBuilder(?PriceDraftBuilder $price)
     {
         $this->price = $price;
 
@@ -119,7 +121,7 @@ final class ProductChangePriceActionBuilder implements Builder
     {
         return new ProductChangePriceActionModel(
             $this->priceId,
-            $this->price instanceof EmbeddedPriceDraftBuilder ? $this->price->build() : $this->price,
+            $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price,
             $this->staged
         );
     }

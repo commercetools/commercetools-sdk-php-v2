@@ -17,7 +17,7 @@ interface ProductRemovePriceAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p>The <code>id</code> of the EmbeddedPrice to remove.</p>
+     * <p>The <code>id</code> of the Embedded Price to remove.</p>
      *
 
      * @return null|string
@@ -25,7 +25,7 @@ interface ProductRemovePriceAction extends ProductUpdateAction
     public function getPriceId();
 
     /**
-     * <p>If <code>true</code>, only the staged EmbeddedPrice is removed. If <code>false</code>, both the current and staged EmbeddedPrice are removed.</p>
+     * <p>If <code>true</code>, only the staged Embedded Price is removed. If <code>false</code>, both the current and staged Embedded Price are removed.</p>
      *
 
      * @return null|bool

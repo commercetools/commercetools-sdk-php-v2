@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
@@ -40,10 +41,10 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public function getKey();
 
     /**
-     * <p>EmbeddedPrices for the Product Variant.</p>
+     * <p>Embedded Prices for the Product Variant.</p>
      *
 
-     * @return null|EmbeddedPriceDraftCollection
+     * @return null|PriceDraftCollection
      */
     public function getPrices();
 
@@ -90,9 +91,9 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public function setKey(?string $key): void;
 
     /**
-     * @param ?EmbeddedPriceDraftCollection $prices
+     * @param ?PriceDraftCollection $prices
      */
-    public function setPrices(?EmbeddedPriceDraftCollection $prices): void;
+    public function setPrices(?PriceDraftCollection $prices): void;
 
     /**
      * @param ?ImageCollection $images
