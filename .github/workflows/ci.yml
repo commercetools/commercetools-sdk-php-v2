@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.4"
+          - "8.1"
         dependencies:
           - highest
 
@@ -57,7 +57,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.4"
+          - "8.1"
         dependencies:
           - highest
 
@@ -92,6 +92,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         php-version:
           - "7.4"

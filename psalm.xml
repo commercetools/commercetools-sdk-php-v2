@@ -1,16 +1,19 @@
 <?xml version="1.0"?>
 <psalm
-    totallyTyped="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 
     strictBinaryOperands="true"
+    errorBaseline="psalm-baseline.xml"
 >
     <issueHandlers>
         <DeprecatedClass errorLevel="suppress"/>
         <DeprecatedMethod errorLevel="suppress"/>
         <DeprecatedFunction errorLevel="info"/>
+        <RedundantCastGivenDocblockType errorLevel="suppress"/>
+        <UnsafeGenericInstantiation errorLevel="suppress"/>
+        <DeprecatedProperty errorLevel="info"/>
     </issueHandlers>
     <projectFiles>
         <directory name="src" />
