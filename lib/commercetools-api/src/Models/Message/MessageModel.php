@@ -210,7 +210,8 @@ final class MessageModel extends JsonObjectModel implements Message
         ?int $sequenceNumber = null,
         ?Reference $resource = null,
         ?int $resourceVersion = null,
-        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -222,7 +223,7 @@ final class MessageModel extends JsonObjectModel implements Message
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
