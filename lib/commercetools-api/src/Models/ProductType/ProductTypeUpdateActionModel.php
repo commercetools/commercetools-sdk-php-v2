@@ -21,6 +21,7 @@ final class ProductTypeUpdateActionModel extends JsonObjectModel implements Prod
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $action;
@@ -35,7 +36,6 @@ final class ProductTypeUpdateActionModel extends JsonObjectModel implements Prod
        'addPlainEnumValue' => ProductTypeAddPlainEnumValueActionModel::class,
        'changeAttributeConstraint' => ProductTypeChangeAttributeConstraintActionModel::class,
        'changeAttributeName' => ProductTypeChangeAttributeNameActionModel::class,
-       'changeAttributeOrder' => ProductTypeChangeAttributeOrderActionModel::class,
        'changeAttributeOrderByName' => ProductTypeChangeAttributeOrderByNameActionModel::class,
        'changeDescription' => ProductTypeChangeDescriptionActionModel::class,
        'changeEnumKey' => ProductTypeChangeEnumKeyActionModel::class,
@@ -57,11 +57,13 @@ final class ProductTypeUpdateActionModel extends JsonObjectModel implements Prod
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()

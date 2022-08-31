@@ -20,6 +20,7 @@ use stdClass;
 final class OrderMessagePayloadModel extends JsonObjectModel implements OrderMessagePayload
 {
     /**
+     *
      * @var ?string
      */
     protected $type;
@@ -29,11 +30,13 @@ final class OrderMessagePayloadModel extends JsonObjectModel implements OrderMes
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()

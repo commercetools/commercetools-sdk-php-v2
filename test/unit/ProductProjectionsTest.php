@@ -30,11 +30,16 @@ class ProductProjectionsTest extends TestCase
                 /** @var AttributeAccessor $attrAccessor */
                 $attrAccessor = $attribute->with(AttributeAccessor::of());
                 switch ($attrAccessor->getName()) {
-                    case "someStringAttribute": $stringValue = $attrAccessor->getValueAsString(); break;
-                    case "someEnumAttribute": $enumValue = $attrAccessor->getValueAsEnum(); break;
-                    case "someBooleanAttribute": $boolValue = $attrAccessor->getValueAsBool(); break;
-                    case "text1": self::assertSame("englisch1", $attrAccessor->getValueAsLocalizedString()->at("en")); break;
-                    case "aboolean": self::assertTrue($attrAccessor->getValueAsBool()); break;
+                    case "someStringAttribute": $stringValue = $attrAccessor->getValueAsString();
+                        break;
+                    case "someEnumAttribute": $enumValue = $attrAccessor->getValueAsEnum();
+                        break;
+                    case "someBooleanAttribute": $boolValue = $attrAccessor->getValueAsBool();
+                        break;
+                    case "text1": self::assertSame("englisch1", $attrAccessor->getValueAsLocalizedString()->at("en"));
+                        break;
+                    case "aboolean": self::assertTrue($attrAccessor->getValueAsBool());
+                        break;
                 }
             }
         }
