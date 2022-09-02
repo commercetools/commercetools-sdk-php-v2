@@ -360,7 +360,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
      *
 

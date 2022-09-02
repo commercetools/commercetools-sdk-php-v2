@@ -208,7 +208,7 @@ interface Cart extends BaseResource
     public function getShippingMode();
 
     /**
-     * <p>Holds all shipping-related information per Shipping Method of a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Holds all shipping-related information per Shipping Method of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      * <p>It is automatically updated after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
      *
 

@@ -437,7 +437,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <ul>
      * <li>If <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
-     * <li>If <code>Multi</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * <li>If <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
      * </ul>
      *
 
@@ -449,7 +449,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Custom Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Custom Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|CustomShippingDraftCollection
@@ -460,7 +460,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * <p>Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|ShippingDraftCollection

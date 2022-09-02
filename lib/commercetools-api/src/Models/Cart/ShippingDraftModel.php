@@ -89,7 +89,7 @@ final class ShippingDraftModel extends JsonObjectModel implements ShippingDraft
     }
 
     /**
-     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|string
@@ -109,7 +109,7 @@ final class ShippingDraftModel extends JsonObjectModel implements ShippingDraft
     }
 
     /**
-     * <p>Shipping Methods added to the Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Shipping Methods added to the Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
      *
      * @return null|ShippingMethodReference

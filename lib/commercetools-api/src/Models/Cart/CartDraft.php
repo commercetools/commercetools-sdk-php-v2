@@ -220,7 +220,7 @@ interface CartDraft extends JsonObject
     /**
      * <ul>
      * <li>If <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
-     * <li>If <code>Multi</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * <li>If <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
      * </ul>
      *
 
@@ -229,7 +229,7 @@ interface CartDraft extends JsonObject
     public function getShippingMode();
 
     /**
-     * <p>Custom Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Custom Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|CustomShippingDraftCollection
@@ -237,7 +237,7 @@ interface CartDraft extends JsonObject
     public function getCustomShipping();
 
     /**
-     * <p>Shipping Methods for a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
      *
 
      * @return null|ShippingDraftCollection
