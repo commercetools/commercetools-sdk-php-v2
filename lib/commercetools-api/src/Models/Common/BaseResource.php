@@ -92,6 +92,7 @@ use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;
 use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessage;
 use Commercetools\Api\Models\Message\StoreLanguagesChangedMessage;
+use Commercetools\Api\Models\Message\StoreNameSetMessage;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessage;
 use Commercetools\Api\Models\Order\Order;
 use Commercetools\Api\Models\OrderEdit\OrderEdit;

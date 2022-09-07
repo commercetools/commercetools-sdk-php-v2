@@ -176,6 +176,8 @@ use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessage;
 use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreLanguagesChangedMessage;
 use Commercetools\Api\Models\Message\StoreLanguagesChangedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreNameSetMessage;
+use Commercetools\Api\Models\Message\StoreNameSetMessageBuilder;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessage;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessageBuilder;
 use Commercetools\Api\Models\Order\Order;
