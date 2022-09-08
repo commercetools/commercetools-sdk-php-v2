@@ -21,13 +21,13 @@ use stdClass;
 final class MissingImagesMetaBuilder implements Builder
 {
     /**
-
+     * @deprecated
      * @var null|MissingImagesProductLevel|MissingImagesProductLevelBuilder
      */
     private $productLevel;
 
     /**
-
+     * @deprecated
      * @var null|MissingImagesVariantLevel|MissingImagesVariantLevelBuilder
      */
     private $variantLevel;
@@ -39,7 +39,7 @@ final class MissingImagesMetaBuilder implements Builder
     private $threshold;
 
     /**
-
+     * @deprecated
      * @return null|MissingImagesProductLevel
      */
     public function getProductLevel()
@@ -48,7 +48,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
-
+     * @deprecated
      * @return null|MissingImagesVariantLevel
      */
     public function getVariantLevel()

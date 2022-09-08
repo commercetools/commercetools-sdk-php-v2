@@ -20,13 +20,13 @@ use stdClass;
 final class MissingAttributesMetaModel extends JsonObjectModel implements MissingAttributesMeta
 {
     /**
-     *
+     * @deprecated
      * @var ?MissingAttributesDetails
      */
     protected $productLevel;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingAttributesDetails
      */
     protected $variantLevel;
@@ -52,7 +52,7 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingAttributesDetails
      */
     public function getProductLevel()
@@ -71,7 +71,7 @@ final class MissingAttributesMetaModel extends JsonObjectModel implements Missin
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingAttributesDetails
      */
     public function getVariantLevel()

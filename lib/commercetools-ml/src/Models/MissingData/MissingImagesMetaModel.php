@@ -20,13 +20,13 @@ use stdClass;
 final class MissingImagesMetaModel extends JsonObjectModel implements MissingImagesMeta
 {
     /**
-     *
+     * @deprecated
      * @var ?MissingImagesProductLevel
      */
     protected $productLevel;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingImagesVariantLevel
      */
     protected $variantLevel;
@@ -52,7 +52,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingImagesProductLevel
      */
     public function getProductLevel()
@@ -71,7 +71,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingImagesVariantLevel
      */
     public function getVariantLevel()

@@ -46,7 +46,7 @@ interface MissingPricesPagedQueryResult extends JsonObject
     public function getResults();
 
     /**
-
+     * @deprecated
      * @return null|MissingPricesMeta
      */
     public function getMeta();

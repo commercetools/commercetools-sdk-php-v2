@@ -44,7 +44,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     protected $results;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingImagesMeta
      */
     protected $meta;
@@ -142,7 +142,7 @@ final class MissingImagesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingImagesMeta
      */
     public function getMeta()

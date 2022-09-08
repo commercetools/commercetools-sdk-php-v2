@@ -44,7 +44,7 @@ final class MissingAttributesPagedQueryResultModel extends JsonObjectModel imple
     protected $results;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingAttributesMeta
      */
     protected $meta;
@@ -142,7 +142,7 @@ final class MissingAttributesPagedQueryResultModel extends JsonObjectModel imple
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingAttributesMeta
      */
     public function getMeta()

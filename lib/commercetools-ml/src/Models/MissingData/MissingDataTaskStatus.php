@@ -35,7 +35,7 @@ interface MissingDataTaskStatus extends JsonObject
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-
+     * @deprecated
      * @return null|MissingAttributesPagedQueryResult
      */
     public function getResult();

@@ -45,7 +45,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     private $results;
 
     /**
-
+     * @deprecated
      * @var null|MissingImagesMeta|MissingImagesMetaBuilder
      */
     private $meta;
@@ -89,7 +89,7 @@ final class MissingImagesPagedQueryResultBuilder implements Builder
     }
 
     /**
-
+     * @deprecated
      * @return null|MissingImagesMeta
      */
     public function getMeta()

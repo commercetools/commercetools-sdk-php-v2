@@ -33,7 +33,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
     protected $expires;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingImagesPagedQueryResult
      */
     protected $result;
@@ -97,7 +97,7 @@ final class MissingImagesTaskStatusModel extends JsonObjectModel implements Miss
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-     *
+     * @deprecated
      * @return null|MissingImagesPagedQueryResult
      */
     public function getResult()

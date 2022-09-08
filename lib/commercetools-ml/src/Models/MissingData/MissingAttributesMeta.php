@@ -18,13 +18,13 @@ interface MissingAttributesMeta extends JsonObject
     public const FIELD_PRODUCT_TYPE_IDS = 'productTypeIds';
 
     /**
-
+     * @deprecated
      * @return null|MissingAttributesDetails
      */
     public function getProductLevel();
 
     /**
-
+     * @deprecated
      * @return null|MissingAttributesDetails
      */
     public function getVariantLevel();

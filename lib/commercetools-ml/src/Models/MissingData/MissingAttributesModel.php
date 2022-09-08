@@ -54,13 +54,13 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     protected $missingAttributeNames;
 
     /**
-     *
+     * @deprecated
      * @var ?AttributeCount
      */
     protected $attributeCount;
 
     /**
-     *
+     * @deprecated
      * @var ?AttributeCoverage
      */
     protected $attributeCoverage;
@@ -186,7 +186,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
     /**
-     *
+     * @deprecated
      * @return null|AttributeCount
      */
     public function getAttributeCount()
@@ -205,7 +205,7 @@ final class MissingAttributesModel extends JsonObjectModel implements MissingAtt
     }
 
     /**
-     *
+     * @deprecated
      * @return null|AttributeCoverage
      */
     public function getAttributeCoverage()

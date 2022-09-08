@@ -18,13 +18,13 @@ interface MissingImagesMeta extends JsonObject
     public const FIELD_THRESHOLD = 'threshold';
 
     /**
-
+     * @deprecated
      * @return null|MissingImagesProductLevel
      */
     public function getProductLevel();
 
     /**
-
+     * @deprecated
      * @return null|MissingImagesVariantLevel
      */
     public function getVariantLevel();

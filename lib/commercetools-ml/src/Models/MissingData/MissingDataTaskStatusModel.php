@@ -33,7 +33,7 @@ final class MissingDataTaskStatusModel extends JsonObjectModel implements Missin
     protected $expires;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingAttributesPagedQueryResult
      */
     protected $result;
@@ -97,7 +97,7 @@ final class MissingDataTaskStatusModel extends JsonObjectModel implements Missin
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-     *
+     * @deprecated
      * @return null|MissingAttributesPagedQueryResult
      */
     public function getResult()

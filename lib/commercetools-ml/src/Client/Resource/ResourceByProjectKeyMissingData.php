@@ -14,6 +14,7 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @deprecated
  */
 class ResourceByProjectKeyMissingData extends ApiResource
 {
@@ -26,6 +27,7 @@ class ResourceByProjectKeyMissingData extends ApiResource
     }
 
     /**
+     * @deprecated
      */
     public function attributes(): ResourceByProjectKeyMissingDataAttributes
     {
@@ -34,6 +36,7 @@ class ResourceByProjectKeyMissingData extends ApiResource
         return new ResourceByProjectKeyMissingDataAttributes($args, $this->getClient());
     }
     /**
+     * @deprecated
      */
     public function images(): ResourceByProjectKeyMissingDataImages
     {
@@ -42,6 +45,7 @@ class ResourceByProjectKeyMissingData extends ApiResource
         return new ResourceByProjectKeyMissingDataImages($args, $this->getClient());
     }
     /**
+     * @deprecated
      */
     public function prices(): ResourceByProjectKeyMissingDataPrices
     {

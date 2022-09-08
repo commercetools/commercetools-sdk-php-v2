@@ -45,7 +45,7 @@ final class MissingPricesPagedQueryResultBuilder implements Builder
     private $results;
 
     /**
-
+     * @deprecated
      * @var null|MissingPricesMeta|MissingPricesMetaBuilder
      */
     private $meta;
@@ -89,7 +89,7 @@ final class MissingPricesPagedQueryResultBuilder implements Builder
     }
 
     /**
-
+     * @deprecated
      * @return null|MissingPricesMeta
      */
     public function getMeta()

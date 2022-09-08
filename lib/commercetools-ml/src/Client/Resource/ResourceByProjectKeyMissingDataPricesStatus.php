@@ -14,6 +14,7 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @deprecated
  */
 class ResourceByProjectKeyMissingDataPricesStatus extends ApiResource
 {
@@ -26,6 +27,7 @@ class ResourceByProjectKeyMissingDataPricesStatus extends ApiResource
     }
 
     /**
+     * @deprecated
      */
     public function withTaskId(string $taskId = null): ResourceByProjectKeyMissingDataPricesStatusByTaskId
     {

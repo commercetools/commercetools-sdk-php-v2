@@ -60,13 +60,13 @@ interface MissingAttributes extends JsonObject
     public function getMissingAttributeNames();
 
     /**
-
+     * @deprecated
      * @return null|AttributeCount
      */
     public function getAttributeCount();
 
     /**
-
+     * @deprecated
      * @return null|AttributeCoverage
      */
     public function getAttributeCoverage();

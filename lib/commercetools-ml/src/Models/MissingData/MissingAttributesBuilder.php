@@ -55,13 +55,13 @@ final class MissingAttributesBuilder implements Builder
     private $missingAttributeNames;
 
     /**
-
+     * @deprecated
      * @var null|AttributeCount|AttributeCountBuilder
      */
     private $attributeCount;
 
     /**
-
+     * @deprecated
      * @var null|AttributeCoverage|AttributeCoverageBuilder
      */
     private $attributeCoverage;
@@ -118,7 +118,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
-
+     * @deprecated
      * @return null|AttributeCount
      */
     public function getAttributeCount()
@@ -127,7 +127,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
-
+     * @deprecated
      * @return null|AttributeCoverage
      */
     public function getAttributeCoverage()

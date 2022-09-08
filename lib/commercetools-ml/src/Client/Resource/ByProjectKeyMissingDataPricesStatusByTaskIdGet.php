@@ -26,7 +26,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
-
+ * @deprecated
  * @psalm-suppress PropertyNotSetInConstructor
  *
  */

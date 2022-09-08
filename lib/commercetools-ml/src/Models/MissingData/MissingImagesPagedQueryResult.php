@@ -46,7 +46,7 @@ interface MissingImagesPagedQueryResult extends JsonObject
     public function getResults();
 
     /**
-
+     * @deprecated
      * @return null|MissingImagesMeta
      */
     public function getMeta();

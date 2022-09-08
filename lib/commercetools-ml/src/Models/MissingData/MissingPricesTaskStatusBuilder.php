@@ -34,7 +34,7 @@ final class MissingPricesTaskStatusBuilder implements Builder
     private $expires;
 
     /**
-
+     * @deprecated
      * @var null|MissingPricesPagedQueryResult|MissingPricesPagedQueryResultBuilder
      */
     private $result;
@@ -62,7 +62,7 @@ final class MissingPricesTaskStatusBuilder implements Builder
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-
+     * @deprecated
      * @return null|MissingPricesPagedQueryResult
      */
     public function getResult()

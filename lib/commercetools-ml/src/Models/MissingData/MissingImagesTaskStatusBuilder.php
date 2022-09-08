@@ -34,7 +34,7 @@ final class MissingImagesTaskStatusBuilder implements Builder
     private $expires;
 
     /**
-
+     * @deprecated
      * @var null|MissingImagesPagedQueryResult|MissingImagesPagedQueryResultBuilder
      */
     private $result;
@@ -62,7 +62,7 @@ final class MissingImagesTaskStatusBuilder implements Builder
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-
+     * @deprecated
      * @return null|MissingImagesPagedQueryResult
      */
     public function getResult()

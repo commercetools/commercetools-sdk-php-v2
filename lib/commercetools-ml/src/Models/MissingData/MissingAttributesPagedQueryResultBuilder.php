@@ -45,7 +45,7 @@ final class MissingAttributesPagedQueryResultBuilder implements Builder
     private $results;
 
     /**
-
+     * @deprecated
      * @var null|MissingAttributesMeta|MissingAttributesMetaBuilder
      */
     private $meta;
@@ -89,7 +89,7 @@ final class MissingAttributesPagedQueryResultBuilder implements Builder
     }
 
     /**
-
+     * @deprecated
      * @return null|MissingAttributesMeta
      */
     public function getMeta()

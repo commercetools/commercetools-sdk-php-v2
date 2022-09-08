@@ -34,7 +34,7 @@ final class MissingDataTaskStatusBuilder implements Builder
     private $expires;
 
     /**
-
+     * @deprecated
      * @var null|MissingAttributesPagedQueryResult|MissingAttributesPagedQueryResultBuilder
      */
     private $result;
@@ -62,7 +62,7 @@ final class MissingDataTaskStatusBuilder implements Builder
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
-
+     * @deprecated
      * @return null|MissingAttributesPagedQueryResult
      */
     public function getResult()

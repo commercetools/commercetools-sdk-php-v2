@@ -44,7 +44,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     protected $results;
 
     /**
-     *
+     * @deprecated
      * @var ?MissingPricesMeta
      */
     protected $meta;
@@ -142,7 +142,7 @@ final class MissingPricesPagedQueryResultModel extends JsonObjectModel implement
     }
 
     /**
-     *
+     * @deprecated
      * @return null|MissingPricesMeta
      */
     public function getMeta()
