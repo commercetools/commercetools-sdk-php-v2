@@ -97,6 +97,12 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
      */
     protected $custom;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $active;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -112,7 +118,8 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         ?DateTimeImmutable $validUntil = null,
         ?PriceTierDraftCollection $tiers = null,
         ?DiscountedPriceDraft $discounted = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?bool $active = null
     ) {
         $this->key = $key;
         $this->sku = $sku;
@@ -125,6 +132,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->active = $active;
     }
 
     /**
@@ -361,6 +369,27 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         return $this->custom;
     }
 
+    /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        if (is_null($this->active)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->active = (bool) $data;
+        }
+
+        return $this->active;
+    }
+
 
     /**
      * @param ?string $key
@@ -448,6 +477,14 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 
 

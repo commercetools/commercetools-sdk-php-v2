@@ -99,6 +99,12 @@ final class StandalonePriceDraftBuilder implements Builder
     private $custom;
 
     /**
+
+     * @var ?bool
+     */
+    private $active;
+
+    /**
      * <p>User-defined unique identifier for the StandalonePrice.</p>
      *
 
@@ -218,6 +224,18 @@ final class StandalonePriceDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
     /**
@@ -342,6 +360,17 @@ final class StandalonePriceDraftBuilder implements Builder
     }
 
     /**
+     * @param ?bool $active
+     * @return $this
+     */
+    public function withActive(?bool $active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withValue() instead
      * @return $this
      */
@@ -409,7 +438,8 @@ final class StandalonePriceDraftBuilder implements Builder
             $this->validUntil,
             $this->tiers,
             $this->discounted instanceof DiscountedPriceDraftBuilder ? $this->discounted->build() : $this->discounted,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->active
         );
     }
 

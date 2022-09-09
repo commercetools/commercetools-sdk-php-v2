@@ -156,6 +156,8 @@ use Commercetools\Api\Models\Message\StagedQuoteStateTransitionMessage;
 use Commercetools\Api\Models\Message\StagedQuoteStateTransitionMessageModel;
 use Commercetools\Api\Models\Message\StagedQuoteValidToSetMessage;
 use Commercetools\Api\Models\Message\StagedQuoteValidToSetMessageModel;
+use Commercetools\Api\Models\Message\StandalonePriceActiveChangedMessage;
+use Commercetools\Api\Models\Message\StandalonePriceActiveChangedMessageModel;
 use Commercetools\Api\Models\Message\StandalonePriceCreatedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceCreatedMessageModel;
 use Commercetools\Api\Models\Message\StandalonePriceDeletedMessage;

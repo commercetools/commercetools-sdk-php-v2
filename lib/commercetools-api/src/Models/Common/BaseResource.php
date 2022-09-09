@@ -82,6 +82,7 @@ use Commercetools\Api\Models\Message\StagedQuoteSellerCommentSetMessage;
 use Commercetools\Api\Models\Message\StagedQuoteStateChangedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteStateTransitionMessage;
 use Commercetools\Api\Models\Message\StagedQuoteValidToSetMessage;
+use Commercetools\Api\Models\Message\StandalonePriceActiveChangedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceCreatedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDeletedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessage;

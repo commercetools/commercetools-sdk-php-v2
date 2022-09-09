@@ -147,6 +147,12 @@ final class StandalonePriceBuilder implements Builder
     private $staged;
 
     /**
+
+     * @var ?bool
+     */
+    private $active;
+
+    /**
      * <p>Unique identifier of the StandalonePrice.</p>
      *
 
@@ -343,6 +349,18 @@ final class StandalonePriceBuilder implements Builder
     public function getStaged()
     {
         return $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
     /**
@@ -544,6 +562,17 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
+     * @param ?bool $active
+     * @return $this
+     */
+    public function withActive(?bool $active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -651,7 +680,8 @@ final class StandalonePriceBuilder implements Builder
             $this->tiers,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged
+            $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged,
+            $this->active
         );
     }
 

@@ -135,6 +135,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'StagedQuoteStateChanged' => StagedQuoteStateChangedMessagePayloadModel::class,
        'StagedQuoteStateTransition' => StagedQuoteStateTransitionMessagePayloadModel::class,
        'StagedQuoteValidToSet' => StagedQuoteValidToSetMessagePayloadModel::class,
+       'StandalonePriceActiveChanged' => StandalonePriceActiveChangedMessagePayloadModel::class,
        'StandalonePriceCreated' => StandalonePriceCreatedMessagePayloadModel::class,
        'StandalonePriceDeleted' => StandalonePriceDeletedMessagePayloadModel::class,
        'StandalonePriceDiscountSet' => StandalonePriceDiscountSetMessagePayloadModel::class,

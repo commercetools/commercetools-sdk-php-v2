@@ -37,6 +37,7 @@ interface StandalonePrice extends BaseResource
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STAGED = 'staged';
+    public const FIELD_ACTIVE = 'active';
 
     /**
      * <p>Unique identifier of the StandalonePrice.</p>
@@ -184,6 +185,15 @@ interface StandalonePrice extends BaseResource
     public function getStaged();
 
     /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -272,4 +282,9 @@ interface StandalonePrice extends BaseResource
      * @param ?StagedStandalonePrice $staged
      */
     public function setStaged(?StagedStandalonePrice $staged): void;
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void;
 }
