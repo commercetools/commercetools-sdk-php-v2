@@ -148,6 +148,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'StoreLanguagesChanged' => StoreLanguagesChangedMessagePayloadModel::class,
        'StoreNameSet' => StoreNameSetMessagePayloadModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessagePayloadModel::class,
+       'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessagePayloadModel::class,
        'null' => OrderMessagePayloadModel::class,
     ];
 

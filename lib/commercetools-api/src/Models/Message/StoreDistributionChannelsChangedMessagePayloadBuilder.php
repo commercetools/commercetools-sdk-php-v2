@@ -34,7 +34,7 @@ final class StoreDistributionChannelsChangedMessagePayloadBuilder implements Bui
     private $removedDistributionChannels;
 
     /**
-     * <p>Product distribution Channels that have been added to the <a href="/../api/projects/stores">Store</a>.</p>
+     * <p>Product distribution Channels that have been added to the <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|ChannelReferenceCollection
@@ -45,7 +45,7 @@ final class StoreDistributionChannelsChangedMessagePayloadBuilder implements Bui
     }
 
     /**
-     * <p>Product distribution Channels that have been removed from the <a href="/../api/projects/stores">Store</a>.</p>
+     * <p>Product distribution Channels that have been removed from the <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|ChannelReferenceCollection

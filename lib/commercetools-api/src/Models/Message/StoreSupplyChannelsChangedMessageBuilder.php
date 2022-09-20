@@ -24,9 +24,9 @@ use DateTimeImmutable;
 use stdClass;
 
 /**
- * @implements Builder<StoreDistributionChannelsChangedMessage>
+ * @implements Builder<StoreSupplyChannelsChangedMessage>
  */
-final class StoreDistributionChannelsChangedMessageBuilder implements Builder
+final class StoreSupplyChannelsChangedMessageBuilder implements Builder
 {
     /**
 
@@ -92,13 +92,13 @@ final class StoreDistributionChannelsChangedMessageBuilder implements Builder
 
      * @var ?ChannelReferenceCollection
      */
-    private $addedDistributionChannels;
+    private $addedSupplyChannels;
 
     /**
 
      * @var ?ChannelReferenceCollection
      */
-    private $removedDistributionChannels;
+    private $removedSupplyChannels;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -212,25 +212,25 @@ final class StoreDistributionChannelsChangedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Product distribution Channels that have been added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>Inventory supply Channels that have been added to the <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|ChannelReferenceCollection
      */
-    public function getAddedDistributionChannels()
+    public function getAddedSupplyChannels()
     {
-        return $this->addedDistributionChannels;
+        return $this->addedSupplyChannels;
     }
 
     /**
-     * <p>Product distribution Channels that have been removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>Inventory supply Channels that have been removed from the <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|ChannelReferenceCollection
      */
-    public function getRemovedDistributionChannels()
+    public function getRemovedSupplyChannels()
     {
-        return $this->removedDistributionChannels;
+        return $this->removedSupplyChannels;
     }
 
     /**
@@ -344,23 +344,23 @@ final class StoreDistributionChannelsChangedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?ChannelReferenceCollection $addedDistributionChannels
+     * @param ?ChannelReferenceCollection $addedSupplyChannels
      * @return $this
      */
-    public function withAddedDistributionChannels(?ChannelReferenceCollection $addedDistributionChannels)
+    public function withAddedSupplyChannels(?ChannelReferenceCollection $addedSupplyChannels)
     {
-        $this->addedDistributionChannels = $addedDistributionChannels;
+        $this->addedSupplyChannels = $addedSupplyChannels;
 
         return $this;
     }
 
     /**
-     * @param ?ChannelReferenceCollection $removedDistributionChannels
+     * @param ?ChannelReferenceCollection $removedSupplyChannels
      * @return $this
      */
-    public function withRemovedDistributionChannels(?ChannelReferenceCollection $removedDistributionChannels)
+    public function withRemovedSupplyChannels(?ChannelReferenceCollection $removedSupplyChannels)
     {
-        $this->removedDistributionChannels = $removedDistributionChannels;
+        $this->removedSupplyChannels = $removedSupplyChannels;
 
         return $this;
     }
@@ -409,9 +409,9 @@ final class StoreDistributionChannelsChangedMessageBuilder implements Builder
         return $this;
     }
 
-    public function build(): StoreDistributionChannelsChangedMessage
+    public function build(): StoreSupplyChannelsChangedMessage
     {
-        return new StoreDistributionChannelsChangedMessageModel(
+        return new StoreSupplyChannelsChangedMessageModel(
             $this->id,
             $this->version,
             $this->createdAt,
@@ -422,12 +422,12 @@ final class StoreDistributionChannelsChangedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->addedDistributionChannels,
-            $this->removedDistributionChannels
+            $this->addedSupplyChannels,
+            $this->removedSupplyChannels
         );
     }
 
-    public static function of(): StoreDistributionChannelsChangedMessageBuilder
+    public static function of(): StoreSupplyChannelsChangedMessageBuilder
     {
         return new self();
     }

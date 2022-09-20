@@ -25,9 +25,9 @@ use stdClass;
 /**
  * @internal
  */
-final class StoreDistributionChannelsChangedMessageModel extends JsonObjectModel implements StoreDistributionChannelsChangedMessage
+final class StoreSupplyChannelsChangedMessageModel extends JsonObjectModel implements StoreSupplyChannelsChangedMessage
 {
-    public const DISCRIMINATOR_VALUE = 'StoreDistributionChannelsChanged';
+    public const DISCRIMINATOR_VALUE = 'StoreSupplyChannelsChanged';
     /**
      *
      * @var ?string
@@ -98,13 +98,13 @@ final class StoreDistributionChannelsChangedMessageModel extends JsonObjectModel
      *
      * @var ?ChannelReferenceCollection
      */
-    protected $addedDistributionChannels;
+    protected $addedSupplyChannels;
 
     /**
      *
      * @var ?ChannelReferenceCollection
      */
-    protected $removedDistributionChannels;
+    protected $removedSupplyChannels;
 
 
     /**
@@ -121,8 +121,8 @@ final class StoreDistributionChannelsChangedMessageModel extends JsonObjectModel
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?ChannelReferenceCollection $addedDistributionChannels = null,
-        ?ChannelReferenceCollection $removedDistributionChannels = null,
+        ?ChannelReferenceCollection $addedSupplyChannels = null,
+        ?ChannelReferenceCollection $removedSupplyChannels = null,
         ?string $type = null
     ) {
         $this->id = $id;
@@ -135,8 +135,8 @@ final class StoreDistributionChannelsChangedMessageModel extends JsonObjectModel
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->addedDistributionChannels = $addedDistributionChannels;
-        $this->removedDistributionChannels = $removedDistributionChannels;
+        $this->addedSupplyChannels = $addedSupplyChannels;
+        $this->removedSupplyChannels = $removedSupplyChannels;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -374,43 +374,43 @@ final class StoreDistributionChannelsChangedMessageModel extends JsonObjectModel
     }
 
     /**
-     * <p>Product distribution Channels that have been added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>Inventory supply Channels that have been added to the <a href="ctp:api:type:Store">Store</a>.</p>
      *
      *
      * @return null|ChannelReferenceCollection
      */
-    public function getAddedDistributionChannels()
+    public function getAddedSupplyChannels()
     {
-        if (is_null($this->addedDistributionChannels)) {
+        if (is_null($this->addedSupplyChannels)) {
             /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_ADDED_DISTRIBUTION_CHANNELS);
+            $data = $this->raw(self::FIELD_ADDED_SUPPLY_CHANNELS);
             if (is_null($data)) {
                 return null;
             }
-            $this->addedDistributionChannels = ChannelReferenceCollection::fromArray($data);
+            $this->addedSupplyChannels = ChannelReferenceCollection::fromArray($data);
         }
 
-        return $this->addedDistributionChannels;
+        return $this->addedSupplyChannels;
     }
 
     /**
-     * <p>Product distribution Channels that have been removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>Inventory supply Channels that have been removed from the <a href="ctp:api:type:Store">Store</a>.</p>
      *
      *
      * @return null|ChannelReferenceCollection
      */
-    public function getRemovedDistributionChannels()
+    public function getRemovedSupplyChannels()
     {
-        if (is_null($this->removedDistributionChannels)) {
+        if (is_null($this->removedSupplyChannels)) {
             /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_REMOVED_DISTRIBUTION_CHANNELS);
+            $data = $this->raw(self::FIELD_REMOVED_SUPPLY_CHANNELS);
             if (is_null($data)) {
                 return null;
             }
-            $this->removedDistributionChannels = ChannelReferenceCollection::fromArray($data);
+            $this->removedSupplyChannels = ChannelReferenceCollection::fromArray($data);
         }
 
-        return $this->removedDistributionChannels;
+        return $this->removedSupplyChannels;
     }
 
 
@@ -495,19 +495,19 @@ final class StoreDistributionChannelsChangedMessageModel extends JsonObjectModel
     }
 
     /**
-     * @param ?ChannelReferenceCollection $addedDistributionChannels
+     * @param ?ChannelReferenceCollection $addedSupplyChannels
      */
-    public function setAddedDistributionChannels(?ChannelReferenceCollection $addedDistributionChannels): void
+    public function setAddedSupplyChannels(?ChannelReferenceCollection $addedSupplyChannels): void
     {
-        $this->addedDistributionChannels = $addedDistributionChannels;
+        $this->addedSupplyChannels = $addedSupplyChannels;
     }
 
     /**
-     * @param ?ChannelReferenceCollection $removedDistributionChannels
+     * @param ?ChannelReferenceCollection $removedSupplyChannels
      */
-    public function setRemovedDistributionChannels(?ChannelReferenceCollection $removedDistributionChannels): void
+    public function setRemovedSupplyChannels(?ChannelReferenceCollection $removedSupplyChannels): void
     {
-        $this->removedDistributionChannels = $removedDistributionChannels;
+        $this->removedSupplyChannels = $removedSupplyChannels;
     }
 
 

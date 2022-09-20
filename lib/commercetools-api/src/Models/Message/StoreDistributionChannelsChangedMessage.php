@@ -18,7 +18,7 @@ interface StoreDistributionChannelsChangedMessage extends Message
     public const FIELD_REMOVED_DISTRIBUTION_CHANNELS = 'removedDistributionChannels';
 
     /**
-     * <p>Product distribution Channels that have been added to the <a href="/../api/projects/stores">Store</a>.</p>
+     * <p>Product distribution Channels that have been added to the <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|ChannelReferenceCollection
@@ -26,7 +26,7 @@ interface StoreDistributionChannelsChangedMessage extends Message
     public function getAddedDistributionChannels();
 
     /**
-     * <p>Product distribution Channels that have been removed from the <a href="/../api/projects/stores">Store</a>.</p>
+     * <p>Product distribution Channels that have been removed from the <a href="ctp:api:type:Store">Store</a>.</p>
      *
 
      * @return null|ChannelReferenceCollection

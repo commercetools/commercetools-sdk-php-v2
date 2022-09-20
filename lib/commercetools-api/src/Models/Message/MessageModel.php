@@ -216,6 +216,7 @@ final class MessageModel extends JsonObjectModel implements Message
        'StoreLanguagesChanged' => StoreLanguagesChangedMessageModel::class,
        'StoreNameSet' => StoreNameSetMessageModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
+       'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessageModel::class,
        'null' => OrderMessageModel::class,
     ];
 
