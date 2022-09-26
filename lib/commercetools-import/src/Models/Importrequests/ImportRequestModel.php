@@ -42,6 +42,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
        'product-type' => ProductTypeImportRequestModel::class,
        'product-variant' => ProductVariantImportRequestModel::class,
        'product-variant-patch' => ProductVariantPatchRequestModel::class,
+       'standalone-price' => StandalonePriceImportRequestModel::class,
     ];
 
     /**

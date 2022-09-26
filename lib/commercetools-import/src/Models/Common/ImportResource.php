@@ -18,12 +18,15 @@ use Commercetools\Import\Models\Productdrafts\ProductDraftImport;
 use Commercetools\Import\Models\Products\ProductImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
+use Commercetools\Import\Models\StandalonePrices\StandalonePriceImport;
 
 interface ImportResource extends JsonObject
 {
     public const FIELD_KEY = 'key';
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
 
      * @return null|string
      */

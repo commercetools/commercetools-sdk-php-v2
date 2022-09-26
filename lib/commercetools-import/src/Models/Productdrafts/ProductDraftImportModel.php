@@ -169,6 +169,8 @@ final class ProductDraftImportModel extends JsonObjectModel implements ProductDr
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
      *
      * @return null|string
      */

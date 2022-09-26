@@ -37,6 +37,14 @@ interface PriceImport extends ImportResource
     public const FIELD_PRODUCT = 'product';
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Maps to <code>Price.value</code>.</p>
      *
 
@@ -137,6 +145,11 @@ interface PriceImport extends ImportResource
      * @return null|ProductKeyReference
      */
     public function getProduct();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?TypedMoney $value

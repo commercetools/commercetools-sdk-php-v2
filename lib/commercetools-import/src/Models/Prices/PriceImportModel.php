@@ -150,6 +150,8 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
      *
      * @return null|string
      */

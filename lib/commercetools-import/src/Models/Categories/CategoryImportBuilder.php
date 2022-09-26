@@ -102,6 +102,8 @@ final class CategoryImportBuilder implements Builder
     private $custom;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
 
      * @return null|string
      */

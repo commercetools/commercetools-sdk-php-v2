@@ -116,6 +116,8 @@ final class ProductImportBuilder implements Builder
     private $priceMode;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
 
      * @return null|string
      */

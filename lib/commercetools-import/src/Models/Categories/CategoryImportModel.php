@@ -133,6 +133,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
      *
      * @return null|string
      */

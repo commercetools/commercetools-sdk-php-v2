@@ -47,6 +47,8 @@ final class ProductTypeImportBuilder implements Builder
     private $attributes;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
 
      * @return null|string
      */

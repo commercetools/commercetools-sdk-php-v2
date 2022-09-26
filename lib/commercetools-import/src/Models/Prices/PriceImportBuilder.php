@@ -117,6 +117,8 @@ final class PriceImportBuilder implements Builder
     private $product;
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
 
      * @return null|string
      */

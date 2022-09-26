@@ -75,6 +75,8 @@ final class ProductVariantImportBuilder implements Builder
     private $product;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
 
      * @return null|string
      */

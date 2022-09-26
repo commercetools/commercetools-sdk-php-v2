@@ -220,6 +220,8 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
      *
      * @return null|string
      */

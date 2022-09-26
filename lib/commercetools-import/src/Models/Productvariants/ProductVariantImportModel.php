@@ -98,6 +98,8 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
      *
      * @return null|string
      */

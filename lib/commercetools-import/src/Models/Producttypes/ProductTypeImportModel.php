@@ -62,6 +62,8 @@ final class ProductTypeImportModel extends JsonObjectModel implements ProductTyp
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
      *
      * @return null|string
      */

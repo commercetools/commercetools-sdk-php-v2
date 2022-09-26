@@ -91,6 +91,8 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
      *
      * @return null|string
      */
