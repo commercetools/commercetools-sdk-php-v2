@@ -63,7 +63,8 @@ final class QuoteRequestDraftBuilder implements Builder
     private $state;
 
     /**
-     * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
+     * <p>Cart for which a Quote is requested.
+     * Anonymous Carts, Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a>, or Carts with a <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.</p>
      *
 
      * @return null|CartResourceIdentifier
