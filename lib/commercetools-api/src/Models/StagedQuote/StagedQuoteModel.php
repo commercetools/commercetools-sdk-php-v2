@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\StagedQuote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Common\BaseResource;
@@ -126,6 +128,12 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
      */
     protected $state;
 
+    /**
+     *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -145,7 +153,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         ?DateTimeImmutable $validTo = null,
         ?string $sellerComment = null,
         ?CustomFields $custom = null,
-        ?StateReference $state = null
+        ?StateReference $state = null,
+        ?BusinessUnitKeyReference $businessUnit = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -162,6 +171,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         $this->sellerComment = $sellerComment;
         $this->custom = $custom;
         $this->state = $state;
+        $this->businessUnit = $businessUnit;
     }
 
     /**
@@ -484,6 +494,27 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         return $this->state;
     }
 
+    /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
 
     /**
      * @param ?string $id
@@ -603,6 +634,14 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
 

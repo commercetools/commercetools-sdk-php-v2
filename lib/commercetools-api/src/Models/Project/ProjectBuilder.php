@@ -108,6 +108,12 @@ final class ProjectBuilder implements Builder
     private $searchIndexing;
 
     /**
+
+     * @var null|BusinessUnitConfiguration|BusinessUnitConfigurationBuilder
+     */
+    private $businessUnits;
+
+    /**
      * <p>Current version of the Project.</p>
      *
 
@@ -259,6 +265,17 @@ final class ProjectBuilder implements Builder
     public function getSearchIndexing()
     {
         return $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing;
+    }
+
+    /**
+     * <p>Holds configuration specific to <a href="ctp:api:type:BusinessUnit">Business Units</a>.</p>
+     *
+
+     * @return null|BusinessUnitConfiguration
+     */
+    public function getBusinessUnits()
+    {
+        return $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits;
     }
 
     /**
@@ -416,6 +433,17 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitConfiguration $businessUnits
+     * @return $this
+     */
+    public function withBusinessUnits(?BusinessUnitConfiguration $businessUnits)
+    {
+        $this->businessUnits = $businessUnits;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withMessages() instead
      * @return $this
      */
@@ -481,6 +509,17 @@ final class ProjectBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withBusinessUnits() instead
+     * @return $this
+     */
+    public function withBusinessUnitsBuilder(?BusinessUnitConfigurationBuilder $businessUnits)
+    {
+        $this->businessUnits = $businessUnits;
+
+        return $this;
+    }
+
     public function build(): Project
     {
         return new ProjectModel(
@@ -497,7 +536,8 @@ final class ProjectBuilder implements Builder
             $this->shoppingLists instanceof ShoppingListsConfigurationBuilder ? $this->shoppingLists->build() : $this->shoppingLists,
             $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType,
             $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth,
-            $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing
+            $this->searchIndexing instanceof SearchIndexingConfigurationBuilder ? $this->searchIndexing->build() : $this->searchIndexing,
+            $this->businessUnits instanceof BusinessUnitConfigurationBuilder ? $this->businessUnits->build() : $this->businessUnits
         );
     }
 

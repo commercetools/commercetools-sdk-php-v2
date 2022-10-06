@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\QuoteRequest;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
@@ -232,6 +234,12 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
      */
     protected $state;
 
+    /**
+     *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -266,7 +274,8 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         ?AddressCollection $itemShippingAddresses = null,
         ?DirectDiscountCollection $directDiscounts = null,
         ?CustomFields $custom = null,
-        ?StateReference $state = null
+        ?StateReference $state = null,
+        ?BusinessUnitKeyReference $businessUnit = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -298,6 +307,7 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         $this->directDiscounts = $directDiscounts;
         $this->custom = $custom;
         $this->state = $state;
+        $this->businessUnit = $businessUnit;
     }
 
     /**
@@ -931,6 +941,27 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
         return $this->state;
     }
 
+    /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
 
     /**
      * @param ?string $id
@@ -1170,6 +1201,14 @@ final class QuoteRequestModel extends JsonObjectModel implements QuoteRequest
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
 

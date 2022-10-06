@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Common\BaseAddressModel;
@@ -108,6 +110,12 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 
     /**
      *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
+
+    /**
+     *
      * @var ?StoreKeyReference
      */
     protected $store;
@@ -136,6 +144,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         ?string $taxMode = null,
         ?int $deleteDaysAfterLastModification = null,
         ?BaseAddressCollection $itemShippingAddresses = null,
+        ?BusinessUnitKeyReference $businessUnit = null,
         ?StoreKeyReference $store = null,
         ?array $discountCodes = null
     ) {
@@ -152,6 +161,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         $this->taxMode = $taxMode;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->businessUnit = $businessUnit;
         $this->store = $store;
         $this->discountCodes = $discountCodes;
     }
@@ -411,6 +421,27 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     * <p>The BusinessUnit the cart will belong to.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
+    /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
      *
@@ -554,6 +585,14 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

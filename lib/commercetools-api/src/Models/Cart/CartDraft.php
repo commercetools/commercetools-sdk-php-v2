@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
@@ -25,6 +26,7 @@ interface CartDraft extends JsonObject
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
@@ -94,6 +96,14 @@ interface CartDraft extends JsonObject
      * @return null|string
      */
     public function getAnonymousId();
+
+    /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit();
 
     /**
      * <p>Assigns the new cart to the store.
@@ -305,6 +315,11 @@ interface CartDraft extends JsonObject
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void;
 
     /**
      * @param ?StoreResourceIdentifier $store

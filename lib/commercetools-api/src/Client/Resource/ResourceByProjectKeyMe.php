@@ -68,6 +68,14 @@ class ResourceByProjectKeyMe extends ApiResource
     }
     /**
      */
+    public function businessUnits(): ResourceByProjectKeyMeBusinessUnits
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMeBusinessUnits($args, $this->getClient());
+    }
+    /**
+     */
     public function carts(): ResourceByProjectKeyMeCarts
     {
         $args = $this->getArgs();

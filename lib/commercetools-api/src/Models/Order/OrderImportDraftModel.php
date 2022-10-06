@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierModel;
 use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
@@ -170,6 +172,12 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
 
     /**
      *
+     * @var ?BusinessUnitResourceIdentifier
+     */
+    protected $businessUnit;
+
+    /**
+     *
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -207,6 +215,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         ?string $inventoryMode = null,
         ?string $taxRoundingMode = null,
         ?BaseAddressCollection $itemShippingAddresses = null,
+        ?BusinessUnitResourceIdentifier $businessUnit = null,
         ?StoreResourceIdentifier $store = null,
         ?string $origin = null
     ) {
@@ -232,6 +241,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->inventoryMode = $inventoryMode;
         $this->taxRoundingMode = $taxRoundingMode;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->businessUnit = $businessUnit;
         $this->store = $store;
         $this->origin = $origin;
     }
@@ -681,6 +691,27 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+     *
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitResourceIdentifierModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
+    /**
      *
      * @return null|StoreResourceIdentifier
      */
@@ -894,6 +925,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
@@ -66,6 +68,12 @@ final class CartDraftBuilder implements Builder
      * @var ?string
      */
     private $anonymousId;
+
+    /**
+
+     * @var null|BusinessUnitResourceIdentifier|BusinessUnitResourceIdentifierBuilder
+     */
+    private $businessUnit;
 
     /**
 
@@ -262,6 +270,17 @@ final class CartDraftBuilder implements Builder
     public function getAnonymousId()
     {
         return $this->anonymousId;
+    }
+
+    /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit;
     }
 
     /**
@@ -578,6 +597,17 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?StoreResourceIdentifier $store
      * @return $this
      */
@@ -831,6 +861,17 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitResourceIdentifierBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -916,6 +957,7 @@ final class CartDraftBuilder implements Builder
             $this->customerEmail,
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->anonymousId,
+            $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
             $this->country,
             $this->inventoryMode,

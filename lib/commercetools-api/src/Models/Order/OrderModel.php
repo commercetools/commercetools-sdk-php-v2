@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
@@ -121,6 +123,12 @@ final class OrderModel extends JsonObjectModel implements Order
      * @var ?string
      */
     protected $anonymousId;
+
+    /**
+     *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
 
     /**
      *
@@ -342,6 +350,7 @@ final class OrderModel extends JsonObjectModel implements Order
         ?string $customerId = null,
         ?string $customerEmail = null,
         ?string $anonymousId = null,
+        ?BusinessUnitKeyReference $businessUnit = null,
         ?StoreKeyReference $store = null,
         ?LineItemCollection $lineItems = null,
         ?CustomLineItemCollection $customLineItems = null,
@@ -388,6 +397,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->customerId = $customerId;
         $this->customerEmail = $customerEmail;
         $this->anonymousId = $anonymousId;
+        $this->businessUnit = $businessUnit;
         $this->store = $store;
         $this->lineItems = $lineItems;
         $this->customLineItems = $customLineItems;
@@ -651,6 +661,27 @@ final class OrderModel extends JsonObjectModel implements Order
         }
 
         return $this->anonymousId;
+    }
+
+    /**
+     * <p>The Business Unit the Order belongs to.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
     }
 
     /**
@@ -1408,6 +1439,14 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

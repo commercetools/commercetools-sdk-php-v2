@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeActiveCart;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeBusinessUnits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCarts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeEmailConfirm;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeLogin;
@@ -289,6 +290,17 @@ class ResourceByProjectKeyMeTest extends TestCase
                 ResourceByProjectKeyMeActiveCart::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/active-cart'
+            ],
+            'ResourceByProjectKeyMeBusinessUnits' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeBusinessUnits {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->businessUnits();
+                },
+                ResourceByProjectKeyMeBusinessUnits::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/me/business-units'
             ],
             'ResourceByProjectKeyMeCarts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCarts {

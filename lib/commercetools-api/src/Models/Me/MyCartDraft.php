@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -31,6 +32,7 @@ interface MyCartDraft extends JsonObject
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
 
@@ -129,6 +131,14 @@ interface MyCartDraft extends JsonObject
     public function getItemShippingAddresses();
 
     /**
+     * <p>The BusinessUnit the cart will belong to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
 
@@ -208,6 +218,11 @@ interface MyCartDraft extends JsonObject
      * @param ?BaseAddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 
     /**
      * @param ?StoreKeyReference $store

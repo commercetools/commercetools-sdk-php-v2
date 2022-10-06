@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\StagedQuote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceBuilder;
 use Commercetools\Api\Models\Common\BaseResource;
@@ -126,6 +128,12 @@ final class StagedQuoteBuilder implements Builder
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
+
+    /**
+
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
+     */
+    private $businessUnit;
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
@@ -294,6 +302,17 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
@@ -459,6 +478,17 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitKeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -535,6 +565,17 @@ final class StagedQuoteBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
     public function build(): StagedQuote
     {
         return new StagedQuoteModel(
@@ -552,7 +593,8 @@ final class StagedQuoteBuilder implements Builder
             $this->validTo,
             $this->sellerComment,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
     }
 

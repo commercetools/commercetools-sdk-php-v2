@@ -29,6 +29,7 @@ interface Project extends JsonObject
     public const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
     public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
     public const FIELD_SEARCH_INDEXING = 'searchIndexing';
+    public const FIELD_BUSINESS_UNITS = 'businessUnits';
 
     /**
      * <p>Current version of the Project.</p>
@@ -143,6 +144,14 @@ interface Project extends JsonObject
     public function getSearchIndexing();
 
     /**
+     * <p>Holds configuration specific to <a href="ctp:api:type:BusinessUnit">Business Units</a>.</p>
+     *
+
+     * @return null|BusinessUnitConfiguration
+     */
+    public function getBusinessUnits();
+
+    /**
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
@@ -211,4 +220,9 @@ interface Project extends JsonObject
      * @param ?SearchIndexingConfiguration $searchIndexing
      */
     public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void;
+
+    /**
+     * @param ?BusinessUnitConfiguration $businessUnits
+     */
+    public function setBusinessUnits(?BusinessUnitConfiguration $businessUnits): void;
 }

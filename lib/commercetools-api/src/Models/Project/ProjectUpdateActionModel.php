@@ -37,6 +37,7 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
        'changeCurrencies' => ProjectChangeCurrenciesActionModel::class,
        'changeLanguages' => ProjectChangeLanguagesActionModel::class,
        'changeMessagesConfiguration' => ProjectChangeMessagesConfigurationActionModel::class,
+       'changeMyBusinessUnitStatusOnCreation' => ProjectChangeBusinessUnitStatusOnCreationActionModel::class,
        'changeName' => ProjectChangeNameActionModel::class,
        'changeOrderSearchStatus' => ProjectChangeOrderSearchStatusActionModel::class,
        'changeProductSearchIndexingEnabled' => ProjectChangeProductSearchIndexingEnabledActionModel::class,

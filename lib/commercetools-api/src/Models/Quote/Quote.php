@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Quote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
@@ -63,6 +64,7 @@ interface Quote extends BaseResource
     public const FIELD_DIRECT_DISCOUNTS = 'directDiscounts';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
      * <p>Unique identifier of the Quote.</p>
@@ -338,6 +340,14 @@ interface Quote extends BaseResource
     public function getState();
 
     /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -501,4 +511,9 @@ interface Quote extends BaseResource
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 }

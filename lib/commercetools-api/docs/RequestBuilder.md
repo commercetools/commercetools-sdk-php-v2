@@ -92,6 +92,124 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->businessUnits()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->cartDiscounts()->get()`
 
 null
@@ -1197,6 +1315,26 @@ $builder =  new ApiRequestBuilder();
 $request = $builder
                 ->withProjectKey("projectKey")
                 ->graphql()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->me()->customers()->post(null)`
+
+The My Business Unit endpoint does not support assigning existing Customers to a Business Unit.
+Use this endpoint to create a new Customer and associate it with the Business Unit.
+The user must have the `Admin` role within the Business Unit to perform this request.
+The new Customer is created with an empty set of roles.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->me()
+                ->customers()
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
@@ -2608,6 +2746,132 @@ $request = $builder
                 ->me()
                 ->activeCart()
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->carts()->get()`
 

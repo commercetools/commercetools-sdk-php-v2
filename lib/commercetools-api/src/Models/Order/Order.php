@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
@@ -42,6 +43,7 @@ interface Order extends BaseResource
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
@@ -159,6 +161,14 @@ interface Order extends BaseResource
      * @return null|string
      */
     public function getAnonymousId();
+
+    /**
+     * <p>The Business Unit the Order belongs to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
 
     /**
 
@@ -460,6 +470,11 @@ interface Order extends BaseResource
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 
     /**
      * @param ?StoreKeyReference $store

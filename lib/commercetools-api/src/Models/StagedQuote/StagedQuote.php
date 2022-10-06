@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\StagedQuote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -33,6 +34,7 @@ interface StagedQuote extends BaseResource
     public const FIELD_SELLER_COMMENT = 'sellerComment';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
@@ -156,6 +158,14 @@ interface StagedQuote extends BaseResource
     public function getState();
 
     /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -229,4 +239,9 @@ interface StagedQuote extends BaseResource
      * @param ?StateReference $state
      */
     public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 }

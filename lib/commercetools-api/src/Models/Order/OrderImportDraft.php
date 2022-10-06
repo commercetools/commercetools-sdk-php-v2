@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Common\BaseAddress;
@@ -45,6 +46,7 @@ interface OrderImportDraft extends JsonObject
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_ORIGIN = 'origin';
 
@@ -216,6 +218,14 @@ interface OrderImportDraft extends JsonObject
     public function getItemShippingAddresses();
 
     /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit();
+
+    /**
 
      * @return null|StoreResourceIdentifier
      */
@@ -338,6 +348,11 @@ interface OrderImportDraft extends JsonObject
      * @param ?BaseAddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void;
 
     /**
      * @param ?StoreResourceIdentifier $store

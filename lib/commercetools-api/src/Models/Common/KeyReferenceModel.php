@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -39,6 +41,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      *
      */
     private static $discriminatorClasses = [
+       'business-unit' => BusinessUnitKeyReferenceModel::class,
        'store' => StoreKeyReferenceModel::class,
     ];
 

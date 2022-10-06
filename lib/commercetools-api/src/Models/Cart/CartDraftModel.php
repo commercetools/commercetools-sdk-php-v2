@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierModel;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Common\BaseAddressModel;
@@ -65,6 +67,12 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
      * @var ?string
      */
     protected $anonymousId;
+
+    /**
+     *
+     * @var ?BusinessUnitResourceIdentifier
+     */
+    protected $businessUnit;
 
     /**
      *
@@ -209,6 +217,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?string $customerEmail = null,
         ?CustomerGroupResourceIdentifier $customerGroup = null,
         ?string $anonymousId = null,
+        ?BusinessUnitResourceIdentifier $businessUnit = null,
         ?StoreResourceIdentifier $store = null,
         ?string $country = null,
         ?string $inventoryMode = null,
@@ -238,6 +247,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         $this->customerEmail = $customerEmail;
         $this->customerGroup = $customerGroup;
         $this->anonymousId = $anonymousId;
+        $this->businessUnit = $businessUnit;
         $this->store = $store;
         $this->country = $country;
         $this->inventoryMode = $inventoryMode;
@@ -380,6 +390,27 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         }
 
         return $this->anonymousId;
+    }
+
+    /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+     *
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitResourceIdentifierModel::of($data);
+        }
+
+        return $this->businessUnit;
     }
 
     /**
@@ -881,6 +912,14 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
+    }
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
     /**

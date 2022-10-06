@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitReferenceModel;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
@@ -93,6 +95,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      *
      */
     private static $discriminatorClasses = [
+       'business-unit' => BusinessUnitReferenceModel::class,
        'cart' => CartReferenceModel::class,
        'cart-discount' => CartDiscountReferenceModel::class,
        'category' => CategoryReferenceModel::class,
