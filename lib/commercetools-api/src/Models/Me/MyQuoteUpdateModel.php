@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\StagedQuote;
+namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuoteUpdate
+final class MyQuoteUpdateModel extends JsonObjectModel implements MyQuoteUpdate
 {
     /**
      *
@@ -27,7 +27,7 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
 
     /**
      *
-     * @var ?StagedQuoteUpdateActionCollection
+     * @var ?MyQuoteUpdateActionCollection
      */
     protected $actions;
 
@@ -37,14 +37,14 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
      */
     public function __construct(
         ?int $version = null,
-        ?StagedQuoteUpdateActionCollection $actions = null
+        ?MyQuoteUpdateActionCollection $actions = null
     ) {
         $this->version = $version;
         $this->actions = $actions;
     }
 
     /**
-     * <p>Expected version of the <a href="ctp:api:type:StagedQuote">StagedQuote</a> to which the changes should be applied.
+     * <p>Expected version of the <a href="ctp:api:type:Quote">Quote</a> to which the changes should be applied.
      * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
      *
      *
@@ -65,10 +65,10 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
     }
 
     /**
-     * <p>Update actions to be performed on the <a href="ctp:api:type:StagedQuote">StagedQuote</a>.</p>
+     * <p>Update actions to be performed on the <a href="ctp:api:type:Quote">Quote</a>.</p>
      *
      *
-     * @return null|StagedQuoteUpdateActionCollection
+     * @return null|MyQuoteUpdateActionCollection
      */
     public function getActions()
     {
@@ -78,7 +78,7 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
             if (is_null($data)) {
                 return null;
             }
-            $this->actions = StagedQuoteUpdateActionCollection::fromArray($data);
+            $this->actions = MyQuoteUpdateActionCollection::fromArray($data);
         }
 
         return $this->actions;
@@ -94,9 +94,9 @@ final class StagedQuoteUpdateModel extends JsonObjectModel implements StagedQuot
     }
 
     /**
-     * @param ?StagedQuoteUpdateActionCollection $actions
+     * @param ?MyQuoteUpdateActionCollection $actions
      */
-    public function setActions(?StagedQuoteUpdateActionCollection $actions): void
+    public function setActions(?MyQuoteUpdateActionCollection $actions): void
     {
         $this->actions = $actions;
     }

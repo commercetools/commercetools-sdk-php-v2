@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\QuoteRequest;
+namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<QuoteRequestUpdate>
+ * @implements Builder<MyQuoteUpdate>
  */
-final class QuoteRequestUpdateBuilder implements Builder
+final class MyQuoteUpdateBuilder implements Builder
 {
     /**
 
@@ -28,12 +28,12 @@ final class QuoteRequestUpdateBuilder implements Builder
 
     /**
 
-     * @var ?QuoteRequestUpdateActionCollection
+     * @var ?MyQuoteUpdateActionCollection
      */
     private $actions;
 
     /**
-     * <p>Expected version of the <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to which the changes should be applied.
+     * <p>Expected version of the <a href="ctp:api:type:Quote">Quote</a> to which the changes should be applied.
      * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
      *
 
@@ -45,10 +45,10 @@ final class QuoteRequestUpdateBuilder implements Builder
     }
 
     /**
-     * <p>Update actions to be performed on the <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>.</p>
+     * <p>Update actions to be performed on the <a href="ctp:api:type:Quote">Quote</a>.</p>
      *
 
-     * @return null|QuoteRequestUpdateActionCollection
+     * @return null|MyQuoteUpdateActionCollection
      */
     public function getActions()
     {
@@ -67,10 +67,10 @@ final class QuoteRequestUpdateBuilder implements Builder
     }
 
     /**
-     * @param ?QuoteRequestUpdateActionCollection $actions
+     * @param ?MyQuoteUpdateActionCollection $actions
      * @return $this
      */
-    public function withActions(?QuoteRequestUpdateActionCollection $actions)
+    public function withActions(?MyQuoteUpdateActionCollection $actions)
     {
         $this->actions = $actions;
 
@@ -78,15 +78,15 @@ final class QuoteRequestUpdateBuilder implements Builder
     }
 
 
-    public function build(): QuoteRequestUpdate
+    public function build(): MyQuoteUpdate
     {
-        return new QuoteRequestUpdateModel(
+        return new MyQuoteUpdateModel(
             $this->version,
             $this->actions
         );
     }
 
-    public static function of(): QuoteRequestUpdateBuilder
+    public static function of(): MyQuoteUpdateBuilder
     {
         return new self();
     }
