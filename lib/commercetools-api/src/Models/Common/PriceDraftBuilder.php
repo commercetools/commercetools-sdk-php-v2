@@ -29,6 +29,12 @@ final class PriceDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|Money|MoneyBuilder
      */
     private $value;
@@ -80,6 +86,17 @@ final class PriceDraftBuilder implements Builder
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
+
+    /**
+     * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * <p>Money value of this Price.</p>
@@ -185,6 +202,17 @@ final class PriceDraftBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -344,6 +372,7 @@ final class PriceDraftBuilder implements Builder
     public function build(): PriceDraft
     {
         return new PriceDraftModel(
+            $this->key,
             $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,

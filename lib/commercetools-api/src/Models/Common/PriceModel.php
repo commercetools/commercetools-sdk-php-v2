@@ -34,6 +34,12 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
@@ -92,6 +98,7 @@ final class PriceModel extends JsonObjectModel implements Price
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?TypedMoney $value = null,
         ?string $country = null,
         ?CustomerGroupReference $customerGroup = null,
@@ -103,6 +110,7 @@ final class PriceModel extends JsonObjectModel implements Price
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->value = $value;
         $this->country = $country;
         $this->customerGroup = $customerGroup;
@@ -132,6 +140,26 @@ final class PriceModel extends JsonObjectModel implements Price
         }
 
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined identifier of the Price. It is unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -336,6 +364,14 @@ final class PriceModel extends JsonObjectModel implements Price
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

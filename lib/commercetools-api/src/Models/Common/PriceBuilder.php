@@ -35,6 +35,12 @@ final class PriceBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
@@ -96,6 +102,17 @@ final class PriceBuilder implements Builder
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * <p>User-defined identifier of the Price. It is unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -206,6 +223,17 @@ final class PriceBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -368,6 +396,7 @@ final class PriceBuilder implements Builder
     {
         return new PriceModel(
             $this->id,
+            $this->key,
             $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
             $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,

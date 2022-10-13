@@ -17,6 +17,7 @@ use DateTimeImmutable;
 
 interface PriceDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_VALUE = 'value';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -26,6 +27,14 @@ interface PriceDraft extends JsonObject
     public const FIELD_DISCOUNTED = 'discounted';
     public const FIELD_TIERS = 'tiers';
     public const FIELD_CUSTOM = 'custom';
+
+    /**
+     * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Money value of this Price.</p>
@@ -105,6 +114,11 @@ interface PriceDraft extends JsonObject
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?Money $value

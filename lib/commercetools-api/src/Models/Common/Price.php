@@ -18,6 +18,7 @@ use DateTimeImmutable;
 interface Price extends JsonObject
 {
     public const FIELD_ID = 'id';
+    public const FIELD_KEY = 'key';
     public const FIELD_VALUE = 'value';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -35,6 +36,14 @@ interface Price extends JsonObject
      * @return null|string
      */
     public function getId();
+
+    /**
+     * <p>User-defined identifier of the Price. It is unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
 
     /**
      * <p>Money value of this Price.</p>
@@ -114,6 +123,11 @@ interface Price extends JsonObject
      * @param ?string $id
      */
     public function setId(?string $id): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?TypedMoney $value

@@ -28,6 +28,12 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 {
     /**
      *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?Money
      */
     protected $value;
@@ -85,6 +91,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?Money $value = null,
         ?string $country = null,
         ?CustomerGroupResourceIdentifier $customerGroup = null,
@@ -95,6 +102,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         ?PriceTierDraftCollection $tiers = null,
         ?CustomFieldsDraft $custom = null
     ) {
+        $this->key = $key;
         $this->value = $value;
         $this->country = $country;
         $this->customerGroup = $customerGroup;
@@ -104,6 +112,26 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         $this->discounted = $discounted;
         $this->tiers = $tiers;
         $this->custom = $custom;
+    }
+
+    /**
+     * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -306,6 +334,14 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?Money $value
