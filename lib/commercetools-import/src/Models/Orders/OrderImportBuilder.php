@@ -20,6 +20,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\StoreKeyReference;
+use Commercetools\Import\Models\Common\StoreKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyBuilder;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -163,6 +165,12 @@ final class OrderImportBuilder implements Builder
      * @var ?AddressCollection
      */
     private $itemShippingAddresses;
+
+    /**
+
+     * @var null|StoreKeyReference|StoreKeyReferenceBuilder
+     */
+    private $store;
 
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
@@ -402,6 +410,17 @@ final class OrderImportBuilder implements Builder
     public function getItemShippingAddresses()
     {
         return $this->itemShippingAddresses;
+    }
+
+    /**
+     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -647,6 +666,17 @@ final class OrderImportBuilder implements Builder
     }
 
     /**
+     * @param ?StoreKeyReference $store
+     * @return $this
+     */
+    public function withStore(?StoreKeyReference $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomer() instead
      * @return $this
      */
@@ -734,6 +764,17 @@ final class OrderImportBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withStore() instead
+     * @return $this
+     */
+    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
     public function build(): OrderImport
     {
         return new OrderImportModel(
@@ -758,7 +799,8 @@ final class OrderImportBuilder implements Builder
             $this->taxRoundingMode,
             $this->taxCalculationMode,
             $this->origin,
-            $this->itemShippingAddresses
+            $this->itemShippingAddresses,
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store
         );
     }
 

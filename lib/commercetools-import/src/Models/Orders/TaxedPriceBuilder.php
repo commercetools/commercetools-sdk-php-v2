@@ -41,12 +41,6 @@ final class TaxedPriceBuilder implements Builder
     private $taxPortions;
 
     /**
-
-     * @var null|Money|MoneyBuilder
-     */
-    private $totalTax;
-
-    /**
      * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
      *
 
@@ -77,17 +71,6 @@ final class TaxedPriceBuilder implements Builder
     public function getTaxPortions()
     {
         return $this->taxPortions;
-    }
-
-    /**
-     * <p>Maps to <code>TaxedPrice.totalTax</code>.</p>
-     *
-
-     * @return null|Money
-     */
-    public function getTotalTax()
-    {
-        return $this->totalTax instanceof MoneyBuilder ? $this->totalTax->build() : $this->totalTax;
     }
 
     /**
@@ -124,17 +107,6 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
-     * @param ?Money $totalTax
-     * @return $this
-     */
-    public function withTotalTax(?Money $totalTax)
-    {
-        $this->totalTax = $totalTax;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withTotalNet() instead
      * @return $this
      */
@@ -156,24 +128,12 @@ final class TaxedPriceBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withTotalTax() instead
-     * @return $this
-     */
-    public function withTotalTaxBuilder(?MoneyBuilder $totalTax)
-    {
-        $this->totalTax = $totalTax;
-
-        return $this;
-    }
-
     public function build(): TaxedPrice
     {
         return new TaxedPriceModel(
             $this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet,
             $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross,
-            $this->taxPortions,
-            $this->totalTax instanceof MoneyBuilder ? $this->totalTax->build() : $this->totalTax
+            $this->taxPortions
         );
     }
 

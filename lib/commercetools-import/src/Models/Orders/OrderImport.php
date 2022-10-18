@@ -14,6 +14,7 @@ use Commercetools\Import\Models\Common\Address;
 use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
+use Commercetools\Import\Models\Common\StoreKeyReference;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
@@ -42,6 +43,7 @@ interface OrderImport extends JsonObject
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_STORE = 'store';
 
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
@@ -218,6 +220,14 @@ interface OrderImport extends JsonObject
     public function getItemShippingAddresses();
 
     /**
+     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
      * @param ?string $orderNumber
      */
     public function setOrderNumber(?string $orderNumber): void;
@@ -326,4 +336,9 @@ interface OrderImport extends JsonObject
      * @param ?AddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void;
 }

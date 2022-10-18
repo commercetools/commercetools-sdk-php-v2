@@ -19,6 +19,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceModel;
+use Commercetools\Import\Models\Common\StoreKeyReference;
+use Commercetools\Import\Models\Common\StoreKeyReferenceModel;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyModel;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -163,6 +165,12 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
      */
     protected $itemShippingAddresses;
 
+    /**
+     *
+     * @var ?StoreKeyReference
+     */
+    protected $store;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -189,7 +197,8 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $origin = null,
-        ?AddressCollection $itemShippingAddresses = null
+        ?AddressCollection $itemShippingAddresses = null,
+        ?StoreKeyReference $store = null
     ) {
         $this->orderNumber = $orderNumber;
         $this->customer = $customer;
@@ -213,6 +222,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         $this->taxCalculationMode = $taxCalculationMode;
         $this->origin = $origin;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->store = $store;
     }
 
     /**
@@ -665,6 +675,27 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         return $this->itemShippingAddresses;
     }
 
+    /**
+     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     *
+     *
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
+    }
+
 
     /**
      * @param ?string $orderNumber
@@ -840,6 +871,14 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void
+    {
+        $this->store = $store;
     }
 
 
