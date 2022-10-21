@@ -40,6 +40,14 @@ final class SnsDestinationBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $authenticationMode;
+
+    /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
+
      * @return null|string
      */
     public function getAccessKey()
@@ -48,6 +56,8 @@ final class SnsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +73,17 @@ final class SnsDestinationBuilder implements Builder
     public function getTopicArn()
     {
         return $this->topicArn;
+    }
+
+    /**
+     * <p>Defines the method of authentication for the SNS topic.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -98,13 +119,25 @@ final class SnsDestinationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
+
+        return $this;
+    }
+
 
     public function build(): SnsDestination
     {
         return new SnsDestinationModel(
             $this->accessKey,
             $this->accessSecret,
-            $this->topicArn
+            $this->topicArn,
+            $this->authenticationMode
         );
     }
 

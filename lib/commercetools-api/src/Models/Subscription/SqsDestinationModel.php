@@ -50,6 +50,12 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
      */
     protected $region;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $authenticationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -59,12 +65,14 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         ?string $accessSecret = null,
         ?string $queueUrl = null,
         ?string $region = null,
+        ?string $authenticationMode = null,
         ?string $type = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
         $this->queueUrl = $queueUrl;
         $this->region = $region;
+        $this->authenticationMode = $authenticationMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -87,6 +95,8 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -105,6 +115,8 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -158,6 +170,26 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         return $this->region;
     }
 
+    /**
+     * <p>Defines the method of authentication for the SQS queue.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
+    }
+
 
     /**
      * @param ?string $accessKey
@@ -189,5 +221,13 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     public function setRegion(?string $region): void
     {
         $this->region = $region;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 }

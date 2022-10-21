@@ -46,6 +46,14 @@ final class SqsDestinationBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $authenticationMode;
+
+    /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
+
      * @return null|string
      */
     public function getAccessKey()
@@ -54,6 +62,8 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
 
      * @return null|string
      */
@@ -78,6 +88,17 @@ final class SqsDestinationBuilder implements Builder
     public function getRegion()
     {
         return $this->region;
+    }
+
+    /**
+     * <p>Defines the method of authentication for the SQS queue.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -124,6 +145,17 @@ final class SqsDestinationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
+
+        return $this;
+    }
+
 
     public function build(): SqsDestination
     {
@@ -131,7 +163,8 @@ final class SqsDestinationBuilder implements Builder
             $this->accessKey,
             $this->accessSecret,
             $this->queueUrl,
-            $this->region
+            $this->region,
+            $this->authenticationMode
         );
     }
 

@@ -17,14 +17,19 @@ interface SqsDestination extends Destination
     public const FIELD_ACCESS_SECRET = 'accessSecret';
     public const FIELD_QUEUE_URL = 'queueUrl';
     public const FIELD_REGION = 'region';
+    public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
 
      * @return null|string
      */
     public function getAccessKey();
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
 
      * @return null|string
      */
@@ -41,6 +46,14 @@ interface SqsDestination extends Destination
      * @return null|string
      */
     public function getRegion();
+
+    /**
+     * <p>Defines the method of authentication for the SQS queue.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode();
 
     /**
      * @param ?string $accessKey
@@ -61,4 +74,9 @@ interface SqsDestination extends Destination
      * @param ?string $region
      */
     public function setRegion(?string $region): void;
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void;
 }

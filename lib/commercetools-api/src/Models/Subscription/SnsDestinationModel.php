@@ -44,6 +44,12 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
      */
     protected $topicArn;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $authenticationMode;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -52,11 +58,13 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
         ?string $accessKey = null,
         ?string $accessSecret = null,
         ?string $topicArn = null,
+        ?string $authenticationMode = null,
         ?string $type = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
         $this->topicArn = $topicArn;
+        $this->authenticationMode = $authenticationMode;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -79,6 +87,8 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +107,8 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -132,6 +144,26 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
         return $this->topicArn;
     }
 
+    /**
+     * <p>Defines the method of authentication for the SNS topic.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
+    }
+
 
     /**
      * @param ?string $accessKey
@@ -155,5 +187,13 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     public function setTopicArn(?string $topicArn): void
     {
         $this->topicArn = $topicArn;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 }
