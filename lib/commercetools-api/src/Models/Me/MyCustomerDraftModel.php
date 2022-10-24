@@ -62,6 +62,12 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
 
     /**
      *
+     * @var ?string
+     */
+    protected $salutation;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
@@ -125,6 +131,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         ?string $lastName = null,
         ?string $middleName = null,
         ?string $title = null,
+        ?string $salutation = null,
         ?DateTimeImmutable $dateOfBirth = null,
         ?string $companyName = null,
         ?string $vatId = null,
@@ -141,6 +148,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->lastName = $lastName;
         $this->middleName = $middleName;
         $this->title = $title;
+        $this->salutation = $salutation;
         $this->dateOfBirth = $dateOfBirth;
         $this->companyName = $companyName;
         $this->vatId = $vatId;
@@ -153,6 +161,9 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -171,6 +182,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Password of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -189,6 +202,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -207,6 +222,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -225,6 +242,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Middle name of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -243,6 +262,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
      *
      * @return null|string
      */
@@ -261,6 +282,28 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        if (is_null($this->salutation)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SALUTATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->salutation = (string) $data;
+        }
+
+        return $this->salutation;
+    }
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -283,6 +326,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Company name of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -301,6 +346,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -319,7 +366,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>
+     * <p>Addresses of the Customer.</p>
      *
      *
      * @return null|BaseAddressCollection
@@ -339,8 +386,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default shipping address.
+     * The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
      *
      * @return null|int
@@ -360,8 +407,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default billing address.
+     * The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
      *
      * @return null|int
@@ -381,7 +428,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the Customer.</p>
      *
      *
      * @return null|CustomFieldsDraft
@@ -402,6 +449,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Preferred language of the Customer. Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -420,6 +469,8 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> for the Customer.</p>
+     *
      *
      * @return null|StoreResourceIdentifierCollection
      */
@@ -484,6 +535,14 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     public function setTitle(?string $title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @param ?string $salutation
+     */
+    public function setSalutation(?string $salutation): void
+    {
+        $this->salutation = $salutation;
     }
 
     /**

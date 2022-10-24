@@ -29,6 +29,8 @@ final class CustomerAddAddressActionBuilder implements Builder
     private $address;
 
     /**
+     * <p>Value to append to the <code>addresses</code> array.</p>
+     *
 
      * @return null|BaseAddress
      */

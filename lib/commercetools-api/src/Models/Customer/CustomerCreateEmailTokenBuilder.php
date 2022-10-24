@@ -39,7 +39,7 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     private $ttlMinutes;
 
     /**
-     * <p>Unique identifier of the email token.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
 
      * @return null|string
@@ -50,6 +50,8 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+     * <p>Expected version of the Customer.</p>
+     *
 
      * @return null|int
      */
@@ -59,6 +61,8 @@ final class CustomerCreateEmailTokenBuilder implements Builder
     }
 
     /**
+     * <p>Validity period of the generated token in minutes.</p>
+     *
 
      * @return null|int
      */

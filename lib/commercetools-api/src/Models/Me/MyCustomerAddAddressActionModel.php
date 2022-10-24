@@ -65,6 +65,8 @@ final class MyCustomerAddAddressActionModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Value to append to the <code>addresses</code> array.</p>
+     *
      *
      * @return null|BaseAddress
      */

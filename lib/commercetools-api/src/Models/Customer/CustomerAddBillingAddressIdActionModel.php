@@ -71,6 +71,8 @@ final class CustomerAddBillingAddressIdActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become a billing address.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class CustomerAddBillingAddressIdActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become a billing address.</p>
+     *
      *
      * @return null|string
      */

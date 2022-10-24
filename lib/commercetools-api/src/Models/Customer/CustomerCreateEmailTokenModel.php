@@ -52,7 +52,7 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>Unique identifier of the email token.</p>
+     * <p>Unique identifier of the Customer.</p>
      *
      *
      * @return null|string
@@ -72,6 +72,8 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Expected version of the Customer.</p>
+     *
      *
      * @return null|int
      */
@@ -90,6 +92,8 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Validity period of the generated token in minutes.</p>
+     *
      *
      * @return null|int
      */

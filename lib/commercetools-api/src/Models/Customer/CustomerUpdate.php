@@ -17,12 +17,16 @@ interface CustomerUpdate extends JsonObject
     public const FIELD_ACTIONS = 'actions';
 
     /**
+     * <p>Expected version of the Customer on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Update actions to be performed on the Customer.</p>
+     *
 
      * @return null|CustomerUpdateActionCollection
      */

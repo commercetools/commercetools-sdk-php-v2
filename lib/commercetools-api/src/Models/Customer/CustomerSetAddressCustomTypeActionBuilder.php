@@ -26,6 +26,12 @@ final class CustomerSetAddressCustomTypeActionBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $addressId;
+
+    /**
+
      * @var null|TypeResourceIdentifier|TypeResourceIdentifierBuilder
      */
     private $type;
@@ -37,10 +43,15 @@ final class CustomerSetAddressCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Address">Address</a> to be updated.</p>
+     *
 
-     * @var ?string
+     * @return null|string
      */
-    private $addressId;
+    public function getAddressId()
+    {
+        return $this->addressId;
+    }
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
@@ -66,12 +77,14 @@ final class CustomerSetAddressCustomTypeActionBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
+     * @param ?string $addressId
+     * @return $this
      */
-    public function getAddressId()
+    public function withAddressId(?string $addressId)
     {
-        return $this->addressId;
+        $this->addressId = $addressId;
+
+        return $this;
     }
 
     /**
@@ -92,17 +105,6 @@ final class CustomerSetAddressCustomTypeActionBuilder implements Builder
     public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $addressId
-     * @return $this
-     */
-    public function withAddressId(?string $addressId)
-    {
-        $this->addressId = $addressId;
 
         return $this;
     }
@@ -132,9 +134,9 @@ final class CustomerSetAddressCustomTypeActionBuilder implements Builder
     public function build(): CustomerSetAddressCustomTypeAction
     {
         return new CustomerSetAddressCustomTypeActionModel(
+            $this->addressId,
             $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type,
-            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields,
-            $this->addressId
+            $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields
         );
     }
 

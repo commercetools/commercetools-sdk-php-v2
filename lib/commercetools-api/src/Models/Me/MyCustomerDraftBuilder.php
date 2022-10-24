@@ -63,6 +63,12 @@ final class MyCustomerDraftBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $salutation;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
@@ -116,6 +122,9 @@ final class MyCustomerDraftBuilder implements Builder
     private $stores;
 
     /**
+     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
 
      * @return null|string
      */
@@ -125,6 +134,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Password of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -134,6 +145,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -143,6 +156,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -152,6 +167,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Middle name of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -161,6 +178,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
 
      * @return null|string
      */
@@ -170,6 +189,19 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -179,6 +211,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Company name of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -188,6 +222,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -197,7 +233,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>
+     * <p>Addresses of the Customer.</p>
      *
 
      * @return null|BaseAddressCollection
@@ -208,8 +244,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default shipping address.
+     * The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
 
      * @return null|int
@@ -220,8 +256,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default billing address.
+     * The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
 
      * @return null|int
@@ -232,7 +268,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the Customer.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -243,6 +279,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Preferred language of the Customer. Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
 
      * @return null|string
      */
@@ -252,6 +290,8 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> for the Customer.</p>
+     *
 
      * @return null|StoreResourceIdentifierCollection
      */
@@ -322,6 +362,17 @@ final class MyCustomerDraftBuilder implements Builder
     public function withTitle(?string $title)
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $salutation
+     * @return $this
+     */
+    public function withSalutation(?string $salutation)
+    {
+        $this->salutation = $salutation;
 
         return $this;
     }
@@ -445,6 +496,7 @@ final class MyCustomerDraftBuilder implements Builder
             $this->lastName,
             $this->middleName,
             $this->title,
+            $this->salutation,
             $this->dateOfBirth,
             $this->companyName,
             $this->vatId,

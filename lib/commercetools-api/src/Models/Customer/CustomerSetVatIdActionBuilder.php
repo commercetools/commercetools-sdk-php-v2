@@ -27,7 +27,8 @@ final class CustomerSetVatIdActionBuilder implements Builder
     private $vatId;
 
     /**
-     * <p>If not defined, the vat Id is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
 
      * @return null|string

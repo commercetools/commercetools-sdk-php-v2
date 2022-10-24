@@ -71,6 +71,9 @@ final class CustomerSetAuthenticationModeActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Value to set.
+     * Changing a Customer's <code>authMode</code> from <code>Password</code> to <code>ExternalAuth</code> deletes the Customer's password.</p>
+     *
      *
      * @return null|string
      */
@@ -89,7 +92,7 @@ final class CustomerSetAuthenticationModeActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>Required when <code>authMode</code> is <code>Password</code></p>
+     * <p>Required when <code>authMode</code> is <code>Password</code>.</p>
      *
      *
      * @return null|string

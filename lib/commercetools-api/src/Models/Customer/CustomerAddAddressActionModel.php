@@ -65,6 +65,8 @@ final class CustomerAddAddressActionModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Value to append to the <code>addresses</code> array.</p>
+     *
      *
      * @return null|BaseAddress
      */

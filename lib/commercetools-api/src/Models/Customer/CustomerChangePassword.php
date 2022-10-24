@@ -27,18 +27,25 @@ interface CustomerChangePassword extends JsonObject
     public function getId();
 
     /**
+     * <p>Expected version of the Customer on which the changes should be applied.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Current password of the Customer.</p>
+     * <p>If the current password does not match, an <a href="ctp:api:type:InvalidCurrentPasswordError">InvalidCurrentPassword</a> error is returned.</p>
+     *
 
      * @return null|string
      */
     public function getCurrentPassword();
 
     /**
+     * <p>New password to be set.</p>
+     *
 
      * @return null|string
      */

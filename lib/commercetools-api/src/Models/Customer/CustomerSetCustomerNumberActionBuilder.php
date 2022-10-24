@@ -27,8 +27,8 @@ final class CustomerSetCustomerNumberActionBuilder implements Builder
     private $customerNumber;
 
     /**
-     * <p>It should be <strong>unique</strong> across a project.
-     * Once it's set, it cannot be changed.</p>
+     * <p>Value to set.
+     * Once set, it cannot be changed.</p>
      *
 
      * @return null|string

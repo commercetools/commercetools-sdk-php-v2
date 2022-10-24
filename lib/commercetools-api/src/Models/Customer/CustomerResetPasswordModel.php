@@ -52,6 +52,8 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
     /**
+     * <p>Value of the token to reset the Customer password.</p>
+     *
      *
      * @return null|string
      */
@@ -70,6 +72,8 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
     /**
+     * <p>New password to be set.</p>
+     *
      *
      * @return null|string
      */
@@ -88,6 +92,8 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     }
 
     /**
+     * <p>Expected version of the Customer.</p>
+     *
      *
      * @return null|int
      */

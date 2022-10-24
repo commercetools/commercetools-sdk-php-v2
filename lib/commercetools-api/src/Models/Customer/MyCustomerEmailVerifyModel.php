@@ -17,7 +17,7 @@ use stdClass;
 /**
  * @internal
  */
-final class MyCustomerResetPasswordModel extends JsonObjectModel implements MyCustomerResetPassword
+final class MyCustomerEmailVerifyModel extends JsonObjectModel implements MyCustomerEmailVerify
 {
     /**
      *
@@ -25,26 +25,18 @@ final class MyCustomerResetPasswordModel extends JsonObjectModel implements MyCu
      */
     protected $tokenValue;
 
-    /**
-     *
-     * @var ?string
-     */
-    protected $newPassword;
-
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $tokenValue = null,
-        ?string $newPassword = null
+        ?string $tokenValue = null
     ) {
         $this->tokenValue = $tokenValue;
-        $this->newPassword = $newPassword;
     }
 
     /**
-     * <p>Value of the token to reset the Customer password.</p>
+     * <p>Value of the token to verify Customer email.</p>
      *
      *
      * @return null|string
@@ -63,26 +55,6 @@ final class MyCustomerResetPasswordModel extends JsonObjectModel implements MyCu
         return $this->tokenValue;
     }
 
-    /**
-     * <p>New password to be set.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getNewPassword()
-    {
-        if (is_null($this->newPassword)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_NEW_PASSWORD);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->newPassword = (string) $data;
-        }
-
-        return $this->newPassword;
-    }
-
 
     /**
      * @param ?string $tokenValue
@@ -90,13 +62,5 @@ final class MyCustomerResetPasswordModel extends JsonObjectModel implements MyCu
     public function setTokenValue(?string $tokenValue): void
     {
         $this->tokenValue = $tokenValue;
-    }
-
-    /**
-     * @param ?string $newPassword
-     */
-    public function setNewPassword(?string $newPassword): void
-    {
-        $this->newPassword = $newPassword;
     }
 }

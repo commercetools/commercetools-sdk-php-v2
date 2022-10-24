@@ -63,7 +63,8 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>If not defined, the company name is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
      *
      * @return null|string

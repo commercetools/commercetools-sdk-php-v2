@@ -27,6 +27,9 @@ final class MyCustomerSetTitleActionBuilder implements Builder
     private $title;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */

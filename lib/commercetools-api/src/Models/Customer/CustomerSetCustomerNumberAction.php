@@ -16,8 +16,8 @@ interface CustomerSetCustomerNumberAction extends CustomerUpdateAction
     public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
 
     /**
-     * <p>It should be <strong>unique</strong> across a project.
-     * Once it's set, it cannot be changed.</p>
+     * <p>Value to set.
+     * Once set, it cannot be changed.</p>
      *
 
      * @return null|string

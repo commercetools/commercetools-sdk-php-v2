@@ -17,12 +17,16 @@ interface CustomerCreatePasswordResetToken extends JsonObject
     public const FIELD_TTL_MINUTES = 'ttlMinutes';
 
     /**
+     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     *
 
      * @return null|string
      */
     public function getEmail();
 
     /**
+     * <p>Validity period of the generated token in minutes.</p>
+     *
 
      * @return null|int
      */

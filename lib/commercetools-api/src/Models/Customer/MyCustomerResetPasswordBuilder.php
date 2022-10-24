@@ -33,6 +33,8 @@ final class MyCustomerResetPasswordBuilder implements Builder
     private $newPassword;
 
     /**
+     * <p>Value of the token to reset the Customer password.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class MyCustomerResetPasswordBuilder implements Builder
     }
 
     /**
+     * <p>New password to be set.</p>
+     *
 
      * @return null|string
      */

@@ -28,6 +28,8 @@ final class CustomerSetStoresActionBuilder implements Builder
     private $stores;
 
     /**
+     * <p>ResourceIdentifier of the Stores to set.</p>
+     *
 
      * @return null|StoreResourceIdentifierCollection
      */

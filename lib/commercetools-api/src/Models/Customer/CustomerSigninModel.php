@@ -86,6 +86,8 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
+     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -104,6 +106,8 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
+     * <p>Password of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -122,6 +126,8 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
+     * <p>Deprecated since it is now possible to identify an anonymous cart by using its <code>id</code> or external <code>key</code>.</p>
+     *
      * @deprecated
      * @return null|string
      */
@@ -140,7 +146,7 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Cart">Cart</a>.</p>
+     * <p>Identifies a <a href="ctp:api:type:Cart">Cart</a> that will be assigned to the Customer.</p>
      *
      *
      * @return null|CartResourceIdentifier
@@ -161,6 +167,11 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
+     * <ul>
+     * <li>Set to <code>MergeWithExistingCustomerCart</code> if <a href="ctp:api:type:LineItem">LineItems</a> of the anonymous Cart should be merged with the active Customer Cart that has been modified most recently.</li>
+     * <li>Set to <code>UseAsNewActiveCustomerCart</code> if the anonymous Cart should be used as the new active Customer Cart and no <a href="ctp:api:type:LineItem">LineItems</a> are to be merged.</li>
+     * </ul>
+     *
      *
      * @return null|string
      */
@@ -179,6 +190,10 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
+     * <p>If both <code>anonymousCart</code> and <code>anonymousId</code> are provided, the <code>anonymousId</code> on the CustomerSignin must match that of the anonymous [Cart](ctp:api:type:Cart].
+     * Otherwise a <a href="ctp:api:type:InvalidOperationError">400 Bad Request</a> <code>Invalid Operation</code> error is returned with the message:
+     * &quot;Cart with the ID cart-id does not have the expected anonymousId.&quot;.</p>
+     *
      *
      * @return null|string
      */
@@ -197,6 +212,11 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     }
 
     /**
+     * <ul>
+     * <li>If <code>true</code>, the <a href="ctp:api:type:LineItem">LineItem</a> Product data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned Cart will be updated.</li>
+     * <li>If <code>false</code>, only the prices, discounts, and tax rates will be updated.</li>
+     * </ul>
+     *
      *
      * @return null|bool
      */

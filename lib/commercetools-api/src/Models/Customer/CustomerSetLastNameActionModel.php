@@ -63,6 +63,8 @@ final class CustomerSetLastNameActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>Value to set. If empty, any existing value is removed.</p>
+     *
      *
      * @return null|string
      */

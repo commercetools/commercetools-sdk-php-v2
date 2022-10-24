@@ -16,47 +16,47 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<CustomerSetTitleAction>
+ * @implements Builder<MyCustomerEmailVerify>
  */
-final class CustomerSetTitleActionBuilder implements Builder
+final class MyCustomerEmailVerifyBuilder implements Builder
 {
     /**
 
      * @var ?string
      */
-    private $title;
+    private $tokenValue;
 
     /**
-     * <p>Value to set. If empty, any existing value is removed.</p>
+     * <p>Value of the token to verify Customer email.</p>
      *
 
      * @return null|string
      */
-    public function getTitle()
+    public function getTokenValue()
     {
-        return $this->title;
+        return $this->tokenValue;
     }
 
     /**
-     * @param ?string $title
+     * @param ?string $tokenValue
      * @return $this
      */
-    public function withTitle(?string $title)
+    public function withTokenValue(?string $tokenValue)
     {
-        $this->title = $title;
+        $this->tokenValue = $tokenValue;
 
         return $this;
     }
 
 
-    public function build(): CustomerSetTitleAction
+    public function build(): MyCustomerEmailVerify
     {
-        return new CustomerSetTitleActionModel(
-            $this->title
+        return new MyCustomerEmailVerifyModel(
+            $this->tokenValue
         );
     }
 
-    public static function of(): CustomerSetTitleActionBuilder
+    public static function of(): MyCustomerEmailVerifyBuilder
     {
         return new self();
     }

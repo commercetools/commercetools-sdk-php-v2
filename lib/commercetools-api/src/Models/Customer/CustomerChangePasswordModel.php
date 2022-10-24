@@ -80,6 +80,8 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Expected version of the Customer on which the changes should be applied.</p>
+     *
      *
      * @return null|int
      */
@@ -98,6 +100,9 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Current password of the Customer.</p>
+     * <p>If the current password does not match, an <a href="ctp:api:type:InvalidCurrentPasswordError">InvalidCurrentPassword</a> error is returned.</p>
+     *
      *
      * @return null|string
      */
@@ -116,6 +121,8 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>New password to be set.</p>
+     *
      *
      * @return null|string
      */

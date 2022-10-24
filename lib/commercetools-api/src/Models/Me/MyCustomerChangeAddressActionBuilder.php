@@ -41,6 +41,8 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     private $address;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
 
      * @return null|string
      */
@@ -59,6 +63,8 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|BaseAddress
      */

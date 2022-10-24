@@ -33,6 +33,8 @@ final class CustomerEmailVerifyBuilder implements Builder
     private $tokenValue;
 
     /**
+     * <p>Expected version of the Customer.</p>
+     *
 
      * @return null|int
      */
@@ -42,6 +44,8 @@ final class CustomerEmailVerifyBuilder implements Builder
     }
 
     /**
+     * <p>Value of the token to verify Customer email.</p>
+     *
 
      * @return null|string
      */

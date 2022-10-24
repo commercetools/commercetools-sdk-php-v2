@@ -63,6 +63,9 @@ final class MyCustomerSetSalutationActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
      *
      * @return null|string
      */

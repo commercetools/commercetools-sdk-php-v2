@@ -11,18 +11,9 @@ namespace Commercetools\Api\Models\Customer;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface CustomerEmailVerify extends JsonObject
+interface MyCustomerEmailVerify extends JsonObject
 {
-    public const FIELD_VERSION = 'version';
     public const FIELD_TOKEN_VALUE = 'tokenValue';
-
-    /**
-     * <p>Expected version of the Customer.</p>
-     *
-
-     * @return null|int
-     */
-    public function getVersion();
 
     /**
      * <p>Value of the token to verify Customer email.</p>
@@ -31,11 +22,6 @@ interface CustomerEmailVerify extends JsonObject
      * @return null|string
      */
     public function getTokenValue();
-
-    /**
-     * @param ?int $version
-     */
-    public function setVersion(?int $version): void;
 
     /**
      * @param ?string $tokenValue

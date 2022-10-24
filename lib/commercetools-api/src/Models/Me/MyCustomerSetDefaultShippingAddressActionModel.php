@@ -71,6 +71,8 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
      *
      * @return null|string
      */

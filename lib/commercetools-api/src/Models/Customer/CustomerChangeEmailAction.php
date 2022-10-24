@@ -16,6 +16,8 @@ interface CustomerChangeEmailAction extends CustomerUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|string
      */

@@ -27,6 +27,9 @@ final class MyCustomerSetVatIdActionBuilder implements Builder
     private $vatId;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */

@@ -44,6 +44,8 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Expected version of the Customer.</p>
+     *
      *
      * @return null|int
      */
@@ -62,6 +64,8 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Value of the token to verify Customer email.</p>
+     *
      *
      * @return null|string
      */

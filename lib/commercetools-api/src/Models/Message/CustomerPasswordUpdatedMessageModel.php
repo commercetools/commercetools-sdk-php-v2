@@ -365,7 +365,7 @@ final class CustomerPasswordUpdatedMessageModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>Whether the Customer's password was updated during the <a href="/../api/projects/customers#customers-password-reset">Customer's Password Reset</a> workflow.</p>
+     * <p>Whether the Customer's password was updated during the <a href="/../api/projects/customers#password-reset-of-customer">Reset password</a> or <a href="/../api/projects/customers#change-password-of-customer">Change password</a> flow.</p>
      *
      *
      * @return null|bool

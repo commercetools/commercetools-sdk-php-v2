@@ -27,6 +27,8 @@ final class CustomerChangeEmailActionBuilder implements Builder
     private $email;
 
     /**
+     * <p>Value to set.</p>
+     *
 
      * @return null|string
      */

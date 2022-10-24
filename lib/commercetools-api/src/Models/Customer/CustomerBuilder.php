@@ -59,6 +59,24 @@ final class CustomerBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
+    private $customerNumber;
+
+    /**
+
+     * @var ?string
+     */
+    private $externalId;
+
+    /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
@@ -68,12 +86,6 @@ final class CustomerBuilder implements Builder
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
-
-    /**
-
-     * @var ?string
-     */
-    private $customerNumber;
 
     /**
 
@@ -167,12 +179,6 @@ final class CustomerBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $externalId;
-
-    /**
-
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
@@ -194,12 +200,6 @@ final class CustomerBuilder implements Builder
      * @var ?string
      */
     private $salutation;
-
-    /**
-
-     * @var ?string
-     */
-    private $key;
 
     /**
 
@@ -225,7 +225,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the customer.</p>
+     * <p>Current version of the Customer.</p>
      *
 
      * @return null|int
@@ -236,6 +236,8 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Customer was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -245,243 +247,14 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Customer was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
     {
         return $this->lastModifiedAt;
-    }
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
-    }
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
-     * <p>The customer number can be used to create a more human-readable (in contrast to ID) identifier for the customer.
-     * It should be unique across a project.
-     * Once the field was set it cannot be changed anymore.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCustomerNumber()
-    {
-        return $this->customerNumber;
-    }
-
-    /**
-     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
-     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
-     * For more information, see Email uniquenes.</p>
-     *
-
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
-     *
-
-     * @return null|string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getMiddleName()
-    {
-        return $this->middleName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getDateOfBirth()
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCompanyName()
-    {
-        return $this->companyName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getVatId()
-    {
-        return $this->vatId;
-    }
-
-    /**
-     * <p>The addresses have unique IDs in the addresses list</p>
-     *
-
-     * @return null|AddressCollection
-     */
-    public function getAddresses()
-    {
-        return $this->addresses;
-    }
-
-    /**
-     * <p>The address ID in the addresses list</p>
-     *
-
-     * @return null|string
-     */
-    public function getDefaultShippingAddressId()
-    {
-        return $this->defaultShippingAddressId;
-    }
-
-    /**
-     * <p>The IDs from the addresses list which are used as shipping addresses</p>
-     *
-
-     * @return null|array
-     */
-    public function getShippingAddressIds()
-    {
-        return $this->shippingAddressIds;
-    }
-
-    /**
-     * <p>The address ID in the addresses list</p>
-     *
-
-     * @return null|string
-     */
-    public function getDefaultBillingAddressId()
-    {
-        return $this->defaultBillingAddressId;
-    }
-
-    /**
-     * <p>The IDs from the addresses list which are used as billing addresses</p>
-     *
-
-     * @return null|array
-     */
-    public function getBillingAddressIds()
-    {
-        return $this->billingAddressIds;
-    }
-
-    /**
-
-     * @return null|bool
-     */
-    public function getIsEmailVerified()
-    {
-        return $this->isEmailVerified;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
-
-     * @return null|CustomerGroupReference
-     */
-    public function getCustomerGroup()
-    {
-        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getSalutation()
-    {
-        return $this->salutation;
     }
 
     /**
@@ -496,9 +269,266 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>References to the stores the customer account is associated with.
-     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
+     * <p>User-defined unique identifier of the Customer.</p>
+     * <p>Can be used to refer to a Customer in a human-readable way (in emails, invoices, and other correspondence).</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomerNumber()
+    {
+        return $this->customerNumber;
+    }
+
+    /**
+     * <p>Optional identifier for use in external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * <p>Present only when <code>authenticationMode</code> is set to <code>Password</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * <p>Middle name of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMiddleName()
+    {
+        return $this->middleName;
+    }
+
+    /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
+    }
+
+    /**
+     * <p>Company name of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVatId()
+    {
+        return $this->vatId;
+    }
+
+    /**
+     * <p>Addresses used by the Customer.</p>
+     *
+
+     * @return null|AddressCollection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * <p>ID of the address in <code>addresses</code> used as the default shipping address.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDefaultShippingAddressId()
+    {
+        return $this->defaultShippingAddressId;
+    }
+
+    /**
+     * <p>IDs of addresses in <code>addresses</code> used as shipping addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getShippingAddressIds()
+    {
+        return $this->shippingAddressIds;
+    }
+
+    /**
+     * <p>ID of the address in <code>addresses</code> used as the default billing address.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDefaultBillingAddressId()
+    {
+        return $this->defaultBillingAddressId;
+    }
+
+    /**
+     * <p>IDs of addresses in <code>addresses</code> used as billing addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getBillingAddressIds()
+    {
+        return $this->billingAddressIds;
+    }
+
+    /**
+     * <p>Indicates whether the email address of the Customer is <a href="#email-verification-of-customer">verified</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsEmailVerified()
+    {
+        return $this->isEmailVerified;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> to which the Customer belongs.</p>
+     *
+
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup()
+    {
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
+    /**
+     * <p>Custom Fields for the Customer.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Preferred language of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to which the Customer is assigned to.</p>
+     * <ul>
+     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * </ul>
      *
 
      * @return null|StoreKeyReferenceCollection
@@ -509,7 +539,7 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * <p>Defines whether a Customer has a password.</p>
+     * <p>Indicates whether the <code>password</code> is required for the Customer.</p>
      *
 
      * @return null|string
@@ -564,6 +594,39 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $customerNumber
+     * @return $this
+     */
+    public function withCustomerNumber(?string $customerNumber)
+    {
+        $this->customerNumber = $customerNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $externalId
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
      * @param ?LastModifiedBy $lastModifiedBy
      * @return $this
      */
@@ -581,17 +644,6 @@ final class CustomerBuilder implements Builder
     public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $customerNumber
-     * @return $this
-     */
-    public function withCustomerNumber(?string $customerNumber)
-    {
-        $this->customerNumber = $customerNumber;
 
         return $this;
     }
@@ -762,17 +814,6 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalId
-     * @return $this
-     */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
      * @param ?CustomerGroupReference $customerGroup
      * @return $this
      */
@@ -812,17 +853,6 @@ final class CustomerBuilder implements Builder
     public function withSalutation(?string $salutation)
     {
         $this->salutation = $salutation;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $key
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
 
         return $this;
     }
@@ -900,9 +930,11 @@ final class CustomerBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
+            $this->key,
+            $this->customerNumber,
+            $this->externalId,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
-            $this->customerNumber,
             $this->email,
             $this->password,
             $this->firstName,
@@ -918,12 +950,10 @@ final class CustomerBuilder implements Builder
             $this->defaultBillingAddressId,
             $this->billingAddressIds,
             $this->isEmailVerified,
-            $this->externalId,
             $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->salutation,
-            $this->key,
             $this->stores,
             $this->authenticationMode
         );

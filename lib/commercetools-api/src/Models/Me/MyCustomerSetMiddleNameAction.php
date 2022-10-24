@@ -16,6 +16,9 @@ interface MyCustomerSetMiddleNameAction extends MyCustomerUpdateAction
     public const FIELD_MIDDLE_NAME = 'middleName';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */

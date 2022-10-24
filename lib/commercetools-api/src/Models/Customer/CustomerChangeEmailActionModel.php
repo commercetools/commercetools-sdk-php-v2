@@ -63,6 +63,8 @@ final class CustomerChangeEmailActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|string
      */

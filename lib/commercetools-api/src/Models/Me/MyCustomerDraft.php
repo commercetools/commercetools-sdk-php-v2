@@ -23,6 +23,7 @@ interface MyCustomerDraft extends JsonObject
     public const FIELD_LAST_NAME = 'lastName';
     public const FIELD_MIDDLE_NAME = 'middleName';
     public const FIELD_TITLE = 'title';
+    public const FIELD_SALUTATION = 'salutation';
     public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
     public const FIELD_COMPANY_NAME = 'companyName';
     public const FIELD_VAT_ID = 'vatId';
@@ -34,61 +35,88 @@ interface MyCustomerDraft extends JsonObject
     public const FIELD_STORES = 'stores';
 
     /**
+     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
 
      * @return null|string
      */
     public function getEmail();
 
     /**
+     * <p>Password of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getPassword();
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getFirstName();
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getLastName();
 
     /**
+     * <p>Middle name of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getMiddleName();
 
     /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
 
      * @return null|string
      */
     public function getTitle();
 
     /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation();
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();
 
     /**
+     * <p>Company name of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getCompanyName();
 
     /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
 
      * @return null|string
      */
     public function getVatId();
 
     /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>
+     * <p>Addresses of the Customer.</p>
      *
 
      * @return null|BaseAddressCollection
@@ -96,8 +124,8 @@ interface MyCustomerDraft extends JsonObject
     public function getAddresses();
 
     /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default shipping address.
+     * The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
 
      * @return null|int
@@ -105,8 +133,8 @@ interface MyCustomerDraft extends JsonObject
     public function getDefaultShippingAddress();
 
     /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
+     * <p>Index of the address in the <code>addresses</code> array to use as the default billing address.
+     * The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
      *
 
      * @return null|int
@@ -114,7 +142,7 @@ interface MyCustomerDraft extends JsonObject
     public function getDefaultBillingAddress();
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the Customer.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -122,12 +150,16 @@ interface MyCustomerDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Preferred language of the Customer. Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
 
      * @return null|string
      */
     public function getLocale();
 
     /**
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> for the Customer.</p>
+     *
 
      * @return null|StoreResourceIdentifierCollection
      */
@@ -162,6 +194,11 @@ interface MyCustomerDraft extends JsonObject
      * @param ?string $title
      */
     public function setTitle(?string $title): void;
+
+    /**
+     * @param ?string $salutation
+     */
+    public function setSalutation(?string $salutation): void;
 
     /**
      * @param ?DateTimeImmutable $dateOfBirth

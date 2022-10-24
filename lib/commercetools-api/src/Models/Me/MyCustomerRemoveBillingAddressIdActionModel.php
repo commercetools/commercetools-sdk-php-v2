@@ -71,6 +71,8 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressesIds</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class MyCustomerRemoveBillingAddressIdActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove from <code>billingAddressesIds</code>.</p>
+     *
      *
      * @return null|string
      */

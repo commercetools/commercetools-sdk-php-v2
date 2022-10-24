@@ -64,6 +64,8 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
     }
 
     /**
+     * <p>ResourceIdentifier of the Stores to set.</p>
+     *
      *
      * @return null|StoreResourceIdentifierCollection
      */

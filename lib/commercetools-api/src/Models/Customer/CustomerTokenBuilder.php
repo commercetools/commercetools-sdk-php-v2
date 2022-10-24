@@ -58,7 +58,7 @@ final class CustomerTokenBuilder implements Builder
     private $value;
 
     /**
-     * <p>Unique identifier of the CustomerToken.</p>
+     * <p>Unique identifier of the token.</p>
      *
 
      * @return null|string
@@ -69,6 +69,8 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the token was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -78,6 +80,8 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * <p>When the token is created, <code>lastModifiedAt</code> is set to <code>createdAt</code>.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -87,6 +91,8 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Customer.</p>
+     *
 
      * @return null|string
      */
@@ -96,6 +102,8 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the token expires.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -105,6 +113,8 @@ final class CustomerTokenBuilder implements Builder
     }
 
     /**
+     * <p>Value of the token.</p>
+     *
 
      * @return null|string
      */

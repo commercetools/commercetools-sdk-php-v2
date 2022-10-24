@@ -33,7 +33,19 @@ final class CustomerDraftBuilder implements Builder
 
      * @var ?string
      */
+    private $key;
+
+    /**
+
+     * @var ?string
+     */
     private $customerNumber;
+
+    /**
+
+     * @var ?string
+     */
+    private $externalId;
 
     /**
 
@@ -145,12 +157,6 @@ final class CustomerDraftBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $externalId;
-
-    /**
-
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
@@ -175,12 +181,6 @@ final class CustomerDraftBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $key;
-
-    /**
-
      * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
@@ -192,258 +192,8 @@ final class CustomerDraftBuilder implements Builder
     private $authenticationMode;
 
     /**
-     * <p>String that uniquely identifies a customer.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the customer.
-     * It should be <strong>unique</strong> across a project.
-     * Once it's set it cannot be changed.</p>
-     *
-
-     * @return null|string
-     */
-    public function getCustomerNumber()
-    {
-        return $this->customerNumber;
-    }
-
-    /**
-     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
-     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
-     * For more information, see Email uniquenes.</p>
-     *
-
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
-     *
-
-     * @return null|string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getMiddleName()
-    {
-        return $this->middleName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
-     *
-     * @deprecated
-     * @return null|string
-     */
-    public function getAnonymousCartId()
-    {
-        return $this->anonymousCartId;
-    }
-
-    /**
-     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
-     *
-
-     * @return null|CartResourceIdentifier
-     */
-    public function getAnonymousCart()
-    {
-        return $this->anonymousCart instanceof CartResourceIdentifierBuilder ? $this->anonymousCart->build() : $this->anonymousCart;
-    }
-
-    /**
-     * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
-     *
-
-     * @return null|string
-     */
-    public function getAnonymousId()
-    {
-        return $this->anonymousId;
-    }
-
-    /**
-
-     * @return null|DateTimeImmutable
-     */
-    public function getDateOfBirth()
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getCompanyName()
-    {
-        return $this->companyName;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getVatId()
-    {
-        return $this->vatId;
-    }
-
-    /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>
-     *
-
-     * @return null|BaseAddressCollection
-     */
-    public function getAddresses()
-    {
-        return $this->addresses;
-    }
-
-    /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
-     *
-
-     * @return null|int
-     */
-    public function getDefaultShippingAddress()
-    {
-        return $this->defaultShippingAddress;
-    }
-
-    /**
-     * <p>The indices of the shipping addresses in the addresses array.
-     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>
-     *
-
-     * @return null|array
-     */
-    public function getShippingAddresses()
-    {
-        return $this->shippingAddresses;
-    }
-
-    /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
-     *
-
-     * @return null|int
-     */
-    public function getDefaultBillingAddress()
-    {
-        return $this->defaultBillingAddress;
-    }
-
-    /**
-     * <p>The indices of the billing addresses in the addresses array.
-     * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
-     *
-
-     * @return null|array
-     */
-    public function getBillingAddresses()
-    {
-        return $this->billingAddresses;
-    }
-
-    /**
-
-     * @return null|bool
-     */
-    public function getIsEmailVerified()
-    {
-        return $this->isEmailVerified;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
-
-     * @return null|CustomerGroupResourceIdentifier
-     */
-    public function getCustomerGroup()
-    {
-        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
-    }
-
-    /**
-     * <p>The custom fields.</p>
-     *
-
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * <p>Must be one of the languages supported for this project</p>
-     *
-
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getSalutation()
-    {
-        return $this->salutation;
-    }
-
-    /**
-     * <p>User-defined unique identifier for the Customer.</p>
+     * <p>User-defined unique identifier for the Customer.
+     * The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
      *
 
      * @return null|string
@@ -454,9 +204,285 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>References to the stores the customer account is associated with.
-     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
+     * <p>User-defined unique identifier for a Customer.
+     * Once set, it cannot be changed.</p>
+     * <p>Can be used to refer to a Customer in a human-readable way (in emails, invoices, and other correspondence).</p>
+     *
+
+     * @return null|string
+     */
+    public function getCustomerNumber()
+    {
+        return $this->customerNumber;
+    }
+
+    /**
+     * <p>Optional identifier for use in external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * <p>Email address of the Customer that must be <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * <p>Required when <code>authenticationMode</code> is set to <code>Password</code>.
+     * Provide the Customer's password in plain text. The API stores passwords in an encrypted format.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * <p>Middle name of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMiddleName()
+    {
+        return $this->middleName;
+    }
+
+    /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * <p>Deprecated since an anonymous <a href="ctp:api:type:Cart">Cart</a> can be identified by its <code>id</code> or external <code>key</code>.</p>
+     *
+     * @deprecated
+     * @return null|string
+     */
+    public function getAnonymousCartId()
+    {
+        return $this->anonymousCartId;
+    }
+
+    /**
+     * <p>Identifies a <a href="ctp:api:type:Cart">Cart</a> that will be assigned to the new Customer.</p>
+     *
+
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart()
+    {
+        return $this->anonymousCart instanceof CartResourceIdentifierBuilder ? $this->anonymousCart->build() : $this->anonymousCart;
+    }
+
+    /**
+     * <p>Identifies Carts and Orders belonging to an anonymous session that will be assigned to the new Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        return $this->anonymousId;
+    }
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
+    }
+
+    /**
+     * <p>Company name of the Customer. When representing a company as a Customer, <a href="ctp:api:type:BusinessUnit">Business Units</a> provide extended funtionality.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVatId()
+    {
+        return $this->vatId;
+    }
+
+    /**
+     * <p>Addresses of the Customer.</p>
+     *
+
+     * @return null|BaseAddressCollection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * <p>Index of the address in the <code>addresses</code> array to use as the default shipping address.
+     * The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDefaultShippingAddress()
+    {
+        return $this->defaultShippingAddress;
+    }
+
+    /**
+     * <p>Indices of the shipping addresses in the <code>addresses</code> array.
+     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of these addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getShippingAddresses()
+    {
+        return $this->shippingAddresses;
+    }
+
+    /**
+     * <p>Index of the address in the <code>addresses</code> array to use as the default billing address.
+     * The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDefaultBillingAddress()
+    {
+        return $this->defaultBillingAddress;
+    }
+
+    /**
+     * <p>Indices of the billing addresses in the <code>addresses</code> array.
+     * The <code>billingAddressIds</code> of the Customer will be set to the IDs of these addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getBillingAddresses()
+    {
+        return $this->billingAddresses;
+    }
+
+    /**
+     * <p>Set to <code>true</code> if the email address of the Customer has been verified already.
+     * The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsEmailVerified()
+    {
+        return $this->isEmailVerified;
+    }
+
+    /**
+     * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for the Customer.</p>
+     *
+
+     * @return null|CustomerGroupResourceIdentifier
+     */
+    public function getCustomerGroup()
+    {
+        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
+    /**
+     * <p>Custom Fields for the Customer.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Preferred language of the Customer.
+     * Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> for the Customer.</p>
+     * <ul>
+     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * </ul>
      *
 
      * @return null|StoreResourceIdentifierCollection
@@ -467,7 +493,10 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * <p>Defines whether a password field is a required field for the Customer.</p>
+     * <ul>
+     * <li>Set to <code>Password</code> to make the <code>password</code> field required for the Customer.</li>
+     * <li>Set to <code>ExternalAuth</code> when the password is not required for the Customer.</li>
+     * </ul>
      *
 
      * @return null|string
@@ -478,12 +507,34 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $customerNumber
      * @return $this
      */
     public function withCustomerNumber(?string $customerNumber)
     {
         $this->customerNumber = $customerNumber;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $externalId
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
 
         return $this;
     }
@@ -687,17 +738,6 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $externalId
-     * @return $this
-     */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
      * @param ?CustomerGroupResourceIdentifier $customerGroup
      * @return $this
      */
@@ -737,17 +777,6 @@ final class CustomerDraftBuilder implements Builder
     public function withSalutation(?string $salutation)
     {
         $this->salutation = $salutation;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $key
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
 
         return $this;
     }
@@ -810,7 +839,9 @@ final class CustomerDraftBuilder implements Builder
     public function build(): CustomerDraft
     {
         return new CustomerDraftModel(
+            $this->key,
             $this->customerNumber,
+            $this->externalId,
             $this->email,
             $this->password,
             $this->firstName,
@@ -829,12 +860,10 @@ final class CustomerDraftBuilder implements Builder
             $this->defaultBillingAddress,
             $this->billingAddresses,
             $this->isEmailVerified,
-            $this->externalId,
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->locale,
             $this->salutation,
-            $this->key,
             $this->stores,
             $this->authenticationMode
         );

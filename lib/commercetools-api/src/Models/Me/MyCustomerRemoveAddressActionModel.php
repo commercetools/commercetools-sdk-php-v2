@@ -71,6 +71,8 @@ final class MyCustomerRemoveAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class MyCustomerRemoveAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove.</p>
+     *
      *
      * @return null|string
      */

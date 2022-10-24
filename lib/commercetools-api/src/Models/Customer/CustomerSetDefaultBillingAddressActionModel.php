@@ -71,7 +71,7 @@ final class CustomerSetDefaultBillingAddressActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>If not defined, the customer's <code>defaultBillingAddress</code> is unset.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
      *
      *
      * @return null|string
@@ -91,6 +91,8 @@ final class CustomerSetDefaultBillingAddressActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
+     *
      *
      * @return null|string
      */

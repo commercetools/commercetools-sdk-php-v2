@@ -63,6 +63,9 @@ final class MyCustomerSetLocaleActionModel extends JsonObjectModel implements My
     }
 
     /**
+     * <p>Value to set.
+     * Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
      *
      * @return null|string
      */

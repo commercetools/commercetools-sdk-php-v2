@@ -81,6 +81,8 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
      *
      * @return null|string
      */
@@ -99,6 +101,8 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
      *
      * @return null|string
      */
@@ -117,6 +121,8 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to set.</p>
+     *
      *
      * @return null|BaseAddress
      */

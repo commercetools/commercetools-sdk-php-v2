@@ -16,6 +16,9 @@ interface MyCustomerSetVatIdAction extends MyCustomerUpdateAction
     public const FIELD_VAT_ID = 'vatId';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */

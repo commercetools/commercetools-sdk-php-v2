@@ -17,7 +17,7 @@ interface CustomerReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
-     * <p>Contains the representation of the expanded Customer. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Customers.</p>
+     * <p>Contains the representation of the expanded Customer. Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Customers.</p>
      *
 
      * @return null|Customer

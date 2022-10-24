@@ -63,6 +63,8 @@ final class MyCustomerChangeEmailActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      *
      * @return null|string
      */

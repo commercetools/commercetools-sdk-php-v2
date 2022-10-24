@@ -27,6 +27,9 @@ final class MyCustomerSetLastNameActionBuilder implements Builder
     private $lastName;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
 
      * @return null|string
      */

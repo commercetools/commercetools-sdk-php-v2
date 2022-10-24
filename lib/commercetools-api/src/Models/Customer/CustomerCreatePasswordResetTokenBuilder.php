@@ -33,6 +33,8 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     private $ttlMinutes;
 
     /**
+     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
+     * <p>Validity period of the generated token in minutes.</p>
+     *
 
      * @return null|int
      */

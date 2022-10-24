@@ -63,6 +63,9 @@ final class MyCustomerSetVatIdActionModel extends JsonObjectModel implements MyC
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
      *
      * @return null|string
      */

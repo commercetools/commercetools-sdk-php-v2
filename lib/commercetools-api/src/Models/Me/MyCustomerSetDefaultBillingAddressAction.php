@@ -17,12 +17,16 @@ interface MyCustomerSetDefaultBillingAddressAction extends MyCustomerUpdateActio
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
+     *
 
      * @return null|string
      */
     public function getAddressId();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
+     *
 
      * @return null|string
      */

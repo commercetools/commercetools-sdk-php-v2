@@ -17,7 +17,7 @@ interface CustomerSetDefaultBillingAddressAction extends CustomerUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
-     * <p>If not defined, the customer's <code>defaultBillingAddress</code> is unset.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
      *
 
      * @return null|string
@@ -25,6 +25,8 @@ interface CustomerSetDefaultBillingAddressAction extends CustomerUpdateAction
     public function getAddressId();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
+     *
 
      * @return null|string
      */

@@ -27,6 +27,9 @@ final class MyCustomerSetLocaleActionBuilder implements Builder
     private $locale;
 
     /**
+     * <p>Value to set.
+     * Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
 
      * @return null|string
      */

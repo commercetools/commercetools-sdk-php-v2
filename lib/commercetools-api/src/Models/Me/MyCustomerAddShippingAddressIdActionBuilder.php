@@ -33,6 +33,8 @@ final class MyCustomerAddShippingAddressIdActionBuilder implements Builder
     private $addressKey;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become a shipping address.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class MyCustomerAddShippingAddressIdActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become a shipping address.</p>
+     *
 
      * @return null|string
      */
