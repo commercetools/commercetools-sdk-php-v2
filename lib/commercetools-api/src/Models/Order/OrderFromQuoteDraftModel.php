@@ -37,6 +37,12 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
 
     /**
      *
+     * @var ?bool
+     */
+    protected $quoteStateToAccepted;
+
+    /**
+     *
      * @var ?string
      */
     protected $orderNumber;
@@ -72,6 +78,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     public function __construct(
         ?QuoteResourceIdentifier $quote = null,
         ?int $version = null,
+        ?bool $quoteStateToAccepted = null,
         ?string $orderNumber = null,
         ?string $paymentState = null,
         ?string $shipmentState = null,
@@ -80,6 +87,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     ) {
         $this->quote = $quote;
         $this->version = $version;
+        $this->quoteStateToAccepted = $quoteStateToAccepted;
         $this->orderNumber = $orderNumber;
         $this->paymentState = $paymentState;
         $this->shipmentState = $shipmentState;
@@ -88,7 +96,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also fail if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
      *
      *
      * @return null|QuoteResourceIdentifier
@@ -126,6 +134,26 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
         }
 
         return $this->version;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getQuoteStateToAccepted()
+    {
+        if (is_null($this->quoteStateToAccepted)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_QUOTE_STATE_TO_ACCEPTED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quoteStateToAccepted = (bool) $data;
+        }
+
+        return $this->quoteStateToAccepted;
     }
 
     /**
@@ -242,6 +270,14 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    /**
+     * @param ?bool $quoteStateToAccepted
+     */
+    public function setQuoteStateToAccepted(?bool $quoteStateToAccepted): void
+    {
+        $this->quoteStateToAccepted = $quoteStateToAccepted;
     }
 
     /**

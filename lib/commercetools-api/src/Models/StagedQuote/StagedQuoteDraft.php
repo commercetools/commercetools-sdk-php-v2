@@ -18,6 +18,7 @@ interface StagedQuoteDraft extends JsonObject
 {
     public const FIELD_QUOTE_REQUEST = 'quoteRequest';
     public const FIELD_QUOTE_REQUEST_VERSION = 'quoteRequestVersion';
+    public const FIELD_QUOTE_REQUEST_STATE_TO_ACCEPTED = 'quoteRequestStateToAccepted';
     public const FIELD_KEY = 'key';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
@@ -37,6 +38,14 @@ interface StagedQuoteDraft extends JsonObject
      * @return null|int
      */
     public function getQuoteRequestVersion();
+
+    /**
+     * <p>If <code>true</code>, the <code>quoteRequestState</code> of the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> will be set to <code>Accepted</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getQuoteRequestStateToAccepted();
 
     /**
      * <p>User-defined unique identifier for the StagedQuote.</p>
@@ -76,6 +85,11 @@ interface StagedQuoteDraft extends JsonObject
      * @param ?int $quoteRequestVersion
      */
     public function setQuoteRequestVersion(?int $quoteRequestVersion): void;
+
+    /**
+     * @param ?bool $quoteRequestStateToAccepted
+     */
+    public function setQuoteRequestStateToAccepted(?bool $quoteRequestStateToAccepted): void;
 
     /**
      * @param ?string $key

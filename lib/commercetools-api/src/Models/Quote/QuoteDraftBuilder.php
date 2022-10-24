@@ -40,6 +40,12 @@ final class QuoteDraftBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $stagedQuoteStateToSent;
+
+    /**
+
      * @var ?string
      */
     private $key;
@@ -76,6 +82,17 @@ final class QuoteDraftBuilder implements Builder
     public function getStagedQuoteVersion()
     {
         return $this->stagedQuoteVersion;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStagedQuoteStateToSent()
+    {
+        return $this->stagedQuoteStateToSent;
     }
 
     /**
@@ -134,6 +151,17 @@ final class QuoteDraftBuilder implements Builder
     public function withStagedQuoteVersion(?int $stagedQuoteVersion)
     {
         $this->stagedQuoteVersion = $stagedQuoteVersion;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $stagedQuoteStateToSent
+     * @return $this
+     */
+    public function withStagedQuoteStateToSent(?bool $stagedQuoteStateToSent)
+    {
+        $this->stagedQuoteStateToSent = $stagedQuoteStateToSent;
 
         return $this;
     }
@@ -209,6 +237,7 @@ final class QuoteDraftBuilder implements Builder
         return new QuoteDraftModel(
             $this->stagedQuote instanceof StagedQuoteResourceIdentifierBuilder ? $this->stagedQuote->build() : $this->stagedQuote,
             $this->stagedQuoteVersion,
+            $this->stagedQuoteStateToSent,
             $this->key,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state

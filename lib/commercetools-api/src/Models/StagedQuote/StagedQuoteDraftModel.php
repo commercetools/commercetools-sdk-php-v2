@@ -39,6 +39,12 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
 
     /**
      *
+     * @var ?bool
+     */
+    protected $quoteRequestStateToAccepted;
+
+    /**
+     *
      * @var ?string
      */
     protected $key;
@@ -62,12 +68,14 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     public function __construct(
         ?QuoteRequestResourceIdentifier $quoteRequest = null,
         ?int $quoteRequestVersion = null,
+        ?bool $quoteRequestStateToAccepted = null,
         ?string $key = null,
         ?CustomFieldsDraft $custom = null,
         ?StateReference $state = null
     ) {
         $this->quoteRequest = $quoteRequest;
         $this->quoteRequestVersion = $quoteRequestVersion;
+        $this->quoteRequestStateToAccepted = $quoteRequestStateToAccepted;
         $this->key = $key;
         $this->custom = $custom;
         $this->state = $state;
@@ -112,6 +120,26 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
         }
 
         return $this->quoteRequestVersion;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>quoteRequestState</code> of the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> will be set to <code>Accepted</code>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getQuoteRequestStateToAccepted()
+    {
+        if (is_null($this->quoteRequestStateToAccepted)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_QUOTE_REQUEST_STATE_TO_ACCEPTED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quoteRequestStateToAccepted = (bool) $data;
+        }
+
+        return $this->quoteRequestStateToAccepted;
     }
 
     /**
@@ -196,6 +224,14 @@ final class StagedQuoteDraftModel extends JsonObjectModel implements StagedQuote
     public function setQuoteRequestVersion(?int $quoteRequestVersion): void
     {
         $this->quoteRequestVersion = $quoteRequestVersion;
+    }
+
+    /**
+     * @param ?bool $quoteRequestStateToAccepted
+     */
+    public function setQuoteRequestStateToAccepted(?bool $quoteRequestStateToAccepted): void
+    {
+        $this->quoteRequestStateToAccepted = $quoteRequestStateToAccepted;
     }
 
     /**

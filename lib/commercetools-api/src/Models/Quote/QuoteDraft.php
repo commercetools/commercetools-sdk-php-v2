@@ -18,6 +18,7 @@ interface QuoteDraft extends JsonObject
 {
     public const FIELD_STAGED_QUOTE = 'stagedQuote';
     public const FIELD_STAGED_QUOTE_VERSION = 'stagedQuoteVersion';
+    public const FIELD_STAGED_QUOTE_STATE_TO_SENT = 'stagedQuoteStateToSent';
     public const FIELD_KEY = 'key';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_STATE = 'state';
@@ -37,6 +38,14 @@ interface QuoteDraft extends JsonObject
      * @return null|int
      */
     public function getStagedQuoteVersion();
+
+    /**
+     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStagedQuoteStateToSent();
 
     /**
      * <p>User-defined unique identifier for the Quote.</p>
@@ -76,6 +85,11 @@ interface QuoteDraft extends JsonObject
      * @param ?int $stagedQuoteVersion
      */
     public function setStagedQuoteVersion(?int $stagedQuoteVersion): void;
+
+    /**
+     * @param ?bool $stagedQuoteStateToSent
+     */
+    public function setStagedQuoteStateToSent(?bool $stagedQuoteStateToSent): void;
 
     /**
      * @param ?string $key

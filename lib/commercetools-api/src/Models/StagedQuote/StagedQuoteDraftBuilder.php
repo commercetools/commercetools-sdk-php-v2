@@ -40,6 +40,12 @@ final class StagedQuoteDraftBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $quoteRequestStateToAccepted;
+
+    /**
+
      * @var ?string
      */
     private $key;
@@ -76,6 +82,17 @@ final class StagedQuoteDraftBuilder implements Builder
     public function getQuoteRequestVersion()
     {
         return $this->quoteRequestVersion;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>quoteRequestState</code> of the referenced <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> will be set to <code>Accepted</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getQuoteRequestStateToAccepted()
+    {
+        return $this->quoteRequestStateToAccepted;
     }
 
     /**
@@ -134,6 +151,17 @@ final class StagedQuoteDraftBuilder implements Builder
     public function withQuoteRequestVersion(?int $quoteRequestVersion)
     {
         $this->quoteRequestVersion = $quoteRequestVersion;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $quoteRequestStateToAccepted
+     * @return $this
+     */
+    public function withQuoteRequestStateToAccepted(?bool $quoteRequestStateToAccepted)
+    {
+        $this->quoteRequestStateToAccepted = $quoteRequestStateToAccepted;
 
         return $this;
     }
@@ -209,6 +237,7 @@ final class StagedQuoteDraftBuilder implements Builder
         return new StagedQuoteDraftModel(
             $this->quoteRequest instanceof QuoteRequestResourceIdentifierBuilder ? $this->quoteRequest->build() : $this->quoteRequest,
             $this->quoteRequestVersion,
+            $this->quoteRequestStateToAccepted,
             $this->key,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state

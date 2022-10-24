@@ -39,6 +39,12 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
 
     /**
      *
+     * @var ?bool
+     */
+    protected $stagedQuoteStateToSent;
+
+    /**
+     *
      * @var ?string
      */
     protected $key;
@@ -62,12 +68,14 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     public function __construct(
         ?StagedQuoteResourceIdentifier $stagedQuote = null,
         ?int $stagedQuoteVersion = null,
+        ?bool $stagedQuoteStateToSent = null,
         ?string $key = null,
         ?CustomFieldsDraft $custom = null,
         ?StateReference $state = null
     ) {
         $this->stagedQuote = $stagedQuote;
         $this->stagedQuoteVersion = $stagedQuoteVersion;
+        $this->stagedQuoteStateToSent = $stagedQuoteStateToSent;
         $this->key = $key;
         $this->custom = $custom;
         $this->state = $state;
@@ -112,6 +120,26 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
         }
 
         return $this->stagedQuoteVersion;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getStagedQuoteStateToSent()
+    {
+        if (is_null($this->stagedQuoteStateToSent)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED_QUOTE_STATE_TO_SENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stagedQuoteStateToSent = (bool) $data;
+        }
+
+        return $this->stagedQuoteStateToSent;
     }
 
     /**
@@ -196,6 +224,14 @@ final class QuoteDraftModel extends JsonObjectModel implements QuoteDraft
     public function setStagedQuoteVersion(?int $stagedQuoteVersion): void
     {
         $this->stagedQuoteVersion = $stagedQuoteVersion;
+    }
+
+    /**
+     * @param ?bool $stagedQuoteStateToSent
+     */
+    public function setStagedQuoteStateToSent(?bool $stagedQuoteStateToSent): void
+    {
+        $this->stagedQuoteStateToSent = $stagedQuoteStateToSent;
     }
 
     /**

@@ -38,6 +38,12 @@ final class OrderFromQuoteDraftBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $quoteStateToAccepted;
+
+    /**
+
      * @var ?string
      */
     private $orderNumber;
@@ -67,7 +73,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     private $state;
 
     /**
-     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also fail if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
      *
 
      * @return null|QuoteResourceIdentifier
@@ -86,6 +92,17 @@ final class OrderFromQuoteDraftBuilder implements Builder
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getQuoteStateToAccepted()
+    {
+        return $this->quoteStateToAccepted;
     }
 
     /**
@@ -159,6 +176,17 @@ final class OrderFromQuoteDraftBuilder implements Builder
     public function withVersion(?int $version)
     {
         $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $quoteStateToAccepted
+     * @return $this
+     */
+    public function withQuoteStateToAccepted(?bool $quoteStateToAccepted)
+    {
+        $this->quoteStateToAccepted = $quoteStateToAccepted;
 
         return $this;
     }
@@ -245,6 +273,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
         return new OrderFromQuoteDraftModel(
             $this->quote instanceof QuoteResourceIdentifierBuilder ? $this->quote->build() : $this->quote,
             $this->version,
+            $this->quoteStateToAccepted,
             $this->orderNumber,
             $this->paymentState,
             $this->shipmentState,
