@@ -6,9 +6,9 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\BusinessUnit;
+namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Me\MyBusinessUnitUpdateAction;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 

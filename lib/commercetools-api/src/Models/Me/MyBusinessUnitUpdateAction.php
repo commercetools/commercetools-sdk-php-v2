@@ -8,11 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\BusinessUnit\MyBusinessUnitChangeAssociateAction;
-use Commercetools\Api\Models\BusinessUnit\MyBusinessUnitChangeNameAction;
-use Commercetools\Api\Models\BusinessUnit\MyBusinessUnitChangeParentUnitAction;
-use Commercetools\Api\Models\BusinessUnit\MyBusinessUnitSetDefaultBillingAddressAction;
-use Commercetools\Api\Models\BusinessUnit\MyBusinessUnitSetDefaultShippingAddressAction;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 

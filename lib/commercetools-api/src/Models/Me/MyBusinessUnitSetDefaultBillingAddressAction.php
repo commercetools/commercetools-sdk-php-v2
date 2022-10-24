@@ -6,19 +6,18 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\BusinessUnit;
+namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Me\MyBusinessUnitUpdateAction;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface MyBusinessUnitSetDefaultShippingAddressAction extends MyBusinessUnitUpdateAction
+interface MyBusinessUnitSetDefaultBillingAddressAction extends MyBusinessUnitUpdateAction
 {
     public const FIELD_ADDRESS_ID = 'addressId';
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
-     * <p>ID of the address to add as a shipping address. Either <code>addressId</code> or <code>addressKey</code> is required.</p>
+     * <p>ID of the address to add as a billing address. Either <code>addressId</code> or <code>addressKey</code> is required.</p>
      *
 
      * @return null|string
@@ -26,7 +25,7 @@ interface MyBusinessUnitSetDefaultShippingAddressAction extends MyBusinessUnitUp
     public function getAddressId();
 
     /**
-     * <p>Key of the address to add as a shipping address. Either <code>addressId</code> or <code>addressKey</code> is required.</p>
+     * <p>Key of the address to add as a billing address. Either <code>addressId</code> or <code>addressKey</code> is required.</p>
      *
 
      * @return null|string

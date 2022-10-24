@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Do not change it.
  */
 
-namespace Commercetools\Api\Models\BusinessUnit;
+namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Me\MyBusinessUnitUpdateActionCollection;
 use Commercetools\Exception\InvalidArgumentException;
