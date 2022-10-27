@@ -63,6 +63,8 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|Destination
      */

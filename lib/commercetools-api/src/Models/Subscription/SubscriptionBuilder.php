@@ -111,6 +111,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the Subscription.</p>
+     *
 
      * @return null|int
      */
@@ -120,6 +122,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Subscription was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -129,6 +133,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Subscription was last modified.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -138,7 +144,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|LastModifiedBy
@@ -149,7 +155,7 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
 
      * @return null|CreatedBy
@@ -160,6 +166,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Change notifications subscribed to.</p>
+     *
 
      * @return null|ChangeSubscriptionCollection
      */
@@ -169,6 +177,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Messaging service to which the messages are to be sent.</p>
+     *
 
      * @return null|Destination
      */
@@ -189,6 +199,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Messages subscribed to.</p>
+     *
 
      * @return null|MessageSubscriptionCollection
      */
@@ -198,6 +210,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Format in which the payload is delivered.</p>
+     *
 
      * @return null|DeliveryFormat
      */
@@ -207,6 +221,8 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * <p>Status of the Subscription.</p>
+     *
 
      * @return null|string
      */

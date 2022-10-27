@@ -151,6 +151,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Current version of the Subscription.</p>
+     *
      *
      * @return null|int
      */
@@ -169,6 +171,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Date and time (UTC) the Subscription was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -191,6 +195,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Date and time (UTC) the Subscription was last modified.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -213,7 +219,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|LastModifiedBy
@@ -234,7 +240,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
      *
      * @return null|CreatedBy
@@ -255,6 +261,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Change notifications subscribed to.</p>
+     *
      *
      * @return null|ChangeSubscriptionCollection
      */
@@ -273,6 +281,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Messaging service to which the messages are to be sent.</p>
+     *
      *
      * @return null|Destination
      */
@@ -312,6 +322,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Messages subscribed to.</p>
+     *
      *
      * @return null|MessageSubscriptionCollection
      */
@@ -330,6 +342,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Format in which the payload is delivered.</p>
+     *
      *
      * @return null|DeliveryFormat
      */
@@ -349,6 +363,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Status of the Subscription.</p>
+     *
      *
      * @return null|string
      */

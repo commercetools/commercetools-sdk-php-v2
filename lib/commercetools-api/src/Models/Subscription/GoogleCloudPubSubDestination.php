@@ -17,12 +17,16 @@ interface GoogleCloudPubSubDestination extends Destination
     public const FIELD_TOPIC = 'topic';
 
     /**
+     * <p>ID of the Google Cloud project that contains the Pub/Sub topic.</p>
+     *
 
      * @return null|string
      */
     public function getProjectId();
 
     /**
+     * <p>Name of the topic.</p>
+     *
 
      * @return null|string
      */

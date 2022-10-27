@@ -82,6 +82,9 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Project">Project</a>.
+     * Useful in message processing if the Destination receives events from multiple Projects.</p>
+     *
      *
      * @return null|string
      */
@@ -100,6 +103,8 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Identifies the payload.</p>
+     *
      *
      * @return null|string
      */
@@ -118,7 +123,7 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p>Reference to the resource that triggered the message.</p>
      *
      *
      * @return null|Reference
@@ -139,7 +144,7 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>User-provided identifiers present on the resource for which the Message is created. The value of the identifier stored in the Message corresponds to the one that was set on the resource at the version shown in <code>resourceVersion</code>.</p>
+     * <p>User-defined unique identifiers of the resource.</p>
      *
      *
      * @return null|UserProvidedIdentifiers
@@ -160,6 +165,8 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
      *
      * @return null|int
      */
@@ -178,6 +185,8 @@ final class ResourceCreatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Date and time (UTC) the resource was last modified.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

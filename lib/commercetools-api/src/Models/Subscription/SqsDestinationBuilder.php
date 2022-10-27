@@ -73,6 +73,8 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>URL of the Amazon SQS queue.</p>
+     *
 
      * @return null|string
      */
@@ -82,6 +84,8 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * <p><a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">AWS Region</a> the message queue is located in.</p>
+     *
 
      * @return null|string
      */

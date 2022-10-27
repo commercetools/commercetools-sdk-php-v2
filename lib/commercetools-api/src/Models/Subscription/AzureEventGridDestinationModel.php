@@ -71,6 +71,8 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     }
 
     /**
+     * <p>URI of the topic.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      *
      * @return null|string
      */

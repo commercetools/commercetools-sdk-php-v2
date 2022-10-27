@@ -27,6 +27,8 @@ final class ChangeSubscriptionBuilder implements Builder
     private $resourceTypeId;
 
     /**
+     * <p>Unique identifier for the type of resource, for example, <code>cart</code>.</p>
+     *
 
      * @return null|string
      */

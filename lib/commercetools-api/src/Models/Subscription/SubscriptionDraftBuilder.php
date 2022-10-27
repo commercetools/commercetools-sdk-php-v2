@@ -51,6 +51,8 @@ final class SubscriptionDraftBuilder implements Builder
     private $format;
 
     /**
+     * <p>Change notifications to be subscribed to.</p>
+     *
 
      * @return null|ChangeSubscriptionCollection
      */
@@ -60,6 +62,8 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Messaging service to which the messages are sent.</p>
+     *
 
      * @return null|Destination
      */
@@ -80,6 +84,8 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Messages to be subscribed to.</p>
+     *
 
      * @return null|MessageSubscriptionCollection
      */
@@ -89,6 +95,8 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Format in which the payload is delivered. When not provided, the <a href="ctp:api:type:PlatformFormat">PlatformFormat</a> is selected by default.</p>
+     *
 
      * @return null|DeliveryFormat
      */

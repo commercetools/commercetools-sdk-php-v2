@@ -19,18 +19,24 @@ interface ResourceUpdatedDeliveryPayload extends DeliveryPayload
     public const FIELD_MODIFIED_AT = 'modifiedAt';
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Version of the resource before the update.</p>
+     *
 
      * @return null|int
      */
     public function getOldVersion();
 
     /**
+     * <p>Date and time (UTC) the resource was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

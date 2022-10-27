@@ -27,6 +27,8 @@ final class SubscriptionChangeDestinationActionBuilder implements Builder
     private $destination;
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
 
      * @return null|Destination
      */

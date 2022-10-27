@@ -67,6 +67,8 @@ final class SnsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Amazon Resource Name (ARN) of the topic.</p>
+     *
 
      * @return null|string
      */

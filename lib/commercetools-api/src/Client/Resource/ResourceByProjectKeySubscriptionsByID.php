@@ -27,6 +27,15 @@ class ResourceByProjectKeySubscriptionsByID extends ApiResource
     }
 
     /**
+     */
+    public function withIdHealth(): ResourceByProjectKeySubscriptionsByIDHealth
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeySubscriptionsByIDHealth($args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */

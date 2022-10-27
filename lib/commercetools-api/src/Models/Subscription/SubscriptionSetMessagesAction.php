@@ -16,6 +16,8 @@ interface SubscriptionSetMessagesAction extends SubscriptionUpdateAction
     public const FIELD_MESSAGES = 'messages';
 
     /**
+     * <p>Value to set. Can only be unset if <code>changes</code> is set.</p>
+     *
 
      * @return null|MessageSubscriptionCollection
      */

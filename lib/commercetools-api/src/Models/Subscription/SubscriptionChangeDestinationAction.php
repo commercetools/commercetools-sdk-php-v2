@@ -16,6 +16,8 @@ interface SubscriptionChangeDestinationAction extends SubscriptionUpdateAction
     public const FIELD_DESTINATION = 'destination';
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
 
      * @return null|Destination
      */

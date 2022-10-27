@@ -68,6 +68,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Change notifications to be subscribed to.</p>
+     *
      *
      * @return null|ChangeSubscriptionCollection
      */
@@ -86,6 +88,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Messaging service to which the messages are sent.</p>
+     *
      *
      * @return null|Destination
      */
@@ -125,6 +129,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Messages to be subscribed to.</p>
+     *
      *
      * @return null|MessageSubscriptionCollection
      */
@@ -143,6 +149,8 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Format in which the payload is delivered. When not provided, the <a href="ctp:api:type:PlatformFormat">PlatformFormat</a> is selected by default.</p>
+     *
      *
      * @return null|DeliveryFormat
      */

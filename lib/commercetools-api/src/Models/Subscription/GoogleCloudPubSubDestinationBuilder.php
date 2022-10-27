@@ -33,6 +33,8 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     private $topic;
 
     /**
+     * <p>ID of the Google Cloud project that contains the Pub/Sub topic.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Name of the topic.</p>
+     *
 
      * @return null|string
      */

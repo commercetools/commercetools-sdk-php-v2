@@ -6008,11 +6008,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->post(null)`
 
-The creation of a Subscription is eventually consistent, it may take up to a minute before it becomes fully active.
-In order to test that the destination is correctly configured, a test message will be put into the queue.
-If the message could not be delivered, the subscription will not be created.
-The payload of the test message is a notification of type ResourceCreated for the resourceTypeId subscription.
-Currently, a maximum of 25 subscriptions can be created per project.
+A test message is sent to ensure the correct configuration of the Destination. If the message cannot be delivered, the Subscription will not be created. The payload of the test message is a notification of type [ResourceCreated](/../api/projects/subscriptions#resourcecreateddeliverypayload) for the `resourceTypeId` `subscription`.
 
 
 ### Example
@@ -6027,7 +6023,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->get()`
 
-Retrieves the representation of a subscription by its id.
+null
 
 ### Example
 ```php
@@ -6070,9 +6066,26 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->subscriptions()->withId("ID")->withIdHealth()->get()`
+
+This endpoint can be polled by a monitoring or alerting system that checks the health of your Subscriptions. To ease integration with such systems this endpoint does not require [Authorization](/../api/authorization).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->subscriptions()
+                ->withId("ID")
+                ->withIdHealth()
+                ->get();
+```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->get()`
 
-Retrieves the representation of a subscription by its key.
+null
 
 ### Example
 ```php

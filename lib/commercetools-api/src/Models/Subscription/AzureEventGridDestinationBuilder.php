@@ -33,6 +33,8 @@ final class AzureEventGridDestinationBuilder implements Builder
     private $accessKey;
 
     /**
+     * <p>URI of the topic.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class AzureEventGridDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
 
      * @return null|string
      */

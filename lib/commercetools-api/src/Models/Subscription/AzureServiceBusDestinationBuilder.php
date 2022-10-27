@@ -27,6 +27,8 @@ final class AzureServiceBusDestinationBuilder implements Builder
     private $connectionString;
 
     /**
+     * <p>SharedAccessKey is partially hidden on retrieval for security reasons.</p>
+     *
 
      * @return null|string
      */

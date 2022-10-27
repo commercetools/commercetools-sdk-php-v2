@@ -35,6 +35,8 @@ interface SnsDestination extends Destination
     public function getAccessSecret();
 
     /**
+     * <p>Amazon Resource Name (ARN) of the topic.</p>
+     *
 
      * @return null|string
      */

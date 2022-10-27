@@ -23,42 +23,57 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public const FIELD_PAYLOAD_NOT_INCLUDED = 'payloadNotIncluded';
 
     /**
+     * <p>Unique ID of the message.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the resource was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the resource was last modified.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+     * <p>Used to ensure all messages of the resource are processed in correct order.
+     * The <code>sequenceNumber</code> of the next message of the resource is a successor of the <code>sequenceNumber</code> of the current message.</p>
+     *
 
      * @return null|int
      */
     public function getSequenceNumber();
 
     /**
+     * <p>Version of the resource on which the change was performed.</p>
+     *
 
      * @return null|int
      */
     public function getResourceVersion();
 
     /**
+     * <p>If the payload does not fit into the size limit or its format is not accepted by the messaging service, the <code>payloadNotIncluded</code> field is present.</p>
+     *
 
      * @return null|PayloadNotIncluded
      */

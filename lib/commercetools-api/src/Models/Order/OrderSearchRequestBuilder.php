@@ -28,7 +28,7 @@ final class OrderSearchRequestBuilder implements Builder
 
     /**
 
-     * @var ?string
+     * @var ?OrderSearchSortingCollection
      */
     private $sort;
 
@@ -59,7 +59,7 @@ final class OrderSearchRequestBuilder implements Builder
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
 
-     * @return null|string
+     * @return null|OrderSearchSortingCollection
      */
     public function getSort()
     {
@@ -100,10 +100,10 @@ final class OrderSearchRequestBuilder implements Builder
     }
 
     /**
-     * @param ?string $sort
+     * @param ?OrderSearchSortingCollection $sort
      * @return $this
      */
-    public function withSort(?string $sort)
+    public function withSort(?OrderSearchSortingCollection $sort)
     {
         $this->sort = $sort;
 

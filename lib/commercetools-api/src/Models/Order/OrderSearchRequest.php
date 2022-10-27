@@ -30,7 +30,7 @@ interface OrderSearchRequest extends JsonObject
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
 
-     * @return null|string
+     * @return null|OrderSearchSortingCollection
      */
     public function getSort();
 
@@ -56,9 +56,9 @@ interface OrderSearchRequest extends JsonObject
     public function setQuery(?OrderSearchQuery $query): void;
 
     /**
-     * @param ?string $sort
+     * @param ?OrderSearchSortingCollection $sort
      */
-    public function setSort(?string $sort): void;
+    public function setSort(?OrderSearchSortingCollection $sort): void;
 
     /**
      * @param ?int $limit

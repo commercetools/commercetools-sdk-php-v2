@@ -27,7 +27,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
 
     /**
      *
-     * @var ?string
+     * @var ?OrderSearchSortingCollection
      */
     protected $sort;
 
@@ -49,7 +49,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
      */
     public function __construct(
         ?OrderSearchQuery $query = null,
-        ?string $sort = null,
+        ?OrderSearchSortingCollection $sort = null,
         ?int $limit = null,
         ?int $offset = null
     ) {
@@ -84,17 +84,17 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
      *
-     * @return null|string
+     * @return null|OrderSearchSortingCollection
      */
     public function getSort()
     {
         if (is_null($this->sort)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SORT);
             if (is_null($data)) {
                 return null;
             }
-            $this->sort = (string) $data;
+            $this->sort = OrderSearchSortingCollection::fromArray($data);
         }
 
         return $this->sort;
@@ -150,9 +150,9 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     }
 
     /**
-     * @param ?string $sort
+     * @param ?OrderSearchSortingCollection $sort
      */
-    public function setSort(?string $sort): void
+    public function setSort(?OrderSearchSortingCollection $sort): void
     {
         $this->sort = $sort;
     }
