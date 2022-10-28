@@ -29,45 +29,63 @@ interface Subscription extends BaseResource
     /**
      * <p>Unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Current version of the Subscription.</p>
+     *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the Subscription was initially created.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>Date and time (UTC) the Subscription was last modified.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>Change notifications subscribed to.</p>
+     *
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();
 
     /**
+     * <p>Messaging service to which the messages are to be sent.</p>
+     *
+
      * @return null|Destination
      */
     public function getDestination();
@@ -75,21 +93,31 @@ interface Subscription extends BaseResource
     /**
      * <p>User-defined unique identifier of the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Messages subscribed to.</p>
+     *
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages();
 
     /**
+     * <p>Format in which the payload is delivered.</p>
+     *
+
      * @return null|DeliveryFormat
      */
     public function getFormat();
 
     /**
+     * <p>Status of the Subscription.</p>
+     *
+
      * @return null|string
      */
     public function getStatus();

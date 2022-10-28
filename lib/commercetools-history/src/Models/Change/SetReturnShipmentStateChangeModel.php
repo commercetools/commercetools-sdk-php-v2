@@ -22,21 +22,25 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'SetReturnShipmentStateChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?string
      */
     protected $previousValue;
@@ -48,15 +52,17 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     public function __construct(
         ?string $change = null,
         ?string $nextValue = null,
-        ?string $previousValue = null
+        ?string $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -76,6 +82,7 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>setReturnShipmentState</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,6 +100,7 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|string
      */
     public function getNextValue()
@@ -110,6 +118,7 @@ final class SetReturnShipmentStateChangeModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPreviousValue()

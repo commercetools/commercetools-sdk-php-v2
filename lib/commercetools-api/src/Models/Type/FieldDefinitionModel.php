@@ -22,26 +22,31 @@ use stdClass;
 final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition
 {
     /**
+     *
      * @var ?FieldType
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $label;
 
     /**
+     *
      * @var ?bool
      */
     protected $required;
 
     /**
+     *
      * @var ?string
      */
     protected $inputHint;
@@ -67,6 +72,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     /**
      * <p>Data type of the Custom Field to define.</p>
      *
+     *
      * @return null|FieldType
      */
     public function getType()
@@ -89,6 +95,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
      * Must be unique for a given <a href="ctp:api:type:ResourceTypeId">ResourceTypeId</a>.
      * In case there is a FieldDefinition with the same <code>name</code> in another <a href="ctp:api:type:Type">Type</a>, both FieldDefinitions must have the same <code>type</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getName()
@@ -107,6 +114,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
 
     /**
      * <p>A human-readable label for the field.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -128,6 +136,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     /**
      * <p>Defines whether the field is required to have a value.</p>
      *
+     *
      * @return null|bool
      */
     public function getRequired()
@@ -148,6 +157,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
      * <p>Must be either <code>SingleLine</code> or <code>MultiLine</code>.
      * Defines the visual representation of the field in user interfaces like the Merchant Center.
      * It is only relevant for string-based <a href="ctp:api:type:FieldType">FieldTypes</a> like <a href="ctp:api:type:CustomFieldStringType">CustomFieldStringType</a> and <a href="ctp:api:type:CustomFieldLocalizedStringType">CustomFieldLocalizedStringType</a>.</p>
+     *
      *
      * @return null|string
      */

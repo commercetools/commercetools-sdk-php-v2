@@ -21,16 +21,19 @@ use stdClass;
 final class PaymentChangeTransactionInteractionIdActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $transactionId;
 
     /**
+
      * @var ?string
      */
     private $interactionId;
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -39,6 +42,7 @@ final class PaymentChangeTransactionInteractionIdActionBuilder implements Builde
     }
 
     /**
+
      * @return null|string
      */
     public function getInteractionId()

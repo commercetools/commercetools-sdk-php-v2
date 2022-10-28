@@ -17,6 +17,9 @@ interface CustomerAddressRemovedMessage extends Message
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was removed during the <a href="ctp:api:type:CustomerRemoveAddressAction">Remove Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getAddress();

@@ -21,21 +21,27 @@ use stdClass;
 final class ProductSetCategoryOrderHintActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $categoryId;
 
     /**
+
      * @var ?string
      */
     private $orderHint;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the Category to add the <code>orderHint</code>.</p>
+     *
+
      * @return null|string
      */
     public function getCategoryId()
@@ -44,6 +50,9 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+     * <p>A string representing a number between 0 and 1. Must start with <code>0.</code> and cannot end with <code>0</code>. If empty, any existing value will be removed.</p>
+     *
+
      * @return null|string
      */
     public function getOrderHint()
@@ -52,6 +61,9 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>categoryOrderHints</code> is updated. If <code>false</code>, both the current and staged <code>categoryOrderHints</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

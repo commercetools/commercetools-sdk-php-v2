@@ -21,11 +21,15 @@ use stdClass;
 final class SubscriptionSetMessagesActionBuilder implements Builder
 {
     /**
+
      * @var ?MessageSubscriptionCollection
      */
     private $messages;
 
     /**
+     * <p>Value to set. Can only be unset if <code>changes</code> is set.</p>
+     *
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()

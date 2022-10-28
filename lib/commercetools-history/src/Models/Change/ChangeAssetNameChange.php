@@ -23,26 +23,31 @@ interface ChangeAssetNameChange extends Change
     /**
      * <p>Update action for <code>changeAssetName</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();

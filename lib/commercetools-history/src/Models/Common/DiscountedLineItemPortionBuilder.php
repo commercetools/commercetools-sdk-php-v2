@@ -21,16 +21,19 @@ use stdClass;
 final class DiscountedLineItemPortionBuilder implements Builder
 {
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $discount;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $discountedAmount;
 
     /**
+
      * @return null|Reference
      */
     public function getDiscount()
@@ -39,6 +42,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getDiscountedAmount()

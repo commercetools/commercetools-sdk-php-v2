@@ -23,11 +23,13 @@ final class StandalonePriceExternalDiscountSetMessagePayloadModel extends JsonOb
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceExternalDiscountSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
@@ -37,13 +39,15 @@ final class StandalonePriceExternalDiscountSetMessagePayloadModel extends JsonOb
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DiscountedPrice $discounted = null
+        ?DiscountedPrice $discounted = null,
+        ?string $type = null
     ) {
         $this->discounted = $discounted;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,7 +65,8 @@ final class StandalonePriceExternalDiscountSetMessagePayloadModel extends JsonOb
     }
 
     /**
-     * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
+     * <p>The <code>discounted</code> value of the <a href="ctp:api:type:StandalonePrice">StandalonePrice</a> after the <a href="ctp:api:type:StandalonePriceSetDiscountedPriceAction">Set Discounted Price</a> update action.</p>
+     *
      *
      * @return null|DiscountedPrice
      */

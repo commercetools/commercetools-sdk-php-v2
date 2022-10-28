@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\StagedQuote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceModel;
 use Commercetools\Api\Models\Common\BaseResource;
@@ -20,6 +22,8 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceModel;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -35,74 +39,100 @@ use stdClass;
 final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?string
      */
     protected $stagedQuoteState;
 
     /**
+     *
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
+     *
      * @var ?QuoteRequestReference
      */
     protected $quoteRequest;
 
     /**
+     *
      * @var ?CartReference
      */
     protected $quotationCart;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validTo;
 
     /**
+     *
      * @var ?string
      */
     protected $sellerComment;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
+
+    /**
+     *
+     * @var ?StateReference
+     */
+    protected $state;
+
+    /**
+     *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
 
 
     /**
@@ -122,7 +152,9 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         ?CartReference $quotationCart = null,
         ?DateTimeImmutable $validTo = null,
         ?string $sellerComment = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?StateReference $state = null,
+        ?BusinessUnitKeyReference $businessUnit = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -138,10 +170,13 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         $this->validTo = $validTo;
         $this->sellerComment = $sellerComment;
         $this->custom = $custom;
+        $this->state = $state;
+        $this->businessUnit = $businessUnit;
     }
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
+     *
      *
      * @return null|string
      */
@@ -162,6 +197,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -180,6 +216,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
 
     /**
      * <p>Date and time (UTC) the StagedQuote was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -204,6 +241,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Date and time (UTC) the StagedQuote was last updated.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -227,6 +265,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>User-specific unique identifier of the staged quote.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -245,6 +284,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -266,6 +306,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -286,6 +327,7 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+     *
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -303,7 +345,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
+     *
      *
      * @return null|CustomerReference
      */
@@ -323,7 +366,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The Quote Request related to this Staged Quote.</p>
+     * <p>Quote Request related to the Staged Quote.</p>
+     *
      *
      * @return null|QuoteRequestReference
      */
@@ -343,7 +387,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
+     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items. May contain either <a href="ctp:api:type:DirectDiscount">DirectDiscounts</a> or <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
+     *
      *
      * @return null|CartReference
      */
@@ -363,7 +408,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>Expiration date for the quote.</p>
+     * <p>Expiration date for the Quote.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -386,7 +432,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
+     *
      *
      * @return null|string
      */
@@ -405,7 +452,8 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     }
 
     /**
-     * <p>Custom Fields of this Staged Quote.</p>
+     * <p>Custom Fields of the Staged Quote.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -422,6 +470,49 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+     *
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
     }
 
 
@@ -535,6 +626,22 @@ final class StagedQuoteModel extends JsonObjectModel implements StagedQuote
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
     }
 
 

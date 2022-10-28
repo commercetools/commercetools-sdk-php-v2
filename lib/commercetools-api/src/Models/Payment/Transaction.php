@@ -27,6 +27,7 @@ interface Transaction extends JsonObject
     /**
      * <p>Unique identifier of the Transaction.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -34,6 +35,7 @@ interface Transaction extends JsonObject
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp();
@@ -41,11 +43,13 @@ interface Transaction extends JsonObject
     /**
      * <p>The type of this transaction.</p>
      *
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getAmount();
@@ -54,6 +58,7 @@ interface Transaction extends JsonObject
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
      * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId();
@@ -61,6 +66,7 @@ interface Transaction extends JsonObject
     /**
      * <p>The state of this transaction.</p>
      *
+
      * @return null|string
      */
     public function getState();
@@ -68,6 +74,7 @@ interface Transaction extends JsonObject
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

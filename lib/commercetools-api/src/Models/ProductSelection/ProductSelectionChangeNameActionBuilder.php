@@ -23,6 +23,7 @@ use stdClass;
 final class ProductSelectionChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -30,6 +31,7 @@ final class ProductSelectionChangeNameActionBuilder implements Builder
     /**
      * <p>The new name to be set for the ProductSelection.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

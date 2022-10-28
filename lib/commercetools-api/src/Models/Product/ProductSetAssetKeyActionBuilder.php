@@ -21,31 +21,39 @@ use stdClass;
 final class ProductSetAssetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -54,6 +62,9 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -62,6 +73,9 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()
@@ -70,6 +84,9 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId()
@@ -78,9 +95,9 @@ final class ProductSetAssetKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>User-defined identifier for the asset.
-     * If left blank or set to <code>null</code>, the asset key is unset/removed.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()

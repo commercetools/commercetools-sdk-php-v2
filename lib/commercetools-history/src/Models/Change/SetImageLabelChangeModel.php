@@ -24,26 +24,31 @@ final class SetImageLabelChangeModel extends JsonObjectModel implements SetImage
 
     public const DISCRIMINATOR_VALUE = 'SetImageLabelChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
+     *
      * @var ?Image
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?Image
      */
     protected $nextValue;
@@ -56,16 +61,18 @@ final class SetImageLabelChangeModel extends JsonObjectModel implements SetImage
         ?string $change = null,
         ?string $catalogData = null,
         ?Image $previousValue = null,
-        ?Image $nextValue = null
+        ?Image $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -85,6 +92,7 @@ final class SetImageLabelChangeModel extends JsonObjectModel implements SetImage
     /**
      * <p>Update action for <code>setImageLabel</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -102,6 +110,7 @@ final class SetImageLabelChangeModel extends JsonObjectModel implements SetImage
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +128,7 @@ final class SetImageLabelChangeModel extends JsonObjectModel implements SetImage
     }
 
     /**
+     *
      * @return null|Image
      */
     public function getPreviousValue()
@@ -137,6 +147,7 @@ final class SetImageLabelChangeModel extends JsonObjectModel implements SetImage
     }
 
     /**
+     *
      * @return null|Image
      */
     public function getNextValue()

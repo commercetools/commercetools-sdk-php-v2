@@ -21,26 +21,31 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setProductVariantKey';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -53,16 +58,18 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
         ?int $variantId = null,
         ?string $sku = null,
         ?string $key = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->key = $key;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,6 +87,9 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -97,6 +107,9 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -114,7 +127,8 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
+     * <p>Value to set. Must be unique. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */
@@ -133,6 +147,9 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>key</code> is set. If <code>false</code>, both the current and staged <code>key</code> are set.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

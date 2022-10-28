@@ -20,16 +20,19 @@ use stdClass;
 final class MissingImagesMetaModel extends JsonObjectModel implements MissingImagesMeta
 {
     /**
+     * @deprecated
      * @var ?MissingImagesProductLevel
      */
     protected $productLevel;
 
     /**
+     * @deprecated
      * @var ?MissingImagesVariantLevel
      */
     protected $variantLevel;
 
     /**
+     *
      * @var ?int
      */
     protected $threshold;
@@ -49,6 +52,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     }
 
     /**
+     * @deprecated
      * @return null|MissingImagesProductLevel
      */
     public function getProductLevel()
@@ -67,6 +71,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
     }
 
     /**
+     * @deprecated
      * @return null|MissingImagesVariantLevel
      */
     public function getVariantLevel()
@@ -86,6 +91,7 @@ final class MissingImagesMetaModel extends JsonObjectModel implements MissingIma
 
     /**
      * <p>The minimum number of images a product variant must have. Anything below this value is considered a product variant with missing images.</p>
+     *
      *
      * @return null|int
      */

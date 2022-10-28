@@ -23,21 +23,25 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'ProductPublished';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?array
      */
     protected $removedImageUrls;
 
     /**
+     *
      * @var ?ProductProjection
      */
     protected $productProjection;
 
     /**
+     *
      * @var ?string
      */
     protected $scope;
@@ -49,15 +53,17 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     public function __construct(
         ?array $removedImageUrls = null,
         ?ProductProjection $productProjection = null,
-        ?string $scope = null
+        ?string $scope = null,
+        ?string $type = null
     ) {
         $this->removedImageUrls = $removedImageUrls;
         $this->productProjection = $productProjection;
         $this->scope = $scope;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,6 +81,9 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>List of image URLs which were removed during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
+     *
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -92,6 +101,9 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the <a href="ctp:api:type:Product">Product</a> at the time of creation.</p>
+     *
+     *
      * @return null|ProductProjection
      */
     public function getProductProjection()
@@ -110,6 +122,9 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductPublishScope">Publishing Scope</a> that was used during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getScope()

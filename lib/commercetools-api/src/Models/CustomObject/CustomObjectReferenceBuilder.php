@@ -23,11 +23,13 @@ use stdClass;
 final class CustomObjectReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|CustomObject|CustomObjectBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class CustomObjectReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomObject">CustomObject</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class CustomObjectReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded CustomObject. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomObjects.</p>
      *
+
      * @return null|CustomObject
      */
     public function getObj()

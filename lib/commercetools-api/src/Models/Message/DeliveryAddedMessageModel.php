@@ -30,64 +30,82 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryAdded';
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+     *
      * @var ?Delivery
      */
     protected $delivery;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -104,7 +122,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?Delivery $delivery = null
+        ?Delivery $delivery = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -117,11 +137,13 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->delivery = $delivery;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
+     *
      *
      * @return null|string
      */
@@ -140,6 +162,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -157,6 +182,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -178,6 +206,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -199,7 +230,8 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -221,6 +253,7 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -239,6 +272,10 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -256,7 +293,8 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
+     *
      *
      * @return null|Reference
      */
@@ -276,6 +314,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -293,6 +334,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
+     *
      * @return null|string
      */
     public function getType()
@@ -310,6 +354,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -328,6 +375,9 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     }
 
     /**
+     * <p><a href="ctp:api:type:Delivery">Delivery</a> that was added to the <a href="ctp:api:type:Order">Order</a>. The <a href="ctp:api:type:Delivery">Delivery</a> in the Message body does not contain <a href="ctp:api:type:Parcel">Parcels</a> if those were part of the initial <a href="ctp:api:type:OrderAddDeliveryAction">Add Delivery</a> update action. In that case, the update action produces an additional <a href="ctp:api:type:ParcelAddedToDeliveryMessage">ParcelAddedToDelivery</a> Message containing information about the <a href="ctp:api:type:Parcel">Parcels</a>.</p>
+     *
+     *
      * @return null|Delivery
      */
     public function getDelivery()
@@ -343,6 +393,26 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
         }
 
         return $this->delivery;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
 
@@ -432,6 +502,14 @@ final class DeliveryAddedMessageModel extends JsonObjectModel implements Deliver
     public function setDelivery(?Delivery $delivery): void
     {
         $this->delivery = $delivery;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 
 

@@ -21,11 +21,13 @@ use stdClass;
 final class SimilarProductPairBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $confidence;
 
     /**
+
      * @var ?SimilarProductCollection
      */
     private $products;
@@ -33,6 +35,7 @@ final class SimilarProductPairBuilder implements Builder
     /**
      * <p>The probability of product similarity.</p>
      *
+
      * @return null|float
      */
     public function getConfidence()
@@ -41,6 +44,7 @@ final class SimilarProductPairBuilder implements Builder
     }
 
     /**
+
      * @return null|SimilarProductCollection
      */
     public function getProducts()

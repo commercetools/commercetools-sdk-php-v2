@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\CustomFieldsBuilder;
 final class SetProductPriceCustomTypeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $nextValue;
@@ -45,6 +49,7 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setProductPriceCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -61,6 +67,7 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class SetProductPriceCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()

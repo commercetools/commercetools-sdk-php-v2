@@ -21,6 +21,7 @@ use stdClass;
 final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $taxRateId;
@@ -28,6 +29,7 @@ final class TaxCategoryRemoveTaxRateActionBuilder implements Builder
     /**
      * <p>ID of the TaxRate to remove.</p>
      *
+
      * @return null|string
      */
     public function getTaxRateId()

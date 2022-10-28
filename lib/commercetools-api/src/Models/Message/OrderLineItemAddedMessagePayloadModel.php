@@ -23,16 +23,19 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemAdded';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?LineItem
      */
     protected $lineItem;
 
     /**
+     *
      * @var ?int
      */
     protected $addedQuantity;
@@ -43,14 +46,16 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
      */
     public function __construct(
         ?LineItem $lineItem = null,
-        ?int $addedQuantity = null
+        ?int $addedQuantity = null,
+        ?string $type = null
     ) {
         $this->lineItem = $lineItem;
         $this->addedQuantity = $addedQuantity;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,6 +73,9 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+     *
      * @return null|LineItem
      */
     public function getLineItem()
@@ -86,6 +94,9 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+     *
      * @return null|int
      */
     public function getAddedQuantity()

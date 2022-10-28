@@ -21,6 +21,7 @@ interface ExtensionDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Extension.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -28,6 +29,7 @@ interface ExtensionDraft extends JsonObject
     /**
      * <p>Defines where the Extension can be reached.</p>
      *
+
      * @return null|ExtensionDestination
      */
     public function getDestination();
@@ -35,6 +37,7 @@ interface ExtensionDraft extends JsonObject
     /**
      * <p>Describes what triggers the Extension.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers();
@@ -46,6 +49,7 @@ interface ExtensionDraft extends JsonObject
      * <p>This limit can be increased per Project after we review the performance impact.
      * Please contact our support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the Region, Project key, and use case.</p>
      *
+
      * @return null|int
      */
     public function getTimeoutInMs();

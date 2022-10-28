@@ -23,6 +23,7 @@ use stdClass;
 final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
 {
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
@@ -30,6 +31,7 @@ final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

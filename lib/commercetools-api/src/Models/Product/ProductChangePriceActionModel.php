@@ -23,21 +23,25 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
 {
     public const DISCRIMINATOR_VALUE = 'changePrice';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
+     *
      * @var ?PriceDraft
      */
     protected $price;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -49,15 +53,17 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     public function __construct(
         ?string $priceId = null,
         ?PriceDraft $price = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->priceId = $priceId;
         $this->price = $price;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -75,7 +81,8 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * <p>ID of the <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrice</a></p>
+     * <p>The <code>id</code> of the Embedded Price to update.</p>
+     *
      *
      * @return null|string
      */
@@ -94,6 +101,9 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>Value to set.</p>
+     *
+     *
      * @return null|PriceDraft
      */
     public function getPrice()
@@ -112,6 +122,9 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

@@ -21,16 +21,21 @@ use stdClass;
 final class ProductUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?ProductUpdateActionCollection
      */
     private $actions;
 
     /**
+     * <p>Expected version of the Product on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +44,9 @@ final class ProductUpdateBuilder implements Builder
     }
 
     /**
+     * <p>Update actions to be performed on the Product.</p>
+     *
+
      * @return null|ProductUpdateActionCollection
      */
     public function getActions()

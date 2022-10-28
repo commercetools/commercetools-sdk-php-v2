@@ -25,41 +25,49 @@ use stdClass;
 final class MatchingPriceNotFoundErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $currency;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -68,6 +76,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -76,6 +85,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()
@@ -84,6 +94,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCurrency()
@@ -92,6 +103,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCountry()
@@ -102,6 +114,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -112,6 +125,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel()

@@ -32,46 +32,55 @@ use stdClass;
 final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
 {
     /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?CustomerGroupKeyReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?ChannelKeyReference
      */
     protected $channel;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+     *
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
+     *
      * @var ?Custom
      */
     protected $custom;
@@ -105,6 +114,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     /**
      * <p>Maps to <code>Price.value</code>.</p>
      *
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -125,6 +135,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     /**
      * <p>Maps to <code>Price.county</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -143,6 +154,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
 
     /**
      * <p>Maps to <code>Price.validFrom</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -167,6 +179,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     /**
      * <p>Maps to <code>Price.validUntil</code>.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -190,6 +203,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     /**
      * <p>References a customer group by key.</p>
      *
+     *
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -209,6 +223,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
 
     /**
      * <p>References a channel by key.</p>
+     *
      *
      * @return null|ChannelKeyReference
      */
@@ -230,6 +245,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -250,6 +266,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
     /**
      * <p>The tiered prices for this price.</p>
      *
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -268,6 +285,7 @@ final class LineItemPriceModel extends JsonObjectModel implements LineItemPrice
 
     /**
      * <p>Maps to <code>Price.custom</code>.</p>
+     *
      *
      * @return null|Custom
      */

@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Cart\ItemShippingDetails;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsBuilder;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceBuilder;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -20,8 +22,6 @@ use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -37,98 +37,117 @@ use stdClass;
 final class OrderLineItemRemovedMessageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?int
      */
     private $sequenceNumber;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?int
      */
     private $removedQuantity;
 
     /**
+
      * @var ?int
      */
     private $newQuantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $newState;
 
     /**
-     * @var null|TypedMoney|TypedMoneyBuilder
+
+     * @var null|CentPrecisionMoney|CentPrecisionMoneyBuilder
      */
     private $newTotalPrice;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $newTaxedPrice;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $newPrice;
 
     /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $newShippingDetail;
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -137,6 +156,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
@@ -145,6 +167,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -153,6 +178,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -161,8 +189,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -173,6 +202,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -181,6 +211,10 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -189,8 +223,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -199,6 +234,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -207,6 +245,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -215,6 +256,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
+
      * @return null|string
      */
     public function getLineItemId()
@@ -223,6 +267,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|int
      */
     public function getRemovedQuantity()
@@ -231,6 +278,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|int
      */
     public function getNewQuantity()
@@ -239,6 +289,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ItemState">ItemStates</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|ItemStateCollection
      */
     public function getNewState()
@@ -247,16 +300,20 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p><code>totalPrice</code> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
      *
-     * @return null|TypedMoney
+
+     * @return null|CentPrecisionMoney
      */
     public function getNewTotalPrice()
     {
-        return $this->newTotalPrice instanceof TypedMoneyBuilder ? $this->newTotalPrice->build() : $this->newTotalPrice;
+        return $this->newTotalPrice instanceof CentPrecisionMoneyBuilder ? $this->newTotalPrice->build() : $this->newTotalPrice;
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice()
@@ -265,6 +322,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Price">Price</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|Price
      */
     public function getNewPrice()
@@ -273,6 +333,9 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ItemShippingDetails">Shipping Details</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail()
@@ -435,10 +498,10 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
     }
 
     /**
-     * @param ?TypedMoney $newTotalPrice
+     * @param ?CentPrecisionMoney $newTotalPrice
      * @return $this
      */
-    public function withNewTotalPrice(?TypedMoney $newTotalPrice)
+    public function withNewTotalPrice(?CentPrecisionMoney $newTotalPrice)
     {
         $this->newTotalPrice = $newTotalPrice;
 
@@ -526,7 +589,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
      * @deprecated use withNewTotalPrice() instead
      * @return $this
      */
-    public function withNewTotalPriceBuilder(?TypedMoneyBuilder $newTotalPrice)
+    public function withNewTotalPriceBuilder(?CentPrecisionMoneyBuilder $newTotalPrice)
     {
         $this->newTotalPrice = $newTotalPrice;
 
@@ -583,7 +646,7 @@ final class OrderLineItemRemovedMessageBuilder implements Builder
             $this->removedQuantity,
             $this->newQuantity,
             $this->newState,
-            $this->newTotalPrice instanceof TypedMoneyBuilder ? $this->newTotalPrice->build() : $this->newTotalPrice,
+            $this->newTotalPrice instanceof CentPrecisionMoneyBuilder ? $this->newTotalPrice->build() : $this->newTotalPrice,
             $this->newTaxedPrice instanceof TaxedItemPriceBuilder ? $this->newTaxedPrice->build() : $this->newTaxedPrice,
             $this->newPrice instanceof PriceBuilder ? $this->newPrice->build() : $this->newPrice,
             $this->newShippingDetail instanceof ItemShippingDetailsBuilder ? $this->newShippingDetail->build() : $this->newShippingDetail

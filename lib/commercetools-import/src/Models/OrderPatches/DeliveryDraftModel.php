@@ -23,16 +23,19 @@ use stdClass;
 final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
 {
     /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+     *
      * @var ?Address
      */
     protected $address;
 
     /**
+     *
      * @var ?DeliveryParcelDraftCollection
      */
     protected $parcels;
@@ -52,6 +55,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -69,6 +73,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
+     *
      * @return null|Address
      */
     public function getAddress()
@@ -87,6 +92,7 @@ final class DeliveryDraftModel extends JsonObjectModel implements DeliveryDraft
     }
 
     /**
+     *
      * @return null|DeliveryParcelDraftCollection
      */
     public function getParcels()

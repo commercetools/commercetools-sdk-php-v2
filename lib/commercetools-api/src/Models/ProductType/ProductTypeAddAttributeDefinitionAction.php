@@ -18,6 +18,7 @@ interface ProductTypeAddAttributeDefinitionAction extends ProductTypeUpdateActio
     /**
      * <p>Value to append to <code>attributes</code>.</p>
      *
+
      * @return null|AttributeDefinitionDraft
      */
     public function getAttribute();

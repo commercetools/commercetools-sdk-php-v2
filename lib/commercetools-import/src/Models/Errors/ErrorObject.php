@@ -18,11 +18,13 @@ interface ErrorObject extends JsonObject
     public const FIELD_MESSAGE = 'message';
 
     /**
+
      * @return null|string
      */
     public function getCode();
 
     /**
+
      * @return null|string
      */
     public function getMessage();

@@ -19,11 +19,13 @@ interface DeliveryItem extends JsonObject
     /**
      * <p>Unique identifier of the DeliveryItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

@@ -18,6 +18,7 @@ interface RemoveAttributeDefinitionChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,11 +26,13 @@ interface RemoveAttributeDefinitionChange extends Change
     /**
      * <p>Update action for <code>removeAttributeDefinition</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|AttributeDefinition
      */
     public function getPreviousValue();

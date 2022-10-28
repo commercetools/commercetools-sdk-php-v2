@@ -26,6 +26,7 @@ use Commercetools\Import\Client\Resource\ResourceByProjectKeyProducts;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductTypes;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductVariantPatches;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductVariants;
+use Commercetools\Import\Client\Resource\ResourceByProjectKeyStandalonePrices;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -103,6 +104,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyPrices::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/prices'
+            ],
+            'ResourceByProjectKeyStandalonePrices' => [
+                function (ImportRequestBuilder $builder): ResourceByProjectKeyStandalonePrices {
+                    return $builder
+                        ->withProjectKeyValue("test_projectKey")
+                        ->standalonePrices();
+                },
+                ResourceByProjectKeyStandalonePrices::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/standalone-prices'
             ],
             'ResourceByProjectKeyProducts' => [
                 function (ImportRequestBuilder $builder): ResourceByProjectKeyProducts {

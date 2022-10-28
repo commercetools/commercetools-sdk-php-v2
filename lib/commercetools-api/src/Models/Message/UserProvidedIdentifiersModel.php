@@ -22,36 +22,43 @@ use stdClass;
 final class UserProvidedIdentifiersModel extends JsonObjectModel implements UserProvidedIdentifiers
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
+     *
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+     *
      * @var ?string
      */
     protected $customerNumber;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+     *
      * @var ?ContainerAndKey
      */
     protected $containerAndKey;
@@ -81,6 +88,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * <p>User-provided unique identifier of the resource.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -98,6 +106,9 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+     * <p>User-provided unique identifier of the resource.</p>
+     *
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -115,6 +126,9 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+     * <p>User-provided unique identifier of an <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getOrderNumber()
@@ -132,6 +146,9 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+     * <p>User-provided unique identifier of a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getCustomerNumber()
@@ -149,6 +166,9 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+     * <p>Unique SKU of a <a href="ctp:api:type:ProductVariant">Product Variant</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -166,7 +186,8 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Unique identifier usually used in deep-link URLs for a <a href="ctp:api:type:Product">Product</a>. The value corresponds to the slug in the <code>current</code> <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -186,7 +207,8 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
-     * <p>Custom Objects are grouped into containers, which can be used like namespaces. Within a given container, a user-defined key can be used to uniquely identify resources.</p>
+     * <p>Unique identifier of a <a href="/../api/projects/custom-objects">Custom Object</a>.</p>
+     *
      *
      * @return null|ContainerAndKey
      */

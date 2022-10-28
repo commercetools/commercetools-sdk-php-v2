@@ -18,6 +18,7 @@ interface AuthorizationHeaderAuthentication extends HttpDestinationAuthenticatio
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
+
      * @return null|string
      */
     public function getHeaderValue();

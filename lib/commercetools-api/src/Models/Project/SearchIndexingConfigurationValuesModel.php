@@ -23,16 +23,19 @@ use stdClass;
 final class SearchIndexingConfigurationValuesModel extends JsonObjectModel implements SearchIndexingConfigurationValues
 {
     /**
+     *
      * @var ?string
      */
     protected $status;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
@@ -54,6 +57,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
     /**
      * <p>Current status of resource indexing. Present on Projects from 1 February 2019.</p>
      *
+     *
      * @return null|string
      */
     public function getStatus()
@@ -72,6 +76,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
 
     /**
      * <p>Date and time (UTC) the Project was last updated. Only present on Projects last modified after 1 February 2019.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -95,6 +100,7 @@ final class SearchIndexingConfigurationValuesModel extends JsonObjectModel imple
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */

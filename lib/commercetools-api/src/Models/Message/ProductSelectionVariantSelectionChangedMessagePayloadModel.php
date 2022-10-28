@@ -25,21 +25,25 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionVariantSelectionChanged';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
+     *
      * @var ?ProductVariantSelection
      */
     protected $oldVariantSelection;
 
     /**
+     *
      * @var ?ProductVariantSelection
      */
     protected $newVariantSelection;
@@ -51,15 +55,17 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     public function __construct(
         ?ProductReference $product = null,
         ?ProductVariantSelection $oldVariantSelection = null,
-        ?ProductVariantSelection $newVariantSelection = null
+        ?ProductVariantSelection $newVariantSelection = null,
+        ?string $type = null
     ) {
         $this->product = $product;
         $this->oldVariantSelection = $oldVariantSelection;
         $this->newVariantSelection = $newVariantSelection;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -77,7 +83,8 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Product">Product</a>.</p>
+     * <p><a href="ctp:api:type:Product">Product</a> for which the Product Variant Selection changed.</p>
+     *
      *
      * @return null|ProductReference
      */
@@ -97,7 +104,8 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
-     * <p>The former Product Variant Selection if any.</p>
+     * <p>Product Variant Selection before the <a href="ctp:api:type:ProductSelectionSetVariantSelectionAction">Set Variant Selection</a> update action.</p>
+     *
      *
      * @return null|ProductVariantSelection
      */
@@ -117,7 +125,8 @@ final class ProductSelectionVariantSelectionChangedMessagePayloadModel extends J
     }
 
     /**
-     * <p>The updated Product Variant Selection if any.</p>
+     * <p>Product Variant Selection after the <a href="ctp:api:type:ProductSelectionSetVariantSelectionAction">Set Variant Selection</a> update action.</p>
+     *
      *
      * @return null|ProductVariantSelection
      */

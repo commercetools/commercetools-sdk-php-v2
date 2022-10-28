@@ -21,6 +21,7 @@ use stdClass;
 final class ProductDiscountChangePredicateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $predicate;
@@ -28,6 +29,7 @@ final class ProductDiscountChangePredicateActionBuilder implements Builder
     /**
      * <p>New value to set. Must be a valid <a href="/../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()

@@ -21,13 +21,16 @@ use stdClass;
 final class CustomerSetExternalIdActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
-     * <p>If not defined, the external ID is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()

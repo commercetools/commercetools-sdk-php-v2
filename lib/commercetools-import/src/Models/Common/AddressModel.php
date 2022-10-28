@@ -20,126 +20,151 @@ use stdClass;
 final class AddressModel extends JsonObjectModel implements Address
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $title;
 
     /**
+     *
      * @var ?string
      */
     protected $salutation;
 
     /**
+     *
      * @var ?string
      */
     protected $firstName;
 
     /**
+     *
      * @var ?string
      */
     protected $lastName;
 
     /**
+     *
      * @var ?string
      */
     protected $streetName;
 
     /**
+     *
      * @var ?string
      */
     protected $streetNumber;
 
     /**
+     *
      * @var ?string
      */
     protected $additionalStreetInfo;
 
     /**
+     *
      * @var ?string
      */
     protected $postalCode;
 
     /**
+     *
      * @var ?string
      */
     protected $city;
 
     /**
+     *
      * @var ?string
      */
     protected $region;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $company;
 
     /**
+     *
      * @var ?string
      */
     protected $department;
 
     /**
+     *
      * @var ?string
      */
     protected $building;
 
     /**
+     *
      * @var ?string
      */
     protected $apartment;
 
     /**
+     *
      * @var ?string
      */
     protected $pOBox;
 
     /**
+     *
      * @var ?string
      */
     protected $phone;
 
     /**
+     *
      * @var ?string
      */
     protected $mobile;
 
     /**
+     *
      * @var ?string
      */
     protected $email;
 
     /**
+     *
      * @var ?string
      */
     protected $fax;
 
     /**
+     *
      * @var ?string
      */
     protected $additionalAddressInfo;
 
     /**
+     *
      * @var ?string
      */
     protected $externalId;
@@ -203,6 +228,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getId()
@@ -220,6 +246,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()
@@ -237,6 +264,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTitle()
@@ -254,6 +282,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getSalutation()
@@ -271,6 +300,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getFirstName()
@@ -288,6 +318,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLastName()
@@ -305,6 +336,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getStreetName()
@@ -322,6 +354,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getStreetNumber()
@@ -339,6 +372,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAdditionalStreetInfo()
@@ -356,6 +390,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPostalCode()
@@ -373,6 +408,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCity()
@@ -390,6 +426,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getRegion()
@@ -407,6 +444,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getState()
@@ -426,6 +464,7 @@ final class AddressModel extends JsonObjectModel implements Address
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -443,6 +482,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCompany()
@@ -460,6 +500,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getDepartment()
@@ -477,6 +518,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getBuilding()
@@ -494,6 +536,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getApartment()
@@ -511,6 +554,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPOBox()
@@ -528,6 +572,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPhone()
@@ -545,6 +590,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMobile()
@@ -562,6 +608,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getEmail()
@@ -579,6 +626,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getFax()
@@ -596,6 +644,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAdditionalAddressInfo()
@@ -613,6 +662,7 @@ final class AddressModel extends JsonObjectModel implements Address
     }
 
     /**
+     *
      * @return null|string
      */
     public function getExternalId()

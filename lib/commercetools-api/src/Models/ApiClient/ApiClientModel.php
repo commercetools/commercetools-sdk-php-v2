@@ -21,46 +21,55 @@ use stdClass;
 final class ApiClientModel extends JsonObjectModel implements ApiClient
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $scope;
 
     /**
+     *
      * @var ?string
      */
     protected $secret;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastUsedAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $deleteAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?int
      */
     protected $accessTokenValiditySeconds;
 
     /**
+     *
      * @var ?int
      */
     protected $refreshTokenValiditySeconds;
@@ -94,6 +103,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     /**
      * <p>The OAuth2 <code>client_id</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -113,6 +123,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     /**
      * <p>Name of the APIClient.</p>
      *
+     *
      * @return null|string
      */
     public function getName()
@@ -131,6 +142,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
 
     /**
      * <p>Whitespace-separated list of <a href="/../api/scopes">OAuth scopes</a> that can be used when <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtaining an access token</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -152,6 +164,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
      * <p>Only shown once in the response of creating the APIClient.
      * This is the OAuth2 <code>client_secret</code> that can be used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getSecret()
@@ -170,6 +183,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
 
     /**
      * <p>Date of the last day this APIClient was used to <a href="/../api/authorization#requesting-an-access-token-using-the-composable-commerce-oauth-20-service">obtain an access token</a>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -194,6 +208,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     /**
      * <p>If set, the Client will be deleted on (or shortly after) this point in time.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getDeleteAt()
@@ -216,6 +231,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
 
     /**
      * <p>Date and time (UTC) the APIClient was initially created at.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -240,6 +256,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
     /**
      * <p>Expiration time in seconds for each access token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
      *
+     *
      * @return null|int
      */
     public function getAccessTokenValiditySeconds()
@@ -258,6 +275,7 @@ final class ApiClientModel extends JsonObjectModel implements ApiClient
 
     /**
      * <p>Inactivity expiration time in seconds for each refresh token obtained by the APIClient. Only present when set with the <a href="ctp:api:type:ApiClientDraft">APIClientDraft</a>. If not present the default value applies.</p>
+     *
      *
      * @return null|int
      */

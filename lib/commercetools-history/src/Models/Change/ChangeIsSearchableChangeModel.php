@@ -22,26 +22,31 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
 
     public const DISCRIMINATOR_VALUE = 'ChangeIsSearchableChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?bool
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?bool
      */
     protected $previousValue;
@@ -54,16 +59,18 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
         ?string $change = null,
         ?string $attributeName = null,
         ?bool $nextValue = null,
-        ?bool $previousValue = null
+        ?bool $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->attributeName = $attributeName;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -82,6 +89,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
 
     /**
      * <p>Update action for <code>changeIsSearchable</code> on product types</p>
+     *
      *
      * @return null|string
      */
@@ -102,6 +110,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     /**
      * <p>The name of the updated attribute.</p>
      *
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -119,6 +128,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getNextValue()
@@ -136,6 +146,7 @@ final class ChangeIsSearchableChangeModel extends JsonObjectModel implements Cha
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getPreviousValue()

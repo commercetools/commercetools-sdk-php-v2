@@ -20,21 +20,25 @@ interface Reservation extends JsonObject
     public const FIELD_CHECKOUT_STARTED_AT = 'checkoutStartedAt';
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|Reference
      */
     public function getOwner();
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|string
      */
     public function getCheckoutStartedAt();

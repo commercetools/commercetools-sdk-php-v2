@@ -21,21 +21,25 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
 {
     public const DISCRIMINATOR_VALUE = 'EnumKeyDoesNotExist';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?string
      */
     protected $conflictingEnumKey;
 
     /**
+     *
      * @var ?string
      */
     protected $conflictingAttributeName;
@@ -47,15 +51,17 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     public function __construct(
         ?string $message = null,
         ?string $conflictingEnumKey = null,
-        ?string $conflictingAttributeName = null
+        ?string $conflictingAttributeName = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->conflictingEnumKey = $conflictingEnumKey;
         $this->conflictingAttributeName = $conflictingAttributeName;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -73,6 +79,7 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +97,7 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     }
 
     /**
+     *
      * @return null|string
      */
     public function getConflictingEnumKey()
@@ -107,6 +115,7 @@ final class EnumKeyDoesNotExistErrorModel extends JsonObjectModel implements Enu
     }
 
     /**
+     *
      * @return null|string
      */
     public function getConflictingAttributeName()

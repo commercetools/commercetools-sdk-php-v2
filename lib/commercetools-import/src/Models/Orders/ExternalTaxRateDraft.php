@@ -22,31 +22,37 @@ interface ExternalTaxRateDraft extends JsonObject
     public const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
 
     /**
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|float
      */
     public function getAmount();
 
     /**
+
      * @return null|string
      */
     public function getCountry();
 
     /**
+
      * @return null|string
      */
     public function getState();
 
     /**
+
      * @return null|SubRateCollection
      */
     public function getSubRates();
 
     /**
+
      * @return null|bool
      */
     public function getIncludedInPrice();

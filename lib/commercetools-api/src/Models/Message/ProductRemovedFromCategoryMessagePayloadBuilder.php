@@ -23,18 +23,21 @@ use stdClass;
 final class ProductRemovedFromCategoryMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|CategoryReference|CategoryReferenceBuilder
      */
     private $category;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p><a href="ctp:api:type:Category">Category</a> the <a href="ctp:api:type:Product">Product</a> was removed from.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -43,6 +46,9 @@ final class ProductRemovedFromCategoryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

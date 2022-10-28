@@ -22,51 +22,61 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
 
     /**
+     *
      * @var ?string
      */
     protected $addedAt;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $productSlug;
 
     /**
+     *
      * @var ?Reference
      */
     protected $productType;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?Variant
      */
     protected $variant;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
@@ -101,6 +111,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAddedAt()
@@ -118,6 +129,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -136,6 +148,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getId()
@@ -153,6 +166,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -171,6 +185,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getProductId()
@@ -188,6 +203,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -206,6 +222,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getProductType()
@@ -224,6 +241,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -241,6 +259,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|Variant
      */
     public function getVariant()
@@ -259,6 +278,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getVariantId()

@@ -22,6 +22,7 @@ use stdClass;
 final class ProductTypeImportRequestBuilder implements Builder
 {
     /**
+
      * @var ?ProductTypeImportCollection
      */
     private $resources;
@@ -29,6 +30,7 @@ final class ProductTypeImportRequestBuilder implements Builder
     /**
      * <p>The product type import resources of this request.</p>
      *
+
      * @return null|ProductTypeImportCollection
      */
     public function getResources()

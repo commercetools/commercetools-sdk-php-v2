@@ -22,16 +22,19 @@ interface CustomFieldExpandedValue extends JsonObject
     /**
      * <p>Name of a custom field.</p>
      *
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|mixed
      */
     public function getValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel();

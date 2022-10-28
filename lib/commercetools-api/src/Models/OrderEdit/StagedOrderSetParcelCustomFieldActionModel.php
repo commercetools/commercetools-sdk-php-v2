@@ -23,21 +23,25 @@ final class StagedOrderSetParcelCustomFieldActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'setParcelCustomField';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?mixed
      */
     protected $value;
@@ -49,15 +53,17 @@ final class StagedOrderSetParcelCustomFieldActionModel extends JsonObjectModel i
     public function __construct(
         ?string $parcelId = null,
         ?string $name = null,
-        $value = null
+        $value = null,
+        ?string $action = null
     ) {
         $this->parcelId = $parcelId;
         $this->name = $name;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -75,6 +81,7 @@ final class StagedOrderSetParcelCustomFieldActionModel extends JsonObjectModel i
     }
 
     /**
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -93,6 +100,7 @@ final class StagedOrderSetParcelCustomFieldActionModel extends JsonObjectModel i
 
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -114,6 +122,7 @@ final class StagedOrderSetParcelCustomFieldActionModel extends JsonObjectModel i
      * <p>If <code>value</code> is absent or <code>null</code>, this field will be removed if it exists.
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
+     *
      *
      * @return null|mixed
      */

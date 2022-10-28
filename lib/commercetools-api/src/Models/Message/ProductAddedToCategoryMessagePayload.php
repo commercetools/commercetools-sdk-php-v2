@@ -18,13 +18,17 @@ interface ProductAddedToCategoryMessagePayload extends MessagePayload
     public const FIELD_STAGED = 'staged';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Category">Category</a>.</p>
+     * <p><a href="ctp:api:type:Category">Category</a> the <a href="ctp:api:type:Product">Product</a> was added to.</p>
      *
+
      * @return null|CategoryReference
      */
     public function getCategory();
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();

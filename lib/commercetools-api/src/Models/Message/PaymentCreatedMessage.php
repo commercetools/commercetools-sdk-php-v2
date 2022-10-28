@@ -17,6 +17,9 @@ interface PaymentCreatedMessage extends Message
     public const FIELD_PAYMENT = 'payment';
 
     /**
+     * <p><a href="ctp:api:type:Payment">Payment</a> that was created.</p>
+     *
+
      * @return null|Payment
      */
     public function getPayment();

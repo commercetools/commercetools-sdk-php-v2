@@ -21,11 +21,13 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setSalutation';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $salutation;
@@ -35,13 +37,15 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $salutation = null
+        ?string $salutation = null,
+        ?string $action = null
     ) {
         $this->salutation = $salutation;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,9 @@ final class CustomerSetSalutationActionModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value to set. If empty, any existing value is removed.</p>
+     *
+     *
      * @return null|string
      */
     public function getSalutation()

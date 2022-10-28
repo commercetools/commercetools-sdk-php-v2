@@ -26,31 +26,37 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemMoneyChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+     *
      * @var ?Money
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?Money
      */
     protected $previousValue;
@@ -64,17 +70,19 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
         ?Money $nextValue = null,
-        ?Money $previousValue = null
+        ?Money $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -94,6 +102,7 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
     /**
      * <p>Update action for <code>setCustomLineItemMoney</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,6 +120,7 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -129,6 +139,7 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -146,6 +157,7 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|Money
      */
     public function getNextValue()
@@ -164,6 +176,7 @@ final class SetCustomLineItemMoneyChangeModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|Money
      */
     public function getPreviousValue()

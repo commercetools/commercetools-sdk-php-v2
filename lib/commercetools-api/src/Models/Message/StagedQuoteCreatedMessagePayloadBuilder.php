@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\StagedQuote\StagedQuote;
+use Commercetools\Api\Models\StagedQuote\StagedQuoteBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -20,9 +22,49 @@ use stdClass;
  */
 final class StagedQuoteCreatedMessagePayloadBuilder implements Builder
 {
+    /**
+
+     * @var null|StagedQuote|StagedQuoteBuilder
+     */
+    private $stagedQuote;
+
+    /**
+     * <p><a href="/../api/projects/staged-quotes">Staged Quote</a> that was created.</p>
+     *
+
+     * @return null|StagedQuote
+     */
+    public function getStagedQuote()
+    {
+        return $this->stagedQuote instanceof StagedQuoteBuilder ? $this->stagedQuote->build() : $this->stagedQuote;
+    }
+
+    /**
+     * @param ?StagedQuote $stagedQuote
+     * @return $this
+     */
+    public function withStagedQuote(?StagedQuote $stagedQuote)
+    {
+        $this->stagedQuote = $stagedQuote;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withStagedQuote() instead
+     * @return $this
+     */
+    public function withStagedQuoteBuilder(?StagedQuoteBuilder $stagedQuote)
+    {
+        $this->stagedQuote = $stagedQuote;
+
+        return $this;
+    }
+
     public function build(): StagedQuoteCreatedMessagePayload
     {
         return new StagedQuoteCreatedMessagePayloadModel(
+            $this->stagedQuote instanceof StagedQuoteBuilder ? $this->stagedQuote->build() : $this->stagedQuote
         );
     }
 

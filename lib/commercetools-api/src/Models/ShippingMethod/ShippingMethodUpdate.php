@@ -19,6 +19,7 @@ interface ShippingMethodUpdate extends JsonObject
     /**
      * <p>Expected version of the ShippingMethod on which the changes should be applied. If the expected version does not match the actual version, a 409 Conflict will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -26,6 +27,7 @@ interface ShippingMethodUpdate extends JsonObject
     /**
      * <p>Update actions to be performed on the <a href="/projects/shippingMethods#shippingmethod">ShippingMethod</a>.</p>
      *
+
      * @return null|ShippingMethodUpdateActionCollection
      */
     public function getActions();

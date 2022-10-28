@@ -23,6 +23,7 @@ interface RecordPagedQueryResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit();
@@ -30,6 +31,7 @@ interface RecordPagedQueryResponse extends JsonObject
     /**
      * <p>Actual number of results returned.</p>
      *
+
      * @return null|int
      */
     public function getCount();
@@ -38,6 +40,7 @@ interface RecordPagedQueryResponse extends JsonObject
      * <p>Total number of results matching the query.
      * This number is an estimation and not <a href="/general-concepts#strong-consistency">strongly consistent</a>.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -45,11 +48,13 @@ interface RecordPagedQueryResponse extends JsonObject
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset();
 
     /**
+
      * @return null|RecordCollection
      */
     public function getResults();

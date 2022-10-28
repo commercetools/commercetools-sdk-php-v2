@@ -21,16 +21,21 @@ use stdClass;
 final class PaymentTransactionStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $transactionId;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:Transaction">Transaction</a> for which the <a href="ctp:api:type:TransactionState">Transaction State</a> changed.</p>
+     *
+
      * @return null|string
      */
     public function getTransactionId()
@@ -39,6 +44,9 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     }
 
     /**
+     * <p><a href="ctp:api:type:TransactionState">Transaction State</a> after the <a href="ctp:api:type:PaymentChangeTransactionStateAction">Change Transaction State</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getState()

@@ -24,21 +24,25 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
 
     public const DISCRIMINATOR_VALUE = 'SetCustomTypeChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -50,15 +54,17 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     public function __construct(
         ?string $change = null,
         ?CustomFields $nextValue = null,
-        ?CustomFields $previousValue = null
+        ?CustomFields $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     /**
      * <p>Update action for setting a custom type</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -113,6 +121,7 @@ final class SetCustomTypeChangeModel extends JsonObjectModel implements SetCusto
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getPreviousValue()

@@ -21,21 +21,25 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
 {
     public const DISCRIMINATOR_VALUE = 'centPrecision';
     /**
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
+     *
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?int
      */
     protected $fractionDigits;
@@ -47,12 +51,13 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     public function __construct(
         ?int $centAmount = null,
         ?string $currencyCode = null,
-        ?int $fractionDigits = null
+        ?int $fractionDigits = null,
+        ?string $type = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
         $this->fractionDigits = $fractionDigits;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -61,6 +66,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
      * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
+     *
      *
      * @return null|int
      */
@@ -81,6 +87,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getCurrencyCode()
@@ -98,6 +105,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -116,6 +124,7 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
 
     /**
      * <p>This field is optional for cent precision. If provided, it must be equal to the default number of fraction digits for the specified currency.</p>
+     *
      *
      * @return null|int
      */

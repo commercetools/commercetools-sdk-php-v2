@@ -23,16 +23,21 @@ use stdClass;
 final class OrderLineItemDistributionChannelSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $distributionChannel;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
+
      * @return null|string
      */
     public function getLineItemId()
@@ -41,8 +46,9 @@ final class OrderLineItemDistributionChannelSetMessagePayloadBuilder implements 
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:Channel">Distribution Channel</a> that was set.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel()

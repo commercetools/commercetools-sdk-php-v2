@@ -28,11 +28,13 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements Expandable<ByProjectKeyMeActiveCartGet>
  * @template-implements Errorable<ByProjectKeyMeActiveCartGet>
  * @template-implements Deprecatable200<ByProjectKeyMeActiveCartGet>
  */
-class ByProjectKeyMeActiveCartGet extends ApiRequest implements Errorable, Deprecatable200
+class ByProjectKeyMeActiveCartGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -140,5 +142,14 @@ class ByProjectKeyMeActiveCartGet extends ApiRequest implements Errorable, Depre
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyMeActiveCartGet
+    {
+        return $this->withQueryParam('expand', $expand);
     }
 }

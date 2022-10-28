@@ -23,6 +23,7 @@ interface SetOrderLineItemCustomFieldChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -30,36 +31,43 @@ interface SetOrderLineItemCustomFieldChange extends Change
     /**
      * <p>Update action for <code>setLineItemCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCustomTypeId();
 
     /**
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|string
      */
     public function getVariant();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

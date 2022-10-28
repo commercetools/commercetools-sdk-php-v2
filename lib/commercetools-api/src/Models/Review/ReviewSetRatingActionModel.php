@@ -21,11 +21,13 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
 {
     public const DISCRIMINATOR_VALUE = 'setRating';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $rating;
@@ -35,13 +37,15 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $rating = null
+        ?int $rating = null,
+        ?string $action = null
     ) {
         $this->rating = $rating;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,8 +63,8 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     }
 
     /**
-     * <p>Number between -100 and 100 included.
-     * If <code>rating</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|int
      */

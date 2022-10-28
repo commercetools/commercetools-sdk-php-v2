@@ -20,6 +20,7 @@ interface Custom extends JsonObject
     /**
      * <p>The type that provides the field definitions for this object.</p>
      *
+
      * @return null|TypeKeyReference
      */
     public function getType();
@@ -27,6 +28,7 @@ interface Custom extends JsonObject
     /**
      * <p>The custom fields of this object.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

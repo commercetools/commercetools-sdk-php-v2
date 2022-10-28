@@ -21,21 +21,27 @@ use stdClass;
 final class ProductRemoveVariantActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to remove.</p>
+     *
+
      * @return null|int
      */
     public function getId()
@@ -44,6 +50,9 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to remove.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -52,6 +61,9 @@ final class ProductRemoveVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged ProductVariant is removed. If <code>false</code>, both the current and staged ProductVariant is removed.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

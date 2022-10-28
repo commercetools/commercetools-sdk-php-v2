@@ -20,11 +20,13 @@ use stdClass;
 final class UpdateModel extends JsonObjectModel implements Update
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?UpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,7 @@ final class UpdateModel extends JsonObjectModel implements Update
     }
 
     /**
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +62,7 @@ final class UpdateModel extends JsonObjectModel implements Update
     }
 
     /**
+     *
      * @return null|UpdateActionCollection
      */
     public function getActions()

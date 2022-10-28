@@ -22,11 +22,13 @@ final class AttributeValueModel extends JsonObjectModel implements AttributeValu
 
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?mixed
      */
     protected $value;
@@ -45,6 +47,7 @@ final class AttributeValueModel extends JsonObjectModel implements AttributeValu
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -62,6 +65,7 @@ final class AttributeValueModel extends JsonObjectModel implements AttributeValu
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getValue()

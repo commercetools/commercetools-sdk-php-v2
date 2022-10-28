@@ -21,16 +21,19 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
 {
     public const DISCRIMINATOR_VALUE = 'EventBridge';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $region;
 
     /**
+     *
      * @var ?string
      */
     protected $accountId;
@@ -41,14 +44,16 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
      */
     public function __construct(
         ?string $region = null,
-        ?string $accountId = null
+        ?string $accountId = null,
+        ?string $type = null
     ) {
         $this->region = $region;
         $this->accountId = $accountId;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +71,8 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
     }
 
     /**
-     * <p>AWS region of the Subscriptions that receives the events.</p>
+     * <p>AWS region that receives the events.</p>
+     *
      *
      * @return null|string
      */
@@ -85,7 +91,8 @@ final class EventBridgeDestinationModel extends JsonObjectModel implements Event
     }
 
     /**
-     * <p>ID of the AWS account that receives events.</p>
+     * <p>ID of the AWS account that receives the events.</p>
+     *
      *
      * @return null|string
      */

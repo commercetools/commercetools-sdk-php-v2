@@ -18,6 +18,7 @@ interface ProductTypeChangeNameAction extends ProductTypeUpdateAction
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getName();

@@ -21,26 +21,31 @@ use stdClass;
 final class ParcelMeasurementsBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $heightInMillimeter;
 
     /**
+
      * @var ?int
      */
     private $lengthInMillimeter;
 
     /**
+
      * @var ?int
      */
     private $widthInMillimeter;
 
     /**
+
      * @var ?int
      */
     private $weightInGram;
 
     /**
+
      * @return null|int
      */
     public function getHeightInMillimeter()
@@ -49,6 +54,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getLengthInMillimeter()
@@ -57,6 +63,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getWidthInMillimeter()
@@ -65,6 +72,7 @@ final class ParcelMeasurementsBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getWeightInGram()

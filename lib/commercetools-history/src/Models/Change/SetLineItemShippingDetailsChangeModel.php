@@ -24,26 +24,31 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemShippingDetailsChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?ItemShippingDetails
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?ItemShippingDetails
      */
     protected $previousValue;
@@ -56,16 +61,18 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
         ?string $change = null,
         ?string $lineItemId = null,
         ?ItemShippingDetails $nextValue = null,
-        ?ItemShippingDetails $previousValue = null
+        ?ItemShippingDetails $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItemId = $lineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -85,6 +92,7 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>setLineItemShippingDetails</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -102,6 +110,7 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -119,6 +128,7 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|ItemShippingDetails
      */
     public function getNextValue()
@@ -137,6 +147,7 @@ final class SetLineItemShippingDetailsChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|ItemShippingDetails
      */
     public function getPreviousValue()

@@ -16,6 +16,7 @@ interface PaymentSetInterfaceIdAction extends PaymentUpdateAction
     public const FIELD_INTERFACE_ID = 'interfaceId';
 
     /**
+
      * @return null|string
      */
     public function getInterfaceId();

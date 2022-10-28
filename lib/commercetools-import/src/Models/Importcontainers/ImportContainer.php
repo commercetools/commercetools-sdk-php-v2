@@ -24,6 +24,7 @@ interface ImportContainer extends JsonObject
      * <p>User-defined unique identifier for the ImportContainer.
      * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -32,6 +33,7 @@ interface ImportContainer extends JsonObject
      * <p>The <a href="#importresourcetype">resource type</a> the ImportContainer is able to handle.
      * If not present, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
      *
+
      * @return null|string
      */
     public function getResourceType();
@@ -39,6 +41,7 @@ interface ImportContainer extends JsonObject
     /**
      * <p>The version of the ImportContainer.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -46,6 +49,7 @@ interface ImportContainer extends JsonObject
     /**
      * <p>The time when the ImportContainer was created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -53,6 +57,7 @@ interface ImportContainer extends JsonObject
     /**
      * <p>The last time when the ImportContainer was modified.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();

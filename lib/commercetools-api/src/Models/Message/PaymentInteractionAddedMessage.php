@@ -17,8 +17,9 @@ interface PaymentInteractionAddedMessage extends Message
     public const FIELD_INTERACTION = 'interaction';
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>The interface interaction that was added to the <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|CustomFields
      */
     public function getInteraction();

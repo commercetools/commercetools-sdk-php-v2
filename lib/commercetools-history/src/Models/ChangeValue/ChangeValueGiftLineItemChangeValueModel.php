@@ -24,26 +24,31 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
 
     public const DISCRIMINATOR_VALUE = 'giftLineItem';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?Reference
      */
     protected $product;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?Reference
      */
     protected $supplyChannel;
 
     /**
+     *
      * @var ?Reference
      */
     protected $distributionChannel;
@@ -56,16 +61,18 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
         ?Reference $product = null,
         ?int $variantId = null,
         ?Reference $supplyChannel = null,
-        ?Reference $distributionChannel = null
+        ?Reference $distributionChannel = null,
+        ?string $type = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -83,6 +90,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getProduct()
@@ -101,6 +109,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -118,6 +127,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getSupplyChannel()
@@ -136,6 +146,7 @@ final class ChangeValueGiftLineItemChangeValueModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getDistributionChannel()

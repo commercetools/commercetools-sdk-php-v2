@@ -18,16 +18,19 @@ interface FacetTerm extends JsonObject
     public const FIELD_PRODUCT_COUNT = 'productCount';
 
     /**
+
      * @return null|mixed
      */
     public function getTerm();
 
     /**
+
      * @return null|int
      */
     public function getCount();
 
     /**
+
      * @return null|int
      */
     public function getProductCount();

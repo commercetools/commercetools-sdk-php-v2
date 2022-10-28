@@ -25,41 +25,49 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setAssetCustomType';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -75,7 +83,8 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
         ?string $assetId = null,
         ?string $assetKey = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -84,10 +93,11 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
         $this->assetKey = $assetKey;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -105,6 +115,9 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -122,6 +135,9 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -139,6 +155,9 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -156,6 +175,9 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -173,6 +195,9 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -193,6 +218,7 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -212,6 +238,7 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
 
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
+     *
      *
      * @return null|FieldContainer
      */

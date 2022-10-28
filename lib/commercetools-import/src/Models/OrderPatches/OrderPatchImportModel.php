@@ -20,11 +20,13 @@ use stdClass;
 final class OrderPatchImportModel extends JsonObjectModel implements OrderPatchImport
 {
     /**
+     *
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+     *
      * @var ?OrderField
      */
     protected $fields;
@@ -44,6 +46,7 @@ final class OrderPatchImportModel extends JsonObjectModel implements OrderPatchI
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order, unique across a project.</p>
      *
+     *
      * @return null|string
      */
     public function getOrderNumber()
@@ -62,6 +65,7 @@ final class OrderPatchImportModel extends JsonObjectModel implements OrderPatchI
 
     /**
      * <p>Each field referenced must be defined in an already existing order in the project or the import operation state is set to <code>validationFailed</code>.</p>
+     *
      *
      * @return null|OrderField
      */

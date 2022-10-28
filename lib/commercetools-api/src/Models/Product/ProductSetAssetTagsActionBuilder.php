@@ -21,36 +21,45 @@ use stdClass;
 final class ProductSetAssetTagsActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var ?array
      */
     private $tags;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -59,6 +68,9 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -67,6 +79,9 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()
@@ -75,6 +90,9 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId()
@@ -83,6 +101,9 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetKey()
@@ -91,6 +112,9 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     }
 
     /**
+     * <p>Keywords for categorizing and organizing Assets.</p>
+     *
+
      * @return null|array
      */
     public function getTags()

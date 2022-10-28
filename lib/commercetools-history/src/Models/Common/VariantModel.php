@@ -22,16 +22,19 @@ final class VariantModel extends JsonObjectModel implements Variant
 
 
     /**
+     *
      * @var ?int
      */
     protected $id;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -52,6 +55,7 @@ final class VariantModel extends JsonObjectModel implements Variant
     }
 
     /**
+     *
      * @return null|int
      */
     public function getId()
@@ -69,6 +73,7 @@ final class VariantModel extends JsonObjectModel implements Variant
     }
 
     /**
+     *
      * @return null|string
      */
     public function getSku()
@@ -86,6 +91,7 @@ final class VariantModel extends JsonObjectModel implements Variant
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()

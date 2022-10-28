@@ -28,68 +28,81 @@ use stdClass;
 final class ProductVariantBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?PriceCollection
      */
     private $prices;
 
     /**
+
      * @var ?AttributeCollection
      */
     private $attributes;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $price;
 
     /**
+
      * @var ?ImageCollection
      */
     private $images;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @var null|ProductVariantAvailability|ProductVariantAvailabilityBuilder
      */
     private $availability;
 
     /**
+
      * @var ?bool
      */
     private $isMatchingVariant;
 
     /**
+
      * @var null|ScopedPrice|ScopedPriceBuilder
      */
     private $scopedPrice;
 
     /**
+
      * @var ?bool
      */
     private $scopedPriceDiscounted;
 
     /**
-     * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
+     * <p>A unique, sequential identifier of the Product Variant within the Product.</p>
      *
+
      * @return null|int
      */
     public function getId()
@@ -98,6 +111,9 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -106,9 +122,10 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the ProductVariant.
-     * <em>ProductVariant keys are different from Product keys.</em></p>
+     * <p>User-defined unique identifier of the ProductVariant.</p>
+     * <p>This is different from <a href="ctp:api:type:Product">Product</a> <code>key</code>.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -117,6 +134,10 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>The Embedded Prices of the Product Variant.
+     * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
+
      * @return null|PriceCollection
      */
     public function getPrices()
@@ -125,6 +146,9 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Attributes of the Product Variant.</p>
+     *
+
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -133,6 +157,10 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Only available when <a href="#price-selection">Price selection</a> is used.
+     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     *
+
      * @return null|Price
      */
     public function getPrice()
@@ -141,6 +169,9 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Images of the Product Variant.</p>
+     *
+
      * @return null|ImageCollection
      */
     public function getImages()
@@ -149,6 +180,9 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Media assets of the Product Variant.</p>
+     *
+
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -157,6 +191,11 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Set if the Product Variant is tracked by <a href="ctp:api:type:InventoryEntry">Inventory</a>.
+     * Can be used as an optimization to reduce calls to the Inventory service.
+     * May not contain the latest Inventory State (it is <a href="/general-concepts#eventual-consistency">eventually consistent</a>).</p>
+     *
+
      * @return null|ProductVariantAvailability
      */
     public function getAvailability()
@@ -165,6 +204,10 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p><code>true</code> if the Product Variant matches the search query.
+     * Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request.</p>
+     *
+
      * @return null|bool
      */
     public function getIsMatchingVariant()
@@ -173,6 +216,11 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request
+     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
+     *
+
      * @return null|ScopedPrice
      */
     public function getScopedPrice()
@@ -181,6 +229,10 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
+     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request
+     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+
      * @return null|bool
      */
     public function getScopedPriceDiscounted()

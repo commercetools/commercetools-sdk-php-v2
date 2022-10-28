@@ -23,6 +23,7 @@ use stdClass;
 final class ChannelSetGeoLocationActionBuilder implements Builder
 {
     /**
+
      * @var null|GeoJson|GeoJsonBuilder
      */
     private $geoLocation;
@@ -30,6 +31,7 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|GeoJson
      */
     public function getGeoLocation()

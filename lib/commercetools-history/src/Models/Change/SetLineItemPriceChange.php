@@ -21,6 +21,7 @@ interface SetLineItemPriceChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface SetLineItemPriceChange extends Change
     /**
      * <p>Update action for <code>setLineItemPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem();
 
     /**
+
      * @return null|Price
      */
     public function getNextValue();
 
     /**
+
      * @return null|Price
      */
     public function getPreviousValue();

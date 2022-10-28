@@ -19,6 +19,7 @@ interface RemoveTaxRateChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,6 +27,7 @@ interface RemoveTaxRateChange extends Change
     /**
      * <p>Update action for <code>removeTaxRate</code> on tax categories</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -33,6 +35,7 @@ interface RemoveTaxRateChange extends Change
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue();
@@ -40,6 +43,7 @@ interface RemoveTaxRateChange extends Change
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue();

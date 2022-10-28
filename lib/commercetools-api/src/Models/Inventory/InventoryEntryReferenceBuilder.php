@@ -23,11 +23,13 @@ use stdClass;
 final class InventoryEntryReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|InventoryEntry|InventoryEntryBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class InventoryEntryReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:InventoryEntry">InventoryEntry</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class InventoryEntryReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded InventoryEntry. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for InventoryEntries.</p>
      *
+
      * @return null|InventoryEntry
      */
     public function getObj()

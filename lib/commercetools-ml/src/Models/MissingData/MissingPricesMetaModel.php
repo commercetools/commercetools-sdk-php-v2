@@ -20,11 +20,13 @@ use stdClass;
 final class MissingPricesMetaModel extends JsonObjectModel implements MissingPricesMeta
 {
     /**
+     * @deprecated
      * @var ?MissingPricesProductLevel
      */
     protected $productLevel;
 
     /**
+     * @deprecated
      * @var ?MissingPricesVariantLevel
      */
     protected $variantLevel;
@@ -42,6 +44,7 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     }
 
     /**
+     * @deprecated
      * @return null|MissingPricesProductLevel
      */
     public function getProductLevel()
@@ -60,6 +63,7 @@ final class MissingPricesMetaModel extends JsonObjectModel implements MissingPri
     }
 
     /**
+     * @deprecated
      * @return null|MissingPricesVariantLevel
      */
     public function getVariantLevel()

@@ -27,56 +27,67 @@ use stdClass;
 final class ReviewDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $uniquenessValue;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?string
      */
     private $authorName;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?string
      */
     private $text;
 
     /**
+
      * @var ?JsonObject
      */
     private $target;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @var ?int
      */
     private $rating;
 
     /**
+
      * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
     private $customer;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -84,6 +95,7 @@ final class ReviewDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Review.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -92,9 +104,10 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>If set, this value must be unique among reviews.
-     * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code> and <code>product's id</code>.</p>
+     * <p>If set, this value must be unique among Reviews.
+     * For example, if you want to have only one Review per Customer and per Product, you can set the value to Customer <code>id</code> + Product <code>id</code>.</p>
      *
+
      * @return null|string
      */
     public function getUniquenessValue()
@@ -103,6 +116,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Language in which the content of the Review is written.</p>
+     *
+
      * @return null|string
      */
     public function getLocale()
@@ -111,6 +127,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Name of the author.</p>
+     *
+
      * @return null|string
      */
     public function getAuthorName()
@@ -119,6 +138,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Title of the Review.</p>
+     *
+
      * @return null|string
      */
     public function getTitle()
@@ -127,6 +149,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Content of the Review.</p>
+     *
+
      * @return null|string
      */
     public function getText()
@@ -135,9 +160,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies the target of the review.
-     * Can be a Product or a Channel</p>
+     * <p>Identifies the target of the Review. Can be a <a href="ctp:api:type:Product">Product</a> or a <a href="ctp:api:type:Channel">Channel</a>, specified as <a href="ctp:api:type:ProductResourceIdentifier">ProductResourceIdentifier</a> or <a href="ctp:api:type:ChannelResourceIdentifier">ChannelResourceIdentifier</a>, respectively.</p>
      *
+
      * @return null|JsonObject
      */
     public function getTarget()
@@ -146,6 +171,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>State of the Review. Used for approval processes, see <a href="/../tutorials/review-ratings#review-approval-process">Review approval process</a> for details.</p>
+     *
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -154,11 +182,11 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>Number between -100 and 100 included.
-     * Rating of the targeted object, like a product.
-     * This rating can represent the number of stars, or a percentage, or a like (+1)/dislike (-1)
-     * A rating is used in the ratings statistics of the targeted object, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.</p>
+     * <p>Rating of the targeted Product or Channel.
+     * This rating can represent the number of stars, a percentage, or a like (+1)/dislike (-1).
+     * A rating is used in the ratings statistics of the targeted object, unless the Review is in a State that does not have the role <code>ReviewIncludedInStatistics</code>.</p>
      *
+
      * @return null|int
      */
     public function getRating()
@@ -167,8 +195,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
-     * <p>The customer who created the review.</p>
+     * <p>Customer who created the Review.</p>
      *
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -177,6 +206,9 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Review.</p>
+     *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

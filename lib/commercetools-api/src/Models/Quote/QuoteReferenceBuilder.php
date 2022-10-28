@@ -23,11 +23,13 @@ use stdClass;
 final class QuoteReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Quote|QuoteBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class QuoteReferenceBuilder implements Builder
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -46,6 +49,7 @@ final class QuoteReferenceBuilder implements Builder
      * <p>Contains the representation of the expanded Quote.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Quote.</p>
      *
+
      * @return null|Quote
      */
     public function getObj()

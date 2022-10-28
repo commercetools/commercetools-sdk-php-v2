@@ -20,11 +20,13 @@ use stdClass;
 final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?float
      */
     protected $quantity;
@@ -42,6 +44,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getId()
@@ -59,6 +62,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
     /**
+     *
      * @return null|float
      */
     public function getQuantity()

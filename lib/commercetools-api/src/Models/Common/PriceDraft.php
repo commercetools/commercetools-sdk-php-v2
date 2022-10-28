@@ -17,6 +17,7 @@ use DateTimeImmutable;
 
 interface PriceDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_VALUE = 'value';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -28,8 +29,17 @@ interface PriceDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Money value of this Price.</p>
      *
+
      * @return null|Money
      */
     public function getValue();
@@ -37,6 +47,7 @@ interface PriceDraft extends JsonObject
     /**
      * <p>Set this field if this Price is only valid for the specified country.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -44,6 +55,7 @@ interface PriceDraft extends JsonObject
     /**
      * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -51,27 +63,30 @@ interface PriceDraft extends JsonObject
     /**
      * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel();
 
     /**
-     * <p>Set this field if this Price is valid only valid from the specified date and time.</p>
+     * <p>Set this field if this Price is only valid from the specified date and time. Must be at least 1 ms earlier than <code>validUntil</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
-     * <p>Set this field if this Price is valid only valid until the specified date and time.</p>
+     * <p>Set this field if this Price is only valid until the specified date and time. Must be at least 1 ms later than <code>validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
-     * <p>Set this field to add a DiscountedPrice from an external service.</p>
-     * <p>The API sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
+     * <p>Set this field to add a DiscountedPrice from an <strong>external service</strong>.</p>
+     * <p>Otherwise, Composable Commerce sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
      * The DiscountedPrice must reference a ProductDiscount with:</p>
      * <ul>
      * <li>The <code>isActive</code> flag set to <code>true</code>.</li>
@@ -79,6 +94,7 @@ interface PriceDraft extends JsonObject
      * <li>A <code>predicate</code> that matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Price is referenced from.</li>
      * </ul>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
@@ -86,6 +102,7 @@ interface PriceDraft extends JsonObject
     /**
      * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
      *
+
      * @return null|PriceTierDraftCollection
      */
     public function getTiers();
@@ -93,9 +110,15 @@ interface PriceDraft extends JsonObject
     /**
      * <p>Custom Fields for the Price.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?Money $value

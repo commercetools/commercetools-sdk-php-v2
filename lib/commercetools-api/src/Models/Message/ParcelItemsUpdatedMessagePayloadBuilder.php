@@ -22,26 +22,39 @@ use stdClass;
 final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $oldItems;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
+
      * @return null|string
      */
     public function getParcelId()
@@ -50,6 +63,9 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -58,6 +74,9 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> after the <a href="ctp:api:type:OrderSetParcelItemsAction">Set Parcel Items</a> update action.</p>
+     *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -66,11 +85,25 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> before the <a href="ctp:api:type:OrderSetParcelItemsAction">Set Parcel Items</a> update action.</p>
+     *
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()
     {
         return $this->oldItems;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -117,6 +150,17 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
 
     public function build(): ParcelItemsUpdatedMessagePayload
     {
@@ -124,7 +168,8 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
             $this->parcelId,
             $this->deliveryId,
             $this->items,
-            $this->oldItems
+            $this->oldItems,
+            $this->shippingKey
         );
     }
 

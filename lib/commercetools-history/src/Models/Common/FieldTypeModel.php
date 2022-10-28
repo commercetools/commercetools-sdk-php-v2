@@ -22,6 +22,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
 
 
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -38,6 +39,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()

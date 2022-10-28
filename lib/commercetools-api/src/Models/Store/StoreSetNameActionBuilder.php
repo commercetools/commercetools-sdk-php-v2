@@ -23,6 +23,7 @@ use stdClass;
 final class StoreSetNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -30,6 +31,7 @@ final class StoreSetNameActionBuilder implements Builder
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()

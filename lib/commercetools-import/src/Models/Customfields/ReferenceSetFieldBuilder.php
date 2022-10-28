@@ -22,11 +22,13 @@ use stdClass;
 final class ReferenceSetFieldBuilder implements Builder
 {
     /**
+
      * @var ?KeyReferenceCollection
      */
     private $value;
 
     /**
+
      * @return null|KeyReferenceCollection
      */
     public function getValue()

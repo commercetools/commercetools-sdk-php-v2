@@ -22,11 +22,13 @@ use stdClass;
 final class ImageSearchConfigResponseBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $status;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
@@ -34,6 +36,7 @@ final class ImageSearchConfigResponseBuilder implements Builder
     /**
      * <p>The image search activation status.</p>
      *
+
      * @return null|string
      */
     public function getStatus()
@@ -42,6 +45,7 @@ final class ImageSearchConfigResponseBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

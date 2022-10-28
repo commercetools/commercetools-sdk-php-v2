@@ -23,21 +23,27 @@ use stdClass;
 final class CustomerChangeAddressActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressId;
 
     /**
+
      * @var ?string
      */
     private $addressKey;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
+
      * @return null|string
      */
     public function getAddressId()
@@ -46,6 +52,9 @@ final class CustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
+
      * @return null|string
      */
     public function getAddressKey()
@@ -54,6 +63,9 @@ final class CustomerChangeAddressActionBuilder implements Builder
     }
 
     /**
+     * <p>Value to set.</p>
+     *
+
      * @return null|BaseAddress
      */
     public function getAddress()

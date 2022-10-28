@@ -21,26 +21,31 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'MissingTaxRateForCountry';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?string
      */
     protected $taxCategoryId;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
@@ -53,16 +58,18 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
         ?string $message = null,
         ?string $taxCategoryId = null,
         ?string $country = null,
-        ?string $state = null
+        ?string $state = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->taxCategoryId = $taxCategoryId;
         $this->country = $country;
         $this->state = $state;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -80,6 +87,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -97,6 +105,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTaxCategoryId()
@@ -114,6 +123,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCountry()
@@ -131,6 +141,7 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|string
      */
     public function getState()

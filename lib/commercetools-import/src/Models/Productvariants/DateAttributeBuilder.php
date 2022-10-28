@@ -22,11 +22,13 @@ use stdClass;
 final class DateAttributeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $value;
@@ -36,6 +38,7 @@ final class DateAttributeBuilder implements Builder
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -44,6 +47,7 @@ final class DateAttributeBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValue()

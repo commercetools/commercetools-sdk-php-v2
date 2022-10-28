@@ -22,33 +22,49 @@ interface CustomerToken extends JsonObject
     public const FIELD_VALUE = 'value';
 
     /**
-     * <p>Unique identifier of the CustomerToken.</p>
+     * <p>Unique identifier of the token.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>Date and time (UTC) the token was initially created.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+     * <p>When the token is created, <code>lastModifiedAt</code> is set to <code>createdAt</code>.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
 
     /**
+     * <p>The <code>id</code> of the Customer.</p>
+     *
+
      * @return null|string
      */
     public function getCustomerId();
 
     /**
+     * <p>Date and time (UTC) the token expires.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt();
 
     /**
+     * <p>Value of the token.</p>
+     *
+
      * @return null|string
      */
     public function getValue();

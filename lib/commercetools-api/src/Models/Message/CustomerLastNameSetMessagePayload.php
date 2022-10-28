@@ -16,6 +16,9 @@ interface CustomerLastNameSetMessagePayload extends MessagePayload
     public const FIELD_LAST_NAME = 'lastName';
 
     /**
+     * <p>The <code>lastName</code> that was set during the <a href="ctp:api:type:CustomerSetLastNameAction">Set Last Name</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getLastName();

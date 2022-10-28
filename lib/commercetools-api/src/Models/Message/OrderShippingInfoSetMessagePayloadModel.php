@@ -23,16 +23,19 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'OrderShippingInfoSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
 
     /**
+     *
      * @var ?ShippingInfo
      */
     protected $oldShippingInfo;
@@ -43,14 +46,16 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
      */
     public function __construct(
         ?ShippingInfo $shippingInfo = null,
-        ?ShippingInfo $oldShippingInfo = null
+        ?ShippingInfo $oldShippingInfo = null,
+        ?string $type = null
     ) {
         $this->shippingInfo = $shippingInfo;
         $this->oldShippingInfo = $oldShippingInfo;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,6 +73,9 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ShippingInfo">ShippingInfo</a> after the <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Set Shipping Method</a> or <a href="ctp:api:type:StagedOrderSetCustomShippingMethodAction">Set Custom Shipping Method</a> update action.</p>
+     *
+     *
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -86,6 +94,9 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ShippingInfo">ShippingInfo</a> before the <a href="ctp:api:type:StagedOrderSetShippingMethodAction">Set Shipping Method</a> or <a href="ctp:api:type:StagedOrderSetCustomShippingMethodAction">Set Custom Shipping Method</a> update action.</p>
+     *
+     *
      * @return null|ShippingInfo
      */
     public function getOldShippingInfo()

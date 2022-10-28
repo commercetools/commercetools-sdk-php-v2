@@ -32,51 +32,67 @@ use stdClass;
 final class CustomLineItemImportDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $money;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -88,6 +104,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -98,6 +115,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     /**
      * <p>The cost to add to the cart. The amount can be negative.</p>
      *
+
      * @return null|Money
      */
     public function getMoney()
@@ -106,6 +124,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSlug()
@@ -114,6 +133,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -122,6 +142,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -130,6 +151,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -140,6 +162,7 @@ final class CustomLineItemImportDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -148,11 +171,27 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -255,6 +294,17 @@ final class CustomLineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -331,7 +381,8 @@ final class CustomLineItemImportDraftBuilder implements Builder
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->priceMode
         );
     }
 

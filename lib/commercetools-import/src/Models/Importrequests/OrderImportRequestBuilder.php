@@ -22,6 +22,7 @@ use stdClass;
 final class OrderImportRequestBuilder implements Builder
 {
     /**
+
      * @var ?OrderImportCollection
      */
     private $resources;
@@ -29,6 +30,7 @@ final class OrderImportRequestBuilder implements Builder
     /**
      * <p>The order import resources of this request.</p>
      *
+
      * @return null|OrderImportCollection
      */
     public function getResources()

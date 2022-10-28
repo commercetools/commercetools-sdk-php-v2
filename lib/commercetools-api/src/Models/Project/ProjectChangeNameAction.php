@@ -18,6 +18,7 @@ interface ProjectChangeNameAction extends ProjectUpdateAction
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getName();

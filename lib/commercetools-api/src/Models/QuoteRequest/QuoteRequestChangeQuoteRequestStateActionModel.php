@@ -21,11 +21,13 @@ final class QuoteRequestChangeQuoteRequestStateActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'changeQuoteRequestState';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $quoteRequestState;
@@ -35,13 +37,15 @@ final class QuoteRequestChangeQuoteRequestStateActionModel extends JsonObjectMod
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $quoteRequestState = null
+        ?string $quoteRequestState = null,
+        ?string $action = null
     ) {
         $this->quoteRequestState = $quoteRequestState;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,7 +63,8 @@ final class QuoteRequestChangeQuoteRequestStateActionModel extends JsonObjectMod
     }
 
     /**
-     * <p>The new state to be set for the Quote Request.</p>
+     * <p>New state to be set for the Quote Request.</p>
+     *
      *
      * @return null|string
      */

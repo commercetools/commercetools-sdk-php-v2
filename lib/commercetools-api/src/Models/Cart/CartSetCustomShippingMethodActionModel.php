@@ -25,26 +25,31 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $shippingMethodName;
 
     /**
+     *
      * @var ?ShippingRateDraft
      */
     protected $shippingRate;
 
     /**
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -57,16 +62,18 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         ?string $shippingMethodName = null,
         ?ShippingRateDraft $shippingRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $action = null
     ) {
         $this->shippingMethodName = $shippingMethodName;
         $this->shippingRate = $shippingRate;
         $this->taxCategory = $taxCategory;
         $this->externalTaxRate = $externalTaxRate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -84,6 +91,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|string
      */
     public function getShippingMethodName()
@@ -101,6 +109,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -121,6 +130,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -139,6 +149,7 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

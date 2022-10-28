@@ -19,6 +19,7 @@ interface Address extends BaseAddress
     /**
      * <p>Unique identifier of the Address.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -26,6 +27,7 @@ interface Address extends BaseAddress
     /**
      * <p>Custom Fields defined for the Address.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

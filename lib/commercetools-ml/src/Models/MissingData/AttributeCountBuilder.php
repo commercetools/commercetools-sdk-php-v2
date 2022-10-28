@@ -21,16 +21,19 @@ use stdClass;
 final class AttributeCountBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $productTypeAttributes;
 
     /**
+
      * @var ?int
      */
     private $variantAttributes;
 
     /**
+
      * @var ?int
      */
     private $missingAttributeValues;
@@ -38,6 +41,7 @@ final class AttributeCountBuilder implements Builder
     /**
      * <p>Number of attributes defined in the product type.</p>
      *
+
      * @return null|int
      */
     public function getProductTypeAttributes()
@@ -48,6 +52,7 @@ final class AttributeCountBuilder implements Builder
     /**
      * <p>Number of attributes defined in the variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantAttributes()
@@ -58,6 +63,7 @@ final class AttributeCountBuilder implements Builder
     /**
      * <p>Number of attributes missing values in the variant.</p>
      *
+
      * @return null|int
      */
     public function getMissingAttributeValues()

@@ -21,16 +21,19 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'QuoteStateChanged';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $quoteState;
 
     /**
+     *
      * @var ?string
      */
     protected $oldQuoteState;
@@ -41,14 +44,16 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $quoteState = null,
-        ?string $oldQuoteState = null
+        ?string $oldQuoteState = null,
+        ?string $type = null
     ) {
         $this->quoteState = $quoteState;
         $this->oldQuoteState = $oldQuoteState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -66,7 +71,8 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Predefined states tracking the status of the Quote.</p>
+     * <p>State of the Quote after the <a href="ctp:api:type:QuoteChangeQuoteStateAction">Change Quote State</a> update action.</p>
+     *
      *
      * @return null|string
      */
@@ -85,7 +91,8 @@ final class QuoteStateChangedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>Predefined states tracking the status of the Quote.</p>
+     * <p>State of the Quote before the <a href="ctp:api:type:QuoteChangeQuoteStateAction">Change Quote State</a> update action.</p>
+     *
      *
      * @return null|string
      */

@@ -24,21 +24,25 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
 
     public const DISCRIMINATOR_VALUE = 'SetMetaKeywordsChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -50,15 +54,17 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     public function __construct(
         ?string $change = null,
         ?LocalizedString $previousValue = null,
-        ?LocalizedString $nextValue = null
+        ?LocalizedString $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     /**
      * <p>Shape of the action for <code>setMetaKeywords</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -113,6 +121,7 @@ final class SetMetaKeywordsChangeModel extends JsonObjectModel implements SetMet
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()

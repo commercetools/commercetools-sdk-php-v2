@@ -21,56 +21,67 @@ use stdClass;
 final class MissingPricesSearchRequestModel extends JsonObjectModel implements MissingPricesSearchRequest
 {
     /**
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
+     *
      * @var ?int
      */
     protected $productSetLimit;
 
     /**
+     *
      * @var ?bool
      */
     protected $includeVariants;
 
     /**
+     *
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+     *
      * @var ?bool
      */
     protected $checkDate;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?array
      */
     protected $productIds;
 
     /**
+     *
      * @var ?array
      */
     protected $productTypeIds;
@@ -108,6 +119,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+     *
      * @return null|int
      */
     public function getLimit()
@@ -126,6 +138,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
 
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -146,6 +159,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -164,6 +178,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
 
     /**
      * <p>Maximum number of products to scan.</p>
+     *
      *
      * @return null|int
      */
@@ -184,6 +199,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
+     *
      * @return null|bool
      */
     public function getIncludeVariants()
@@ -202,6 +218,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
 
     /**
      * <p>If used, only checks if a product variant has a price in the provided currency code.</p>
+     *
      *
      * @return null|string
      */
@@ -222,6 +239,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>If true, checks if there are prices for the specified date range and time.</p>
      *
+     *
      * @return null|bool
      */
     public function getCheckDate()
@@ -240,6 +258,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
 
     /**
      * <p>Starting date of the range to check. If no value is given, checks prices valid at the time the search is initiated.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -264,6 +283,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Ending date of the range to check. If no value is given, it is equal to <code>validFrom</code>.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -287,6 +307,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
     /**
      * <p>Filters results by the provided Product IDs. Cannot be applied in combination with the <code>productTypeIds</code> filter.</p>
      *
+     *
      * @return null|array
      */
     public function getProductIds()
@@ -305,6 +326,7 @@ final class MissingPricesSearchRequestModel extends JsonObjectModel implements M
 
     /**
      * <p>Filters results by the provided product type IDs. Cannot be applied in combination with the <code>productIds</code> filter.</p>
+     *
      *
      * @return null|array
      */

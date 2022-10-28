@@ -22,21 +22,33 @@ use stdClass;
 final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $oldItems;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -45,6 +57,9 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> after the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -53,11 +68,25 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> before the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
+
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()
     {
         return $this->oldItems;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -93,13 +122,25 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
 
     public function build(): DeliveryItemsUpdatedMessagePayload
     {
         return new DeliveryItemsUpdatedMessagePayloadModel(
             $this->deliveryId,
             $this->items,
-            $this->oldItems
+            $this->oldItems,
+            $this->shippingKey
         );
     }
 

@@ -21,56 +21,67 @@ use stdClass;
 final class FacetRangeBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $from;
 
     /**
+
      * @var ?string
      */
     private $fromStr;
 
     /**
+
      * @var ?float
      */
     private $to;
 
     /**
+
      * @var ?string
      */
     private $toStr;
 
     /**
+
      * @var ?int
      */
     private $count;
 
     /**
+
      * @var ?int
      */
     private $productCount;
 
     /**
+
      * @var ?float
      */
     private $total;
 
     /**
+
      * @var ?float
      */
     private $min;
 
     /**
+
      * @var ?float
      */
     private $max;
 
     /**
+
      * @var ?float
      */
     private $mean;
 
     /**
+
      * @return null|float
      */
     public function getFrom()
@@ -79,6 +90,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getFromStr()
@@ -87,6 +99,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getTo()
@@ -95,6 +108,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getToStr()
@@ -103,6 +117,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCount()
@@ -111,6 +126,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getProductCount()
@@ -119,6 +135,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getTotal()
@@ -127,6 +144,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getMin()
@@ -135,6 +153,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getMax()
@@ -143,6 +162,7 @@ final class FacetRangeBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getMean()

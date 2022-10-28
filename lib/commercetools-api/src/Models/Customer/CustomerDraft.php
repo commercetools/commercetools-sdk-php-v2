@@ -19,7 +19,9 @@ use DateTimeImmutable;
 
 interface CustomerDraft extends JsonObject
 {
+    public const FIELD_KEY = 'key';
     public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
+    public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_EMAIL = 'email';
     public const FIELD_PASSWORD = 'password';
     public const FIELD_FIRST_NAME = 'firstName';
@@ -38,197 +40,261 @@ interface CustomerDraft extends JsonObject
     public const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
     public const FIELD_BILLING_ADDRESSES = 'billingAddresses';
     public const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
-    public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_LOCALE = 'locale';
     public const FIELD_SALUTATION = 'salutation';
-    public const FIELD_KEY = 'key';
     public const FIELD_STORES = 'stores';
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
-     * <p>String that uniquely identifies a customer.
-     * It can be used to create more human-readable (in contrast to ID) identifier for the customer.
-     * It should be <strong>unique</strong> across a project.
-     * Once it's set it cannot be changed.</p>
+     * <p>User-defined unique identifier for the Customer.
+     * The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
      *
-     * @return null|string
-     */
-    public function getCustomerNumber();
 
-    /**
-     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
-     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
-     * For more information, see Email uniquenes.</p>
-     *
-     * @return null|string
-     */
-    public function getEmail();
-
-    /**
-     * <p>Only optional with <code>authenticationMode</code> set to <code>ExternalAuth</code>.</p>
-     *
-     * @return null|string
-     */
-    public function getPassword();
-
-    /**
-     * @return null|string
-     */
-    public function getFirstName();
-
-    /**
-     * @return null|string
-     */
-    public function getLastName();
-
-    /**
-     * @return null|string
-     */
-    public function getMiddleName();
-
-    /**
-     * @return null|string
-     */
-    public function getTitle();
-
-    /**
-     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
-     *
-     * @return null|string
-     */
-    public function getAnonymousCartId();
-
-    /**
-     * <p>Identifies a single cart that will be assigned to the new customer account.</p>
-     *
-     * @return null|CartResourceIdentifier
-     */
-    public function getAnonymousCart();
-
-    /**
-     * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>
-     *
-     * @return null|string
-     */
-    public function getAnonymousId();
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getDateOfBirth();
-
-    /**
-     * @return null|string
-     */
-    public function getCompanyName();
-
-    /**
-     * @return null|string
-     */
-    public function getVatId();
-
-    /**
-     * <p>Sets the ID of each address to be unique in the addresses list.</p>
-     *
-     * @return null|BaseAddressCollection
-     */
-    public function getAddresses();
-
-    /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
-     *
-     * @return null|int
-     */
-    public function getDefaultShippingAddress();
-
-    /**
-     * <p>The indices of the shipping addresses in the addresses array.
-     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>
-     *
-     * @return null|array
-     */
-    public function getShippingAddresses();
-
-    /**
-     * <p>The index of the address in the addresses array.
-     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
-     *
-     * @return null|int
-     */
-    public function getDefaultBillingAddress();
-
-    /**
-     * <p>The indices of the billing addresses in the addresses array.
-     * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
-     *
-     * @return null|array
-     */
-    public function getBillingAddresses();
-
-    /**
-     * @return null|bool
-     */
-    public function getIsEmailVerified();
-
-    /**
-     * @return null|string
-     */
-    public function getExternalId();
-
-    /**
-     * @return null|CustomerGroupResourceIdentifier
-     */
-    public function getCustomerGroup();
-
-    /**
-     * <p>The custom fields.</p>
-     *
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom();
-
-    /**
-     * <p>Must be one of the languages supported for this project</p>
-     *
-     * @return null|string
-     */
-    public function getLocale();
-
-    /**
-     * @return null|string
-     */
-    public function getSalutation();
-
-    /**
-     * <p>User-defined unique identifier for the Customer.</p>
-     *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>References to the stores the customer account is associated with.
-     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
+     * <p>User-defined unique identifier for a Customer.
+     * Once set, it cannot be changed.</p>
+     * <p>Can be used to refer to a Customer in a human-readable way (in emails, invoices, and other correspondence).</p>
      *
+
+     * @return null|string
+     */
+    public function getCustomerNumber();
+
+    /**
+     * <p>Optional identifier for use in external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalId();
+
+    /**
+     * <p>Email address of the Customer that must be <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getEmail();
+
+    /**
+     * <p>Required when <code>authenticationMode</code> is set to <code>Password</code>.
+     * Provide the Customer's password in plain text. The API stores passwords in an encrypted format.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPassword();
+
+    /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFirstName();
+
+    /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLastName();
+
+    /**
+     * <p>Middle name of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMiddleName();
+
+    /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTitle();
+
+    /**
+     * <p>Deprecated since an anonymous <a href="ctp:api:type:Cart">Cart</a> can be identified by its <code>id</code> or external <code>key</code>.</p>
+     *
+     * @deprecated
+     * @return null|string
+     */
+    public function getAnonymousCartId();
+
+    /**
+     * <p>Identifies a <a href="ctp:api:type:Cart">Cart</a> that will be assigned to the new Customer.</p>
+     *
+
+     * @return null|CartResourceIdentifier
+     */
+    public function getAnonymousCart();
+
+    /**
+     * <p>Identifies Carts and Orders belonging to an anonymous session that will be assigned to the new Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAnonymousId();
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getDateOfBirth();
+
+    /**
+     * <p>Company name of the Customer. When representing a company as a Customer, <a href="ctp:api:type:BusinessUnit">Business Units</a> provide extended funtionality.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCompanyName();
+
+    /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVatId();
+
+    /**
+     * <p>Addresses of the Customer.</p>
+     *
+
+     * @return null|BaseAddressCollection
+     */
+    public function getAddresses();
+
+    /**
+     * <p>Index of the address in the <code>addresses</code> array to use as the default shipping address.
+     * The <code>defaultShippingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDefaultShippingAddress();
+
+    /**
+     * <p>Indices of the shipping addresses in the <code>addresses</code> array.
+     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of these addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getShippingAddresses();
+
+    /**
+     * <p>Index of the address in the <code>addresses</code> array to use as the default billing address.
+     * The <code>defaultBillingAddressId</code> of the Customer will be set to the <code>id</code> of that address.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDefaultBillingAddress();
+
+    /**
+     * <p>Indices of the billing addresses in the <code>addresses</code> array.
+     * The <code>billingAddressIds</code> of the Customer will be set to the IDs of these addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getBillingAddresses();
+
+    /**
+     * <p>Set to <code>true</code> if the email address of the Customer has been verified already.
+     * The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsEmailVerified();
+
+    /**
+     * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for the Customer.</p>
+     *
+
+     * @return null|CustomerGroupResourceIdentifier
+     */
+    public function getCustomerGroup();
+
+    /**
+     * <p>Custom Fields for the Customer.</p>
+     *
+
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom();
+
+    /**
+     * <p>Preferred language of the Customer.
+     * Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale();
+
+    /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation();
+
+    /**
+     * <p>Sets the <a href="ctp:api:type:Store">Stores</a> for the Customer.</p>
+     * <ul>
+     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * </ul>
+     *
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();
 
     /**
-     * <p>Defines whether a password field is a required field for the Customer.</p>
+     * <ul>
+     * <li>Set to <code>Password</code> to make the <code>password</code> field required for the Customer.</li>
+     * <li>Set to <code>ExternalAuth</code> when the password is not required for the Customer.</li>
+     * </ul>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode();
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
      * @param ?string $customerNumber
      */
     public function setCustomerNumber(?string $customerNumber): void;
+
+    /**
+     * @param ?string $externalId
+     */
+    public function setExternalId(?string $externalId): void;
 
     /**
      * @param ?string $email
@@ -321,11 +387,6 @@ interface CustomerDraft extends JsonObject
     public function setIsEmailVerified(?bool $isEmailVerified): void;
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void;
-
-    /**
      * @param ?CustomerGroupResourceIdentifier $customerGroup
      */
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
@@ -344,11 +405,6 @@ interface CustomerDraft extends JsonObject
      * @param ?string $salutation
      */
     public function setSalutation(?string $salutation): void;
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void;
 
     /**
      * @param ?StoreResourceIdentifierCollection $stores

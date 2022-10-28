@@ -25,43 +25,57 @@ use stdClass;
 final class OrderFromQuoteDraftBuilder implements Builder
 {
     /**
+
      * @var null|QuoteResourceIdentifier|QuoteResourceIdentifierBuilder
      */
     private $quote;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
+     * @var ?bool
+     */
+    private $quoteStateToAccepted;
+
+    /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
-     * <p>ResourceIdentifier to the Quote from which this order is created. If the quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also fail if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
      *
+
      * @return null|QuoteResourceIdentifier
      */
     public function getQuote()
@@ -70,11 +84,25 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+     * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getQuoteStateToAccepted()
+    {
+        return $this->quoteStateToAccepted;
     }
 
     /**
@@ -84,6 +112,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
      * Once it's set it cannot be changed.
      * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -92,6 +121,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -100,6 +130,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -110,6 +141,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     /**
      * <p>Order will be created with <code>Open</code> status by default.</p>
      *
+
      * @return null|string
      */
     public function getOrderState()
@@ -118,6 +150,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -143,6 +176,17 @@ final class OrderFromQuoteDraftBuilder implements Builder
     public function withVersion(?int $version)
     {
         $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $quoteStateToAccepted
+     * @return $this
+     */
+    public function withQuoteStateToAccepted(?bool $quoteStateToAccepted)
+    {
+        $this->quoteStateToAccepted = $quoteStateToAccepted;
 
         return $this;
     }
@@ -229,6 +273,7 @@ final class OrderFromQuoteDraftBuilder implements Builder
         return new OrderFromQuoteDraftModel(
             $this->quote instanceof QuoteResourceIdentifierBuilder ? $this->quote->build() : $this->quote,
             $this->version,
+            $this->quoteStateToAccepted,
             $this->orderNumber,
             $this->paymentState,
             $this->shipmentState,

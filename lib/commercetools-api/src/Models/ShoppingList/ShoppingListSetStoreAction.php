@@ -17,6 +17,7 @@ interface ShoppingListSetStoreAction extends ShoppingListUpdateAction
     public const FIELD_STORE = 'store';
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore();

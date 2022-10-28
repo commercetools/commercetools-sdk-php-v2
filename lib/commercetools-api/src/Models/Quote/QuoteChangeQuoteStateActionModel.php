@@ -21,11 +21,13 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'changeQuoteState';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $quoteState;
@@ -35,13 +37,15 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $quoteState = null
+        ?string $quoteState = null,
+        ?string $action = null
     ) {
         $this->quoteState = $quoteState;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,7 +63,8 @@ final class QuoteChangeQuoteStateActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>The new quote state to be set for the Quote.</p>
+     * <p>New state to be set for the Quote.</p>
+     *
      *
      * @return null|string
      */

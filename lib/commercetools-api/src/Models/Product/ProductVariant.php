@@ -32,66 +32,106 @@ interface ProductVariant extends JsonObject
     public const FIELD_SCOPED_PRICE_DISCOUNTED = 'scopedPriceDiscounted';
 
     /**
-     * <p>A unique, sequential identifier of the ProductVariant within the Product.</p>
+     * <p>A unique, sequential identifier of the Product Variant within the Product.</p>
      *
+
      * @return null|int
      */
     public function getId();
 
     /**
+     * <p>User-defined unique SKU of the Product Variant.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
-     * <p>User-defined unique identifier of the ProductVariant.
-     * <em>ProductVariant keys are different from Product keys.</em></p>
+     * <p>User-defined unique identifier of the ProductVariant.</p>
+     * <p>This is different from <a href="ctp:api:type:Product">Product</a> <code>key</code>.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>The Embedded Prices of the Product Variant.
+     * Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
+
      * @return null|PriceCollection
      */
     public function getPrices();
 
     /**
+     * <p>Attributes of the Product Variant.</p>
+     *
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+     * <p>Only available when <a href="#price-selection">Price selection</a> is used.
+     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     *
+
      * @return null|Price
      */
     public function getPrice();
 
     /**
+     * <p>Images of the Product Variant.</p>
+     *
+
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+     * <p>Media assets of the Product Variant.</p>
+     *
+
      * @return null|AssetCollection
      */
     public function getAssets();
 
     /**
+     * <p>Set if the Product Variant is tracked by <a href="ctp:api:type:InventoryEntry">Inventory</a>.
+     * Can be used as an optimization to reduce calls to the Inventory service.
+     * May not contain the latest Inventory State (it is <a href="/general-concepts#eventual-consistency">eventually consistent</a>).</p>
+     *
+
      * @return null|ProductVariantAvailability
      */
     public function getAvailability();
 
     /**
+     * <p><code>true</code> if the Product Variant matches the search query.
+     * Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request.</p>
+     *
+
      * @return null|bool
      */
     public function getIsMatchingVariant();
 
     /**
+     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request
+     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
+     *
+
      * @return null|ScopedPrice
      */
     public function getScopedPrice();
 
     /**
+     * <p>Only available in response to a <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request
+     * with <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+
      * @return null|bool
      */
     public function getScopedPriceDiscounted();

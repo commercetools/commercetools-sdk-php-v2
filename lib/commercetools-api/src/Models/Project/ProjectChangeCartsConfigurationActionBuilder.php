@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectChangeCartsConfigurationActionBuilder implements Builder
 {
     /**
+
      * @var null|CartsConfiguration|CartsConfigurationBuilder
      */
     private $cartsConfiguration;
@@ -28,6 +29,7 @@ final class ProjectChangeCartsConfigurationActionBuilder implements Builder
     /**
      * <p>Configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
      *
+
      * @return null|CartsConfiguration
      */
     public function getCartsConfiguration()

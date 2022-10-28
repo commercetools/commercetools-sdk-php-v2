@@ -23,6 +23,7 @@ interface SimilarProductMeta extends JsonObject
     /**
      * <p>Localized product name used for similarity estimation.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -30,6 +31,7 @@ interface SimilarProductMeta extends JsonObject
     /**
      * <p>Localized product description used for similarity estimation.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -37,6 +39,7 @@ interface SimilarProductMeta extends JsonObject
     /**
      * <p>The product price in cents using the currency defined in SimilarProductSearchRequest If multiple prices exist, the median value is taken as a representative amount.</p>
      *
+
      * @return null|Money
      */
     public function getPrice();
@@ -44,6 +47,7 @@ interface SimilarProductMeta extends JsonObject
     /**
      * <p>Total number of variants associated with the product.</p>
      *
+
      * @return null|int
      */
     public function getVariantCount();

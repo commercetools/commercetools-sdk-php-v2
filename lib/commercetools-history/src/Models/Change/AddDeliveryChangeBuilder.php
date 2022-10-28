@@ -23,16 +23,19 @@ use Commercetools\History\Models\ChangeValue\DeliveryChangeValueBuilder;
 final class AddDeliveryChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|DeliveryChangeValue|DeliveryChangeValueBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|DeliveryChangeValue|DeliveryChangeValueBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class AddDeliveryChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class AddDeliveryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryChangeValue
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class AddDeliveryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryChangeValue
      */
     public function getPreviousValue()

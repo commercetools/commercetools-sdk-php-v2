@@ -21,31 +21,37 @@ use stdClass;
 final class ChangeTargetMultiBuyCustomLineItemsChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $predicate;
 
     /**
+
      * @var ?int
      */
     private $triggerQuantity;
 
     /**
+
      * @var ?int
      */
     private $discountedQuantity;
 
     /**
+
      * @var ?int
      */
     private $maxOccurrence;
 
     /**
+
      * @var ?string
      */
     private $selectionMode;
 
     /**
+
      * @return null|string
      */
     public function getPredicate()
@@ -56,6 +62,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueBuilder implements Bui
     /**
      * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
      *
+
      * @return null|int
      */
     public function getTriggerQuantity()
@@ -66,6 +73,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueBuilder implements Bui
     /**
      * <p>Quantity of line items that are discounted per application of this discount.</p>
      *
+
      * @return null|int
      */
     public function getDiscountedQuantity()
@@ -76,6 +84,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueBuilder implements Bui
     /**
      * <p>Maximum number of applications of this discount.</p>
      *
+
      * @return null|int
      */
     public function getMaxOccurrence()
@@ -84,6 +93,7 @@ final class ChangeTargetMultiBuyCustomLineItemsChangeValueBuilder implements Bui
     }
 
     /**
+
      * @return null|string
      */
     public function getSelectionMode()

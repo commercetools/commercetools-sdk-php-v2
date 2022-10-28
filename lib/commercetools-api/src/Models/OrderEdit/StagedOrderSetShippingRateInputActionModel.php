@@ -25,11 +25,13 @@ final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'setShippingRateInput';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ShippingRateInputDraft
      */
     protected $shippingRateInput;
@@ -39,13 +41,15 @@ final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ShippingRateInputDraft $shippingRateInput = null
+        ?ShippingRateInputDraft $shippingRateInput = null,
+        ?string $action = null
     ) {
         $this->shippingRateInput = $shippingRateInput;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -63,6 +67,7 @@ final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel i
     }
 
     /**
+     *
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()

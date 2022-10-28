@@ -23,16 +23,19 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'ProductVariantAdded';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -43,14 +46,16 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
      */
     public function __construct(
         ?ProductVariant $variant = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $type = null
     ) {
         $this->variant = $variant;
         $this->staged = $staged;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,6 +73,9 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
+     *
+     *
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -86,6 +94,9 @@ final class ProductVariantAddedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

@@ -21,11 +21,13 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'removeFieldDefinition';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $fieldName;
@@ -35,13 +37,15 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $fieldName = null
+        ?string $fieldName = null,
+        ?string $action = null
     ) {
         $this->fieldName = $fieldName;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to remove.
      * The removal of a FieldDefinition deletes <a href="/../api/general-concepts#eventual-consistency">asynchronously</a> all Custom Fields using the FieldDefinition as well.</p>
+     *
      *
      * @return null|string
      */

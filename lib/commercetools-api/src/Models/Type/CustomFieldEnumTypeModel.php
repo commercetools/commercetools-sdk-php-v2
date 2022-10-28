@@ -21,11 +21,13 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
 {
     public const DISCRIMINATOR_VALUE = 'Enum';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?CustomFieldEnumValueCollection
      */
     protected $values;
@@ -35,13 +37,15 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFieldEnumValueCollection $values = null
+        ?CustomFieldEnumValueCollection $values = null,
+        ?string $name = null
     ) {
         $this->values = $values;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -60,6 +64,7 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
 
     /**
      * <p>Allowed values.</p>
+     *
      *
      * @return null|CustomFieldEnumValueCollection
      */

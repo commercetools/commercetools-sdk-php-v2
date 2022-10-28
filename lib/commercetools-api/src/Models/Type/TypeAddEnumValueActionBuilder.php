@@ -21,11 +21,13 @@ use stdClass;
 final class TypeAddEnumValueActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $fieldName;
 
     /**
+
      * @var null|CustomFieldEnumValue|CustomFieldEnumValueBuilder
      */
     private $value;
@@ -33,6 +35,7 @@ final class TypeAddEnumValueActionBuilder implements Builder
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName()
@@ -43,6 +46,7 @@ final class TypeAddEnumValueActionBuilder implements Builder
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|CustomFieldEnumValue
      */
     public function getValue()

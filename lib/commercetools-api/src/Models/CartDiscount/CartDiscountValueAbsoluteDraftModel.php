@@ -22,11 +22,13 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'absolute';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?MoneyCollection
      */
     protected $money;
@@ -36,13 +38,15 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MoneyCollection $money = null
+        ?MoneyCollection $money = null,
+        ?string $type = null
     ) {
         $this->money = $money;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -62,6 +66,7 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
     /**
      * <p>Money values in different currencies.
      * An absolute Cart Discount will only match a price if this array contains a value with the same currency. If it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
+     *
      *
      * @return null|MoneyCollection
      */

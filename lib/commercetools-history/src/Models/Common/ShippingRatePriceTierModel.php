@@ -22,6 +22,7 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
 
 
     /**
+     *
      * @var ?string
      */
     protected $type;
@@ -38,6 +39,7 @@ final class ShippingRatePriceTierModel extends JsonObjectModel implements Shippi
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()

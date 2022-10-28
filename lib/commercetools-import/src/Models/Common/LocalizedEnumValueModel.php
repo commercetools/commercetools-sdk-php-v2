@@ -20,11 +20,13 @@ use stdClass;
 final class LocalizedEnumValueModel extends JsonObjectModel implements LocalizedEnumValue
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $label;
@@ -42,6 +44,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()
@@ -65,6 +68,7 @@ final class LocalizedEnumValueModel extends JsonObjectModel implements Localized
      *   &quot;en&quot;: &quot;dog food&quot;
      * }
      * </code></pre>
+     *
      *
      * @return null|LocalizedString
      */

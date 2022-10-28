@@ -16,8 +16,9 @@ interface QuoteRequestChangeQuoteRequestStateAction extends QuoteRequestUpdateAc
     public const FIELD_QUOTE_REQUEST_STATE = 'quoteRequestState';
 
     /**
-     * <p>The new state to be set for the Quote Request.</p>
+     * <p>New state to be set for the Quote Request.</p>
      *
+
      * @return null|string
      */
     public function getQuoteRequestState();

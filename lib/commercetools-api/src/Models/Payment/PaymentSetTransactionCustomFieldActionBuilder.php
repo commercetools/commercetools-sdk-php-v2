@@ -21,21 +21,25 @@ use stdClass;
 final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $transactionId;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @return null|string
      */
     public function getTransactionId()
@@ -47,6 +51,7 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
      * <p>description: |
      * Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -59,6 +64,7 @@ final class PaymentSetTransactionCustomFieldActionBuilder implements Builder
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

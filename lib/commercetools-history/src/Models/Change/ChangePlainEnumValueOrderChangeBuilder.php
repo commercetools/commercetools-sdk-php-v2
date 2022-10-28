@@ -22,21 +22,25 @@ use Commercetools\History\Models\ChangeValue\EnumValueCollection;
 final class ChangePlainEnumValueOrderChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?EnumValueCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?EnumValueCollection
      */
     private $previousValue;
@@ -44,6 +48,7 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changePlainEnumValueOrder</code> on product types</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -54,6 +59,7 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -62,6 +68,7 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|EnumValueCollection
      */
     public function getNextValue()
@@ -70,6 +77,7 @@ final class ChangePlainEnumValueOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|EnumValueCollection
      */
     public function getPreviousValue()

@@ -16,6 +16,9 @@ interface CustomerTitleSetMessagePayload extends MessagePayload
     public const FIELD_TITLE = 'title';
 
     /**
+     * <p>The <code>title</code> that was set during the <a href="ctp:api:type:CustomerSetTitleAction">Set Title</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getTitle();

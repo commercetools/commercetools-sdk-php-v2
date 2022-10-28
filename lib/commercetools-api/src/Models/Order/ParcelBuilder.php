@@ -24,31 +24,37 @@ use stdClass;
 final class ParcelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -56,6 +62,7 @@ final class ParcelBuilder implements Builder
     /**
      * <p>Unique identifier of the Parcel.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -64,6 +71,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -72,6 +80,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -80,6 +89,7 @@ final class ParcelBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -90,6 +100,7 @@ final class ParcelBuilder implements Builder
     /**
      * <p>The delivery items contained in this parcel.</p>
      *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -100,6 +111,7 @@ final class ParcelBuilder implements Builder
     /**
      * <p>Custom Fields of this parcel.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

@@ -22,16 +22,19 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'setValidFromAndUntil';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -42,14 +45,16 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
      */
     public function __construct(
         ?DateTimeImmutable $validFrom = null,
-        ?DateTimeImmutable $validUntil = null
+        ?DateTimeImmutable $validUntil = null,
+        ?string $action = null
     ) {
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -69,6 +74,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     /**
      * <p>Value to set.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -93,6 +99,7 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     /**
      * <p>Value to set.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

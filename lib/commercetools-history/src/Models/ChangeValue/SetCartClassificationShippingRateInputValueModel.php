@@ -24,16 +24,19 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
 
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $label;
@@ -54,6 +57,7 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -71,6 +75,7 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()
@@ -88,6 +93,7 @@ final class SetCartClassificationShippingRateInputValueModel extends JsonObjectM
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getLabel()

@@ -20,26 +20,31 @@ use stdClass;
 final class StatePagedQueryResponseModel extends JsonObjectModel implements StatePagedQueryResponse
 {
     /**
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
+     *
      * @var ?int
      */
     protected $count;
 
     /**
+     *
      * @var ?int
      */
     protected $total;
 
     /**
+     *
      * @var ?StateCollection
      */
     protected $results;
@@ -65,6 +70,7 @@ final class StatePagedQueryResponseModel extends JsonObjectModel implements Stat
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+     *
      * @return null|int
      */
     public function getLimit()
@@ -84,6 +90,7 @@ final class StatePagedQueryResponseModel extends JsonObjectModel implements Stat
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+     *
      * @return null|int
      */
     public function getOffset()
@@ -102,6 +109,7 @@ final class StatePagedQueryResponseModel extends JsonObjectModel implements Stat
 
     /**
      * <p>Actual number of results returned.</p>
+     *
      *
      * @return null|int
      */
@@ -126,6 +134,7 @@ final class StatePagedQueryResponseModel extends JsonObjectModel implements Stat
      * For improved performance, calculating this field can be deactivated by using the query parameter <code>withTotal=false</code>.
      * When the results are filtered with a <a href="/../api/predicates/query">Query Predicate</a>, <code>total</code> is subject to a <a href="/../api/limits#queries">limit</a>.</p>
      *
+     *
      * @return null|int
      */
     public function getTotal()
@@ -144,6 +153,7 @@ final class StatePagedQueryResponseModel extends JsonObjectModel implements Stat
 
     /**
      * <p><a href="ctp:api:type:State">States</a> matching the query.</p>
+     *
      *
      * @return null|StateCollection
      */

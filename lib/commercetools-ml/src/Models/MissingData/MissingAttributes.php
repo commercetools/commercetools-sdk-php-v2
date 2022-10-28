@@ -24,11 +24,13 @@ interface MissingAttributes extends JsonObject
     public const FIELD_ATTRIBUTE_COVERAGE = 'attributeCoverage';
 
     /**
+
      * @return null|ProductReference
      */
     public function getProduct();
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType();
@@ -36,6 +38,7 @@ interface MissingAttributes extends JsonObject
     /**
      * <p>ID of a ProductVariant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId();
@@ -43,6 +46,7 @@ interface MissingAttributes extends JsonObject
     /**
      * <p>The names of the attributes of the product type that the variant is missing, sorted by attribute importance in descending order.</p>
      *
+
      * @return null|array
      */
     public function getMissingAttributeValues();
@@ -50,16 +54,19 @@ interface MissingAttributes extends JsonObject
     /**
      * <p>The names of the attributes of the product type that the variant is missing, sorted by attribute importance in descending order.</p>
      *
+
      * @return null|array
      */
     public function getMissingAttributeNames();
 
     /**
+     * @deprecated
      * @return null|AttributeCount
      */
     public function getAttributeCount();
 
     /**
+     * @deprecated
      * @return null|AttributeCoverage
      */
     public function getAttributeCoverage();

@@ -21,11 +21,13 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'CustomerCompanyNameSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $companyName;
@@ -35,13 +37,15 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $companyName = null
+        ?string $companyName = null,
+        ?string $type = null
     ) {
         $this->companyName = $companyName;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -59,6 +63,9 @@ final class CustomerCompanyNameSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p>The <code>companyName</code> that was set during the <a href="ctp:api:type:CustomerSetCompanyNameAction">Set Company Name</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getCompanyName()

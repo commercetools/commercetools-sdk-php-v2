@@ -23,11 +23,13 @@ use stdClass;
 final class ProductTypeChangeLabelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
@@ -35,6 +37,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -45,6 +48,7 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel()

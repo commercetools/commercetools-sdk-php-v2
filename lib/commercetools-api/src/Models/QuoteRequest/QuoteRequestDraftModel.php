@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierModel;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -24,29 +26,40 @@ use stdClass;
 final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteRequestDraft
 {
     /**
+     *
      * @var ?CartResourceIdentifier
      */
     protected $cart;
 
     /**
+     *
      * @var ?int
      */
     protected $cartVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $comment;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
+
+    /**
+     *
+     * @var ?StateReference
+     */
+    protected $state;
 
 
     /**
@@ -57,17 +70,21 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
         ?int $cartVersion = null,
         ?string $key = null,
         ?string $comment = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?StateReference $state = null
     ) {
         $this->cart = $cart;
         $this->cartVersion = $cartVersion;
         $this->key = $key;
         $this->comment = $comment;
         $this->custom = $custom;
+        $this->state = $state;
     }
 
     /**
-     * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
+     * <p>Cart for which a Quote is requested.
+     * Anonymous Carts, Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a>, or Carts with a <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.</p>
+     *
      *
      * @return null|CartResourceIdentifier
      */
@@ -89,6 +106,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>Current version of the referenced Cart.</p>
      *
+     *
      * @return null|int
      */
     public function getCartVersion()
@@ -108,6 +126,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>User-defined unique identifier for the QuoteRequest.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -125,7 +144,8 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     }
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
+     *
      *
      * @return null|string
      */
@@ -146,6 +166,7 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     /**
      * <p>Custom Fields to be added to the Quote Request.</p>
      *
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -161,6 +182,28 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+     *
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
     }
 
 
@@ -202,5 +245,13 @@ final class QuoteRequestDraftModel extends JsonObjectModel implements QuoteReque
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
     }
 }

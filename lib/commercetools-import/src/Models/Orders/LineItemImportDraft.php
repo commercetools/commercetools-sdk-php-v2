@@ -13,6 +13,7 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Import\Models\Common\ChannelKeyReference;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Customfields\Custom;
 use Commercetools\Import\Models\Prices\TaxRate;
 
 interface LineItemImportDraft extends JsonObject
@@ -27,10 +28,12 @@ interface LineItemImportDraft extends JsonObject
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_TAX_RATE = 'taxRate';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_CUSTOM = 'custom';
 
     /**
      * <p>Maps to <code>LineItem.productId</code>.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct();
@@ -38,6 +41,7 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>Maps to <code>LineItem.name</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -45,6 +49,7 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>Maps to <code>ProductVariantImportDraft</code>.</p>
      *
+
      * @return null|LineItemProductVariantImportDraft
      */
     public function getVariant();
@@ -52,6 +57,7 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>Maps to <code>LineItem.price</code>.</p>
      *
+
      * @return null|LineItemPrice
      */
     public function getPrice();
@@ -59,11 +65,13 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>Maps to <code>LineItem.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
@@ -73,6 +81,7 @@ interface LineItemImportDraft extends JsonObject
      * The Reference to the Supply <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel();
@@ -82,6 +91,7 @@ interface LineItemImportDraft extends JsonObject
      * The Reference to the Distribution <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getDistributionChannel();
@@ -89,6 +99,7 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>Maps to <code>LineItem.taxRate</code>.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate();
@@ -96,9 +107,18 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>Maps to LineItem.shippingDetails.</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
+    /**
+     * <p>Custom Fields for this Line Item.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom();
 
     /**
      * @param ?ProductKeyReference $product
@@ -149,4 +169,9 @@ interface LineItemImportDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void;
 }

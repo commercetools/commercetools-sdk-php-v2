@@ -19,6 +19,7 @@ interface AddLocationChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,6 +27,7 @@ interface AddLocationChange extends Change
     /**
      * <p>Update action for <code>addLocation</code> on zones</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -33,6 +35,7 @@ interface AddLocationChange extends Change
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+
      * @return null|Location
      */
     public function getPreviousValue();
@@ -40,6 +43,7 @@ interface AddLocationChange extends Change
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+
      * @return null|Location
      */
     public function getNextValue();

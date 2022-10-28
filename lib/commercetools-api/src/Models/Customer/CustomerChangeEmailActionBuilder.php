@@ -21,11 +21,15 @@ use stdClass;
 final class CustomerChangeEmailActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+     * <p>Value to set.</p>
+     *
+
      * @return null|string
      */
     public function getEmail()

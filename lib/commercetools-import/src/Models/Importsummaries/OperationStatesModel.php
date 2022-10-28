@@ -20,31 +20,37 @@ use stdClass;
 final class OperationStatesModel extends JsonObjectModel implements OperationStates
 {
     /**
+     *
      * @var ?int
      */
     protected $processing;
 
     /**
+     *
      * @var ?int
      */
     protected $validationFailed;
 
     /**
+     *
      * @var ?int
      */
     protected $unresolved;
 
     /**
+     *
      * @var ?int
      */
     protected $waitForMasterVariant;
 
     /**
+     *
      * @var ?int
      */
     protected $imported;
 
     /**
+     *
      * @var ?int
      */
     protected $rejected;
@@ -72,6 +78,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of resources in the <code>processing</code> state.</p>
      *
+     *
      * @return null|int
      */
     public function getProcessing()
@@ -90,6 +97,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
 
     /**
      * <p>The number of resources in the <code>validationFailed</code> state.</p>
+     *
      *
      * @return null|int
      */
@@ -110,6 +118,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of resources in the <code>unresolved</code> state.</p>
      *
+     *
      * @return null|int
      */
     public function getUnresolved()
@@ -128,6 +137,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
 
     /**
      * <p>The number of resources in the <code>waitForMasterVariant</code> state.</p>
+     *
      *
      * @return null|int
      */
@@ -148,6 +158,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
     /**
      * <p>The number of resources in the <code>imported</code> state.</p>
      *
+     *
      * @return null|int
      */
     public function getImported()
@@ -166,6 +177,7 @@ final class OperationStatesModel extends JsonObjectModel implements OperationSta
 
     /**
      * <p>The number of resources in the <code>rejected</code> state.</p>
+     *
      *
      * @return null|int
      */

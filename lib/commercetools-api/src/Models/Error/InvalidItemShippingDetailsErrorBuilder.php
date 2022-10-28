@@ -21,21 +21,25 @@ use stdClass;
 final class InvalidItemShippingDetailsErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $subject;
 
     /**
+
      * @var ?string
      */
     private $itemId;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -44,6 +48,7 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSubject()
@@ -52,6 +57,7 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getItemId()

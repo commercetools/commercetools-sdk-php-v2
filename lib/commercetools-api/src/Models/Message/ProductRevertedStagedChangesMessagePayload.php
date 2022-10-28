@@ -16,6 +16,9 @@ interface ProductRevertedStagedChangesMessagePayload extends MessagePayload
     public const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
+     * <p>List of image URLs that were removed during the <a href="ctp:api:type:ProductRevertStagedChangesAction">Revert Staged Changes</a> update action.</p>
+     *
+
      * @return null|array
      */
     public function getRemovedImageUrls();

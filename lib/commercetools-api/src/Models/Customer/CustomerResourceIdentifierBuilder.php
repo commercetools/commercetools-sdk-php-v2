@@ -23,18 +23,21 @@ use stdClass;
 final class CustomerResourceIdentifierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
-     * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -43,8 +46,9 @@ final class CustomerResourceIdentifierBuilder implements Builder
     }
 
     /**
-     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>. Either <code>id</code> or <code>key</code> is required.</p>
+     * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|string
      */
     public function getKey()

@@ -21,16 +21,19 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeEnumValueOrder';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
+     *
      * @var ?array
      */
     protected $keys;
@@ -41,14 +44,16 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?string $fieldName = null,
-        ?array $keys = null
+        ?array $keys = null,
+        ?string $action = null
     ) {
         $this->fieldName = $fieldName;
         $this->keys = $keys;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -86,6 +92,7 @@ final class TypeChangeEnumValueOrderActionModel extends JsonObjectModel implemen
 
     /**
      * <p>Must match the set of <code>key</code>s of the EnumValues in the FieldDefinition (apart from their order).</p>
+     *
      *
      * @return null|array
      */

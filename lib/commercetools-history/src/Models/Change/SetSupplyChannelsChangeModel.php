@@ -23,21 +23,25 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
 
     public const DISCRIMINATOR_VALUE = 'SetSupplyChannelsChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?ReferenceCollection
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?ReferenceCollection
      */
     protected $nextValue;
@@ -49,15 +53,17 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     public function __construct(
         ?string $change = null,
         ?ReferenceCollection $previousValue = null,
-        ?ReferenceCollection $nextValue = null
+        ?ReferenceCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -77,6 +83,7 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     /**
      * <p>Shape of the action for <code>setSupplyChannels</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -94,6 +101,7 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     *
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -111,6 +119,7 @@ final class SetSupplyChannelsChangeModel extends JsonObjectModel implements SetS
     }
 
     /**
+     *
      * @return null|ReferenceCollection
      */
     public function getNextValue()

@@ -22,6 +22,7 @@ interface SetCustomLineItemTaxCategoryChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,26 +30,31 @@ interface SetCustomLineItemTaxCategoryChange extends Change
     /**
      * <p>Update action for <code>setCustomLineItemTaxCategory</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem();
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue();
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue();

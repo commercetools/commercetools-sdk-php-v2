@@ -19,6 +19,7 @@ interface ExternalOAuth extends JsonObject
     /**
      * <p>URL with authorization header.</p>
      *
+
      * @return null|string
      */
     public function getUrl();
@@ -26,6 +27,7 @@ interface ExternalOAuth extends JsonObject
     /**
      * <p>Partially hidden on retrieval.</p>
      *
+
      * @return null|string
      */
     public function getAuthorizationHeader();

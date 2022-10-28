@@ -21,11 +21,13 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'removeTaxRate';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $taxRateId;
@@ -35,13 +37,15 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $taxRateId = null
+        ?string $taxRateId = null,
+        ?string $action = null
     ) {
         $this->taxRateId = $taxRateId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class TaxCategoryRemoveTaxRateActionModel extends JsonObjectModel implemen
 
     /**
      * <p>ID of the TaxRate to remove.</p>
+     *
      *
      * @return null|string
      */

@@ -21,16 +21,19 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
 {
     public const DISCRIMINATOR_VALUE = 'addEnumValue';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
+     *
      * @var ?CustomFieldEnumValue
      */
     protected $value;
@@ -41,14 +44,16 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
      */
     public function __construct(
         ?string $fieldName = null,
-        ?CustomFieldEnumValue $value = null
+        ?CustomFieldEnumValue $value = null,
+        ?string $action = null
     ) {
         $this->fieldName = $fieldName;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,7 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">Field Definition</a> to update.</p>
      *
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -86,6 +92,7 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
 
     /**
      * <p>Value to append to the array.</p>
+     *
      *
      * @return null|CustomFieldEnumValue
      */

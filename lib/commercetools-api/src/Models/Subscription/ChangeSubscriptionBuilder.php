@@ -21,11 +21,15 @@ use stdClass;
 final class ChangeSubscriptionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $resourceTypeId;
 
     /**
+     * <p>Unique identifier for the type of resource, for example, <code>cart</code>.</p>
+     *
+
      * @return null|string
      */
     public function getResourceTypeId()

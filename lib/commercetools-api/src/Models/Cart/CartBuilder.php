@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
@@ -42,181 +44,241 @@ use stdClass;
 final class CartBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $customerId;
 
     /**
+
      * @var ?string
      */
     private $customerEmail;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
+     */
+    private $businessUnit;
+
+    /**
+
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
 
     /**
+
      * @var ?LineItemCollection
      */
     private $lineItems;
 
     /**
+
      * @var ?CustomLineItemCollection
      */
     private $customLineItems;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
+     * @var null|TaxedPrice|TaxedPriceBuilder
+     */
+    private $taxedShippingPrice;
+
+    /**
+
      * @var ?string
      */
     private $cartState;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingMode;
+
+    /**
+
+     * @var ?ShippingCollection
+     */
+    private $shipping;
+
+    /**
+
      * @var ?string
      */
     private $inventoryMode;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var ?string
      */
     private $taxRoundingMode;
 
     /**
+
      * @var ?string
      */
     private $taxCalculationMode;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $shippingInfo;
 
     /**
+
      * @var ?DiscountCodeInfoCollection
      */
     private $discountCodes;
 
     /**
+
      * @var ?DirectDiscountCollection
      */
     private $directDiscounts;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $paymentInfo;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?CartDiscountReferenceCollection
      */
     private $refusedGifts;
 
     /**
+
      * @var ?string
      */
     private $origin;
 
     /**
+
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
     /**
+
      * @var ?AddressCollection
      */
     private $itemShippingAddresses;
 
     /**
+
      * @var ?int
      */
     private $totalLineItemQuantity;
@@ -224,6 +286,7 @@ final class CartBuilder implements Builder
     /**
      * <p>Unique identifier of the Cart.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -234,6 +297,7 @@ final class CartBuilder implements Builder
     /**
      * <p>The current version of the cart.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -242,6 +306,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -250,6 +315,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -260,6 +326,7 @@ final class CartBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Cart.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -270,6 +337,7 @@ final class CartBuilder implements Builder
     /**
      * <p>Present on resources updated after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -280,6 +348,7 @@ final class CartBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -288,6 +357,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerId()
@@ -296,6 +366,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -306,6 +377,7 @@ final class CartBuilder implements Builder
     /**
      * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -314,6 +386,18 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
+    }
+
+    /**
+
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -322,6 +406,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|LineItemCollection
      */
     public function getLineItems()
@@ -330,6 +415,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems()
@@ -341,6 +427,7 @@ final class CartBuilder implements Builder
      * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -353,6 +440,7 @@ final class CartBuilder implements Builder
      * Will be set automatically in the <code>Platform</code> TaxMode.
      * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -361,6 +449,19 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
+     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice()
+    {
+        return $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice;
+    }
+
+    /**
+
      * @return null|string
      */
     public function getCartState()
@@ -371,6 +472,7 @@ final class CartBuilder implements Builder
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
+
      * @return null|Address
      */
     public function getShippingAddress()
@@ -379,6 +481,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getBillingAddress()
@@ -387,6 +490,30 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        return $this->shippingMode;
+    }
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method of a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>It is automatically updated after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
+    }
+
+    /**
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -395,6 +522,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -405,6 +533,7 @@ final class CartBuilder implements Builder
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -415,6 +544,7 @@ final class CartBuilder implements Builder
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -427,6 +557,7 @@ final class CartBuilder implements Builder
      * Used for product variant
      * price selection.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -438,6 +569,7 @@ final class CartBuilder implements Builder
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -446,8 +578,10 @@ final class CartBuilder implements Builder
     }
 
     /**
-     * <p>Set automatically once the ShippingMethod is set.</p>
+     * <p>Shipping-related information of a Cart with <code>Single</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.
+     * Set automatically once the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -456,6 +590,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes()
@@ -464,6 +599,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|DirectDiscountCollection
      */
     public function getDirectDiscounts()
@@ -472,6 +608,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -480,6 +617,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -488,6 +626,7 @@ final class CartBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -498,6 +637,7 @@ final class CartBuilder implements Builder
     /**
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -508,6 +648,7 @@ final class CartBuilder implements Builder
     /**
      * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from the cart.</p>
      *
+
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts()
@@ -519,6 +660,7 @@ final class CartBuilder implements Builder
      * <p>The origin field indicates how this cart was created.
      * The value <code>Customer</code> indicates, that the cart was created by the customer.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()
@@ -529,6 +671,7 @@ final class CartBuilder implements Builder
     /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -542,6 +685,7 @@ final class CartBuilder implements Builder
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()
@@ -552,6 +696,7 @@ final class CartBuilder implements Builder
     /**
      * <p>The sum off all the <a href="ctp:api:type:LineItem">Line Items</a> quantities. Does not take <a href="ctp:api:type:CustomLineItem">Custom Line Items</a> into consideration.</p>
      *
+
      * @return null|int
      */
     public function getTotalLineItemQuantity()
@@ -670,6 +815,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitKeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?StoreKeyReference $store
      * @return $this
      */
@@ -725,6 +881,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @param ?TaxedPrice $taxedShippingPrice
+     * @return $this
+     */
+    public function withTaxedShippingPrice(?TaxedPrice $taxedShippingPrice)
+    {
+        $this->taxedShippingPrice = $taxedShippingPrice;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $cartState
      * @return $this
      */
@@ -753,6 +920,28 @@ final class CartBuilder implements Builder
     public function withBillingAddress(?Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingMode
+     * @return $this
+     */
+    public function withShippingMode(?string $shippingMode)
+    {
+        $this->shippingMode = $shippingMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShippingCollection $shipping
+     * @return $this
+     */
+    public function withShipping(?ShippingCollection $shipping)
+    {
+        $this->shipping = $shipping;
 
         return $this;
     }
@@ -978,6 +1167,17 @@ final class CartBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -1006,6 +1206,17 @@ final class CartBuilder implements Builder
     public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withTaxedShippingPrice() instead
+     * @return $this
+     */
+    public function withTaxedShippingPriceBuilder(?TaxedPriceBuilder $taxedShippingPrice)
+    {
+        $this->taxedShippingPrice = $taxedShippingPrice;
 
         return $this;
     }
@@ -1100,14 +1311,18 @@ final class CartBuilder implements Builder
             $this->customerId,
             $this->customerEmail,
             $this->anonymousId,
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
             $this->lineItems,
             $this->customLineItems,
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedShippingPrice instanceof TaxedPriceBuilder ? $this->taxedShippingPrice->build() : $this->taxedShippingPrice,
             $this->cartState,
             $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress,
             $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress,
+            $this->shippingMode,
+            $this->shipping,
             $this->inventoryMode,
             $this->taxMode,
             $this->taxRoundingMode,

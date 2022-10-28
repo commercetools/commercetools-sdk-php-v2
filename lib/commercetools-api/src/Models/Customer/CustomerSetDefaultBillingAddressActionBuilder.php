@@ -21,18 +21,21 @@ use stdClass;
 final class CustomerSetDefaultBillingAddressActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressId;
 
     /**
+
      * @var ?string
      */
     private $addressKey;
 
     /**
-     * <p>If not defined, the customer's <code>defaultBillingAddress</code> is unset.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
      *
+
      * @return null|string
      */
     public function getAddressId()
@@ -41,6 +44,9 @@ final class CustomerSetDefaultBillingAddressActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default billing address.</p>
+     *
+
      * @return null|string
      */
     public function getAddressKey()

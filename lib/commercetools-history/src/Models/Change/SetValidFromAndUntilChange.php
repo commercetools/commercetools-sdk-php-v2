@@ -19,11 +19,13 @@ interface SetValidFromAndUntilChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
@@ -31,6 +33,7 @@ interface SetValidFromAndUntilChange extends Change
     /**
      * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
      *
+
      * @return null|ValidFromAndUntilValue
      */
     public function getPreviousValue();
@@ -38,6 +41,7 @@ interface SetValidFromAndUntilChange extends Change
     /**
      * <p>Shape of the value for <code>setValidFromAndUntil</code> action</p>
      *
+
      * @return null|ValidFromAndUntilValue
      */
     public function getNextValue();

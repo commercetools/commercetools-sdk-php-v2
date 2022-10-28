@@ -21,6 +21,7 @@ use stdClass;
 final class ExtensionChangeTriggersActionBuilder implements Builder
 {
     /**
+
      * @var ?ExtensionTriggerCollection
      */
     private $triggers;
@@ -28,6 +29,7 @@ final class ExtensionChangeTriggersActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()

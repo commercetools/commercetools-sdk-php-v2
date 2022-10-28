@@ -26,31 +26,37 @@ use stdClass;
 final class TransactionDraftBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $timestamp;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amount;
 
     /**
+
      * @var ?string
      */
     private $interactionId;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -58,6 +64,7 @@ final class TransactionDraftBuilder implements Builder
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp()
@@ -68,6 +75,7 @@ final class TransactionDraftBuilder implements Builder
     /**
      * <p>The type of this transaction.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -76,6 +84,7 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getAmount()
@@ -87,6 +96,7 @@ final class TransactionDraftBuilder implements Builder
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
      * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId()
@@ -98,6 +108,7 @@ final class TransactionDraftBuilder implements Builder
      * <p>The state of this transaction.
      * If not set, defaults to <code>Initial</code>.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -108,6 +119,7 @@ final class TransactionDraftBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

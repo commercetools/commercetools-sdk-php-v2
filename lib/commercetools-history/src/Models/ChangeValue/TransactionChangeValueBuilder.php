@@ -21,21 +21,25 @@ use stdClass;
 final class TransactionChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $interactionId;
 
     /**
+
      * @var ?string
      */
     private $timestamp;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -44,6 +48,7 @@ final class TransactionChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getInteractionId()
@@ -52,6 +57,7 @@ final class TransactionChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTimestamp()

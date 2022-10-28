@@ -20,6 +20,7 @@ interface CategorySetAssetTagsAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId();
@@ -27,6 +28,7 @@ interface CategorySetAssetTagsAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey();
@@ -34,6 +36,7 @@ interface CategorySetAssetTagsAction extends CategoryUpdateAction
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
+
      * @return null|array
      */
     public function getTags();

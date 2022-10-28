@@ -26,6 +26,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.returnInfo</code></p>
      *
+
      * @return null|ReturnInfo
      */
     public function getAddReturnInfo();
@@ -33,6 +34,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.delivery</code></p>
      *
+
      * @return null|DeliveryParcel
      */
     public function getAddParcelToDelivery();
@@ -40,6 +42,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.delivery</code></p>
      *
+
      * @return null|DeliveryDraftCollection
      */
     public function getAddDeliveries();
@@ -47,6 +50,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.removeDelivery</code></p>
      *
+
      * @return null|RemoveDeliveryDraft
      */
     public function getRemoveDelivery();
@@ -54,6 +58,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.removeParcelFromDelivery</code></p>
      *
+
      * @return null|RemoveParcelFromDeliveryDraft
      */
     public function getRemoveParcelFromDelivery();
@@ -61,6 +66,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.addressDraft</code></p>
      *
+
      * @return null|DeliveryAddressDraft
      */
     public function getSetDeliveryAddress();
@@ -68,6 +74,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.parcelMeasurements</code></p>
      *
+
      * @return null|ParcelMeasurementDraft
      */
     public function getSetParcelMeasurements();
@@ -75,6 +82,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.parcelTrackingData</code></p>
      *
+
      * @return null|ParcelTrackingData
      */
     public function getSetParcelTrackingData();
@@ -82,6 +90,7 @@ interface OrderField extends JsonObject
     /**
      * <p>Maps to <code>Order.parcelItems</code></p>
      *
+
      * @return null|ParcelItemsCollection
      */
     public function getSetParcelItems();

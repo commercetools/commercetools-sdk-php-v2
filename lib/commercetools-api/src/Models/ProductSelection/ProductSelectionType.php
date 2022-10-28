@@ -19,6 +19,7 @@ interface ProductSelectionType extends JsonObject
     /**
      * <p>The following type of Product Selections is supported:</p>
      *
+
      * @return null|string
      */
     public function getType();

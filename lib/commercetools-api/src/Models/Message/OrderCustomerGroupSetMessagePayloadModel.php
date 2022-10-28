@@ -23,16 +23,19 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'OrderCustomerGroupSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?CustomerGroupReference
      */
     protected $oldCustomerGroup;
@@ -43,14 +46,16 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
      */
     public function __construct(
         ?CustomerGroupReference $customerGroup = null,
-        ?CustomerGroupReference $oldCustomerGroup = null
+        ?CustomerGroupReference $oldCustomerGroup = null,
+        ?string $type = null
     ) {
         $this->customerGroup = $customerGroup;
         $this->oldCustomerGroup = $oldCustomerGroup;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,7 +73,8 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderSetCustomerGroupAction">Set Customer Group</a> update action.</p>
+     *
      *
      * @return null|CustomerGroupReference
      */
@@ -88,7 +94,8 @@ final class OrderCustomerGroupSetMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:StagedOrderSetCustomerGroupAction">Set Customer Group</a> update action.</p>
+     *
      *
      * @return null|CustomerGroupReference
      */

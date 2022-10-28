@@ -29,56 +29,67 @@ use stdClass;
 final class TypeModel extends JsonObjectModel implements Type
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+     *
      * @var ?array
      */
     protected $resourceTypeIds;
 
     /**
+     *
      * @var ?FieldDefinitionCollection
      */
     protected $fieldDefinitions;
@@ -116,6 +127,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>Unique identifier of the Type.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -135,6 +147,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>Current version of the Type.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -153,6 +166,7 @@ final class TypeModel extends JsonObjectModel implements Type
 
     /**
      * <p>Date and time (UTC) the Type was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -177,6 +191,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>Date and time (UTC) the Type was last updated.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -200,6 +215,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -219,6 +235,7 @@ final class TypeModel extends JsonObjectModel implements Type
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -240,6 +257,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>User-defined unique identifier of the Type.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -258,6 +276,7 @@ final class TypeModel extends JsonObjectModel implements Type
 
     /**
      * <p>Name of the Type.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -279,6 +298,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>Description of the Type.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -299,6 +319,7 @@ final class TypeModel extends JsonObjectModel implements Type
     /**
      * <p>Resources and/or data types for which the Type is defined.</p>
      *
+     *
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -317,6 +338,7 @@ final class TypeModel extends JsonObjectModel implements Type
 
     /**
      * <p>Defines Custom Fields.</p>
+     *
      *
      * @return null|FieldDefinitionCollection
      */

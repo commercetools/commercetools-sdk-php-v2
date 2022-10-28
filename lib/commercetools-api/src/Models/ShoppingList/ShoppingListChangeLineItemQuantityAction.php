@@ -17,11 +17,13 @@ interface ShoppingListChangeLineItemQuantityAction extends ShoppingListUpdateAct
     public const FIELD_QUANTITY = 'quantity';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();

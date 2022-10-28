@@ -21,11 +21,13 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'changeOrderState';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $orderState;
@@ -35,13 +37,15 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $orderState = null
+        ?string $orderState = null,
+        ?string $action = null
     ) {
         $this->orderState = $orderState;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class OrderChangeOrderStateActionModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|string
      */
     public function getOrderState()

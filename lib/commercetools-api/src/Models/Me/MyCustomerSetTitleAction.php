@@ -16,6 +16,10 @@ interface MyCustomerSetTitleAction extends MyCustomerUpdateAction
     public const FIELD_TITLE = 'title';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
+
      * @return null|string
      */
     public function getTitle();

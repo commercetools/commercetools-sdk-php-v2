@@ -21,21 +21,25 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
 {
     public const DISCRIMINATOR_VALUE = 'OutOfStock';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?array
      */
     protected $lineItems;
 
     /**
+     *
      * @var ?array
      */
     protected $skus;
@@ -47,15 +51,17 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     public function __construct(
         ?string $message = null,
         ?array $lineItems = null,
-        ?array $skus = null
+        ?array $skus = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->lineItems = $lineItems;
         $this->skus = $skus;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -73,6 +79,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +97,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
     /**
+     *
      * @return null|array
      */
     public function getLineItems()
@@ -107,6 +115,7 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     }
 
     /**
+     *
      * @return null|array
      */
     public function getSkus()

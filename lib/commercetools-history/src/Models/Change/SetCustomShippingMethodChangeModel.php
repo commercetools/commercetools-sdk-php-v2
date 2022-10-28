@@ -24,21 +24,25 @@ final class SetCustomShippingMethodChangeModel extends JsonObjectModel implement
 
     public const DISCRIMINATOR_VALUE = 'SetCustomShippingMethodChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?CustomShippingMethodChangeValue
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?CustomShippingMethodChangeValue
      */
     protected $previousValue;
@@ -50,15 +54,17 @@ final class SetCustomShippingMethodChangeModel extends JsonObjectModel implement
     public function __construct(
         ?string $change = null,
         ?CustomShippingMethodChangeValue $nextValue = null,
-        ?CustomShippingMethodChangeValue $previousValue = null
+        ?CustomShippingMethodChangeValue $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class SetCustomShippingMethodChangeModel extends JsonObjectModel implement
     /**
      * <p>Update action for <code>setCustomShippingMethod</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class SetCustomShippingMethodChangeModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|CustomShippingMethodChangeValue
      */
     public function getNextValue()
@@ -113,6 +121,7 @@ final class SetCustomShippingMethodChangeModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|CustomShippingMethodChangeValue
      */
     public function getPreviousValue()

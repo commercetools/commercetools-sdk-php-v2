@@ -27,38 +27,45 @@ use stdClass;
 final class StoreCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?array
      */
     private $languages;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     private $distributionChannels;
 
     /**
+
      * @var ?ChannelReferenceCollection
      */
     private $supplyChannels;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $productSelections;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The <code>name</code> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -67,6 +74,9 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Languages of the <a href="ctp:api:type:Store">Store</a> that was created. Languages are represented as <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tags</a>.</p>
+     *
+
      * @return null|array
      */
     public function getLanguages()
@@ -75,6 +85,9 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ChannelRoleEnum">Distribution Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -83,6 +96,9 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ChannelRoleEnum">Supply Channels</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+
      * @return null|ChannelReferenceCollection
      */
     public function getSupplyChannels()
@@ -91,6 +107,9 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -99,8 +118,9 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p><a href="ctp:api:type:CustomFields">Custom Fields</a> on the <a href="ctp:api:type:Store">Store</a> that was created.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

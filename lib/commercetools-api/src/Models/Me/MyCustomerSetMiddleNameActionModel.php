@@ -21,11 +21,13 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setMiddleName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $middleName;
@@ -35,13 +37,15 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $middleName = null
+        ?string $middleName = null,
+        ?string $action = null
     ) {
         $this->middleName = $middleName;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,10 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
+     *
      * @return null|string
      */
     public function getMiddleName()

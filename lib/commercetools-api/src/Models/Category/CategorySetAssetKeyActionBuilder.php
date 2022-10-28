@@ -21,11 +21,13 @@ use stdClass;
 final class CategorySetAssetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
@@ -33,6 +35,7 @@ final class CategorySetAssetKeyActionBuilder implements Builder
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|string
      */
     public function getAssetId()
@@ -43,6 +46,7 @@ final class CategorySetAssetKeyActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey()

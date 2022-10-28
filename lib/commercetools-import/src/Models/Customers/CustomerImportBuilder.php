@@ -29,121 +29,147 @@ use stdClass;
 final class CustomerImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $customerNumber;
 
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $password;
 
     /**
+
      * @var ?StoreKeyReferenceCollection
      */
     private $stores;
 
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+
      * @var ?string
      */
     private $middleName;
 
     /**
+
      * @var ?string
      */
     private $title;
 
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
 
     /**
+
      * @var ?string
      */
     private $companyName;
 
     /**
+
      * @var ?string
      */
     private $vatId;
 
     /**
+
      * @var ?bool
      */
     private $isEmailVerified;
 
     /**
+
      * @var null|CustomerGroupKeyReference|CustomerGroupKeyReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var ?CustomerAddressCollection
      */
     private $addresses;
 
     /**
+
      * @var ?int
      */
     private $defaultBillingAddress;
 
     /**
+
      * @var ?array
      */
     private $billingAddresses;
 
     /**
+
      * @var ?int
      */
     private $defaultShippingAddress;
 
     /**
+
      * @var ?array
      */
     private $shippingAddresses;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+
      * @return null|string
      */
     public function getKey()
@@ -154,6 +180,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.customerNumber</code>.</p>
      *
+
      * @return null|string
      */
     public function getCustomerNumber()
@@ -164,6 +191,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.email</code>.</p>
      *
+
      * @return null|string
      */
     public function getEmail()
@@ -174,6 +202,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.password</code>.</p>
      *
+
      * @return null|string
      */
     public function getPassword()
@@ -184,6 +213,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
      *
+
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores()
@@ -194,6 +224,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.firstName</code>.</p>
      *
+
      * @return null|string
      */
     public function getFirstName()
@@ -204,6 +235,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.lastName</code>.</p>
      *
+
      * @return null|string
      */
     public function getLastName()
@@ -214,6 +246,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.middleName</code>.</p>
      *
+
      * @return null|string
      */
     public function getMiddleName()
@@ -224,6 +257,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.title</code>.</p>
      *
+
      * @return null|string
      */
     public function getTitle()
@@ -234,6 +268,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.salutation</code>.</p>
      *
+
      * @return null|string
      */
     public function getSalutation()
@@ -244,6 +279,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.externalId</code>.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -254,6 +290,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.dateOfBirth</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -264,6 +301,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.companyName</code>.</p>
      *
+
      * @return null|string
      */
     public function getCompanyName()
@@ -274,6 +312,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.vatId</code>.</p>
      *
+
      * @return null|string
      */
     public function getVatId()
@@ -284,6 +323,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.isEmailVerified</code>.</p>
      *
+
      * @return null|bool
      */
     public function getIsEmailVerified()
@@ -295,6 +335,7 @@ final class CustomerImportBuilder implements Builder
      * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the Customer is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -305,6 +346,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.addresses</code>.</p>
      *
+
      * @return null|CustomerAddressCollection
      */
     public function getAddresses()
@@ -315,6 +357,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultBillingAddress()
@@ -325,6 +368,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getBillingAddresses()
@@ -335,6 +379,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
      *
+
      * @return null|int
      */
     public function getDefaultShippingAddress()
@@ -345,6 +390,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+
      * @return null|array
      */
     public function getShippingAddresses()
@@ -355,6 +401,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>Maps to <code>Customer.locale</code>.</p>
      *
+
      * @return null|string
      */
     public function getLocale()
@@ -365,6 +412,7 @@ final class CustomerImportBuilder implements Builder
     /**
      * <p>The custom fields for this Customer.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()

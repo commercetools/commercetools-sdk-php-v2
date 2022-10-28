@@ -15,6 +15,7 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @deprecated
  */
 class ResourceByProjectKeyMissingDataAttributes extends ApiResource
 {
@@ -27,6 +28,7 @@ class ResourceByProjectKeyMissingDataAttributes extends ApiResource
     }
 
     /**
+     * @deprecated
      */
     public function status(): ResourceByProjectKeyMissingDataAttributesStatus
     {
@@ -38,6 +40,7 @@ class ResourceByProjectKeyMissingDataAttributes extends ApiResource
     /**
      * @psalm-param ?MissingAttributesSearchRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
+     * @deprecated
      */
     public function post(?MissingAttributesSearchRequest $body = null, array $headers = []): ByProjectKeyMissingDataAttributesPost
     {

@@ -24,41 +24,49 @@ interface ReturnItem extends JsonObject
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getComment();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();
 
     /**
+
      * @return null|string
      */
     public function getLastModifiedAt();
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt();

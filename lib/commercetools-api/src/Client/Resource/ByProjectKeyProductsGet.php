@@ -28,6 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements PriceSelecting<ByProjectKeyProductsGet>
  * @template-implements Expandable<ByProjectKeyProductsGet>
@@ -149,6 +150,15 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
 
     /**
      *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyProductsGet
+    {
+        return $this->withQueryParam('where', $where);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $priceCurrency
      */
     public function withPriceCurrency($priceCurrency): ByProjectKeyProductsGet
@@ -181,24 +191,6 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
     public function withPriceChannel($priceChannel): ByProjectKeyProductsGet
     {
         return $this->withQueryParam('priceChannel', $priceChannel);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $localeProjection
-     */
-    public function withLocaleProjection($localeProjection): ByProjectKeyProductsGet
-    {
-        return $this->withQueryParam('localeProjection', $localeProjection);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $storeProjection
-     */
-    public function withStoreProjection($storeProjection): ByProjectKeyProductsGet
-    {
-        return $this->withQueryParam('storeProjection', $storeProjection);
     }
 
     /**
@@ -244,15 +236,6 @@ class ByProjectKeyProductsGet extends ApiRequest implements PriceSelecting, Expa
     public function withWithTotal($withTotal): ByProjectKeyProductsGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $where
-     */
-    public function withWhere($where): ByProjectKeyProductsGet
-    {
-        return $this->withQueryParam('where', $where);
     }
 
     /**

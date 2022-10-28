@@ -22,56 +22,67 @@ use stdClass;
 final class MissingPricesSearchRequestBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?int
      */
     private $productSetLimit;
 
     /**
+
      * @var ?bool
      */
     private $includeVariants;
 
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @var ?bool
      */
     private $checkDate;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var ?array
      */
     private $productIds;
 
     /**
+
      * @var ?array
      */
     private $productTypeIds;
@@ -79,6 +90,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -89,6 +101,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -99,6 +112,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -109,6 +123,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Maximum number of products to scan.</p>
      *
+
      * @return null|int
      */
     public function getProductSetLimit()
@@ -119,6 +134,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
+
      * @return null|bool
      */
     public function getIncludeVariants()
@@ -129,6 +145,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>If used, only checks if a product variant has a price in the provided currency code.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -139,6 +156,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>If true, checks if there are prices for the specified date range and time.</p>
      *
+
      * @return null|bool
      */
     public function getCheckDate()
@@ -149,6 +167,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Starting date of the range to check. If no value is given, checks prices valid at the time the search is initiated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -159,6 +178,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Ending date of the range to check. If no value is given, it is equal to <code>validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -169,6 +189,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Filters results by the provided Product IDs. Cannot be applied in combination with the <code>productTypeIds</code> filter.</p>
      *
+
      * @return null|array
      */
     public function getProductIds()
@@ -179,6 +200,7 @@ final class MissingPricesSearchRequestBuilder implements Builder
     /**
      * <p>Filters results by the provided product type IDs. Cannot be applied in combination with the <code>productIds</code> filter.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds()

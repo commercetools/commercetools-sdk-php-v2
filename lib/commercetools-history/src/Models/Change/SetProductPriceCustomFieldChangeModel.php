@@ -24,26 +24,31 @@ final class SetProductPriceCustomFieldChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'SetProductPriceCustomFieldChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $nextValue;
@@ -56,16 +61,18 @@ final class SetProductPriceCustomFieldChangeModel extends JsonObjectModel implem
         ?string $change = null,
         ?string $catalogData = null,
         ?CustomFields $previousValue = null,
-        ?CustomFields $nextValue = null
+        ?CustomFields $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -85,6 +92,7 @@ final class SetProductPriceCustomFieldChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>setProductPriceCustomField</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -102,6 +110,7 @@ final class SetProductPriceCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +128,7 @@ final class SetProductPriceCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getPreviousValue()
@@ -137,6 +147,7 @@ final class SetProductPriceCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getNextValue()

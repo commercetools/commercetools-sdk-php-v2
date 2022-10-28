@@ -21,16 +21,19 @@ final class CategorySetAssetKeyActionModel extends JsonObjectModel implements Ca
 {
     public const DISCRIMINATOR_VALUE = 'setAssetKey';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
+     *
      * @var ?string
      */
     protected $assetKey;
@@ -41,14 +44,16 @@ final class CategorySetAssetKeyActionModel extends JsonObjectModel implements Ca
      */
     public function __construct(
         ?string $assetId = null,
-        ?string $assetKey = null
+        ?string $assetKey = null,
+        ?string $action = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,7 @@ final class CategorySetAssetKeyActionModel extends JsonObjectModel implements Ca
     /**
      * <p>Value to set.</p>
      *
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -86,6 +92,7 @@ final class CategorySetAssetKeyActionModel extends JsonObjectModel implements Ca
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

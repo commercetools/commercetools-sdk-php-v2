@@ -21,11 +21,13 @@ use stdClass;
 final class InvalidScopeErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @return null|string
      */
     public function getMessage()

@@ -21,16 +21,21 @@ use stdClass;
 final class CustomerRemoveAddressActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addressId;
 
     /**
+
      * @var ?string
      */
     private $addressKey;
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to remove.</p>
+     *
+
      * @return null|string
      */
     public function getAddressId()
@@ -39,6 +44,9 @@ final class CustomerRemoveAddressActionBuilder implements Builder
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to remove.</p>
+     *
+
      * @return null|string
      */
     public function getAddressKey()

@@ -24,26 +24,31 @@ use stdClass;
 final class LineItemProductVariantImportDraftModel extends JsonObjectModel implements LineItemProductVariantImportDraft
 {
     /**
+     *
      * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?LineItemPriceCollection
      */
     protected $prices;
 
     /**
+     *
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
+     *
      * @var ?ImageCollection
      */
     protected $images;
@@ -69,6 +74,7 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
     /**
      * <p>Maps to <code>ProductVariant.product</code>.</p>
      *
+     *
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant()
@@ -89,6 +95,7 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
     /**
      * <p>Maps to <code>ProductVariantImportDraft.sku</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getSku()
@@ -107,6 +114,7 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
 
     /**
      * <p>Maps to <code>ProductVariantImportDraft.prices</code></p>
+     *
      *
      * @return null|LineItemPriceCollection
      */
@@ -127,6 +135,7 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
     /**
      * <p>Maps to <code>ProductVariantImportDraft.attributes</code></p>
      *
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -145,6 +154,7 @@ final class LineItemProductVariantImportDraftModel extends JsonObjectModel imple
 
     /**
      * <p>Maps to <code>ProductVariantImportDraft.images</code>.</p>
+     *
      *
      * @return null|ImageCollection
      */

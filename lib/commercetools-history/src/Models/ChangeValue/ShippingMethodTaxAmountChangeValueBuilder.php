@@ -25,16 +25,19 @@ use Commercetools\History\Models\Common\TaxedPriceBuilder;
 final class ShippingMethodTaxAmountChangeValueBuilder implements Builder
 {
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -45,6 +48,7 @@ final class ShippingMethodTaxAmountChangeValueBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()

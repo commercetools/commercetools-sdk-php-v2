@@ -21,11 +21,13 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
 {
     public const DISCRIMINATOR_VALUE = 'order';
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $typeId;
@@ -35,13 +37,15 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()
@@ -60,6 +64,7 @@ final class OrderKeyReferenceModel extends JsonObjectModel implements OrderKeyRe
 
     /**
      * <p>The type of the referenced resource.</p>
+     *
      *
      * @return null|string
      */

@@ -21,11 +21,13 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
 {
     public const DISCRIMINATOR_VALUE = 'CloudEvents';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $cloudEventsVersion;
@@ -35,13 +37,15 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $cloudEventsVersion = null
+        ?string $cloudEventsVersion = null,
+        ?string $type = null
     ) {
         $this->cloudEventsVersion = $cloudEventsVersion;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -59,6 +63,9 @@ final class CloudEventsFormatModel extends JsonObjectModel implements CloudEvent
     }
 
     /**
+     * <p>Supported versions: &quot;1.0&quot;.</p>
+     *
+     *
      * @return null|string
      */
     public function getCloudEventsVersion()

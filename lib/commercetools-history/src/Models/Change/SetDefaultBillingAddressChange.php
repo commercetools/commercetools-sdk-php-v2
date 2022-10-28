@@ -21,21 +21,25 @@ interface SetDefaultBillingAddressChange extends Change
     /**
      * <p>Update action for <code>setDefaultBillingAddress</code> action.</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|Address
      */
     public function getNextValue();
 
     /**
+
      * @return null|Address
      */
     public function getPreviousValue();

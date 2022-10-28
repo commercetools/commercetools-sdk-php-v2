@@ -22,6 +22,7 @@ interface AssetDraft extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources();
@@ -29,6 +30,7 @@ interface AssetDraft extends JsonObject
     /**
      * <p>Name of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -36,6 +38,7 @@ interface AssetDraft extends JsonObject
     /**
      * <p>Description of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -43,6 +46,7 @@ interface AssetDraft extends JsonObject
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
+
      * @return null|array
      */
     public function getTags();
@@ -50,6 +54,7 @@ interface AssetDraft extends JsonObject
     /**
      * <p>Custom Fields defined for the Asset.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -57,6 +62,7 @@ interface AssetDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Asset.</p>
      *
+
      * @return null|string
      */
     public function getKey();

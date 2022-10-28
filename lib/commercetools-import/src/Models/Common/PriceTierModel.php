@@ -20,11 +20,13 @@ use stdClass;
 final class PriceTierModel extends JsonObjectModel implements PriceTier
 {
     /**
+     *
      * @var ?int
      */
     protected $minimumQuantity;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
@@ -44,6 +46,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
     /**
      * <p>The minimum quantity this price tier is valid for.</p>
      *
+     *
      * @return null|int
      */
     public function getMinimumQuantity()
@@ -62,6 +65,7 @@ final class PriceTierModel extends JsonObjectModel implements PriceTier
 
     /**
      * <p>The currency of a price tier is always the same as the currency of the base Price.</p>
+     *
      *
      * @return null|TypedMoney
      */

@@ -21,21 +21,25 @@ interface SetReservationsChange extends Change
     /**
      * <p>Update action for <code>setReservations</code> on inventories</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|ReservationCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|ReservationCollection
      */
     public function getPreviousValue();

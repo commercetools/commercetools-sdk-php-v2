@@ -22,41 +22,49 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'DiscountCodeNonApplicable';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?string
      */
     protected $discountCode;
 
     /**
+     *
      * @var ?string
      */
     protected $reason;
 
     /**
+     *
      * @var ?string
      */
     protected $dicountCodeId;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validityCheckTime;
@@ -72,7 +80,8 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         ?string $dicountCodeId = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
-        ?DateTimeImmutable $validityCheckTime = null
+        ?DateTimeImmutable $validityCheckTime = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->discountCode = $discountCode;
@@ -81,10 +90,11 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
         $this->validityCheckTime = $validityCheckTime;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -102,6 +112,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -119,6 +130,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|string
      */
     public function getDiscountCode()
@@ -136,6 +148,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|string
      */
     public function getReason()
@@ -153,6 +166,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|string
      */
     public function getDicountCodeId()
@@ -170,6 +184,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -191,6 +206,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -212,6 +228,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidityCheckTime()

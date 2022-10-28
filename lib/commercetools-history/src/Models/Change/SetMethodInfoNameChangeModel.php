@@ -24,21 +24,25 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
 
     public const DISCRIMINATOR_VALUE = 'SetMethodInfoNameChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
@@ -50,15 +54,17 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     public function __construct(
         ?string $change = null,
         ?LocalizedString $previousValue = null,
-        ?LocalizedString $nextValue = null
+        ?LocalizedString $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     /**
      * <p>Shape of the action for <code>setMethodInfoName</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()
@@ -113,6 +121,7 @@ final class SetMethodInfoNameChangeModel extends JsonObjectModel implements SetM
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()

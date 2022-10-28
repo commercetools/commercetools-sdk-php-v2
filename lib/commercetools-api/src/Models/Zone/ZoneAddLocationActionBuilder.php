@@ -21,6 +21,7 @@ use stdClass;
 final class ZoneAddLocationActionBuilder implements Builder
 {
     /**
+
      * @var null|Location|LocationBuilder
      */
     private $location;
@@ -28,6 +29,7 @@ final class ZoneAddLocationActionBuilder implements Builder
     /**
      * <p>Location to be added to the Zone.</p>
      *
+
      * @return null|Location
      */
     public function getLocation()

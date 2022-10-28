@@ -24,26 +24,31 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
 
     public const DISCRIMINATOR_VALUE = 'AddPriceChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
+     *
      * @var ?Price
      */
     protected $nextValue;
@@ -56,16 +61,18 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
         ?string $change = null,
         ?string $catalogData = null,
         ?string $priceId = null,
-        ?Price $nextValue = null
+        ?Price $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
         $this->priceId = $priceId;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -85,6 +92,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     /**
      * <p>Update action for adding prices</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -102,6 +110,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -119,6 +128,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -136,6 +146,7 @@ final class AddPriceChangeModel extends JsonObjectModel implements AddPriceChang
     }
 
     /**
+     *
      * @return null|Price
      */
     public function getNextValue()

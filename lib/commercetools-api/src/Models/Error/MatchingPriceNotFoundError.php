@@ -23,21 +23,25 @@ interface MatchingPriceNotFoundError extends ErrorObject
     public const FIELD_CHANNEL = 'channel';
 
     /**
+
      * @return null|string
      */
     public function getProductId();
 
     /**
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+
      * @return null|string
      */
     public function getCurrency();
 
     /**
+
      * @return null|string
      */
     public function getCountry();
@@ -45,6 +49,7 @@ interface MatchingPriceNotFoundError extends ErrorObject
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -52,6 +57,7 @@ interface MatchingPriceNotFoundError extends ErrorObject
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel();

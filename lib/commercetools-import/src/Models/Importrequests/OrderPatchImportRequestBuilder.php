@@ -22,6 +22,7 @@ use stdClass;
 final class OrderPatchImportRequestBuilder implements Builder
 {
     /**
+
      * @var ?OrderPatchImportCollection
      */
     private $patches;
@@ -29,6 +30,7 @@ final class OrderPatchImportRequestBuilder implements Builder
     /**
      * <p>The order patches of this request</p>
      *
+
      * @return null|OrderPatchImportCollection
      */
     public function getPatches()

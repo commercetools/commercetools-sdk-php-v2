@@ -20,6 +20,7 @@ interface SetOrderTaxedPriceChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetOrderTaxedPriceChange extends Change
     /**
      * <p>Update action for <code>setOrderTaxedPrice</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getTaxMode();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getNextValue();
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getPreviousValue();

@@ -22,26 +22,31 @@ use Commercetools\History\Models\Common\ItemStateCollection;
 final class TransitionLineItemStateChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?string
      */
     private $stateId;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $previousValue;
@@ -49,6 +54,7 @@ final class TransitionLineItemStateChangeBuilder implements Builder
     /**
      * <p>Update action for <code>transitionLineItemState</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -57,6 +63,7 @@ final class TransitionLineItemStateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -65,6 +72,7 @@ final class TransitionLineItemStateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getStateId()
@@ -73,6 +81,7 @@ final class TransitionLineItemStateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getNextValue()
@@ -81,6 +90,7 @@ final class TransitionLineItemStateChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getPreviousValue()

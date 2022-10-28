@@ -21,11 +21,13 @@ use stdClass;
 final class ResultItemModel extends JsonObjectModel implements ResultItem
 {
     /**
+     *
      * @var ?string
      */
     protected $imageUrl;
 
     /**
+     *
      * @var ?ProductVariantCollection
      */
     protected $productVariants;
@@ -45,6 +47,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
     /**
      * <p>The URL of the image.</p>
      *
+     *
      * @return null|string
      */
     public function getImageUrl()
@@ -63,6 +66,7 @@ final class ResultItemModel extends JsonObjectModel implements ResultItem
 
     /**
      * <p>An array of product variants containing the image URL.</p>
+     *
      *
      * @return null|ProductVariantCollection
      */

@@ -23,11 +23,13 @@ final class StateSetNameActionModel extends JsonObjectModel implements StateSetN
 {
     public const DISCRIMINATOR_VALUE = 'setName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -37,13 +39,15 @@ final class StateSetNameActionModel extends JsonObjectModel implements StateSetN
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -63,6 +67,7 @@ final class StateSetNameActionModel extends JsonObjectModel implements StateSetN
     /**
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|LocalizedString
      */

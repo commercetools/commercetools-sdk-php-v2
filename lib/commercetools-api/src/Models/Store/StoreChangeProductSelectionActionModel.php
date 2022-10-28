@@ -23,16 +23,19 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'changeProductSelectionActive';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ProductSelectionResourceIdentifier
      */
     protected $productSelection;
 
     /**
+     *
      * @var ?bool
      */
     protected $active;
@@ -43,14 +46,16 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?ProductSelectionResourceIdentifier $productSelection = null,
-        ?bool $active = null
+        ?bool $active = null,
+        ?string $action = null
     ) {
         $this->productSelection = $productSelection;
         $this->active = $active;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -69,6 +74,7 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
 
     /**
      * <p>Current Product Selection of the Store to be activated or deactivated.</p>
+     *
      *
      * @return null|ProductSelectionResourceIdentifier
      */
@@ -89,6 +95,7 @@ final class StoreChangeProductSelectionActionModel extends JsonObjectModel imple
 
     /**
      * <p>Set to <code>true</code> if all Products assigned to the Product Selection should become part of the Store's assortment.</p>
+     *
      *
      * @return null|bool
      */

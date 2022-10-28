@@ -21,11 +21,13 @@ use stdClass;
 final class PublishChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @return null|string
      */
     public function getChange()

@@ -28,56 +28,67 @@ final class RecordModel extends JsonObjectModel implements Record
 
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?int
      */
     protected $previousVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ModifiedBy
      */
     protected $modifiedBy;
 
     /**
+     *
      * @var ?string
      */
     protected $modifiedAt;
 
     /**
+     *
      * @var ?Label
      */
     protected $label;
 
     /**
+     *
      * @var ?Label
      */
     protected $previousLabel;
 
     /**
+     *
      * @var ?ChangeCollection
      */
     protected $changes;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?KeyReferenceCollection
      */
     protected $stores;
 
     /**
+     *
      * @var ?bool
      */
     protected $withoutChanges;
@@ -116,6 +127,7 @@ final class RecordModel extends JsonObjectModel implements Record
     /**
      * <p>Version of the resource after the change.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -134,6 +146,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Version of the resource before the change.</p>
+     *
      *
      * @return null|int
      */
@@ -154,6 +167,7 @@ final class RecordModel extends JsonObjectModel implements Record
     /**
      * <p>Type of the change (creation, update or deletion).</p>
      *
+     *
      * @return null|string
      */
     public function getType()
@@ -172,6 +186,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Information about the user or the API client who performed the change.</p>
+     *
      *
      * @return null|ModifiedBy
      */
@@ -193,6 +208,7 @@ final class RecordModel extends JsonObjectModel implements Record
     /**
      * <p>Date and time when the change was made.</p>
      *
+     *
      * @return null|string
      */
     public function getModifiedAt()
@@ -211,6 +227,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Information that describes the resource after the change.</p>
+     *
      *
      * @return null|Label
      */
@@ -231,6 +248,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Information that describes the resource before the change.</p>
+     *
      *
      * @return null|Label
      */
@@ -253,6 +271,7 @@ final class RecordModel extends JsonObjectModel implements Record
      * <p>Shows the differences in the resource between <code>previousVersion</code> and <code>version</code>.
      * The value is not identical to the actual array of update actions sent and is not limited to update actions (see, for example, <a href="/general-concepts#optimistic-concurrency-control">Optimistic  Concurrency Control</a>).</p>
      *
+     *
      * @return null|ChangeCollection
      */
     public function getChanges()
@@ -271,6 +290,7 @@ final class RecordModel extends JsonObjectModel implements Record
 
     /**
      * <p>Reference to the changed resource.</p>
+     *
      *
      * @return null|Reference
      */
@@ -292,6 +312,7 @@ final class RecordModel extends JsonObjectModel implements Record
     /**
      * <p>References to the <a href="ctp:api:type:Store">Stores</a> attached to the <a href="ctp:history:type:Change">Change</a>.</p>
      *
+     *
      * @return null|KeyReferenceCollection
      */
     public function getStores()
@@ -311,6 +332,7 @@ final class RecordModel extends JsonObjectModel implements Record
     /**
      * <p><code>true</code> if no change was detected.
      * The version number of the resource can be increased even without any change in the resource.</p>
+     *
      *
      * @return null|bool
      */

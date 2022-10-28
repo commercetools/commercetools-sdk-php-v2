@@ -17,11 +17,13 @@ interface OutOfStockError extends ErrorObject
     public const FIELD_SKUS = 'skus';
 
     /**
+
      * @return null|array
      */
     public function getLineItems();
 
     /**
+
      * @return null|array
      */
     public function getSkus();

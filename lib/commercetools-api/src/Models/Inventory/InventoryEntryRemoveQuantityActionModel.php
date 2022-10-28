@@ -21,11 +21,13 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'removeQuantity';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -35,13 +37,15 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $quantity = null
+        ?int $quantity = null,
+        ?string $action = null
     ) {
         $this->quantity = $quantity;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class InventoryEntryRemoveQuantityActionModel extends JsonObjectModel impl
 
     /**
      * <p>Value to remove from <code>quantityOnStock</code>.</p>
+     *
      *
      * @return null|int
      */

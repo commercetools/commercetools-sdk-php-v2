@@ -21,11 +21,13 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'CustomerLastNameSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $lastName;
@@ -35,13 +37,15 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $lastName = null
+        ?string $lastName = null,
+        ?string $type = null
     ) {
         $this->lastName = $lastName;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -59,6 +63,9 @@ final class CustomerLastNameSetMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>The <code>lastName</code> that was set during the <a href="ctp:api:type:CustomerSetLastNameAction">Set Last Name</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getLastName()

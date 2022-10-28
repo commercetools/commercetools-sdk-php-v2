@@ -23,11 +23,13 @@ use stdClass;
 final class ExternalTaxAmountDraftBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalGross;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $taxRate;
@@ -35,6 +37,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     /**
      * <p>The total gross amount of the item (totalNet + taxes).</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross()
@@ -43,6 +46,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getTaxRate()

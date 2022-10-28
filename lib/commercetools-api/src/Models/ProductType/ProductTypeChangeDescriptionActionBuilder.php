@@ -21,6 +21,7 @@ use stdClass;
 final class ProductTypeChangeDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $description;
@@ -28,6 +29,7 @@ final class ProductTypeChangeDescriptionActionBuilder implements Builder
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getDescription()

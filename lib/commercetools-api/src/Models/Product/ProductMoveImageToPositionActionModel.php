@@ -21,31 +21,37 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'moveImageToPosition';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?string
      */
     protected $imageUrl;
 
     /**
+     *
      * @var ?int
      */
     protected $position;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -59,17 +65,19 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
         ?string $sku = null,
         ?string $imageUrl = null,
         ?int $position = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->imageUrl = $imageUrl;
         $this->position = $position;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -87,6 +95,9 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -104,6 +115,9 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -121,7 +135,8 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>The URL of the image</p>
+     * <p>The URL of the image to update.</p>
+     *
      *
      * @return null|string
      */
@@ -140,6 +155,9 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Position in <code>images</code> where the image should be moved. Must be between <code>0</code> and the total number of images minus <code>1</code>.</p>
+     *
+     *
      * @return null|int
      */
     public function getPosition()
@@ -157,6 +175,9 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

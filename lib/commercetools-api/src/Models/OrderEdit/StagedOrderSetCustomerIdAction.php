@@ -17,6 +17,7 @@ interface StagedOrderSetCustomerIdAction extends StagedOrderUpdateAction
     public const FIELD_CUSTOMER_ID = 'customerId';
 
     /**
+
      * @return null|string
      */
     public function getCustomerId();

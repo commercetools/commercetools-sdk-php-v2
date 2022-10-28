@@ -21,6 +21,7 @@ use stdClass;
 final class CartDiscountChangeSortOrderActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sortOrder;
@@ -29,6 +30,7 @@ final class CartDiscountChangeSortOrderActionBuilder implements Builder
      * <p>New value to set (between <code>0</code> and <code>1</code>).
      * A Discount with a higher sortOrder is prioritized.</p>
      *
+
      * @return null|string
      */
     public function getSortOrder()

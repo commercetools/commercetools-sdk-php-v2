@@ -14,6 +14,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\QuoteRequest\QuoteRequest;
+use Commercetools\Api\Models\QuoteRequest\QuoteRequestModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,59 +30,76 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
 {
     public const DISCRIMINATOR_VALUE = 'QuoteRequestCreated';
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
+
+    /**
+     *
+     * @var ?QuoteRequest
+     */
+    protected $quoteRequest;
 
 
     /**
@@ -96,7 +115,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
         ?int $sequenceNumber = null,
         ?Reference $resource = null,
         ?int $resourceVersion = null,
-        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
+        ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?QuoteRequest $quoteRequest = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -108,11 +129,13 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->quoteRequest = $quoteRequest;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
+     *
      *
      * @return null|string
      */
@@ -131,6 +154,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -148,6 +174,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -169,6 +198,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -190,7 +222,8 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -212,6 +245,7 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -230,6 +264,10 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -247,7 +285,8 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
+     *
      *
      * @return null|Reference
      */
@@ -267,6 +306,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -284,6 +326,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
+     *
      * @return null|string
      */
     public function getType()
@@ -301,6 +346,9 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -316,6 +364,27 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
         }
 
         return $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * <p><a href="/../api/projects/quote-requests">Quote Request</a> that was created.</p>
+     *
+     *
+     * @return null|QuoteRequest
+     */
+    public function getQuoteRequest()
+    {
+        if (is_null($this->quoteRequest)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_QUOTE_REQUEST);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->quoteRequest = QuoteRequestModel::of($data);
+        }
+
+        return $this->quoteRequest;
     }
 
 
@@ -397,6 +466,14 @@ final class QuoteRequestCreatedMessageModel extends JsonObjectModel implements Q
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?QuoteRequest $quoteRequest
+     */
+    public function setQuoteRequest(?QuoteRequest $quoteRequest): void
+    {
+        $this->quoteRequest = $quoteRequest;
     }
 
 

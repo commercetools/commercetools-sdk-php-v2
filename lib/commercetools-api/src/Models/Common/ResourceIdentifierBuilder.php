@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifier;
@@ -75,11 +77,13 @@ use stdClass;
 final class ResourceIdentifierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -87,6 +91,7 @@ final class ResourceIdentifierBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -97,6 +102,7 @@ final class ResourceIdentifierBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getKey()

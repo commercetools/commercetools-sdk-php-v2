@@ -22,11 +22,13 @@ use stdClass;
 final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice
 {
     /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+     *
      * @var ?ProductDiscountReference
      */
     protected $discount;
@@ -45,6 +47,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
 
     /**
      * <p>Money value of the discounted price.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -65,6 +68,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
 
     /**
      * <p><a href="ctp:api:type:ProductDiscount">ProductDiscount</a> related to the discounted price.</p>
+     *
      *
      * @return null|ProductDiscountReference
      */

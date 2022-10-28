@@ -25,41 +25,47 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setAddressCustomType';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $addressId;
+
+    /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+     *
      * @var ?FieldContainer
      */
     protected $fields;
-
-    /**
-     * @var ?string
-     */
-    protected $addressId;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $addressId = null,
         ?TypeResourceIdentifier $type = null,
         ?FieldContainer $fields = null,
-        ?string $addressId = null
+        ?string $action = null
     ) {
+        $this->addressId = $addressId;
         $this->type = $type;
         $this->fields = $fields;
-        $this->addressId = $addressId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -77,8 +83,29 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Address">Address</a> to be updated.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
+    /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code>.</p>
+     *
      *
      * @return null|TypeResourceIdentifier
      */
@@ -100,6 +127,7 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code>.</p>
      *
+     *
      * @return null|FieldContainer
      */
     public function getFields()
@@ -117,23 +145,14 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
         return $this->fields;
     }
 
+
     /**
-     * @return null|string
+     * @param ?string $addressId
      */
-    public function getAddressId()
+    public function setAddressId(?string $addressId): void
     {
-        if (is_null($this->addressId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ADDRESS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->addressId = (string) $data;
-        }
-
-        return $this->addressId;
+        $this->addressId = $addressId;
     }
-
 
     /**
      * @param ?TypeResourceIdentifier $type
@@ -149,13 +168,5 @@ final class CustomerSetAddressCustomTypeActionModel extends JsonObjectModel impl
     public function setFields(?FieldContainer $fields): void
     {
         $this->fields = $fields;
-    }
-
-    /**
-     * @param ?string $addressId
-     */
-    public function setAddressId(?string $addressId): void
-    {
-        $this->addressId = $addressId;
     }
 }

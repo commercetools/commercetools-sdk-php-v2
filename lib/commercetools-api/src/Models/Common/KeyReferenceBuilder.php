@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Base\Builder;
@@ -23,6 +25,7 @@ use stdClass;
 final class KeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -30,6 +33,7 @@ final class KeyReferenceBuilder implements Builder
     /**
      * <p>User-defined unique and immutable key of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getKey()

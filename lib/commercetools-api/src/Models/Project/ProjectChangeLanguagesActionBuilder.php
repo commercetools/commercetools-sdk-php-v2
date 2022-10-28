@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectChangeLanguagesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $languages;
@@ -28,6 +29,7 @@ final class ProjectChangeLanguagesActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|array
      */
     public function getLanguages()

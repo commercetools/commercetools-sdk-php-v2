@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Customer\MyCustomerResetPassword;
+use Commercetools\Api\Models\Customer\CustomerResetPassword;
 use Commercetools\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
@@ -27,10 +27,10 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCustomersPasswordReset extends Api
     }
 
     /**
-     * @psalm-param ?MyCustomerResetPassword $body
+     * @psalm-param ?CustomerResetPassword $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?MyCustomerResetPassword $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetPost
+    public function post(?CustomerResetPassword $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyCustomersPasswordResetPost
     {
         $args = $this->getArgs();
 

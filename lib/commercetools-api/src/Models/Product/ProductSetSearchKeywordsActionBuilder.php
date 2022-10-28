@@ -21,16 +21,21 @@ use stdClass;
 final class ProductSetSearchKeywordsActionBuilder implements Builder
 {
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>Value to set.</p>
+     *
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -39,6 +44,9 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>searchKeywords</code> is updated. If <code>false</code>, both the current and staged <code>searchKeywords</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

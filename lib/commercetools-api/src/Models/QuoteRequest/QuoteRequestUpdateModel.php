@@ -20,11 +20,13 @@ use stdClass;
 final class QuoteRequestUpdateModel extends JsonObjectModel implements QuoteRequestUpdate
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?QuoteRequestUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,10 @@ final class QuoteRequestUpdateModel extends JsonObjectModel implements QuoteRequ
     }
 
     /**
+     * <p>Expected version of the <a href="ctp:api:type:QuoteRequest">QuoteRequest</a> to which the changes should be applied.
+     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +65,9 @@ final class QuoteRequestUpdateModel extends JsonObjectModel implements QuoteRequ
     }
 
     /**
+     * <p>Update actions to be performed on the <a href="ctp:api:type:QuoteRequest">QuoteRequest</a>.</p>
+     *
+     *
      * @return null|QuoteRequestUpdateActionCollection
      */
     public function getActions()

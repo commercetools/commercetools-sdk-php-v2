@@ -22,6 +22,7 @@ use stdClass;
 final class InventoryImportRequestBuilder implements Builder
 {
     /**
+
      * @var ?InventoryImportCollection
      */
     private $resources;
@@ -29,6 +30,7 @@ final class InventoryImportRequestBuilder implements Builder
     /**
      * <p>The inventory import resources of this request.</p>
      *
+
      * @return null|InventoryImportCollection
      */
     public function getResources()

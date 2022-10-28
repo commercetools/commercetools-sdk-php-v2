@@ -21,11 +21,13 @@ final class CategorySetExternalIdActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setExternalId';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $externalId;
@@ -35,13 +37,15 @@ final class CategorySetExternalIdActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $externalId = null
+        ?string $externalId = null,
+        ?string $action = null
     ) {
         $this->externalId = $externalId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class CategorySetExternalIdActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

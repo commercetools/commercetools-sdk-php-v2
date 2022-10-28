@@ -32,71 +32,85 @@ use stdClass;
 final class InventoryEntryBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var ?int
      */
     private $quantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $availableQuantity;
 
     /**
+
      * @var ?int
      */
     private $restockableInDays;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $expectedDelivery;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -104,6 +118,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Unique identifier of the InventoryEntry.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -114,6 +129,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Current version of the InventoryEntry.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -124,6 +140,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Date and time (UTC) the InventoryEntry was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -134,6 +151,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Date and time (UTC) the InventoryEntry was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -144,6 +162,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -154,6 +173,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -164,6 +184,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the InventoryEntry.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -174,6 +195,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -184,6 +206,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -194,6 +217,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
      *
+
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -204,6 +228,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
      *
+
      * @return null|int
      */
     public function getAvailableQuantity()
@@ -214,6 +239,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>How often the InventoryEntry is restocked (in days).</p>
      *
+
      * @return null|int
      */
     public function getRestockableInDays()
@@ -224,6 +250,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Date and time of the next restock.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -234,6 +261,7 @@ final class InventoryEntryBuilder implements Builder
     /**
      * <p>Custom Fields of the InventoryEntry.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

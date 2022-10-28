@@ -20,26 +20,31 @@ interface TermFacetResult extends FacetResult
     public const FIELD_TERMS = 'terms';
 
     /**
+
      * @return null|string
      */
     public function getDataType();
 
     /**
+
      * @return null|int
      */
     public function getMissing();
 
     /**
+
      * @return null|int
      */
     public function getTotal();
 
     /**
+
      * @return null|int
      */
     public function getOther();
 
     /**
+
      * @return null|FacetTermCollection
      */
     public function getTerms();

@@ -21,31 +21,37 @@ use stdClass;
 final class TransactionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $timestamp;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amount;
 
     /**
+
      * @var ?string
      */
     private $interactionId;
 
     /**
+
      * @var ?string
      */
     private $state;
@@ -53,6 +59,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>The unique ID of this object.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -63,6 +70,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|string
      */
     public function getTimestamp()
@@ -71,6 +79,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -79,6 +88,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getAmount()
@@ -89,6 +99,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId()
@@ -97,6 +108,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()

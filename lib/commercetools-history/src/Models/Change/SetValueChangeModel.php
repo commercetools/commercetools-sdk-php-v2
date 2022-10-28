@@ -22,21 +22,25 @@ final class SetValueChangeModel extends JsonObjectModel implements SetValueChang
 
     public const DISCRIMINATOR_VALUE = 'SetValueChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -48,15 +52,17 @@ final class SetValueChangeModel extends JsonObjectModel implements SetValueChang
     public function __construct(
         ?string $change = null,
          $nextValue = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -76,6 +82,7 @@ final class SetValueChangeModel extends JsonObjectModel implements SetValueChang
     /**
      * <p>Update action for <code>setValue</code> on custom objects</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,6 +100,7 @@ final class SetValueChangeModel extends JsonObjectModel implements SetValueChang
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getNextValue()
@@ -110,6 +118,7 @@ final class SetValueChangeModel extends JsonObjectModel implements SetValueChang
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

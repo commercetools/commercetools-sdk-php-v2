@@ -39,111 +39,151 @@ use stdClass;
 final class LineItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $productId;
 
     /**
+
      * @var ?string
      */
     private $productKey;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $productSlug;
 
     /**
+
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
     /**
+
      * @var null|Price|PriceBuilder
      */
     private $price;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
+
+    /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
+     * @var ?MethodTaxRateCollection
+     */
+    private $perMethodTaxRate;
+
+    /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var ?string
      */
     private $priceMode;
 
     /**
+
      * @var ?string
      */
     private $lineItemMode;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
+     * @var ?string
+     */
+    private $inventoryMode;
+
+    /**
+
      * @var null|ItemShippingDetails|ItemShippingDetailsBuilder
      */
     private $shippingDetails;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
@@ -151,6 +191,7 @@ final class LineItemBuilder implements Builder
     /**
      * <p>Unique identifier of the LineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -159,6 +200,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getProductId()
@@ -170,6 +212,7 @@ final class LineItemBuilder implements Builder
      * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
      * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
      *
+
      * @return null|string
      */
     public function getProductKey()
@@ -180,6 +223,7 @@ final class LineItemBuilder implements Builder
     /**
      * <p>The product name.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -193,6 +237,7 @@ final class LineItemBuilder implements Builder
      * It is empty if the product has been deleted.
      * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -201,6 +246,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -212,6 +258,7 @@ final class LineItemBuilder implements Builder
      * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
      * It can manually be updated with the Recalculate update action.</p>
      *
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -223,6 +270,7 @@ final class LineItemBuilder implements Builder
      * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
      * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
+
      * @return null|Price
      */
     public function getPrice()
@@ -233,6 +281,7 @@ final class LineItemBuilder implements Builder
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -241,11 +290,23 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * <p>Taxed price of the Shipping Method that is set automatically after <code>perMethodTaxRate</code> is set.</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        return $this->taxedPricePortions;
+    }
+
+    /**
      * <p>The total price of this line item.
      * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -257,6 +318,7 @@ final class LineItemBuilder implements Builder
      * <p>The amount of a LineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -268,6 +330,7 @@ final class LineItemBuilder implements Builder
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -276,6 +339,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -287,6 +351,7 @@ final class LineItemBuilder implements Builder
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -295,10 +360,23 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        return $this->perMethodTaxRate;
+    }
+
+    /**
      * <p>The supply channel identifies the inventory entries that should be reserved.
      * The channel has
      * the role InventorySupply.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -310,6 +388,7 @@ final class LineItemBuilder implements Builder
      * <p>The distribution channel is used to select a ProductPrice.
      * The channel has the role ProductDistribution.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getDistributionChannel()
@@ -318,6 +397,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -326,6 +406,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPriceMode()
@@ -334,6 +415,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemMode()
@@ -342,6 +424,7 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -350,8 +433,21 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
+    }
+
+    /**
      * <p>Container for line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails()
@@ -364,6 +460,7 @@ final class LineItemBuilder implements Builder
      * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
      * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -471,6 +568,17 @@ final class LineItemBuilder implements Builder
     }
 
     /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     * @return $this
+     */
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+
+        return $this;
+    }
+
+    /**
      * @param ?TypedMoney $totalPrice
      * @return $this
      */
@@ -521,6 +629,17 @@ final class LineItemBuilder implements Builder
     public function withTaxRate(?TaxRate $taxRate)
     {
         $this->taxRate = $taxRate;
+
+        return $this;
+    }
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     * @return $this
+     */
+    public function withPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate)
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
 
         return $this;
     }
@@ -587,6 +706,17 @@ final class LineItemBuilder implements Builder
     public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
 
         return $this;
     }
@@ -757,17 +887,20 @@ final class LineItemBuilder implements Builder
             $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
             $this->price instanceof PriceBuilder ? $this->price->build() : $this->price,
             $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedPricePortions,
             $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
             $this->quantity,
             $this->addedAt,
             $this->state,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
+            $this->perMethodTaxRate,
             $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->discountedPricePerQuantity,
             $this->priceMode,
             $this->lineItemMode,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->inventoryMode,
             $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
             $this->lastModifiedAt
         );

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifier;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifier;
@@ -48,6 +49,7 @@ interface ResourceIdentifier extends JsonObject
     /**
      * <p>Type of referenced resource. If given, it must match the expected <a href="ctp:api:type:ReferenceTypeId">ReferenceTypeId</a> of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId();
@@ -55,6 +57,7 @@ interface ResourceIdentifier extends JsonObject
     /**
      * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -62,6 +65,7 @@ interface ResourceIdentifier extends JsonObject
     /**
      * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getKey();

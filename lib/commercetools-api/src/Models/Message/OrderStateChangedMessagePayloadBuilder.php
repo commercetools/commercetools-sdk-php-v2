@@ -21,16 +21,21 @@ use stdClass;
 final class OrderStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @var ?string
      */
     private $oldOrderState;
 
     /**
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> after the <a href="ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getOrderState()
@@ -39,6 +44,9 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> before the <a href="ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getOldOrderState()

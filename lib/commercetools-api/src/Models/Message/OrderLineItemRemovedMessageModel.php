@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Cart\ItemShippingDetails;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsModel;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
@@ -20,8 +22,6 @@ use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -37,96 +37,115 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemRemoved';
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?int
      */
     protected $removedQuantity;
 
     /**
+     *
      * @var ?int
      */
     protected $newQuantity;
 
     /**
+     *
      * @var ?ItemStateCollection
      */
     protected $newState;
 
     /**
-     * @var ?TypedMoney
+     *
+     * @var ?CentPrecisionMoney
      */
     protected $newTotalPrice;
 
     /**
+     *
      * @var ?TaxedItemPrice
      */
     protected $newTaxedPrice;
 
     /**
+     *
      * @var ?Price
      */
     protected $newPrice;
 
     /**
+     *
      * @var ?ItemShippingDetails
      */
     protected $newShippingDetail;
@@ -150,10 +169,11 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
         ?int $removedQuantity = null,
         ?int $newQuantity = null,
         ?ItemStateCollection $newState = null,
-        ?TypedMoney $newTotalPrice = null,
+        ?CentPrecisionMoney $newTotalPrice = null,
         ?TaxedItemPrice $newTaxedPrice = null,
         ?Price $newPrice = null,
-        ?ItemShippingDetails $newShippingDetail = null
+        ?ItemShippingDetails $newShippingDetail = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -173,11 +193,12 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
         $this->newTaxedPrice = $newTaxedPrice;
         $this->newPrice = $newPrice;
         $this->newShippingDetail = $newShippingDetail;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
+     *
      *
      * @return null|string
      */
@@ -196,6 +217,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -213,6 +237,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -234,6 +261,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -255,7 +285,8 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -277,6 +308,7 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -295,6 +327,10 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -312,7 +348,8 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
+     *
      *
      * @return null|Reference
      */
@@ -332,6 +369,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -349,6 +389,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
+     *
      * @return null|string
      */
     public function getType()
@@ -366,6 +409,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -384,6 +430,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -401,6 +450,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|int
      */
     public function getRemovedQuantity()
@@ -418,6 +470,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|int
      */
     public function getNewQuantity()
@@ -435,6 +490,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:ItemState">ItemStates</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|ItemStateCollection
      */
     public function getNewState()
@@ -452,9 +510,10 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p><code>totalPrice</code> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
      *
-     * @return null|TypedMoney
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getNewTotalPrice()
     {
@@ -464,14 +523,17 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->newTotalPrice = $className::of($data);
+
+            $this->newTotalPrice = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->newTotalPrice;
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice()
@@ -490,6 +552,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:Price">Price</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|Price
      */
     public function getNewPrice()
@@ -508,6 +573,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:ItemShippingDetails">Shipping Details</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail()
@@ -639,9 +707,9 @@ final class OrderLineItemRemovedMessageModel extends JsonObjectModel implements 
     }
 
     /**
-     * @param ?TypedMoney $newTotalPrice
+     * @param ?CentPrecisionMoney $newTotalPrice
      */
-    public function setNewTotalPrice(?TypedMoney $newTotalPrice): void
+    public function setNewTotalPrice(?CentPrecisionMoney $newTotalPrice): void
     {
         $this->newTotalPrice = $newTotalPrice;
     }

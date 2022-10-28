@@ -19,6 +19,7 @@ interface TaxedItemPrice extends JsonObject
     public const FIELD_TOTAL_TAX = 'totalTax';
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalNet();
@@ -26,6 +27,7 @@ interface TaxedItemPrice extends JsonObject
     /**
      * <p>TaxedItemPrice fields can not be used in query predicates.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalGross();
@@ -33,6 +35,7 @@ interface TaxedItemPrice extends JsonObject
     /**
      * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalTax();

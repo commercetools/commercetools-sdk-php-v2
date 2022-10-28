@@ -23,16 +23,19 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'OrderBillingAddressSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?Address
      */
     protected $address;
 
     /**
+     *
      * @var ?Address
      */
     protected $oldAddress;
@@ -43,14 +46,16 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
      */
     public function __construct(
         ?Address $address = null,
-        ?Address $oldAddress = null
+        ?Address $oldAddress = null,
+        ?string $type = null
     ) {
         $this->address = $address;
         $this->oldAddress = $oldAddress;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,6 +73,9 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Billing address on the Order after the <a href="ctp:api:type:OrderSetBillingAddressAction">Set Billing Address</a> update action.</p>
+     *
+     *
      * @return null|Address
      */
     public function getAddress()
@@ -86,6 +94,9 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Billing address on the Order before the <a href="ctp:api:type:OrderSetBillingAddressAction">Set Billing Address</a> update action.</p>
+     *
+     *
      * @return null|Address
      */
     public function getOldAddress()

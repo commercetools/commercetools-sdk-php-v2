@@ -21,21 +21,25 @@ use stdClass;
 final class OrderPagedSearchResponseBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?HitCollection
      */
     private $hits;
@@ -43,6 +47,7 @@ final class OrderPagedSearchResponseBuilder implements Builder
     /**
      * <p>Total number of results matching the query.</p>
      *
+
      * @return null|int
      */
     public function getTotal()
@@ -53,6 +58,7 @@ final class OrderPagedSearchResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -63,6 +69,7 @@ final class OrderPagedSearchResponseBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -73,6 +80,7 @@ final class OrderPagedSearchResponseBuilder implements Builder
     /**
      * <p>Actual results.</p>
      *
+
      * @return null|HitCollection
      */
     public function getHits()

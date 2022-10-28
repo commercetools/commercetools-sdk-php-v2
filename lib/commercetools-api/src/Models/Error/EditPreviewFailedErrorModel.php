@@ -23,16 +23,19 @@ final class EditPreviewFailedErrorModel extends JsonObjectModel implements EditP
 {
     public const DISCRIMINATOR_VALUE = 'EditPreviewFailed';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?OrderEditPreviewFailure
      */
     protected $result;
@@ -43,14 +46,16 @@ final class EditPreviewFailedErrorModel extends JsonObjectModel implements EditP
      */
     public function __construct(
         ?string $message = null,
-        ?OrderEditPreviewFailure $result = null
+        ?OrderEditPreviewFailure $result = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->result = $result;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -68,6 +73,7 @@ final class EditPreviewFailedErrorModel extends JsonObjectModel implements EditP
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -85,6 +91,7 @@ final class EditPreviewFailedErrorModel extends JsonObjectModel implements EditP
     }
 
     /**
+     *
      * @return null|OrderEditPreviewFailure
      */
     public function getResult()

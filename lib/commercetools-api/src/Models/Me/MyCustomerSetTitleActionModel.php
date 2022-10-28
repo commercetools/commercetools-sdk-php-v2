@@ -21,11 +21,13 @@ final class MyCustomerSetTitleActionModel extends JsonObjectModel implements MyC
 {
     public const DISCRIMINATOR_VALUE = 'setTitle';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $title;
@@ -35,13 +37,15 @@ final class MyCustomerSetTitleActionModel extends JsonObjectModel implements MyC
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $title = null
+        ?string $title = null,
+        ?string $action = null
     ) {
         $this->title = $title;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,10 @@ final class MyCustomerSetTitleActionModel extends JsonObjectModel implements MyC
     }
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
+     *
      * @return null|string
      */
     public function getTitle()

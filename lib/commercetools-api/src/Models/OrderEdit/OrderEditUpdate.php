@@ -18,16 +18,19 @@ interface OrderEditUpdate extends JsonObject
     public const FIELD_DRY_RUN = 'dryRun';
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|OrderEditUpdateActionCollection
      */
     public function getActions();
 
     /**
+
      * @return null|bool
      */
     public function getDryRun();

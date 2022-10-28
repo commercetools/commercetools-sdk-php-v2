@@ -21,16 +21,19 @@ use stdClass;
 final class SetShippingRateInputChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?JsonObject
      */
     private $nextValue;
 
     /**
+
      * @var ?JsonObject
      */
     private $previousValue;
@@ -38,6 +41,7 @@ final class SetShippingRateInputChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setShippingRateInput</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class SetShippingRateInputChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|JsonObject
      */
     public function getNextValue()
@@ -54,6 +59,7 @@ final class SetShippingRateInputChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|JsonObject
      */
     public function getPreviousValue()

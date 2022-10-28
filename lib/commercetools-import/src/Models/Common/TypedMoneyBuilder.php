@@ -21,21 +21,25 @@ use stdClass;
 final class TypedMoneyBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $fractionDigits;
 
     /**
+
      * @var ?int
      */
     private $centAmount;
 
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @return null|int
      */
     public function getFractionDigits()
@@ -44,6 +48,7 @@ final class TypedMoneyBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCentAmount()
@@ -54,6 +59,7 @@ final class TypedMoneyBuilder implements Builder
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()

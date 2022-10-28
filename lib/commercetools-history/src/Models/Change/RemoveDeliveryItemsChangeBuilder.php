@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\DeliveryBuilder;
 final class RemoveDeliveryItemsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Delivery|DeliveryBuilder
      */
     private $previousValue;
@@ -35,6 +37,7 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeDelivery</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class RemoveDeliveryItemsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Delivery
      */
     public function getPreviousValue()

@@ -20,16 +20,19 @@ use stdClass;
 final class CustomerCreateEmailTokenModel extends JsonObjectModel implements CustomerCreateEmailToken
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?int
      */
     protected $ttlMinutes;
@@ -49,7 +52,8 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
-     * <p>Unique identifier of the email token.</p>
+     * <p>Unique identifier of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -68,6 +72,9 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Expected version of the Customer.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -85,6 +92,9 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     }
 
     /**
+     * <p>Validity period of the generated token in minutes.</p>
+     *
+     *
      * @return null|int
      */
     public function getTtlMinutes()

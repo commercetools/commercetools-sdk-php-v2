@@ -21,11 +21,13 @@ use stdClass;
 final class ContainerAndKeyBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $container;
@@ -33,6 +35,7 @@ final class ContainerAndKeyBuilder implements Builder
     /**
      * <p>User-defined identifier that is unique within the given container.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -41,8 +44,9 @@ final class ContainerAndKeyBuilder implements Builder
     }
 
     /**
-     * <p>Namespace to group Custom Objects.</p>
+     * <p>Namespace to group <a href="ctp:api:type:CustomObject">Custom Objects</a>.</p>
      *
+
      * @return null|string
      */
     public function getContainer()

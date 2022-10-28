@@ -21,11 +21,13 @@ final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'ShippingMethodDoesNotMatchCart';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
@@ -35,13 +37,15 @@ final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $message = null
+        ?string $message = null,
+        ?string $code = null
     ) {
         $this->message = $message;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -59,6 +63,7 @@ final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel imp
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()

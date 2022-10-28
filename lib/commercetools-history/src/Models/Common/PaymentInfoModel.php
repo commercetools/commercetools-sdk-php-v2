@@ -22,6 +22,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 
 
     /**
+     *
      * @var ?ReferenceCollection
      */
     protected $payments;
@@ -38,6 +39,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     }
 
     /**
+     *
      * @return null|ReferenceCollection
      */
     public function getPayments()

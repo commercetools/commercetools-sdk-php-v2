@@ -24,36 +24,43 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
 
     public const DISCRIMINATOR_VALUE = 'SetDiscountedPriceChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
+     *
      * @var ?string
      */
     protected $variant;
 
     /**
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
+     *
      * @var ?Price
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?Price
      */
     protected $nextValue;
@@ -68,7 +75,8 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
         ?string $variant = null,
         ?string $priceId = null,
         ?Price $previousValue = null,
-        ?Price $nextValue = null
+        ?Price $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
@@ -76,10 +84,11 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
         $this->priceId = $priceId;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -99,6 +108,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     /**
      * <p>Update action for <code>setDiscountedPrice</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -116,6 +126,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -133,6 +144,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|string
      */
     public function getVariant()
@@ -150,6 +162,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -167,6 +180,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|Price
      */
     public function getPreviousValue()
@@ -185,6 +199,7 @@ final class SetDiscountedPriceChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|Price
      */
     public function getNextValue()

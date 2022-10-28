@@ -21,11 +21,13 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setCompanyName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $companyName;
@@ -35,13 +37,15 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $companyName = null
+        ?string $companyName = null,
+        ?string $action = null
     ) {
         $this->companyName = $companyName;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,7 +63,9 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     }
 
     /**
-     * <p>If not defined, the company name is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
      *
      * @return null|string
      */

@@ -24,21 +24,25 @@ final class SetTargetChangeModel extends JsonObjectModel implements SetTargetCha
 
     public const DISCRIMINATOR_VALUE = 'SetTargetChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?Reference
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?Reference
      */
     protected $nextValue;
@@ -50,15 +54,17 @@ final class SetTargetChangeModel extends JsonObjectModel implements SetTargetCha
     public function __construct(
         ?string $change = null,
         ?Reference $previousValue = null,
-        ?Reference $nextValue = null
+        ?Reference $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class SetTargetChangeModel extends JsonObjectModel implements SetTargetCha
     /**
      * <p>Shape of the action for <code>setTarget</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class SetTargetChangeModel extends JsonObjectModel implements SetTargetCha
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getPreviousValue()
@@ -113,6 +121,7 @@ final class SetTargetChangeModel extends JsonObjectModel implements SetTargetCha
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getNextValue()

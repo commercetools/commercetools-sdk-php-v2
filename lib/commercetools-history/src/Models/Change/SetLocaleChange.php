@@ -18,6 +18,7 @@ interface SetLocaleChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,6 +26,7 @@ interface SetLocaleChange extends Change
     /**
      * <p>Update action for <code>setLocale</code> on reviews</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -32,6 +34,7 @@ interface SetLocaleChange extends Change
     /**
      * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
      *
+
      * @return null|string
      */
     public function getPreviousValue();
@@ -39,6 +42,7 @@ interface SetLocaleChange extends Change
     /**
      * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
      *
+
      * @return null|string
      */
     public function getNextValue();

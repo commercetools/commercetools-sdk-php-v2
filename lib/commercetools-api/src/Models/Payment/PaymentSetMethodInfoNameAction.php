@@ -19,6 +19,7 @@ interface PaymentSetMethodInfoNameAction extends PaymentUpdateAction
     /**
      * <p>If not provided, the name is unset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();

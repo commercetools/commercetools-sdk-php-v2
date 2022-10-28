@@ -21,21 +21,27 @@ use stdClass;
 final class ImageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $url;
 
     /**
+
      * @var null|ImageDimensions|ImageDimensionsBuilder
      */
     private $dimensions;
 
     /**
+
      * @var ?string
      */
     private $label;
 
     /**
+     * <p>URL of the image in its original size that must be unique within a single <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
      * @return null|string
      */
     public function getUrl()
@@ -44,6 +50,9 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * <p>Dimensions of the original image.</p>
+     *
+
      * @return null|ImageDimensions
      */
     public function getDimensions()
@@ -52,6 +61,9 @@ final class ImageBuilder implements Builder
     }
 
     /**
+     * <p>Custom label for the image.</p>
+     *
+
      * @return null|string
      */
     public function getLabel()

@@ -23,26 +23,31 @@ use stdClass;
 final class CartClassificationTierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $value;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var ?ShippingRatePriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @var ?bool
      */
     private $isMatching;
 
     /**
+
      * @return null|string
      */
     public function getValue()
@@ -51,6 +56,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -59,6 +65,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()
@@ -67,6 +74,7 @@ final class CartClassificationTierBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIsMatching()

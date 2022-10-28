@@ -20,16 +20,19 @@ use stdClass;
 final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger
 {
     /**
+     *
      * @var ?string
      */
     protected $resourceTypeId;
 
     /**
+     *
      * @var ?array
      */
     protected $actions;
 
     /**
+     *
      * @var ?string
      */
     protected $condition;
@@ -49,7 +52,8 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     }
 
     /**
-     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, and <code>customer</code> are supported.</p>
+     * <p><code>cart</code>, <code>order</code>, <code>payment</code>, <code>customer</code>, <code>quote-request</code>, <code>staged-quote</code>, <code>quote</code>, and <code>business-unit</code> are supported.</p>
+     *
      *
      * @return null|string
      */
@@ -70,6 +74,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
     /**
      * <p><code>Create</code> and <code>Update</code> requests are supported.</p>
      *
+     *
      * @return null|array
      */
     public function getActions()
@@ -88,6 +93,7 @@ final class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTr
 
     /**
      * <p>Valid <a href="/../api/predicates/query">predicate</a> that controls the conditions under which the API Extension is called. The Extension is not triggered when the specified condition is not fulfilled.</p>
+     *
      *
      * @return null|string
      */

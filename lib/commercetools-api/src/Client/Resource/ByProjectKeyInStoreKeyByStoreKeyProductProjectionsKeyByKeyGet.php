@@ -28,12 +28,15 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
+ * @template-implements PriceSelecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
+ * @template-implements LocaleProjecting<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements Expandable<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements Errorable<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  * @template-implements Deprecatable200<ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet>
  */
-class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiRequest implements Expandable, Errorable, Deprecatable200
+class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiRequest implements PriceSelecting, LocaleProjecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -141,6 +144,51 @@ class ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet extends ApiR
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $priceCurrency
+     */
+    public function withPriceCurrency($priceCurrency): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceCurrency', $priceCurrency);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $priceCountry
+     */
+    public function withPriceCountry($priceCountry): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceCountry', $priceCountry);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $priceCustomerGroup
+     */
+    public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceCustomerGroup', $priceCustomerGroup);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $priceChannel
+     */
+    public function withPriceChannel($priceChannel): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('priceChannel', $priceChannel);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $localeProjection
+     */
+    public function withLocaleProjection($localeProjection): ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet
+    {
+        return $this->withQueryParam('localeProjection', $localeProjection);
     }
 
     /**

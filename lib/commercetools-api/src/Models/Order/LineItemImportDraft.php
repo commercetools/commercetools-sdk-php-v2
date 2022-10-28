@@ -29,12 +29,14 @@ interface LineItemImportDraft extends JsonObject
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_TAX_RATE = 'taxRate';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_INVENTORY_MODE = 'inventoryMode';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
      * <p>ID of the existing product.
      * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>
      *
+
      * @return null|string
      */
     public function getProductId();
@@ -42,26 +44,31 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>The product name.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+
      * @return null|ProductVariantImportDraft
      */
     public function getVariant();
 
     /**
+
      * @return null|PriceDraft
      */
     public function getPrice();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
@@ -73,6 +80,7 @@ interface LineItemImportDraft extends JsonObject
      * The provided channel should have the
      * InventorySupply role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
@@ -81,11 +89,13 @@ interface LineItemImportDraft extends JsonObject
      * <p>The channel is used to select a ProductPrice.
      * The provided channel should have the ProductDistribution role.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate();
@@ -93,11 +103,22 @@ interface LineItemImportDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Set only if inventory mode should be different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:OrderImportDraft">OrderImportDraft</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getInventoryMode();
+
+    /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
@@ -151,6 +172,11 @@ interface LineItemImportDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void;
 
     /**
      * @param ?ItemShippingDetailsDraft $shippingDetails

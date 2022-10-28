@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnit;
+use Commercetools\Api\Models\BusinessUnit\Company;
+use Commercetools\Api\Models\BusinessUnit\Division;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
 use Commercetools\Api\Models\Category\Category;
@@ -18,6 +21,29 @@ use Commercetools\Api\Models\CustomObject\CustomObject;
 use Commercetools\Api\Models\DiscountCode\DiscountCode;
 use Commercetools\Api\Models\Extension\Extension;
 use Commercetools\Api\Models\Inventory\InventoryEntry;
+use Commercetools\Api\Models\Message\BusinessUnitAddressAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAddressChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociatesSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitBillingAddressAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitBillingAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitContactEmailSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitCreatedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitDefaultBillingAddressSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitDefaultShippingAddressSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitDeletedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitNameChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitParentUnitChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitShippingAddressAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitShippingAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStatusChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoreAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoreModeChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoreRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoresSetMessage;
 use Commercetools\Api\Models\Message\CategoryCreatedMessage;
 use Commercetools\Api\Models\Message\CategorySlugChangedMessage;
 use Commercetools\Api\Models\Message\CustomerAddressAddedMessage;
@@ -70,7 +96,9 @@ use Commercetools\Api\Models\Message\QuoteDeletedMessage;
 use Commercetools\Api\Models\Message\QuoteRequestCreatedMessage;
 use Commercetools\Api\Models\Message\QuoteRequestDeletedMessage;
 use Commercetools\Api\Models\Message\QuoteRequestStateChangedMessage;
+use Commercetools\Api\Models\Message\QuoteRequestStateTransitionMessage;
 use Commercetools\Api\Models\Message\QuoteStateChangedMessage;
+use Commercetools\Api\Models\Message\QuoteStateTransitionMessage;
 use Commercetools\Api\Models\Message\ReviewCreatedMessage;
 use Commercetools\Api\Models\Message\ReviewRatingSetMessage;
 use Commercetools\Api\Models\Message\ReviewStateTransitionMessage;
@@ -78,15 +106,22 @@ use Commercetools\Api\Models\Message\StagedQuoteCreatedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteDeletedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteSellerCommentSetMessage;
 use Commercetools\Api\Models\Message\StagedQuoteStateChangedMessage;
+use Commercetools\Api\Models\Message\StagedQuoteStateTransitionMessage;
 use Commercetools\Api\Models\Message\StagedQuoteValidToSetMessage;
+use Commercetools\Api\Models\Message\StandalonePriceActiveChangedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceCreatedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDeletedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessage;
+use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessage;
 use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;
+use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessage;
+use Commercetools\Api\Models\Message\StoreLanguagesChangedMessage;
+use Commercetools\Api\Models\Message\StoreNameSetMessage;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessage;
+use Commercetools\Api\Models\Message\StoreSupplyChannelsChangedMessage;
 use Commercetools\Api\Models\Order\Order;
 use Commercetools\Api\Models\OrderEdit\OrderEdit;
 use Commercetools\Api\Models\OrderEdit\StagedOrder;
@@ -121,21 +156,25 @@ interface BaseResource extends JsonObject
     public const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();

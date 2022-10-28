@@ -24,36 +24,43 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'addLineItem';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -68,7 +75,8 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
         ?int $variantId = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?string $action = null
     ) {
         $this->sku = $sku;
         $this->productId = $productId;
@@ -76,10 +84,11 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
         $this->custom = $custom;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -97,6 +106,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|string
      */
     public function getSku()
@@ -114,6 +124,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|string
      */
     public function getProductId()
@@ -131,6 +142,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -148,6 +160,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -165,6 +178,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -187,6 +201,7 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
 
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     *
      *
      * @return null|CustomFieldsDraft
      */

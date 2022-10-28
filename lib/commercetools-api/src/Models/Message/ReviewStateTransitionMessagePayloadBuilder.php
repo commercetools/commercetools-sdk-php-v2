@@ -25,38 +25,45 @@ use stdClass;
 final class ReviewStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $oldState;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $newState;
 
     /**
+
      * @var ?bool
      */
     private $oldIncludedInStatistics;
 
     /**
+
      * @var ?bool
      */
     private $newIncludedInStatistics;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $target;
 
     /**
+
      * @var ?bool
      */
     private $force;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> before the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
+
      * @return null|StateReference
      */
     public function getOldState()
@@ -65,8 +72,9 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> after the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
      *
+
      * @return null|StateReference
      */
     public function getNewState()
@@ -75,6 +83,9 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the old <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target before the state transition.</p>
+     *
+
      * @return null|bool
      */
     public function getOldIncludedInStatistics()
@@ -83,6 +94,9 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the new <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target after the state transition.</p>
+     *
+
      * @return null|bool
      */
     public function getNewIncludedInStatistics()
@@ -91,8 +105,9 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource that the <a href="ctp:api:type:Review">Review</a> belongs to.</p>
      *
+
      * @return null|Reference
      */
     public function getTarget()
@@ -101,6 +116,9 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
+     *
+
      * @return null|bool
      */
     public function getForce()

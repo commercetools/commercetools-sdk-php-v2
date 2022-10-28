@@ -21,21 +21,25 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeEnumKey';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $newKey;
@@ -47,15 +51,17 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     public function __construct(
         ?string $attributeName = null,
         ?string $key = null,
-        ?string $newKey = null
+        ?string $newKey = null,
+        ?string $action = null
     ) {
         $this->attributeName = $attributeName;
         $this->key = $key;
         $this->newKey = $newKey;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,6 +80,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
 
     /**
      * <p>Name of the AttributeDefinition to update.</p>
+     *
      *
      * @return null|string
      */
@@ -94,6 +101,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     /**
      * <p>Existing key to be changed.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -112,6 +120,7 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
 
     /**
      * <p>New key to be set.</p>
+     *
      *
      * @return null|string
      */

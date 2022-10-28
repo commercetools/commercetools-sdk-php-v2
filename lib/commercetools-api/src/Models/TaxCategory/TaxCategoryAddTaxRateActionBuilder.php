@@ -21,6 +21,7 @@ use stdClass;
 final class TaxCategoryAddTaxRateActionBuilder implements Builder
 {
     /**
+
      * @var null|TaxRateDraft|TaxRateDraftBuilder
      */
     private $taxRate;
@@ -28,6 +29,7 @@ final class TaxCategoryAddTaxRateActionBuilder implements Builder
     /**
      * <p>Value to append to the <code>rates</code> array.</p>
      *
+
      * @return null|TaxRateDraft
      */
     public function getTaxRate()

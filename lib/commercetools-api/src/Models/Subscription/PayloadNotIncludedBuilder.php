@@ -21,16 +21,21 @@ use stdClass;
 final class PayloadNotIncludedBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $reason;
 
     /**
+
      * @var ?string
      */
     private $payloadType;
 
     /**
+     * <p>Reason the payload is not included. For example, the payload is too large, or its content is not supported by the Subscription destination.</p>
+     *
+
      * @return null|string
      */
     public function getReason()
@@ -39,6 +44,9 @@ final class PayloadNotIncludedBuilder implements Builder
     }
 
     /**
+     * <p>Value of the <code>type</code> field in the original payload.</p>
+     *
+
      * @return null|string
      */
     public function getPayloadType()

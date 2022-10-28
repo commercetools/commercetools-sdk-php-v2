@@ -23,21 +23,25 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'OrderStateTransition';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?StateReference
      */
     protected $state;
 
     /**
+     *
      * @var ?StateReference
      */
     protected $oldState;
 
     /**
+     *
      * @var ?bool
      */
     protected $force;
@@ -49,15 +53,17 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     public function __construct(
         ?StateReference $state = null,
         ?StateReference $oldState = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $type = null
     ) {
         $this->state = $state;
         $this->oldState = $oldState;
         $this->force = $force;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,7 +81,8 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> after the <a href="ctp:api:type:OrderTransitionStateAction">Transition State</a> update action.</p>
+     *
      *
      * @return null|StateReference
      */
@@ -95,7 +102,8 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> before the <a href="ctp:api:type:OrderTransitionStateAction">Transition State</a> update action.</p>
+     *
      *
      * @return null|StateReference
      */
@@ -115,6 +123,9 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:OrderTransitionStateAction">Transition State</a> update action.</p>
+     *
+     *
      * @return null|bool
      */
     public function getForce()

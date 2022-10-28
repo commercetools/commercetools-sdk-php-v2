@@ -24,21 +24,25 @@ use stdClass;
 final class DeliveryDraftBuilder implements Builder
 {
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var ?DeliveryParcelDraftCollection
      */
     private $parcels;
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -47,6 +51,7 @@ final class DeliveryDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -55,6 +60,7 @@ final class DeliveryDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryParcelDraftCollection
      */
     public function getParcels()

@@ -26,36 +26,43 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemTaxRateChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $variant;
 
     /**
+     *
      * @var ?string
      */
     protected $taxMode;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $previousValue;
@@ -70,7 +77,8 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
         ?string $variant = null,
         ?string $taxMode = null,
         ?TaxRate $nextValue = null,
-        ?TaxRate $previousValue = null
+        ?TaxRate $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
@@ -78,10 +86,11 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
         $this->taxMode = $taxMode;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -101,6 +110,7 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     /**
      * <p>Update action for <code>setLineItemTaxRate</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -118,6 +128,7 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -136,6 +147,7 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|string
      */
     public function getVariant()
@@ -153,6 +165,7 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTaxMode()
@@ -171,6 +184,7 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
 
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     *
      *
      * @return null|TaxRate
      */
@@ -191,6 +205,7 @@ final class SetLineItemTaxRateChangeModel extends JsonObjectModel implements Set
 
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     *
      *
      * @return null|TaxRate
      */

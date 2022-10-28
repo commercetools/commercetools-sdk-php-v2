@@ -21,16 +21,19 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setSearchKeywords';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -41,14 +44,16 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
      */
     public function __construct(
         ?SearchKeywords $searchKeywords = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->searchKeywords = $searchKeywords;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,6 +71,9 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Value to set.</p>
+     *
+     *
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -84,6 +92,9 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>searchKeywords</code> is updated. If <code>false</code>, both the current and staged <code>searchKeywords</code> are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

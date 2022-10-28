@@ -24,16 +24,19 @@ use stdClass;
 final class StagedOrderSetParcelItemsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $parcelId;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @return null|string
      */
     public function getParcelId()
@@ -42,6 +45,7 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

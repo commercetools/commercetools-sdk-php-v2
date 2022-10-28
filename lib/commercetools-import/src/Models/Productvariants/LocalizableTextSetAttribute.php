@@ -17,6 +17,7 @@ interface LocalizableTextSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getValue();

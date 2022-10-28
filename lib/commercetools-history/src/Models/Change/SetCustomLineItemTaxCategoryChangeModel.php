@@ -26,31 +26,37 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemTaxCategoryChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+     *
      * @var ?Reference
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?Reference
      */
     protected $previousValue;
@@ -64,17 +70,19 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
         ?Reference $nextValue = null,
-        ?Reference $previousValue = null
+        ?Reference $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -94,6 +102,7 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     /**
      * <p>Update action for <code>setCustomLineItemTaxCategory</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,6 +120,7 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -129,6 +139,7 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -146,6 +157,7 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getNextValue()
@@ -164,6 +176,7 @@ final class SetCustomLineItemTaxCategoryChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getPreviousValue()

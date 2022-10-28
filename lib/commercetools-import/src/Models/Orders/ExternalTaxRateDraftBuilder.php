@@ -22,36 +22,43 @@ use stdClass;
 final class ExternalTaxRateDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?float
      */
     private $amount;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?SubRateCollection
      */
     private $subRates;
 
     /**
+
      * @var ?bool
      */
     private $includedInPrice;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -60,6 +67,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|float
      */
     public function getAmount()
@@ -68,6 +76,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCountry()
@@ -76,6 +85,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getState()
@@ -84,6 +94,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -92,6 +103,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getIncludedInPrice()

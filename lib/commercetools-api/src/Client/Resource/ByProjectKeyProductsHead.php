@@ -26,6 +26,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Errorable<ByProjectKeyProductsHead>
  * @template-implements Deprecatable200<ByProjectKeyProductsHead>
@@ -134,5 +135,14 @@ class ByProjectKeyProductsHead extends ApiRequest implements Errorable, Deprecat
                 throw $e;
             }
         );
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $where
+     */
+    public function withWhere($where): ByProjectKeyProductsHead
+    {
+        return $this->withQueryParam('where', $where);
     }
 }

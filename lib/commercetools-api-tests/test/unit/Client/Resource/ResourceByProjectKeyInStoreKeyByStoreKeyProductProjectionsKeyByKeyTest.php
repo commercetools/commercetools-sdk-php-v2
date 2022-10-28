@@ -90,6 +90,71 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyTest ext
     public function getRequests()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withPriceCurrency' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceCurrency('priceCurrency');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?priceCurrency=priceCurrency',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withPriceCountry' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceCountry('priceCountry');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?priceCountry=priceCountry',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withPriceCustomerGroup' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceCustomerGroup('priceCustomerGroup');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?priceCustomerGroup=priceCustomerGroup',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withPriceChannel' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withPriceChannel('priceChannel');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?priceChannel=priceChannel',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withLocaleProjection' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withKey('test_key')
+                        ->get()
+                        ->withLocaleProjection('localeProjection');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/key=test_key?localeProjection=localeProjection',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsKeyByKeyGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

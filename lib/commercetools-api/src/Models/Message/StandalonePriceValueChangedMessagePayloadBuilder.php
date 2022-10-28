@@ -23,18 +23,37 @@ use stdClass;
 final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $value;
 
     /**
-     * <p>The new value of the updated StandalonePrice.</p>
+
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
+     * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
      *
+
      * @return null|Money
      */
     public function getValue()
     {
         return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+    }
+
+    /**
+     * <p>Whether the new value was applied to the current or the staged representation of the StandalonePrice. Staged changes are stored on the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -44,6 +63,17 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     public function withValue(?Money $value)
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $staged
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
 
         return $this;
     }
@@ -62,7 +92,8 @@ final class StandalonePriceValueChangedMessagePayloadBuilder implements Builder
     public function build(): StandalonePriceValueChangedMessagePayload
     {
         return new StandalonePriceValueChangedMessagePayloadModel(
-            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value
+            $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value,
+            $this->staged
         );
     }
 

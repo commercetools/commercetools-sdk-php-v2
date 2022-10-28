@@ -19,6 +19,7 @@ interface ProductTypeImportRequest extends ImportRequest
     /**
      * <p>The product type import resources of this request.</p>
      *
+
      * @return null|ProductTypeImportCollection
      */
     public function getResources();

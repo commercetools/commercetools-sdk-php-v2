@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetCartClassificationShippingRateInputValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $label;
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -46,6 +50,7 @@ final class SetCartClassificationShippingRateInputValueBuilder implements Builde
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -54,6 +59,7 @@ final class SetCartClassificationShippingRateInputValueBuilder implements Builde
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel()

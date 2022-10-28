@@ -23,11 +23,13 @@ use stdClass;
 final class OrderResourceIdentifierBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -35,6 +37,7 @@ final class OrderResourceIdentifierBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced resource. Required if <code>key</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class OrderResourceIdentifierBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the referenced resource. Required if <code>id</code> is absent.</p>
      *
+
      * @return null|string
      */
     public function getKey()

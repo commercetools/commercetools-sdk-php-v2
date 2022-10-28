@@ -21,11 +21,13 @@ use stdClass;
 final class MissingImagesProductLevelBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $missingImages;
 
     /**
+
      * @var ?int
      */
     private $total;
@@ -33,6 +35,7 @@ final class MissingImagesProductLevelBuilder implements Builder
     /**
      * <p>Number of products missing images.</p>
      *
+
      * @return null|int
      */
     public function getMissingImages()
@@ -43,6 +46,7 @@ final class MissingImagesProductLevelBuilder implements Builder
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal()

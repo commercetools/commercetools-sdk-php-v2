@@ -28,51 +28,67 @@ use stdClass;
 final class PriceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
+
      * @var ?PriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -80,6 +96,7 @@ final class PriceBuilder implements Builder
     /**
      * <p>Unique identifier of this Price.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -88,8 +105,20 @@ final class PriceBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier of the Price. It is unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
      * <p>Money value of this Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -100,6 +129,7 @@ final class PriceBuilder implements Builder
     /**
      * <p>Country for which this Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -110,6 +140,7 @@ final class PriceBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -120,6 +151,7 @@ final class PriceBuilder implements Builder
     /**
      * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -130,6 +162,7 @@ final class PriceBuilder implements Builder
     /**
      * <p>Date and time from which this Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -140,6 +173,7 @@ final class PriceBuilder implements Builder
     /**
      * <p>Date and time until this Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -152,6 +186,7 @@ final class PriceBuilder implements Builder
      * If set, the API uses the DiscountedPrice value for the <a href="/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -162,6 +197,7 @@ final class PriceBuilder implements Builder
     /**
      * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -172,6 +208,7 @@ final class PriceBuilder implements Builder
     /**
      * <p>Custom Fields defined for the Price.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -186,6 +223,17 @@ final class PriceBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -348,6 +396,7 @@ final class PriceBuilder implements Builder
     {
         return new PriceModel(
             $this->id,
+            $this->key,
             $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value,
             $this->country,
             $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup,

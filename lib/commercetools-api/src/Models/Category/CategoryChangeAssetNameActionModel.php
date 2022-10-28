@@ -23,21 +23,25 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'changeAssetName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -49,15 +53,17 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     public function __construct(
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?string $action = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -76,6 +82,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
 
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -96,6 +103,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -114,6 +122,7 @@ final class CategoryChangeAssetNameActionModel extends JsonObjectModel implement
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|LocalizedString
      */

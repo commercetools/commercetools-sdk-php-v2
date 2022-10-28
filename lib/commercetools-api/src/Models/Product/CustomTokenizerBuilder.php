@@ -21,11 +21,15 @@ use stdClass;
 final class CustomTokenizerBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $inputs;
 
     /**
+     * <p>Contains custom tokens.</p>
+     *
+
      * @return null|array
      */
     public function getInputs()

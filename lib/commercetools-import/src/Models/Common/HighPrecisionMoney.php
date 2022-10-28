@@ -16,6 +16,7 @@ interface HighPrecisionMoney extends TypedMoney
     public const FIELD_PRECISE_AMOUNT = 'preciseAmount';
 
     /**
+
      * @return null|int
      */
     public function getPreciseAmount();

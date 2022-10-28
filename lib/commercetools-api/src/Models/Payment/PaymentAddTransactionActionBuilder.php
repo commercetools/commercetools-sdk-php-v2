@@ -21,11 +21,13 @@ use stdClass;
 final class PaymentAddTransactionActionBuilder implements Builder
 {
     /**
+
      * @var null|TransactionDraft|TransactionDraftBuilder
      */
     private $transaction;
 
     /**
+
      * @return null|TransactionDraft
      */
     public function getTransaction()

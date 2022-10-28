@@ -18,6 +18,8 @@ use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use Commercetools\Import\Models\Prices\TaxRate;
 use Commercetools\Import\Models\Prices\TaxRateModel;
 use stdClass;
@@ -28,54 +30,70 @@ use stdClass;
 final class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft
 {
     /**
+     *
      * @var ?ProductKeyReference
      */
     protected $product;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?LineItemProductVariantImportDraft
      */
     protected $variant;
 
     /**
+     *
      * @var ?LineItemPrice
      */
     protected $price;
 
     /**
+     *
      * @var ?float
      */
     protected $quantity;
 
     /**
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+     *
      * @var ?ChannelKeyReference
      */
     protected $supplyChannel;
 
     /**
+     *
      * @var ?ChannelKeyReference
      */
     protected $distributionChannel;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
+    /**
+     *
+     * @var ?Custom
+     */
+    protected $custom;
 
 
     /**
@@ -91,7 +109,8 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         ?ChannelKeyReference $supplyChannel = null,
         ?ChannelKeyReference $distributionChannel = null,
         ?TaxRate $taxRate = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?Custom $custom = null
     ) {
         $this->product = $product;
         $this->name = $name;
@@ -103,10 +122,12 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->distributionChannel = $distributionChannel;
         $this->taxRate = $taxRate;
         $this->shippingDetails = $shippingDetails;
+        $this->custom = $custom;
     }
 
     /**
      * <p>Maps to <code>LineItem.productId</code>.</p>
+     *
      *
      * @return null|ProductKeyReference
      */
@@ -128,6 +149,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.name</code>.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -147,6 +169,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
      * <p>Maps to <code>ProductVariantImportDraft</code>.</p>
+     *
      *
      * @return null|LineItemProductVariantImportDraft
      */
@@ -168,6 +191,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.price</code>.</p>
      *
+     *
      * @return null|LineItemPrice
      */
     public function getPrice()
@@ -188,6 +212,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to <code>LineItem.quantity</code>.</p>
      *
+     *
      * @return null|float
      */
     public function getQuantity()
@@ -205,6 +230,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -225,6 +251,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * <p>Maps to <code>LineItem.supplyChannel</code>.
      * The Reference to the Supply <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
+     *
      *
      * @return null|ChannelKeyReference
      */
@@ -248,6 +275,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
      * The Reference to the Distribution <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
      *
+     *
      * @return null|ChannelKeyReference
      */
     public function getDistributionChannel()
@@ -267,6 +295,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
      * <p>Maps to <code>LineItem.taxRate</code>.</p>
+     *
      *
      * @return null|TaxRate
      */
@@ -288,6 +317,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * <p>Maps to LineItem.shippingDetails.</p>
      *
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -303,6 +333,27 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         }
 
         return $this->shippingDetails;
+    }
+
+    /**
+     * <p>Custom Fields for this Line Item.</p>
+     *
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
     }
 
 
@@ -384,5 +435,13 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 }

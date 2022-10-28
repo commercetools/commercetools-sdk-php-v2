@@ -18,6 +18,7 @@ interface ImageSearchConfigRequest extends JsonObject
     /**
      * <p>The list of update actions to be performed on the project.</p>
      *
+
      * @return null|ImageSearchConfigUpdateActionCollection
      */
     public function getActions();

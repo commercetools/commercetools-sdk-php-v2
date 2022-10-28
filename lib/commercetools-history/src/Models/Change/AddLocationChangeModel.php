@@ -24,21 +24,25 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
 
     public const DISCRIMINATOR_VALUE = 'AddLocationChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?Location
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?Location
      */
     protected $nextValue;
@@ -50,15 +54,17 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     public function __construct(
         ?string $change = null,
         ?Location $previousValue = null,
-        ?Location $nextValue = null
+        ?Location $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -77,6 +83,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
 
     /**
      * <p>Update action for <code>addLocation</code> on zones</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +104,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
      *
+     *
      * @return null|Location
      */
     public function getPreviousValue()
@@ -116,6 +124,7 @@ final class AddLocationChangeModel extends JsonObjectModel implements AddLocatio
 
     /**
      * <p>Shape of the value for <code>addLocation</code> and <code>removeLocation</code> actions</p>
+     *
      *
      * @return null|Location
      */

@@ -17,15 +17,17 @@ interface StagedQuoteStateChangedMessage extends Message
     public const FIELD_OLD_STAGED_QUOTE_STATE = 'oldStagedQuoteState';
 
     /**
-     * <p>Predefined states tracking the status of the Staged Quote.</p>
+     * <p>State of the Staged Quote after the <a href="ctp:api:type:StagedQuoteChangeStagedQuoteStateAction">Change Staged Quote State</a> update action.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState();
 
     /**
-     * <p>Predefined states tracking the status of the Staged Quote.</p>
+     * <p>State of the Staged Quote before the <a href="ctp:api:type:StagedQuoteChangeStagedQuoteStateAction">Change Staged Quote State</a> update action.</p>
      *
+
      * @return null|string
      */
     public function getOldStagedQuoteState();

@@ -24,11 +24,13 @@ use stdClass;
 final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDiscountDraft
 {
     /**
+     *
      * @var ?CartDiscountValue
      */
     protected $value;
 
     /**
+     *
      * @var ?CartDiscountTarget
      */
     protected $target;
@@ -46,6 +48,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
     }
 
     /**
+     *
      * @return null|CartDiscountValue
      */
     public function getValue()
@@ -65,6 +68,7 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
 
     /**
      * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>
+     *
      *
      * @return null|CartDiscountTarget
      */

@@ -21,11 +21,13 @@ final class CustomerPasswordUpdatedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'CustomerPasswordUpdated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?bool
      */
     protected $reset;
@@ -35,13 +37,15 @@ final class CustomerPasswordUpdatedMessagePayloadModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $reset = null
+        ?bool $reset = null,
+        ?string $type = null
     ) {
         $this->reset = $reset;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -59,7 +63,8 @@ final class CustomerPasswordUpdatedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
-     * <p>true, if password has been updated during Customer's Password Reset workflow.</p>
+     * <p>Whether the Customer's password was updated during the <a href="/../api/projects/customers#password-reset-of-customer">Reset password</a> or <a href="/../api/projects/customers#change-password-of-customer">Change password</a> flow.</p>
+     *
      *
      * @return null|bool
      */

@@ -17,11 +17,13 @@ interface ChangeValueRelativeChangeValue extends ChangeValueChangeValue
     public const FIELD_PERMYRIAD = 'permyriad';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|int
      */
     public function getPermyriad();

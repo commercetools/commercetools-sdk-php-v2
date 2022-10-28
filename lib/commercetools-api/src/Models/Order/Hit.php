@@ -20,6 +20,7 @@ interface Hit extends JsonObject
     /**
      * <p>Unique identifier of the Order.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -27,6 +28,7 @@ interface Hit extends JsonObject
     /**
      * <p>Current version of the Order.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -34,6 +36,7 @@ interface Hit extends JsonObject
     /**
      * <p>The higher the value is, the more relevant the hit is for the search request.</p>
      *
+
      * @return null|float
      */
     public function getRelevance();

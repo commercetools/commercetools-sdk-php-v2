@@ -21,11 +21,13 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerNumber';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $customerNumber;
@@ -35,13 +37,15 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $customerNumber = null
+        ?string $customerNumber = null,
+        ?string $action = null
     ) {
         $this->customerNumber = $customerNumber;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,8 +63,9 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>It should be <strong>unique</strong> across a project.
-     * Once it's set, it cannot be changed.</p>
+     * <p>Value to set.
+     * Once set, it cannot be changed.</p>
+     *
      *
      * @return null|string
      */

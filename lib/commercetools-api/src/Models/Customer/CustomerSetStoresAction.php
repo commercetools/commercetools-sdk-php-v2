@@ -17,6 +17,9 @@ interface CustomerSetStoresAction extends CustomerUpdateAction
     public const FIELD_STORES = 'stores';
 
     /**
+     * <p>ResourceIdentifier of the Stores to set.</p>
+     *
+
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();

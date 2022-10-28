@@ -21,11 +21,13 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
 {
     public const DISCRIMINATOR_VALUE = 'setAuthorName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $authorName;
@@ -35,13 +37,15 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $authorName = null
+        ?string $authorName = null,
+        ?string $action = null
     ) {
         $this->authorName = $authorName;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,7 +63,8 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     }
 
     /**
-     * <p>If <code>authorName</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

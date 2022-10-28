@@ -21,6 +21,7 @@ use stdClass;
 final class CategorySetExternalIdActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $externalId;
@@ -28,6 +29,7 @@ final class CategorySetExternalIdActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()

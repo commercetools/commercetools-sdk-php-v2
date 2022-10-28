@@ -21,26 +21,39 @@ use stdClass;
 final class SqsDestinationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $accessKey;
 
     /**
+
      * @var ?string
      */
     private $accessSecret;
 
     /**
+
      * @var ?string
      */
     private $queueUrl;
 
     /**
+
      * @var ?string
      */
     private $region;
 
     /**
+
+     * @var ?string
+     */
+    private $authenticationMode;
+
+    /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
+
      * @return null|string
      */
     public function getAccessKey()
@@ -49,6 +62,9 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
+
      * @return null|string
      */
     public function getAccessSecret()
@@ -57,6 +73,9 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * <p>URL of the Amazon SQS queue.</p>
+     *
+
      * @return null|string
      */
     public function getQueueUrl()
@@ -65,11 +84,25 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
+     * <p><a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">AWS Region</a> the message queue is located in.</p>
+     *
+
      * @return null|string
      */
     public function getRegion()
     {
         return $this->region;
+    }
+
+    /**
+     * <p>Defines the method of authentication for the SQS queue.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        return $this->authenticationMode;
     }
 
     /**
@@ -116,6 +149,17 @@ final class SqsDestinationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $authenticationMode
+     * @return $this
+     */
+    public function withAuthenticationMode(?string $authenticationMode)
+    {
+        $this->authenticationMode = $authenticationMode;
+
+        return $this;
+    }
+
 
     public function build(): SqsDestination
     {
@@ -123,7 +167,8 @@ final class SqsDestinationBuilder implements Builder
             $this->accessKey,
             $this->accessSecret,
             $this->queueUrl,
-            $this->region
+            $this->region,
+            $this->authenticationMode
         );
     }
 

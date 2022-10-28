@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectChangeCountriesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $countries;
@@ -28,6 +29,7 @@ final class ProjectChangeCountriesActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|array
      */
     public function getCountries()

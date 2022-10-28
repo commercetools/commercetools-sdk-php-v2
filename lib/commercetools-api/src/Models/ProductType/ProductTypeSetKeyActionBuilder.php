@@ -21,6 +21,7 @@ use stdClass;
 final class ProductTypeSetKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -28,6 +29,7 @@ final class ProductTypeSetKeyActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()

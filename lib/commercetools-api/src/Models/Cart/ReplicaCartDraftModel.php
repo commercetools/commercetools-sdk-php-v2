@@ -22,11 +22,13 @@ use stdClass;
 final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCartDraft
 {
     /**
+     *
      * @var ?mixed
      */
     protected $reference;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -44,6 +46,7 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
     }
 
     /**
+     *
      * @return ?mixed
      */
     public function getReference()
@@ -62,6 +65,7 @@ final class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCart
 
     /**
      * <p>User-specific unique identifier of the cart.</p>
+     *
      *
      * @return null|string
      */

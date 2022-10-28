@@ -28,116 +28,139 @@ use stdClass;
 final class CustomerImportModel extends JsonObjectModel implements CustomerImport
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $customerNumber;
 
     /**
+     *
      * @var ?string
      */
     protected $email;
 
     /**
+     *
      * @var ?string
      */
     protected $password;
 
     /**
+     *
      * @var ?StoreKeyReferenceCollection
      */
     protected $stores;
 
     /**
+     *
      * @var ?string
      */
     protected $firstName;
 
     /**
+     *
      * @var ?string
      */
     protected $lastName;
 
     /**
+     *
      * @var ?string
      */
     protected $middleName;
 
     /**
+     *
      * @var ?string
      */
     protected $title;
 
     /**
+     *
      * @var ?string
      */
     protected $salutation;
 
     /**
+     *
      * @var ?string
      */
     protected $externalId;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
 
     /**
+     *
      * @var ?string
      */
     protected $companyName;
 
     /**
+     *
      * @var ?string
      */
     protected $vatId;
 
     /**
+     *
      * @var ?bool
      */
     protected $isEmailVerified;
 
     /**
+     *
      * @var ?CustomerGroupKeyReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?CustomerAddressCollection
      */
     protected $addresses;
 
     /**
+     *
      * @var ?int
      */
     protected $defaultBillingAddress;
 
     /**
+     *
      * @var ?array
      */
     protected $billingAddresses;
 
     /**
+     *
      * @var ?int
      */
     protected $defaultShippingAddress;
 
     /**
+     *
      * @var ?array
      */
     protected $shippingAddresses;
 
     /**
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
+     *
      * @var ?Custom
      */
     protected $custom;
@@ -197,6 +220,9 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+     *
      * @return null|string
      */
     public function getKey()
@@ -215,6 +241,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.customerNumber</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -235,6 +262,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.email</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getEmail()
@@ -253,6 +281,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.password</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -273,6 +302,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>The References to the Stores with which the Customer is associated. If referenced Stores do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Stores are created.</p>
      *
+     *
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores()
@@ -291,6 +321,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.firstName</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -311,6 +342,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.lastName</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getLastName()
@@ -329,6 +361,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.middleName</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -349,6 +382,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.title</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getTitle()
@@ -367,6 +401,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.salutation</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -387,6 +422,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.externalId</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -405,6 +441,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.dateOfBirth</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -429,6 +466,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.companyName</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getCompanyName()
@@ -448,6 +486,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.vatId</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getVatId()
@@ -466,6 +505,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>Maps to <code>Customer.isEmailVerified</code>.</p>
+     *
      *
      * @return null|bool
      */
@@ -487,6 +527,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
      * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the Customer is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
+     *
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -507,6 +548,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.addresses</code>.</p>
      *
+     *
      * @return null|CustomerAddressCollection
      */
     public function getAddresses()
@@ -525,6 +567,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>The index of the address in the addresses array. The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>
+     *
      *
      * @return null|int
      */
@@ -545,6 +588,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>The indices of the billing addresses in the addresses array. The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+     *
      * @return null|array
      */
     public function getBillingAddresses()
@@ -563,6 +607,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>The index of the address in the addresses array. The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>
+     *
      *
      * @return null|int
      */
@@ -583,6 +628,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>The indices of the shipping addresses in the addresses array. The <code>shippingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>
      *
+     *
      * @return null|array
      */
     public function getShippingAddresses()
@@ -602,6 +648,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
     /**
      * <p>Maps to <code>Customer.locale</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getLocale()
@@ -620,6 +667,7 @@ final class CustomerImportModel extends JsonObjectModel implements CustomerImpor
 
     /**
      * <p>The custom fields for this Customer.</p>
+     *
      *
      * @return null|Custom
      */

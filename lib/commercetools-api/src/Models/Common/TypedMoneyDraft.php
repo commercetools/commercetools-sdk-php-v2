@@ -18,6 +18,7 @@ interface TypedMoneyDraft extends Money
     public const FIELD_FRACTION_DIGITS = 'fractionDigits';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,6 +26,7 @@ interface TypedMoneyDraft extends Money
     /**
      * <p>Must be equal to the default number of fraction digits for the specified currency.</p>
      *
+
      * @return null|int
      */
     public function getFractionDigits();

@@ -25,26 +25,37 @@ use stdClass;
 final class OrderAddDeliveryActionBuilder implements Builder
 {
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @var ?ParcelDraftCollection
      */
     private $parcels;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -53,6 +64,18 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
+    }
+
+    /**
+
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -61,6 +84,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelDraftCollection
      */
     public function getParcels()
@@ -71,6 +95,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -85,6 +110,17 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function withItems(?DeliveryItemCollection $items)
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -148,6 +184,7 @@ final class OrderAddDeliveryActionBuilder implements Builder
     {
         return new OrderAddDeliveryActionModel(
             $this->items,
+            $this->shippingKey,
             $this->address instanceof BaseAddressBuilder ? $this->address->build() : $this->address,
             $this->parcels,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom

@@ -21,6 +21,7 @@ use stdClass;
 final class ChannelRemoveRolesActionBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $roles;
@@ -28,6 +29,7 @@ final class ChannelRemoveRolesActionBuilder implements Builder
     /**
      * <p>Value to remove from the array.</p>
      *
+
      * @return null|array
      */
     public function getRoles()

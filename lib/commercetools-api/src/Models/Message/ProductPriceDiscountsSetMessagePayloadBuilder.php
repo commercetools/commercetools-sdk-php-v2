@@ -21,11 +21,15 @@ use stdClass;
 final class ProductPriceDiscountsSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     private $updatedPrices;
 
     /**
+     * <p>Array containing details about the <a href="ctp:api:type:Price">Embedded Prices</a> that were updated.</p>
+     *
+
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
      */
     public function getUpdatedPrices()

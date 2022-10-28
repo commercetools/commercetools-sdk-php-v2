@@ -21,11 +21,13 @@ final class StringFieldModel extends JsonObjectModel implements StringField
 {
     public const DISCRIMINATOR_VALUE = 'String';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $value;
@@ -35,14 +37,16 @@ final class StringFieldModel extends JsonObjectModel implements StringField
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $value = null
+        ?string $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
+     *
      *
      * @return null|string
      */
@@ -61,6 +65,7 @@ final class StringFieldModel extends JsonObjectModel implements StringField
     }
 
     /**
+     *
      * @return null|string
      */
     public function getValue()

@@ -21,11 +21,13 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
 {
     public const DISCRIMINATOR_VALUE = 'lenum';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?AttributeLocalizedEnumValueCollection
      */
     protected $values;
@@ -35,13 +37,15 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?AttributeLocalizedEnumValueCollection $values = null
+        ?AttributeLocalizedEnumValueCollection $values = null,
+        ?string $name = null
     ) {
         $this->values = $values;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -60,6 +64,7 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
 
     /**
      * <p>Available values that can be assigned to Products.</p>
+     *
      *
      * @return null|AttributeLocalizedEnumValueCollection
      */

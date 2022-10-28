@@ -34,81 +34,97 @@ use stdClass;
 final class ShippingMethodBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedName;
 
     /**
+     * @deprecated
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedDescription;
 
     /**
+
      * @var null|TaxCategoryReference|TaxCategoryReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var ?ZoneRateCollection
      */
     private $zoneRates;
 
     /**
+
      * @var ?bool
      */
     private $isDefault;
 
     /**
+
      * @var ?string
      */
     private $predicate;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -116,6 +132,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Unique identifier of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -126,6 +143,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Current version of the ShippingMethod.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -136,6 +154,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Date and time (UTC) the ShippingMethod was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -146,6 +165,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Date and time (UTC) the ShippingMethod was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -156,6 +176,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -166,6 +187,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -176,6 +198,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -186,6 +209,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Name of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -196,6 +220,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Localized name of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedName()
@@ -206,6 +231,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Description of the ShippingMethod.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getDescription()
@@ -216,6 +242,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Localized description of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()
@@ -226,6 +253,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> of all ZoneRates of the ShippingMethod.</p>
      *
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -236,6 +264,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific Zones.</p>
      *
+
      * @return null|ZoneRateCollection
      */
     public function getZoneRates()
@@ -246,6 +275,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>If <code>true</code> this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
+
      * @return null|bool
      */
     public function getIsDefault()
@@ -256,6 +286,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()
@@ -266,6 +297,7 @@ final class ShippingMethodBuilder implements Builder
     /**
      * <p>Custom Fields of the ShippingMethod.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

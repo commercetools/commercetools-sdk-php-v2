@@ -23,6 +23,7 @@ use stdClass;
 final class AttributeNestedTypeBuilder implements Builder
 {
     /**
+
      * @var null|ProductTypeKeyReference|ProductTypeKeyReferenceBuilder
      */
     private $typeReference;
@@ -30,6 +31,7 @@ final class AttributeNestedTypeBuilder implements Builder
     /**
      * <p>References a product type by key.</p>
      *
+
      * @return null|ProductTypeKeyReference
      */
     public function getTypeReference()

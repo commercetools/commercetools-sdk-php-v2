@@ -24,16 +24,19 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
 
     public const DISCRIMINATOR_VALUE = 'RemoveDeliveryItemsChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?Delivery
      */
     protected $previousValue;
@@ -44,14 +47,16 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
      */
     public function __construct(
         ?string $change = null,
-        ?Delivery $previousValue = null
+        ?Delivery $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -71,6 +76,7 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
     /**
      * <p>Update action for <code>removeDelivery</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -88,6 +94,7 @@ final class RemoveDeliveryItemsChangeModel extends JsonObjectModel implements Re
     }
 
     /**
+     *
      * @return null|Delivery
      */
     public function getPreviousValue()

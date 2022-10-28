@@ -17,6 +17,7 @@ interface OrderAddItemShippingAddressAction extends OrderUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();

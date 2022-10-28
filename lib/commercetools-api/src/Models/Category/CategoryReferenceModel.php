@@ -23,16 +23,19 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
 {
     public const DISCRIMINATOR_VALUE = 'category';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Category
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
      */
     public function __construct(
         ?string $id = null,
-        ?Category $obj = null
+        ?Category $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Category">Category</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -90,6 +96,7 @@ final class CategoryReferenceModel extends JsonObjectModel implements CategoryRe
 
     /**
      * <p>Contains the representation of the expanded Category. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Categories.</p>
+     *
      *
      * @return null|Category
      */

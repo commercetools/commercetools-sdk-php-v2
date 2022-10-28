@@ -21,6 +21,7 @@ final class StagedQuoteUpdateActionModel extends JsonObjectModel implements Stag
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $action;
@@ -35,17 +36,20 @@ final class StagedQuoteUpdateActionModel extends JsonObjectModel implements Stag
        'setCustomType' => StagedQuoteSetCustomTypeActionModel::class,
        'setSellerComment' => StagedQuoteSetSellerCommentActionModel::class,
        'setValidTo' => StagedQuoteSetValidToActionModel::class,
+       'transitionState' => StagedQuoteTransitionStateActionModel::class,
     ];
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()

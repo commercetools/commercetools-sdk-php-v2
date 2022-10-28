@@ -21,11 +21,13 @@ use stdClass;
 final class CartRemoveCustomLineItemActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()

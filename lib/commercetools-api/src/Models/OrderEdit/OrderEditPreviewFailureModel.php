@@ -22,11 +22,13 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
 {
     public const DISCRIMINATOR_VALUE = 'PreviewFailure';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ErrorObjectCollection
      */
     protected $errors;
@@ -36,13 +38,15 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ErrorObjectCollection $errors = null
+        ?ErrorObjectCollection $errors = null,
+        ?string $type = null
     ) {
         $this->errors = $errors;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,7 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     }
 
     /**
+     *
      * @return null|ErrorObjectCollection
      */
     public function getErrors()

@@ -21,6 +21,7 @@ use stdClass;
 final class AttributeSetTypeBuilder implements Builder
 {
     /**
+
      * @var null|AttributeType|AttributeTypeBuilder
      */
     private $elementType;
@@ -28,6 +29,7 @@ final class AttributeSetTypeBuilder implements Builder
     /**
      * <p>Attribute type of the elements in the set.</p>
      *
+
      * @return null|AttributeType
      */
     public function getElementType()

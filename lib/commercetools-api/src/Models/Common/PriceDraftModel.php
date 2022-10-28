@@ -27,46 +27,61 @@ use stdClass;
 final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 {
     /**
+     *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
     /**
+     *
      * @var ?PriceTierDraftCollection
      */
     protected $tiers;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -76,6 +91,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $key = null,
         ?Money $value = null,
         ?string $country = null,
         ?CustomerGroupResourceIdentifier $customerGroup = null,
@@ -86,6 +102,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         ?PriceTierDraftCollection $tiers = null,
         ?CustomFieldsDraft $custom = null
     ) {
+        $this->key = $key;
         $this->value = $value;
         $this->country = $country;
         $this->customerGroup = $customerGroup;
@@ -98,7 +115,28 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
+     * <p>User-defined identifier for the Price. It must be unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
      * <p>Money value of this Price.</p>
+     *
      *
      * @return null|Money
      */
@@ -120,6 +158,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is only valid for the specified country.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -138,6 +177,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
 
     /**
      * <p>Set this field if this Price is only valid for the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     *
      *
      * @return null|CustomerGroupResourceIdentifier
      */
@@ -159,6 +199,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field if this Price is only valid for the referenced <code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -177,7 +218,8 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p>Set this field if this Price is valid only valid from the specified date and time.</p>
+     * <p>Set this field if this Price is only valid from the specified date and time. Must be at least 1 ms earlier than <code>validUntil</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -200,7 +242,8 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p>Set this field if this Price is valid only valid until the specified date and time.</p>
+     * <p>Set this field if this Price is only valid until the specified date and time. Must be at least 1 ms later than <code>validFrom</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -223,14 +266,15 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * <p>Set this field to add a DiscountedPrice from an external service.</p>
-     * <p>The API sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
+     * <p>Set this field to add a DiscountedPrice from an <strong>external service</strong>.</p>
+     * <p>Otherwise, Composable Commerce sets this field automatically if at least one <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies.
      * The DiscountedPrice must reference a ProductDiscount with:</p>
      * <ul>
      * <li>The <code>isActive</code> flag set to <code>true</code>.</li>
      * <li>A <a href="ctp:api:type:ProductDiscountValueExternal">ProductDiscountValue</a> of type <code>external</code>.</li>
      * <li>A <code>predicate</code> that matches the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the Price is referenced from.</li>
      * </ul>
+     *
      *
      * @return null|DiscountedPriceDraft
      */
@@ -252,6 +296,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Set this field to specify different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities.</p>
      *
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()
@@ -271,6 +316,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     /**
      * <p>Custom Fields for the Price.</p>
      *
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -288,6 +334,14 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         return $this->custom;
     }
 
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     /**
      * @param ?Money $value

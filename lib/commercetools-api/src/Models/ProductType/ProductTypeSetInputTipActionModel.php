@@ -23,16 +23,19 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setInputTip';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $inputTip;
@@ -43,14 +46,16 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $attributeName = null,
-        ?LocalizedString $inputTip = null
+        ?LocalizedString $inputTip = null,
+        ?string $action = null
     ) {
         $this->attributeName = $attributeName;
         $this->inputTip = $inputTip;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,6 +75,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -88,6 +94,7 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|LocalizedString
      */

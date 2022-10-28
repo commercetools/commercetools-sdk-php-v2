@@ -20,21 +20,25 @@ use stdClass;
 final class ImageSearchResponseModel extends JsonObjectModel implements ImageSearchResponse
 {
     /**
+     *
      * @var ?int
      */
     protected $count;
 
     /**
+     *
      * @var ?float
      */
     protected $offset;
 
     /**
+     *
      * @var ?int
      */
     protected $total;
 
     /**
+     *
      * @var ?ResultItemCollection
      */
     protected $results;
@@ -58,6 +62,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     /**
      * <p>The maximum number of results to return from a query.</p>
      *
+     *
      * @return null|int
      */
     public function getCount()
@@ -76,6 +81,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
 
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
+     *
      *
      * @return null|float
      */
@@ -96,6 +102,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
     /**
      * <p>The total number of product images that were have been analyzed.</p>
      *
+     *
      * @return null|int
      */
     public function getTotal()
@@ -114,6 +121,7 @@ final class ImageSearchResponseModel extends JsonObjectModel implements ImageSea
 
     /**
      * <p>An array of image URLs of images that are similar to the query image. If no matching images are found, results is empty.</p>
+     *
      *
      * @return null|ResultItemCollection
      */

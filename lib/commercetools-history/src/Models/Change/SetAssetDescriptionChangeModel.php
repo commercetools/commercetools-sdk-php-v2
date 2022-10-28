@@ -26,26 +26,31 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
 
     public const DISCRIMINATOR_VALUE = 'SetAssetDescriptionChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $previousValue;
@@ -58,16 +63,18 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
         ?string $change = null,
         ?AssetChangeValue $asset = null,
         ?LocalizedString $nextValue = null,
-        ?LocalizedString $previousValue = null
+        ?LocalizedString $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->asset = $asset;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -87,6 +94,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     /**
      * <p>Update action for <code>setAssetDescription</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -104,6 +112,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     *
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -122,6 +131,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getNextValue()
@@ -140,6 +150,7 @@ final class SetAssetDescriptionChangeModel extends JsonObjectModel implements Se
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getPreviousValue()

@@ -23,36 +23,45 @@ use stdClass;
 final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $variantKey;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $priceId;
 
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which the Discount was set.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -61,6 +70,9 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Key of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
+
      * @return null|string
      */
     public function getVariantKey()
@@ -69,6 +81,9 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -77,6 +92,9 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Embedded Price</a>.</p>
+     *
+
      * @return null|string
      */
     public function getPriceId()
@@ -85,6 +103,9 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Discounted Price for the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -93,6 +114,9 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">ProductProjection</a>.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

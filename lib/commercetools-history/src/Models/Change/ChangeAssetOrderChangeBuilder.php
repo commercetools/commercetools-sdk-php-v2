@@ -22,21 +22,25 @@ use Commercetools\History\Models\Common\LocalizedStringCollection;
 final class ChangeAssetOrderChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?LocalizedStringCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?LocalizedStringCollection
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -45,6 +49,7 @@ final class ChangeAssetOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getPreviousValue()
@@ -53,6 +58,7 @@ final class ChangeAssetOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getNextValue()

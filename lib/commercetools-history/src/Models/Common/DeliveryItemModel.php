@@ -22,11 +22,13 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
 
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -45,6 +47,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getId()
@@ -62,6 +65,7 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()

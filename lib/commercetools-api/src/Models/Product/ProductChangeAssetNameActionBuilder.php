@@ -23,36 +23,45 @@ use stdClass;
 final class ProductChangeAssetNameActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -61,6 +70,9 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -69,6 +81,9 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()
@@ -77,6 +92,9 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId()
@@ -85,6 +103,9 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetKey()
@@ -93,6 +114,9 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
+
      * @return null|LocalizedString
      */
     public function getName()

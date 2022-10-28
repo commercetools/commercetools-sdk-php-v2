@@ -23,21 +23,27 @@ use stdClass;
 final class ProductImageAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var null|Image|ImageBuilder
      */
     private $image;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> to which the <a href="ctp:api:type:Image">Image</a> was added.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -46,6 +52,9 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Image">Image</a> that was added.</p>
+     *
+
      * @return null|Image
      */
     public function getImage()
@@ -54,6 +63,9 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

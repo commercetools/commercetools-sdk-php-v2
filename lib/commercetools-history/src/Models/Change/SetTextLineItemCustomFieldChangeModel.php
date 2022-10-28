@@ -24,36 +24,43 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'SetTextLineItemCustomFieldChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $customTypeId;
 
     /**
+     *
      * @var ?TextLineItemValue
      */
     protected $textLineItem;
 
     /**
+     *
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -68,7 +75,8 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
         ?string $customTypeId = null,
         ?TextLineItemValue $textLineItem = null,
          $nextValue = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->name = $name;
@@ -76,10 +84,11 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
         $this->textLineItem = $textLineItem;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -99,6 +108,7 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>setTextLineItemCustomField</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -116,6 +126,7 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -133,6 +144,7 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomTypeId()
@@ -150,6 +162,7 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -168,6 +181,7 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getNextValue()
@@ -185,6 +199,7 @@ final class SetTextLineItemCustomFieldChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

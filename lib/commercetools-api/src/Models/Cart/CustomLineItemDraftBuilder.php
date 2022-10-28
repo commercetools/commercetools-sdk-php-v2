@@ -29,46 +29,61 @@ use stdClass;
 final class CustomLineItemDraftBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $money;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -80,6 +95,7 @@ final class CustomLineItemDraftBuilder implements Builder
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()
@@ -88,6 +104,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getMoney()
@@ -96,6 +113,7 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getSlug()
@@ -106,6 +124,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -116,6 +135,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -126,6 +146,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -136,11 +157,27 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * <p>Container for custom line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -232,6 +269,17 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withName() instead
      * @return $this
      */
@@ -307,7 +355,8 @@ final class CustomLineItemDraftBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->priceMode
         );
     }
 

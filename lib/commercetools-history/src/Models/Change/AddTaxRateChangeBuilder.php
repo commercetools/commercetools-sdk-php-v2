@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\TaxRateBuilder;
 final class AddTaxRateChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $nextValue;
@@ -35,6 +37,7 @@ final class AddTaxRateChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addTaxRate</code> on tax categories</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -45,6 +48,7 @@ final class AddTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()

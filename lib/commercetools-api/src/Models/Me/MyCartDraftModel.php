@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\Common\BaseAddressModel;
@@ -30,77 +31,98 @@ use stdClass;
 final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 {
     /**
+     *
      * @var ?string
      */
     protected $currency;
 
     /**
+     *
      * @var ?string
      */
     protected $customerEmail;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
+     *
      * @var ?MyLineItemDraftCollection
      */
     protected $lineItems;
 
     /**
+     *
      * @var ?BaseAddress
      */
     protected $shippingAddress;
 
     /**
+     *
      * @var ?BaseAddress
      */
     protected $billingAddress;
 
     /**
+     *
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+     *
      * @var ?string
      */
     protected $locale;
 
     /**
+     *
      * @var ?string
      */
     protected $taxMode;
 
     /**
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
+     *
      * @var ?BaseAddressCollection
      */
     protected $itemShippingAddresses;
 
     /**
+     *
+     * @var ?BusinessUnitKeyReference
+     */
+    protected $businessUnit;
+
+    /**
+     *
      * @var ?StoreKeyReference
      */
     protected $store;
 
     /**
-     * @var ?DiscountCodeInfoCollection
+     *
+     * @var ?array
      */
     protected $discountCodes;
 
@@ -122,8 +144,9 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         ?string $taxMode = null,
         ?int $deleteDaysAfterLastModification = null,
         ?BaseAddressCollection $itemShippingAddresses = null,
+        ?BusinessUnitKeyReference $businessUnit = null,
         ?StoreKeyReference $store = null,
-        ?DiscountCodeInfoCollection $discountCodes = null
+        ?array $discountCodes = null
     ) {
         $this->currency = $currency;
         $this->customerEmail = $customerEmail;
@@ -138,12 +161,14 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
         $this->taxMode = $taxMode;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->businessUnit = $businessUnit;
         $this->store = $store;
         $this->discountCodes = $discountCodes;
     }
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -162,6 +187,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomerEmail()
@@ -180,6 +206,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -200,6 +227,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getInventoryMode()
@@ -217,6 +245,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     *
      * @return null|MyLineItemDraftCollection
      */
     public function getLineItems()
@@ -234,6 +263,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     *
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -252,6 +282,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     *
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -270,6 +301,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -290,6 +322,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     /**
      * <p>The custom fields.</p>
      *
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -308,6 +341,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLocale()
@@ -326,6 +360,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
 
     /**
      * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
+     *
      *
      * @return null|string
      */
@@ -347,6 +382,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -367,6 +403,7 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
      * <p>Contains addresses for orders with multiple shipping addresses.
      * Each address must contain a key which is unique in this cart.</p>
      *
+     *
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -384,7 +421,29 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     * <p>The BusinessUnit the cart will belong to.</p>
+     *
+     *
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        if (is_null($this->businessUnit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_BUSINESS_UNIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->businessUnit = BusinessUnitKeyReferenceModel::of($data);
+        }
+
+        return $this->businessUnit;
+    }
+
+    /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     *
      *
      * @return null|StoreKeyReference
      */
@@ -404,17 +463,20 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * @return null|DiscountCodeInfoCollection
+     * <p>The code of existing DiscountCodes.</p>
+     *
+     *
+     * @return null|array
      */
     public function getDiscountCodes()
     {
         if (is_null($this->discountCodes)) {
-            /** @psalm-var ?list<stdClass> $data */
+            /** @psalm-var ?list<mixed> $data */
             $data = $this->raw(self::FIELD_DISCOUNT_CODES);
             if (is_null($data)) {
                 return null;
             }
-            $this->discountCodes = DiscountCodeInfoCollection::fromArray($data);
+            $this->discountCodes = $data;
         }
 
         return $this->discountCodes;
@@ -526,6 +588,14 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void
+    {
+        $this->businessUnit = $businessUnit;
+    }
+
+    /**
      * @param ?StoreKeyReference $store
      */
     public function setStore(?StoreKeyReference $store): void
@@ -534,9 +604,9 @@ final class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
     }
 
     /**
-     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @param ?array $discountCodes
      */
-    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void
+    public function setDiscountCodes(?array $discountCodes): void
     {
         $this->discountCodes = $discountCodes;
     }

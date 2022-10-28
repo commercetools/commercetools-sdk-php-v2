@@ -21,11 +21,13 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
 {
     public const DISCRIMINATOR_VALUE = 'Set';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?FieldType
      */
     protected $elementType;
@@ -35,13 +37,15 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?FieldType $elementType = null
+        ?FieldType $elementType = null,
+        ?string $name = null
     ) {
         $this->elementType = $elementType;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -60,6 +64,7 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
 
     /**
      * <p>Field type of the elements in the set.</p>
+     *
      *
      * @return null|FieldType
      */

@@ -21,16 +21,21 @@ use stdClass;
 final class CustomerCreatePasswordResetTokenBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?int
      */
     private $ttlMinutes;
 
     /**
+     * <p>Email address of the Customer treated as <a href="/../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
+     *
+
      * @return null|string
      */
     public function getEmail()
@@ -39,6 +44,9 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
+     * <p>Validity period of the generated token in minutes.</p>
+     *
+
      * @return null|int
      */
     public function getTtlMinutes()

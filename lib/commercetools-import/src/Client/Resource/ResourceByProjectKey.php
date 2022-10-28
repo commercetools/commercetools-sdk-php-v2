@@ -59,6 +59,14 @@ class ResourceByProjectKey extends ApiResource
     }
     /**
      */
+    public function standalonePrices(): ResourceByProjectKeyStandalonePrices
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyStandalonePrices($args, $this->getClient());
+    }
+    /**
+     */
     public function products(): ResourceByProjectKeyProducts
     {
         $args = $this->getArgs();

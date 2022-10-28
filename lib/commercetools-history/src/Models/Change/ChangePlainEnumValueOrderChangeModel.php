@@ -23,26 +23,31 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'ChangePlainEnumValueOrderChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?EnumValueCollection
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?EnumValueCollection
      */
     protected $previousValue;
@@ -55,16 +60,18 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
         ?string $change = null,
         ?string $attributeName = null,
         ?EnumValueCollection $nextValue = null,
-        ?EnumValueCollection $previousValue = null
+        ?EnumValueCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->attributeName = $attributeName;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -83,6 +90,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
 
     /**
      * <p>Update action for <code>changePlainEnumValueOrder</code> on product types</p>
+     *
      *
      * @return null|string
      */
@@ -103,6 +111,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     /**
      * <p>The name of the attribute updated.</p>
      *
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -120,6 +129,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|EnumValueCollection
      */
     public function getNextValue()
@@ -137,6 +147,7 @@ final class ChangePlainEnumValueOrderChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|EnumValueCollection
      */
     public function getPreviousValue()

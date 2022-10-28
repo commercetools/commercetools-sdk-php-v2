@@ -21,11 +21,13 @@ final class CustomerSetLastNameActionModel extends JsonObjectModel implements Cu
 {
     public const DISCRIMINATOR_VALUE = 'setLastName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $lastName;
@@ -35,13 +37,15 @@ final class CustomerSetLastNameActionModel extends JsonObjectModel implements Cu
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $lastName = null
+        ?string $lastName = null,
+        ?string $action = null
     ) {
         $this->lastName = $lastName;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,9 @@ final class CustomerSetLastNameActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>Value to set. If empty, any existing value is removed.</p>
+     *
+     *
      * @return null|string
      */
     public function getLastName()

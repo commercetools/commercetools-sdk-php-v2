@@ -19,21 +19,33 @@ interface ProductChangeAssetOrderAction extends ProductUpdateAction
     public const FIELD_ASSET_ORDER = 'assetOrder';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>If <code>true</code>, only the staged <code>assets</code> is updated. If <code>false</code>, both the current and staged <code>assets</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>All existing Asset <code>id</code>s of the ProductVariant in the desired new order.</p>
+     *
+
      * @return null|array
      */
     public function getAssetOrder();

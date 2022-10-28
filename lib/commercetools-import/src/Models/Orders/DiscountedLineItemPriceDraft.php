@@ -18,11 +18,13 @@ interface DiscountedLineItemPriceDraft extends JsonObject
     public const FIELD_INCLUDED_DISCOUNTS = 'includedDiscounts';
 
     /**
+
      * @return null|Money
      */
     public function getValue();
 
     /**
+
      * @return null|DiscountedLineItemPortionCollection
      */
     public function getIncludedDiscounts();

@@ -20,93 +20,49 @@ use stdClass;
 final class ProductVariantAvailabilityModel extends JsonObjectModel implements ProductVariantAvailability
 {
     /**
+     *
+     * @var ?ProductVariantChannelAvailabilityMap
+     */
+    protected $channels;
+
+    /**
+     *
      * @var ?bool
      */
     protected $isOnStock;
 
     /**
+     *
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
+     *
      * @var ?int
      */
     protected $availableQuantity;
-
-    /**
-     * @var ?ProductVariantChannelAvailabilityMap
-     */
-    protected $channels;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?ProductVariantChannelAvailabilityMap $channels = null,
         ?bool $isOnStock = null,
         ?int $restockableInDays = null,
-        ?int $availableQuantity = null,
-        ?ProductVariantChannelAvailabilityMap $channels = null
+        ?int $availableQuantity = null
     ) {
+        $this->channels = $channels;
         $this->isOnStock = $isOnStock;
         $this->restockableInDays = $restockableInDays;
         $this->availableQuantity = $availableQuantity;
-        $this->channels = $channels;
     }
 
     /**
-     * @return null|bool
-     */
-    public function getIsOnStock()
-    {
-        if (is_null($this->isOnStock)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(self::FIELD_IS_ON_STOCK);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isOnStock = (bool) $data;
-        }
-
-        return $this->isOnStock;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRestockableInDays()
-    {
-        if (is_null($this->restockableInDays)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->restockableInDays = (int) $data;
-        }
-
-        return $this->restockableInDays;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getAvailableQuantity()
-    {
-        if (is_null($this->availableQuantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_AVAILABLE_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->availableQuantity = (int) $data;
-        }
-
-        return $this->availableQuantity;
-    }
-
-    /**
+     * <p>For each <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> with a supply Channel, an entry is added to <code>channels</code>.</p>
+     *
+     *
      * @return null|ProductVariantChannelAvailabilityMap
      */
     public function getChannels()
@@ -124,6 +80,74 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
         return $this->channels;
     }
 
+    /**
+     * <p>Indicates whether a Product Variant is in stock.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getIsOnStock()
+    {
+        if (is_null($this->isOnStock)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_IS_ON_STOCK);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isOnStock = (bool) $data;
+        }
+
+        return $this->isOnStock;
+    }
+
+    /**
+     * <p>Number of days to restock a Product Variant once it is out of stock.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        if (is_null($this->restockableInDays)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->restockableInDays = (int) $data;
+        }
+
+        return $this->restockableInDays;
+    }
+
+    /**
+     * <p>Number of items of the Product Variant that are in stock.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getAvailableQuantity()
+    {
+        if (is_null($this->availableQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_AVAILABLE_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->availableQuantity = (int) $data;
+        }
+
+        return $this->availableQuantity;
+    }
+
+
+    /**
+     * @param ?ProductVariantChannelAvailabilityMap $channels
+     */
+    public function setChannels(?ProductVariantChannelAvailabilityMap $channels): void
+    {
+        $this->channels = $channels;
+    }
 
     /**
      * @param ?bool $isOnStock
@@ -147,13 +171,5 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     public function setAvailableQuantity(?int $availableQuantity): void
     {
         $this->availableQuantity = $availableQuantity;
-    }
-
-    /**
-     * @param ?ProductVariantChannelAvailabilityMap $channels
-     */
-    public function setChannels(?ProductVariantChannelAvailabilityMap $channels): void
-    {
-        $this->channels = $channels;
     }
 }

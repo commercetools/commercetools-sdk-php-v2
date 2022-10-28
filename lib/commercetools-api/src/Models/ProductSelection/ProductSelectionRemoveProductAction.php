@@ -17,8 +17,9 @@ interface ProductSelectionRemoveProductAction extends ProductSelectionUpdateActi
     public const FIELD_PRODUCT = 'product';
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct();

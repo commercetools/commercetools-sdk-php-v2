@@ -22,6 +22,7 @@ interface SetCustomLineItemCustomFieldChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,31 +30,37 @@ interface SetCustomLineItemCustomFieldChange extends Change
     /**
      * <p>Update action for <code>setCustomLineItemCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem();
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

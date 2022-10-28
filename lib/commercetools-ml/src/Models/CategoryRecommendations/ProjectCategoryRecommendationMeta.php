@@ -20,6 +20,7 @@ interface ProjectCategoryRecommendationMeta extends JsonObject
     /**
      * <p>The product name that was used to generate recommendations.</p>
      *
+
      * @return null|string
      */
     public function getProductName();
@@ -27,6 +28,7 @@ interface ProjectCategoryRecommendationMeta extends JsonObject
     /**
      * <p>The product image that was used to generate recommendations.</p>
      *
+
      * @return null|string
      */
     public function getProductImageUrl();
@@ -34,6 +36,7 @@ interface ProjectCategoryRecommendationMeta extends JsonObject
     /**
      * <p>Top 5 general categories that were used internally to generate the project-specific categories. These category names are not related to the categories defined in the project, but they provide additional information to understand the project-specific categories in the results section.</p>
      *
+
      * @return null|array
      */
     public function getGeneralCategoryNames();

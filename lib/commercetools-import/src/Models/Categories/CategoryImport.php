@@ -33,6 +33,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.name</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -41,6 +42,7 @@ interface CategoryImport extends ImportResource
      * <p>Maps to <code>Category.slug</code>.
      * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
@@ -48,6 +50,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.description</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -57,6 +60,7 @@ interface CategoryImport extends ImportResource
      * The Reference to the parent <a href="/../api/projects/categories#category">Category</a> with which the Category is associated.
      * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
      *
+
      * @return null|CategoryKeyReference
      */
     public function getParent();
@@ -64,6 +68,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.orderHint</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderHint();
@@ -71,6 +76,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.externalId</code>.</p>
      *
+
      * @return null|string
      */
     public function getExternalId();
@@ -78,6 +84,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.metaTitle</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
@@ -85,6 +92,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.metaDescription</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
@@ -92,11 +100,13 @@ interface CategoryImport extends ImportResource
     /**
      * <p>Maps to <code>Category.metaKeywords</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets();
@@ -104,6 +114,7 @@ interface CategoryImport extends ImportResource
     /**
      * <p>The custom fields for this Category.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();

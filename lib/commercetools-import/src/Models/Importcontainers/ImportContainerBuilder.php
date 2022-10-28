@@ -22,26 +22,31 @@ use stdClass;
 final class ImportContainerBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $resourceType;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
@@ -50,6 +55,7 @@ final class ImportContainerBuilder implements Builder
      * <p>User-defined unique identifier for the ImportContainer.
      * Keys can only contain alphanumeric characters (a-Z, 0-9), underscores and hyphens (_, -).</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -61,6 +67,7 @@ final class ImportContainerBuilder implements Builder
      * <p>The <a href="#importresourcetype">resource type</a> the ImportContainer is able to handle.
      * If not present, the ImportContainer is able to import all of the supported <a href="#importresourcetype">ImportResourceTypes</a>.</p>
      *
+
      * @return null|string
      */
     public function getResourceType()
@@ -71,6 +78,7 @@ final class ImportContainerBuilder implements Builder
     /**
      * <p>The version of the ImportContainer.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -81,6 +89,7 @@ final class ImportContainerBuilder implements Builder
     /**
      * <p>The time when the ImportContainer was created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -91,6 +100,7 @@ final class ImportContainerBuilder implements Builder
     /**
      * <p>The last time when the ImportContainer was modified.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

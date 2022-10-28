@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\CentPrecisionMoneyDraftCollection;
+use Commercetools\Api\Models\Common\MoneyCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -22,12 +22,14 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'absolute';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
-     * @var ?CentPrecisionMoneyDraftCollection
+     *
+     * @var ?MoneyCollection
      */
     protected $money;
 
@@ -36,13 +38,15 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CentPrecisionMoneyDraftCollection $money = null
+        ?MoneyCollection $money = null,
+        ?string $type = null
     ) {
         $this->money = $money;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -62,7 +66,8 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
     /**
      * <p>Money values in different currencies. An absolute <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> will only match a price if this array contains a value with the same currency. For example, if it contains 10€ and 15$, the matching € price will be decreased by 10€ and the matching $ price will be decreased by 15$.</p>
      *
-     * @return null|CentPrecisionMoneyDraftCollection
+     *
+     * @return null|MoneyCollection
      */
     public function getMoney()
     {
@@ -72,7 +77,7 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->money = CentPrecisionMoneyDraftCollection::fromArray($data);
+            $this->money = MoneyCollection::fromArray($data);
         }
 
         return $this->money;
@@ -80,9 +85,9 @@ final class ProductDiscountValueAbsoluteDraftModel extends JsonObjectModel imple
 
 
     /**
-     * @param ?CentPrecisionMoneyDraftCollection $money
+     * @param ?MoneyCollection $money
      */
-    public function setMoney(?CentPrecisionMoneyDraftCollection $money): void
+    public function setMoney(?MoneyCollection $money): void
     {
         $this->money = $money;
     }

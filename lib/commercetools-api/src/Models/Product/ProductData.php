@@ -28,68 +28,91 @@ interface ProductData extends JsonObject
     public const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Product.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p><a href="ctp:api:type:Category">Categories</a> assigned to the Product.</p>
+     *
+
      * @return null|CategoryReferenceCollection
      */
     public function getCategories();
 
     /**
+     * <p>Numerical values to allow ordering of Products within a specified Category.</p>
+     *
+
      * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Description of the Product.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>User-defined identifier used in a deep-link URL for the Product.
+     * Must be unique across a Project, but can be the same for Products in different <a href="ctp:api:type:Locale">Locales</a>.
+     * Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Title of the Product displayed in search results.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Description of the Product displayed in search results below the meta title.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription();
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Keywords that give additional information about the Product to search engines.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords();
 
     /**
+     * <p>The Master Variant of the Product.</p>
+     *
+
      * @return null|ProductVariant
      */
     public function getMasterVariant();
 
     /**
+     * <p>Additional Product Variants.</p>
+     *
+
      * @return null|ProductVariantCollection
      */
     public function getVariants();
 
     /**
+     * <p>Used by <a href="ctp:api:type:ProductSuggestions">Product Suggestions</a>, but is also considered for a full text search.</p>
+     *
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords();

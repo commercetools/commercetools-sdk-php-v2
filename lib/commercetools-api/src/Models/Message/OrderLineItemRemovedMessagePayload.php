@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetails;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Common\Price;
-use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,43 +28,65 @@ interface OrderLineItemRemovedMessagePayload extends OrderMessagePayload
     public const FIELD_NEW_SHIPPING_DETAIL = 'newShippingDetail';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|int
      */
     public function getRemovedQuantity();
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|int
      */
     public function getNewQuantity();
 
     /**
+     * <p><a href="ctp:api:type:ItemState">ItemStates</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|ItemStateCollection
      */
     public function getNewState();
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p><code>totalPrice</code> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
      *
-     * @return null|TypedMoney
+
+     * @return null|CentPrecisionMoney
      */
     public function getNewTotalPrice();
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice();
 
     /**
+     * <p><a href="ctp:api:type:Price">Price</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|Price
      */
     public function getNewPrice();
 
     /**
+     * <p><a href="ctp:api:type:ItemShippingDetails">Shipping Details</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail();
@@ -90,9 +112,9 @@ interface OrderLineItemRemovedMessagePayload extends OrderMessagePayload
     public function setNewState(?ItemStateCollection $newState): void;
 
     /**
-     * @param ?TypedMoney $newTotalPrice
+     * @param ?CentPrecisionMoney $newTotalPrice
      */
-    public function setNewTotalPrice(?TypedMoney $newTotalPrice): void;
+    public function setNewTotalPrice(?CentPrecisionMoney $newTotalPrice): void;
 
     /**
      * @param ?TaxedItemPrice $newTaxedPrice

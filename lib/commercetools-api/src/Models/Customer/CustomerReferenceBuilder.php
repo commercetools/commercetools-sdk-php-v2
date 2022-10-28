@@ -23,11 +23,13 @@ use stdClass;
 final class CustomerReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Customer|CustomerBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class CustomerReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Customer">Customer</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -43,8 +46,9 @@ final class CustomerReferenceBuilder implements Builder
     }
 
     /**
-     * <p>Contains the representation of the expanded Customer. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Customers.</p>
+     * <p>Contains the representation of the expanded Customer. Only present in responses to requests with <a href="ctp:api:type:Expansion">Reference Expansion</a> for Customers.</p>
      *
+
      * @return null|Customer
      */
     public function getObj()

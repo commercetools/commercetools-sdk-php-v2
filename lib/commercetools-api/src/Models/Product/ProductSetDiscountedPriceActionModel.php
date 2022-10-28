@@ -23,21 +23,25 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setDiscountedPrice';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
+     *
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
@@ -49,15 +53,17 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     public function __construct(
         ?string $priceId = null,
         ?bool $staged = null,
-        ?DiscountedPriceDraft $discounted = null
+        ?DiscountedPriceDraft $discounted = null,
+        ?string $action = null
     ) {
         $this->priceId = $priceId;
         $this->staged = $staged;
         $this->discounted = $discounted;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -75,6 +81,9 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:Price">Embedded Price</a> to set the Discount.</p>
+     *
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -92,6 +101,9 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -109,6 +121,10 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.
+     * The referenced <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> must have the Type <code>external</code>, be active, and its predicate must match the referenced Price.</p>
+     *
+     *
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()

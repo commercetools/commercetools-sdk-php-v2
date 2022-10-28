@@ -23,11 +23,13 @@ interface StagedOrderSetCustomShippingMethodAction extends StagedOrderUpdateActi
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName();
 
     /**
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();
@@ -35,11 +37,13 @@ interface StagedOrderSetCustomShippingMethodAction extends StagedOrderUpdateActi
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();

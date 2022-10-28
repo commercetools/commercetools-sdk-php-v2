@@ -42,6 +42,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Unique identifier of the Address.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -49,6 +50,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>User-defined unique identifier of the Address.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -56,6 +58,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -63,6 +66,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Title of the contact, for example 'Dr.'</p>
      *
+
      * @return null|string
      */
     public function getTitle();
@@ -70,6 +74,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Salutation of the contact, for example 'Mr.' or 'Ms.'</p>
      *
+
      * @return null|string
      */
     public function getSalutation();
@@ -77,6 +82,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Given name (first name) of the contact.</p>
      *
+
      * @return null|string
      */
     public function getFirstName();
@@ -84,6 +90,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Family name (last name) of the contact.</p>
      *
+
      * @return null|string
      */
     public function getLastName();
@@ -91,6 +98,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Name of the street.</p>
      *
+
      * @return null|string
      */
     public function getStreetName();
@@ -98,6 +106,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Street number.</p>
      *
+
      * @return null|string
      */
     public function getStreetNumber();
@@ -105,6 +114,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Further information on the street address.</p>
      *
+
      * @return null|string
      */
     public function getAdditionalStreetInfo();
@@ -112,6 +122,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Postal code.</p>
      *
+
      * @return null|string
      */
     public function getPostalCode();
@@ -119,6 +130,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Name of the city.</p>
      *
+
      * @return null|string
      */
     public function getCity();
@@ -126,6 +138,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Name of the region.</p>
      *
+
      * @return null|string
      */
     public function getRegion();
@@ -133,6 +146,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Name of the state, for example, Colorado.</p>
      *
+
      * @return null|string
      */
     public function getState();
@@ -140,6 +154,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Name of the company.</p>
      *
+
      * @return null|string
      */
     public function getCompany();
@@ -147,6 +162,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Name of the department.</p>
      *
+
      * @return null|string
      */
     public function getDepartment();
@@ -154,6 +170,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Number or name of the building.</p>
      *
+
      * @return null|string
      */
     public function getBuilding();
@@ -161,6 +178,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Number or name of the apartment.</p>
      *
+
      * @return null|string
      */
     public function getApartment();
@@ -168,6 +186,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Post office box number.</p>
      *
+
      * @return null|string
      */
     public function getPOBox();
@@ -175,6 +194,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Phone number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getPhone();
@@ -182,6 +202,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Mobile phone number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getMobile();
@@ -189,6 +210,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Email address of the contact.</p>
      *
+
      * @return null|string
      */
     public function getEmail();
@@ -196,6 +218,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Fax number of the contact.</p>
      *
+
      * @return null|string
      */
     public function getFax();
@@ -203,6 +226,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>Further information on the Address.</p>
      *
+
      * @return null|string
      */
     public function getAdditionalAddressInfo();
@@ -210,6 +234,7 @@ interface BaseAddress extends JsonObject
     /**
      * <p>ID for the contact used in an external system.</p>
      *
+
      * @return null|string
      */
     public function getExternalId();

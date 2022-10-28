@@ -26,61 +26,73 @@ use stdClass;
 final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCodeDraft
 {
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?CartDiscountResourceIdentifierCollection
      */
     protected $cartDiscounts;
 
     /**
+     *
      * @var ?string
      */
     protected $cartPredicate;
 
     /**
+     *
      * @var ?bool
      */
     protected $isActive;
 
     /**
+     *
      * @var ?int
      */
     protected $maxApplications;
 
     /**
+     *
      * @var ?int
      */
     protected $maxApplicationsPerCustomer;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+     *
      * @var ?array
      */
     protected $groups;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -120,6 +132,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     /**
      * <p>Name of the DiscountCode.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -139,6 +152,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Description of the DiscountCode.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -161,6 +175,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
      * <p>User-defined unique identifier for the DiscountCode that can be <a href="/../api/projects/carts#add-discountcode">added to the Cart</a> to apply the related <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.
      * It cannot be modified after the DiscountCode is created.</p>
      *
+     *
      * @return null|string
      */
     public function getCode()
@@ -179,6 +194,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Specify what CartDiscounts the API applies when you add the DiscountCode to the Cart.</p>
+     *
      *
      * @return null|CartDiscountResourceIdentifierCollection
      */
@@ -199,6 +215,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     /**
      * <p>DiscountCode can only be applied to Carts that match this predicate.</p>
      *
+     *
      * @return null|string
      */
     public function getCartPredicate()
@@ -217,6 +234,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Only active DiscountCodes can be applied to the Cart.</p>
+     *
      *
      * @return null|bool
      */
@@ -237,6 +255,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     /**
      * <p>Number of times the DiscountCode can be applied.</p>
      *
+     *
      * @return null|int
      */
     public function getMaxApplications()
@@ -256,6 +275,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     /**
      * <p>Number of times the DiscountCode can be applied per Customer.</p>
      *
+     *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer()
@@ -274,6 +294,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Custom Fields for the DiscountCode.</p>
+     *
      *
      * @return null|CustomFieldsDraft
      */
@@ -295,6 +316,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
     /**
      * <p>Groups to which the DiscountCode will belong to.</p>
      *
+     *
      * @return null|array
      */
     public function getGroups()
@@ -313,6 +335,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Date and time (UTC) from which the DiscountCode is effective. Must be earlier than <code>validUntil</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -336,6 +359,7 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
 
     /**
      * <p>Date and time (UTC) until which the DiscountCode is effective. Must be later than <code>validFrom</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

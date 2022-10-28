@@ -17,6 +17,9 @@ interface InventoryEntryCreatedMessage extends Message
     public const FIELD_INVENTORY_ENTRY = 'inventoryEntry';
 
     /**
+     * <p><a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that was created.</p>
+     *
+
      * @return null|InventoryEntry
      */
     public function getInventoryEntry();

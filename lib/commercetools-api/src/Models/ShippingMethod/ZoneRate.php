@@ -20,6 +20,7 @@ interface ZoneRate extends JsonObject
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> for which the shipping rates are valid.</p>
      *
+
      * @return null|ZoneReference
      */
     public function getZone();
@@ -27,6 +28,7 @@ interface ZoneRate extends JsonObject
     /**
      * <p>Shipping rates defined per currency.</p>
      *
+
      * @return null|ShippingRateCollection
      */
     public function getShippingRates();

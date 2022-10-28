@@ -22,21 +22,25 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
 
 
     /**
+     *
      * @var ?bool
      */
     protected $isOnStock;
 
     /**
+     *
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
+     *
      * @var ?int
      */
     protected $availableQuantity;
 
     /**
+     *
      * @var ?ProductVariantChannelAvailabilityMap
      */
     protected $channels;
@@ -59,6 +63,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getIsOnStock()
@@ -76,6 +81,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     }
 
     /**
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -93,6 +99,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     }
 
     /**
+     *
      * @return null|int
      */
     public function getAvailableQuantity()
@@ -110,6 +117,7 @@ final class ProductVariantAvailabilityModel extends JsonObjectModel implements P
     }
 
     /**
+     *
      * @return null|ProductVariantChannelAvailabilityMap
      */
     public function getChannels()

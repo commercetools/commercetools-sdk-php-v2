@@ -17,11 +17,11 @@ interface TaxedPrice extends JsonObject
     public const FIELD_TOTAL_NET = 'totalNet';
     public const FIELD_TOTAL_GROSS = 'totalGross';
     public const FIELD_TAX_PORTIONS = 'taxPortions';
-    public const FIELD_TOTAL_TAX = 'totalTax';
 
     /**
      * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalNet();
@@ -29,6 +29,7 @@ interface TaxedPrice extends JsonObject
     /**
      * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross();
@@ -36,16 +37,10 @@ interface TaxedPrice extends JsonObject
     /**
      * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
      *
+
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions();
-
-    /**
-     * <p>Maps to <code>TaxedPrice.totalTax</code>.</p>
-     *
-     * @return null|Money
-     */
-    public function getTotalTax();
 
     /**
      * @param ?Money $totalNet
@@ -61,9 +56,4 @@ interface TaxedPrice extends JsonObject
      * @param ?TaxPortionCollection $taxPortions
      */
     public function setTaxPortions(?TaxPortionCollection $taxPortions): void;
-
-    /**
-     * @param ?Money $totalTax
-     */
-    public function setTotalTax(?Money $totalTax): void;
 }

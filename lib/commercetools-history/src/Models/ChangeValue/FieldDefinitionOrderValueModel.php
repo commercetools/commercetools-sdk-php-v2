@@ -24,11 +24,13 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
 
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $label;
@@ -47,6 +49,7 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -64,6 +67,7 @@ final class FieldDefinitionOrderValueModel extends JsonObjectModel implements Fi
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getLabel()

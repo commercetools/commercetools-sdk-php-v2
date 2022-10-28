@@ -22,21 +22,25 @@ use Commercetools\History\Models\ChangeValue\TextLineItemValueCollection;
 final class ChangeTextLineItemsOrderChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?TextLineItemValueCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?TextLineItemValueCollection
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -45,6 +49,7 @@ final class ChangeTextLineItemsOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemValueCollection
      */
     public function getPreviousValue()
@@ -53,6 +58,7 @@ final class ChangeTextLineItemsOrderChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItemValueCollection
      */
     public function getNextValue()

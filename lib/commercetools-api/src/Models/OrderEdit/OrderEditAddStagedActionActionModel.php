@@ -23,11 +23,13 @@ final class OrderEditAddStagedActionActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'addStagedAction';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?StagedOrderUpdateAction
      */
     protected $stagedAction;
@@ -37,13 +39,15 @@ final class OrderEditAddStagedActionActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StagedOrderUpdateAction $stagedAction = null
+        ?StagedOrderUpdateAction $stagedAction = null,
+        ?string $action = null
     ) {
         $this->stagedAction = $stagedAction;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class OrderEditAddStagedActionActionModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|StagedOrderUpdateAction
      */
     public function getStagedAction()

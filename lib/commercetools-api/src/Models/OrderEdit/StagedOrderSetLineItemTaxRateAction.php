@@ -19,11 +19,13 @@ interface StagedOrderSetLineItemTaxRateAction extends StagedOrderUpdateAction
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();

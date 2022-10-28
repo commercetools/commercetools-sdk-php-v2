@@ -19,6 +19,7 @@ interface DiscountCodeReference extends Reference
     /**
      * <p>Contains the representation of the expanded DiscountCode. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for DiscountCodes.</p>
      *
+
      * @return null|DiscountCode
      */
     public function getObj();
@@ -26,6 +27,7 @@ interface DiscountCodeReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

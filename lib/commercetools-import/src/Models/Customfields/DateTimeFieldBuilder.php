@@ -22,11 +22,13 @@ use stdClass;
 final class DateTimeFieldBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $value;
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValue()

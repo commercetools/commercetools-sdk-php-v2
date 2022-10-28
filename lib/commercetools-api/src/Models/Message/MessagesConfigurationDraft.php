@@ -19,6 +19,7 @@ interface MessagesConfigurationDraft extends JsonObject
     /**
      * <p>Setting to <code>true</code> activates the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
      *
+
      * @return null|bool
      */
     public function getEnabled();
@@ -26,6 +27,7 @@ interface MessagesConfigurationDraft extends JsonObject
     /**
      * <p>Specifies the number of days each Message should be available via the <a href="/../api/projects/messages">Messages Query</a> API. For Messages older than the specified period, it is not guaranteed that they are still accessible via the API.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterCreation();

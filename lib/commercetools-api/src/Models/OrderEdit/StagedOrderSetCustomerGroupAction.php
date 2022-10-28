@@ -20,6 +20,7 @@ interface StagedOrderSetCustomerGroupAction extends StagedOrderUpdateAction
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();

@@ -21,11 +21,13 @@ final class SemanticErrorErrorModel extends JsonObjectModel implements SemanticE
 {
     public const DISCRIMINATOR_VALUE = 'SemanticError';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
@@ -35,13 +37,15 @@ final class SemanticErrorErrorModel extends JsonObjectModel implements SemanticE
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $message = null
+        ?string $message = null,
+        ?string $code = null
     ) {
         $this->message = $message;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -59,6 +63,7 @@ final class SemanticErrorErrorModel extends JsonObjectModel implements SemanticE
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()

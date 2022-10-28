@@ -28,6 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements PriceSelecting<ByProjectKeyProductsPost>
  * @template-implements Expandable<ByProjectKeyProductsPost>
@@ -178,24 +179,6 @@ class ByProjectKeyProductsPost extends ApiRequest implements PriceSelecting, Exp
     public function withPriceChannel($priceChannel): ByProjectKeyProductsPost
     {
         return $this->withQueryParam('priceChannel', $priceChannel);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $localeProjection
-     */
-    public function withLocaleProjection($localeProjection): ByProjectKeyProductsPost
-    {
-        return $this->withQueryParam('localeProjection', $localeProjection);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $storeProjection
-     */
-    public function withStoreProjection($storeProjection): ByProjectKeyProductsPost
-    {
-        return $this->withQueryParam('storeProjection', $storeProjection);
     }
 
     /**

@@ -24,26 +24,31 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'ChangeTextLineItemQuantityChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?TextLineItemValue
      */
     protected $textLineItem;
 
     /**
+     *
      * @var ?int
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?int
      */
     protected $nextValue;
@@ -56,16 +61,18 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
         ?string $change = null,
         ?TextLineItemValue $textLineItem = null,
         ?int $previousValue = null,
-        ?int $nextValue = null
+        ?int $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->textLineItem = $textLineItem;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -83,6 +90,7 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getChange()
@@ -100,6 +108,7 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|TextLineItemValue
      */
     public function getTextLineItem()
@@ -118,6 +127,7 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getPreviousValue()
@@ -135,6 +145,7 @@ final class ChangeTextLineItemQuantityChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getNextValue()

@@ -9,25 +9,38 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\DateTimeImmutableCollection;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
+use Commercetools\Base\MapperMap;
 use stdClass;
 
 /**
  * @implements Builder<SearchKeywords>
+ * @extends MapperMap<SearchKeywords>
  */
-final class SearchKeywordsBuilder implements Builder
+final class SearchKeywordsBuilder extends MapperMap implements Builder
 {
-    public function build(): SearchKeywords
+    /**
+     * @psalm-return callable(string):?SearchKeywords
+     */
+    protected function mapper()
     {
-        return new SearchKeywordsModel(
-        );
+        return
+            /**
+             * @psalm-return ?SearchKeywords
+             */
+            function (string $key) {
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = SearchKeywordsModel::of($data);
+                }
+                return $data;
+            };
     }
 
-    public static function of(): SearchKeywordsBuilder
+    /**
+     * @return SearchKeywords
+     */
+    public function build()
     {
-        return new self();
+        return new SearchKeywordsModel($this->toArray());
     }
 }

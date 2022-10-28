@@ -19,6 +19,7 @@ interface MyShoppingListSetDescriptionAction extends MyShoppingListUpdateAction
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();

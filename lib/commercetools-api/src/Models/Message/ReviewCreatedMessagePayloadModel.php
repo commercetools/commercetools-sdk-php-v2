@@ -23,11 +23,13 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'ReviewCreated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?Review
      */
     protected $review;
@@ -37,13 +39,15 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Review $review = null
+        ?Review $review = null,
+        ?string $type = null
     ) {
         $this->review = $review;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,6 +65,9 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><a href="ctp:api:type:Review">Review</a> that was created.</p>
+     *
+     *
      * @return null|Review
      */
     public function getReview()

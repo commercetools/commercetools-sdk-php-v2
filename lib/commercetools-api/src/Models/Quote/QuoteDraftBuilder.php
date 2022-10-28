@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Quote;
 
 use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifier;
 use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifierBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -25,28 +27,45 @@ use stdClass;
 final class QuoteDraftBuilder implements Builder
 {
     /**
+
      * @var null|StagedQuoteResourceIdentifier|StagedQuoteResourceIdentifierBuilder
      */
     private $stagedQuote;
 
     /**
+
      * @var ?int
      */
     private $stagedQuoteVersion;
 
     /**
+
+     * @var ?bool
+     */
+    private $stagedQuoteStateToSent;
+
+    /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * <p>The StagedQuote from which this Quote is created.</p>
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
+
+    /**
+     * <p>StagedQuote from which the Quote is created.</p>
      *
+
      * @return null|StagedQuoteResourceIdentifier
      */
     public function getStagedQuote()
@@ -57,6 +76,7 @@ final class QuoteDraftBuilder implements Builder
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getStagedQuoteVersion()
@@ -65,8 +85,20 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStagedQuoteStateToSent()
+    {
+        return $this->stagedQuoteStateToSent;
+    }
+
+    /**
      * <p>User-defined unique identifier for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -81,11 +113,24 @@ final class QuoteDraftBuilder implements Builder
      * <li>If empty, the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -106,6 +151,17 @@ final class QuoteDraftBuilder implements Builder
     public function withStagedQuoteVersion(?int $stagedQuoteVersion)
     {
         $this->stagedQuoteVersion = $stagedQuoteVersion;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $stagedQuoteStateToSent
+     * @return $this
+     */
+    public function withStagedQuoteStateToSent(?bool $stagedQuoteStateToSent)
+    {
+        $this->stagedQuoteStateToSent = $stagedQuoteStateToSent;
 
         return $this;
     }
@@ -133,6 +189,17 @@ final class QuoteDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStagedQuote() instead
      * @return $this
      */
@@ -154,13 +221,26 @@ final class QuoteDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): QuoteDraft
     {
         return new QuoteDraftModel(
             $this->stagedQuote instanceof StagedQuoteResourceIdentifierBuilder ? $this->stagedQuote->build() : $this->stagedQuote,
             $this->stagedQuoteVersion,
+            $this->stagedQuoteStateToSent,
             $this->key,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

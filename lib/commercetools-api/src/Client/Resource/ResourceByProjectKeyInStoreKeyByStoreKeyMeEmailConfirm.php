@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Customer\CustomerEmailVerify;
+use Commercetools\Api\Models\Customer\MyCustomerEmailVerify;
 use Commercetools\Client\ApiResource;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\UploadedFileInterface;
@@ -27,10 +27,10 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeEmailConfirm extends ApiResource
     }
 
     /**
-     * @psalm-param ?CustomerEmailVerify $body
+     * @psalm-param ?MyCustomerEmailVerify $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?CustomerEmailVerify $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmPost
+    public function post(?MyCustomerEmailVerify $body = null, array $headers = []): ByProjectKeyInStoreKeyByStoreKeyMeEmailConfirmPost
     {
         $args = $this->getArgs();
 

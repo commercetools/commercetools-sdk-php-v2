@@ -25,26 +25,31 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'giftLineItem';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $supplyChannel;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $distributionChannel;
@@ -57,16 +62,18 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
         ?ProductReference $product = null,
         ?int $variantId = null,
         ?ChannelReference $supplyChannel = null,
-        ?ChannelReference $distributionChannel = null
+        ?ChannelReference $distributionChannel = null,
+        ?string $type = null
     ) {
         $this->product = $product;
         $this->variantId = $variantId;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -85,6 +92,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
 
     /**
      * <p>Reference to a Product.</p>
+     *
      *
      * @return null|ProductReference
      */
@@ -106,6 +114,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> of the Product.</p>
      *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -124,6 +133,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
 
     /**
      * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>InventorySupply</code>.</p>
+     *
      *
      * @return null|ChannelReference
      */
@@ -144,6 +154,7 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
 
     /**
      * <p>Channel must have the <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> <code>ProductDistribution</code>.</p>
+     *
      *
      * @return null|ChannelReference
      */

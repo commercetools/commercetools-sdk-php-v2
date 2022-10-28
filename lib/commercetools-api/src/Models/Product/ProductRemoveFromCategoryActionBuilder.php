@@ -23,16 +23,21 @@ use stdClass;
 final class ProductRemoveFromCategoryActionBuilder implements Builder
 {
     /**
+
      * @var null|CategoryResourceIdentifier|CategoryResourceIdentifierBuilder
      */
     private $category;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The Category to remove.</p>
+     *
+
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -41,6 +46,9 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>categories</code> and <code>categoryOrderHints</code> are removed. If <code>false</code>, both the current and staged <code>categories</code> and <code>categoryOrderHints</code> are removed.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

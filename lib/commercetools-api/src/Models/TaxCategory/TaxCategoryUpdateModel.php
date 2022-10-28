@@ -20,11 +20,13 @@ use stdClass;
 final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategoryUpdate
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?TaxCategoryUpdateActionCollection
      */
     protected $actions;
@@ -44,6 +46,7 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
     /**
      * <p>Expected version of the TaxCategory on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -62,6 +65,7 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
 
     /**
      * <p>Update actions to be performed on the TaxCategory.</p>
+     *
      *
      * @return null|TaxCategoryUpdateActionCollection
      */

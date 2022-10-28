@@ -21,11 +21,15 @@ use stdClass;
 final class SubscriptionChangeDestinationActionBuilder implements Builder
 {
     /**
+
      * @var null|Destination|DestinationBuilder
      */
     private $destination;
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
+
      * @return null|Destination
      */
     public function getDestination()

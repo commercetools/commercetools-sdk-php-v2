@@ -21,11 +21,13 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
 {
     public const DISCRIMINATOR_VALUE = 'product';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
@@ -35,13 +37,15 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $id = null
+        ?string $id = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTypeId()
@@ -59,6 +63,7 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     }
 
     /**
+     *
      * @return null|string
      */
     public function getId()

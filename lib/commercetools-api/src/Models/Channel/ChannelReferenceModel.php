@@ -23,16 +23,19 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
 {
     public const DISCRIMINATOR_VALUE = 'channel';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Channel
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
      */
     public function __construct(
         ?string $id = null,
-        ?Channel $obj = null
+        ?Channel $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -91,6 +97,7 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     /**
      * <p>Contains the representation of the expanded Channel.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Channels.</p>
+     *
      *
      * @return null|Channel
      */

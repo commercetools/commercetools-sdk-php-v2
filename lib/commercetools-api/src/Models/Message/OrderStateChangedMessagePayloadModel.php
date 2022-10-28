@@ -21,16 +21,19 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'OrderStateChanged';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $orderState;
 
     /**
+     *
      * @var ?string
      */
     protected $oldOrderState;
@@ -41,14 +44,16 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?string $orderState = null,
-        ?string $oldOrderState = null
+        ?string $oldOrderState = null,
+        ?string $type = null
     ) {
         $this->orderState = $orderState;
         $this->oldOrderState = $oldOrderState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -66,6 +71,9 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> after the <a href="ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getOrderState()
@@ -83,6 +91,9 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><a href="ctp:api:type:OrderState">OrderState</a> before the <a href="ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getOldOrderState()

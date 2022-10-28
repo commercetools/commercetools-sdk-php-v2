@@ -21,6 +21,7 @@ use stdClass;
 final class CartDiscountChangeStackingModeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $stackingMode;
@@ -28,6 +29,7 @@ final class CartDiscountChangeStackingModeActionBuilder implements Builder
     /**
      * <p>New value to set.</p>
      *
+
      * @return null|string
      */
     public function getStackingMode()

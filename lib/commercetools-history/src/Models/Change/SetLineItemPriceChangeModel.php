@@ -26,26 +26,31 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemPriceChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+     *
      * @var ?Price
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?Price
      */
     protected $previousValue;
@@ -58,16 +63,18 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
         ?string $change = null,
         ?LocalizedString $lineItem = null,
         ?Price $nextValue = null,
-        ?Price $previousValue = null
+        ?Price $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -87,6 +94,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
     /**
      * <p>Update action for <code>setLineItemPrice</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -104,6 +112,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -122,6 +131,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
     }
 
     /**
+     *
      * @return null|Price
      */
     public function getNextValue()
@@ -140,6 +150,7 @@ final class SetLineItemPriceChangeModel extends JsonObjectModel implements SetLi
     }
 
     /**
+     *
      * @return null|Price
      */
     public function getPreviousValue()

@@ -37,8 +37,17 @@ interface PriceImport extends ImportResource
     public const FIELD_PRODUCT = 'product';
 
     /**
+     * <p>User-defined unique identifier for the Embedded Price.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey();
+
+    /**
      * <p>Maps to <code>Price.value</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -46,6 +55,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.county</code>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -53,6 +63,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -60,22 +71,25 @@ interface PriceImport extends ImportResource
     /**
      * <p>Maps to <code>Price.validUntil</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
+     * <p>The Reference to the <a href="/../api/projects/customerGroups#customergroup">CustomerGroup</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary CustomerGroup is created.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup();
 
     /**
-     * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
+     * <p>The Reference to the <a href="/../api/projects/channels#channel">Channel</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
      * If referenced Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel();
@@ -83,13 +97,15 @@ interface PriceImport extends ImportResource
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
 
     /**
-     * <p>Only the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
+     * <p>Only the <a href="/../api/types#embedded-price">Embedded Price</a> updates will be published to <code>staged</code> and <code>current</code> projection.</p>
      *
+
      * @return null|bool
      */
     public function getPublish();
@@ -97,6 +113,7 @@ interface PriceImport extends ImportResource
     /**
      * <p>The tiered prices for this price.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers();
@@ -104,27 +121,35 @@ interface PriceImport extends ImportResource
     /**
      * <p>The custom fields for this price.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();
 
     /**
-     * <p>The ProductVariant in which this <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is contained.
-     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
+     * <p>The ProductVariant in which this <a href="/../api/types#embedded-price">Embedded Price</a> is contained.
+     * The Reference to the <a href="/../api/projects/products#productvariant">ProductVariant</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
      * If referenced ProductVariant does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductVariant is created.</p>
      *
+
      * @return null|ProductVariantKeyReference
      */
     public function getProductVariant();
 
     /**
-     * <p>The Product in which the Product Variant containing this <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is contained. Maps to <code>ProductVariant.product</code>.
-     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/projects/products#embeddedprice">EmbeddedPrice</a> is associated.
+     * <p>The Product in which the Product Variant containing this <a href="/../api/types#embedded-price">Embedded Price</a> is contained. Maps to <code>ProductVariant.product</code>.
+     * The Reference to the <a href="/../api/projects/products#product">Product</a> with which the <a href="/../api/types#embedded-price">Embedded Price</a> is associated.
      * If referenced Product does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Product is created.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct();
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
 
     /**
      * @param ?TypedMoney $value

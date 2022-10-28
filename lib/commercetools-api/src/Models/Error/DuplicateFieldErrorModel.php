@@ -23,26 +23,31 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
 {
     public const DISCRIMINATOR_VALUE = 'DuplicateField';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?string
      */
     protected $field;
 
     /**
+     *
      * @var ?mixed
      */
     protected $duplicateValue;
 
     /**
+     *
      * @var ?Reference
      */
     protected $conflictingResource;
@@ -55,16 +60,18 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         ?string $message = null,
         ?string $field = null,
         $duplicateValue = null,
-        ?Reference $conflictingResource = null
+        ?Reference $conflictingResource = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->field = $field;
         $this->duplicateValue = $duplicateValue;
         $this->conflictingResource = $conflictingResource;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -82,6 +89,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -99,6 +107,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     *
      * @return null|string
      */
     public function getField()
@@ -116,6 +125,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getDuplicateValue()
@@ -134,6 +144,7 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
 
     /**
      * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     *
      *
      * @return null|Reference
      */

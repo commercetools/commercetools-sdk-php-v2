@@ -22,11 +22,13 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
 
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?array
      */
     protected $coordinates;
@@ -45,6 +47,7 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -62,6 +65,7 @@ final class GeoLocationModel extends JsonObjectModel implements GeoLocation
     }
 
     /**
+     *
      * @return null|array
      */
     public function getCoordinates()

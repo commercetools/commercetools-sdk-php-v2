@@ -17,11 +17,13 @@ interface PaymentChangeTransactionInteractionIdAction extends PaymentUpdateActio
     public const FIELD_INTERACTION_ID = 'interactionId';
 
     /**
+
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+
      * @return null|string
      */
     public function getInteractionId();

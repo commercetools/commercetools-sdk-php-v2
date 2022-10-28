@@ -24,21 +24,27 @@ use stdClass;
 final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a>.</p>
+     *
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -47,6 +53,9 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+     * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
+     *
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -55,6 +64,9 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:CustomLineItem">Custom Line Item</a> after the Discount recalculation.</p>
+     *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()

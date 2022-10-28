@@ -21,6 +21,7 @@ use stdClass;
 final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $maxApplicationsPerCustomer;
@@ -28,6 +29,7 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Bu
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer()

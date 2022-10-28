@@ -21,6 +21,7 @@ interface StagedOrderSetParcelCustomTypeAction extends StagedOrderUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+
      * @return null|string
      */
     public function getParcelId();
@@ -29,6 +30,7 @@ interface StagedOrderSetParcelCustomTypeAction extends StagedOrderUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Parcel with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Parcel.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -36,6 +38,7 @@ interface StagedOrderSetParcelCustomTypeAction extends StagedOrderUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Parcel.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

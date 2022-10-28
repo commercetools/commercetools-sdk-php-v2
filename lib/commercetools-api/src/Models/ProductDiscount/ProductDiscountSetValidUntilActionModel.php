@@ -22,11 +22,13 @@ final class ProductDiscountSetValidUntilActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setValidUntil';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
@@ -36,13 +38,15 @@ final class ProductDiscountSetValidUntilActionModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DateTimeImmutable $validUntil = null
+        ?DateTimeImmutable $validUntil = null,
+        ?string $action = null
     ) {
         $this->validUntil = $validUntil;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -63,6 +67,7 @@ final class ProductDiscountSetValidUntilActionModel extends JsonObjectModel impl
      * <p>Value to set.
      * If empty, any existing value will be removed.
      * Take <a href="/../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

@@ -19,6 +19,7 @@ interface SetLocalizedDescriptionChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface SetLocalizedDescriptionChange extends Change
     /**
      * <p>Shape of the action for <code>setDescription</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();

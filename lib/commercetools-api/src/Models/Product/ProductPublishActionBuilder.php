@@ -21,11 +21,15 @@ use stdClass;
 final class ProductPublishActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $scope;
 
     /**
+     * <p><code>All</code> or <code>Prices</code></p>
+     *
+
      * @return null|string
      */
     public function getScope()

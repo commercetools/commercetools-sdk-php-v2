@@ -22,16 +22,19 @@ use stdClass;
 final class ProjectCategoryRecommendationModel extends JsonObjectModel implements ProjectCategoryRecommendation
 {
     /**
+     *
      * @var ?CategoryReference
      */
     protected $category;
 
     /**
+     *
      * @var ?float
      */
     protected $confidence;
 
     /**
+     *
      * @var ?string
      */
     protected $path;
@@ -53,6 +56,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     /**
      * <p>A category that is recommended for a product.</p>
      *
+     *
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -73,6 +77,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
     /**
      * <p>Probability score for the category recommendation.</p>
      *
+     *
      * @return null|float
      */
     public function getConfidence()
@@ -91,6 +96,7 @@ final class ProjectCategoryRecommendationModel extends JsonObjectModel implement
 
     /**
      * <p>Breadcrumb path to the recommended category. This only picks up one language, not all available languages for the category. English is prioritized, but if English data is not available, an arbitrary language is selected. Do not use this to identify a category,use the category ID from the category reference instead.</p>
+     *
      *
      * @return null|string
      */

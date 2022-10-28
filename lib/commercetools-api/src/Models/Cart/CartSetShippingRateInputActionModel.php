@@ -21,11 +21,13 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setShippingRateInput';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ShippingRateInputDraft
      */
     protected $shippingRateInput;
@@ -35,13 +37,15 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ShippingRateInputDraft $shippingRateInput = null
+        ?ShippingRateInputDraft $shippingRateInput = null,
+        ?string $action = null
     ) {
         $this->shippingRateInput = $shippingRateInput;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -63,6 +67,7 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
      * If CartClassification is defined, it must be ClassificationShippingRateInput.
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
+     *
      *
      * @return null|ShippingRateInputDraft
      */

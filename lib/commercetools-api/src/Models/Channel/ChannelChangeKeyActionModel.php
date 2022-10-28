@@ -21,11 +21,13 @@ final class ChannelChangeKeyActionModel extends JsonObjectModel implements Chann
 {
     public const DISCRIMINATOR_VALUE = 'changeKey';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -35,13 +37,15 @@ final class ChannelChangeKeyActionModel extends JsonObjectModel implements Chann
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $action = null
     ) {
         $this->key = $key;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ChannelChangeKeyActionModel extends JsonObjectModel implements Chann
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|string
      */

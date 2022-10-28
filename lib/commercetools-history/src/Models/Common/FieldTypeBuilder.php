@@ -21,11 +21,13 @@ use stdClass;
 final class FieldTypeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @return null|string
      */
     public function getName()

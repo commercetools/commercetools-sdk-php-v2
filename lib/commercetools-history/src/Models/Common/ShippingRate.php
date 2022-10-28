@@ -20,11 +20,13 @@ interface ShippingRate extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
+
      * @return null|Money
      */
     public function getPrice();
 
     /**
+
      * @return null|Money
      */
     public function getFreeAbove();
@@ -32,11 +34,13 @@ interface ShippingRate extends JsonObject
     /**
      * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching();
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers();

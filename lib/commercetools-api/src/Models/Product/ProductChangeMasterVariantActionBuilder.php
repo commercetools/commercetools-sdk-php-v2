@@ -21,21 +21,27 @@ use stdClass;
 final class ProductChangeMasterVariantActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to become the Master Variant.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -44,6 +50,9 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to become the Master Variant.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -52,6 +61,9 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Master Variant is changed. If <code>false</code>, both the current and staged Master Variant are changed.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

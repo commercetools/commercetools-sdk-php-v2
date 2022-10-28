@@ -23,6 +23,7 @@ use stdClass;
 final class CategoryChangeSlugActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
@@ -32,6 +33,7 @@ final class CategoryChangeSlugActionBuilder implements Builder
      * A Category can have the same slug for different <a href="ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="ctp:api:type:Project">Project</a>.
      * Valid slugs must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()

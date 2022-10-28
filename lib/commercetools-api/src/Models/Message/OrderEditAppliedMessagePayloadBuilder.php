@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\OrderEdit\OrderEdit;
 use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
 use Commercetools\Api\Models\OrderEdit\OrderEditAppliedBuilder;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
+use Commercetools\Api\Models\OrderEdit\OrderEditBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -25,26 +25,32 @@ use stdClass;
 final class OrderEditAppliedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var null|OrderEditReference|OrderEditReferenceBuilder
+
+     * @var null|OrderEdit|OrderEditBuilder
      */
     private $edit;
 
     /**
+
      * @var null|OrderEditApplied|OrderEditAppliedBuilder
      */
     private $result;
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to an <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     * <p><a href="ctp:api:type:OrderEdit">OrderEdit</a> that was applied.</p>
      *
-     * @return null|OrderEditReference
+
+     * @return null|OrderEdit
      */
     public function getEdit()
     {
-        return $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit;
+        return $this->edit instanceof OrderEditBuilder ? $this->edit->build() : $this->edit;
     }
 
     /**
+     * <p>Information about a successfully applied <a href="ctp:api:type:OrderEdit">OrderEdit</a>.</p>
+     *
+
      * @return null|OrderEditApplied
      */
     public function getResult()
@@ -53,10 +59,10 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @param ?OrderEditReference $edit
+     * @param ?OrderEdit $edit
      * @return $this
      */
-    public function withEdit(?OrderEditReference $edit)
+    public function withEdit(?OrderEdit $edit)
     {
         $this->edit = $edit;
 
@@ -78,7 +84,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
      * @deprecated use withEdit() instead
      * @return $this
      */
-    public function withEditBuilder(?OrderEditReferenceBuilder $edit)
+    public function withEditBuilder(?OrderEditBuilder $edit)
     {
         $this->edit = $edit;
 
@@ -99,7 +105,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     public function build(): OrderEditAppliedMessagePayload
     {
         return new OrderEditAppliedMessagePayloadModel(
-            $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit,
+            $this->edit instanceof OrderEditBuilder ? $this->edit->build() : $this->edit,
             $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result
         );
     }

@@ -21,6 +21,7 @@ interface ChangeTextLineItemNameChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,21 +29,25 @@ interface ChangeTextLineItemNameChange extends Change
     /**
      * <p>Update action for <code>changeTextLineItemName</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|TextLineItemValue
      */
     public function getTextLineItem();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();

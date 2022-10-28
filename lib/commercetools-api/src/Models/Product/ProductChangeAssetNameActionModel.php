@@ -23,36 +23,43 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'changeAssetName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
 
     /**
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -67,7 +74,8 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
         ?bool $staged = null,
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
@@ -75,10 +83,11 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -96,6 +105,9 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -113,6 +125,9 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -130,6 +145,9 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()
@@ -147,6 +165,9 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getAssetId()
@@ -164,6 +185,9 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -181,6 +205,9 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
+     *
      * @return null|LocalizedString
      */
     public function getName()

@@ -21,16 +21,21 @@ use stdClass;
 final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @var ?string
      */
     private $oldEmail;
 
     /**
+     * <p>Email address on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetCustomerEmailAction">Set Customer Email</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getEmail()
@@ -39,6 +44,9 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Email address on the <a href="ctp:api:type:Order">Order</a> before the <a href="ctp:api:type:OrderSetCustomerEmailAction">Set Customer Email</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getOldEmail()

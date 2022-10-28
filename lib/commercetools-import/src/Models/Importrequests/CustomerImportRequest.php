@@ -19,6 +19,7 @@ interface CustomerImportRequest extends ImportRequest
     /**
      * <p>The customer import resources of this request.</p>
      *
+
      * @return null|CustomerImportCollection
      */
     public function getResources();

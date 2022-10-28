@@ -23,11 +23,13 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $interaction;
@@ -37,13 +39,15 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFields $interaction = null
+        ?CustomFields $interaction = null,
+        ?string $type = null
     ) {
         $this->interaction = $interaction;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,7 +65,8 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>The interface interaction that was added to the <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
      *
      * @return null|CustomFields
      */

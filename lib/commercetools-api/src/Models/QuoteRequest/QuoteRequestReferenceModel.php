@@ -23,16 +23,19 @@ final class QuoteRequestReferenceModel extends JsonObjectModel implements QuoteR
 {
     public const DISCRIMINATOR_VALUE = 'quote-request';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?QuoteRequest
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class QuoteRequestReferenceModel extends JsonObjectModel implements QuoteR
      */
     public function __construct(
         ?string $id = null,
-        ?QuoteRequest $obj = null
+        ?QuoteRequest $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class QuoteRequestReferenceModel extends JsonObjectModel implements QuoteR
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -91,6 +97,7 @@ final class QuoteRequestReferenceModel extends JsonObjectModel implements QuoteR
     /**
      * <p>Contains the representation of the expanded QuoteRequest.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for QuoteRequest.</p>
+     *
      *
      * @return null|QuoteRequest
      */

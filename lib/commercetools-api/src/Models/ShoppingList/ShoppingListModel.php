@@ -35,86 +35,103 @@ use stdClass;
 final class ShoppingListModel extends JsonObjectModel implements ShoppingList
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+     *
      * @var ?CustomerReference
      */
     protected $customer;
 
     /**
+     *
      * @var ?int
      */
     protected $deleteDaysAfterLastModification;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?ShoppingListLineItemCollection
      */
     protected $lineItems;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+     *
      * @var ?TextLineItemCollection
      */
     protected $textLineItems;
 
     /**
+     *
      * @var ?string
      */
     protected $anonymousId;
 
     /**
+     *
      * @var ?StoreKeyReference
      */
     protected $store;
@@ -164,6 +181,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>Unique identifier of the ShoppingList.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -183,6 +201,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>The current version of the shopping list.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -200,6 +219,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -221,6 +241,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -244,6 +265,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -264,6 +286,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -282,6 +305,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -300,6 +324,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -320,6 +345,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -337,6 +363,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -357,6 +384,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>User-defined unique identifier of the ShoppingList.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -374,6 +402,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|ShoppingListLineItemCollection
      */
     public function getLineItems()
@@ -391,6 +420,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -413,6 +443,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
      * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -431,6 +462,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|TextLineItemCollection
      */
     public function getTextLineItems()
@@ -450,6 +482,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -467,6 +500,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     }
 
     /**
+     *
      * @return null|StoreKeyReference
      */
     public function getStore()

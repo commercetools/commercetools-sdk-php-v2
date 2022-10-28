@@ -18,11 +18,13 @@ interface ParcelChangeValue extends JsonObject
     public const FIELD_CREATED_AT = 'createdAt';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt();

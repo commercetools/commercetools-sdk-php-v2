@@ -22,11 +22,13 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
 
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?Reference
      */
     protected $state;
@@ -45,6 +47,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -62,6 +65,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getState()

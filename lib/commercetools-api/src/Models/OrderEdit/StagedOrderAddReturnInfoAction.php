@@ -21,16 +21,19 @@ interface StagedOrderAddReturnInfoAction extends StagedOrderUpdateAction
     public const FIELD_RETURN_DATE = 'returnDate';
 
     /**
+
      * @return null|string
      */
     public function getReturnTrackingId();
 
     /**
+
      * @return null|ReturnItemDraftCollection
      */
     public function getItems();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getReturnDate();

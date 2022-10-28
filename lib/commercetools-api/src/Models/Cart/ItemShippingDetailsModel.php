@@ -20,11 +20,13 @@ use stdClass;
 final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShippingDetails
 {
     /**
+     *
      * @var ?ItemShippingTargetCollection
      */
     protected $targets;
 
     /**
+     *
      * @var ?bool
      */
     protected $valid;
@@ -44,6 +46,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     /**
      * <p>Used to map what sub-quantity should be shipped to which address.
      * Duplicate address keys are not allowed.</p>
+     *
      *
      * @return null|ItemShippingTargetCollection
      */
@@ -65,6 +68,7 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
      * <p><code>true</code> if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise.
      * A cart cannot be ordered when the value is <code>false</code>.
      * The error InvalidItemShippingDetails will be triggered.</p>
+     *
      *
      * @return null|bool
      */

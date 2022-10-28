@@ -25,16 +25,19 @@ interface StagedOrderSetShippingAddressAndCustomShippingMethodAction extends Sta
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName();
 
     /**
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();
@@ -42,11 +45,13 @@ interface StagedOrderSetShippingAddressAndCustomShippingMethodAction extends Sta
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();

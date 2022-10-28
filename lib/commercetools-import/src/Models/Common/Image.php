@@ -20,6 +20,7 @@ interface Image extends JsonObject
     /**
      * <p>URL of the image in its original size. The URL must be unique within a single variant. It can be used to obtain the image in different sizes.</p>
      *
+
      * @return null|string
      */
     public function getUrl();
@@ -27,6 +28,7 @@ interface Image extends JsonObject
     /**
      * <p>Dimensions of the original image. This can be used by your application, for example, to determine whether the image is large enough to display a zoom view.</p>
      *
+
      * @return null|AssetDimensions
      */
     public function getDimensions();
@@ -34,6 +36,7 @@ interface Image extends JsonObject
     /**
      * <p>Custom label that can be used, for example, as an image description.</p>
      *
+
      * @return null|string
      */
     public function getLabel();

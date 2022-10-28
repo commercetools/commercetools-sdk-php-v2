@@ -21,11 +21,13 @@ final class BooleanSetFieldModel extends JsonObjectModel implements BooleanSetFi
 {
     public const DISCRIMINATOR_VALUE = 'BooleanSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?array
      */
     protected $value;
@@ -35,14 +37,16 @@ final class BooleanSetFieldModel extends JsonObjectModel implements BooleanSetFi
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $value = null
+        ?array $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
+     *
      *
      * @return null|string
      */
@@ -61,6 +65,7 @@ final class BooleanSetFieldModel extends JsonObjectModel implements BooleanSetFi
     }
 
     /**
+     *
      * @return null|array
      */
     public function getValue()

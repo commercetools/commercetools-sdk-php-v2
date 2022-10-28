@@ -21,11 +21,13 @@ use stdClass;
 final class LocationBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
@@ -33,6 +35,7 @@ final class LocationBuilder implements Builder
     /**
      * <p>Country code of the geographic location.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -43,6 +46,7 @@ final class LocationBuilder implements Builder
     /**
      * <p>State within the country.</p>
      *
+
      * @return null|string
      */
     public function getState()

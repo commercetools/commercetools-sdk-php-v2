@@ -21,16 +21,19 @@ final class ShoppingListRemoveTextLineItemActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'removeTextLineItem';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $textLineItemId;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -41,14 +44,16 @@ final class ShoppingListRemoveTextLineItemActionModel extends JsonObjectModel im
      */
     public function __construct(
         ?string $textLineItemId = null,
-        ?int $quantity = null
+        ?int $quantity = null,
+        ?string $action = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->quantity = $quantity;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,6 +71,7 @@ final class ShoppingListRemoveTextLineItemActionModel extends JsonObjectModel im
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTextLineItemId()
@@ -83,6 +89,7 @@ final class ShoppingListRemoveTextLineItemActionModel extends JsonObjectModel im
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()

@@ -23,13 +23,15 @@ use stdClass;
 final class OrderStoreSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     * <p><a href="ctp:api:type:Store">Store</a> that was set.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore()

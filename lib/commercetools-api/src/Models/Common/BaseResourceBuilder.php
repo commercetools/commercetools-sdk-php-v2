@@ -8,6 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnit;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitBuilder;
+use Commercetools\Api\Models\BusinessUnit\Company;
+use Commercetools\Api\Models\BusinessUnit\CompanyBuilder;
+use Commercetools\Api\Models\BusinessUnit\Division;
+use Commercetools\Api\Models\BusinessUnit\DivisionBuilder;
 use Commercetools\Api\Models\Cart\Cart;
 use Commercetools\Api\Models\Cart\CartBuilder;
 use Commercetools\Api\Models\CartDiscount\CartDiscount;
@@ -28,6 +34,52 @@ use Commercetools\Api\Models\Extension\Extension;
 use Commercetools\Api\Models\Extension\ExtensionBuilder;
 use Commercetools\Api\Models\Inventory\InventoryEntry;
 use Commercetools\Api\Models\Inventory\InventoryEntryBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAddressAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAddressAddedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAddressChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAddressChangedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAddressRemovedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateAddedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateChangedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociateRemovedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitAssociatesSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitAssociatesSetMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitBillingAddressAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitBillingAddressAddedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitBillingAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitBillingAddressRemovedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitContactEmailSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitContactEmailSetMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitCreatedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitCreatedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitDefaultBillingAddressSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitDefaultBillingAddressSetMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitDefaultShippingAddressSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitDefaultShippingAddressSetMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitDeletedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitDeletedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitNameChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitNameChangedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitParentUnitChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitParentUnitChangedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitShippingAddressAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitShippingAddressAddedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitShippingAddressRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitShippingAddressRemovedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitStatusChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStatusChangedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitStoreAddedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoreAddedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitStoreModeChangedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoreModeChangedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitStoreRemovedMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoreRemovedMessageBuilder;
+use Commercetools\Api\Models\Message\BusinessUnitStoresSetMessage;
+use Commercetools\Api\Models\Message\BusinessUnitStoresSetMessageBuilder;
 use Commercetools\Api\Models\Message\CategoryCreatedMessage;
 use Commercetools\Api\Models\Message\CategoryCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\CategorySlugChangedMessage;
@@ -132,8 +184,12 @@ use Commercetools\Api\Models\Message\QuoteRequestDeletedMessage;
 use Commercetools\Api\Models\Message\QuoteRequestDeletedMessageBuilder;
 use Commercetools\Api\Models\Message\QuoteRequestStateChangedMessage;
 use Commercetools\Api\Models\Message\QuoteRequestStateChangedMessageBuilder;
+use Commercetools\Api\Models\Message\QuoteRequestStateTransitionMessage;
+use Commercetools\Api\Models\Message\QuoteRequestStateTransitionMessageBuilder;
 use Commercetools\Api\Models\Message\QuoteStateChangedMessage;
 use Commercetools\Api\Models\Message\QuoteStateChangedMessageBuilder;
+use Commercetools\Api\Models\Message\QuoteStateTransitionMessage;
+use Commercetools\Api\Models\Message\QuoteStateTransitionMessageBuilder;
 use Commercetools\Api\Models\Message\ReviewCreatedMessage;
 use Commercetools\Api\Models\Message\ReviewCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\ReviewRatingSetMessage;
@@ -148,8 +204,12 @@ use Commercetools\Api\Models\Message\StagedQuoteSellerCommentSetMessage;
 use Commercetools\Api\Models\Message\StagedQuoteSellerCommentSetMessageBuilder;
 use Commercetools\Api\Models\Message\StagedQuoteStateChangedMessage;
 use Commercetools\Api\Models\Message\StagedQuoteStateChangedMessageBuilder;
+use Commercetools\Api\Models\Message\StagedQuoteStateTransitionMessage;
+use Commercetools\Api\Models\Message\StagedQuoteStateTransitionMessageBuilder;
 use Commercetools\Api\Models\Message\StagedQuoteValidToSetMessage;
 use Commercetools\Api\Models\Message\StagedQuoteValidToSetMessageBuilder;
+use Commercetools\Api\Models\Message\StandalonePriceActiveChangedMessage;
+use Commercetools\Api\Models\Message\StandalonePriceActiveChangedMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceCreatedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceDeletedMessage;
@@ -158,14 +218,24 @@ use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessageBuilder;
+use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessage;
+use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;
 use Commercetools\Api\Models\Message\StoreDeletedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessage;
+use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreLanguagesChangedMessage;
+use Commercetools\Api\Models\Message\StoreLanguagesChangedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreNameSetMessage;
+use Commercetools\Api\Models\Message\StoreNameSetMessageBuilder;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessage;
 use Commercetools\Api\Models\Message\StoreProductSelectionsChangedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreSupplyChannelsChangedMessage;
+use Commercetools\Api\Models\Message\StoreSupplyChannelsChangedMessageBuilder;
 use Commercetools\Api\Models\Order\Order;
 use Commercetools\Api\Models\Order\OrderBuilder;
 use Commercetools\Api\Models\OrderEdit\OrderEdit;
@@ -224,26 +294,31 @@ use stdClass;
 final class BaseResourceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -252,6 +327,7 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -260,6 +336,7 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -268,6 +345,7 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

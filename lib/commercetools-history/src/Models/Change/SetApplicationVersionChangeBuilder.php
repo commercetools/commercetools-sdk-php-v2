@@ -21,16 +21,19 @@ use stdClass;
 final class SetApplicationVersionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?int
      */
     private $previousValue;
 
     /**
+
      * @var ?int
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class SetApplicationVersionChangeBuilder implements Builder
     /**
      * <p>Internal Update action for <code>setApplicationVersion</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class SetApplicationVersionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class SetApplicationVersionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getNextValue()

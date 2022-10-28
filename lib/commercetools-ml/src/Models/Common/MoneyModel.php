@@ -20,11 +20,13 @@ use stdClass;
 final class MoneyModel extends JsonObjectModel implements Money
 {
     /**
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
+     *
      * @var ?string
      */
     protected $currencyCode;
@@ -42,6 +44,7 @@ final class MoneyModel extends JsonObjectModel implements Money
     }
 
     /**
+     *
      * @return null|int
      */
     public function getCentAmount()
@@ -60,6 +63,7 @@ final class MoneyModel extends JsonObjectModel implements Money
 
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+     *
      *
      * @return null|string
      */

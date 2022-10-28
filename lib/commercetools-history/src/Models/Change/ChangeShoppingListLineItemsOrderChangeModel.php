@@ -23,21 +23,25 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
 
     public const DISCRIMINATOR_VALUE = 'ChangeShoppingListLineItemsOrderChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?ShoppingListLineItemValueCollection
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?ShoppingListLineItemValueCollection
      */
     protected $nextValue;
@@ -49,15 +53,17 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
     public function __construct(
         ?string $change = null,
         ?ShoppingListLineItemValueCollection $previousValue = null,
-        ?ShoppingListLineItemValueCollection $nextValue = null
+        ?ShoppingListLineItemValueCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,6 +81,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
     }
 
     /**
+     *
      * @return null|string
      */
     public function getChange()
@@ -92,6 +99,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
     }
 
     /**
+     *
      * @return null|ShoppingListLineItemValueCollection
      */
     public function getPreviousValue()
@@ -109,6 +117,7 @@ final class ChangeShoppingListLineItemsOrderChangeModel extends JsonObjectModel 
     }
 
     /**
+     *
      * @return null|ShoppingListLineItemValueCollection
      */
     public function getNextValue()

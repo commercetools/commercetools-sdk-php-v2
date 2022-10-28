@@ -20,6 +20,7 @@ interface ChannelReference extends Reference
      * <p>Contains the representation of the expanded Channel.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Channels.</p>
      *
+
      * @return null|Channel
      */
     public function getObj();
@@ -27,6 +28,7 @@ interface ChannelReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

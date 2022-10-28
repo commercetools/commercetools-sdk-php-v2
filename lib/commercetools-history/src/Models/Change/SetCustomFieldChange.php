@@ -22,11 +22,13 @@ interface SetCustomFieldChange extends Change
     /**
      * <p>Update action for setting a custom field</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -34,21 +36,25 @@ interface SetCustomFieldChange extends Change
     /**
      * <p>Custom field name</p>
      *
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|string
      */
     public function getCustomTypeId();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

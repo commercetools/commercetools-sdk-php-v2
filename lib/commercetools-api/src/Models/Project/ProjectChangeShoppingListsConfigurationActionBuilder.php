@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectChangeShoppingListsConfigurationActionBuilder implements Builder
 {
     /**
+
      * @var null|ShoppingListsConfiguration|ShoppingListsConfigurationBuilder
      */
     private $shoppingListsConfiguration;
@@ -28,6 +29,7 @@ final class ProjectChangeShoppingListsConfigurationActionBuilder implements Buil
     /**
      * <p>Configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
      *
+
      * @return null|ShoppingListsConfiguration
      */
     public function getShoppingListsConfiguration()

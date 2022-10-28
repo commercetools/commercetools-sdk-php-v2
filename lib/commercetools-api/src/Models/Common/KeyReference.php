@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -21,6 +22,7 @@ interface KeyReference extends JsonObject
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId();
@@ -28,6 +30,7 @@ interface KeyReference extends JsonObject
     /**
      * <p>User-defined unique and immutable key of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getKey();

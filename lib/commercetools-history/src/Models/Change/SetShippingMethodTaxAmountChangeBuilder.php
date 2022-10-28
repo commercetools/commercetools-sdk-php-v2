@@ -23,21 +23,25 @@ use Commercetools\History\Models\ChangeValue\ShippingMethodTaxAmountChangeValueB
 final class SetShippingMethodTaxAmountChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var null|ShippingMethodTaxAmountChangeValue|ShippingMethodTaxAmountChangeValueBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|ShippingMethodTaxAmountChangeValue|ShippingMethodTaxAmountChangeValueBuilder
      */
     private $previousValue;
@@ -45,6 +49,7 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setShippingMethodTaxAmount</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTaxMode()
@@ -61,6 +67,7 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class SetShippingMethodTaxAmountChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingMethodTaxAmountChangeValue
      */
     public function getPreviousValue()

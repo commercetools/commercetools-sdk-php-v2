@@ -31,71 +31,85 @@ use stdClass;
 final class InventoryEntryModel extends JsonObjectModel implements InventoryEntry
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $supplyChannel;
 
     /**
+     *
      * @var ?int
      */
     protected $quantityOnStock;
 
     /**
+     *
      * @var ?int
      */
     protected $availableQuantity;
 
     /**
+     *
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $expectedDelivery;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -139,6 +153,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>Unique identifier of the InventoryEntry.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -158,6 +173,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>Current version of the InventoryEntry.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -176,6 +192,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Date and time (UTC) the InventoryEntry was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -200,6 +217,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>Date and time (UTC) the InventoryEntry was last updated.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -223,6 +241,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -242,6 +261,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -263,6 +283,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>User-defined unique identifier of the InventoryEntry.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -282,6 +303,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p><a href="ctp:api:type:ProductVariant">ProductVariant</a> <code>sku</code> of the InventoryEntry.</p>
      *
+     *
      * @return null|string
      */
     public function getSku()
@@ -300,6 +322,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p><a href="ctp:api:type:Channel">Channel</a> that supplies this InventoryEntry.</p>
+     *
      *
      * @return null|ChannelReference
      */
@@ -321,6 +344,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>Overall amount of stock (<code>availableQuantity</code> + reserved).</p>
      *
+     *
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -339,6 +363,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Available amount of stock (<code>quantityOnStock</code> - reserved).</p>
+     *
      *
      * @return null|int
      */
@@ -359,6 +384,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     /**
      * <p>How often the InventoryEntry is restocked (in days).</p>
      *
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -377,6 +403,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Date and time of the next restock.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -400,6 +427,7 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
 
     /**
      * <p>Custom Fields of the InventoryEntry.</p>
+     *
      *
      * @return null|CustomFields
      */

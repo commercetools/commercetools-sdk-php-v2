@@ -22,6 +22,7 @@ interface ShippingRate extends JsonObject
     /**
      * <p>Currency amount of the ShippingRate.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getPrice();
@@ -29,6 +30,7 @@ interface ShippingRate extends JsonObject
     /**
      * <p>Shipping is free if the sum of the (Custom) Line Item Prices reaches the specified value.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getFreeAbove();
@@ -38,6 +40,7 @@ interface ShippingRate extends JsonObject
      * Only appears in response to requests for <a href="#get-shippingmethods-for-a-cart">Get ShippingMethods for a Cart</a> or
      * <a href="#get-shippingmethods-for-a-location">Get ShippingMethods for a Location</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsMatching();
@@ -45,6 +48,7 @@ interface ShippingRate extends JsonObject
     /**
      * <p>Price tiers for the ShippingRate.</p>
      *
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers();

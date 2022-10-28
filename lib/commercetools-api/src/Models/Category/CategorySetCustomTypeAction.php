@@ -22,6 +22,7 @@ interface CategorySetCustomTypeAction extends CategoryUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Category with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Category.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -29,6 +30,7 @@ interface CategorySetCustomTypeAction extends CategoryUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Category.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

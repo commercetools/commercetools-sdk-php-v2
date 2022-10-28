@@ -21,6 +21,7 @@ use stdClass;
 final class TypeAddFieldDefinitionActionBuilder implements Builder
 {
     /**
+
      * @var null|FieldDefinition|FieldDefinitionBuilder
      */
     private $fieldDefinition;
@@ -28,6 +29,7 @@ final class TypeAddFieldDefinitionActionBuilder implements Builder
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|FieldDefinition
      */
     public function getFieldDefinition()

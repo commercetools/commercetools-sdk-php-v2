@@ -21,11 +21,15 @@ use stdClass;
 final class CustomerEmailChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+     * <p>The <code>email</code> that was set during the <a href="ctp:api:type:CustomerChangeEmailAction">Change Email</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getEmail()

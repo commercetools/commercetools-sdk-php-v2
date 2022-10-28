@@ -23,11 +23,15 @@ use stdClass;
 final class OrderCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Order|OrderBuilder
      */
     private $order;
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that was created.</p>
+     *
+
      * @return null|Order
      */
     public function getOrder()

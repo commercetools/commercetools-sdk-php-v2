@@ -24,21 +24,25 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'SetShippingInfoTaxedPriceChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?TaxedPrice
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?TaxedPrice
      */
     protected $previousValue;
@@ -50,15 +54,17 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     public function __construct(
         ?string $change = null,
         ?TaxedPrice $nextValue = null,
-        ?TaxedPrice $previousValue = null
+        ?TaxedPrice $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     /**
      * <p>Update action for <code>setShippingInfoTaxedPrice</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|TaxedPrice
      */
     public function getNextValue()
@@ -113,6 +121,7 @@ final class SetShippingInfoTaxedPriceChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|TaxedPrice
      */
     public function getPreviousValue()

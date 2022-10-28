@@ -16,6 +16,9 @@ interface AzureServiceBusDestination extends Destination
     public const FIELD_CONNECTION_STRING = 'connectionString';
 
     /**
+     * <p>SharedAccessKey is partially hidden on retrieval for security reasons.</p>
+     *
+
      * @return null|string
      */
     public function getConnectionString();

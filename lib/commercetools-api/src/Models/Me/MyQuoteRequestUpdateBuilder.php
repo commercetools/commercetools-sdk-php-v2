@@ -21,16 +21,19 @@ use stdClass;
 final class MyQuoteRequestUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?MyQuoteRequestUpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class MyQuoteRequestUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|MyQuoteRequestUpdateActionCollection
      */
     public function getActions()

@@ -16,6 +16,7 @@ interface RangeFacetResult extends FacetResult
     public const FIELD_RANGES = 'ranges';
 
     /**
+
      * @return null|FacetRangeCollection
      */
     public function getRanges();

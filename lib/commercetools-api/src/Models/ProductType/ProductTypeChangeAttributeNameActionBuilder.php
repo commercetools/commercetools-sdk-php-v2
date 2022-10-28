@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeChangeAttributeNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $newAttributeName;
@@ -33,6 +35,7 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -45,6 +48,7 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
      * When using the same <code>name</code> for an Attribute in two or more ProductTypes all fields of the AttributeDefinition of this Attribute need to be the same across the ProductTypes, otherwise an <a href="ctp:api:type:AttributeDefinitionAlreadyExistsError">AttributeDefinitionAlreadyExistsError</a> will be returned.
      * An exception to this are the values of an <code>enum</code> or <code>lenum</code> type and sets thereof.</p>
      *
+
      * @return null|string
      */
     public function getNewAttributeName()

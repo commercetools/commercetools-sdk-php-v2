@@ -23,13 +23,15 @@ use stdClass;
 final class CustomerAddStoreActionBuilder implements Builder
 {
     /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
 
     /**
-     * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>ResourceIdentifier of the Store to add.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()

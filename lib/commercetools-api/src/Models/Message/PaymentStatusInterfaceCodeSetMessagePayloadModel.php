@@ -21,16 +21,19 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'PaymentStatusInterfaceCodeSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $paymentId;
 
     /**
+     *
      * @var ?string
      */
     protected $interfaceCode;
@@ -41,14 +44,16 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
      */
     public function __construct(
         ?string $paymentId = null,
-        ?string $interfaceCode = null
+        ?string $interfaceCode = null,
+        ?string $type = null
     ) {
         $this->paymentId = $paymentId;
         $this->interfaceCode = $interfaceCode;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -66,6 +71,9 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:Payment">Payment</a> for which the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action was applied.</p>
+     *
+     *
      * @return null|string
      */
     public function getPaymentId()
@@ -83,6 +91,9 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p>The <code>interfaceCode</code> that was set during the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getInterfaceCode()

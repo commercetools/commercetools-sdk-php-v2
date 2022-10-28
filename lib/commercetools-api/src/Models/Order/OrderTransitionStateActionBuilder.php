@@ -23,11 +23,13 @@ use stdClass;
 final class OrderTransitionStateActionBuilder implements Builder
 {
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @var ?bool
      */
     private $force;
@@ -35,6 +37,7 @@ final class OrderTransitionStateActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -43,6 +46,7 @@ final class OrderTransitionStateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|bool
      */
     public function getForce()

@@ -27,21 +27,25 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'setParcelCustomType';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -53,15 +57,17 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     public function __construct(
         ?string $parcelId = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->parcelId = $parcelId;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -79,6 +85,7 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
     }
 
     /**
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -99,6 +106,7 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Parcel with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Parcel.</p>
      *
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -118,6 +126,7 @@ final class StagedOrderSetParcelCustomTypeActionModel extends JsonObjectModel im
 
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Parcel.</p>
+     *
      *
      * @return null|FieldContainer
      */

@@ -19,6 +19,7 @@ interface CustomField extends JsonObject
     /**
      * <p>The type of this field.</p>
      *
+
      * @return null|string
      */
     public function getType();

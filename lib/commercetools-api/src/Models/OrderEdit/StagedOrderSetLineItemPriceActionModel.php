@@ -25,16 +25,19 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemPrice';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?Money
      */
     protected $externalPrice;
@@ -45,14 +48,16 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?Money $externalPrice = null
+        ?Money $externalPrice = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->externalPrice = $externalPrice;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,6 +75,7 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -89,6 +95,7 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
     /**
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      *
      * @return null|Money
      */

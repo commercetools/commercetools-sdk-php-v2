@@ -21,16 +21,19 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'OrderPaymentStateChanged';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $paymentState;
 
     /**
+     *
      * @var ?string
      */
     protected $oldPaymentState;
@@ -41,14 +44,16 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
      */
     public function __construct(
         ?string $paymentState = null,
-        ?string $oldPaymentState = null
+        ?string $oldPaymentState = null,
+        ?string $type = null
     ) {
         $this->paymentState = $paymentState;
         $this->oldPaymentState = $oldPaymentState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -66,6 +71,9 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+     * <p><a href="ctp:api:type:PaymentState">PaymentState</a> after the <a href="ctp:api:type:OrderChangePaymentStateAction">Change Payment State</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getPaymentState()
@@ -83,6 +91,9 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+     * <p><a href="ctp:api:type:PaymentState">PaymentState</a> before the <a href="ctp:api:type:OrderChangePaymentStateAction">Change Payment State</a> update action.</p>
+     *
+     *
      * @return null|string
      */
     public function getOldPaymentState()

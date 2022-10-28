@@ -23,16 +23,19 @@ use stdClass;
 final class CustomerGroupDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $groupName;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -40,6 +43,7 @@ final class CustomerGroupDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the CustomerGroup.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -51,6 +55,7 @@ final class CustomerGroupDraftBuilder implements Builder
      * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the Project.
      * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
      *
+
      * @return null|string
      */
     public function getGroupName()
@@ -61,6 +66,7 @@ final class CustomerGroupDraftBuilder implements Builder
     /**
      * <p>Custom Fields for the CustomerGroup.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

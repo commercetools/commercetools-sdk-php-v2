@@ -22,11 +22,13 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'product-variant-patch';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ProductVariantPatchCollection
      */
     protected $patches;
@@ -36,14 +38,16 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductVariantPatchCollection $patches = null
+        ?ProductVariantPatchCollection $patches = null,
+        ?string $type = null
     ) {
         $this->patches = $patches;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +67,7 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
 
     /**
      * <p>The product variant patches of this request.</p>
+     *
      *
      * @return null|ProductVariantPatchCollection
      */

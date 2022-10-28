@@ -16,11 +16,13 @@ interface UnpublishChange extends Change
 
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();

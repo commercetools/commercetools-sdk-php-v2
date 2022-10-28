@@ -32,59 +32,76 @@ use stdClass;
 final class StandalonePriceDraftModel extends JsonObjectModel implements StandalonePriceDraft
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?Money
      */
     protected $value;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $channel;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?PriceTierDraftCollection
      */
     protected $tiers;
 
     /**
+     *
      * @var ?DiscountedPriceDraft
      */
     protected $discounted;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $active;
 
 
     /**
@@ -101,7 +118,8 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         ?DateTimeImmutable $validUntil = null,
         ?PriceTierDraftCollection $tiers = null,
         ?DiscountedPriceDraft $discounted = null,
-        ?CustomFieldsDraft $custom = null
+        ?CustomFieldsDraft $custom = null,
+        ?bool $active = null
     ) {
         $this->key = $key;
         $this->sku = $sku;
@@ -114,10 +132,12 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->active = $active;
     }
 
     /**
      * <p>User-defined unique identifier for the StandalonePrice.</p>
+     *
      *
      * @return null|string
      */
@@ -139,6 +159,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
      * <p>Specifies to which <a href="ctp:api:type:ProductVariant">ProductVariant</a> the API associates this Price.
      * It is not validated to exist in product variants.</p>
      *
+     *
      * @return null|string
      */
     public function getSku()
@@ -157,6 +178,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
 
     /**
      * <p>Sets the money value of this Price.</p>
+     *
      *
      * @return null|Money
      */
@@ -178,6 +200,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the country for which this Price is valid.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -196,6 +219,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
 
     /**
      * <p>Sets the <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
+     *
      *
      * @return null|CustomerGroupResourceIdentifier
      */
@@ -217,6 +241,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets the product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getChannel()
@@ -235,7 +260,8 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     }
 
     /**
-     * <p>Sets the date from which the Price is valid.</p>
+     * <p>Sets the date from which the Price is valid. Must be at least 1 ms earlier than <code>validUntil</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -258,7 +284,8 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     }
 
     /**
-     * <p>Sets the date until the Price is valid.</p>
+     * <p>Sets the date until the Price is valid. Must be at least 1 ms later than <code>validFrom</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -283,6 +310,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Sets price tiers.</p>
      *
+     *
      * @return null|PriceTierDraftCollection
      */
     public function getTiers()
@@ -301,6 +329,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
 
     /**
      * <p>Sets a discounted price for this Price that is different from the base price with <code>value</code>.</p>
+     *
      *
      * @return null|DiscountedPriceDraft
      */
@@ -322,6 +351,7 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     /**
      * <p>Custom Fields for the StandalonePrice.</p>
      *
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -337,6 +367,27 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        if (is_null($this->active)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->active = (bool) $data;
+        }
+
+        return $this->active;
     }
 
 
@@ -426,6 +477,14 @@ final class StandalonePriceDraftModel extends JsonObjectModel implements Standal
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 
 

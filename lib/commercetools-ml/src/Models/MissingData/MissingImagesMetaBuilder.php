@@ -21,21 +21,25 @@ use stdClass;
 final class MissingImagesMetaBuilder implements Builder
 {
     /**
+     * @deprecated
      * @var null|MissingImagesProductLevel|MissingImagesProductLevelBuilder
      */
     private $productLevel;
 
     /**
+     * @deprecated
      * @var null|MissingImagesVariantLevel|MissingImagesVariantLevelBuilder
      */
     private $variantLevel;
 
     /**
+
      * @var ?int
      */
     private $threshold;
 
     /**
+     * @deprecated
      * @return null|MissingImagesProductLevel
      */
     public function getProductLevel()
@@ -44,6 +48,7 @@ final class MissingImagesMetaBuilder implements Builder
     }
 
     /**
+     * @deprecated
      * @return null|MissingImagesVariantLevel
      */
     public function getVariantLevel()
@@ -54,6 +59,7 @@ final class MissingImagesMetaBuilder implements Builder
     /**
      * <p>The minimum number of images a product variant must have. Anything below this value is considered a product variant with missing images.</p>
      *
+
      * @return null|int
      */
     public function getThreshold()

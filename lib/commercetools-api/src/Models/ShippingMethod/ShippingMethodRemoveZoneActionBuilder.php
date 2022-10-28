@@ -23,6 +23,7 @@ use stdClass;
 final class ShippingMethodRemoveZoneActionBuilder implements Builder
 {
     /**
+
      * @var null|ZoneResourceIdentifier|ZoneResourceIdentifierBuilder
      */
     private $zone;
@@ -30,6 +31,7 @@ final class ShippingMethodRemoveZoneActionBuilder implements Builder
     /**
      * <p>Value to remove from <code>zoneRates</code>.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()

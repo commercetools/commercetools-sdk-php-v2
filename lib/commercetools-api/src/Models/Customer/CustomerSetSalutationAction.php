@@ -16,6 +16,9 @@ interface CustomerSetSalutationAction extends CustomerUpdateAction
     public const FIELD_SALUTATION = 'salutation';
 
     /**
+     * <p>Value to set. If empty, any existing value is removed.</p>
+     *
+
      * @return null|string
      */
     public function getSalutation();

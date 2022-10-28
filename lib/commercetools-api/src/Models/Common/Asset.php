@@ -25,11 +25,13 @@ interface Asset extends JsonObject
     /**
      * <p>Unique identifier of the Asset.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getSources();
@@ -37,6 +39,7 @@ interface Asset extends JsonObject
     /**
      * <p>Name of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -44,6 +47,7 @@ interface Asset extends JsonObject
     /**
      * <p>Description of the Asset.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -51,6 +55,7 @@ interface Asset extends JsonObject
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
      *
+
      * @return null|array
      */
     public function getTags();
@@ -58,6 +63,7 @@ interface Asset extends JsonObject
     /**
      * <p>Custom Fields defined for the Asset.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -65,6 +71,7 @@ interface Asset extends JsonObject
     /**
      * <p>User-defined unique identifier of the Asset.</p>
      *
+
      * @return null|string
      */
     public function getKey();

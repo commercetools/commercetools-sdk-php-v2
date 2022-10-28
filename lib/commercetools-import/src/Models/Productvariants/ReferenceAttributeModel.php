@@ -23,16 +23,19 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
 {
     public const DISCRIMINATOR_VALUE = 'reference';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?KeyReference
      */
     protected $value;
@@ -43,17 +46,19 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
      */
     public function __construct(
         ?string $name = null,
-        ?KeyReference $value = null
+        ?KeyReference $value = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -90,6 +96,7 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
 
     /**
      * <p>References a resource by key.</p>
+     *
      *
      * @return null|KeyReference
      */

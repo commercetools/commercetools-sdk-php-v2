@@ -23,16 +23,19 @@ use stdClass;
 final class SimilarProductBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var null|SimilarProductMeta|SimilarProductMetaBuilder
      */
     private $meta;
@@ -40,6 +43,7 @@ final class SimilarProductBuilder implements Builder
     /**
      * <p>Reference to Product</p>
      *
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -50,6 +54,7 @@ final class SimilarProductBuilder implements Builder
     /**
      * <p>ID of the ProductVariant that was compared.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -60,6 +65,7 @@ final class SimilarProductBuilder implements Builder
     /**
      * <p>Supplementary information about the data used for similarity estimation. This information helps you understand the estimated confidence score, but it should not be used to identify a product.</p>
      *
+
      * @return null|SimilarProductMeta
      */
     public function getMeta()

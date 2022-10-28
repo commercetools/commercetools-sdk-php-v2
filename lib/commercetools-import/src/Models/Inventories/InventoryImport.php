@@ -27,6 +27,7 @@ interface InventoryImport extends ImportResource
     /**
      * <p>Maps to <code>Inventory.sku</code></p>
      *
+
      * @return null|string
      */
     public function getSku();
@@ -34,6 +35,7 @@ interface InventoryImport extends ImportResource
     /**
      * <p>Maps to <code>Inventory.quantityOnStock</code></p>
      *
+
      * @return null|int
      */
     public function getQuantityOnStock();
@@ -41,6 +43,7 @@ interface InventoryImport extends ImportResource
     /**
      * <p>Maps to <code>Inventory.restockableInDays</code></p>
      *
+
      * @return null|int
      */
     public function getRestockableInDays();
@@ -48,6 +51,7 @@ interface InventoryImport extends ImportResource
     /**
      * <p>Maps to <code>Inventory.expectedDelivery</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();
@@ -55,6 +59,7 @@ interface InventoryImport extends ImportResource
     /**
      * <p>Maps to <code>Inventory.supplyChannel</code></p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel();
@@ -62,6 +67,7 @@ interface InventoryImport extends ImportResource
     /**
      * <p>Maps to <code>Inventory.custom</code>.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();

@@ -16,6 +16,7 @@ interface LocalizableEnumSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|array
      */
     public function getValue();

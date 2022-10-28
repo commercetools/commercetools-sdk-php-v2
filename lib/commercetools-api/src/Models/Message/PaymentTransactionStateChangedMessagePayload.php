@@ -17,11 +17,17 @@ interface PaymentTransactionStateChangedMessagePayload extends MessagePayload
     public const FIELD_STATE = 'state';
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:Transaction">Transaction</a> for which the <a href="ctp:api:type:TransactionState">Transaction State</a> changed.</p>
+     *
+
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+     * <p><a href="ctp:api:type:TransactionState">Transaction State</a> after the <a href="ctp:api:type:PaymentChangeTransactionStateAction">Change Transaction State</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getState();

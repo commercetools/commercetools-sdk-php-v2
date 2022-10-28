@@ -23,11 +23,15 @@ use stdClass;
 final class CustomerAddressChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was set during the <a href="ctp:api:type:CustomerChangeAddressAction">Change Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getAddress()

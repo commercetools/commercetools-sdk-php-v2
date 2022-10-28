@@ -23,16 +23,19 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setShippingMethod';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ShippingMethodResourceIdentifier
      */
     protected $shippingMethod;
 
     /**
+     *
      * @var ?ExternalTaxRateDraft
      */
     protected $externalTaxRate;
@@ -43,14 +46,16 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
-        ?ExternalTaxRateDraft $externalTaxRate = null
+        ?ExternalTaxRateDraft $externalTaxRate = null,
+        ?string $action = null
     ) {
         $this->shippingMethod = $shippingMethod;
         $this->externalTaxRate = $externalTaxRate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -70,6 +75,7 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:ShippingMethod">ShippingMethod</a>.</p>
      *
+     *
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -88,6 +94,7 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()

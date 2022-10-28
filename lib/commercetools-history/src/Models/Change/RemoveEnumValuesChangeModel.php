@@ -24,21 +24,25 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
 
     public const DISCRIMINATOR_VALUE = 'RemoveEnumValuesChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?EnumValue
      */
     protected $previousValue;
@@ -50,15 +54,17 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
     public function __construct(
         ?string $change = null,
         ?string $attributeName = null,
-        ?EnumValue $previousValue = null
+        ?EnumValue $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->attributeName = $attributeName;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -77,6 +83,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
 
     /**
      * <p>Update action for <code>removeEnumValues</code> on product types</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +104,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
     /**
      * <p>The name of the attribute updated.</p>
      *
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -114,6 +122,7 @@ final class RemoveEnumValuesChangeModel extends JsonObjectModel implements Remov
     }
 
     /**
+     *
      * @return null|EnumValue
      */
     public function getPreviousValue()

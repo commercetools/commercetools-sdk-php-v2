@@ -32,10 +32,12 @@ interface CustomLineItem extends JsonObject
     public const FIELD_DISCOUNTED_PRICE_PER_QUANTITY = 'discountedPricePerQuantity';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
      * <p>Unique identifier of the CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -43,6 +45,7 @@ interface CustomLineItem extends JsonObject
     /**
      * <p>The name of this CustomLineItem.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -51,6 +54,7 @@ interface CustomLineItem extends JsonObject
      * <p>The cost to add to the cart.
      * The amount can be negative.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getMoney();
@@ -58,6 +62,7 @@ interface CustomLineItem extends JsonObject
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();
@@ -68,6 +73,7 @@ interface CustomLineItem extends JsonObject
      * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
@@ -75,6 +81,7 @@ interface CustomLineItem extends JsonObject
     /**
      * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getSlug();
@@ -83,16 +90,19 @@ interface CustomLineItem extends JsonObject
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
 
     /**
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
@@ -101,16 +111,19 @@ interface CustomLineItem extends JsonObject
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -120,9 +133,19 @@ interface CustomLineItem extends JsonObject
      * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
      * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>
      *
+
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails();
+
+    /**
+     * <p>Specifies whether Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode();
 
     /**
      * @param ?string $id
@@ -188,4 +211,9 @@ interface CustomLineItem extends JsonObject
      * @param ?ItemShippingDetails $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetails $shippingDetails): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

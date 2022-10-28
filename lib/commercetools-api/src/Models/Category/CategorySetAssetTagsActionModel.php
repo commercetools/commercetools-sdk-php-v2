@@ -21,21 +21,25 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'setAssetTags';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $assetId;
 
     /**
+     *
      * @var ?string
      */
     protected $assetKey;
 
     /**
+     *
      * @var ?array
      */
     protected $tags;
@@ -47,15 +51,17 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     public function __construct(
         ?string $assetId = null,
         ?string $assetKey = null,
-        ?array $tags = null
+        ?array $tags = null,
+        ?string $action = null
     ) {
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->tags = $tags;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,6 +80,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
 
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
+     *
      *
      * @return null|string
      */
@@ -94,6 +101,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+     *
      * @return null|string
      */
     public function getAssetKey()
@@ -112,6 +120,7 @@ final class CategorySetAssetTagsActionModel extends JsonObjectModel implements C
 
     /**
      * <p>Keywords for categorizing and organizing Assets.</p>
+     *
      *
      * @return null|array
      */

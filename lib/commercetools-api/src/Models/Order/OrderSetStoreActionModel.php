@@ -23,11 +23,13 @@ final class OrderSetStoreActionModel extends JsonObjectModel implements OrderSet
 {
     public const DISCRIMINATOR_VALUE = 'setStore';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?StoreResourceIdentifier
      */
     protected $store;
@@ -37,13 +39,15 @@ final class OrderSetStoreActionModel extends JsonObjectModel implements OrderSet
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StoreResourceIdentifier $store = null
+        ?StoreResourceIdentifier $store = null,
+        ?string $action = null
     ) {
         $this->store = $store;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,6 +66,7 @@ final class OrderSetStoreActionModel extends JsonObjectModel implements OrderSet
 
     /**
      * <p><a href="/../api/types#resourceidentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Store">Store</a>.</p>
+     *
      *
      * @return null|StoreResourceIdentifier
      */

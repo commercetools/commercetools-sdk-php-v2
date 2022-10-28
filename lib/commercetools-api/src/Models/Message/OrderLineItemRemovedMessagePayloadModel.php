@@ -12,10 +12,10 @@ use Commercetools\Api\Models\Cart\ItemShippingDetails;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsModel;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceModel;
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -30,46 +30,55 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'OrderLineItemRemoved';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?int
      */
     protected $removedQuantity;
 
     /**
+     *
      * @var ?int
      */
     protected $newQuantity;
 
     /**
+     *
      * @var ?ItemStateCollection
      */
     protected $newState;
 
     /**
-     * @var ?TypedMoney
+     *
+     * @var ?CentPrecisionMoney
      */
     protected $newTotalPrice;
 
     /**
+     *
      * @var ?TaxedItemPrice
      */
     protected $newTaxedPrice;
 
     /**
+     *
      * @var ?Price
      */
     protected $newPrice;
 
     /**
+     *
      * @var ?ItemShippingDetails
      */
     protected $newShippingDetail;
@@ -83,10 +92,11 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
         ?int $removedQuantity = null,
         ?int $newQuantity = null,
         ?ItemStateCollection $newState = null,
-        ?TypedMoney $newTotalPrice = null,
+        ?CentPrecisionMoney $newTotalPrice = null,
         ?TaxedItemPrice $newTaxedPrice = null,
         ?Price $newPrice = null,
-        ?ItemShippingDetails $newShippingDetail = null
+        ?ItemShippingDetails $newShippingDetail = null,
+        ?string $type = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->removedQuantity = $removedQuantity;
@@ -96,10 +106,11 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
         $this->newTaxedPrice = $newTaxedPrice;
         $this->newPrice = $newPrice;
         $this->newShippingDetail = $newShippingDetail;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -117,6 +128,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -134,6 +148,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were removed during the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|int
      */
     public function getRemovedQuantity()
@@ -151,6 +168,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> quantity after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|int
      */
     public function getNewQuantity()
@@ -168,6 +188,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ItemState">ItemStates</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|ItemStateCollection
      */
     public function getNewState()
@@ -185,9 +208,10 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p><code>totalPrice</code> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
      *
-     * @return null|TypedMoney
+     *
+     * @return null|CentPrecisionMoney
      */
     public function getNewTotalPrice()
     {
@@ -197,14 +221,17 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->newTotalPrice = $className::of($data);
+
+            $this->newTotalPrice = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->newTotalPrice;
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|TaxedItemPrice
      */
     public function getNewTaxedPrice()
@@ -223,6 +250,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:Price">Price</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|Price
      */
     public function getNewPrice()
@@ -241,6 +271,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:ItemShippingDetails">Shipping Details</a> of the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:StagedOrderRemoveLineItemAction">Remove Line Item</a> update action.</p>
+     *
+     *
      * @return null|ItemShippingDetails
      */
     public function getNewShippingDetail()
@@ -292,9 +325,9 @@ final class OrderLineItemRemovedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?TypedMoney $newTotalPrice
+     * @param ?CentPrecisionMoney $newTotalPrice
      */
-    public function setNewTotalPrice(?TypedMoney $newTotalPrice): void
+    public function setNewTotalPrice(?CentPrecisionMoney $newTotalPrice): void
     {
         $this->newTotalPrice = $newTotalPrice;
     }

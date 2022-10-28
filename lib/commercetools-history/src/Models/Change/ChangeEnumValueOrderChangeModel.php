@@ -23,26 +23,31 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
 
     public const DISCRIMINATOR_VALUE = 'ChangeEnumValueOrderChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
+     *
      * @var ?EnumValueCollection
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?EnumValueCollection
      */
     protected $previousValue;
@@ -55,16 +60,18 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
         ?string $change = null,
         ?string $fieldName = null,
         ?EnumValueCollection $nextValue = null,
-        ?EnumValueCollection $previousValue = null
+        ?EnumValueCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->fieldName = $fieldName;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -83,6 +90,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
 
     /**
      * <p>Update action for <code>changeEnumValueOrder</code> on types</p>
+     *
      *
      * @return null|string
      */
@@ -103,6 +111,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     /**
      * <p>The name of the field/attribute definition updated.</p>
      *
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -120,6 +129,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
+     *
      * @return null|EnumValueCollection
      */
     public function getNextValue()
@@ -137,6 +147,7 @@ final class ChangeEnumValueOrderChangeModel extends JsonObjectModel implements C
     }
 
     /**
+     *
      * @return null|EnumValueCollection
      */
     public function getPreviousValue()

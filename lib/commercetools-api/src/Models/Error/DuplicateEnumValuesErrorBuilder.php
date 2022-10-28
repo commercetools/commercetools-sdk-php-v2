@@ -21,16 +21,19 @@ use stdClass;
 final class DuplicateEnumValuesErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?array
      */
     private $duplicates;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class DuplicateEnumValuesErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getDuplicates()

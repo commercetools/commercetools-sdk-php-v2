@@ -23,16 +23,21 @@ use stdClass;
 final class CustomerSignInResultBuilder implements Builder
 {
     /**
+
      * @var null|Customer|CustomerBuilder
      */
     private $customer;
 
     /**
+
      * @var null|Cart|CartBuilder
      */
     private $cart;
 
     /**
+     * <p>Customer <a href="#create-sign-up-customer">signed up</a> or <a href="#authenticate-sign-in-customer">signed in</a> after authentication.</p>
+     *
+
      * @return null|Customer
      */
     public function getCustomer()
@@ -41,9 +46,10 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
-     * <p>A cart that is associated to the customer.
-     * Empty if the customer does not have a cart yet.</p>
+     * <p>Cart associated with the Customer.
+     * If empty, the Customer does not have a Cart assigned.</p>
      *
+
      * @return null|Cart
      */
     public function getCart()

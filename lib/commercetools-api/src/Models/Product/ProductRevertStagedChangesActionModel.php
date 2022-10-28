@@ -21,6 +21,7 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'revertStagedChanges';
     /**
+     *
      * @var ?string
      */
     protected $action;
@@ -30,11 +31,13 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()

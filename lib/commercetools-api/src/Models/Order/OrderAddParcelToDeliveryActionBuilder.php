@@ -21,26 +21,31 @@ use stdClass;
 final class OrderAddParcelToDeliveryActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var null|ParcelMeasurements|ParcelMeasurementsBuilder
      */
     private $measurements;
 
     /**
+
      * @var null|TrackingData|TrackingDataBuilder
      */
     private $trackingData;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -49,6 +54,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -57,6 +63,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -65,6 +72,7 @@ final class OrderAddParcelToDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()

@@ -22,21 +22,25 @@ final class SetStateRolesChangeModel extends JsonObjectModel implements SetState
 
     public const DISCRIMINATOR_VALUE = 'SetStateRolesChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?array
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?array
      */
     protected $nextValue;
@@ -48,15 +52,17 @@ final class SetStateRolesChangeModel extends JsonObjectModel implements SetState
     public function __construct(
         ?string $change = null,
         ?array $previousValue = null,
-        ?array $nextValue = null
+        ?array $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -74,6 +80,7 @@ final class SetStateRolesChangeModel extends JsonObjectModel implements SetState
     }
 
     /**
+     *
      * @return null|string
      */
     public function getChange()
@@ -91,6 +98,7 @@ final class SetStateRolesChangeModel extends JsonObjectModel implements SetState
     }
 
     /**
+     *
      * @return null|array
      */
     public function getPreviousValue()
@@ -108,6 +116,7 @@ final class SetStateRolesChangeModel extends JsonObjectModel implements SetState
     }
 
     /**
+     *
      * @return null|array
      */
     public function getNextValue()

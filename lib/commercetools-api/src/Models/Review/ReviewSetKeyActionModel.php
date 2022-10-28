@@ -21,11 +21,13 @@ final class ReviewSetKeyActionModel extends JsonObjectModel implements ReviewSet
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -35,13 +37,15 @@ final class ReviewSetKeyActionModel extends JsonObjectModel implements ReviewSet
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $action = null
     ) {
         $this->key = $key;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,7 +63,8 @@ final class ReviewSetKeyActionModel extends JsonObjectModel implements ReviewSet
     }
 
     /**
-     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

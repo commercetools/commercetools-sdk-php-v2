@@ -22,21 +22,25 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
 {
     public const DISCRIMINATOR_VALUE = 'StoreProductSelectionsChanged';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $addedProductSelections;
 
     /**
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $removedProductSelections;
 
     /**
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $updatedProductSelections;
@@ -48,15 +52,17 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     public function __construct(
         ?ProductSelectionSettingCollection $addedProductSelections = null,
         ?ProductSelectionSettingCollection $removedProductSelections = null,
-        ?ProductSelectionSettingCollection $updatedProductSelections = null
+        ?ProductSelectionSettingCollection $updatedProductSelections = null,
+        ?string $type = null
     ) {
         $this->addedProductSelections = $addedProductSelections;
         $this->removedProductSelections = $removedProductSelections;
         $this->updatedProductSelections = $updatedProductSelections;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -74,6 +80,9 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getAddedProductSelections()
@@ -91,6 +100,9 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getRemovedProductSelections()
@@ -108,6 +120,9 @@ final class StoreProductSelectionsChangedMessagePayloadModel extends JsonObjectM
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were updated in the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getUpdatedProductSelections()

@@ -17,11 +17,13 @@ interface SubRate extends JsonObject
     public const FIELD_AMOUNT = 'amount';
 
     /**
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|float
      */
     public function getAmount();

@@ -20,6 +20,7 @@ interface StagedQuoteReference extends Reference
      * <p>Contains the representation of the expanded StagedQuote.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for StagedQuote.</p>
      *
+
      * @return null|StagedQuote
      */
     public function getObj();

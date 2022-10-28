@@ -21,16 +21,19 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setDefaultShippingAddress';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $addressId;
 
     /**
+     *
      * @var ?string
      */
     protected $addressKey;
@@ -41,14 +44,16 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
      */
     public function __construct(
         ?string $addressId = null,
-        ?string $addressKey = null
+        ?string $addressKey = null,
+        ?string $action = null
     ) {
         $this->addressId = $addressId;
         $this->addressKey = $addressKey;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,7 +71,8 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
     }
 
     /**
-     * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
      *
      * @return null|string
      */
@@ -85,6 +91,9 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
+     *
      * @return null|string
      */
     public function getAddressKey()

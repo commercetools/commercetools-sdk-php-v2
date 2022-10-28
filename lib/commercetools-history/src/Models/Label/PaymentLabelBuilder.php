@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\MoneyBuilder;
 final class PaymentLabelBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $amountPlanned;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -41,6 +44,7 @@ final class PaymentLabelBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getAmountPlanned()

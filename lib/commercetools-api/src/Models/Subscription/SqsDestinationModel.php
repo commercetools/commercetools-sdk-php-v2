@@ -21,29 +21,40 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
 {
     public const DISCRIMINATOR_VALUE = 'SQS';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $accessKey;
 
     /**
+     *
      * @var ?string
      */
     protected $accessSecret;
 
     /**
+     *
      * @var ?string
      */
     protected $queueUrl;
 
     /**
+     *
      * @var ?string
      */
     protected $region;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $authenticationMode;
 
 
     /**
@@ -53,16 +64,20 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         ?string $accessKey = null,
         ?string $accessSecret = null,
         ?string $queueUrl = null,
-        ?string $region = null
+        ?string $region = null,
+        ?string $authenticationMode = null,
+        ?string $type = null
     ) {
         $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
         $this->queueUrl = $queueUrl;
         $this->region = $region;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->authenticationMode = $authenticationMode;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -80,6 +95,9 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
+     *
      * @return null|string
      */
     public function getAccessKey()
@@ -97,6 +115,9 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>Only present if <code>authenticationMode</code> is set to <code>Credentials</code>.</p>
+     *
+     *
      * @return null|string
      */
     public function getAccessSecret()
@@ -114,6 +135,9 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p>URL of the Amazon SQS queue.</p>
+     *
+     *
      * @return null|string
      */
     public function getQueueUrl()
@@ -131,6 +155,9 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     }
 
     /**
+     * <p><a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">AWS Region</a> the message queue is located in.</p>
+     *
+     *
      * @return null|string
      */
     public function getRegion()
@@ -145,6 +172,26 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         }
 
         return $this->region;
+    }
+
+    /**
+     * <p>Defines the method of authentication for the SQS queue.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getAuthenticationMode()
+    {
+        if (is_null($this->authenticationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_AUTHENTICATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authenticationMode = (string) $data;
+        }
+
+        return $this->authenticationMode;
     }
 
 
@@ -178,5 +225,13 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     public function setRegion(?string $region): void
     {
         $this->region = $region;
+    }
+
+    /**
+     * @param ?string $authenticationMode
+     */
+    public function setAuthenticationMode(?string $authenticationMode): void
+    {
+        $this->authenticationMode = $authenticationMode;
     }
 }

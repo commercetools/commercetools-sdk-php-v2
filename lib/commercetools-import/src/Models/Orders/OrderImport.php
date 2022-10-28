@@ -14,6 +14,7 @@ use Commercetools\Import\Models\Common\Address;
 use Commercetools\Import\Models\Common\AddressCollection;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
+use Commercetools\Import\Models\Common\StoreKeyReference;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Customfields\Custom;
 use DateTimeImmutable;
@@ -42,15 +43,18 @@ interface OrderImport extends JsonObject
     public const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     public const FIELD_ORIGIN = 'origin';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_STORE = 'store';
 
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber();
 
     /**
+
      * @return null|CustomerKeyReference
      */
     public function getCustomer();
@@ -58,6 +62,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.customerEmail</code>.</p>
      *
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -65,6 +70,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.lineItems</code>.</p>
      *
+
      * @return null|LineItemImportDraftCollection
      */
     public function getLineItems();
@@ -72,6 +78,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.customLineItems</code></p>
      *
+
      * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems();
@@ -79,6 +86,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.totalPrice</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
@@ -86,6 +94,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.taxedPrice</code>.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
@@ -93,6 +102,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.shippingAddress</code>.</p>
      *
+
      * @return null|Address
      */
     public function getShippingAddress();
@@ -100,6 +110,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.billingAddress</code>.</p>
      *
+
      * @return null|Address
      */
     public function getBillingAddress();
@@ -107,6 +118,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.customerGroup</code>.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup();
@@ -114,6 +126,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.country</code>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -121,6 +134,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.orderState</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderState();
@@ -128,6 +142,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.shipmentState</code>.</p>
      *
+
      * @return null|string
      */
     public function getShipmentState();
@@ -135,6 +150,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.paymentState</code>.</p>
      *
+
      * @return null|string
      */
     public function getPaymentState();
@@ -142,6 +158,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.shippingInfo</code>.</p>
      *
+
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo();
@@ -149,6 +166,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.completedAt</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt();
@@ -156,6 +174,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.custom</code>.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();
@@ -163,6 +182,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.inventoryMode</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode();
@@ -170,6 +190,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.taxRoundingMode</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode();
@@ -177,6 +198,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.taxCalculationMode</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode();
@@ -184,6 +206,7 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.origin</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin();
@@ -191,9 +214,18 @@ interface OrderImport extends JsonObject
     /**
      * <p>Maps to <code>Order.itemShippingAddresses</code>.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
+
+    /**
+     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
 
     /**
      * @param ?string $orderNumber
@@ -304,4 +336,9 @@ interface OrderImport extends JsonObject
      * @param ?AddressCollection $itemShippingAddresses
      */
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void;
 }

@@ -23,16 +23,19 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
 {
     public const DISCRIMINATOR_VALUE = 'cart';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Cart
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
      */
     public function __construct(
         ?string $id = null,
-        ?Cart $obj = null
+        ?Cart $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Cart">Cart</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -90,6 +96,7 @@ final class CartReferenceModel extends JsonObjectModel implements CartReference
 
     /**
      * <p>Contains the representation of the expanded Cart. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Carts.</p>
+     *
      *
      * @return null|Cart
      */

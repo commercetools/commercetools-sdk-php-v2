@@ -19,6 +19,7 @@ interface TypeChangeEnumValueLabelAction extends TypeUpdateAction
     /**
      * <p><code>name</code> of the <a href="ctp:api:type:FieldDefinition">FieldDefinition</a> to update.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -27,6 +28,7 @@ interface TypeChangeEnumValueLabelAction extends TypeUpdateAction
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|CustomFieldEnumValue
      */
     public function getValue();

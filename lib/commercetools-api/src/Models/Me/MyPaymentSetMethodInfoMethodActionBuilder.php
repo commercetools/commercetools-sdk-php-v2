@@ -21,11 +21,13 @@ use stdClass;
 final class MyPaymentSetMethodInfoMethodActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $method;
 
     /**
+
      * @return null|string
      */
     public function getMethod()

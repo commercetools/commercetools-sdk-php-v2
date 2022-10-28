@@ -21,11 +21,13 @@ final class InvalidJsonInputModel extends JsonObjectModel implements InvalidJson
 {
     public const DISCRIMINATOR_VALUE = 'InvalidJsonInput';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
@@ -35,13 +37,15 @@ final class InvalidJsonInputModel extends JsonObjectModel implements InvalidJson
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $message = null
+        ?string $message = null,
+        ?string $code = null
     ) {
         $this->message = $message;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -59,6 +63,7 @@ final class InvalidJsonInputModel extends JsonObjectModel implements InvalidJson
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()

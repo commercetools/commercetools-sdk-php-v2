@@ -24,11 +24,13 @@ use stdClass;
 final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
 {
     /**
+     *
      * @var ?CartDiscountReference
      */
     protected $discount;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $discountedAmount;
@@ -46,6 +48,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
+     *
      * @return null|CartDiscountReference
      */
     public function getDiscount()
@@ -64,6 +67,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
+     *
      * @return null|TypedMoney
      */
     public function getDiscountedAmount()
