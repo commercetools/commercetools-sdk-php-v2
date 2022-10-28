@@ -25,11 +25,13 @@ use stdClass;
 final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builder
 {
     /**
+
      * @var null|ExternalTaxAmountDraft|ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
 
     /**
+
      * @return null|ExternalTaxAmountDraft
      */
     public function getExternalTaxAmount()

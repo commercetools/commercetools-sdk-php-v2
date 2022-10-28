@@ -23,11 +23,13 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'removeProduct';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ProductResourceIdentifier
      */
     protected $product;
@@ -37,13 +39,15 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductResourceIdentifier $product = null
+        ?ProductResourceIdentifier $product = null,
+        ?string $action = null
     ) {
         $this->product = $product;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,7 +65,8 @@ final class ProductSelectionRemoveProductActionModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
+     *
      *
      * @return null|ProductResourceIdentifier
      */

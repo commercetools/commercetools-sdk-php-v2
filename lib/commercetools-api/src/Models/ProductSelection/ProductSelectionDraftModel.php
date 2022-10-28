@@ -24,16 +24,19 @@ use stdClass;
 final class ProductSelectionDraftModel extends JsonObjectModel implements ProductSelectionDraft
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -55,6 +58,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
     /**
      * <p>User-defined unique identifier for the ProductSelection.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -73,6 +77,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
 
     /**
      * <p>Name of the ProductSelection. Not checked for uniqueness, but distinct names are recommended.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -93,6 +98,7 @@ final class ProductSelectionDraftModel extends JsonObjectModel implements Produc
 
     /**
      * <p>Custom Fields of this ProductSelection.</p>
+     *
      *
      * @return null|CustomFieldsDraft
      */

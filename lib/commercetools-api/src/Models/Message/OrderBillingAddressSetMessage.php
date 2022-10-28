@@ -18,11 +18,17 @@ interface OrderBillingAddressSetMessage extends OrderMessage
     public const FIELD_OLD_ADDRESS = 'oldAddress';
 
     /**
+     * <p>Billing address on the Order after the <a href="ctp:api:type:OrderSetBillingAddressAction">Set Billing Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getAddress();
 
     /**
+     * <p>Billing address on the Order before the <a href="ctp:api:type:OrderSetBillingAddressAction">Set Billing Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getOldAddress();

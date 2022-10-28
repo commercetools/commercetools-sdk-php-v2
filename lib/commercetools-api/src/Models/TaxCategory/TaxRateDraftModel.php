@@ -20,31 +20,37 @@ use stdClass;
 final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
 {
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?float
      */
     protected $amount;
 
     /**
+     *
      * @var ?bool
      */
     protected $includedInPrice;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?SubRateCollection
      */
     protected $subRates;
@@ -72,6 +78,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     /**
      * <p>Name of the TaxRate.</p>
      *
+     *
      * @return null|string
      */
     public function getName()
@@ -93,6 +100,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
      * Must be supplied if no <code>subRates</code> are specified.
      * If <code>subRates</code> are specified, this field can be omitted or it must be the sum of amounts of all <code>subRates</code>.</p>
      *
+     *
      * @return null|float
      */
     public function getAmount()
@@ -110,7 +118,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
-     * <p>If <code>true</code>, tax is included in <a href="ctp:api:type:Price">Prices</a> and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
+     * <p>If <code>true</code>, tax is included in <a href="ctp:api:type:Price">Embedded Prices</a> and the <code>taxedPrice</code> is present on <a href="ctp:api:type:LineItem">LineItems</a>. In this case, the <code>totalNet</code> price on <a href="ctp:api:type:TaxedPrice">TaxedPrice</a> includes the TaxRate.</p>
+     *
      *
      * @return null|bool
      */
@@ -131,6 +140,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     /**
      * <p>Country in which the tax rate is applied in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> format.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -150,6 +160,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     /**
      * <p>State within the country, such as Texas in the United States.</p>
      *
+     *
      * @return null|string
      */
     public function getState()
@@ -168,6 +179,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
 
     /**
      * <p>Used to calculate the <a href="/../api/projects/carts#taxedprice">taxPortions</a> field in a Cart or Order. It is useful if the total tax of a country (such as the US) is a combination of multiple taxes (such as state and local taxes).</p>
+     *
      *
      * @return null|SubRateCollection
      */

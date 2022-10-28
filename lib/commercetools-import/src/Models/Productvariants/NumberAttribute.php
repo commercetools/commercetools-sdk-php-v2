@@ -16,6 +16,7 @@ interface NumberAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|float
      */
     public function getValue();

@@ -29,26 +29,31 @@ use stdClass;
 final class StagedOrderAddDeliveryActionBuilder implements Builder
 {
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $address;
 
     /**
+
      * @var ?ParcelDraftCollection
      */
     private $parcels;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -57,6 +62,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress()
@@ -65,6 +71,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelDraftCollection
      */
     public function getParcels()
@@ -75,6 +82,7 @@ final class StagedOrderAddDeliveryActionBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

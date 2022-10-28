@@ -18,6 +18,7 @@ interface AddPropertyChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,6 +26,7 @@ interface AddPropertyChange extends Change
     /**
      * <p>Update action for <code>addProperty</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -32,11 +34,13 @@ interface AddPropertyChange extends Change
     /**
      * <p>Value path to the property that was added</p>
      *
+
      * @return null|string
      */
     public function getPath();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();

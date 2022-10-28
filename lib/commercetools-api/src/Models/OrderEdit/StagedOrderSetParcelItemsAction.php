@@ -19,11 +19,13 @@ interface StagedOrderSetParcelItemsAction extends StagedOrderUpdateAction
     public const FIELD_ITEMS = 'items';
 
     /**
+
      * @return null|string
      */
     public function getParcelId();
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();

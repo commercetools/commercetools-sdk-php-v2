@@ -26,31 +26,37 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemCustomTypeChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -64,17 +70,19 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
         ?CustomFields $nextValue = null,
-        ?CustomFields $previousValue = null
+        ?CustomFields $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -94,6 +102,7 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     /**
      * <p>Update action for <code>setCustomLineItemCustomType</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,6 +120,7 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -129,6 +139,7 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -146,6 +157,7 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -164,6 +176,7 @@ final class SetCustomLineItemCustomTypeChangeModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getPreviousValue()

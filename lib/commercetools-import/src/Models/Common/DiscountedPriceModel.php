@@ -20,11 +20,13 @@ use stdClass;
 final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice
 {
     /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+     *
      * @var ?ProductDiscountKeyReference
      */
     protected $discount;
@@ -42,6 +44,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
     }
 
     /**
+     *
      * @return null|TypedMoney
      */
     public function getValue()
@@ -61,6 +64,7 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
 
     /**
      * <p>Reference to a ProductDiscount.</p>
+     *
      *
      * @return null|ProductDiscountKeyReference
      */

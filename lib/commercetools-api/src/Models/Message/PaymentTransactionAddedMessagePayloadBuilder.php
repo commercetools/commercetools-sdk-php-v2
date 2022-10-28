@@ -23,11 +23,15 @@ use stdClass;
 final class PaymentTransactionAddedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Transaction|TransactionBuilder
      */
     private $transaction;
 
     /**
+     * <p><a href="ctp:api:type:Transaction">Transaction</a> that was added to the <a href="ctp:api:type:Payment">Payment</a>.</p>
+     *
+
      * @return null|Transaction
      */
     public function getTransaction()

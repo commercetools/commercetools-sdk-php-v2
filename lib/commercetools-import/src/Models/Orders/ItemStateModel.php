@@ -22,11 +22,13 @@ use stdClass;
 final class ItemStateModel extends JsonObjectModel implements ItemState
 {
     /**
+     *
      * @var ?float
      */
     protected $quantity;
 
     /**
+     *
      * @var ?StateKeyReference
      */
     protected $state;
@@ -44,6 +46,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
     }
 
     /**
+     *
      * @return null|float
      */
     public function getQuantity()
@@ -62,6 +65,7 @@ final class ItemStateModel extends JsonObjectModel implements ItemState
 
     /**
      * <p>Maps to <code>ItemState.state</code>.</p>
+     *
      *
      * @return null|StateKeyReference
      */

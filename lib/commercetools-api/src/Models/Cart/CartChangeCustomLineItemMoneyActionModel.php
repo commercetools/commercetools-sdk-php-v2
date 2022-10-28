@@ -23,16 +23,19 @@ final class CartChangeCustomLineItemMoneyActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'changeCustomLineItemMoney';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+     *
      * @var ?Money
      */
     protected $money;
@@ -43,14 +46,16 @@ final class CartChangeCustomLineItemMoneyActionModel extends JsonObjectModel imp
      */
     public function __construct(
         ?string $customLineItemId = null,
-        ?Money $money = null
+        ?Money $money = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
         $this->money = $money;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,7 @@ final class CartChangeCustomLineItemMoneyActionModel extends JsonObjectModel imp
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -87,6 +93,7 @@ final class CartChangeCustomLineItemMoneyActionModel extends JsonObjectModel imp
     /**
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     *
      *
      * @return null|Money
      */

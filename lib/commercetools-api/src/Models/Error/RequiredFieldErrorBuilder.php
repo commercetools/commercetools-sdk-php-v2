@@ -21,16 +21,19 @@ use stdClass;
 final class RequiredFieldErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $field;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getField()

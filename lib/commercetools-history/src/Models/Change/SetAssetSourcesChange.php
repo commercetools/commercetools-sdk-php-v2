@@ -23,26 +23,31 @@ interface SetAssetSourcesChange extends Change
     /**
      * <p>Update action for <code>setAssetSources</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset();
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getNextValue();
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getPreviousValue();

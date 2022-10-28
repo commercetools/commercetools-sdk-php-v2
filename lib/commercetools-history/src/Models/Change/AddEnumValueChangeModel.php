@@ -24,21 +24,25 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
 
     public const DISCRIMINATOR_VALUE = 'AddEnumValueChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
+     *
      * @var ?EnumValue
      */
     protected $nextValue;
@@ -50,15 +54,17 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     public function __construct(
         ?string $change = null,
         ?string $fieldName = null,
-        ?EnumValue $nextValue = null
+        ?EnumValue $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->fieldName = $fieldName;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -77,6 +83,7 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
 
     /**
      * <p>Update action for <code>addEnumValue</code> on types</p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +104,7 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     /**
      * <p>The name of the field/attribute definition updated.</p>
      *
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -114,6 +122,7 @@ final class AddEnumValueChangeModel extends JsonObjectModel implements AddEnumVa
     }
 
     /**
+     *
      * @return null|EnumValue
      */
     public function getNextValue()

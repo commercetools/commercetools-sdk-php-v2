@@ -23,11 +23,15 @@ use stdClass;
 final class ProductCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
 
     /**
+     * <p>The staged <a href="ctp:api:type:ProductProjection">Product Projection</a> of the <a href="ctp:api:type:Product">Product</a> at the time of creation.</p>
+     *
+
      * @return null|ProductProjection
      */
     public function getProductProjection()

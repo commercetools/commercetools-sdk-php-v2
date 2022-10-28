@@ -21,16 +21,19 @@ use stdClass;
 final class MissingPricesTaskStatusModel extends JsonObjectModel implements MissingPricesTaskStatus
 {
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $expires;
 
     /**
+     * @deprecated
      * @var ?MissingPricesPagedQueryResult
      */
     protected $result;
@@ -50,6 +53,7 @@ final class MissingPricesTaskStatusModel extends JsonObjectModel implements Miss
     }
 
     /**
+     *
      * @return null|string
      */
     public function getState()
@@ -68,6 +72,7 @@ final class MissingPricesTaskStatusModel extends JsonObjectModel implements Miss
 
     /**
      * <p>The expiry date of the result. You cannot access the result after the expiry date. Default: 1 day after the result first becomes available. This is only available when the TaskStatus state is SUCCESS.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -92,6 +97,7 @@ final class MissingPricesTaskStatusModel extends JsonObjectModel implements Miss
     /**
      * <p>The response to an asynchronous request. The type depends on the request initiated. Only populated when the status is <code>SUCCESS</code>.</p>
      *
+     * @deprecated
      * @return null|MissingPricesPagedQueryResult
      */
     public function getResult()

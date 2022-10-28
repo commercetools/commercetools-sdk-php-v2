@@ -21,31 +21,37 @@ use stdClass;
 final class ReturnItemDraftBuilder implements Builder
 {
     /**
+
      * @var ?float
      */
     private $quantity;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @return null|float
      */
     public function getQuantity()
@@ -54,6 +60,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -62,6 +69,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -70,6 +78,7 @@ final class ReturnItemDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getComment()
@@ -80,6 +89,7 @@ final class ReturnItemDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ReturnItem.shipmentState</code></p>
      *
+
      * @return null|string
      */
     public function getShipmentState()

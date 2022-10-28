@@ -21,11 +21,13 @@ final class ProductVariantSelectionInclusionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'inclusion';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?array
      */
     protected $skus;
@@ -35,13 +37,15 @@ final class ProductVariantSelectionInclusionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $skus = null
+        ?array $skus = null,
+        ?string $type = null
     ) {
         $this->skus = $skus;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,7 @@ final class ProductVariantSelectionInclusionModel extends JsonObjectModel implem
 
     /**
      * <p>Non-empty array of SKUs representing Product Variants to be included into the Product Selection.</p>
+     *
      *
      * @return null|array
      */

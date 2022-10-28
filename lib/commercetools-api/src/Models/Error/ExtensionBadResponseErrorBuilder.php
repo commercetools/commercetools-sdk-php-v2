@@ -23,26 +23,31 @@ use stdClass;
 final class ExtensionBadResponseErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedMessage;
 
     /**
+
      * @var ?JsonObject
      */
     private $extensionExtraInfo;
 
     /**
+
      * @var null|ErrorByExtension|ErrorByExtensionBuilder
      */
     private $errorByExtension;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -53,6 +58,7 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedMessage()
@@ -61,6 +67,7 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|JsonObject
      */
     public function getExtensionExtraInfo()
@@ -69,6 +76,7 @@ final class ExtensionBadResponseErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|ErrorByExtension
      */
     public function getErrorByExtension()

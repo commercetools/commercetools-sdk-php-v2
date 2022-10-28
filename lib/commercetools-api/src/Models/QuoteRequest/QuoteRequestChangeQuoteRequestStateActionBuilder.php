@@ -21,13 +21,15 @@ use stdClass;
 final class QuoteRequestChangeQuoteRequestStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $quoteRequestState;
 
     /**
-     * <p>The new state to be set for the Quote Request.</p>
+     * <p>New state to be set for the Quote Request.</p>
      *
+
      * @return null|string
      */
     public function getQuoteRequestState()

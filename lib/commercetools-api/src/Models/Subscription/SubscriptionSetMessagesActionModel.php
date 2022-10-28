@@ -21,11 +21,13 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setMessages';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
@@ -35,13 +37,15 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?MessageSubscriptionCollection $messages = null
+        ?MessageSubscriptionCollection $messages = null,
+        ?string $action = null
     ) {
         $this->messages = $messages;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,9 @@ final class SubscriptionSetMessagesActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to set. Can only be unset if <code>changes</code> is set.</p>
+     *
+     *
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()

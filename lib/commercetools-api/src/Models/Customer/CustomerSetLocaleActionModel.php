@@ -21,11 +21,13 @@ final class CustomerSetLocaleActionModel extends JsonObjectModel implements Cust
 {
     public const DISCRIMINATOR_VALUE = 'setLocale';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $locale;
@@ -35,13 +37,15 @@ final class CustomerSetLocaleActionModel extends JsonObjectModel implements Cust
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $locale = null
+        ?string $locale = null,
+        ?string $action = null
     ) {
         $this->locale = $locale;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,10 @@ final class CustomerSetLocaleActionModel extends JsonObjectModel implements Cust
     }
 
     /**
+     * <p>Value to set.
+     * Must be one of the languages supported by the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getLocale()

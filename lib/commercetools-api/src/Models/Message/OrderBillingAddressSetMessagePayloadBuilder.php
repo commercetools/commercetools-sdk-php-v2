@@ -23,16 +23,21 @@ use stdClass;
 final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $oldAddress;
 
     /**
+     * <p>Billing address on the Order after the <a href="ctp:api:type:OrderSetBillingAddressAction">Set Billing Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getAddress()
@@ -41,6 +46,9 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Billing address on the Order before the <a href="ctp:api:type:OrderSetBillingAddressAction">Set Billing Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getOldAddress()

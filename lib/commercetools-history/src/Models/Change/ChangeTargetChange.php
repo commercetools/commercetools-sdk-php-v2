@@ -21,21 +21,25 @@ interface ChangeTargetChange extends Change
     /**
      * <p>Update action for <code>changeTarget</code> on cart discounts</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|ChangeTargetChangeValue
      */
     public function getNextValue();
 
     /**
+
      * @return null|ChangeTargetChangeValue
      */
     public function getPreviousValue();

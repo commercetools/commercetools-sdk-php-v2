@@ -23,26 +23,31 @@ use stdClass;
 final class TaxedPriceBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalNet;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalGross;
 
     /**
+
      * @var ?TaxPortionCollection
      */
     private $taxPortions;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalTax;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalNet()
@@ -51,6 +56,7 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalGross()
@@ -61,6 +67,7 @@ final class TaxedPriceBuilder implements Builder
     /**
      * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>
      *
+
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions()
@@ -71,6 +78,7 @@ final class TaxedPriceBuilder implements Builder
     /**
      * <p>Calculated automatically as the subtraction of <code>totalGross</code> - <code>totalNet</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalTax()

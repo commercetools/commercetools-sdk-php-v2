@@ -24,31 +24,37 @@ use stdClass;
 final class DeliveryBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var ?ParcelCollection
      */
     private $parcels;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -57,6 +63,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -65,6 +72,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -73,6 +81,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels()
@@ -81,6 +90,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()

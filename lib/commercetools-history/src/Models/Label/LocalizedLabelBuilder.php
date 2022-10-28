@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class LocalizedLabelBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $value;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getValue()

@@ -23,16 +23,21 @@ use stdClass;
 final class ProductSetMetaTitleActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -41,6 +46,9 @@ final class ProductSetMetaTitleActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>metaTitle</code> is updated. If <code>false</code>, both the current and staged <code>metaTitle</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

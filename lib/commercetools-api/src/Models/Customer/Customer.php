@@ -21,9 +21,11 @@ use DateTimeImmutable;
 
 interface Customer extends BaseResource
 {
+    public const FIELD_KEY = 'key';
+    public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
+    public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
     public const FIELD_CREATED_BY = 'createdBy';
-    public const FIELD_CUSTOMER_NUMBER = 'customerNumber';
     public const FIELD_EMAIL = 'email';
     public const FIELD_PASSWORD = 'password';
     public const FIELD_FIRST_NAME = 'firstName';
@@ -39,197 +41,255 @@ interface Customer extends BaseResource
     public const FIELD_DEFAULT_BILLING_ADDRESS_ID = 'defaultBillingAddressId';
     public const FIELD_BILLING_ADDRESS_IDS = 'billingAddressIds';
     public const FIELD_IS_EMAIL_VERIFIED = 'isEmailVerified';
-    public const FIELD_EXTERNAL_ID = 'externalId';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_LOCALE = 'locale';
     public const FIELD_SALUTATION = 'salutation';
-    public const FIELD_KEY = 'key';
     public const FIELD_STORES = 'stores';
     public const FIELD_AUTHENTICATION_MODE = 'authenticationMode';
 
     /**
      * <p>Unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
-     * <p>The current version of the customer.</p>
+     * <p>Current version of the Customer.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt();
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt();
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy();
-
-    /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
-     *
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy();
-
-    /**
-     * <p>The customer number can be used to create a more human-readable (in contrast to ID) identifier for the customer.
-     * It should be unique across a project.
-     * Once the field was set it cannot be changed anymore.</p>
-     *
-     * @return null|string
-     */
-    public function getCustomerNumber();
-
-    /**
-     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
-     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
-     * For more information, see Email uniquenes.</p>
-     *
-     * @return null|string
-     */
-    public function getEmail();
-
-    /**
-     * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
-     *
-     * @return null|string
-     */
-    public function getPassword();
-
-    /**
-     * @return null|string
-     */
-    public function getFirstName();
-
-    /**
-     * @return null|string
-     */
-    public function getLastName();
-
-    /**
-     * @return null|string
-     */
-    public function getMiddleName();
-
-    /**
-     * @return null|string
-     */
-    public function getTitle();
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getDateOfBirth();
-
-    /**
-     * @return null|string
-     */
-    public function getCompanyName();
-
-    /**
-     * @return null|string
-     */
-    public function getVatId();
-
-    /**
-     * <p>The addresses have unique IDs in the addresses list</p>
-     *
-     * @return null|AddressCollection
-     */
-    public function getAddresses();
-
-    /**
-     * <p>The address ID in the addresses list</p>
-     *
-     * @return null|string
-     */
-    public function getDefaultShippingAddressId();
-
-    /**
-     * <p>The IDs from the addresses list which are used as shipping addresses</p>
-     *
-     * @return null|array
-     */
-    public function getShippingAddressIds();
-
-    /**
-     * <p>The address ID in the addresses list</p>
-     *
-     * @return null|string
-     */
-    public function getDefaultBillingAddressId();
-
-    /**
-     * <p>The IDs from the addresses list which are used as billing addresses</p>
-     *
-     * @return null|array
-     */
-    public function getBillingAddressIds();
-
-    /**
-     * @return null|bool
-     */
-    public function getIsEmailVerified();
-
-    /**
-     * @return null|string
-     */
-    public function getExternalId();
-
-    /**
-     * @return null|CustomerGroupReference
-     */
-    public function getCustomerGroup();
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom();
-
-    /**
-     * @return null|string
-     */
-    public function getLocale();
-
-    /**
-     * @return null|string
-     */
-    public function getSalutation();
-
-    /**
      * <p>User-defined unique identifier of the Customer.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>References to the stores the customer account is associated with.
-     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
+     * <p>User-defined unique identifier of the Customer.</p>
+     * <p>Can be used to refer to a Customer in a human-readable way (in emails, invoices, and other correspondence).</p>
      *
+
+     * @return null|string
+     */
+    public function getCustomerNumber();
+
+    /**
+     * <p>Optional identifier for use in external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalId();
+
+    /**
+     * <p>Date and time (UTC) the Customer was initially created.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * <p>Date and time (UTC) the Customer was last updated.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
+
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
+
+    /**
+     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getEmail();
+
+    /**
+     * <p>Present only when <code>authenticationMode</code> is set to <code>Password</code>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPassword();
+
+    /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getFirstName();
+
+    /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLastName();
+
+    /**
+     * <p>Middle name of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMiddleName();
+
+    /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getTitle();
+
+    /**
+     * <p>Date of birth of the Customer.</p>
+     *
+
+     * @return null|DateTimeImmutable
+     */
+    public function getDateOfBirth();
+
+    /**
+     * <p>Company name of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getCompanyName();
+
+    /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getVatId();
+
+    /**
+     * <p>Addresses used by the Customer.</p>
+     *
+
+     * @return null|AddressCollection
+     */
+    public function getAddresses();
+
+    /**
+     * <p>ID of the address in <code>addresses</code> used as the default shipping address.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDefaultShippingAddressId();
+
+    /**
+     * <p>IDs of addresses in <code>addresses</code> used as shipping addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getShippingAddressIds();
+
+    /**
+     * <p>ID of the address in <code>addresses</code> used as the default billing address.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDefaultBillingAddressId();
+
+    /**
+     * <p>IDs of addresses in <code>addresses</code> used as billing addresses.</p>
+     *
+
+     * @return null|array
+     */
+    public function getBillingAddressIds();
+
+    /**
+     * <p>Indicates whether the email address of the Customer is <a href="#email-verification-of-customer">verified</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsEmailVerified();
+
+    /**
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> to which the Customer belongs.</p>
+     *
+
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup();
+
+    /**
+     * <p>Custom Fields for the Customer.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom();
+
+    /**
+     * <p>Preferred language of the Customer.</p>
+     *
+
+     * @return null|string
+     */
+    public function getLocale();
+
+    /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSalutation();
+
+    /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to which the Customer is assigned to.</p>
+     * <ul>
+     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * </ul>
+     *
+
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();
 
     /**
-     * <p>Defines whether a Customer has a password.</p>
+     * <p>Indicates whether the <code>password</code> is required for the Customer.</p>
      *
+
      * @return null|string
      */
     public function getAuthenticationMode();
@@ -243,6 +303,21 @@ interface Customer extends BaseResource
      * @param ?int $version
      */
     public function setVersion(?int $version): void;
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void;
+
+    /**
+     * @param ?string $customerNumber
+     */
+    public function setCustomerNumber(?string $customerNumber): void;
+
+    /**
+     * @param ?string $externalId
+     */
+    public function setExternalId(?string $externalId): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
@@ -263,11 +338,6 @@ interface Customer extends BaseResource
      * @param ?CreatedBy $createdBy
      */
     public function setCreatedBy(?CreatedBy $createdBy): void;
-
-    /**
-     * @param ?string $customerNumber
-     */
-    public function setCustomerNumber(?string $customerNumber): void;
 
     /**
      * @param ?string $email
@@ -345,11 +415,6 @@ interface Customer extends BaseResource
     public function setIsEmailVerified(?bool $isEmailVerified): void;
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void;
-
-    /**
      * @param ?CustomerGroupReference $customerGroup
      */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
@@ -368,11 +433,6 @@ interface Customer extends BaseResource
      * @param ?string $salutation
      */
     public function setSalutation(?string $salutation): void;
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void;
 
     /**
      * @param ?StoreKeyReferenceCollection $stores

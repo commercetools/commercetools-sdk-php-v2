@@ -12,6 +12,8 @@ use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomModel;
 use stdClass;
 
 /**
@@ -20,124 +22,154 @@ use stdClass;
 final class CustomerAddressModel extends JsonObjectModel implements CustomerAddress
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $title;
 
     /**
+     *
      * @var ?string
      */
     protected $salutation;
 
     /**
+     *
      * @var ?string
      */
     protected $firstName;
 
     /**
+     *
      * @var ?string
      */
     protected $lastName;
 
     /**
+     *
      * @var ?string
      */
     protected $streetName;
 
     /**
+     *
      * @var ?string
      */
     protected $streetNumber;
 
     /**
+     *
      * @var ?string
      */
     protected $additionalStreetInfo;
 
     /**
+     *
      * @var ?string
      */
     protected $postalCode;
 
     /**
+     *
      * @var ?string
      */
     protected $city;
 
     /**
+     *
      * @var ?string
      */
     protected $region;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $company;
 
     /**
+     *
      * @var ?string
      */
     protected $department;
 
     /**
+     *
      * @var ?string
      */
     protected $building;
 
     /**
+     *
      * @var ?string
      */
     protected $apartment;
 
     /**
+     *
      * @var ?string
      */
     protected $pOBox;
 
     /**
+     *
      * @var ?string
      */
     protected $phone;
 
     /**
+     *
      * @var ?string
      */
     protected $mobile;
 
     /**
+     *
      * @var ?string
      */
     protected $email;
 
     /**
+     *
      * @var ?string
      */
     protected $fax;
 
     /**
+     *
      * @var ?string
      */
     protected $additionalAddressInfo;
 
     /**
+     *
      * @var ?string
      */
     protected $externalId;
+
+    /**
+     *
+     * @var ?Custom
+     */
+    protected $custom;
 
 
     /**
@@ -167,7 +199,8 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
         ?string $email = null,
         ?string $fax = null,
         ?string $additionalAddressInfo = null,
-        ?string $externalId = null
+        ?string $externalId = null,
+        ?Custom $custom = null
     ) {
         $this->key = $key;
         $this->title = $title;
@@ -193,11 +226,13 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
         $this->fax = $fax;
         $this->additionalAddressInfo = $additionalAddressInfo;
         $this->externalId = $externalId;
+        $this->custom = $custom;
     }
 
     /**
      * <p>User-defined identifier for the address.
      * Must follow the pattern <code>[a-zA-Z0-9_-]{2,256}</code> and must be unique per customer.</p>
+     *
      *
      * @return null|string
      */
@@ -216,6 +251,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTitle()
@@ -233,6 +269,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getSalutation()
@@ -250,6 +287,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getFirstName()
@@ -267,6 +305,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLastName()
@@ -284,6 +323,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getStreetName()
@@ -301,6 +341,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getStreetNumber()
@@ -318,6 +359,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAdditionalStreetInfo()
@@ -335,6 +377,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPostalCode()
@@ -352,6 +395,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCity()
@@ -369,6 +413,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getRegion()
@@ -386,6 +431,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getState()
@@ -405,6 +451,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -422,6 +469,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCompany()
@@ -439,6 +487,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getDepartment()
@@ -456,6 +505,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getBuilding()
@@ -473,6 +523,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getApartment()
@@ -490,6 +541,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPOBox()
@@ -507,6 +559,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPhone()
@@ -524,6 +577,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMobile()
@@ -541,6 +595,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getEmail()
@@ -558,6 +613,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getFax()
@@ -575,6 +631,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAdditionalAddressInfo()
@@ -592,6 +649,7 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     }
 
     /**
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -606,6 +664,27 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
         }
 
         return $this->externalId;
+    }
+
+    /**
+     * <p>Custom Fields for the address.</p>
+     *
+     *
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomModel::of($data);
+        }
+
+        return $this->custom;
     }
 
 
@@ -799,5 +878,13 @@ final class CustomerAddressModel extends JsonObjectModel implements CustomerAddr
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
+    }
+
+    /**
+     * @param ?Custom $custom
+     */
+    public function setCustom(?Custom $custom): void
+    {
+        $this->custom = $custom;
     }
 }

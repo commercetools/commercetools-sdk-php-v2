@@ -19,16 +19,25 @@ interface ProductPublishedMessage extends Message
     public const FIELD_SCOPE = 'scope';
 
     /**
+     * <p>List of image URLs which were removed during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
+
      * @return null|array
      */
     public function getRemovedImageUrls();
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the <a href="ctp:api:type:Product">Product</a> at the time of creation.</p>
+     *
+
      * @return null|ProductProjection
      */
     public function getProductProjection();
 
     /**
+     * <p><a href="ctp:api:type:ProductPublishScope">Publishing Scope</a> that was used during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getScope();

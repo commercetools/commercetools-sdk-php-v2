@@ -21,31 +21,39 @@ use stdClass;
 final class ProductMoveImageToPositionActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $imageUrl;
 
     /**
+
      * @var ?int
      */
     private $position;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -54,6 +62,9 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -62,8 +73,9 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
-     * <p>The URL of the image</p>
+     * <p>The URL of the image to update.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -72,6 +84,9 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
+     * <p>Position in <code>images</code> where the image should be moved. Must be between <code>0</code> and the total number of images minus <code>1</code>.</p>
+     *
+
      * @return null|int
      */
     public function getPosition()
@@ -80,6 +95,9 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

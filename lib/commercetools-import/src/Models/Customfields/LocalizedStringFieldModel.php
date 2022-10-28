@@ -23,11 +23,13 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedString';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $value;
@@ -37,14 +39,16 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $value = null
+        ?LocalizedString $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
+     *
      *
      * @return null|string
      */
@@ -69,6 +73,7 @@ final class LocalizedStringFieldModel extends JsonObjectModel implements Localiz
      *   &quot;en&quot;: &quot;dog food&quot;
      * }
      * </code></pre>
+     *
      *
      * @return null|LocalizedString
      */

@@ -23,26 +23,31 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
 
     public const DISCRIMINATOR_VALUE = 'AddExternalImageChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $catalogData;
 
     /**
+     *
      * @var ?ImageCollection
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?ImageCollection
      */
     protected $nextValue;
@@ -55,16 +60,18 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
         ?string $change = null,
         ?string $catalogData = null,
         ?ImageCollection $previousValue = null,
-        ?ImageCollection $nextValue = null
+        ?ImageCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->catalogData = $catalogData;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -84,6 +91,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
     /**
      * <p>Update actions for adding an external image</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -101,6 +109,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCatalogData()
@@ -118,6 +127,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
     }
 
     /**
+     *
      * @return null|ImageCollection
      */
     public function getPreviousValue()
@@ -135,6 +145,7 @@ final class AddExternalImageChangeModel extends JsonObjectModel implements AddEx
     }
 
     /**
+     *
      * @return null|ImageCollection
      */
     public function getNextValue()

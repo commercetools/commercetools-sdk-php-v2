@@ -23,6 +23,7 @@ use stdClass;
 final class StandalonePriceSetDiscountedPriceActionBuilder implements Builder
 {
     /**
+
      * @var null|DiscountedPriceDraft|DiscountedPriceDraftBuilder
      */
     private $discounted;
@@ -30,6 +31,7 @@ final class StandalonePriceSetDiscountedPriceActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted()

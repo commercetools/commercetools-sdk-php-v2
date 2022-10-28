@@ -21,6 +21,7 @@ use stdClass;
 final class DiscountCodeChangeIsActiveActionBuilder implements Builder
 {
     /**
+
      * @var ?bool
      */
     private $isActive;
@@ -28,6 +29,7 @@ final class DiscountCodeChangeIsActiveActionBuilder implements Builder
     /**
      * <p>New value to set. Set to <code>true</code> to activate the DiscountCode for all matching Discounts.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive()

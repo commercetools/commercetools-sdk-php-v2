@@ -19,16 +19,25 @@ interface ResourceDeletedDeliveryPayload extends DeliveryPayload
     public const FIELD_DATA_ERASURE = 'dataErasure';
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+     * <p>Date and time (UTC) the resource was last deleted.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt();
 
     /**
+     * <p><code>true</code> if the <code>dataErasure</code> <a href="/../api/general-concepts#data-erasure-of-personal-data">parameter</a> on the <code>DELETE</code> request was set to <code>true</code>.</p>
+     *
+
      * @return null|bool
      */
     public function getDataErasure();

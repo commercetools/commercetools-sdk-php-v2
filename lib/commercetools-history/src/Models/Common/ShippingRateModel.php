@@ -22,21 +22,25 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 
 
     /**
+     *
      * @var ?Money
      */
     protected $price;
 
     /**
+     *
      * @var ?Money
      */
     protected $freeAbove;
 
     /**
+     *
      * @var ?bool
      */
     protected $isMatching;
 
     /**
+     *
      * @var ?ShippingRatePriceTierCollection
      */
     protected $tiers;
@@ -59,6 +63,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     *
      * @return null|Money
      */
     public function getPrice()
@@ -77,6 +82,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     *
      * @return null|Money
      */
     public function getFreeAbove()
@@ -97,6 +103,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     /**
      * <p>Only appears in response to requests for ShippingMethods by Cart or location to mark this shipping rate as one that matches the Cart or location.</p>
      *
+     *
      * @return null|bool
      */
     public function getIsMatching()
@@ -114,6 +121,7 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     *
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()

@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
+use Commercetools\Api\Models\Cart\ShippingCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Api\Models\Cart\TaxedPrice;
@@ -41,13 +43,17 @@ interface Order extends BaseResource
     public const FIELD_CUSTOMER_ID = 'customerId';
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_LINE_ITEMS = 'lineItems';
     public const FIELD_CUSTOM_LINE_ITEMS = 'customLineItems';
     public const FIELD_TOTAL_PRICE = 'totalPrice';
     public const FIELD_TAXED_PRICE = 'taxedPrice';
+    public const FIELD_TAXED_SHIPPING_PRICE = 'taxedShippingPrice';
     public const FIELD_SHIPPING_ADDRESS = 'shippingAddress';
     public const FIELD_BILLING_ADDRESS = 'billingAddress';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
@@ -76,6 +82,7 @@ interface Order extends BaseResource
     /**
      * <p>Unique identifier of the Order.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -83,16 +90,19 @@ interface Order extends BaseResource
     /**
      * <p>The current version of the order.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -100,6 +110,7 @@ interface Order extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -107,6 +118,7 @@ interface Order extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -114,6 +126,7 @@ interface Order extends BaseResource
     /**
      * <p>This field will only be present if it was set for Order Import</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt();
@@ -124,16 +137,19 @@ interface Order extends BaseResource
      * It should be unique across a project.
      * Once it's set it cannot be changed.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber();
 
     /**
+
      * @return null|string
      */
     public function getCustomerId();
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -141,26 +157,39 @@ interface Order extends BaseResource
     /**
      * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+     * <p>The Business Unit the Order belongs to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
+
      * @return null|StoreKeyReference
      */
     public function getStore();
 
     /**
+
      * @return null|LineItemCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems();
 
     /**
+
      * @return null|TypedMoney
      */
     public function getTotalPrice();
@@ -168,21 +197,54 @@ interface Order extends BaseResource
     /**
      * <p>The taxes are calculated based on the shipping address.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
 
     /**
+     * <p>Sum of <code>taxedPrice</code> of <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> across all Shipping Methods.
+     * For <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, it is set automatically only if <a href="ctp:api:type:CartSetShippingAddressAction">shipping address is set</a> or <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to the Cart.</p>
+     *
+
+     * @return null|TaxedPrice
+     */
+    public function getTaxedShippingPrice();
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method.</p>
+     * <p>For <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>, it is updated automatically after the Shipping Methods are added.</p>
+     *
+
      * @return null|Address
      */
     public function getShippingAddress();
 
     /**
+
      * @return null|Address
      */
     public function getBillingAddress();
 
     /**
+     * <p>Indicates whether one or multiple Shipping Methods are added to the Cart.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode();
+
+    /**
+     * <p>Holds all shipping-related information per Shipping Method for <code>Multi</code> <a href="ctp:api:typeShippingMode">ShippingMode</a>.</p>
+     * <p>It is updated automatically after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a>.</p>
+     *
+
+     * @return null|ShippingCollection
+     */
+    public function getShipping();
+
+    /**
+
      * @return null|string
      */
     public function getTaxMode();
@@ -190,6 +252,7 @@ interface Order extends BaseResource
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode();
@@ -198,6 +261,7 @@ interface Order extends BaseResource
      * <p>Set when the customer is set and the customer is a member of a customer group.
      * Used for product variant price selection.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -206,6 +270,7 @@ interface Order extends BaseResource
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -213,6 +278,7 @@ interface Order extends BaseResource
     /**
      * <p>One of the four predefined OrderStates.</p>
      *
+
      * @return null|string
      */
     public function getOrderState();
@@ -220,16 +286,19 @@ interface Order extends BaseResource
     /**
      * <p>This reference can point to a state in a custom workflow.</p>
      *
+
      * @return null|StateReference
      */
     public function getState();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();
@@ -237,21 +306,25 @@ interface Order extends BaseResource
     /**
      * <p>Set if the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
 
     /**
+
      * @return null|SyncInfoCollection
      */
     public function getSyncInfo();
 
     /**
+
      * @return null|ReturnInfoCollection
      */
     public function getReturnInfo();
 
     /**
+
      * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes();
@@ -259,6 +332,7 @@ interface Order extends BaseResource
     /**
      * <p>Internal-only field.</p>
      *
+     * @deprecated
      * @return null|int
      */
     public function getLastMessageSequenceNumber();
@@ -267,6 +341,7 @@ interface Order extends BaseResource
      * <p>Set when this order was created from a cart.
      * The cart will have the state <code>Ordered</code>.</p>
      *
+
      * @return null|CartReference
      */
     public function getCart();
@@ -274,31 +349,37 @@ interface Order extends BaseResource
     /**
      * <p>Set when this order was created from a quote.</p>
      *
+
      * @return null|QuoteReference
      */
     public function getQuote();
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
 
     /**
+
      * @return null|string
      */
     public function getInventoryMode();
 
     /**
+
      * @return null|string
      */
     public function getOrigin();
@@ -306,6 +387,7 @@ interface Order extends BaseResource
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode();
@@ -313,6 +395,7 @@ interface Order extends BaseResource
     /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>
      *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
@@ -320,6 +403,7 @@ interface Order extends BaseResource
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
@@ -327,6 +411,7 @@ interface Order extends BaseResource
     /**
      * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>
      *
+
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts();
@@ -387,6 +472,11 @@ interface Order extends BaseResource
     public function setAnonymousId(?string $anonymousId): void;
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
+
+    /**
      * @param ?StoreKeyReference $store
      */
     public function setStore(?StoreKeyReference $store): void;
@@ -412,6 +502,11 @@ interface Order extends BaseResource
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
 
     /**
+     * @param ?TaxedPrice $taxedShippingPrice
+     */
+    public function setTaxedShippingPrice(?TaxedPrice $taxedShippingPrice): void;
+
+    /**
      * @param ?Address $shippingAddress
      */
     public function setShippingAddress(?Address $shippingAddress): void;
@@ -420,6 +515,16 @@ interface Order extends BaseResource
      * @param ?Address $billingAddress
      */
     public function setBillingAddress(?Address $billingAddress): void;
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void;
+
+    /**
+     * @param ?ShippingCollection $shipping
+     */
+    public function setShipping(?ShippingCollection $shipping): void;
 
     /**
      * @param ?string $taxMode

@@ -19,6 +19,7 @@ interface PriceImportRequest extends ImportRequest
     /**
      * <p>The price import resources of this request.</p>
      *
+
      * @return null|PriceImportCollection
      */
     public function getResources();

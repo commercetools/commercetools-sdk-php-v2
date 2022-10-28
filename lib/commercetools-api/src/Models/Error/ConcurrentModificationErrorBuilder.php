@@ -21,16 +21,19 @@ use stdClass;
 final class ConcurrentModificationErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?int
      */
     private $currentVersion;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getCurrentVersion()

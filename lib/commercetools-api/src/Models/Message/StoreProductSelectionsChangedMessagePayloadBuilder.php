@@ -22,21 +22,27 @@ use stdClass;
 final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $addedProductSelections;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $removedProductSelections;
 
     /**
+
      * @var ?ProductSelectionSettingCollection
      */
     private $updatedProductSelections;
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were added to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getAddedProductSelections()
@@ -45,6 +51,9 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were removed from the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getRemovedProductSelections()
@@ -53,6 +62,9 @@ final class StoreProductSelectionsChangedMessagePayloadBuilder implements Builde
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductSelectionSetting">ProductSelectionSettings</a> that were updated in the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
+
      * @return null|ProductSelectionSettingCollection
      */
     public function getUpdatedProductSelections()

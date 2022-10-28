@@ -33,56 +33,67 @@ use stdClass;
 final class PriceDraftImportBuilder implements Builder
 {
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|CustomerGroupKeyReference|CustomerGroupKeyReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
 
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
+
      * @var ?PriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -93,6 +104,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -103,6 +115,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * <p>References a customer group by key.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
@@ -113,6 +126,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * <p>References a channel by key.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel()
@@ -121,6 +135,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -129,6 +144,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -139,6 +155,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * <p>The custom fields for this category.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()
@@ -149,6 +166,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -159,6 +177,7 @@ final class PriceDraftImportBuilder implements Builder
     /**
      * <p>The tiered prices for this price.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -167,6 +186,7 @@ final class PriceDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getKey()

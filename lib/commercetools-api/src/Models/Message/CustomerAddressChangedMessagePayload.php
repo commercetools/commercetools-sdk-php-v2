@@ -17,6 +17,9 @@ interface CustomerAddressChangedMessagePayload extends MessagePayload
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p><a href="ctp:api:type:Address">Address</a> that was set during the <a href="ctp:api:type:CustomerChangeAddressAction">Change Address</a> update action.</p>
+     *
+
      * @return null|Address
      */
     public function getAddress();

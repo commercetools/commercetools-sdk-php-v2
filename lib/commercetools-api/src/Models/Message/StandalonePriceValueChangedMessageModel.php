@@ -30,64 +30,82 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceValueChanged';
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+     *
      * @var ?Money
      */
     protected $value;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $staged;
 
 
     /**
@@ -104,7 +122,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        ?Money $value = null
+        ?Money $value = null,
+        ?bool $staged = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -117,11 +137,13 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->staged = $staged;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
+     *
      *
      * @return null|string
      */
@@ -140,6 +162,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -157,6 +182,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -178,6 +206,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -199,7 +230,8 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -221,6 +253,7 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -239,6 +272,10 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -256,7 +293,8 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
+     *
      *
      * @return null|Reference
      */
@@ -276,6 +314,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -293,6 +334,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
+     *
      * @return null|string
      */
     public function getType()
@@ -310,6 +354,9 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -328,7 +375,8 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     }
 
     /**
-     * <p>The new value of the updated StandalonePrice.</p>
+     * <p>The new value of the updated <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
+     *
      *
      * @return null|Money
      */
@@ -345,6 +393,26 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
         }
 
         return $this->value;
+    }
+
+    /**
+     * <p>Whether the new value was applied to the current or the staged representation of the StandalonePrice. Staged changes are stored on the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
 
@@ -434,6 +502,14 @@ final class StandalonePriceValueChangedMessageModel extends JsonObjectModel impl
     public function setValue(?Money $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 
 

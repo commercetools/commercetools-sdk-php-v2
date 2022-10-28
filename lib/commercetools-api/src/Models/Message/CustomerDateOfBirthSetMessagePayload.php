@@ -17,6 +17,9 @@ interface CustomerDateOfBirthSetMessagePayload extends MessagePayload
     public const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**
+     * <p>The <code>dateOfBirth</code> that was set during the <a href="ctp:api:type:CustomerSetDateOfBirthAction">Set Date of Birth</a> update action.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();

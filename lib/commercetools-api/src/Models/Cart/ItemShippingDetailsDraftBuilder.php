@@ -21,6 +21,7 @@ use stdClass;
 final class ItemShippingDetailsDraftBuilder implements Builder
 {
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     private $targets;
@@ -31,6 +32,7 @@ final class ItemShippingDetailsDraftBuilder implements Builder
      * A cart can have <code>shippingDetails</code> where the <code>targets</code> sum does not match the quantity of the line item or custom line item.
      * For the order creation and order updates the <code>targets</code> sum must match the quantity.</p>
      *
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()

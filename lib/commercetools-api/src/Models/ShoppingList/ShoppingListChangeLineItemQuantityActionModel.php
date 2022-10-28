@@ -21,16 +21,19 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -41,14 +44,16 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?int $quantity = null
+        ?int $quantity = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->quantity = $quantity;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,6 +71,7 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -83,6 +89,7 @@ final class ShoppingListChangeLineItemQuantityActionModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()

@@ -21,16 +21,19 @@ use stdClass;
 final class SubRateBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $amount;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -39,6 +42,7 @@ final class SubRateBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getAmount()

@@ -21,28 +21,41 @@ interface InventoryEntryQuantitySetMessage extends Message
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
+     * <p>Quantity on stock for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> before the quantity was updated.</p>
+     *
+
      * @return null|int
      */
     public function getOldQuantityOnStock();
 
     /**
+     * <p>Quantity on stock for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> after the quantity was updated.</p>
+     *
+
      * @return null|int
      */
     public function getNewQuantityOnStock();
 
     /**
+     * <p>Available quantity for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> before the quantity was updated.</p>
+     *
+
      * @return null|int
      */
     public function getOldAvailableQuantity();
 
     /**
+     * <p>Available quantity for the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> after the quantity was updated.</p>
+     *
+
      * @return null|int
      */
     public function getNewAvailableQuantity();
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the <a href="ctp:api:type:Channel">Channel</a> where the <a href="ctp:api:type:InventoryEntry">InventoryEntry</a> quantity was set.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getSupplyChannel();

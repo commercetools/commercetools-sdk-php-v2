@@ -21,11 +21,13 @@ final class OrderSetCustomerIdActionModel extends JsonObjectModel implements Ord
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerId';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $customerId;
@@ -35,13 +37,15 @@ final class OrderSetCustomerIdActionModel extends JsonObjectModel implements Ord
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $customerId = null
+        ?string $customerId = null,
+        ?string $action = null
     ) {
         $this->customerId = $customerId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class OrderSetCustomerIdActionModel extends JsonObjectModel implements Ord
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomerId()

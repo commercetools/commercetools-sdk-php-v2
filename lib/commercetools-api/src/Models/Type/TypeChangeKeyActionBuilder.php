@@ -21,6 +21,7 @@ use stdClass;
 final class TypeChangeKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
@@ -29,6 +30,7 @@ final class TypeChangeKeyActionBuilder implements Builder
      * <p>New value to set.
      * Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getKey()

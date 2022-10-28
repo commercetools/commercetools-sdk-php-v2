@@ -19,16 +19,25 @@ interface CustomerChangeAddressAction extends CustomerUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
+
      * @return null|string
      */
     public function getAddressId();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to change.</p>
+     *
+
      * @return null|string
      */
     public function getAddressKey();
 
     /**
+     * <p>Value to set.</p>
+     *
+
      * @return null|BaseAddress
      */
     public function getAddress();

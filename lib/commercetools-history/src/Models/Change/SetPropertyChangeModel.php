@@ -22,26 +22,31 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
 
     public const DISCRIMINATOR_VALUE = 'SetPropertyChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $path;
 
     /**
+     *
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -54,16 +59,18 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
         ?string $change = null,
         ?string $path = null,
          $nextValue = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->path = $path;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -82,6 +89,7 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
 
     /**
      * <p>Update action for <code>setProperty</code> on custom objects</p>
+     *
      *
      * @return null|string
      */
@@ -102,6 +110,7 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     /**
      * <p>Value path to the property that was changed</p>
      *
+     *
      * @return null|string
      */
     public function getPath()
@@ -119,6 +128,7 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getNextValue()
@@ -136,6 +146,7 @@ final class SetPropertyChangeModel extends JsonObjectModel implements SetPropert
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

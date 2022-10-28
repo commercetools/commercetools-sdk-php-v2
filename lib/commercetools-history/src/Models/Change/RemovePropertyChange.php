@@ -18,6 +18,7 @@ interface RemovePropertyChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,6 +26,7 @@ interface RemovePropertyChange extends Change
     /**
      * <p>Update action for <code>removeProperty</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -32,11 +34,13 @@ interface RemovePropertyChange extends Change
     /**
      * <p>Value path to the property that was removed</p>
      *
+
      * @return null|string
      */
     public function getPath();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

@@ -21,16 +21,19 @@ use stdClass;
 final class PaymentUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?PaymentUpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class PaymentUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentUpdateActionCollection
      */
     public function getActions()

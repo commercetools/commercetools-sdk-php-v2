@@ -21,21 +21,25 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setCategoryOrderHint';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $categoryId;
 
     /**
+     *
      * @var ?string
      */
     protected $orderHint;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -47,15 +51,17 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     public function __construct(
         ?string $categoryId = null,
         ?string $orderHint = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->categoryId = $categoryId;
         $this->orderHint = $orderHint;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -73,6 +79,9 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>The <code>id</code> of the Category to add the <code>orderHint</code>.</p>
+     *
+     *
      * @return null|string
      */
     public function getCategoryId()
@@ -90,6 +99,9 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>A string representing a number between 0 and 1. Must start with <code>0.</code> and cannot end with <code>0</code>. If empty, any existing value will be removed.</p>
+     *
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -107,6 +119,9 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>categoryOrderHints</code> is updated. If <code>false</code>, both the current and staged <code>categoryOrderHints</code> are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

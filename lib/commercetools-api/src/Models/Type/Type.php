@@ -29,6 +29,7 @@ interface Type extends BaseResource
     /**
      * <p>Unique identifier of the Type.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -36,6 +37,7 @@ interface Type extends BaseResource
     /**
      * <p>Current version of the Type.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -43,6 +45,7 @@ interface Type extends BaseResource
     /**
      * <p>Date and time (UTC) the Type was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -50,6 +53,7 @@ interface Type extends BaseResource
     /**
      * <p>Date and time (UTC) the Type was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -57,6 +61,7 @@ interface Type extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -64,6 +69,7 @@ interface Type extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -71,6 +77,7 @@ interface Type extends BaseResource
     /**
      * <p>User-defined unique identifier of the Type.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -78,6 +85,7 @@ interface Type extends BaseResource
     /**
      * <p>Name of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -85,6 +93,7 @@ interface Type extends BaseResource
     /**
      * <p>Description of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -92,6 +101,7 @@ interface Type extends BaseResource
     /**
      * <p>Resources and/or data types for which the Type is defined.</p>
      *
+
      * @return null|array
      */
     public function getResourceTypeIds();
@@ -99,6 +109,7 @@ interface Type extends BaseResource
     /**
      * <p>Defines Custom Fields.</p>
      *
+
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions();

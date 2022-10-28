@@ -19,16 +19,19 @@ interface TransactionChangeValue extends JsonObject
     public const FIELD_TIMESTAMP = 'timestamp';
 
     /**
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getInteractionId();
 
     /**
+
      * @return null|string
      */
     public function getTimestamp();

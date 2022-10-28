@@ -23,16 +23,19 @@ use stdClass;
 final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ChannelResourceIdentifier|ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -43,6 +46,7 @@ final class MyCartSetLineItemSupplyChannelActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
+
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

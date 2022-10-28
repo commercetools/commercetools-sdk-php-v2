@@ -21,31 +21,37 @@ use stdClass;
 final class InvalidFieldErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $field;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $invalidValue;
 
     /**
+
      * @var ?array
      */
     private $allowedValues;
 
     /**
+
      * @var ?int
      */
     private $resourceIndex;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -56,6 +62,7 @@ final class InvalidFieldErrorBuilder implements Builder
     /**
      * <p>The name of the field.</p>
      *
+
      * @return null|string
      */
     public function getField()
@@ -66,6 +73,7 @@ final class InvalidFieldErrorBuilder implements Builder
     /**
      * <p>The invalid value.</p>
      *
+
      * @return null|mixed
      */
     public function getInvalidValue()
@@ -76,6 +84,7 @@ final class InvalidFieldErrorBuilder implements Builder
     /**
      * <p>The set of allowed values for the field, if any.</p>
      *
+
      * @return null|array
      */
     public function getAllowedValues()
@@ -84,6 +93,7 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getResourceIndex()

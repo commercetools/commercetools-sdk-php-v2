@@ -22,31 +22,37 @@ use stdClass;
 final class AssetModel extends JsonObjectModel implements Asset
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?AssetSourceCollection
      */
     protected $sources;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+     *
      * @var ?array
      */
     protected $tags;
 
     /**
+     *
      * @var ?Custom
      */
     protected $custom;
@@ -75,6 +81,7 @@ final class AssetModel extends JsonObjectModel implements Asset
      * <p>User-defined identifier for the asset.
      * Asset keys are unique inside their container (a product variant or a category).</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -92,6 +99,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     *
      * @return null|AssetSourceCollection
      */
     public function getSources()
@@ -115,6 +123,7 @@ final class AssetModel extends JsonObjectModel implements Asset
      *   &quot;en&quot;: &quot;dog food&quot;
      * }
      * </code></pre>
+     *
      *
      * @return null|LocalizedString
      */
@@ -141,6 +150,7 @@ final class AssetModel extends JsonObjectModel implements Asset
      * }
      * </code></pre>
      *
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -159,6 +169,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     *
      * @return null|array
      */
     public function getTags()
@@ -177,6 +188,7 @@ final class AssetModel extends JsonObjectModel implements Asset
 
     /**
      * <p>The representation to be sent to the server when creating a resource with custom fields.</p>
+     *
      *
      * @return null|Custom
      */

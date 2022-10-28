@@ -21,16 +21,19 @@ use stdClass;
 final class ProductLegacySetSkuActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @return null|string
      */
     public function getSku()
@@ -39,6 +42,7 @@ final class ProductLegacySetSkuActionBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVariantId()

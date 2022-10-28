@@ -18,11 +18,17 @@ interface OrderLineItemAddedMessage extends OrderMessage
     public const FIELD_ADDED_QUANTITY = 'addedQuantity';
 
     /**
+     * <p><a href="ctp:api:type:LineItem">Line Item</a> that was added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+
      * @return null|LineItem
      */
     public function getLineItem();
 
     /**
+     * <p>Quantity of <a href="ctp:api:type:LineItem">Line Items</a> that were added to the <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+
      * @return null|int
      */
     public function getAddedQuantity();

@@ -17,6 +17,7 @@ interface StagedOrderRemoveItemShippingAddressAction extends StagedOrderUpdateAc
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();

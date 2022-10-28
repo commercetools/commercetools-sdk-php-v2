@@ -18,11 +18,13 @@ interface GeoLocation extends JsonObject
     public const FIELD_COORDINATES = 'coordinates';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|array
      */
     public function getCoordinates();

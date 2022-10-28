@@ -23,11 +23,13 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'CustomerGroupSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
@@ -37,13 +39,15 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomerGroupReference $customerGroup = null
+        ?CustomerGroupReference $customerGroup = null,
+        ?string $type = null
     ) {
         $this->customerGroup = $customerGroup;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,7 +65,8 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p><a href="ctp:api:type:CustomerGroup">Customer Group</a> that was set during the <a href="ctp:api:type:CustomerSetCustomerGroupAction">Set Customer Group</a> update action.</p>
+     *
      *
      * @return null|CustomerGroupReference
      */

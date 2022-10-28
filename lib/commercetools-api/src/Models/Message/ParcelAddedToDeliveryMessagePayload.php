@@ -17,16 +17,31 @@ interface ParcelAddedToDeliveryMessagePayload extends OrderMessagePayload
 {
     public const FIELD_DELIVERY = 'delivery';
     public const FIELD_PARCEL = 'parcel';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+
      * @return null|Delivery
      */
     public function getDelivery();
 
     /**
+     * <p><a href="ctp:api:type:Parcel">Parcel</a> that was added to the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+
      * @return null|Parcel
      */
     public function getParcel();
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
 
     /**
      * @param ?Delivery $delivery
@@ -37,4 +52,9 @@ interface ParcelAddedToDeliveryMessagePayload extends OrderMessagePayload
      * @param ?Parcel $parcel
      */
     public function setParcel(?Parcel $parcel): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

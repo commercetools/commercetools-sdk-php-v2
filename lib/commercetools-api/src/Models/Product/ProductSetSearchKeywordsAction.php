@@ -17,11 +17,17 @@ interface ProductSetSearchKeywordsAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>Value to set.</p>
+     *
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords();
 
     /**
+     * <p>If <code>true</code>, only the staged <code>searchKeywords</code> is updated. If <code>false</code>, both the current and staged <code>searchKeywords</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();

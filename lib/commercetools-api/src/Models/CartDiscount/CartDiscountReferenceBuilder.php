@@ -23,11 +23,13 @@ use stdClass;
 final class CartDiscountReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|CartDiscount|CartDiscountBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class CartDiscountReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CartDiscount">CartDiscount</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class CartDiscountReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded CartDiscount. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CartDiscounts.</p>
      *
+
      * @return null|CartDiscount
      */
     public function getObj()

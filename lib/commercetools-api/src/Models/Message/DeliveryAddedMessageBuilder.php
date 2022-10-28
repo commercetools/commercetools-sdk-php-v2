@@ -30,63 +30,81 @@ use stdClass;
 final class DeliveryAddedMessageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?int
      */
     private $sequenceNumber;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var null|Delivery|DeliveryBuilder
      */
     private $delivery;
 
     /**
-     * <p>Unique identifier of the Message.</p>
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -95,6 +113,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
@@ -103,6 +124,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -111,6 +135,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -119,8 +146,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -131,6 +159,7 @@ final class DeliveryAddedMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -139,6 +168,10 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -147,8 +180,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -157,6 +191,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -165,6 +202,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -173,11 +213,25 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Delivery">Delivery</a> that was added to the <a href="ctp:api:type:Order">Order</a>. The <a href="ctp:api:type:Delivery">Delivery</a> in the Message body does not contain <a href="ctp:api:type:Parcel">Parcels</a> if those were part of the initial <a href="ctp:api:type:OrderAddDeliveryAction">Add Delivery</a> update action. In that case, the update action produces an additional <a href="ctp:api:type:ParcelAddedToDeliveryMessage">ParcelAddedToDelivery</a> Message containing information about the <a href="ctp:api:type:Parcel">Parcels</a>.</p>
+     *
+
      * @return null|Delivery
      */
     public function getDelivery()
     {
         return $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -302,6 +356,17 @@ final class DeliveryAddedMessageBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -369,7 +434,8 @@ final class DeliveryAddedMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
-            $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery
+            $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery,
+            $this->shippingKey
         );
     }
 

@@ -22,6 +22,7 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     /**
      * <p>Valid <a href="/../api/projects/predicates#lineitem-field-identifiers">LineItem target predicate</a>. The Discount will be applied to Line Items that are matched by the predicate.</p>
      *
+
      * @return null|string
      */
     public function getPredicate();
@@ -29,6 +30,7 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     /**
      * <p>Number of Line Items to be present in order to trigger an application of this Discount.</p>
      *
+
      * @return null|int
      */
     public function getTriggerQuantity();
@@ -36,6 +38,7 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     /**
      * <p>Number of Line Items that are discounted per application of this Discount.</p>
      *
+
      * @return null|int
      */
     public function getDiscountedQuantity();
@@ -43,6 +46,7 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     /**
      * <p>Maximum number of times this Discount can be applied.</p>
      *
+
      * @return null|int
      */
     public function getMaxOccurrence();
@@ -50,6 +54,7 @@ interface MultiBuyLineItemsTarget extends CartDiscountTarget
     /**
      * <p>Discounts particular Line Items only according to the SelectionMode.</p>
      *
+
      * @return null|string
      */
     public function getSelectionMode();

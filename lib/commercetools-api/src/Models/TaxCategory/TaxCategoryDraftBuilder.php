@@ -21,21 +21,25 @@ use stdClass;
 final class TaxCategoryDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var ?TaxRateDraftCollection
      */
     private $rates;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -43,6 +47,7 @@ final class TaxCategoryDraftBuilder implements Builder
     /**
      * <p>Name of the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -53,6 +58,7 @@ final class TaxCategoryDraftBuilder implements Builder
     /**
      * <p>Description of the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -63,6 +69,7 @@ final class TaxCategoryDraftBuilder implements Builder
     /**
      * <p>Tax rates and subrates of states and countries.</p>
      *
+
      * @return null|TaxRateDraftCollection
      */
     public function getRates()
@@ -73,6 +80,7 @@ final class TaxCategoryDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the TaxCategory.</p>
      *
+
      * @return null|string
      */
     public function getKey()

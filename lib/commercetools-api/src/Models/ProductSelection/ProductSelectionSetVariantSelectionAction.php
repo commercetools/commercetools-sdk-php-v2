@@ -18,8 +18,9 @@ interface ProductSelectionSetVariantSelectionAction extends ProductSelectionUpda
     public const FIELD_VARIANT_SELECTION = 'variantSelection';
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct();
@@ -28,6 +29,7 @@ interface ProductSelectionSetVariantSelectionAction extends ProductSelectionUpda
      * <p>Determines which Variants of the previously added Product are to be included in, or excluded from, the Product Selection.
      * Leave it empty to unset an existing Variant Selection.</p>
      *
+
      * @return null|ProductVariantSelection
      */
     public function getVariantSelection();

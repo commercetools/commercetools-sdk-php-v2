@@ -25,21 +25,25 @@ use stdClass;
 final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParcel
 {
     /**
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+     *
      * @var ?ParcelMeasurements
      */
     protected $measurements;
 
     /**
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
 
     /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -61,6 +65,7 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -78,6 +83,7 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     *
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -96,6 +102,7 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -114,6 +121,7 @@ final class DeliveryParcelModel extends JsonObjectModel implements DeliveryParce
     }
 
     /**
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()

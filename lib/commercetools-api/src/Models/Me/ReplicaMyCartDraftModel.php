@@ -24,6 +24,7 @@ use stdClass;
 final class ReplicaMyCartDraftModel extends JsonObjectModel implements ReplicaMyCartDraft
 {
     /**
+     *
      * @var ?mixed
      */
     protected $reference;
@@ -39,6 +40,7 @@ final class ReplicaMyCartDraftModel extends JsonObjectModel implements ReplicaMy
     }
 
     /**
+     *
      * @return ?mixed
      */
     public function getReference()

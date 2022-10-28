@@ -22,21 +22,25 @@ final class ReservationModel extends JsonObjectModel implements Reservation
 
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?Reference
      */
     protected $owner;
 
     /**
+     *
      * @var ?string
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?string
      */
     protected $checkoutStartedAt;
@@ -59,6 +63,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -76,6 +81,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
     }
 
     /**
+     *
      * @return null|Reference
      */
     public function getOwner()
@@ -94,6 +100,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCreatedAt()
@@ -111,6 +118,7 @@ final class ReservationModel extends JsonObjectModel implements Reservation
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCheckoutStartedAt()

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
+use Commercetools\Api\Models\Cart\MethodTaxedPriceCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -33,78 +34,99 @@ use stdClass;
 final class OrderLineItemDiscountSetMessageBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?int
      */
     private $sequenceNumber;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $resource;
 
     /**
+
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
-     * <p>Unique identifier of the Message.</p>
+
+     * @var ?MethodTaxedPriceCollection
+     */
+    private $taxedPricePortions;
+
+    /**
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -113,6 +135,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
@@ -121,6 +146,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -129,6 +157,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -137,8 +168,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -149,6 +181,7 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -157,6 +190,10 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+
      * @return null|int
      */
     public function getSequenceNumber()
@@ -165,8 +202,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
      *
+
      * @return null|Reference
      */
     public function getResource()
@@ -175,6 +213,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+
      * @return null|int
      */
     public function getResourceVersion()
@@ -183,6 +224,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -191,6 +235,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier for the <a href="ctp:api:type:LineItem">Line Item</a>.</p>
+     *
+
      * @return null|string
      */
     public function getLineItemId()
@@ -199,6 +246,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p>Array of <a href="ctp:api:type:DiscountedLineItemPriceForQuantity">DiscountedLineItemPriceForQuantity</a> after the Discount recalculation.</p>
+     *
+
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -207,9 +257,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Total Price of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
      *
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -218,11 +268,25 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:TaxedItemPrice">TaxedItemPrice</a> of the <a href="ctp:api:type:LineItem">Line Item</a> after the Discount recalculation.</p>
+     *
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
     {
         return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+    }
+
+    /**
+     * <p>Taxed price of the Shipping Methods in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>..</p>
+     *
+
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        return $this->taxedPricePortions;
     }
 
     /**
@@ -380,6 +444,17 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     * @return $this
+     */
+    public function withTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions)
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -461,7 +536,8 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
             $this->lineItemId,
             $this->discountedPricePerQuantity,
             $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice,
-            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice
+            $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice,
+            $this->taxedPricePortions
         );
     }
 

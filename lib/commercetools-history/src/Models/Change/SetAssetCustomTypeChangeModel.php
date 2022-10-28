@@ -26,26 +26,31 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
 
     public const DISCRIMINATOR_VALUE = 'SetAssetCustomTypeChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?AssetChangeValue
      */
     protected $asset;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $previousValue;
@@ -58,16 +63,18 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
         ?string $change = null,
         ?AssetChangeValue $asset = null,
         ?CustomFields $nextValue = null,
-        ?CustomFields $previousValue = null
+        ?CustomFields $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->asset = $asset;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -87,6 +94,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     /**
      * <p>Update action for <code>setAssetCustomType</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -104,6 +112,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -122,6 +131,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -140,6 +150,7 @@ final class SetAssetCustomTypeChangeModel extends JsonObjectModel implements Set
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getPreviousValue()

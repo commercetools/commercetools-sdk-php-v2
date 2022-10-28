@@ -19,6 +19,7 @@ interface ProductTypeAddLocalizedEnumValueAction extends ProductTypeUpdateAction
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -26,6 +27,7 @@ interface ProductTypeAddLocalizedEnumValueAction extends ProductTypeUpdateAction
     /**
      * <p>Value to append to the array.</p>
      *
+
      * @return null|AttributeLocalizedEnumValue
      */
     public function getValue();

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
@@ -32,126 +34,175 @@ use stdClass;
 final class CartDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $currency;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $customerId;
 
     /**
+
      * @var ?string
      */
     private $customerEmail;
 
     /**
+
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var ?string
      */
     private $anonymousId;
 
     /**
+
+     * @var null|BusinessUnitResourceIdentifier|BusinessUnitResourceIdentifierBuilder
+     */
+    private $businessUnit;
+
+    /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $inventoryMode;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var ?string
      */
     private $taxRoundingMode;
 
     /**
+
      * @var ?string
      */
     private $taxCalculationMode;
 
     /**
+
      * @var ?LineItemDraftCollection
      */
     private $lineItems;
 
     /**
+
      * @var ?CustomLineItemDraftCollection
      */
     private $customLineItems;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $shippingAddress;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $billingAddress;
 
     /**
+
      * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
     /**
+
      * @var null|ExternalTaxRateDraft|ExternalTaxRateDraftBuilder
      */
     private $externalTaxRateForShippingMethod;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?string
      */
     private $origin;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingMode;
+
+    /**
+
+     * @var ?CustomShippingDraftCollection
+     */
+    private $customShipping;
+
+    /**
+
+     * @var ?ShippingDraftCollection
+     */
+    private $shipping;
+
+    /**
+
      * @var null|ShippingRateInputDraft|ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     private $itemShippingAddresses;
 
     /**
+
      * @var ?array
      */
     private $discountCodes;
@@ -159,6 +210,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency()
@@ -169,6 +221,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Cart.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -179,6 +232,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>Id of an existing Customer.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId()
@@ -187,6 +241,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -198,6 +253,7 @@ final class CartDraftBuilder implements Builder
      * <p>Will be set automatically when the <code>customerId</code> is set and the customer is a member of a customer group.
      * Can be set explicitly when no <code>customerId</code> is present.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -208,6 +264,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>Assigns the new cart to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId()
@@ -216,9 +273,21 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit;
+    }
+
+    /**
      * <p>Assigns the new cart to the store.
      * The store assignment can not be modified.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()
@@ -229,6 +298,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -239,6 +309,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -249,6 +320,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The default tax mode is <code>Platform</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode()
@@ -259,6 +331,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The default tax rounding mode is <code>HalfEven</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -269,6 +342,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The default tax calculation mode is <code>LineItemLevel</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -277,6 +351,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|LineItemDraftCollection
      */
     public function getLineItems()
@@ -285,6 +360,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems()
@@ -295,6 +371,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
+
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -303,6 +380,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -311,6 +389,7 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -321,6 +400,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>An external tax rate can be set for the <code>shippingMethod</code> if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRateForShippingMethod()
@@ -331,6 +411,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -341,6 +422,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>Must be one of the languages supported for this project</p>
      *
+
      * @return null|string
      */
     public function getLocale()
@@ -352,6 +434,7 @@ final class CartDraftBuilder implements Builder
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -362,11 +445,48 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The default origin is <code>Customer</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()
     {
         return $this->origin;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode()
+    {
+        return $this->shippingMode;
+    }
+
+    /**
+     * <p>Custom Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomShippingDraftCollection
+     */
+    public function getCustomShipping()
+    {
+        return $this->customShipping;
+    }
+
+    /**
+     * <p>Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|ShippingDraftCollection
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 
     /**
@@ -376,6 +496,7 @@ final class CartDraftBuilder implements Builder
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
      *
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()
@@ -390,6 +511,7 @@ final class CartDraftBuilder implements Builder
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -400,6 +522,7 @@ final class CartDraftBuilder implements Builder
     /**
      * <p>The code of existing DiscountCodes.</p>
      *
+
      * @return null|array
      */
     public function getDiscountCodes()
@@ -469,6 +592,17 @@ final class CartDraftBuilder implements Builder
     public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
 
         return $this;
     }
@@ -650,6 +784,39 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingMode
+     * @return $this
+     */
+    public function withShippingMode(?string $shippingMode)
+    {
+        $this->shippingMode = $shippingMode;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CustomShippingDraftCollection $customShipping
+     * @return $this
+     */
+    public function withCustomShipping(?CustomShippingDraftCollection $customShipping)
+    {
+        $this->customShipping = $customShipping;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShippingDraftCollection $shipping
+     * @return $this
+     */
+    public function withShipping(?ShippingDraftCollection $shipping)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
      * @param ?ShippingRateInputDraft $shippingRateInput
      * @return $this
      */
@@ -689,6 +856,17 @@ final class CartDraftBuilder implements Builder
     public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitResourceIdentifierBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
 
         return $this;
     }
@@ -779,6 +957,7 @@ final class CartDraftBuilder implements Builder
             $this->customerEmail,
             $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup,
             $this->anonymousId,
+            $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
             $this->country,
             $this->inventoryMode,
@@ -795,6 +974,9 @@ final class CartDraftBuilder implements Builder
             $this->locale,
             $this->deleteDaysAfterLastModification,
             $this->origin,
+            $this->shippingMode,
+            $this->customShipping,
+            $this->shipping,
             $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->discountCodes

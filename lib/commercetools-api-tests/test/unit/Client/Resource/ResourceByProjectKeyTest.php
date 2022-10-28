@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyApiClients;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartDiscounts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCarts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCategories;
@@ -20,6 +21,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyCustomObjects;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyDiscountCodes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyExtensions;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyGraphql;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInStoreKeyByStoreKey;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyInventory;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyLogin;
@@ -160,6 +162,16 @@ class ResourceByProjectKeyTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeyBusinessUnits' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyBusinessUnits {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->businessUnits();
+                },
+                ResourceByProjectKeyBusinessUnits::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/business-units'
+            ],
             'ResourceByProjectKeyCategories' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyCategories {
                     return $builder
@@ -519,6 +531,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyStandalonePrices::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/standalone-prices'
+            ],
+            'ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->inBusinessUnitKeyWithBusinessUnitKeyValue("test_businessUnitKey");
+                },
+                ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey::class,
+                ['projectKey' => 'test_projectKey', 'businessUnitKey' => 'test_businessUnitKey'],
+                '/{projectKey}/in-business-unit/key={businessUnitKey}'
             ]
         ];
     }

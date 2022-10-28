@@ -23,16 +23,21 @@ use stdClass;
 final class ProductTransitionStateActionBuilder implements Builder
 {
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @var ?bool
      */
     private $force;
 
     /**
+     * <p>The State to transition to. If there is no existing State, this must be an initial State.</p>
+     *
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -41,6 +46,9 @@ final class ProductTransitionStateActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, validations are disabled.</p>
+     *
+
      * @return null|bool
      */
     public function getForce()

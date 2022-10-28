@@ -21,16 +21,19 @@ use stdClass;
 final class TypedMoneyBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $centAmount;
 
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @var ?int
      */
     private $fractionDigits;
@@ -42,6 +45,7 @@ final class TypedMoneyBuilder implements Builder
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getCentAmount()
@@ -52,6 +56,7 @@ final class TypedMoneyBuilder implements Builder
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -66,6 +71,7 @@ final class TypedMoneyBuilder implements Builder
      * <li>Greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getFractionDigits()

@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceModel;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -23,11 +25,13 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -37,6 +41,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      *
      */
     private static $discriminatorClasses = [
+       'business-unit' => BusinessUnitKeyReferenceModel::class,
        'store' => StoreKeyReferenceModel::class,
     ];
 
@@ -44,14 +49,16 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -71,6 +78,7 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
 
     /**
      * <p>User-defined unique and immutable key of the referenced resource.</p>
+     *
      *
      * @return null|string
      */

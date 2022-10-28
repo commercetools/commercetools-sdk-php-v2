@@ -21,21 +21,27 @@ use stdClass;
 final class MyCustomerChangePasswordBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?string
      */
     private $currentPassword;
 
     /**
+
      * @var ?string
      */
     private $newPassword;
 
     /**
+     * <p>Expected version of the Customer on which the changes should be applied.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
@@ -44,6 +50,10 @@ final class MyCustomerChangePasswordBuilder implements Builder
     }
 
     /**
+     * <p>Current password of the Customer.</p>
+     * <p>If the current password does not match, an <a href="ctp:api:type:InvalidCurrentPasswordError">InvalidCurrentPassword</a> error is returned.</p>
+     *
+
      * @return null|string
      */
     public function getCurrentPassword()
@@ -52,6 +62,9 @@ final class MyCustomerChangePasswordBuilder implements Builder
     }
 
     /**
+     * <p>New password to be set.</p>
+     *
+
      * @return null|string
      */
     public function getNewPassword()

@@ -25,36 +25,43 @@ use stdClass;
 final class TransactionModel extends JsonObjectModel implements Transaction
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $timestamp;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $amount;
 
     /**
+     *
      * @var ?string
      */
     protected $interactionId;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -84,6 +91,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * <p>Unique identifier of the Transaction.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -102,6 +110,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
     /**
      * <p>The time at which the transaction took place.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -126,6 +135,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * <p>The type of this transaction.</p>
      *
+     *
      * @return null|string
      */
     public function getType()
@@ -143,6 +153,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     *
      * @return null|TypedMoney
      */
     public function getAmount()
@@ -164,6 +175,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
      * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
+     *
      * @return null|string
      */
     public function getInteractionId()
@@ -183,6 +195,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * <p>The state of this transaction.</p>
      *
+     *
      * @return null|string
      */
     public function getState()
@@ -201,6 +214,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
     /**
      * <p>Custom Fields for the Transaction.</p>
+     *
      *
      * @return null|CustomFields
      */

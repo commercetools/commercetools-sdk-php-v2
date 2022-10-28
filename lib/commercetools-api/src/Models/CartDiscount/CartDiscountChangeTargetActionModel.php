@@ -21,11 +21,13 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeTarget';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?CartDiscountTarget
      */
     protected $target;
@@ -35,13 +37,15 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CartDiscountTarget $target = null
+        ?CartDiscountTarget $target = null,
+        ?string $action = null
     ) {
         $this->target = $target;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
 
     /**
      * <p>New value to set.</p>
+     *
      *
      * @return null|CartDiscountTarget
      */

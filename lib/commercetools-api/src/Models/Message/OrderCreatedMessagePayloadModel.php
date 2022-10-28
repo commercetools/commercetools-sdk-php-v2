@@ -23,11 +23,13 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
 {
     public const DISCRIMINATOR_VALUE = 'OrderCreated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?Order
      */
     protected $order;
@@ -37,13 +39,15 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Order $order = null
+        ?Order $order = null,
+        ?string $type = null
     ) {
         $this->order = $order;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,6 +65,9 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     }
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that was created.</p>
+     *
+     *
      * @return null|Order
      */
     public function getOrder()

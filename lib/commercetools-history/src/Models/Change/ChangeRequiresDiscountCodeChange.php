@@ -18,6 +18,7 @@ interface ChangeRequiresDiscountCodeChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface ChangeRequiresDiscountCodeChange extends Change
     /**
      * <p>Shape of the action for <code>changeRequiresDiscountCode</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|bool
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|bool
      */
     public function getNextValue();

@@ -21,16 +21,19 @@ use stdClass;
 final class RemovePropertyChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $path;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
@@ -38,6 +41,7 @@ final class RemovePropertyChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeProperty</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class RemovePropertyChangeBuilder implements Builder
     /**
      * <p>Value path to the property that was removed</p>
      *
+
      * @return null|string
      */
     public function getPath()
@@ -56,6 +61,7 @@ final class RemovePropertyChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

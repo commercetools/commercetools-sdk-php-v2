@@ -25,31 +25,37 @@ use stdClass;
 final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 {
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
@@ -77,6 +83,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     /**
      * <p>When the text line item was added to the shopping list.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -98,6 +105,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -116,6 +124,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -136,6 +145,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     /**
      * <p>Unique identifier of the TextLineItem.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -153,6 +163,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -171,6 +182,7 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()

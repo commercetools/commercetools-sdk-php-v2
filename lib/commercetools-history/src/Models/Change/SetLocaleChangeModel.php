@@ -22,21 +22,25 @@ final class SetLocaleChangeModel extends JsonObjectModel implements SetLocaleCha
 
     public const DISCRIMINATOR_VALUE = 'SetLocaleChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -48,15 +52,17 @@ final class SetLocaleChangeModel extends JsonObjectModel implements SetLocaleCha
     public function __construct(
         ?string $change = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,6 +81,7 @@ final class SetLocaleChangeModel extends JsonObjectModel implements SetLocaleCha
 
     /**
      * <p>Update action for <code>setLocale</code> on reviews</p>
+     *
      *
      * @return null|string
      */
@@ -95,6 +102,7 @@ final class SetLocaleChangeModel extends JsonObjectModel implements SetLocaleCha
     /**
      * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -113,6 +121,7 @@ final class SetLocaleChangeModel extends JsonObjectModel implements SetLocaleCha
 
     /**
      * <p>A locale of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">IETF language tag</a>.</p>
+     *
      *
      * @return null|string
      */

@@ -21,11 +21,13 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
 {
     public const DISCRIMINATOR_VALUE = 'type';
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $typeId;
@@ -35,13 +37,15 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()
@@ -60,6 +64,7 @@ final class TypeKeyReferenceModel extends JsonObjectModel implements TypeKeyRefe
 
     /**
      * <p>The type of the referenced resource.</p>
+     *
      *
      * @return null|string
      */

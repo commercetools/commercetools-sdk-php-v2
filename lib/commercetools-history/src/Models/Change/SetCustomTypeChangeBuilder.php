@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\CustomFieldsBuilder;
 final class SetCustomTypeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class SetCustomTypeChangeBuilder implements Builder
     /**
      * <p>Update action for setting a custom type</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class SetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class SetCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()

@@ -22,16 +22,19 @@ use Commercetools\History\Models\Common\ReferenceCollection;
 final class SetSupplyChannelsChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?ReferenceCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?ReferenceCollection
      */
     private $nextValue;
@@ -39,6 +42,7 @@ final class SetSupplyChannelsChangeBuilder implements Builder
     /**
      * <p>Shape of the action for <code>setSupplyChannels</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -47,6 +51,7 @@ final class SetSupplyChannelsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -55,6 +60,7 @@ final class SetSupplyChannelsChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue()

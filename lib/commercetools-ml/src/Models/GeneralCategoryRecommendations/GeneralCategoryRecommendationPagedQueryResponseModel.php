@@ -20,21 +20,25 @@ use stdClass;
 final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObjectModel implements GeneralCategoryRecommendationPagedQueryResponse
 {
     /**
+     *
      * @var ?int
      */
     protected $count;
 
     /**
+     *
      * @var ?int
      */
     protected $total;
 
     /**
+     *
      * @var ?int
      */
     protected $offset;
 
     /**
+     *
      * @var ?GeneralCategoryRecommendationCollection
      */
     protected $results;
@@ -56,6 +60,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
+     *
      * @return null|int
      */
     public function getCount()
@@ -73,6 +78,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
+     *
      * @return null|int
      */
     public function getTotal()
@@ -92,6 +98,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+     *
      * @return null|int
      */
     public function getOffset()
@@ -109,6 +116,7 @@ final class GeneralCategoryRecommendationPagedQueryResponseModel extends JsonObj
     }
 
     /**
+     *
      * @return null|GeneralCategoryRecommendationCollection
      */
     public function getResults()

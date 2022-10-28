@@ -21,11 +21,13 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?array
      */
     protected $removedImageUrls;
@@ -35,13 +37,15 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $removedImageUrls = null
+        ?array $removedImageUrls = null,
+        ?string $type = null
     ) {
         $this->removedImageUrls = $removedImageUrls;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -59,6 +63,9 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     }
 
     /**
+     * <p>List of image URLs that were removed during the <a href="ctp:api:type:ProductRevertStagedChangesAction">Revert Staged Changes</a> update action.</p>
+     *
+     *
      * @return null|array
      */
     public function getRemovedImageUrls()

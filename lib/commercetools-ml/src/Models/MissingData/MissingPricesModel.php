@@ -22,11 +22,13 @@ use stdClass;
 final class MissingPricesModel extends JsonObjectModel implements MissingPrices
 {
     /**
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
@@ -44,6 +46,7 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
     }
 
     /**
+     *
      * @return null|ProductReference
      */
     public function getProduct()
@@ -63,6 +66,7 @@ final class MissingPricesModel extends JsonObjectModel implements MissingPrices
 
     /**
      * <p>Id of the <code>ProductVariant</code>.</p>
+     *
      *
      * @return null|int
      */

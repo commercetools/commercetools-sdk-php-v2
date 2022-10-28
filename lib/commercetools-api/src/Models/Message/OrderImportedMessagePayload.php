@@ -17,6 +17,9 @@ interface OrderImportedMessagePayload extends OrderMessagePayload
     public const FIELD_ORDER = 'order';
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that was imported.</p>
+     *
+
      * @return null|Order
      */
     public function getOrder();

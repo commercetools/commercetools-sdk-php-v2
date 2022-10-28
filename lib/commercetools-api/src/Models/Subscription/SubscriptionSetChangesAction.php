@@ -16,6 +16,9 @@ interface SubscriptionSetChangesAction extends SubscriptionUpdateAction
     public const FIELD_CHANGES = 'changes';
 
     /**
+     * <p>Value to set. Can only be unset if <code>messages</code> is set.</p>
+     *
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();

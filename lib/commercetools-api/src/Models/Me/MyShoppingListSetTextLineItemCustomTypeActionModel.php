@@ -25,21 +25,25 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'setTextLineItemCustomType';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $textLineItemId;
 
     /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -51,15 +55,17 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
     public function __construct(
         ?string $textLineItemId = null,
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->textLineItemId = $textLineItemId;
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -77,6 +83,7 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTextLineItemId()
@@ -97,6 +104,7 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the TextLineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the TextLineItem.</p>
      *
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -116,6 +124,7 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
 
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the TextLineItem.</p>
+     *
      *
      * @return null|FieldContainer
      */

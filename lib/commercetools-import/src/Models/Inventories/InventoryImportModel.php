@@ -27,36 +27,43 @@ use stdClass;
 final class InventoryImportModel extends JsonObjectModel implements InventoryImport
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?int
      */
     protected $quantityOnStock;
 
     /**
+     *
      * @var ?int
      */
     protected $restockableInDays;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $expectedDelivery;
 
     /**
+     *
      * @var ?ChannelKeyReference
      */
     protected $supplyChannel;
 
     /**
+     *
      * @var ?Custom
      */
     protected $custom;
@@ -84,6 +91,9 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+     *
      * @return null|string
      */
     public function getKey()
@@ -102,6 +112,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
 
     /**
      * <p>Maps to <code>Inventory.sku</code></p>
+     *
      *
      * @return null|string
      */
@@ -122,6 +133,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     /**
      * <p>Maps to <code>Inventory.quantityOnStock</code></p>
      *
+     *
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -141,6 +153,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     /**
      * <p>Maps to <code>Inventory.restockableInDays</code></p>
      *
+     *
      * @return null|int
      */
     public function getRestockableInDays()
@@ -159,6 +172,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
 
     /**
      * <p>Maps to <code>Inventory.expectedDelivery</code></p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -183,6 +197,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
     /**
      * <p>Maps to <code>Inventory.supplyChannel</code></p>
      *
+     *
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel()
@@ -202,6 +217,7 @@ final class InventoryImportModel extends JsonObjectModel implements InventoryImp
 
     /**
      * <p>Maps to <code>Inventory.custom</code>.</p>
+     *
      *
      * @return null|Custom
      */

@@ -103,6 +103,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
     public function getRequests()
     {
         return [
+            'ByProjectKeyProductsGet_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                'test_projectKey/products?where=where',
+            ],
             'ByProjectKeyProductsGet_withPriceCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -146,28 +157,6 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/products?priceChannel=priceChannel',
-            ],
-            'ByProjectKeyProductsGet_withLocaleProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->get()
-                        ->withLocaleProjection('localeProjection');
-                },
-                'get',
-                'test_projectKey/products?localeProjection=localeProjection',
-            ],
-            'ByProjectKeyProductsGet_withStoreProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->get()
-                        ->withStoreProjection('storeProjection');
-                },
-                'get',
-                'test_projectKey/products?storeProjection=storeProjection',
             ],
             'ByProjectKeyProductsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -224,17 +213,6 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 'get',
                 'test_projectKey/products?withTotal=withTotal',
             ],
-            'ByProjectKeyProductsGet_withWhere' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->get()
-                        ->withWhere('where');
-                },
-                'get',
-                'test_projectKey/products?where=where',
-            ],
             'ByProjectKeyProductsGet_withPredicateVar' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -255,6 +233,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'get',
                 'test_projectKey/products',
+            ],
+            'ByProjectKeyProductsHead_withWhere' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->head()
+                        ->withWhere('where');
+                },
+                'head',
+                'test_projectKey/products?where=where',
             ],
             'ByProjectKeyProductsHead' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
@@ -309,28 +298,6 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'post',
                 'test_projectKey/products?priceChannel=priceChannel',
-            ],
-            'ByProjectKeyProductsPost_withLocaleProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->post(null)
-                        ->withLocaleProjection('localeProjection');
-                },
-                'post',
-                'test_projectKey/products?localeProjection=localeProjection',
-            ],
-            'ByProjectKeyProductsPost_withStoreProjection' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->products()
-                        ->post(null)
-                        ->withStoreProjection('storeProjection');
-                },
-                'post',
-                'test_projectKey/products?storeProjection=storeProjection',
             ],
             'ByProjectKeyProductsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

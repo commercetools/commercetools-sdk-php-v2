@@ -26,36 +26,43 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'ResourceUpdated';
     /**
+     *
      * @var ?string
      */
     protected $projectKey;
 
     /**
+     *
      * @var ?string
      */
     protected $notificationType;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?int
      */
     protected $oldVersion;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $modifiedAt;
@@ -70,7 +77,8 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         ?int $version = null,
         ?int $oldVersion = null,
-        ?DateTimeImmutable $modifiedAt = null
+        ?DateTimeImmutable $modifiedAt = null,
+        ?string $notificationType = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
@@ -78,10 +86,14 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
         $this->version = $version;
         $this->oldVersion = $oldVersion;
         $this->modifiedAt = $modifiedAt;
-        $this->notificationType = static::DISCRIMINATOR_VALUE;
+        $this->notificationType = $notificationType ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Project">Project</a>.
+     * Useful in message processing if the Destination receives events from multiple Projects.</p>
+     *
+     *
      * @return null|string
      */
     public function getProjectKey()
@@ -99,6 +111,9 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Identifies the payload.</p>
+     *
+     *
      * @return null|string
      */
     public function getNotificationType()
@@ -116,7 +131,8 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p>Reference to the resource that triggered the message.</p>
+     *
      *
      * @return null|Reference
      */
@@ -136,6 +152,9 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>User-defined unique identifiers of the resource.</p>
+     *
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -154,6 +173,9 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Last seen version of the resource.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -171,6 +193,9 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Version of the resource before the update.</p>
+     *
+     *
      * @return null|int
      */
     public function getOldVersion()
@@ -188,6 +213,9 @@ final class ResourceUpdatedDeliveryPayloadModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Date and time (UTC) the resource was last updated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getModifiedAt()

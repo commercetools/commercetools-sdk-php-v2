@@ -19,6 +19,7 @@ interface ProductTypeChangeAttributeConstraintAction extends ProductTypeUpdateAc
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -26,6 +27,7 @@ interface ProductTypeChangeAttributeConstraintAction extends ProductTypeUpdateAc
     /**
      * <p><code>None</code></p>
      *
+
      * @return null|string
      */
     public function getNewValue();

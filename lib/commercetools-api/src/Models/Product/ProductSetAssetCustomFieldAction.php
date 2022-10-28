@@ -22,26 +22,41 @@ interface ProductSetAssetCustomFieldAction extends ProductUpdateAction
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetKey();
@@ -49,6 +64,7 @@ interface ProductSetAssetCustomFieldAction extends ProductUpdateAction
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -58,6 +74,7 @@ interface ProductSetAssetCustomFieldAction extends ProductUpdateAction
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue();

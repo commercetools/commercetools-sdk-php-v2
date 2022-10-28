@@ -22,11 +22,13 @@ final class PublishChangeModel extends JsonObjectModel implements PublishChange
 
     public const DISCRIMINATOR_VALUE = 'PublishChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
@@ -36,13 +38,15 @@ final class PublishChangeModel extends JsonObjectModel implements PublishChange
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $change = null
+        ?string $change = null,
+        ?string $type = null
     ) {
         $this->change = $change;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,7 @@ final class PublishChangeModel extends JsonObjectModel implements PublishChange
     }
 
     /**
+     *
      * @return null|string
      */
     public function getChange()

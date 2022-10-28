@@ -23,16 +23,21 @@ use stdClass;
 final class ProductVariantDeletedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
     /**
+
      * @var ?array
      */
     private $removedImageUrls;
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> that was added.</p>
+     *
+
      * @return null|ProductVariant
      */
     public function getVariant()
@@ -41,6 +46,9 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>List of image URLs that were removed with the <a href="ctp:api:type:ProductRemoveVariantAction">Remove Product Variant</a> update action.</p>
+     *
+
      * @return null|array
      */
     public function getRemovedImageUrls()

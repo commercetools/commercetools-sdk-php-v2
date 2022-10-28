@@ -22,21 +22,25 @@ final class SetDeleteDaysAfterLastModificationChangeModel extends JsonObjectMode
 
     public const DISCRIMINATOR_VALUE = 'SetDeleteDaysAfterLastModificationChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?int
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?int
      */
     protected $nextValue;
@@ -48,15 +52,17 @@ final class SetDeleteDaysAfterLastModificationChangeModel extends JsonObjectMode
     public function __construct(
         ?string $change = null,
         ?int $previousValue = null,
-        ?int $nextValue = null
+        ?int $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -76,6 +82,7 @@ final class SetDeleteDaysAfterLastModificationChangeModel extends JsonObjectMode
     /**
      * <p>Shape of the action for <code>setDeleteDaysAfterLastModification</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,6 +100,7 @@ final class SetDeleteDaysAfterLastModificationChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|int
      */
     public function getPreviousValue()
@@ -110,6 +118,7 @@ final class SetDeleteDaysAfterLastModificationChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|int
      */
     public function getNextValue()

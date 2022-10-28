@@ -23,31 +23,37 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $customLineItem;
 
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
@@ -55,6 +61,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setCustomLineItemCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -63,6 +70,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -71,6 +79,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -79,6 +88,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -87,6 +97,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -95,6 +106,7 @@ final class SetCustomLineItemCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

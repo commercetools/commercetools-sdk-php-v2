@@ -23,36 +23,43 @@ use stdClass;
 final class UserProvidedIdentifiersBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @var ?string
      */
     private $customerNumber;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|ContainerAndKey|ContainerAndKeyBuilder
      */
     private $containerAndKey;
@@ -60,6 +67,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * <p>User-provided unique identifier of the resource.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -68,6 +76,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * <p>User-provided unique identifier of the resource.</p>
+     *
+
      * @return null|string
      */
     public function getExternalId()
@@ -76,6 +87,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * <p>User-provided unique identifier of an <a href="ctp:api:type:Order">Order</a>.</p>
+     *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -84,6 +98,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * <p>User-provided unique identifier of a <a href="ctp:api:type:Customer">Customer</a>.</p>
+     *
+
      * @return null|string
      */
     public function getCustomerNumber()
@@ -92,6 +109,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * <p>Unique SKU of a <a href="ctp:api:type:ProductVariant">Product Variant</a>.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -100,8 +120,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Unique identifier usually used in deep-link URLs for a <a href="ctp:api:type:Product">Product</a>. The value corresponds to the slug in the <code>current</code> <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -110,8 +131,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
-     * <p>Custom Objects are grouped into containers, which can be used like namespaces. Within a given container, a user-defined key can be used to uniquely identify resources.</p>
+     * <p>Unique identifier of a <a href="/../api/projects/custom-objects">Custom Object</a>.</p>
      *
+
      * @return null|ContainerAndKey
      */
     public function getContainerAndKey()

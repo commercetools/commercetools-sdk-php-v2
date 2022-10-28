@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\TaxRateBuilder;
 final class RemoveTaxRateChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $nextValue;
@@ -40,6 +43,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeTaxRate</code> on tax categories</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -50,6 +54,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getPreviousValue()
@@ -60,6 +65,7 @@ final class RemoveTaxRateChangeBuilder implements Builder
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
      *
+
      * @return null|TaxRate
      */
     public function getNextValue()

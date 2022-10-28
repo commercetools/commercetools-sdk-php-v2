@@ -19,6 +19,7 @@ interface MissingImages extends JsonObject
     public const FIELD_IMAGE_COUNT = 'imageCount';
 
     /**
+
      * @return null|ProductReference
      */
     public function getProduct();
@@ -26,6 +27,7 @@ interface MissingImages extends JsonObject
     /**
      * <p>ID of the variant</p>
      *
+
      * @return null|int
      */
     public function getVariantId();
@@ -33,6 +35,7 @@ interface MissingImages extends JsonObject
     /**
      * <p>Number of images the variant contains.</p>
      *
+
      * @return null|int
      */
     public function getImageCount();

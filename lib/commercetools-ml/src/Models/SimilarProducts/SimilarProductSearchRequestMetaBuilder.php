@@ -21,6 +21,7 @@ use stdClass;
 final class SimilarProductSearchRequestMetaBuilder implements Builder
 {
     /**
+
      * @var null|SimilarityMeasures|SimilarityMeasuresBuilder
      */
     private $similarityMeasures;
@@ -28,6 +29,7 @@ final class SimilarProductSearchRequestMetaBuilder implements Builder
     /**
      * <p>The SimilarityMeasures used in this search.</p>
      *
+
      * @return null|SimilarityMeasures
      */
     public function getSimilarityMeasures()

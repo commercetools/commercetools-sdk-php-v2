@@ -17,11 +17,17 @@ interface OrderShipmentStateChangedMessage extends OrderMessage
     public const FIELD_OLD_SHIPMENT_STATE = 'oldShipmentState';
 
     /**
+     * <p><a href="ctp:api:type:ShipmentState">ShipmentState</a> after the <a href="ctp:api:type:OrderChangeShipmentStateAction">Change Shipment State</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getShipmentState();
 
     /**
+     * <p><a href="ctp:api:type:ShipmentState">ShipmentState</a> before the <a href="ctp:api:type:OrderChangeShipmentStateAction">Change Shipment State</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getOldShipmentState();

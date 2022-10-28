@@ -25,36 +25,57 @@ interface ProductAddVariantAction extends ProductUpdateAction
     public const FIELD_ASSETS = 'assets';
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Value to set. Must be unique.</p>
+     *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Embedded Prices for the Product Variant.</p>
+     *
+
      * @return null|PriceDraftCollection
      */
     public function getPrices();
 
     /**
+     * <p>Images for the Product Variant.</p>
+     *
+
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+     * <p>Attributes for the Product Variant.</p>
+     *
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+     * <p>If <code>true</code> the new Product Variant is only staged. If <code>false</code> the new Product Variant is both current and staged.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>Media assets for the Product Variant.</p>
+     *
+
      * @return null|AssetCollection
      */
     public function getAssets();

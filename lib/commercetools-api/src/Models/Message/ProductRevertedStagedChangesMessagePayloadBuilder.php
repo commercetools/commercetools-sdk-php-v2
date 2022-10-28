@@ -21,11 +21,15 @@ use stdClass;
 final class ProductRevertedStagedChangesMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $removedImageUrls;
 
     /**
+     * <p>List of image URLs that were removed during the <a href="ctp:api:type:ProductRevertStagedChangesAction">Revert Staged Changes</a> update action.</p>
+     *
+
      * @return null|array
      */
     public function getRemovedImageUrls()

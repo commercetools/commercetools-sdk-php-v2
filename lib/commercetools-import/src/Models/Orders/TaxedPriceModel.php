@@ -22,24 +22,22 @@ use stdClass;
 final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
 {
     /**
+     *
      * @var ?Money
      */
     protected $totalNet;
 
     /**
+     *
      * @var ?Money
      */
     protected $totalGross;
 
     /**
+     *
      * @var ?TaxPortionCollection
      */
     protected $taxPortions;
-
-    /**
-     * @var ?Money
-     */
-    protected $totalTax;
 
 
     /**
@@ -48,17 +46,16 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     public function __construct(
         ?Money $totalNet = null,
         ?Money $totalGross = null,
-        ?TaxPortionCollection $taxPortions = null,
-        ?Money $totalTax = null
+        ?TaxPortionCollection $taxPortions = null
     ) {
         $this->totalNet = $totalNet;
         $this->totalGross = $totalGross;
         $this->taxPortions = $taxPortions;
-        $this->totalTax = $totalTax;
     }
 
     /**
      * <p>Maps to <code>TaxedPrice.totalNet</code>.</p>
+     *
      *
      * @return null|Money
      */
@@ -80,6 +77,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     /**
      * <p>Maps to <code>TaxedPrice.totalGross</code>.</p>
      *
+     *
      * @return null|Money
      */
     public function getTotalGross()
@@ -100,6 +98,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     /**
      * <p>Maps to <code>TaxedPrice.taxPortions</code>.</p>
      *
+     *
      * @return null|TaxPortionCollection
      */
     public function getTaxPortions()
@@ -114,26 +113,6 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
         }
 
         return $this->taxPortions;
-    }
-
-    /**
-     * <p>Maps to <code>TaxedPrice.totalTax</code>.</p>
-     *
-     * @return null|Money
-     */
-    public function getTotalTax()
-    {
-        if (is_null($this->totalTax)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_TOTAL_TAX);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->totalTax = MoneyModel::of($data);
-        }
-
-        return $this->totalTax;
     }
 
 
@@ -159,13 +138,5 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     public function setTaxPortions(?TaxPortionCollection $taxPortions): void
     {
         $this->taxPortions = $taxPortions;
-    }
-
-    /**
-     * @param ?Money $totalTax
-     */
-    public function setTotalTax(?Money $totalTax): void
-    {
-        $this->totalTax = $totalTax;
     }
 }

@@ -21,41 +21,51 @@ use stdClass;
 final class ProductSetAssetCustomFieldActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -64,6 +74,9 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -72,6 +85,9 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()
@@ -80,6 +96,9 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId()
@@ -88,6 +107,9 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetKey()
@@ -98,6 +120,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -110,6 +133,7 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
      * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()

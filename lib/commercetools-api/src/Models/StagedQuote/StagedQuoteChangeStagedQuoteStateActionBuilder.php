@@ -21,13 +21,15 @@ use stdClass;
 final class StagedQuoteChangeStagedQuoteStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $stagedQuoteState;
 
     /**
-     * <p>The new quote staged state to be set for the Quote Staged.</p>
+     * <p>New state to be set for the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()

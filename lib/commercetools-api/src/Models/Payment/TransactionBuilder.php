@@ -26,36 +26,43 @@ use stdClass;
 final class TransactionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $timestamp;
 
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $amount;
 
     /**
+
      * @var ?string
      */
     private $interactionId;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -63,6 +70,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>Unique identifier of the Transaction.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -73,6 +81,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>The time at which the transaction took place.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp()
@@ -83,6 +92,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>The type of this transaction.</p>
      *
+
      * @return null|string
      */
     public function getType()
@@ -91,6 +101,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getAmount()
@@ -102,6 +113,7 @@ final class TransactionBuilder implements Builder
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
      * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
+
      * @return null|string
      */
     public function getInteractionId()
@@ -112,6 +124,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>The state of this transaction.</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -122,6 +135,7 @@ final class TransactionBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

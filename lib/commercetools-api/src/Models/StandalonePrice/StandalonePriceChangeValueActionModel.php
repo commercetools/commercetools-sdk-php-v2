@@ -23,27 +23,39 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeValue';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?Money
      */
     protected $value;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $staged;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $value = null
+        ?Money $value = null,
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->staged = $staged;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -63,6 +75,7 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+     *
      * @return null|Money
      */
     public function getValue()
@@ -80,6 +93,26 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
         return $this->value;
     }
 
+    /**
+     * <p>If set to <code>true</code> the update action applies to the <a href="ctp:api:type:StagedStandalonePrice">StagedStandalonePrice</a>. If set to <code>false</code>, the update action applies to the current <a href="ctp:api:type:StandalonePrice">StandalonePrice</a>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
 
     /**
      * @param ?Money $value
@@ -87,5 +120,13 @@ final class StandalonePriceChangeValueActionModel extends JsonObjectModel implem
     public function setValue(?Money $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @param ?bool $staged
+     */
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

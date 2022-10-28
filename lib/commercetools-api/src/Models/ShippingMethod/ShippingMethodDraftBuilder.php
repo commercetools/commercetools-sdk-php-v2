@@ -27,51 +27,61 @@ use stdClass;
 final class ShippingMethodDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedName;
 
     /**
+     * @deprecated
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $localizedDescription;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var ?ZoneRateDraftCollection
      */
     private $zoneRates;
 
     /**
+
      * @var ?bool
      */
     private $isDefault;
 
     /**
+
      * @var ?string
      */
     private $predicate;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -79,6 +89,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -89,6 +100,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Name of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -99,6 +111,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Localized name of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedName()
@@ -109,6 +122,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Description of the ShippingMethod.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getDescription()
@@ -119,6 +133,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Localized description of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription()
@@ -129,6 +144,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> for all ZoneRates of the ShippingMethod.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -139,6 +155,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific zones.</p>
      *
+
      * @return null|ZoneRateDraftCollection
      */
     public function getZoneRates()
@@ -149,6 +166,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>If <code>true</code> the ShippingMethod will be the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
+
      * @return null|bool
      */
     public function getIsDefault()
@@ -159,6 +177,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
+
      * @return null|string
      */
     public function getPredicate()
@@ -169,6 +188,7 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * <p>Custom Fields for the ShippingMethod.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

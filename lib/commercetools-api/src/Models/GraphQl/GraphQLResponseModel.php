@@ -20,11 +20,13 @@ use stdClass;
 final class GraphQLResponseModel extends JsonObjectModel implements GraphQLResponse
 {
     /**
+     *
      * @var ?mixed
      */
     protected $data;
 
     /**
+     *
      * @var ?GraphQLErrorCollection
      */
     protected $errors;
@@ -42,6 +44,7 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getData()
@@ -59,6 +62,7 @@ final class GraphQLResponseModel extends JsonObjectModel implements GraphQLRespo
     }
 
     /**
+     *
      * @return null|GraphQLErrorCollection
      */
     public function getErrors()

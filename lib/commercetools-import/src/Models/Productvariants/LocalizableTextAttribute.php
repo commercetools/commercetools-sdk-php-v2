@@ -24,6 +24,7 @@ interface LocalizableTextAttribute extends Attribute
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getValue();

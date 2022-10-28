@@ -16,6 +16,7 @@ interface MyCartSetCustomerEmailAction extends MyCartUpdateAction
     public const FIELD_EMAIL = 'email';
 
     /**
+
      * @return null|string
      */
     public function getEmail();

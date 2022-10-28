@@ -21,11 +21,13 @@ final class ProjectChangeShoppingListsConfigurationActionModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'changeShoppingListsConfiguration';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ShoppingListsConfiguration
      */
     protected $shoppingListsConfiguration;
@@ -35,13 +37,15 @@ final class ProjectChangeShoppingListsConfigurationActionModel extends JsonObjec
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ShoppingListsConfiguration $shoppingListsConfiguration = null
+        ?ShoppingListsConfiguration $shoppingListsConfiguration = null,
+        ?string $action = null
     ) {
         $this->shoppingListsConfiguration = $shoppingListsConfiguration;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProjectChangeShoppingListsConfigurationActionModel extends JsonObjec
 
     /**
      * <p>Configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature.</p>
+     *
      *
      * @return null|ShoppingListsConfiguration
      */

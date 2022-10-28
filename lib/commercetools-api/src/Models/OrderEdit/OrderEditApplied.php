@@ -19,16 +19,19 @@ interface OrderEditApplied extends OrderEditResult
     public const FIELD_EXCERPT_AFTER_EDIT = 'excerptAfterEdit';
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAppliedAt();
 
     /**
+
      * @return null|OrderExcerpt
      */
     public function getExcerptBeforeEdit();
 
     /**
+
      * @return null|OrderExcerpt
      */
     public function getExcerptAfterEdit();

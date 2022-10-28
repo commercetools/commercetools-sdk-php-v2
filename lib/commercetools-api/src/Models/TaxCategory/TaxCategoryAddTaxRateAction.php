@@ -18,6 +18,7 @@ interface TaxCategoryAddTaxRateAction extends TaxCategoryUpdateAction
     /**
      * <p>Value to append to the <code>rates</code> array.</p>
      *
+
      * @return null|TaxRateDraft
      */
     public function getTaxRate();

@@ -21,31 +21,39 @@ use stdClass;
 final class ProductRemoveAssetActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?string
      */
     private $assetId;
 
     /**
+
      * @var ?string
      */
     private $assetKey;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -54,6 +62,9 @@ final class ProductRemoveAssetActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -62,6 +73,9 @@ final class ProductRemoveAssetActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is removed. If <code>false</code>, both the current and staged Asset is removed.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()
@@ -70,6 +84,9 @@ final class ProductRemoveAssetActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the Asset to remove.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId()
@@ -78,6 +95,9 @@ final class ProductRemoveAssetActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>key</code> of the Asset to remove.</p>
+     *
+
      * @return null|string
      */
     public function getAssetKey()

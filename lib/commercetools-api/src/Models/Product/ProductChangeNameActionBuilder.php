@@ -23,16 +23,21 @@ use stdClass;
 final class ProductChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>Value to set. Must not be empty.</p>
+     *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -41,6 +46,9 @@ final class ProductChangeNameActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>name</code> is updated. If <code>false</code>, both the current and staged <code>name</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

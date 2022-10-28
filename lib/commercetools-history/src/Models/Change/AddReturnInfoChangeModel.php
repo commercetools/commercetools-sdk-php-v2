@@ -24,16 +24,19 @@ final class AddReturnInfoChangeModel extends JsonObjectModel implements AddRetur
 
     public const DISCRIMINATOR_VALUE = 'AddReturnInfoChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?ReturnInfo
      */
     protected $nextValue;
@@ -44,14 +47,16 @@ final class AddReturnInfoChangeModel extends JsonObjectModel implements AddRetur
      */
     public function __construct(
         ?string $change = null,
-        ?ReturnInfo $nextValue = null
+        ?ReturnInfo $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -71,6 +76,7 @@ final class AddReturnInfoChangeModel extends JsonObjectModel implements AddRetur
     /**
      * <p>Update action for <code>addReturnInfo</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -88,6 +94,7 @@ final class AddReturnInfoChangeModel extends JsonObjectModel implements AddRetur
     }
 
     /**
+     *
      * @return null|ReturnInfo
      */
     public function getNextValue()

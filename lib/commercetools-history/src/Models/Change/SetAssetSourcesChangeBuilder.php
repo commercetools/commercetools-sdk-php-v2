@@ -24,21 +24,25 @@ use Commercetools\History\Models\Common\AssetSourceCollection;
 final class SetAssetSourcesChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
     private $asset;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     private $nextValue;
 
     /**
+
      * @var ?AssetSourceCollection
      */
     private $previousValue;
@@ -46,6 +50,7 @@ final class SetAssetSourcesChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setAssetSources</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -54,6 +59,7 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -62,6 +68,7 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getNextValue()
@@ -70,6 +77,7 @@ final class SetAssetSourcesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetSourceCollection
      */
     public function getPreviousValue()

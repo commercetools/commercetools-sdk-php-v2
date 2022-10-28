@@ -27,51 +27,61 @@ use stdClass;
 final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $currentValue;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $channel;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -105,6 +115,9 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Platform-generated unique identifier of the Price.</p>
+     *
+     *
      * @return null|string
      */
     public function getId()
@@ -122,7 +135,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p>Original value of the Price.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -134,15 +148,16 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
+
+            $this->value = TypedMoneyModel::of($data);
         }
 
         return $this->value;
     }
 
     /**
-     * <p>Base polymorphic read-only Money type which is stored in cent precision or high precision. The actual type is determined by the <code>type</code> field.</p>
+     * <p>If available, either the original price <code>value</code> or <code>discounted</code> value.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -154,15 +169,16 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->currentValue = $className::of($data);
+
+            $this->currentValue = TypedMoneyModel::of($data);
         }
 
         return $this->currentValue;
     }
 
     /**
-     * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     * <p>Country code of the geographic location.</p>
+     *
      *
      * @return null|string
      */
@@ -181,7 +197,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Reference to a CustomerGroup.</p>
+     *
      *
      * @return null|CustomerGroupReference
      */
@@ -201,7 +218,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Reference to a Channel.</p>
+     *
      *
      * @return null|ChannelReference
      */
@@ -221,6 +239,9 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Date and time from which the Price is valid.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -242,6 +263,9 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Date and time until which the Price is valid.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -263,6 +287,10 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
+     * <p>Is set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the <a href="ctp:api:type:Cart">Cart</a> uses the discounted value for the <a href="ctp:api:type:CartAddLineItem">Cart Price calculation</a>.</p>
+     * <p>When a <a href="ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> is applied and the fractional part of the discounted Price is 0.5, the discounted Price is <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">rounded half down</a> in favor of the Customer.</p>
+     *
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -281,7 +309,8 @@ final class ScopedPriceModel extends JsonObjectModel implements ScopedPrice
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields for the Price.</p>
+     *
      *
      * @return null|CustomFields
      */

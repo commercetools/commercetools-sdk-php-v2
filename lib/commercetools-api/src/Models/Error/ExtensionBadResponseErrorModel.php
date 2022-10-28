@@ -23,26 +23,31 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
 {
     public const DISCRIMINATOR_VALUE = 'ExtensionBadResponse';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $localizedMessage;
 
     /**
+     *
      * @var ?mixed
      */
     protected $extensionExtraInfo;
 
     /**
+     *
      * @var ?ErrorByExtension
      */
     protected $errorByExtension;
@@ -55,16 +60,18 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
         ?string $message = null,
         ?LocalizedString $localizedMessage = null,
         ?JsonObject $extensionExtraInfo = null,
-        ?ErrorByExtension $errorByExtension = null
+        ?ErrorByExtension $errorByExtension = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->localizedMessage = $localizedMessage;
         $this->extensionExtraInfo = $extensionExtraInfo;
         $this->errorByExtension = $errorByExtension;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -82,6 +89,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -101,6 +109,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getLocalizedMessage()
@@ -119,6 +128,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getExtensionExtraInfo()
@@ -136,6 +146,7 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     }
 
     /**
+     *
      * @return null|ErrorByExtension
      */
     public function getErrorByExtension()

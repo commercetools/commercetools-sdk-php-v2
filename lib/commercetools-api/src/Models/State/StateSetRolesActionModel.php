@@ -21,11 +21,13 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
 {
     public const DISCRIMINATOR_VALUE = 'setRoles';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?array
      */
     protected $roles;
@@ -35,13 +37,15 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $roles = null
+        ?array $roles = null,
+        ?string $action = null
     ) {
         $this->roles = $roles;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     /**
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|array
      */

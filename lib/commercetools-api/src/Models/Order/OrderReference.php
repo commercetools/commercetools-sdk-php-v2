@@ -17,6 +17,7 @@ interface OrderReference extends Reference
     public const FIELD_OBJ = 'obj';
 
     /**
+
      * @return null|Order
      */
     public function getObj();

@@ -26,36 +26,43 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
 
     public const DISCRIMINATOR_VALUE = 'SetCustomLineItemTaxAmountChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+     *
      * @var ?string
      */
     protected $taxMode;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $previousValue;
@@ -70,7 +77,8 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
         ?string $customLineItemId = null,
         ?string $taxMode = null,
         ?TaxRate $nextValue = null,
-        ?TaxRate $previousValue = null
+        ?TaxRate $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->customLineItem = $customLineItem;
@@ -78,10 +86,11 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
         $this->taxMode = $taxMode;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -101,6 +110,7 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
     /**
      * <p>Update action for <code>setCustomLineItemTaxAmount</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -118,6 +128,7 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -136,6 +147,7 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -153,6 +165,7 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getTaxMode()
@@ -171,6 +184,7 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
 
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     *
      *
      * @return null|TaxRate
      */
@@ -191,6 +205,7 @@ final class SetCustomLineItemTaxAmountChangeModel extends JsonObjectModel implem
 
     /**
      * <p>Shape of the value for <code>addTaxRate</code> and <code>removeTaxRate</code> actions</p>
+     *
      *
      * @return null|TaxRate
      */

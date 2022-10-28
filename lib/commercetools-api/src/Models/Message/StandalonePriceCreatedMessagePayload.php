@@ -17,8 +17,9 @@ interface StandalonePriceCreatedMessagePayload extends MessagePayload
     public const FIELD_STANDALONE_PRICE = 'standalonePrice';
 
     /**
-     * <p>The Standalone Price as it was created.</p>
+     * <p><a href="ctp:api:type:StandalonePrice">Standalone Price</a> that was created.</p>
      *
+
      * @return null|StandalonePrice
      */
     public function getStandalonePrice();

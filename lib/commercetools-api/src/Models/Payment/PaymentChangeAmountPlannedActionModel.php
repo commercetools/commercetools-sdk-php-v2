@@ -23,11 +23,13 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeAmountPlanned';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?Money
      */
     protected $amount;
@@ -37,13 +39,15 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?Money $amount = null
+        ?Money $amount = null,
+        ?string $action = null
     ) {
         $this->amount = $amount;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class PaymentChangeAmountPlannedActionModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|Money
      */
     public function getAmount()

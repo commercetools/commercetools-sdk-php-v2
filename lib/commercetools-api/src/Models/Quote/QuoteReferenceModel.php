@@ -23,16 +23,19 @@ final class QuoteReferenceModel extends JsonObjectModel implements QuoteReferenc
 {
     public const DISCRIMINATOR_VALUE = 'quote';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Quote
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class QuoteReferenceModel extends JsonObjectModel implements QuoteReferenc
      */
     public function __construct(
         ?string $id = null,
-        ?Quote $obj = null
+        ?Quote $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class QuoteReferenceModel extends JsonObjectModel implements QuoteReferenc
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -91,6 +97,7 @@ final class QuoteReferenceModel extends JsonObjectModel implements QuoteReferenc
     /**
      * <p>Contains the representation of the expanded Quote.
      * Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Quote.</p>
+     *
      *
      * @return null|Quote
      */

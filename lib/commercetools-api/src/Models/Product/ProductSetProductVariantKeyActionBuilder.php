@@ -21,26 +21,33 @@ use stdClass;
 final class ProductSetProductVariantKeyActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -49,6 +56,9 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -57,8 +67,9 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
-     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>
+     * <p>Value to set. Must be unique. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -67,6 +78,9 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>key</code> is set. If <code>false</code>, both the current and staged <code>key</code> are set.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

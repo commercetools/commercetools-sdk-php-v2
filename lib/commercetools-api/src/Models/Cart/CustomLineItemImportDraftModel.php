@@ -31,49 +31,64 @@ use stdClass;
 final class CustomLineItemImportDraftModel extends JsonObjectModel implements CustomLineItemImportDraft
 {
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?Money
      */
     protected $money;
 
     /**
+     *
      * @var ?string
      */
     protected $slug;
 
     /**
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
+     *
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetails;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceMode;
 
 
     /**
@@ -88,7 +103,8 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         ?TaxRate $taxRate = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?CustomFieldsDraft $custom = null,
-        ?ItemShippingDetailsDraft $shippingDetails = null
+        ?ItemShippingDetailsDraft $shippingDetails = null,
+        ?string $priceMode = null
     ) {
         $this->name = $name;
         $this->quantity = $quantity;
@@ -99,9 +115,11 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         $this->taxCategory = $taxCategory;
         $this->custom = $custom;
         $this->shippingDetails = $shippingDetails;
+        $this->priceMode = $priceMode;
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -123,6 +141,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -142,6 +161,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     /**
      * <p>The cost to add to the cart. The amount can be negative.</p>
      *
+     *
      * @return null|Money
      */
     public function getMoney()
@@ -160,6 +180,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     *
      * @return null|string
      */
     public function getSlug()
@@ -177,6 +198,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     *
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -194,6 +216,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -212,6 +235,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -232,6 +256,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     /**
      * <p>The custom fields.</p>
      *
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -250,6 +275,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -265,6 +291,30 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         }
 
         return $this->shippingDetails;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
     }
 
 
@@ -338,5 +388,13 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }

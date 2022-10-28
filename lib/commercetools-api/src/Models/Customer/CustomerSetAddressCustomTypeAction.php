@@ -15,14 +15,23 @@ use Commercetools\Base\JsonObject;
 
 interface CustomerSetAddressCustomTypeAction extends CustomerUpdateAction
 {
+    public const FIELD_ADDRESS_ID = 'addressId';
     public const FIELD_TYPE = 'type';
     public const FIELD_FIELDS = 'fields';
-    public const FIELD_ADDRESS_ID = 'addressId';
+
+    /**
+     * <p>User-defined unique identifier of the <a href="ctp:api:type:Address">Address</a> to be updated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAddressId();
 
     /**
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the <code>address</code> with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the <code>address</code>.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -30,14 +39,15 @@ interface CustomerSetAddressCustomTypeAction extends CustomerUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the <code>address</code>.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();
 
     /**
-     * @return null|string
+     * @param ?string $addressId
      */
-    public function getAddressId();
+    public function setAddressId(?string $addressId): void;
 
     /**
      * @param ?TypeResourceIdentifier $type
@@ -48,9 +58,4 @@ interface CustomerSetAddressCustomTypeAction extends CustomerUpdateAction
      * @param ?FieldContainer $fields
      */
     public function setFields(?FieldContainer $fields): void;
-
-    /**
-     * @param ?string $addressId
-     */
-    public function setAddressId(?string $addressId): void;
 }

@@ -21,11 +21,13 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'addAttributeDefinition';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?AttributeDefinitionDraft
      */
     protected $attribute;
@@ -35,13 +37,15 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?AttributeDefinitionDraft $attribute = null
+        ?AttributeDefinitionDraft $attribute = null,
+        ?string $action = null
     ) {
         $this->attribute = $attribute;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
 
     /**
      * <p>Value to append to <code>attributes</code>.</p>
+     *
      *
      * @return null|AttributeDefinitionDraft
      */

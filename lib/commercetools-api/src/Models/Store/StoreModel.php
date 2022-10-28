@@ -32,66 +32,79 @@ use stdClass;
 final class StoreModel extends JsonObjectModel implements Store
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?array
      */
     protected $languages;
 
     /**
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $distributionChannels;
 
     /**
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $supplyChannels;
 
     /**
+     *
      * @var ?ProductSelectionSettingCollection
      */
     protected $productSelections;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -133,6 +146,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>Unique ID of the Store.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -152,6 +166,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>Current version of the Store.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -170,6 +185,7 @@ final class StoreModel extends JsonObjectModel implements Store
 
     /**
      * <p>Date and time (UTC) the Store was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -194,6 +210,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>Date and time (UTC) the Store was last updated.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -217,6 +234,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -236,6 +254,7 @@ final class StoreModel extends JsonObjectModel implements Store
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -257,6 +276,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>User-defined unique and immutable identifier for the Store.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -275,6 +295,7 @@ final class StoreModel extends JsonObjectModel implements Store
 
     /**
      * <p>Name of the Store.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -296,6 +317,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>Languages configured for the Store.</p>
      *
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -315,6 +337,7 @@ final class StoreModel extends JsonObjectModel implements Store
     /**
      * <p>Product Distribution Channels allowed for the Store.</p>
      *
+     *
      * @return null|ChannelReferenceCollection
      */
     public function getDistributionChannels()
@@ -333,6 +356,7 @@ final class StoreModel extends JsonObjectModel implements Store
 
     /**
      * <p>Inventory Supply Channels allowed for the Store.</p>
+     *
      *
      * @return null|ChannelReferenceCollection
      */
@@ -357,6 +381,7 @@ final class StoreModel extends JsonObjectModel implements Store
      * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
      * </ul>
      *
+     *
      * @return null|ProductSelectionSettingCollection
      */
     public function getProductSelections()
@@ -375,6 +400,7 @@ final class StoreModel extends JsonObjectModel implements Store
 
     /**
      * <p>Custom fields for the Store.</p>
+     *
      *
      * @return null|CustomFields
      */

@@ -21,26 +21,31 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';
     /**
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
+     *
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
+     *
      * @var ?int
      */
     protected $preciseAmount;
@@ -53,13 +58,14 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
         ?int $centAmount = null,
         ?string $currencyCode = null,
         ?int $fractionDigits = null,
-        ?int $preciseAmount = null
+        ?int $preciseAmount = null,
+        ?string $type = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
         $this->fractionDigits = $fractionDigits;
         $this->preciseAmount = $preciseAmount;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,6 +74,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
      * <li>Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as <code>500</code>).</li>
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
+     *
      *
      * @return null|int
      */
@@ -88,6 +95,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getCurrencyCode()
@@ -106,6 +114,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 
     /**
      * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
+     *
      *
      * @return null|string
      */
@@ -126,6 +135,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     /**
      * <p>Number of digits after the decimal separator, greater than the default number of fraction digits for a currency.</p>
      *
+     *
      * @return null|int
      */
     public function getFractionDigits()
@@ -144,6 +154,7 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
 
     /**
      * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
+     *
      *
      * @return null|int
      */

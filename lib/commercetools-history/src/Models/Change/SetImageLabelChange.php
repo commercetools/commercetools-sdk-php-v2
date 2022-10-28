@@ -20,6 +20,7 @@ interface SetImageLabelChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface SetImageLabelChange extends Change
     /**
      * <p>Update action for <code>setImageLabel</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|Image
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Image
      */
     public function getNextValue();

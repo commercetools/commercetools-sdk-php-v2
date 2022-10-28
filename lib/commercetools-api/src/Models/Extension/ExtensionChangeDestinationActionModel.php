@@ -21,11 +21,13 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeDestination';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ExtensionDestination
      */
     protected $destination;
@@ -35,13 +37,15 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ExtensionDestination $destination = null
+        ?ExtensionDestination $destination = null,
+        ?string $action = null
     ) {
         $this->destination = $destination;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|ExtensionDestination
      */

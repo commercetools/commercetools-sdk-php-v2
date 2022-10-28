@@ -20,6 +20,7 @@ interface AttributeCount extends JsonObject
     /**
      * <p>Number of attributes defined in the product type.</p>
      *
+
      * @return null|int
      */
     public function getProductTypeAttributes();
@@ -27,6 +28,7 @@ interface AttributeCount extends JsonObject
     /**
      * <p>Number of attributes defined in the variant.</p>
      *
+
      * @return null|int
      */
     public function getVariantAttributes();
@@ -34,6 +36,7 @@ interface AttributeCount extends JsonObject
     /**
      * <p>Number of attributes missing values in the variant.</p>
      *
+
      * @return null|int
      */
     public function getMissingAttributeValues();

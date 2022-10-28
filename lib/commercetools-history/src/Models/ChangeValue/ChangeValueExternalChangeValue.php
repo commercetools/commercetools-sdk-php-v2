@@ -16,6 +16,7 @@ interface ChangeValueExternalChangeValue extends ChangeValueChangeValue
 
 
     /**
+
      * @return null|string
      */
     public function getType();

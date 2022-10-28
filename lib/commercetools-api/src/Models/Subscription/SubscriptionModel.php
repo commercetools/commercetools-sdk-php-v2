@@ -27,61 +27,73 @@ use stdClass;
 final class SubscriptionModel extends JsonObjectModel implements Subscription
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?ChangeSubscriptionCollection
      */
     protected $changes;
 
     /**
+     *
      * @var ?Destination
      */
     protected $destination;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
 
     /**
+     *
      * @var ?DeliveryFormat
      */
     protected $format;
 
     /**
+     *
      * @var ?string
      */
     protected $status;
@@ -121,6 +133,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     /**
      * <p>Unique identifier of the Subscription.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -138,6 +151,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Current version of the Subscription.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -155,6 +171,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Date and time (UTC) the Subscription was initially created.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -176,6 +195,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Date and time (UTC) the Subscription was last modified.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -197,7 +219,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -217,7 +240,8 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
-     * <p>Present on resources created after 2019-02-01 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -237,6 +261,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Change notifications subscribed to.</p>
+     *
+     *
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -254,6 +281,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Messaging service to which the messages are to be sent.</p>
+     *
+     *
      * @return null|Destination
      */
     public function getDestination()
@@ -274,6 +304,7 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     /**
      * <p>User-defined unique identifier of the Subscription.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -291,6 +322,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Messages subscribed to.</p>
+     *
+     *
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -308,6 +342,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Format in which the payload is delivered.</p>
+     *
+     *
      * @return null|DeliveryFormat
      */
     public function getFormat()
@@ -326,6 +363,9 @@ final class SubscriptionModel extends JsonObjectModel implements Subscription
     }
 
     /**
+     * <p>Status of the Subscription.</p>
+     *
+     *
      * @return null|string
      */
     public function getStatus()

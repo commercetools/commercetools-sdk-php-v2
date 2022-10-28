@@ -20,6 +20,7 @@ interface RemoveImageChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface RemoveImageChange extends Change
     /**
      * <p>Update actions for removing images</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|ImageCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|ImageCollection
      */
     public function getNextValue();

@@ -21,11 +21,13 @@ final class OrderSetCustomerEmailActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerEmail';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $email;
@@ -35,13 +37,15 @@ final class OrderSetCustomerEmailActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $email = null
+        ?string $email = null,
+        ?string $action = null
     ) {
         $this->email = $email;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class OrderSetCustomerEmailActionModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|string
      */
     public function getEmail()

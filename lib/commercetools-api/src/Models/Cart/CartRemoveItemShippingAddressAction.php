@@ -16,6 +16,7 @@ interface CartRemoveItemShippingAddressAction extends CartUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
+
      * @return null|string
      */
     public function getAddressKey();

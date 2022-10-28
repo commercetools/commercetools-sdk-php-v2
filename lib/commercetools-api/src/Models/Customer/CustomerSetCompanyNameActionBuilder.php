@@ -21,13 +21,16 @@ use stdClass;
 final class CustomerSetCompanyNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $companyName;
 
     /**
-     * <p>If not defined, the company name is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
+
      * @return null|string
      */
     public function getCompanyName()

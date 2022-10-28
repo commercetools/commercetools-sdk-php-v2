@@ -23,16 +23,19 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
 {
     public const DISCRIMINATOR_VALUE = 'setLineItemDistributionChannel';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -43,14 +46,16 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
      */
     public function __construct(
         ?string $lineItemId = null,
-        ?ChannelResourceIdentifier $distributionChannel = null
+        ?ChannelResourceIdentifier $distributionChannel = null,
+        ?string $action = null
     ) {
         $this->lineItemId = $lineItemId;
         $this->distributionChannel = $distributionChannel;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,7 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -86,6 +92,7 @@ final class CartSetLineItemDistributionChannelActionModel extends JsonObjectMode
 
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
      *
      * @return null|ChannelResourceIdentifier
      */

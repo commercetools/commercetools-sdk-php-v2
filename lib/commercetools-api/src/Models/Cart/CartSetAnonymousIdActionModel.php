@@ -21,11 +21,13 @@ final class CartSetAnonymousIdActionModel extends JsonObjectModel implements Car
 {
     public const DISCRIMINATOR_VALUE = 'setAnonymousId';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $anonymousId;
@@ -35,13 +37,15 @@ final class CartSetAnonymousIdActionModel extends JsonObjectModel implements Car
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $anonymousId = null
+        ?string $anonymousId = null,
+        ?string $action = null
     ) {
         $this->anonymousId = $anonymousId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class CartSetAnonymousIdActionModel extends JsonObjectModel implements Car
 
     /**
      * <p>If not set, any existing anonymous ID will be removed.</p>
+     *
      *
      * @return null|string
      */

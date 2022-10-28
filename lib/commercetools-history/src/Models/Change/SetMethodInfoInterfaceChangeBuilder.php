@@ -21,16 +21,19 @@ use stdClass;
 final class SetMethodInfoInterfaceChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class SetMethodInfoInterfaceChangeBuilder implements Builder
     /**
      * <p>Shape of the action for <code>setMethodInfoInterface</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class SetMethodInfoInterfaceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class SetMethodInfoInterfaceChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

@@ -25,16 +25,27 @@ use stdClass;
 final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Delivery|DeliveryBuilder
      */
     private $delivery;
 
     /**
+
      * @var null|Parcel|ParcelBuilder
      */
     private $parcel;
 
     /**
+
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+
      * @return null|Delivery
      */
     public function getDelivery()
@@ -43,11 +54,25 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:Parcel">Parcel</a> that was added to the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+
      * @return null|Parcel
      */
     public function getParcel()
     {
         return $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -68,6 +93,17 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     public function withParcel(?Parcel $parcel)
     {
         $this->parcel = $parcel;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
 
         return $this;
     }
@@ -98,7 +134,8 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     {
         return new ParcelAddedToDeliveryMessagePayloadModel(
             $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery,
-            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel
+            $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel,
+            $this->shippingKey
         );
     }
 

@@ -30,56 +30,67 @@ final class MessageModel extends JsonObjectModel implements Message
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?int
      */
     protected $sequenceNumber;
 
     /**
+     *
      * @var ?Reference
      */
     protected $resource;
 
     /**
+     *
      * @var ?int
      */
     protected $resourceVersion;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
@@ -89,6 +100,29 @@ final class MessageModel extends JsonObjectModel implements Message
      * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
+       'BusinessUnitAddressAdded' => BusinessUnitAddressAddedMessageModel::class,
+       'BusinessUnitAddressChanged' => BusinessUnitAddressChangedMessageModel::class,
+       'BusinessUnitAddressRemoved' => BusinessUnitAddressRemovedMessageModel::class,
+       'BusinessUnitAssociateAdded' => BusinessUnitAssociateAddedMessageModel::class,
+       'BusinessUnitAssociateChanged' => BusinessUnitAssociateChangedMessageModel::class,
+       'BusinessUnitAssociateRemoved' => BusinessUnitAssociateRemovedMessageModel::class,
+       'BusinessUnitAssociatesSet' => BusinessUnitAssociatesSetMessageModel::class,
+       'BusinessUnitBillingAddressAdded' => BusinessUnitBillingAddressAddedMessageModel::class,
+       'BusinessUnitBillingAddressRemoved' => BusinessUnitBillingAddressRemovedMessageModel::class,
+       'BusinessUnitContactEmailSet' => BusinessUnitContactEmailSetMessageModel::class,
+       'BusinessUnitCreated' => BusinessUnitCreatedMessageModel::class,
+       'BusinessUnitDefaultBillingAddressSet' => BusinessUnitDefaultBillingAddressSetMessageModel::class,
+       'BusinessUnitDefaultShippingAddressSet' => BusinessUnitDefaultShippingAddressSetMessageModel::class,
+       'BusinessUnitDeleted' => BusinessUnitDeletedMessageModel::class,
+       'BusinessUnitNameChanged' => BusinessUnitNameChangedMessageModel::class,
+       'BusinessUnitParentUnitChanged' => BusinessUnitParentUnitChangedMessageModel::class,
+       'BusinessUnitShippingAddressAdded' => BusinessUnitShippingAddressAddedMessageModel::class,
+       'BusinessUnitShippingAddressRemoved' => BusinessUnitShippingAddressRemovedMessageModel::class,
+       'BusinessUnitStatusChanged' => BusinessUnitStatusChangedMessageModel::class,
+       'BusinessUnitStoreAdded' => BusinessUnitStoreAddedMessageModel::class,
+       'BusinessUnitStoreModeChanged' => BusinessUnitStoreModeChangedMessageModel::class,
+       'BusinessUnitStoreRemoved' => BusinessUnitStoreRemovedMessageModel::class,
+       'BusinessUnitStoresSet' => BusinessUnitStoresSetMessageModel::class,
        'CategoryCreated' => CategoryCreatedMessageModel::class,
        'CategorySlugChanged' => CategorySlugChangedMessageModel::class,
        'CustomLineItemStateTransition' => CustomLineItemStateTransitionMessageModel::class,
@@ -116,7 +150,10 @@ final class MessageModel extends JsonObjectModel implements Message
        'LineItemStateTransition' => LineItemStateTransitionMessageModel::class,
        'OrderBillingAddressSet' => OrderBillingAddressSetMessageModel::class,
        'OrderCreated' => OrderCreatedMessageModel::class,
+       'OrderCustomLineItemAdded' => OrderCustomLineItemAddedMessageModel::class,
        'OrderCustomLineItemDiscountSet' => OrderCustomLineItemDiscountSetMessageModel::class,
+       'OrderCustomLineItemQuantityChanged' => OrderCustomLineItemQuantityChangedMessageModel::class,
+       'OrderCustomLineItemRemoved' => OrderCustomLineItemRemovedMessageModel::class,
        'OrderCustomerEmailSet' => OrderCustomerEmailSetMessageModel::class,
        'OrderCustomerGroupSet' => OrderCustomerGroupSetMessageModel::class,
        'OrderCustomerSet' => OrderCustomerSetMessageModel::class,
@@ -175,9 +212,11 @@ final class MessageModel extends JsonObjectModel implements Message
        'QuoteRequestCreated' => QuoteRequestCreatedMessageModel::class,
        'QuoteRequestDeleted' => QuoteRequestDeletedMessageModel::class,
        'QuoteRequestStateChanged' => QuoteRequestStateChangedMessageModel::class,
+       'QuoteRequestStateTransition' => QuoteRequestStateTransitionMessageModel::class,
        'QuoteStateChanged' => QuoteStateChangedMessageModel::class,
-       'ReturnInfoAdded' => OrderReturnInfoAddedMessageModel::class,
-       'ReturnInfoSet' => OrderReturnInfoSetMessageModel::class,
+       'QuoteStateTransition' => QuoteStateTransitionMessageModel::class,
+       'ReturnInfoAdded' => ReturnInfoAddedMessageModel::class,
+       'ReturnInfoSet' => ReturnInfoSetMessageModel::class,
        'ReviewCreated' => ReviewCreatedMessageModel::class,
        'ReviewRatingSet' => ReviewRatingSetMessageModel::class,
        'ReviewStateTransition' => ReviewStateTransitionMessageModel::class,
@@ -185,15 +224,22 @@ final class MessageModel extends JsonObjectModel implements Message
        'StagedQuoteDeleted' => StagedQuoteDeletedMessageModel::class,
        'StagedQuoteSellerCommentSet' => StagedQuoteSellerCommentSetMessageModel::class,
        'StagedQuoteStateChanged' => StagedQuoteStateChangedMessageModel::class,
+       'StagedQuoteStateTransition' => StagedQuoteStateTransitionMessageModel::class,
        'StagedQuoteValidToSet' => StagedQuoteValidToSetMessageModel::class,
+       'StandalonePriceActiveChanged' => StandalonePriceActiveChangedMessageModel::class,
        'StandalonePriceCreated' => StandalonePriceCreatedMessageModel::class,
        'StandalonePriceDeleted' => StandalonePriceDeletedMessageModel::class,
        'StandalonePriceDiscountSet' => StandalonePriceDiscountSetMessageModel::class,
        'StandalonePriceExternalDiscountSet' => StandalonePriceExternalDiscountSetMessageModel::class,
+       'StandalonePriceStagedChangesApplied' => StandalonePriceStagedChangesAppliedMessageModel::class,
        'StandalonePriceValueChanged' => StandalonePriceValueChangedMessageModel::class,
        'StoreCreated' => StoreCreatedMessageModel::class,
        'StoreDeleted' => StoreDeletedMessageModel::class,
+       'StoreDistributionChannelsChanged' => StoreDistributionChannelsChangedMessageModel::class,
+       'StoreLanguagesChanged' => StoreLanguagesChangedMessageModel::class,
+       'StoreNameSet' => StoreNameSetMessageModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessageModel::class,
+       'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessageModel::class,
        'null' => OrderMessageModel::class,
     ];
 
@@ -227,7 +273,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
-     * <p>Unique identifier of the Message.</p>
+     * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
+     *
      *
      * @return null|string
      */
@@ -246,6 +293,9 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Version of a resource. In case of Messages, this is always <code>1</code>.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -263,6 +313,9 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Date and time (UTC) the Message was generated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -284,6 +337,9 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Value of <code>createdAt</code>.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -305,7 +361,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Value of <code>createdBy</code>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -327,6 +384,7 @@ final class MessageModel extends JsonObjectModel implements Message
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -345,6 +403,10 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Message number in relation to other Messages for a given resource. The <code>sequenceNumber</code> of the next Message for the resource is the successor of the <code>sequenceNumber</code> of the current Message. Meaning, the <code>sequenceNumber</code> of the next Message equals the <code>sequenceNumber</code> of the current Message + 1.
+     * <code>sequenceNumber</code> can be used to ensure that Messages are processed in the correct order for a particular resource.</p>
+     *
+     *
      * @return null|int
      */
     public function getSequenceNumber()
@@ -362,7 +424,8 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource on which the change or action was performed.</p>
+     *
      *
      * @return null|Reference
      */
@@ -382,6 +445,9 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>Version of the resource on which the change or action was performed.</p>
+     *
+     *
      * @return null|int
      */
     public function getResourceVersion()
@@ -399,6 +465,9 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p><a href="/../api/projects/messages#message-types">Message Type</a> of the Message.</p>
+     *
+     *
      * @return null|string
      */
     public function getType()
@@ -416,6 +485,9 @@ final class MessageModel extends JsonObjectModel implements Message
     }
 
     /**
+     * <p>User-provided identifiers of the resource, such as <code>key</code> or <code>externalId</code>. Only present if the resource has such identifiers.</p>
+     *
+     *
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()

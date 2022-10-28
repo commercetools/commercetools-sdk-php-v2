@@ -21,11 +21,13 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'setCartPredicate';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $cartPredicate;
@@ -35,13 +37,15 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $cartPredicate = null
+        ?string $cartPredicate = null,
+        ?string $action = null
     ) {
         $this->cartPredicate = $cartPredicate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|string
      */

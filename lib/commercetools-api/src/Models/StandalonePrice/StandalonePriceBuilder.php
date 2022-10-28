@@ -39,93 +39,123 @@ use stdClass;
 final class StandalonePriceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $value;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
 
     /**
+
      * @var ?PriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @var null|DiscountedPrice|DiscountedPriceBuilder
      */
     private $discounted;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
+     * @var null|StagedStandalonePrice|StagedStandalonePriceBuilder
+     */
+    private $staged;
+
+    /**
+
+     * @var ?bool
+     */
+    private $active;
+
+    /**
      * <p>Unique identifier of the StandalonePrice.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -136,6 +166,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Current version of the StandalonePrice.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -146,6 +177,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Date and time (UTC) the StandalonePrice was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -156,6 +188,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Date and time (UTC) the StandalonePrice was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -166,6 +199,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -176,6 +210,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -186,6 +221,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the StandalonePrice.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -196,6 +232,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which this Price is associated.</p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -206,6 +243,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Money value of this Price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue()
@@ -216,6 +254,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Country for which this Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -226,6 +265,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -236,6 +276,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -246,6 +287,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Date from which the Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -256,6 +298,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Date until the Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -266,6 +309,7 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Price tiers if any are defined.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -277,6 +321,7 @@ final class StandalonePriceBuilder implements Builder
      * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -287,11 +332,35 @@ final class StandalonePriceBuilder implements Builder
     /**
      * <p>Custom Fields for the StandalonePrice.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has staged changes.</p>
+     *
+
+     * @return null|StagedStandalonePrice
+     */
+    public function getStaged()
+    {
+        return $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
     /**
@@ -482,6 +551,28 @@ final class StandalonePriceBuilder implements Builder
     }
 
     /**
+     * @param ?StagedStandalonePrice $staged
+     * @return $this
+     */
+    public function withStaged(?StagedStandalonePrice $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @param ?bool $active
+     * @return $this
+     */
+    public function withActive(?bool $active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -558,6 +649,17 @@ final class StandalonePriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withStaged() instead
+     * @return $this
+     */
+    public function withStagedBuilder(?StagedStandalonePriceBuilder $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): StandalonePrice
     {
         return new StandalonePriceModel(
@@ -577,7 +679,9 @@ final class StandalonePriceBuilder implements Builder
             $this->validUntil,
             $this->tiers,
             $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->staged instanceof StagedStandalonePriceBuilder ? $this->staged->build() : $this->staged,
+            $this->active
         );
     }
 

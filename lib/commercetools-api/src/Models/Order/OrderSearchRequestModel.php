@@ -20,21 +20,25 @@ use stdClass;
 final class OrderSearchRequestModel extends JsonObjectModel implements OrderSearchRequest
 {
     /**
+     *
      * @var ?OrderSearchQuery
      */
     protected $query;
 
     /**
-     * @var ?string
+     *
+     * @var ?OrderSearchSortingCollection
      */
     protected $sort;
 
     /**
+     *
      * @var ?int
      */
     protected $limit;
 
     /**
+     *
      * @var ?int
      */
     protected $offset;
@@ -45,7 +49,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
      */
     public function __construct(
         ?OrderSearchQuery $query = null,
-        ?string $sort = null,
+        ?OrderSearchSortingCollection $sort = null,
         ?int $limit = null,
         ?int $offset = null
     ) {
@@ -57,6 +61,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
 
     /**
      * <p>The Order search query.</p>
+     *
      *
      * @return null|OrderSearchQuery
      */
@@ -78,17 +83,18 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     /**
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
-     * @return null|string
+     *
+     * @return null|OrderSearchSortingCollection
      */
     public function getSort()
     {
         if (is_null($this->sort)) {
-            /** @psalm-var ?string $data */
+            /** @psalm-var ?list<stdClass> $data */
             $data = $this->raw(self::FIELD_SORT);
             if (is_null($data)) {
                 return null;
             }
-            $this->sort = (string) $data;
+            $this->sort = OrderSearchSortingCollection::fromArray($data);
         }
 
         return $this->sort;
@@ -96,6 +102,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
 
     /**
      * <p>The maximum number of search results to be returned.</p>
+     *
      *
      * @return null|int
      */
@@ -115,6 +122,7 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
 
     /**
      * <p>The number of search results to be skipped in the response for pagination.</p>
+     *
      *
      * @return null|int
      */
@@ -142,9 +150,9 @@ final class OrderSearchRequestModel extends JsonObjectModel implements OrderSear
     }
 
     /**
-     * @param ?string $sort
+     * @param ?OrderSearchSortingCollection $sort
      */
-    public function setSort(?string $sort): void
+    public function setSort(?OrderSearchSortingCollection $sort): void
     {
         $this->sort = $sort;
     }

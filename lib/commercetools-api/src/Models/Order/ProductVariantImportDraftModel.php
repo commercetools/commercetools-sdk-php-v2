@@ -23,26 +23,31 @@ use stdClass;
 final class ProductVariantImportDraftModel extends JsonObjectModel implements ProductVariantImportDraft
 {
     /**
+     *
      * @var ?int
      */
     protected $id;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?PriceDraftCollection
      */
     protected $prices;
 
     /**
+     *
      * @var ?AttributeCollection
      */
     protected $attributes;
 
     /**
+     *
      * @var ?ImageCollection
      */
     protected $images;
@@ -70,6 +75,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
      * The variant with provided ID should exist in some existing product, so you also need to specify the productId if this property is set,
      * or alternatively you can just specify SKU of the product variant.</p>
      *
+     *
      * @return null|int
      */
     public function getId()
@@ -89,6 +95,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     /**
      * <p>The SKU of the existing variant.</p>
      *
+     *
      * @return null|string
      */
     public function getSku()
@@ -106,9 +113,10 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * <p>The <a href="ctp:api:type:EmbeddedPrice">EmbeddedPrices</a> of the variant.
-     * The prices should not contain two prices for the same price scope (same currency, country and customer group).
+     * <p>The <a href="ctp:api:type:Price">Embedded Prices</a> of the variant.
+     * The prices should not contain two prices for the same price scope (same currency, country, customer group, channel, valid from and valid until).
      * If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>
+     *
      *
      * @return null|PriceDraftCollection
      */
@@ -130,6 +138,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
      * <p>If this property is defined, then it will override the <code>attributes</code> property from the original
      * product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>
      *
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -149,6 +158,7 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     /**
      * <p>If this property is defined, then it will override the <code>images</code> property from the original
      * product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>
+     *
      *
      * @return null|ImageCollection
      */

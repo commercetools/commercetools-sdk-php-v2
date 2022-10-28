@@ -22,6 +22,7 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -29,6 +30,7 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     /**
      * <p>Update action for <code>changeLocalizedEnumValueLabel</code> on types</p>
      *
+
      * @return null|string
      */
     public function getChange();
@@ -36,6 +38,7 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     /**
      * <p>The name of the field definition updated.</p>
      *
+
      * @return null|string
      */
     public function getFieldName();
@@ -43,6 +46,7 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     /**
      * <p>The name of the attribute updated.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -50,16 +54,19 @@ interface ChangeLocalizedEnumValueLabelChange extends Change
     /**
      * <p>Key of the values that was updated</p>
      *
+
      * @return null|string
      */
     public function getValueKey();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getNextValue();

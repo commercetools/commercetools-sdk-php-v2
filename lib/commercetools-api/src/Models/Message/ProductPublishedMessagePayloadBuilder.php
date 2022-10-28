@@ -23,21 +23,27 @@ use stdClass;
 final class ProductPublishedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?array
      */
     private $removedImageUrls;
 
     /**
+
      * @var null|ProductProjection|ProductProjectionBuilder
      */
     private $productProjection;
 
     /**
+
      * @var ?string
      */
     private $scope;
 
     /**
+     * <p>List of image URLs which were removed during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
+
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -46,6 +52,9 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the <a href="ctp:api:type:Product">Product</a> at the time of creation.</p>
+     *
+
      * @return null|ProductProjection
      */
     public function getProductProjection()
@@ -54,6 +63,9 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ProductPublishScope">Publishing Scope</a> that was used during the <a href="ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getScope()

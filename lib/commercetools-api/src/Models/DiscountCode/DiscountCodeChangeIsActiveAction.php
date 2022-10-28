@@ -18,6 +18,7 @@ interface DiscountCodeChangeIsActiveAction extends DiscountCodeUpdateAction
     /**
      * <p>New value to set. Set to <code>true</code> to activate the DiscountCode for all matching Discounts.</p>
      *
+
      * @return null|bool
      */
     public function getIsActive();

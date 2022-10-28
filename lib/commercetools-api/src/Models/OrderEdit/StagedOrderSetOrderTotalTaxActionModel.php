@@ -26,16 +26,19 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setOrderTotalTax';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?Money
      */
     protected $externalTotalGross;
 
     /**
+     *
      * @var ?TaxPortionDraftCollection
      */
     protected $externalTaxPortions;
@@ -46,14 +49,16 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
      */
     public function __construct(
         ?Money $externalTotalGross = null,
-        ?TaxPortionDraftCollection $externalTaxPortions = null
+        ?TaxPortionDraftCollection $externalTaxPortions = null,
+        ?string $action = null
     ) {
         $this->externalTotalGross = $externalTotalGross;
         $this->externalTaxPortions = $externalTaxPortions;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -74,6 +79,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
      * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
      * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
      *
+     *
      * @return null|Money
      */
     public function getExternalTotalGross()
@@ -92,6 +98,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()

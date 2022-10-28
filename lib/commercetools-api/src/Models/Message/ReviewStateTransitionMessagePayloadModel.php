@@ -25,36 +25,43 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?StateReference
      */
     protected $oldState;
 
     /**
+     *
      * @var ?StateReference
      */
     protected $newState;
 
     /**
+     *
      * @var ?bool
      */
     protected $oldIncludedInStatistics;
 
     /**
+     *
      * @var ?bool
      */
     protected $newIncludedInStatistics;
 
     /**
+     *
      * @var ?Reference
      */
     protected $target;
 
     /**
+     *
      * @var ?bool
      */
     protected $force;
@@ -69,7 +76,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         ?bool $oldIncludedInStatistics = null,
         ?bool $newIncludedInStatistics = null,
         ?Reference $target = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $type = null
     ) {
         $this->oldState = $oldState;
         $this->newState = $newState;
@@ -77,10 +85,11 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         $this->newIncludedInStatistics = $newIncludedInStatistics;
         $this->target = $target;
         $this->force = $force;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -98,7 +107,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> before the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
+     *
      *
      * @return null|StateReference
      */
@@ -118,7 +128,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:State">State</a> of the <a href="ctp:api:type:Review">Review</a> after the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
+     *
      *
      * @return null|StateReference
      */
@@ -138,6 +149,9 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Whether the old <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target before the state transition.</p>
+     *
+     *
      * @return null|bool
      */
     public function getOldIncludedInStatistics()
@@ -155,6 +169,9 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Whether the new <a href="ctp:api:type:Review">Review</a> was taken into account in the rating statistics of the target after the state transition.</p>
+     *
+     *
      * @return null|bool
      */
     public function getNewIncludedInStatistics()
@@ -172,7 +189,8 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to the resource that the <a href="ctp:api:type:Review">Review</a> belongs to.</p>
+     *
      *
      * @return null|Reference
      */
@@ -192,6 +210,9 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:ReviewTransitionStateAction">Transition State</a> update action.</p>
+     *
+     *
      * @return null|bool
      */
     public function getForce()

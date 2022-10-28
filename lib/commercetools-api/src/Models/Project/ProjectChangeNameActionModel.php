@@ -21,11 +21,13 @@ final class ProjectChangeNameActionModel extends JsonObjectModel implements Proj
 {
     public const DISCRIMINATOR_VALUE = 'changeName';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -35,13 +37,15 @@ final class ProjectChangeNameActionModel extends JsonObjectModel implements Proj
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $name = null
+        ?string $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProjectChangeNameActionModel extends JsonObjectModel implements Proj
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|string
      */

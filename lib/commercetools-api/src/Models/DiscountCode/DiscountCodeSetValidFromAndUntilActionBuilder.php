@@ -22,11 +22,13 @@ use stdClass;
 final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validFrom;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
@@ -34,6 +36,7 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
     /**
      * <p>Value to set that must be earlier than <code>validUntil</code>. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -44,6 +47,7 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
     /**
      * <p>Value to set that must be later than <code>validFrom</code>. If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

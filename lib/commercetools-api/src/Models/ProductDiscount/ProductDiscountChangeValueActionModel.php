@@ -21,11 +21,13 @@ final class ProductDiscountChangeValueActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'changeValue';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ProductDiscountValueDraft
      */
     protected $value;
@@ -35,13 +37,15 @@ final class ProductDiscountChangeValueActionModel extends JsonObjectModel implem
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductDiscountValueDraft $value = null
+        ?ProductDiscountValueDraft $value = null,
+        ?string $action = null
     ) {
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProductDiscountChangeValueActionModel extends JsonObjectModel implem
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|ProductDiscountValueDraft
      */

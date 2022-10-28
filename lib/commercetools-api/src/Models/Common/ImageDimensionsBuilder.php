@@ -21,16 +21,21 @@ use stdClass;
 final class ImageDimensionsBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $w;
 
     /**
+
      * @var ?int
      */
     private $h;
 
     /**
+     * <p>Width of the image.</p>
+     *
+
      * @return null|int
      */
     public function getW()
@@ -39,6 +44,9 @@ final class ImageDimensionsBuilder implements Builder
     }
 
     /**
+     * <p>Height of the image.</p>
+     *
+
      * @return null|int
      */
     public function getH()

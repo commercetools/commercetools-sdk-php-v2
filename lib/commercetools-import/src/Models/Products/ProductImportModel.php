@@ -31,69 +31,88 @@ use stdClass;
 final class ProductImportModel extends JsonObjectModel implements ProductImport
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?ProductTypeKeyReference
      */
     protected $productType;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
 
     /**
+     *
      * @var ?CategoryKeyReferenceCollection
      */
     protected $categories;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
+     *
      * @var ?TaxCategoryKeyReference
      */
     protected $taxCategory;
 
     /**
+     *
      * @var ?SearchKeywords
      */
     protected $searchKeywords;
 
     /**
+     *
      * @var ?StateKeyReference
      */
     protected $state;
 
     /**
+     *
      * @var ?bool
      */
     protected $publish;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $priceMode;
 
 
     /**
@@ -112,7 +131,8 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         ?TaxCategoryKeyReference $taxCategory = null,
         ?SearchKeywords $searchKeywords = null,
         ?StateKeyReference $state = null,
-        ?bool $publish = null
+        ?bool $publish = null,
+        ?string $priceMode = null
     ) {
         $this->key = $key;
         $this->name = $name;
@@ -127,9 +147,13 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->searchKeywords = $searchKeywords;
         $this->state = $state;
         $this->publish = $publish;
+        $this->priceMode = $priceMode;
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+     *
      * @return null|string
      */
     public function getKey()
@@ -148,6 +172,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
 
     /**
      * <p>Maps to <code>Product.name</code>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -172,6 +197,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * The Reference to the <a href="/../api/projects/productTypes#producttype">ProductType</a> with which the Product is associated.
      * If referenced ProductType does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductType is created.</p>
      *
+     *
      * @return null|ProductTypeKeyReference
      */
     public function getProductType()
@@ -193,6 +219,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a Project,
      * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -212,6 +239,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
 
     /**
      * <p>Maps to <code>Product.description</code>.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -234,6 +262,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * <p>Maps to <code>Product.categories</code>.
      * The References to the <a href="/../api/projects/categories#category">Categories</a> with which the Product is associated.
      * If referenced Categories do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Categories are created.</p>
+     *
      *
      * @return null|CategoryKeyReferenceCollection
      */
@@ -258,6 +287,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      *   &quot;en&quot;: &quot;dog food&quot;
      * }
      * </code></pre>
+     *
      *
      * @return null|LocalizedString
      */
@@ -284,6 +314,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * }
      * </code></pre>
      *
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -309,6 +340,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * }
      * </code></pre>
      *
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -329,6 +361,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     /**
      * <p>The Reference to the <a href="/../api/projects/taxCategories#taxcategory">TaxCategory</a> with which the Product is associated.
      * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary TaxCategory is created.</p>
+     *
      *
      * @return null|TaxCategoryKeyReference
      */
@@ -366,6 +399,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * }
      * </code></pre>
      *
+     *
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -386,6 +420,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     /**
      * <p>The Reference to the <a href="/../api/projects/states#state">State</a> with which the Product is associated.
      * If referenced State does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary State is created.</p>
+     *
      *
      * @return null|StateKeyReference
      */
@@ -409,6 +444,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
      * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
+     *
      * @return null|bool
      */
     public function getPublish()
@@ -423,6 +459,26 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         }
 
         return $this->publish;
+    }
+
+    /**
+     * <p>Determines the type of Prices the API uses. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        if (is_null($this->priceMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRICE_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceMode = (string) $data;
+        }
+
+        return $this->priceMode;
     }
 
 
@@ -528,5 +584,13 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;
+    }
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void
+    {
+        $this->priceMode = $priceMode;
     }
 }

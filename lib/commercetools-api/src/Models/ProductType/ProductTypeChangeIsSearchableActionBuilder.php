@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeChangeIsSearchableActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?bool
      */
     private $isSearchable;
@@ -33,6 +35,7 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     /**
      * <p>Determines whether the Attribute's values can be used in full-text search queries, filters, and facets. See <a href="ctp:api:type:AttributeDefinition">AttributeDefinition</a> for details.</p>
      *
+
      * @return null|bool
      */
     public function getIsSearchable()

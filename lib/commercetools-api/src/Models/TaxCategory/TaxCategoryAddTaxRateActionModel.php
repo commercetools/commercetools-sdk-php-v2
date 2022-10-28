@@ -21,11 +21,13 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'addTaxRate';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?TaxRateDraft
      */
     protected $taxRate;
@@ -35,13 +37,15 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?TaxRateDraft $taxRate = null
+        ?TaxRateDraft $taxRate = null,
+        ?string $action = null
     ) {
         $this->taxRate = $taxRate;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class TaxCategoryAddTaxRateActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Value to append to the <code>rates</code> array.</p>
+     *
      *
      * @return null|TaxRateDraft
      */

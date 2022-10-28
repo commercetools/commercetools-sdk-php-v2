@@ -23,11 +23,13 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerEmail';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $email;
@@ -37,13 +39,15 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $email = null
+        ?string $email = null,
+        ?string $action = null
     ) {
         $this->email = $email;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
     }
 
     /**
+     *
      * @return null|string
      */
     public function getEmail()

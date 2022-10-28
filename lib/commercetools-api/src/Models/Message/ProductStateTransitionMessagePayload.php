@@ -18,13 +18,17 @@ interface ProductStateTransitionMessagePayload extends MessagePayload
     public const FIELD_FORCE = 'force';
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p>Product <a href="ctp:api:type:State">State</a> after the <a href="ctp:api:type:ProductTransitionStateAction">Transition State</a> update action.</p>
      *
+
      * @return null|StateReference
      */
     public function getState();
 
     /**
+     * <p>Whether <a href="ctp:api:type:State">State</a> transition validations were turned off during the <a href="ctp:api:type:ProductTransitionStateAction">Transition State</a> update action.</p>
+     *
+
      * @return null|bool
      */
     public function getForce();

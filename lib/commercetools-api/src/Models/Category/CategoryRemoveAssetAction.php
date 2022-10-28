@@ -19,6 +19,7 @@ interface CategoryRemoveAssetAction extends CategoryUpdateAction
     /**
      * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId();
@@ -26,6 +27,7 @@ interface CategoryRemoveAssetAction extends CategoryUpdateAction
     /**
      * <p>Value to remove. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey();

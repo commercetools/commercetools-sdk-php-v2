@@ -21,11 +21,13 @@ final class ShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel 
 {
     public const DISCRIMINATOR_VALUE = 'changeLineItemsOrder';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?array
      */
     protected $lineItemOrder;
@@ -35,13 +37,15 @@ final class ShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $lineItemOrder = null
+        ?array $lineItemOrder = null,
+        ?string $action = null
     ) {
         $this->lineItemOrder = $lineItemOrder;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class ShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel 
     }
 
     /**
+     *
      * @return null|array
      */
     public function getLineItemOrder()

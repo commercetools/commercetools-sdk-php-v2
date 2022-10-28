@@ -18,11 +18,13 @@ interface DiscountCodeInfo extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode();
 
     /**
+
      * @return null|string
      */
     public function getState();

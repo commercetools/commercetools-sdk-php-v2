@@ -21,36 +21,43 @@ use stdClass;
 final class CustomLineItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $money;
 
     /**
+
      * @var null|TaxedItemPrice|TaxedItemPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var ?string
      */
     private $slug;
 
     /**
+
      * @var ?int
      */
     private $quantity;
@@ -58,6 +65,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>The unique ID of this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -66,6 +74,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -74,6 +83,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getMoney()
@@ -82,6 +92,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -90,6 +101,7 @@ final class CustomLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -100,6 +112,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>A unique String in the cart to identify this CustomLineItem.</p>
      *
+
      * @return null|string
      */
     public function getSlug()
@@ -110,6 +123,7 @@ final class CustomLineItemBuilder implements Builder
     /**
      * <p>The amount of a CustomLineItem in the cart. Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity()

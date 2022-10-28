@@ -31,51 +31,61 @@ use stdClass;
 final class ShippingInfoImportDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $shippingMethodName;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|ShippingRateDraft|ShippingRateDraftBuilder
      */
     private $shippingRate;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
     /**
-     * @var ?DeliveryCollection
+
+     * @var ?DeliveryDraftCollection
      */
     private $deliveries;
 
     /**
+
      * @var null|DiscountedLineItemPriceDraft|DiscountedLineItemPriceDraftBuilder
      */
     private $discountedPrice;
 
     /**
+
      * @var ?string
      */
     private $shippingMethodState;
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName()
@@ -84,6 +94,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -94,6 +105,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>The shipping rate used to determine the price.</p>
      *
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -102,6 +114,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -110,6 +123,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -120,6 +134,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>Not set if custom shipping method is used.</p>
      *
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -130,7 +145,8 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
-     * @return null|DeliveryCollection
+
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries()
     {
@@ -138,6 +154,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice()
@@ -148,6 +165,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
      *
+
      * @return null|string
      */
     public function getShippingMethodState()
@@ -222,10 +240,10 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      * @return $this
      */
-    public function withDeliveries(?DeliveryCollection $deliveries)
+    public function withDeliveries(?DeliveryDraftCollection $deliveries)
     {
         $this->deliveries = $deliveries;
 

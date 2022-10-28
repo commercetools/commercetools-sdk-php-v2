@@ -17,8 +17,9 @@ interface CartClassificationType extends ShippingRateInputType
     public const FIELD_VALUES = 'values';
 
     /**
-     * <p>The classification items that can be used for specifiying any <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
+     * <p>The classification items that can be used for specifying any <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
      *
+
      * @return null|CustomFieldLocalizedEnumValueCollection
      */
     public function getValues();

@@ -21,6 +21,7 @@ final class QuoteUpdateActionModel extends JsonObjectModel implements QuoteUpdat
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $action;
@@ -31,19 +32,23 @@ final class QuoteUpdateActionModel extends JsonObjectModel implements QuoteUpdat
      */
     private static $discriminatorClasses = [
        'changeQuoteState' => QuoteChangeQuoteStateActionModel::class,
+       'requestQuoteRenegotiation' => QuoteRequestQuoteRenegotiationActionModel::class,
        'setCustomField' => QuoteSetCustomFieldActionModel::class,
        'setCustomType' => QuoteSetCustomTypeActionModel::class,
+       'transitionState' => QuoteTransitionStateActionModel::class,
     ];
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()

@@ -20,21 +20,25 @@ use stdClass;
 final class CustomerChangePasswordModel extends JsonObjectModel implements CustomerChangePassword
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?string
      */
     protected $currentPassword;
 
     /**
+     *
      * @var ?string
      */
     protected $newPassword;
@@ -58,6 +62,7 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     /**
      * <p>Unique identifier of the Customer.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -75,6 +80,9 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Expected version of the Customer on which the changes should be applied.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -92,6 +100,10 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>Current password of the Customer.</p>
+     * <p>If the current password does not match, an <a href="ctp:api:type:InvalidCurrentPasswordError">InvalidCurrentPassword</a> error is returned.</p>
+     *
+     *
      * @return null|string
      */
     public function getCurrentPassword()
@@ -109,6 +121,9 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>New password to be set.</p>
+     *
+     *
      * @return null|string
      */
     public function getNewPassword()

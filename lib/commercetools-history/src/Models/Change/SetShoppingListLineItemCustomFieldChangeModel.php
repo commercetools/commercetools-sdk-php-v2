@@ -24,36 +24,43 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
 
     public const DISCRIMINATOR_VALUE = 'SetShoppingListLineItemCustomFieldChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $customTypeId;
 
     /**
+     *
      * @var ?ShoppingListLineItemValue
      */
     protected $lineItem;
 
     /**
+     *
      * @var ?mixed
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?mixed
      */
     protected $previousValue;
@@ -68,7 +75,8 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
         ?string $customTypeId = null,
         ?ShoppingListLineItemValue $lineItem = null,
          $nextValue = null,
-         $previousValue = null
+         $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->name = $name;
@@ -76,10 +84,11 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
         $this->lineItem = $lineItem;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -99,6 +108,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
     /**
      * <p>Update action for <code>setLineItemCustomField</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -116,6 +126,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -133,6 +144,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomTypeId()
@@ -150,6 +162,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|ShoppingListLineItemValue
      */
     public function getLineItem()
@@ -168,6 +181,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getNextValue()
@@ -185,6 +199,7 @@ final class SetShoppingListLineItemCustomFieldChangeModel extends JsonObjectMode
     }
 
     /**
+     *
      * @return null|mixed
      */
     public function getPreviousValue()

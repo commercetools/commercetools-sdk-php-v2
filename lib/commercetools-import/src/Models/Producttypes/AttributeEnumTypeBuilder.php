@@ -21,11 +21,13 @@ use stdClass;
 final class AttributeEnumTypeBuilder implements Builder
 {
     /**
+
      * @var ?AttributePlainEnumValueCollection
      */
     private $values;
 
     /**
+
      * @return null|AttributePlainEnumValueCollection
      */
     public function getValues()

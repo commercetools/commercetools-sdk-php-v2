@@ -23,11 +23,13 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'OrderStoreSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?StoreKeyReference
      */
     protected $store;
@@ -37,13 +39,15 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StoreKeyReference $store = null
+        ?StoreKeyReference $store = null,
+        ?string $type = null
     ) {
         $this->store = $store;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,7 +65,8 @@ final class OrderStoreSetMessagePayloadModel extends JsonObjectModel implements 
     }
 
     /**
-     * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
+     * <p><a href="ctp:api:type:Store">Store</a> that was set.</p>
+     *
      *
      * @return null|StoreKeyReference
      */

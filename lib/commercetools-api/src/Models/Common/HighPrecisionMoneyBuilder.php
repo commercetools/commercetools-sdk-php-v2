@@ -21,21 +21,25 @@ use stdClass;
 final class HighPrecisionMoneyBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $centAmount;
 
     /**
+
      * @var ?string
      */
     private $currencyCode;
 
     /**
+
      * @var ?int
      */
     private $fractionDigits;
 
     /**
+
      * @var ?int
      */
     private $preciseAmount;
@@ -47,6 +51,7 @@ final class HighPrecisionMoneyBuilder implements Builder
      * <li>The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>).</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getCentAmount()
@@ -57,6 +62,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode()
@@ -67,6 +73,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * <p>Number of digits after the decimal separator, greater than the default number of fraction digits for a currency.</p>
      *
+
      * @return null|int
      */
     public function getFractionDigits()
@@ -77,6 +84,7 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
      *
+
      * @return null|int
      */
     public function getPreciseAmount()

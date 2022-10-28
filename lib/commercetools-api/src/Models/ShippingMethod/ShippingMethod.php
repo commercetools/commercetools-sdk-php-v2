@@ -36,6 +36,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Unique identifier of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -43,6 +44,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Current version of the ShippingMethod.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -50,6 +52,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Date and time (UTC) the ShippingMethod was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -57,6 +60,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Date and time (UTC) the ShippingMethod was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -64,6 +68,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -71,6 +76,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -78,6 +84,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>User-defined unique identifier of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -85,6 +92,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Name of the ShippingMethod.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -92,6 +100,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Localized name of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedName();
@@ -99,6 +108,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Description of the ShippingMethod.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getDescription();
@@ -106,6 +116,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Localized description of the ShippingMethod.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLocalizedDescription();
@@ -113,6 +124,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p><a href="ctp:api:type:TaxCategory">TaxCategory</a> of all ZoneRates of the ShippingMethod.</p>
      *
+
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
@@ -120,6 +132,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Defines <a href="ctp:api:type:ShippingRate">ShippingRates</a> (prices) for specific Zones.</p>
      *
+
      * @return null|ZoneRateCollection
      */
     public function getZoneRates();
@@ -127,6 +140,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>If <code>true</code> this ShippingMethod is the <a href="ctp:api:type:Project">Project</a>'s default ShippingMethod.</p>
      *
+
      * @return null|bool
      */
     public function getIsDefault();
@@ -134,6 +148,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Valid <a href="/projects/predicates#cart-predicates">Cart predicate</a> to select a ShippingMethod for a Cart.</p>
      *
+
      * @return null|string
      */
     public function getPredicate();
@@ -141,6 +156,7 @@ interface ShippingMethod extends BaseResource
     /**
      * <p>Custom Fields of the ShippingMethod.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();

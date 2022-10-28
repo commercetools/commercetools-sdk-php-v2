@@ -26,31 +26,37 @@ use stdClass;
 final class DeliveryBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DeliveryItemCollection
      */
     private $items;
 
     /**
+
      * @var ?ParcelCollection
      */
     private $parcels;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -58,6 +64,7 @@ final class DeliveryBuilder implements Builder
     /**
      * <p>Unique identifier of the Delivery.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -66,6 +73,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -77,6 +85,7 @@ final class DeliveryBuilder implements Builder
      * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
      * Can also be specified individually for each Parcel.</p>
      *
+
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -85,6 +94,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|ParcelCollection
      */
     public function getParcels()
@@ -93,6 +103,7 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()
@@ -103,6 +114,7 @@ final class DeliveryBuilder implements Builder
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()

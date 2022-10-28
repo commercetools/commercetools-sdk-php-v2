@@ -17,11 +17,13 @@ interface StringLabel extends Label
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getValue();

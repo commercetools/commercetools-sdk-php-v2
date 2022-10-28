@@ -21,46 +21,55 @@ use stdClass;
 final class MissingImagesSearchRequestBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $offset;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+
      * @var ?int
      */
     private $productSetLimit;
 
     /**
+
      * @var ?bool
      */
     private $includeVariants;
 
     /**
+
      * @var ?bool
      */
     private $autoThreshold;
 
     /**
+
      * @var ?int
      */
     private $threshold;
 
     /**
+
      * @var ?array
      */
     private $productIds;
 
     /**
+
      * @var ?array
      */
     private $productTypeIds;
@@ -68,6 +77,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#limit">results requested</a>.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -78,6 +88,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>Number of <a href="/../api/general-concepts#offset">elements skipped</a>.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -88,6 +99,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>If true, searches data from staged products in addition to published products.</p>
      *
+
      * @return null|bool
      */
     public function getStaged()
@@ -98,6 +110,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>Maximum number of products to scan.</p>
      *
+
      * @return null|int
      */
     public function getProductSetLimit()
@@ -108,6 +121,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>If true, searches all product variants. If false, only searches master variants.</p>
      *
+
      * @return null|bool
      */
     public function getIncludeVariants()
@@ -118,6 +132,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>If true, uses the median number of images per product variant as a threshold value.</p>
      *
+
      * @return null|bool
      */
     public function getAutoThreshold()
@@ -128,6 +143,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>The minimum number of images a product variant must have. Anything below this value is considered a product variant with missing images.</p>
      *
+
      * @return null|int
      */
     public function getThreshold()
@@ -138,6 +154,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>Filters results by the provided Product IDs. Cannot be applied in combination with any other filter.</p>
      *
+
      * @return null|array
      */
     public function getProductIds()
@@ -148,6 +165,7 @@ final class MissingImagesSearchRequestBuilder implements Builder
     /**
      * <p>Filters results by the provided product type IDs. It cannot be applied in combination with any other filter.</p>
      *
+
      * @return null|array
      */
     public function getProductTypeIds()

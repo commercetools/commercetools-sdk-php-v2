@@ -8,12 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\StagedQuote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -31,10 +33,13 @@ interface StagedQuote extends BaseResource
     public const FIELD_VALID_TO = 'validTo';
     public const FIELD_SELLER_COMMENT = 'sellerComment';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
 
     /**
      * <p>The unique ID of the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -42,6 +47,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -49,6 +55,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>User-specific unique identifier of the staged quote.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -56,6 +63,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Date and time (UTC) the StagedQuote was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -63,6 +71,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Date and time (UTC) the StagedQuote was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
@@ -70,6 +79,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
@@ -77,6 +87,7 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -84,51 +95,75 @@ interface StagedQuote extends BaseResource
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState();
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer();
 
     /**
-     * <p>The Quote Request related to this Staged Quote.</p>
+     * <p>Quote Request related to the Staged Quote.</p>
      *
+
      * @return null|QuoteRequestReference
      */
     public function getQuoteRequest();
 
     /**
-     * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
+     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items. May contain either <a href="ctp:api:type:DirectDiscount">DirectDiscounts</a> or <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
+
      * @return null|CartReference
      */
     public function getQuotationCart();
 
     /**
-     * <p>Expiration date for the quote.</p>
+     * <p>Expiration date for the Quote.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo();
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment();
 
     /**
-     * <p>Custom Fields of this Staged Quote.</p>
+     * <p>Custom Fields of the Staged Quote.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
+
+    /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
 
     /**
      * @param ?string $id
@@ -199,4 +234,14 @@ interface StagedQuote extends BaseResource
      * @param ?CustomFields $custom
      */
     public function setCustom(?CustomFields $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 }

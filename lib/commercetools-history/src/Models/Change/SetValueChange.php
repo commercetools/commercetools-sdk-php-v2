@@ -18,6 +18,7 @@ interface SetValueChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -25,16 +26,19 @@ interface SetValueChange extends Change
     /**
      * <p>Update action for <code>setValue</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue();
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue();

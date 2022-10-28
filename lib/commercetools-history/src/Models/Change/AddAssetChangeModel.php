@@ -24,21 +24,25 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
 
     public const DISCRIMINATOR_VALUE = 'AddAssetChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?Asset
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?Asset
      */
     protected $previousValue;
@@ -50,15 +54,17 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     public function __construct(
         ?string $change = null,
         ?Asset $nextValue = null,
-        ?Asset $previousValue = null
+        ?Asset $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -78,6 +84,7 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     /**
      * <p>Update action for <code>addAsset</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -95,6 +102,7 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     }
 
     /**
+     *
      * @return null|Asset
      */
     public function getNextValue()
@@ -113,6 +121,7 @@ final class AddAssetChangeModel extends JsonObjectModel implements AddAssetChang
     }
 
     /**
+     *
      * @return null|Asset
      */
     public function getPreviousValue()

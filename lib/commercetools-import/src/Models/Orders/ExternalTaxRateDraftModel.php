@@ -21,31 +21,37 @@ use stdClass;
 final class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft
 {
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?float
      */
     protected $amount;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?SubRateCollection
      */
     protected $subRates;
 
     /**
+     *
      * @var ?bool
      */
     protected $includedInPrice;
@@ -71,6 +77,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -88,6 +95,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     *
      * @return null|float
      */
     public function getAmount()
@@ -105,6 +113,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCountry()
@@ -122,6 +131,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     *
      * @return null|string
      */
     public function getState()
@@ -139,6 +149,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -156,6 +167,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getIncludedInPrice()

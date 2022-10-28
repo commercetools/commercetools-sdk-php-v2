@@ -21,11 +21,13 @@ use stdClass;
 final class MyCartAddDiscountCodeActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $code;
 
     /**
+
      * @return null|string
      */
     public function getCode()

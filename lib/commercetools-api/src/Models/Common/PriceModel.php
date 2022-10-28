@@ -27,51 +27,67 @@ use stdClass;
 final class PriceModel extends JsonObjectModel implements Price
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $channel;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+     *
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
@@ -82,6 +98,7 @@ final class PriceModel extends JsonObjectModel implements Price
      */
     public function __construct(
         ?string $id = null,
+        ?string $key = null,
         ?TypedMoney $value = null,
         ?string $country = null,
         ?CustomerGroupReference $customerGroup = null,
@@ -93,6 +110,7 @@ final class PriceModel extends JsonObjectModel implements Price
         ?CustomFields $custom = null
     ) {
         $this->id = $id;
+        $this->key = $key;
         $this->value = $value;
         $this->country = $country;
         $this->customerGroup = $customerGroup;
@@ -106,6 +124,7 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      * <p>Unique identifier of this Price.</p>
+     *
      *
      * @return null|string
      */
@@ -124,7 +143,28 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
+     * <p>User-defined identifier of the Price. It is unique per <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
      * <p>Money value of this Price.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -146,6 +186,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Country for which this Price is valid.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -164,6 +205,7 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
+     *
      *
      * @return null|CustomerGroupReference
      */
@@ -185,6 +227,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -204,6 +247,7 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      * <p>Date and time from which this Price is valid.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -227,6 +271,7 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      * <p>Date and time until this Price is valid.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -253,6 +298,7 @@ final class PriceModel extends JsonObjectModel implements Price
      * If set, the API uses the DiscountedPrice value for the <a href="/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> has been applied and the fraction part of the DiscountedPrice <code>value</code> is 0.5, the <code>value</code> is rounded in favor of the customer with <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
      *
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -273,6 +319,7 @@ final class PriceModel extends JsonObjectModel implements Price
     /**
      * <p>Present if different Prices for certain <a href="ctp:api:type:LineItem">LineItem</a> quantities have been specified.</p>
      *
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -291,6 +338,7 @@ final class PriceModel extends JsonObjectModel implements Price
 
     /**
      * <p>Custom Fields defined for the Price.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -316,6 +364,14 @@ final class PriceModel extends JsonObjectModel implements Price
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     /**

@@ -23,16 +23,19 @@ use stdClass;
 final class DeliveryAddressDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $deliveryId;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $address;
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId()
@@ -41,6 +44,7 @@ final class DeliveryAddressDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Address
      */
     public function getAddress()

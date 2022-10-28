@@ -19,11 +19,13 @@ interface AssetSource extends JsonObject
     public const FIELD_CONTENT_TYPE = 'contentType';
 
     /**
+
      * @return null|string
      */
     public function getUri();
 
     /**
+
      * @return null|string
      */
     public function getKey();
@@ -31,11 +33,13 @@ interface AssetSource extends JsonObject
     /**
      * <p>The width and height of the Asset Source.</p>
      *
+
      * @return null|AssetDimensions
      */
     public function getDimensions();
 
     /**
+
      * @return null|string
      */
     public function getContentType();

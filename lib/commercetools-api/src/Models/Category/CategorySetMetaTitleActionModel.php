@@ -23,11 +23,13 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
 {
     public const DISCRIMINATOR_VALUE = 'setMetaTitle';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $metaTitle;
@@ -37,13 +39,15 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $metaTitle = null
+        ?LocalizedString $metaTitle = null,
+        ?string $action = null
     ) {
         $this->metaTitle = $metaTitle;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,6 +66,7 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
 
     /**
      * <p>Value to set.</p>
+     *
      *
      * @return null|LocalizedString
      */

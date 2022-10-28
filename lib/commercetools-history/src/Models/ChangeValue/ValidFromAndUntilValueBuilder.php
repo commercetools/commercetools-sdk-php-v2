@@ -21,16 +21,19 @@ use stdClass;
 final class ValidFromAndUntilValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $validFrom;
 
     /**
+
      * @var ?string
      */
     private $validUntil;
 
     /**
+
      * @return null|string
      */
     public function getValidFrom()
@@ -39,6 +42,7 @@ final class ValidFromAndUntilValueBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getValidUntil()

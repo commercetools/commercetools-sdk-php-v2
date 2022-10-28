@@ -23,21 +23,25 @@ use Commercetools\History\Models\ChangeValue\AttributeValueBuilder;
 final class SetAttributeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var null|AttributeValue|AttributeValueBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|AttributeValue|AttributeValueBuilder
      */
     private $nextValue;
@@ -45,6 +49,7 @@ final class SetAttributeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setAttribute</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -61,6 +67,7 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeValue
      */
     public function getPreviousValue()
@@ -69,6 +76,7 @@ final class SetAttributeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AttributeValue
      */
     public function getNextValue()

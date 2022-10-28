@@ -23,21 +23,25 @@ use Commercetools\History\Models\Common\TextLineItemBuilder;
 final class RemoveTextLineItemChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|TextLineItem|TextLineItemBuilder
      */
     private $previousValue;
 
     /**
+
      * @var null|TextLineItem|TextLineItemBuilder
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class RemoveTextLineItemChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItem
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class RemoveTextLineItemChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|TextLineItem
      */
     public function getNextValue()

@@ -20,11 +20,13 @@ use stdClass;
 final class MyCustomerUpdateModel extends JsonObjectModel implements MyCustomerUpdate
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?MyCustomerUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,9 @@ final class MyCustomerUpdateModel extends JsonObjectModel implements MyCustomerU
     }
 
     /**
+     * <p>Expected version of the Customer on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +64,9 @@ final class MyCustomerUpdateModel extends JsonObjectModel implements MyCustomerU
     }
 
     /**
+     * <p>Update actions to be performed on the Customer.</p>
+     *
+     *
      * @return null|MyCustomerUpdateActionCollection
      */
     public function getActions()

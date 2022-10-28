@@ -21,16 +21,19 @@ use stdClass;
 final class ReturnInfoDraftModel extends JsonObjectModel implements ReturnInfoDraft
 {
     /**
+     *
      * @var ?ReturnItemDraftCollection
      */
     protected $items;
 
     /**
+     *
      * @var ?string
      */
     protected $returnTrackingId;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $returnDate;
@@ -50,6 +53,7 @@ final class ReturnInfoDraftModel extends JsonObjectModel implements ReturnInfoDr
     }
 
     /**
+     *
      * @return null|ReturnItemDraftCollection
      */
     public function getItems()
@@ -69,6 +73,7 @@ final class ReturnInfoDraftModel extends JsonObjectModel implements ReturnInfoDr
     /**
      * <p>Identifies, which return tracking ID is connected to this particular return.</p>
      *
+     *
      * @return null|string
      */
     public function getReturnTrackingId()
@@ -86,6 +91,7 @@ final class ReturnInfoDraftModel extends JsonObjectModel implements ReturnInfoDr
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getReturnDate()

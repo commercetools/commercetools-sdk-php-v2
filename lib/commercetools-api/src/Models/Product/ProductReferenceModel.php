@@ -23,16 +23,19 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
 {
     public const DISCRIMINATOR_VALUE = 'product';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Product
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
      */
     public function __construct(
         ?string $id = null,
-        ?Product $obj = null
+        ?Product $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Product">Product</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -90,6 +96,7 @@ final class ProductReferenceModel extends JsonObjectModel implements ProductRefe
 
     /**
      * <p>Contains the representation of the expanded Product. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Products.</p>
+     *
      *
      * @return null|Product
      */

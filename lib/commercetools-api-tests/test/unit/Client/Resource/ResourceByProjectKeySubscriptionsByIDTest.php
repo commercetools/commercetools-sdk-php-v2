@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeySubscriptionsByIDHealth;
 use Commercetools\Base\JsonObject;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
@@ -44,7 +45,16 @@ class ResourceByProjectKeySubscriptionsByIDTest extends TestCase
         }
     }
 
-
+    /**
+     * @dataProvider getResources()
+     */
+    public function testResources(callable $builderFunction, string $class, array $expectedArgs)
+    {
+        $builder = new ApiRequestBuilder();
+        $resource = $builderFunction($builder);
+        $this->assertInstanceOf($class, $resource);
+        $this->assertEquals($expectedArgs, $resource->getArgs());
+    }
 
     /**
      * @dataProvider getRequestBuilderResponses()
@@ -179,6 +189,18 @@ class ResourceByProjectKeySubscriptionsByIDTest extends TestCase
     public function getResources()
     {
         return [
+            'ResourceByProjectKeySubscriptionsByIDHealth' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeySubscriptionsByIDHealth {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->subscriptions()
+                        ->withId("test_ID")
+                        ->withIdHealth();
+                },
+                ResourceByProjectKeySubscriptionsByIDHealth::class,
+                ['projectKey' => 'test_projectKey', 'ID' => 'test_ID'],
+                '/{projectKey}/subscriptions/{ID}/health'
+            ]
         ];
     }
 

@@ -21,16 +21,19 @@ use stdClass;
 final class ProjectNotConfiguredForLanguagesErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?array
      */
     private $languages;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -39,6 +42,7 @@ final class ProjectNotConfiguredForLanguagesErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getLanguages()

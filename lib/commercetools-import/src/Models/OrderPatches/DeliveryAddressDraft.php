@@ -18,11 +18,13 @@ interface DeliveryAddressDraft extends JsonObject
     public const FIELD_ADDRESS = 'address';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();

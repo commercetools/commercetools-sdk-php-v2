@@ -22,16 +22,19 @@ use stdClass;
 final class TaxPortionModel extends JsonObjectModel implements TaxPortion
 {
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?float
      */
     protected $rate;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $amount;
@@ -51,6 +54,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -68,6 +72,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     *
      * @return null|float
      */
     public function getRate()
@@ -85,6 +90,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
+     *
      * @return null|TypedMoney
      */
     public function getAmount()

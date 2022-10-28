@@ -20,6 +20,7 @@ interface TypedMoney extends Money
     /**
      * <p>MoneyType supports two different values, one for amounts in cent precision and another one for sub-cent amounts up to 20 fraction digits.</p>
      *
+
      * @return null|string
      */
     public function getType();
@@ -31,6 +32,7 @@ interface TypedMoney extends Money
      * <li>Greater than the default number of fraction digits for a currency in <a href="ctp:api:type:HighPrecisionMoney">HighPrecisionMoney</a>.</li>
      * </ul>
      *
+
      * @return null|int
      */
     public function getFractionDigits();

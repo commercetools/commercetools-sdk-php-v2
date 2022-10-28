@@ -22,13 +22,16 @@ use stdClass;
 final class CustomerSetDateOfBirthActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
 
     /**
-     * <p>If not defined, the date of birth is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()

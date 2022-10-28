@@ -25,8 +25,10 @@ interface CustomLineItemDraft extends JsonObject
     public const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -35,16 +37,19 @@ interface CustomLineItemDraft extends JsonObject
      * <p>The amount of a CustomLineItemin the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|Money
      */
     public function getMoney();
 
     /**
+
      * @return null|string
      */
     public function getSlug();
@@ -52,6 +57,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
@@ -59,6 +65,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
@@ -66,6 +73,7 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -73,9 +81,22 @@ interface CustomLineItemDraft extends JsonObject
     /**
      * <p>Container for custom line item specific address(es).</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode();
 
     /**
      * @param ?LocalizedString $name
@@ -116,4 +137,9 @@ interface CustomLineItemDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

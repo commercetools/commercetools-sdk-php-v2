@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\QuoteRequest;
 
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
 use Commercetools\Api\Models\Cart\CartResourceIdentifierBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -25,33 +27,46 @@ use stdClass;
 final class QuoteRequestDraftBuilder implements Builder
 {
     /**
+
      * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
      */
     private $cart;
 
     /**
+
      * @var ?int
      */
     private $cartVersion;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
-     * <p>Cart for which a Quote is requested. Anonymous Carts as well as Carts with <a href="/../api?projects/discount-codes">Discount Codes</a> are not supported.</p>
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
+
+    /**
+     * <p>Cart for which a Quote is requested.
+     * Anonymous Carts, Carts with <a href="ctp:api:type:DiscountCode">Discount Codes</a>, or Carts with a <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a> are not supported.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart()
@@ -62,6 +77,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>Current version of the referenced Cart.</p>
      *
+
      * @return null|int
      */
     public function getCartVersion()
@@ -72,6 +88,7 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the QuoteRequest.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -80,8 +97,9 @@ final class QuoteRequestDraftBuilder implements Builder
     }
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
      *
+
      * @return null|string
      */
     public function getComment()
@@ -92,11 +110,24 @@ final class QuoteRequestDraftBuilder implements Builder
     /**
      * <p>Custom Fields to be added to the Quote Request.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of this Quote Request.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -155,6 +186,17 @@ final class QuoteRequestDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCart() instead
      * @return $this
      */
@@ -176,6 +218,17 @@ final class QuoteRequestDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): QuoteRequestDraft
     {
         return new QuoteRequestDraftModel(
@@ -183,7 +236,8 @@ final class QuoteRequestDraftBuilder implements Builder
             $this->cartVersion,
             $this->key,
             $this->comment,
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state
         );
     }
 

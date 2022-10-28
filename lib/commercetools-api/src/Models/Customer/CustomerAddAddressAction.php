@@ -17,6 +17,9 @@ interface CustomerAddAddressAction extends CustomerUpdateAction
     public const FIELD_ADDRESS = 'address';
 
     /**
+     * <p>Value to append to the <code>addresses</code> array.</p>
+     *
+
      * @return null|BaseAddress
      */
     public function getAddress();

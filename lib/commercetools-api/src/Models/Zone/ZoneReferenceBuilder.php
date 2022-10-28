@@ -23,11 +23,13 @@ use stdClass;
 final class ZoneReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Zone|ZoneBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class ZoneReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class ZoneReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
      *
+
      * @return null|Zone
      */
     public function getObj()

@@ -21,28 +21,41 @@ interface ProductAddAssetAction extends ProductUpdateAction
     public const FIELD_POSITION = 'position';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>If <code>true</code>, only the staged <code>assets</code> are updated. If <code>false</code>, both the current and staged <code>assets</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>Value to append.</p>
+     *
+
      * @return null|AssetDraft
      */
     public function getAsset();
 
     /**
-     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>
+     * <p>Position in <code>assets</code> where the Asset should be put. When specified, the value must be between <code>0</code> and the total number of Assets minus <code>1</code>.</p>
      *
+
      * @return null|int
      */
     public function getPosition();

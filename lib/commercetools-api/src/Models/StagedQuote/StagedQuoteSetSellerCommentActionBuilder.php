@@ -21,6 +21,7 @@ use stdClass;
 final class StagedQuoteSetSellerCommentActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sellerComment;
@@ -28,6 +29,7 @@ final class StagedQuoteSetSellerCommentActionBuilder implements Builder
     /**
      * <p>If <code>sellerComment</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment()

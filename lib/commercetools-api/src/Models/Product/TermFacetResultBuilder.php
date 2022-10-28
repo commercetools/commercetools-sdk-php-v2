@@ -21,31 +21,37 @@ use stdClass;
 final class TermFacetResultBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $dataType;
 
     /**
+
      * @var ?int
      */
     private $missing;
 
     /**
+
      * @var ?int
      */
     private $total;
 
     /**
+
      * @var ?int
      */
     private $other;
 
     /**
+
      * @var ?FacetTermCollection
      */
     private $terms;
 
     /**
+
      * @return null|string
      */
     public function getDataType()
@@ -54,6 +60,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getMissing()
@@ -62,6 +69,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getTotal()
@@ -70,6 +78,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getOther()
@@ -78,6 +87,7 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
+
      * @return null|FacetTermCollection
      */
     public function getTerms()

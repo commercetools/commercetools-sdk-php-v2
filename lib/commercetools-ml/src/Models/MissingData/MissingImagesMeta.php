@@ -18,11 +18,13 @@ interface MissingImagesMeta extends JsonObject
     public const FIELD_THRESHOLD = 'threshold';
 
     /**
+     * @deprecated
      * @return null|MissingImagesProductLevel
      */
     public function getProductLevel();
 
     /**
+     * @deprecated
      * @return null|MissingImagesVariantLevel
      */
     public function getVariantLevel();
@@ -30,6 +32,7 @@ interface MissingImagesMeta extends JsonObject
     /**
      * <p>The minimum number of images a product variant must have. Anything below this value is considered a product variant with missing images.</p>
      *
+
      * @return null|int
      */
     public function getThreshold();

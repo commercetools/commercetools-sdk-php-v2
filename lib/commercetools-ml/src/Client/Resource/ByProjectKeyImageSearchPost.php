@@ -26,6 +26,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  *
  */

@@ -21,11 +21,13 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'addFieldDefinition';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?FieldDefinition
      */
     protected $fieldDefinition;
@@ -35,13 +37,15 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?FieldDefinition $fieldDefinition = null
+        ?FieldDefinition $fieldDefinition = null,
+        ?string $action = null
     ) {
         $this->fieldDefinition = $fieldDefinition;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
 
     /**
      * <p>Value to append to the array.</p>
+     *
      *
      * @return null|FieldDefinition
      */

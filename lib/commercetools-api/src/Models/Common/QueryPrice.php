@@ -31,6 +31,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Unique identifier of the given Price.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -38,6 +39,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Money value of the given Price.</p>
      *
+
      * @return null|Money
      */
     public function getValue();
@@ -45,6 +47,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Country for which the given Price is valid.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -52,6 +55,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which the given Price is valid.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
@@ -59,6 +63,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p><code>ProductDistribution</code> <a href="ctp:api:type:Channel">Channel</a> for which the given Price is valid.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel();
@@ -66,6 +71,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Date from which the given Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -73,6 +79,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Date until which the given Price is valid.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -80,6 +87,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p><a href="ctp:api:type:DiscountedPrice">DiscountedPrice</a> you specify for the given Price.</p>
      *
+
      * @return null|DiscountedPriceDraft
      */
     public function getDiscounted();
@@ -87,6 +95,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Custom Fields for the Price.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom();
@@ -94,6 +103,7 @@ interface QueryPrice extends JsonObject
     /**
      * <p>Price tier applied when the minimum quantity for the <a href="ctp:api:type:LineItem">LineItem</a> of a ProductVariant with the related Price is reached in a Cart.</p>
      *
+
      * @return null|PriceTierDraftCollection
      */
     public function getTiers();

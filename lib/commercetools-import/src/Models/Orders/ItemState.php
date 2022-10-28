@@ -18,6 +18,7 @@ interface ItemState extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
+
      * @return null|float
      */
     public function getQuantity();
@@ -25,6 +26,7 @@ interface ItemState extends JsonObject
     /**
      * <p>Maps to <code>ItemState.state</code>.</p>
      *
+
      * @return null|StateKeyReference
      */
     public function getState();

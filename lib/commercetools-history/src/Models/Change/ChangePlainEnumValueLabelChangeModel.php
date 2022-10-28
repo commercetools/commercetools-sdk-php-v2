@@ -22,31 +22,37 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
 
     public const DISCRIMINATOR_VALUE = 'ChangePlainEnumValueLabelChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?string
      */
     protected $valueKey;
 
     /**
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -60,17 +66,19 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
         ?string $attributeName = null,
         ?string $valueKey = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->attributeName = $attributeName;
         $this->valueKey = $valueKey;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -89,6 +97,7 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
 
     /**
      * <p>Update action for <code>changePlainEnumValueLabel</code> on types</p>
+     *
      *
      * @return null|string
      */
@@ -109,6 +118,7 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     /**
      * <p>The name of the attribute updated.</p>
      *
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -128,6 +138,7 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     /**
      * <p>Key of the values that was updated</p>
      *
+     *
      * @return null|string
      */
     public function getValueKey()
@@ -145,6 +156,7 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -162,6 +174,7 @@ final class ChangePlainEnumValueLabelChangeModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|string
      */
     public function getNextValue()

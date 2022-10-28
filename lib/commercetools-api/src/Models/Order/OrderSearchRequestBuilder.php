@@ -21,21 +21,25 @@ use stdClass;
 final class OrderSearchRequestBuilder implements Builder
 {
     /**
+
      * @var null|OrderSearchQuery|OrderSearchQueryBuilder
      */
     private $query;
 
     /**
-     * @var ?string
+
+     * @var ?OrderSearchSortingCollection
      */
     private $sort;
 
     /**
+
      * @var ?int
      */
     private $limit;
 
     /**
+
      * @var ?int
      */
     private $offset;
@@ -43,6 +47,7 @@ final class OrderSearchRequestBuilder implements Builder
     /**
      * <p>The Order search query.</p>
      *
+
      * @return null|OrderSearchQuery
      */
     public function getQuery()
@@ -53,7 +58,8 @@ final class OrderSearchRequestBuilder implements Builder
     /**
      * <p>Controls how results to your query are sorted. If not provided, the results are sorted by relevance in descending order.</p>
      *
-     * @return null|string
+
+     * @return null|OrderSearchSortingCollection
      */
     public function getSort()
     {
@@ -63,6 +69,7 @@ final class OrderSearchRequestBuilder implements Builder
     /**
      * <p>The maximum number of search results to be returned.</p>
      *
+
      * @return null|int
      */
     public function getLimit()
@@ -73,6 +80,7 @@ final class OrderSearchRequestBuilder implements Builder
     /**
      * <p>The number of search results to be skipped in the response for pagination.</p>
      *
+
      * @return null|int
      */
     public function getOffset()
@@ -92,10 +100,10 @@ final class OrderSearchRequestBuilder implements Builder
     }
 
     /**
-     * @param ?string $sort
+     * @param ?OrderSearchSortingCollection $sort
      * @return $this
      */
-    public function withSort(?string $sort)
+    public function withSort(?OrderSearchSortingCollection $sort)
     {
         $this->sort = $sort;
 

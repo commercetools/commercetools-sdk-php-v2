@@ -30,66 +30,81 @@ use stdClass;
 final class CategoryImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var null|CategoryKeyReference|CategoryKeyReferenceBuilder
      */
     private $parent;
 
     /**
+
      * @var ?string
      */
     private $orderHint;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var ?AssetCollection
      */
     private $assets;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+
      * @return null|string
      */
     public function getKey()
@@ -100,6 +115,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.name</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -111,6 +127,7 @@ final class CategoryImportBuilder implements Builder
      * <p>Maps to <code>Category.slug</code>.
      * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -121,6 +138,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.description</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -133,6 +151,7 @@ final class CategoryImportBuilder implements Builder
      * The Reference to the parent <a href="/../api/projects/categories#category">Category</a> with which the Category is associated.
      * If referenced Category does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Category is created.</p>
      *
+
      * @return null|CategoryKeyReference
      */
     public function getParent()
@@ -143,6 +162,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.orderHint</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderHint()
@@ -153,6 +173,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.externalId</code>.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -163,6 +184,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.metaTitle</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -173,6 +195,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.metaDescription</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -183,6 +206,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Category.metaKeywords</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -191,6 +215,7 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -201,6 +226,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * <p>The custom fields for this Category.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()

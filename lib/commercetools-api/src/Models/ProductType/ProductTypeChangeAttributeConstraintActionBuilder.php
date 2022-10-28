@@ -21,11 +21,13 @@ use stdClass;
 final class ProductTypeChangeAttributeConstraintActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $attributeName;
 
     /**
+
      * @var ?string
      */
     private $newValue;
@@ -33,6 +35,7 @@ final class ProductTypeChangeAttributeConstraintActionBuilder implements Builder
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName()
@@ -43,6 +46,7 @@ final class ProductTypeChangeAttributeConstraintActionBuilder implements Builder
     /**
      * <p><code>None</code></p>
      *
+
      * @return null|string
      */
     public function getNewValue()

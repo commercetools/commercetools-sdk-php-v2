@@ -23,6 +23,7 @@ use stdClass;
 final class CategorySetMetaDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
@@ -30,6 +31,7 @@ final class CategorySetMetaDescriptionActionBuilder implements Builder
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()

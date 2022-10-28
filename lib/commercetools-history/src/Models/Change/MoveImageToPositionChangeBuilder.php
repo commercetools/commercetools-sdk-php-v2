@@ -22,21 +22,25 @@ use Commercetools\History\Models\Common\ImageCollection;
 final class MoveImageToPositionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $catalogData;
 
     /**
+
      * @var ?ImageCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?ImageCollection
      */
     private $nextValue;
@@ -44,6 +48,7 @@ final class MoveImageToPositionChangeBuilder implements Builder
     /**
      * <p>Update actions for moving images</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -52,6 +57,7 @@ final class MoveImageToPositionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCatalogData()
@@ -60,6 +66,7 @@ final class MoveImageToPositionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getPreviousValue()
@@ -68,6 +75,7 @@ final class MoveImageToPositionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ImageCollection
      */
     public function getNextValue()

@@ -92,6 +92,124 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->businessUnits()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->businessUnits()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->businessUnits()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->cartDiscounts()->get()`
 
 null
@@ -388,7 +506,7 @@ $request = $builder
 
 Either the [scope](/../api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
-Creating a Category produces the [CategoryCreatedMessage](/../api/message-types#categorycreatedmessage).
+Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
 
 
 ### Example
@@ -782,9 +900,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->post(null)`
 
-Creates a customer. If an anonymous cart is passed in,
-then the cart is assigned to the created customer and the version number of the Cart will increase.
-If the ID of an anonymous session is given, all carts and orders will be assigned to the created customer.
+If the `anonymousCart` field is set on the [CustomerDraft](ctp:api:type:CustomerDraft), then the newly created Customer will be assigned to that [Cart](ctp:api:type:Cart).
+Similarly, if the `anonymousId` field is set, the Customer will be set on all [Carts](ctp:api:type:Cart), [Orders](ctp:api:type:Order), [ShoppingLists](ctp:api:type:ShoppingList) and [Payments](ctp:api:type:Payment) with the same `anonymousId`.
+Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
 
 ### Example
@@ -829,7 +947,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withId("ID")->delete()`
 
-null
+Deleting a Customer produces the [CustomerDeleted](ctp:api:type:CustomerDeletedMessage) Message.
+
 
 ### Example
 ```php
@@ -844,7 +963,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailConfirm()->post(null)`
 
-Verifies customer's email using a token.
+Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
+
 
 ### Example
 ```php
@@ -859,7 +979,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailToken()->post(null)`
 
-Create a Token for verifying the Customer's Email
+null
 
 ### Example
 ```php
@@ -919,7 +1039,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withKey("key")->delete()`
 
-null
+Deleting a Customer produces the [CustomerDeleted](ctp:api:type:CustomerDeletedMessage) Message.
+
 
 ### Example
 ```php
@@ -934,7 +1055,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->password()->post(null)`
 
-Change a customers password
+Changing the password produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=false`.
+
 
 ### Example
 ```php
@@ -949,7 +1071,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordReset()->post(null)`
 
-Set a new password using a token.
+Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
 
 ### Example
 ```php
@@ -964,9 +1087,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordToken()->post(null)`
 
-The token value is used to reset the password of the customer with the given email. The token is
-valid only for 10 minutes.
-
+null
 
 ### Example
 ```php
@@ -1199,6 +1320,26 @@ $request = $builder
                 ->graphql()
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->me()->customers()->post(null)`
+
+The My Business Unit endpoint does not support assigning existing Customers to a Business Unit.
+Use this endpoint to create a new Customer and associate it with the Business Unit.
+The user must have the `Admin` role within the Business Unit to perform this request.
+The new Customer is created with an empty set of roles.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")
+                ->me()
+                ->customers()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
 Queries carts in a specific Store.
@@ -1401,14 +1542,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->post(null)`
 
-Creates a customer in a specific Store.
-When using this endpoint, if omitted,
-the customer's stores field is set to the store specified in the path parameter.
-If an anonymous cart is passed in as when using this method,
-then the cart is assigned to the created customer and the version number of the Cart increases.
-If the ID of an anonymous session is given, all carts and orders will be assigned to the created customer and
-the store specified. If you pass in a cart with a store field specified,
-the store field must reference the same store specified in the {storeKey} path parameter.
+When using this endpoint, if omitted, the Customer `stores` field is set to the Store specified in the path parameter.
+
+If the `anonymousCart` field is set on the [CustomerDraft](ctp:api:type:CustomerDraft), then the newly created Customer will be assigned to that [Cart](ctp:api:type:Cart).
+Similarly, if the `anonymousId` field is set, the Customer will be set on all [Carts](ctp:api:type:Cart), [Orders](ctp:api:type:Order), [ShoppingLists](ctp:api:type:ShoppingList) and [Payments](ctp:api:type:Payment) with the same `anonymousId`.
+If a Cart with a `store` field specified, the `store` field must reference the same Store specified in the `{storeKey}` path parameter.
+Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
 
 ### Example
@@ -1424,10 +1563,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->get()`
 
-Returns a customer by its ID from a specific Store.
-It also considers customers that do not have the stores field.
-If the customer exists in the project but the stores field references different stores,
-this method returns a ResourceNotFound error.
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1444,9 +1580,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
-Updates a customer in the store specified by {storeKey}.
-If the customer exists in the project but the stores field references a different store,
-this method returns a ResourceNotFound error.
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1463,7 +1597,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->delete()`
 
-null
+Deleting a Customer produces the [CustomerDeleted](ctp:api:type:CustomerDeletedMessage) Message.
+
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1479,7 +1616,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailConfirm()->post(null)`
 
-Verifies customer's email using a token.
+The customer verifies the email using the token value.
+Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
+
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1495,7 +1636,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailToken()->post(null)`
 
-Create a Token for verifying the Customer's Email in store
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1511,7 +1653,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withEmailToken("emailToken")->get()`
 
-null
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1527,10 +1670,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->get()`
 
-Returns a customer by its Key from a specific Store.
-It also considers customers that do not have the stores field.
-If the customer exists in the project but the stores field references different stores,
-this method returns a ResourceNotFound error.
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1547,8 +1687,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->post(null)`
 
-If the customer exists in the project but the stores field references a different store,
-this method returns a ResourceNotFound error.
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1565,7 +1704,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->delete()`
 
-null
+Deleting a Customer produces the [CustomerDeleted](ctp:api:type:CustomerDeletedMessage) Message.
+
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1581,7 +1723,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->password()->post(null)`
 
-Change a customers password
+Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=false`.
+
 
 ### Example
 ```php
@@ -1597,7 +1740,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordReset()->post(null)`
 
-Set a new password using a token.
+Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1613,8 +1759,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordToken()->post(null)`
 
-The token value is used to reset the password of the customer with the given email. The token is
-valid only for 10 minutes.
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
 
 ### Example
@@ -1631,7 +1776,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-null
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
+
 
 ### Example
 ```php
@@ -1647,7 +1793,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->login()->post(null)`
 
-Authenticate Customer (Sign In) in store
+Authenticates a Customer associated with a Store. For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
+
+If the Customer exists in the Project but the `stores` field references a different Store, this method returns an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error.
+
 
 ### Example
 ```php
@@ -1677,7 +1826,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->post(null)`
 
-Update my customer in a store
+null
 
 ### Example
 ```php
@@ -1692,7 +1841,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->delete()`
 
-Delete my Customer in a store
+null
 
 ### Example
 ```php
@@ -1806,7 +1955,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->emailConfirm()->post(null)`
 
-null
+This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer-in-store).
+
 
 ### Example
 ```php
@@ -1822,7 +1972,15 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->login()->post(null)`
 
-null
+Retrieves the authenticated Customer (that matches the given email/password pair) if they are part of a specific [Store](ctp:api:type:Store).
+
+- If the Customer does not have a Cart, the most recently modified anonymous cart becomes the Customer's Cart.
+- If the Customer already has a Cart, the most recently modified anonymous cart is handled according to [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
+
+If a Cart is returned as part of [CustomerSignInResult](ctp:api:type:CustomerSignInResult), it has been [recalculated](/../api/projects/carts#recalculate) with up-to-date prices, taxes, discounts, and invalid line items removed.
+
+If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
+
 
 ### Example
 ```php
@@ -1887,7 +2045,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->post(null)`
 
-null
+Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=false`.
+
 
 ### Example
 ```php
@@ -1903,7 +2062,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->password()->reset()->post(null)`
 
-null
+This is the last step in the [password reset process of the authenticated Customer](/../api/projects/customers#password-reset-of-customer-in-store).
+
+Resetting a password produces the of the Customer [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
 
 ### Example
 ```php
@@ -2054,7 +2216,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->signup()->post(null)`
 
-null
+If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the Store specified in the path parameter.
+
+Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
+
 
 ### Example
 ```php
@@ -2429,7 +2594,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->post(null)`
 
-Produces the [InventoryEntryCreatedMessage](ctp:api:type:InventoryEntryCreatedMessage).
+Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
 
 ### Example
 ```php
@@ -2473,7 +2638,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withId("ID")->delete()`
 
-Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
+Produces the [InventoryEntryDeleted](ctp:api:type:InventoryEntryDeletedMessage) Message.
 
 ### Example
 ```php
@@ -2518,7 +2683,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inventory()->withKey("key")->delete()`
 
-Produces the [InventoryEntryDeletedMessage](ctp:api:type:InventoryEntryDeletedMessage).
+Produces the [InventoryEntryDeleted](ctp:api:type:InventoryEntryDeletedMessage) Message.
 
 ### Example
 ```php
@@ -2533,13 +2698,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->login()->post(null)`
 
-Authenticate Customer (Sign In). Retrieves the authenticated
-customer (a customer that matches the given email/password pair).
-If used with an access token for Anonymous Sessions,
-all orders and carts belonging to the anonymousId will be assigned to the newly created customer.
-If a cart is is returned as part of the CustomerSignInResult,
-it has been recalculated (It will have up-to-date prices, taxes and discounts,
-and invalid line items have been removed.).
+Authenticates a global Customer not associated with a Store.
+For more information, see [Global versus Store-specific Customers](/../api/customers-overview#global-versus-store-specific-customers).
+If the Customer is registered in a Store, use the [Authenticate (sign in) Customer in Store](/../api/projects/customers#authenticate-sign-in-customer-in-store) method.
+
+If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
 
 
 ### Example
@@ -2568,7 +2731,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->post(null)`
 
-Update my customer
+null
 
 ### Example
 ```php
@@ -2582,7 +2745,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->delete()`
 
-Delete my Customer
+null
 
 ### Example
 ```php
@@ -2608,6 +2771,132 @@ $request = $builder
                 ->me()
                 ->activeCart()
                 ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->businessUnits()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->businessUnits()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->me()->carts()->get()`
 
@@ -2753,7 +3042,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->emailConfirm()->post(null)`
 
-null
+This is the last step in the [email verification process of a Customer](/../api/projects/customers#email-verification-of-customer).
+
 
 ### Example
 ```php
@@ -2768,7 +3058,17 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->login()->post(null)`
 
-null
+Retrieves the authenticated customer (that matches the given email/password pair).
+
+If used with [an access token for an anonymous session](/../api/authorization#tokens-for-anonymous-sessions), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
+
+- If the Customer does not have a Cart yet, the most recently modified anonymous cart becomes the Customer's Cart.
+- If the Customer already has a Cart, the most recently modified anonymous cart is handled in accordance with [AnonymousCartSignInMode](ctp:api:type:AnonymousCartSignInMode).
+
+A Cart returned as part of the [CustomerSignInResult](ctp:api:type:CustomerSignInResult) is [recalculated](ctp:api:type:Recalculate) with up-to-date prices, taxes, discounts, and invalid line items removed.
+
+If an account with the given credentials is not found, an [InvalidCredentials](ctp:api:type:InvalidCredentialsError) error is returned.
+
 
 ### Example
 ```php
@@ -2829,7 +3129,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->password()->post(null)`
 
-null
+Changing the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=false`.
+
+If the current password does not match, an [InvalidCurrentPassword](ctp:api:type:InvalidCurrentPasswordError) error is returned.
+
 
 ### Example
 ```php
@@ -2844,7 +3147,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->password()->reset()->post(null)`
 
-null
+This is the last step in the [password reset process of a Customer](/../api/projects/customers#password-reset-of-customer).
+
+Resetting a password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
+
 
 ### Example
 ```php
@@ -3110,6 +3416,85 @@ $request = $builder
                 ->withKey("key")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->me()->quotes()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->quotes()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->me()->quotes()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->me()
+                ->quotes()
+                ->withKey("key")
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->me()->shoppingLists()->get()`
 
 null
@@ -3238,7 +3623,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->signup()->post(null)`
 
-null
+If used with an [access token for an anonymous session](/../api/authorization#tokens-for-anonymous-sessions), all Orders and Carts that belong to the `anonymousId` are assigned to the newly created Customer.
+
+Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
+
 
 ### Example
 ```php
@@ -3253,7 +3641,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3267,7 +3655,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->messages()->withId("ID")->get()`
 
-null
+Deprecated scope: `view_orders:{projectKey}`
 
 ### Example
 ```php
@@ -3560,6 +3948,21 @@ $request = $builder
                 ->orders()
                 ->withOrderNumber("orderNumber")
                 ->delete();
+```
+## `withProjectKey("projectKey")->orders()->orderQuote()->post(null)`
+
+Create an Order from a Quote
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->orders()
+                ->orderQuote()
+                ->post(null);
 ```
 ## `withProjectKey("projectKey")->orders()->search()->post(null)`
 
@@ -4106,6 +4509,20 @@ $request = $builder
                 ->productTypes()
                 ->get();
 ```
+## `withProjectKey("projectKey")->productTypes()->head()`
+
+Check if Product Types exist. Responds with a `200 OK` status if any Product Types match the Query Predicate, or `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTypes()
+                ->head();
+```
 ## `withProjectKey("projectKey")->productTypes()->post(null)`
 
 null
@@ -4134,6 +4551,21 @@ $request = $builder
                 ->productTypes()
                 ->withId("ID")
                 ->get();
+```
+## `withProjectKey("projectKey")->productTypes()->withId("ID")->head()`
+
+Checks if a Product Type with given `id` exists. Responds with a `200 OK` status if the `Product Type` exists or `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTypes()
+                ->withId("ID")
+                ->head();
 ```
 ## `withProjectKey("projectKey")->productTypes()->withId("ID")->post(null)`
 
@@ -4180,6 +4612,21 @@ $request = $builder
                 ->withKey("key")
                 ->get();
 ```
+## `withProjectKey("projectKey")->productTypes()->withKey("key")->head()`
+
+Checks if a Product Type with given `key` exists. Responds with a `200 OK` status if the `Product Type` exists or `404 Not Found` otherwise.
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->productTypes()
+                ->withKey("key")
+                ->head();
+```
 ## `withProjectKey("projectKey")->productTypes()->withKey("key")->post(null)`
 
 null
@@ -4212,10 +4659,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-You can use the query endpoint to get the full representations of products.
-REMARK: We suggest to use the performance optimized search endpoint which has a bunch functionalities,
-the query API lacks like sorting on custom attributes, etc.
-
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4229,7 +4673,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->head()`
 
-Checks if products exist.
+Check if Products exist. Responds with a `200 OK` status if any Products match the Query Predicate, or `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4243,9 +4687,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->post(null)`
 
-To create a new product, send a representation that is going to become the initial staged representation
-of the new product in the master catalog. If price selection query parameters are provided,
-the selected prices will be added to the response.
+To create a new Product, send a representation that is going to become the initial _staged_ representation of the new Product in the master catalog.
+If [Price Selection](ctp:api:type:ProductPriceSelection) query parameters are provided, selected Prices will be added to the response.
+Produces the [ProductCreated](/projects/messages#product-created) Message.
 
 
 ### Example
@@ -4260,7 +4704,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-Gets the full representation of a product by ID.
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4275,7 +4719,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->head()`
 
-Checks if product with given ID exists.
+Check if a Product exists with a specified `id`. Responds with a `200 OK` status if the Product exists or `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4290,7 +4734,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-null
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4305,7 +4749,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-null
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
 
 ### Example
 ```php
@@ -4320,7 +4765,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->images()->post(null)`
 
-Uploads a binary image file to a given product variant. The supported image formats are JPEG, PNG and GIF.
+Upload a JPEG, PNG and GIF file to a [ProductVariant](ctp:api:type:ProductVariant). The maximum file size of the image is 10MB. `variant` or `sku` is required to update a specific ProductVariant. The image is uploaded to the Master Variant if `variant` or `sku` are not included. Produces the [ProductImageAdded](/projects/messages#product-image-added) Message when the `Small` version of the image has been uploaded to the CDN.
 
 
 ### Example
@@ -4353,7 +4798,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-Gets the full representation of a product by Key.
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -4368,7 +4813,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->head()`
 
-Checks if product with given key exists.
+Check if a Product exists with a specified `key`. Responds with a `200 OK` status if the Product exists or `404 Not Found` otherwise.
 
 ### Example
 ```php
@@ -4398,7 +4843,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-null
+If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
+Produces the [ProductDeleted](/projects/messages#product-deleted) Message.
 
 ### Example
 ```php
@@ -5205,7 +5651,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->post(null)`
 
-Produces the [StandalonePriceCreatedMessage](ctp:api:type:StandalonePriceCreatedMessage).
+Produces the [StandalonePriceCreated](ctp:api:type:StandalonePriceCreatedMessage) Message.
 
 
 ### Example
@@ -5250,7 +5696,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withId("ID")->delete()`
 
-Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+Produces the [StandalonePriceDeleted](ctp:api:type:StandalonePriceDeletedMessage) Message.
 
 
 ### Example
@@ -5296,7 +5742,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->standalonePrices()->withKey("key")->delete()`
 
-Produces the [StandalonePriceDeletedMessage](ctp:api:type:StandalonePriceDeletedMessage).
+Produces the [StandalonePriceDeleted](ctp:api:type:StandalonePriceDeletedMessage) Message.
 
 
 ### Example
@@ -5562,11 +6008,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->post(null)`
 
-The creation of a Subscription is eventually consistent, it may take up to a minute before it becomes fully active.
-In order to test that the destination is correctly configured, a test message will be put into the queue.
-If the message could not be delivered, the subscription will not be created.
-The payload of the test message is a notification of type ResourceCreated for the resourceTypeId subscription.
-Currently, a maximum of 25 subscriptions can be created per project.
+A test message is sent to ensure the correct configuration of the Destination. If the message cannot be delivered, the Subscription will not be created. The payload of the test message is a notification of type [ResourceCreated](/../api/projects/subscriptions#resourcecreateddeliverypayload) for the `resourceTypeId` `subscription`.
 
 
 ### Example
@@ -5581,7 +6023,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->get()`
 
-Retrieves the representation of a subscription by its id.
+null
 
 ### Example
 ```php
@@ -5624,9 +6066,26 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->subscriptions()->withId("ID")->withIdHealth()->get()`
+
+This endpoint can be polled by a monitoring or alerting system that checks the health of your Subscriptions. To ease integration with such systems this endpoint does not require [Authorization](/../api/authorization).
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->subscriptions()
+                ->withId("ID")
+                ->withIdHealth()
+                ->get();
+```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->get()`
 
-Retrieves the representation of a subscription by its key.
+null
 
 ### Example
 ```php

@@ -21,26 +21,31 @@ use stdClass;
 final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $conflictingProductTypeId;
 
     /**
+
      * @var ?string
      */
     private $conflictingProductTypeName;
 
     /**
+
      * @var ?string
      */
     private $conflictingAttributeName;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -49,6 +54,7 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingProductTypeId()
@@ -57,6 +63,7 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingProductTypeName()
@@ -65,6 +72,7 @@ final class AttributeDefinitionAlreadyExistsErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getConflictingAttributeName()

@@ -23,13 +23,15 @@ use stdClass;
 final class ProductSelectionRemoveProductActionBuilder implements Builder
 {
     /**
+
      * @var null|ProductResourceIdentifier|ProductResourceIdentifierBuilder
      */
     private $product;
 
     /**
-     * <p>ResourceIdentifier to Product</p>
+     * <p>ResourceIdentifier of the Product</p>
      *
+
      * @return null|ProductResourceIdentifier
      */
     public function getProduct()

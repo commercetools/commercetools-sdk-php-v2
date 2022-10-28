@@ -22,11 +22,13 @@ final class ChangeValueRelativeChangeValueModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'relative';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?int
      */
     protected $permyriad;
@@ -36,13 +38,15 @@ final class ChangeValueRelativeChangeValueModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?int $permyriad = null
+        ?int $permyriad = null,
+        ?string $type = null
     ) {
         $this->permyriad = $permyriad;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,7 @@ final class ChangeValueRelativeChangeValueModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|int
      */
     public function getPermyriad()

@@ -21,36 +21,43 @@ use stdClass;
 final class TextLineItemBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $addedAt;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $quantity;
 
     /**
+
      * @return null|string
      */
     public function getAddedAt()
@@ -59,6 +66,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getCustom()
@@ -67,6 +75,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -75,6 +84,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -83,6 +93,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -91,6 +102,7 @@ final class TextLineItemBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getQuantity()

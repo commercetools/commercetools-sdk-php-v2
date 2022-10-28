@@ -23,16 +23,19 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
 {
     public const DISCRIMINATOR_VALUE = 'zone';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Zone
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
      */
     public function __construct(
         ?string $id = null,
-        ?Zone $obj = null
+        ?Zone $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -90,6 +96,7 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
 
     /**
      * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
+     *
      *
      * @return null|Zone
      */

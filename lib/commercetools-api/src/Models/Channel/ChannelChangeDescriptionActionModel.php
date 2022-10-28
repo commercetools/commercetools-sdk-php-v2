@@ -23,11 +23,13 @@ final class ChannelChangeDescriptionActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'changeDescription';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $description;
@@ -37,13 +39,15 @@ final class ChannelChangeDescriptionActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $description = null
+        ?LocalizedString $description = null,
+        ?string $action = null
     ) {
         $this->description = $description;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,6 +66,7 @@ final class ChannelChangeDescriptionActionModel extends JsonObjectModel implemen
 
     /**
      * <p>New value to set. Must not be empty.</p>
+     *
      *
      * @return null|LocalizedString
      */

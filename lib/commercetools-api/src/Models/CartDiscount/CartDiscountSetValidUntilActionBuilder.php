@@ -22,6 +22,7 @@ use stdClass;
 final class CartDiscountSetValidUntilActionBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validUntil;
@@ -30,6 +31,7 @@ final class CartDiscountSetValidUntilActionBuilder implements Builder
      * <p>Value to set.
      * If empty, any existing value will be removed.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

@@ -19,6 +19,7 @@ interface DuplicateFieldError extends ErrorObject
     /**
      * <p>The name of the field.</p>
      *
+
      * @return null|string
      */
     public function getField();
@@ -26,6 +27,7 @@ interface DuplicateFieldError extends ErrorObject
     /**
      * <p>The offending duplicate value.</p>
      *
+
      * @return null|mixed
      */
     public function getDuplicateValue();

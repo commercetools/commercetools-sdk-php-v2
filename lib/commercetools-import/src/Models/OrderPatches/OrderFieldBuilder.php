@@ -21,46 +21,55 @@ use stdClass;
 final class OrderFieldBuilder implements Builder
 {
     /**
+
      * @var null|ReturnInfo|ReturnInfoBuilder
      */
     private $addReturnInfo;
 
     /**
+
      * @var null|DeliveryParcel|DeliveryParcelBuilder
      */
     private $addParcelToDelivery;
 
     /**
+
      * @var ?DeliveryDraftCollection
      */
     private $addDeliveries;
 
     /**
+
      * @var null|RemoveDeliveryDraft|RemoveDeliveryDraftBuilder
      */
     private $removeDelivery;
 
     /**
+
      * @var null|RemoveParcelFromDeliveryDraft|RemoveParcelFromDeliveryDraftBuilder
      */
     private $removeParcelFromDelivery;
 
     /**
+
      * @var null|DeliveryAddressDraft|DeliveryAddressDraftBuilder
      */
     private $setDeliveryAddress;
 
     /**
+
      * @var null|ParcelMeasurementDraft|ParcelMeasurementDraftBuilder
      */
     private $setParcelMeasurements;
 
     /**
+
      * @var null|ParcelTrackingData|ParcelTrackingDataBuilder
      */
     private $setParcelTrackingData;
 
     /**
+
      * @var ?ParcelItemsCollection
      */
     private $setParcelItems;
@@ -68,6 +77,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.returnInfo</code></p>
      *
+
      * @return null|ReturnInfo
      */
     public function getAddReturnInfo()
@@ -78,6 +88,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.delivery</code></p>
      *
+
      * @return null|DeliveryParcel
      */
     public function getAddParcelToDelivery()
@@ -88,6 +99,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.delivery</code></p>
      *
+
      * @return null|DeliveryDraftCollection
      */
     public function getAddDeliveries()
@@ -98,6 +110,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.removeDelivery</code></p>
      *
+
      * @return null|RemoveDeliveryDraft
      */
     public function getRemoveDelivery()
@@ -108,6 +121,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.removeParcelFromDelivery</code></p>
      *
+
      * @return null|RemoveParcelFromDeliveryDraft
      */
     public function getRemoveParcelFromDelivery()
@@ -118,6 +132,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.addressDraft</code></p>
      *
+
      * @return null|DeliveryAddressDraft
      */
     public function getSetDeliveryAddress()
@@ -128,6 +143,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.parcelMeasurements</code></p>
      *
+
      * @return null|ParcelMeasurementDraft
      */
     public function getSetParcelMeasurements()
@@ -138,6 +154,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.parcelTrackingData</code></p>
      *
+
      * @return null|ParcelTrackingData
      */
     public function getSetParcelTrackingData()
@@ -148,6 +165,7 @@ final class OrderFieldBuilder implements Builder
     /**
      * <p>Maps to <code>Order.parcelItems</code></p>
      *
+
      * @return null|ParcelItemsCollection
      */
     public function getSetParcelItems()

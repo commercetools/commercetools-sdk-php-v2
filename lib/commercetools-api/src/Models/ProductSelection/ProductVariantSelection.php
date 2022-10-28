@@ -19,6 +19,7 @@ interface ProductVariantSelection extends JsonObject
     /**
      * <p>Determines whether the SKUs are to be included in, or excluded from, the Product Selection.</p>
      *
+
      * @return null|string
      */
     public function getType();

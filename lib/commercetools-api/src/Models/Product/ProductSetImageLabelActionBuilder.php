@@ -21,31 +21,39 @@ use stdClass;
 final class ProductSetImageLabelActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $imageUrl;
 
     /**
+
      * @var ?string
      */
     private $label;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -54,6 +62,9 @@ final class ProductSetImageLabelActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -62,8 +73,9 @@ final class ProductSetImageLabelActionBuilder implements Builder
     }
 
     /**
-     * <p>The URL of the image.</p>
+     * <p>The URL of the image to set the label.</p>
      *
+
      * @return null|string
      */
     public function getImageUrl()
@@ -72,9 +84,9 @@ final class ProductSetImageLabelActionBuilder implements Builder
     }
 
     /**
-     * <p>The new image label.
-     * If left blank or set to null, the label is removed.</p>
+     * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|string
      */
     public function getLabel()
@@ -83,6 +95,9 @@ final class ProductSetImageLabelActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged image is updated. If <code>false</code>, both the current and staged image is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

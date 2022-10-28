@@ -20,6 +20,7 @@ use stdClass;
 final class ItemShippingDetailsDraftModel extends JsonObjectModel implements ItemShippingDetailsDraft
 {
     /**
+     *
      * @var ?ItemShippingTargetCollection
      */
     protected $targets;
@@ -36,6 +37,7 @@ final class ItemShippingDetailsDraftModel extends JsonObjectModel implements Ite
 
     /**
      * <p>Maps to <code>ItemShippingDetailsDraft.targets</code>.</p>
+     *
      *
      * @return null|ItemShippingTargetCollection
      */

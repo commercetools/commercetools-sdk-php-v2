@@ -22,31 +22,37 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
 
     public const DISCRIMINATOR_VALUE = 'ChangeInputHintChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $fieldName;
 
     /**
+     *
      * @var ?string
      */
     protected $attributeName;
 
     /**
+     *
      * @var ?string
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?string
      */
     protected $previousValue;
@@ -60,17 +66,19 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
         ?string $fieldName = null,
         ?string $attributeName = null,
         ?string $nextValue = null,
-        ?string $previousValue = null
+        ?string $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->fieldName = $fieldName;
         $this->attributeName = $attributeName;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -89,6 +97,7 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
 
     /**
      * <p>Update action for <code>changeInputHint</code> on product types and types</p>
+     *
      *
      * @return null|string
      */
@@ -109,6 +118,7 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
     /**
      * <p>The name of the field definition updated.</p>
      *
+     *
      * @return null|string
      */
     public function getFieldName()
@@ -128,6 +138,7 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
     /**
      * <p>The name of the attribute updated.</p>
      *
+     *
      * @return null|string
      */
     public function getAttributeName()
@@ -145,6 +156,7 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     *
      * @return null|string
      */
     public function getNextValue()
@@ -162,6 +174,7 @@ final class ChangeInputHintChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPreviousValue()

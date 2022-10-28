@@ -21,6 +21,7 @@ use stdClass;
 final class AttributeLocalizedEnumTypeBuilder implements Builder
 {
     /**
+
      * @var ?AttributeLocalizedEnumValueCollection
      */
     private $values;
@@ -28,6 +29,7 @@ final class AttributeLocalizedEnumTypeBuilder implements Builder
     /**
      * <p>Available values that can be assigned to Products.</p>
      *
+
      * @return null|AttributeLocalizedEnumValueCollection
      */
     public function getValues()

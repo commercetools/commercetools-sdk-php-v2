@@ -16,6 +16,7 @@ interface OrderEditSetCommentAction extends OrderEditUpdateAction
     public const FIELD_COMMENT = 'comment';
 
     /**
+
      * @return null|string
      */
     public function getComment();

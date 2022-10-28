@@ -18,16 +18,19 @@ interface GraphQLError extends JsonObject
     public const FIELD_PATH = 'path';
 
     /**
+
      * @return null|string
      */
     public function getMessage();
 
     /**
+
      * @return null|GraphQLErrorLocationCollection
      */
     public function getLocations();
 
     /**
+
      * @return null|array
      */
     public function getPath();

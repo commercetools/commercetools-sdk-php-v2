@@ -23,36 +23,43 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
 {
     public const DISCRIMINATOR_VALUE = 'ProductPriceExternalDiscountSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $variantKey;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -67,7 +74,8 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
         ?string $sku = null,
         ?string $priceId = null,
         ?DiscountedPrice $discounted = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $type = null
     ) {
         $this->variantId = $variantId;
         $this->variantKey = $variantKey;
@@ -75,10 +83,11 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
         $this->priceId = $priceId;
         $this->discounted = $discounted;
         $this->staged = $staged;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -96,6 +105,9 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which the Discount was set.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -113,6 +125,9 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>Key of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which the Discount was set.</p>
+     *
+     *
      * @return null|string
      */
     public function getVariantKey()
@@ -130,6 +145,9 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which Discount was set.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -147,6 +165,9 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Embedded Price</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -164,6 +185,9 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>Discounted Price for the <a href="ctp:api:type:ProductVariant">Product Variant</a> for which Discount was set.</p>
+     *
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -182,6 +206,9 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">Product Projection</a>.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

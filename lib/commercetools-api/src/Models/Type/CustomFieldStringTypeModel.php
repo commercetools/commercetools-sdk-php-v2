@@ -21,6 +21,7 @@ final class CustomFieldStringTypeModel extends JsonObjectModel implements Custom
 {
     public const DISCRIMINATOR_VALUE = 'String';
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -30,11 +31,13 @@ final class CustomFieldStringTypeModel extends JsonObjectModel implements Custom
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $name = null
     ) {
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()

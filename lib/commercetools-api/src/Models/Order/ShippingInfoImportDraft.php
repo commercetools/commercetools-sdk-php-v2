@@ -29,11 +29,13 @@ interface ShippingInfoImportDraft extends JsonObject
     public const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName();
 
     /**
+
      * @return null|Money
      */
     public function getPrice();
@@ -41,16 +43,19 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>The shipping rate used to determine the price.</p>
      *
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate();
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
@@ -58,6 +63,7 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>Not set if custom shipping method is used.</p>
      *
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
@@ -65,11 +71,13 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>Deliveries are compilations of information on how the articles are being delivered to the customers.</p>
      *
-     * @return null|DeliveryCollection
+
+     * @return null|DeliveryDraftCollection
      */
     public function getDeliveries();
 
     /**
+
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice();
@@ -77,6 +85,7 @@ interface ShippingInfoImportDraft extends JsonObject
     /**
      * <p>Indicates whether the ShippingMethod referenced is allowed for the cart or not.</p>
      *
+
      * @return null|string
      */
     public function getShippingMethodState();
@@ -112,9 +121,9 @@ interface ShippingInfoImportDraft extends JsonObject
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
 
     /**
-     * @param ?DeliveryCollection $deliveries
+     * @param ?DeliveryDraftCollection $deliveries
      */
-    public function setDeliveries(?DeliveryCollection $deliveries): void;
+    public function setDeliveries(?DeliveryDraftCollection $deliveries): void;
 
     /**
      * @param ?DiscountedLineItemPriceDraft $discountedPrice

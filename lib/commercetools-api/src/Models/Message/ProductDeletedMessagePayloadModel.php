@@ -23,16 +23,19 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'ProductDeleted';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?array
      */
     protected $removedImageUrls;
 
     /**
+     *
      * @var ?ProductProjection
      */
     protected $currentProjection;
@@ -43,14 +46,16 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
      */
     public function __construct(
         ?array $removedImageUrls = null,
-        ?ProductProjection $currentProjection = null
+        ?ProductProjection $currentProjection = null,
+        ?string $type = null
     ) {
         $this->removedImageUrls = $removedImageUrls;
         $this->currentProjection = $currentProjection;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,6 +73,9 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>List of image URLs that were removed during the <a href="ctp:api:type:Product">Delete Product</a> request.</p>
+     *
+     *
      * @return null|array
      */
     public function getRemovedImageUrls()
@@ -85,6 +93,9 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the deleted <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+     *
      * @return null|ProductProjection
      */
     public function getCurrentProjection()

@@ -24,16 +24,19 @@ use stdClass;
 final class SyncInfoBuilder implements Builder
 {
     /**
+
      * @var null|ChannelReference|ChannelReferenceBuilder
      */
     private $channel;
 
     /**
+
      * @var ?string
      */
     private $externalId;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $syncedAt;
@@ -41,6 +44,7 @@ final class SyncInfoBuilder implements Builder
     /**
      * <p>Connection to a particular synchronization destination.</p>
      *
+
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -51,6 +55,7 @@ final class SyncInfoBuilder implements Builder
     /**
      * <p>Can be used to reference an external order instance, file etc.</p>
      *
+
      * @return null|string
      */
     public function getExternalId()
@@ -59,6 +64,7 @@ final class SyncInfoBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getSyncedAt()

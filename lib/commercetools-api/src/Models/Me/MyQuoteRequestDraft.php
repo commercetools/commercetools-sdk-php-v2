@@ -19,8 +19,9 @@ interface MyQuoteRequestDraft extends JsonObject
     public const FIELD_COMMENT = 'comment';
 
     /**
-     * <p>ResourceIdentifier to the Cart from which this quote request is created.</p>
+     * <p>ResourceIdentifier of the Cart from which the Quote Request is created.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart();
@@ -28,13 +29,15 @@ interface MyQuoteRequestDraft extends JsonObject
     /**
      * <p>Current version of the Cart.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
      *
+
      * @return null|string
      */
     public function getComment();

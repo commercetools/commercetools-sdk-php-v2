@@ -19,16 +19,19 @@ interface ProductVariantChannelAvailability extends JsonObject
     public const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';
 
     /**
+
      * @return null|bool
      */
     public function getIsOnStock();
 
     /**
+
      * @return null|int
      */
     public function getRestockableInDays();
 
     /**
+
      * @return null|int
      */
     public function getAvailableQuantity();

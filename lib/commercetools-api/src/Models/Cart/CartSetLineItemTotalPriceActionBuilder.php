@@ -21,16 +21,19 @@ use stdClass;
 final class CartSetLineItemTotalPriceActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lineItemId;
 
     /**
+
      * @var null|ExternalLineItemTotalPrice|ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
 
     /**
+
      * @return null|string
      */
     public function getLineItemId()
@@ -39,6 +42,7 @@ final class CartSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice()

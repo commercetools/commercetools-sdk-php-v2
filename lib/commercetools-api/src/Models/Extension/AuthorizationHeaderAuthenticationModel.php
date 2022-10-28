@@ -21,11 +21,13 @@ final class AuthorizationHeaderAuthenticationModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'AuthorizationHeader';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $headerValue;
@@ -35,13 +37,15 @@ final class AuthorizationHeaderAuthenticationModel extends JsonObjectModel imple
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $headerValue = null
+        ?string $headerValue = null,
+        ?string $type = null
     ) {
         $this->headerValue = $headerValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,7 @@ final class AuthorizationHeaderAuthenticationModel extends JsonObjectModel imple
 
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      *
      * @return null|string
      */

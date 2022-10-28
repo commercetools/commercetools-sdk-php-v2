@@ -23,16 +23,19 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setMetaDescription';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -43,14 +46,16 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?LocalizedString $metaDescription = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->metaDescription = $metaDescription;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,9 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -86,6 +94,9 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>metaDescription</code> is updated. If <code>false</code>, both the current and staged <code>metaDescription</code> are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

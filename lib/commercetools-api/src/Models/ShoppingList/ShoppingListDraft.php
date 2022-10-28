@@ -32,11 +32,13 @@ interface ShoppingListDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();
@@ -44,11 +46,13 @@ interface ShoppingListDraft extends JsonObject
     /**
      * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getDescription();
@@ -56,16 +60,19 @@ interface ShoppingListDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the ShoppingList.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -75,11 +82,13 @@ interface ShoppingListDraft extends JsonObject
      * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
      * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
+
      * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems();
@@ -87,11 +96,13 @@ interface ShoppingListDraft extends JsonObject
     /**
      * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore();

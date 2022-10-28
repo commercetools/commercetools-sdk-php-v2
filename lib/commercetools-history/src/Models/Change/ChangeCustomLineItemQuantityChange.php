@@ -21,6 +21,7 @@ interface ChangeCustomLineItemQuantityChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface ChangeCustomLineItemQuantityChange extends Change
     /**
      * <p>Update action for <code>changeCustomLineItemQuantity</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getCustomLineItem();
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getNextValue();
 
     /**
+
      * @return null|int
      */
     public function getPreviousValue();

@@ -23,11 +23,13 @@ use stdClass;
 final class StagedOrderChangeOrderStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @return null|string
      */
     public function getOrderState()

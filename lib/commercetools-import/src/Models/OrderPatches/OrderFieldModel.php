@@ -20,46 +20,55 @@ use stdClass;
 final class OrderFieldModel extends JsonObjectModel implements OrderField
 {
     /**
+     *
      * @var ?ReturnInfo
      */
     protected $addReturnInfo;
 
     /**
+     *
      * @var ?DeliveryParcel
      */
     protected $addParcelToDelivery;
 
     /**
+     *
      * @var ?DeliveryDraftCollection
      */
     protected $addDeliveries;
 
     /**
+     *
      * @var ?RemoveDeliveryDraft
      */
     protected $removeDelivery;
 
     /**
+     *
      * @var ?RemoveParcelFromDeliveryDraft
      */
     protected $removeParcelFromDelivery;
 
     /**
+     *
      * @var ?DeliveryAddressDraft
      */
     protected $setDeliveryAddress;
 
     /**
+     *
      * @var ?ParcelMeasurementDraft
      */
     protected $setParcelMeasurements;
 
     /**
+     *
      * @var ?ParcelTrackingData
      */
     protected $setParcelTrackingData;
 
     /**
+     *
      * @var ?ParcelItemsCollection
      */
     protected $setParcelItems;
@@ -93,6 +102,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
     /**
      * <p>Maps to <code>Order.returnInfo</code></p>
      *
+     *
      * @return null|ReturnInfo
      */
     public function getAddReturnInfo()
@@ -112,6 +122,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
 
     /**
      * <p>Maps to <code>Order.delivery</code></p>
+     *
      *
      * @return null|DeliveryParcel
      */
@@ -133,6 +144,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
     /**
      * <p>Maps to <code>Order.delivery</code></p>
      *
+     *
      * @return null|DeliveryDraftCollection
      */
     public function getAddDeliveries()
@@ -151,6 +163,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
 
     /**
      * <p>Maps to <code>Order.removeDelivery</code></p>
+     *
      *
      * @return null|RemoveDeliveryDraft
      */
@@ -172,6 +185,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
     /**
      * <p>Maps to <code>Order.removeParcelFromDelivery</code></p>
      *
+     *
      * @return null|RemoveParcelFromDeliveryDraft
      */
     public function getRemoveParcelFromDelivery()
@@ -191,6 +205,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
 
     /**
      * <p>Maps to <code>Order.addressDraft</code></p>
+     *
      *
      * @return null|DeliveryAddressDraft
      */
@@ -212,6 +227,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
     /**
      * <p>Maps to <code>Order.parcelMeasurements</code></p>
      *
+     *
      * @return null|ParcelMeasurementDraft
      */
     public function getSetParcelMeasurements()
@@ -232,6 +248,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
     /**
      * <p>Maps to <code>Order.parcelTrackingData</code></p>
      *
+     *
      * @return null|ParcelTrackingData
      */
     public function getSetParcelTrackingData()
@@ -251,6 +268,7 @@ final class OrderFieldModel extends JsonObjectModel implements OrderField
 
     /**
      * <p>Maps to <code>Order.parcelItems</code></p>
+     *
      *
      * @return null|ParcelItemsCollection
      */

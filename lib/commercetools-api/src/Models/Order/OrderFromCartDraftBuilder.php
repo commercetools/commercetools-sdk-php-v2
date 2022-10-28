@@ -27,46 +27,55 @@ use stdClass;
 final class OrderFromCartDraftBuilder implements Builder
 {
     /**
+     * @deprecated
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|CartResourceIdentifier|CartResourceIdentifierBuilder
      */
     private $cart;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
@@ -74,6 +83,7 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * <p>Unique identifier of the Cart from which you can create an Order.</p>
      *
+     * @deprecated
      * @return null|string
      */
     public function getId()
@@ -82,8 +92,9 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * <p>ResourceIdentifier to the Cart from which this order is created.</p>
+     * <p>ResourceIdentifier of the Cart from which this order is created.</p>
      *
+
      * @return null|CartResourceIdentifier
      */
     public function getCart()
@@ -92,6 +103,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -106,6 +118,7 @@ final class OrderFromCartDraftBuilder implements Builder
      * Once it's set it cannot be changed.
      * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -114,6 +127,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -122,6 +136,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -132,6 +147,7 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * <p>Order will be created with <code>Open</code> status by default.</p>
      *
+
      * @return null|string
      */
     public function getOrderState()
@@ -140,6 +156,7 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -152,6 +169,7 @@ final class OrderFromCartDraftBuilder implements Builder
      * If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> and added to the Order.
      * If empty, the Custom Fields on the referenced <a href="/../api/projects/carts#cart">Cart</a> are added to the Order automatically.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()

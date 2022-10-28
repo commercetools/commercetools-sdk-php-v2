@@ -21,11 +21,13 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
 {
     public const DISCRIMINATOR_VALUE = 'Reference';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $referenceTypeId;
@@ -35,13 +37,15 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $referenceTypeId = null
+        ?string $referenceTypeId = null,
+        ?string $name = null
     ) {
         $this->referenceTypeId = $referenceTypeId;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -60,6 +64,7 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
 
     /**
      * <p>Resource type the Custom Field can reference.</p>
+     *
      *
      * @return null|string
      */

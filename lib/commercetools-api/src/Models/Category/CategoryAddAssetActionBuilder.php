@@ -23,11 +23,13 @@ use stdClass;
 final class CategoryAddAssetActionBuilder implements Builder
 {
     /**
+
      * @var null|AssetDraft|AssetDraftBuilder
      */
     private $asset;
 
     /**
+
      * @var ?int
      */
     private $position;
@@ -35,6 +37,7 @@ final class CategoryAddAssetActionBuilder implements Builder
     /**
      * <p>Value to append.</p>
      *
+
      * @return null|AssetDraft
      */
     public function getAsset()
@@ -45,6 +48,7 @@ final class CategoryAddAssetActionBuilder implements Builder
     /**
      * <p>Position in the array at which the Asset should be put. When specified, the value must be between <code>0</code> and the total number of Assets minus <code>1</code>.</p>
      *
+
      * @return null|int
      */
     public function getPosition()

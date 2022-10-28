@@ -23,16 +23,19 @@ use stdClass;
 final class EditPreviewFailedErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var null|OrderEditPreviewFailure|OrderEditPreviewFailureBuilder
      */
     private $result;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -41,6 +44,7 @@ final class EditPreviewFailedErrorBuilder implements Builder
     }
 
     /**
+
      * @return null|OrderEditPreviewFailure
      */
     public function getResult()

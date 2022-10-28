@@ -21,6 +21,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $type;
@@ -30,6 +31,29 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
      * @psalm-suppress InvalidPropertyAssignmentValue
      */
     private static $discriminatorClasses = [
+       'BusinessUnitAddressAdded' => BusinessUnitAddressAddedMessagePayloadModel::class,
+       'BusinessUnitAddressChanged' => BusinessUnitAddressChangedMessagePayloadModel::class,
+       'BusinessUnitAddressRemoved' => BusinessUnitAddressRemovedMessagePayloadModel::class,
+       'BusinessUnitAssociateAdded' => BusinessUnitAssociateAddedMessagePayloadModel::class,
+       'BusinessUnitAssociateChanged' => BusinessUnitAssociateChangedMessagePayloadModel::class,
+       'BusinessUnitAssociateRemoved' => BusinessUnitAssociateRemovedMessagePayloadModel::class,
+       'BusinessUnitAssociatesSet' => BusinessUnitAssociatesSetMessagePayloadModel::class,
+       'BusinessUnitBillingAddressAdded' => BusinessUnitBillingAddressAddedMessagePayloadModel::class,
+       'BusinessUnitBillingAddressRemoved' => BusinessUnitBillingAddressRemovedMessagePayloadModel::class,
+       'BusinessUnitContactEmailSet' => BusinessUnitContactEmailSetMessagePayloadModel::class,
+       'BusinessUnitCreated' => BusinessUnitCreatedMessagePayloadModel::class,
+       'BusinessUnitDefaultBillingAddressSet' => BusinessUnitDefaultBillingAddressSetMessagePayloadModel::class,
+       'BusinessUnitDefaultShippingAddressSet' => BusinessUnitDefaultShippingAddressSetMessagePayloadModel::class,
+       'BusinessUnitDeleted' => BusinessUnitDeletedMessagePayloadModel::class,
+       'BusinessUnitNameChanged' => BusinessUnitNameChangedMessagePayloadModel::class,
+       'BusinessUnitParentUnitChanged' => BusinessUnitParentUnitChangedMessagePayloadModel::class,
+       'BusinessUnitShippingAddressAdded' => BusinessUnitShippingAddressAddedMessagePayloadModel::class,
+       'BusinessUnitShippingAddressRemoved' => BusinessUnitShippingAddressRemovedMessagePayloadModel::class,
+       'BusinessUnitStatusChanged' => BusinessUnitStatusChangedMessagePayloadModel::class,
+       'BusinessUnitStoreAdded' => BusinessUnitStoreAddedMessagePayloadModel::class,
+       'BusinessUnitStoreModeChanged' => BusinessUnitStoreModeChangedMessagePayloadModel::class,
+       'BusinessUnitStoreRemoved' => BusinessUnitStoreRemovedMessagePayloadModel::class,
+       'BusinessUnitStoresSet' => BusinessUnitStoresSetMessagePayloadModel::class,
        'CategoryCreated' => CategoryCreatedMessagePayloadModel::class,
        'CategorySlugChanged' => CategorySlugChangedMessagePayloadModel::class,
        'CustomLineItemStateTransition' => CustomLineItemStateTransitionMessagePayloadModel::class,
@@ -57,7 +81,10 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'LineItemStateTransition' => LineItemStateTransitionMessagePayloadModel::class,
        'OrderBillingAddressSet' => OrderBillingAddressSetMessagePayloadModel::class,
        'OrderCreated' => OrderCreatedMessagePayloadModel::class,
+       'OrderCustomLineItemAdded' => OrderCustomLineItemAddedMessagePayloadModel::class,
        'OrderCustomLineItemDiscountSet' => OrderCustomLineItemDiscountSetMessagePayloadModel::class,
+       'OrderCustomLineItemQuantityChanged' => OrderCustomLineItemQuantityChangedMessagePayloadModel::class,
+       'OrderCustomLineItemRemoved' => OrderCustomLineItemRemovedMessagePayloadModel::class,
        'OrderCustomerEmailSet' => OrderCustomerEmailSetMessagePayloadModel::class,
        'OrderCustomerGroupSet' => OrderCustomerGroupSetMessagePayloadModel::class,
        'OrderCustomerSet' => OrderCustomerSetMessagePayloadModel::class,
@@ -116,9 +143,11 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'QuoteRequestCreated' => QuoteRequestCreatedMessagePayloadModel::class,
        'QuoteRequestDeleted' => QuoteRequestDeletedMessagePayloadModel::class,
        'QuoteRequestStateChanged' => QuoteRequestStateChangedMessagePayloadModel::class,
+       'QuoteRequestStateTransition' => QuoteRequestStateTransitionMessagePayloadModel::class,
        'QuoteStateChanged' => QuoteStateChangedMessagePayloadModel::class,
-       'ReturnInfoAdded' => OrderReturnInfoAddedMessagePayloadModel::class,
-       'ReturnInfoSet' => OrderReturnInfoSetMessagePayloadModel::class,
+       'QuoteStateTransition' => QuoteStateTransitionMessagePayloadModel::class,
+       'ReturnInfoAdded' => ReturnInfoAddedMessagePayloadModel::class,
+       'ReturnInfoSet' => ReturnInfoSetMessagePayloadModel::class,
        'ReviewCreated' => ReviewCreatedMessagePayloadModel::class,
        'ReviewRatingSet' => ReviewRatingSetMessagePayloadModel::class,
        'ReviewStateTransition' => ReviewStateTransitionMessagePayloadModel::class,
@@ -127,15 +156,22 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'StagedQuoteDeleted' => StagedQuoteDeletedMessagePayloadModel::class,
        'StagedQuoteSellerCommentSet' => StagedQuoteSellerCommentSetMessagePayloadModel::class,
        'StagedQuoteStateChanged' => StagedQuoteStateChangedMessagePayloadModel::class,
+       'StagedQuoteStateTransition' => StagedQuoteStateTransitionMessagePayloadModel::class,
        'StagedQuoteValidToSet' => StagedQuoteValidToSetMessagePayloadModel::class,
+       'StandalonePriceActiveChanged' => StandalonePriceActiveChangedMessagePayloadModel::class,
        'StandalonePriceCreated' => StandalonePriceCreatedMessagePayloadModel::class,
        'StandalonePriceDeleted' => StandalonePriceDeletedMessagePayloadModel::class,
        'StandalonePriceDiscountSet' => StandalonePriceDiscountSetMessagePayloadModel::class,
        'StandalonePriceExternalDiscountSet' => StandalonePriceExternalDiscountSetMessagePayloadModel::class,
+       'StandalonePriceStagedChangesApplied' => StandalonePriceStagedChangesAppliedMessagePayloadModel::class,
        'StandalonePriceValueChanged' => StandalonePriceValueChangedMessagePayloadModel::class,
        'StoreCreated' => StoreCreatedMessagePayloadModel::class,
        'StoreDeleted' => StoreDeletedMessagePayloadModel::class,
+       'StoreDistributionChannelsChanged' => StoreDistributionChannelsChangedMessagePayloadModel::class,
+       'StoreLanguagesChanged' => StoreLanguagesChangedMessagePayloadModel::class,
+       'StoreNameSet' => StoreNameSetMessagePayloadModel::class,
        'StoreProductSelectionsChanged' => StoreProductSelectionsChangedMessagePayloadModel::class,
+       'StoreSupplyChannelsChanged' => StoreSupplyChannelsChangedMessagePayloadModel::class,
        'null' => OrderMessagePayloadModel::class,
     ];
 
@@ -143,11 +179,13 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()

@@ -17,8 +17,9 @@ interface StandalonePriceExternalDiscountSetMessage extends Message
     public const FIELD_DISCOUNTED = 'discounted';
 
     /**
-     * <p>The new <code>discounted</code> value of the updated StandalonePrice.</p>
+     * <p>The <code>discounted</code> value of the <a href="ctp:api:type:StandalonePrice">StandalonePrice</a> after the <a href="ctp:api:type:StandalonePriceSetDiscountedPriceAction">Set Discounted Price</a> update action.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();

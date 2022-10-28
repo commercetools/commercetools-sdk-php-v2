@@ -25,16 +25,19 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
 {
     public const DISCRIMINATOR_VALUE = 'transitionState';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
 
     /**
+     *
      * @var ?bool
      */
     protected $force;
@@ -45,14 +48,16 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
      */
     public function __construct(
         ?StateResourceIdentifier $state = null,
-        ?bool $force = null
+        ?bool $force = null,
+        ?string $action = null
     ) {
         $this->state = $state;
         $this->force = $force;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -72,6 +77,7 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -90,6 +96,7 @@ final class StagedOrderTransitionStateActionModel extends JsonObjectModel implem
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getForce()

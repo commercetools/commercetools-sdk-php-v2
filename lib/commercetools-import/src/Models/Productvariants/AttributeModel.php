@@ -21,11 +21,13 @@ final class AttributeModel extends JsonObjectModel implements Attribute
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
@@ -63,16 +65,18 @@ final class AttributeModel extends JsonObjectModel implements Attribute
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $name = null
+        ?string $name = null,
+        ?string $type = null
     ) {
         $this->name = $name;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
+     *
      *
      * @return null|string
      */
@@ -91,6 +95,7 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()

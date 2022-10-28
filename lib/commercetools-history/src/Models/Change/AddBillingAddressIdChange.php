@@ -22,26 +22,31 @@ interface AddBillingAddressIdChange extends Change
     /**
      * <p>Update action for <code>addBillingAddressId</code> action on customers.</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|array
      */
     public function getNextValue();
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Address
      */
     public function getAddress();

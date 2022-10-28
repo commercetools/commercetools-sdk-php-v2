@@ -21,11 +21,13 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'InternalConstraintViolated';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
@@ -35,13 +37,15 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $message = null
+        ?string $message = null,
+        ?string $code = null
     ) {
         $this->message = $message;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -59,6 +63,7 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()

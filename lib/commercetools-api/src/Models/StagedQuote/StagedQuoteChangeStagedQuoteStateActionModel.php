@@ -21,11 +21,13 @@ final class StagedQuoteChangeStagedQuoteStateActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'changeStagedQuoteState';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $stagedQuoteState;
@@ -35,13 +37,15 @@ final class StagedQuoteChangeStagedQuoteStateActionModel extends JsonObjectModel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $stagedQuoteState = null
+        ?string $stagedQuoteState = null,
+        ?string $action = null
     ) {
         $this->stagedQuoteState = $stagedQuoteState;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,7 +63,8 @@ final class StagedQuoteChangeStagedQuoteStateActionModel extends JsonObjectModel
     }
 
     /**
-     * <p>The new quote staged state to be set for the Quote Staged.</p>
+     * <p>New state to be set for the Staged Quote.</p>
+     *
      *
      * @return null|string
      */

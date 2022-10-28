@@ -22,11 +22,13 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
 {
     public const DISCRIMINATOR_VALUE = 'order';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?OrderImportCollection
      */
     protected $resources;
@@ -36,14 +38,16 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?OrderImportCollection $resources = null
+        ?OrderImportCollection $resources = null,
+        ?string $type = null
     ) {
         $this->resources = $resources;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of the import resource.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +67,7 @@ final class OrderImportRequestModel extends JsonObjectModel implements OrderImpo
 
     /**
      * <p>The order import resources of this request.</p>
+     *
      *
      * @return null|OrderImportCollection
      */

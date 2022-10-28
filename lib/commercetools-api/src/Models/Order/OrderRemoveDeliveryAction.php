@@ -16,6 +16,7 @@ interface OrderRemoveDeliveryAction extends OrderUpdateAction
     public const FIELD_DELIVERY_ID = 'deliveryId';
 
     /**
+
      * @return null|string
      */
     public function getDeliveryId();

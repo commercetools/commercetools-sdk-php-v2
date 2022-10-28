@@ -23,21 +23,25 @@ use stdClass;
 final class PaymentStatusDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $interfaceCode;
 
     /**
+
      * @var ?string
      */
     private $interfaceText;
 
     /**
+
      * @var null|StateResourceIdentifier|StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
+
      * @return null|string
      */
     public function getInterfaceCode()
@@ -46,6 +50,7 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getInterfaceText()
@@ -56,6 +61,7 @@ final class PaymentStatusDraftBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getState()

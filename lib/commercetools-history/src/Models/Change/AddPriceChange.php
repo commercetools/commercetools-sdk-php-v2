@@ -20,6 +20,7 @@ interface AddPriceChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -27,21 +28,25 @@ interface AddPriceChange extends Change
     /**
      * <p>Update action for adding prices</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|string
      */
     public function getPriceId();
 
     /**
+
      * @return null|Price
      */
     public function getNextValue();

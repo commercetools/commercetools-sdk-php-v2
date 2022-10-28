@@ -23,11 +23,13 @@ use Commercetools\History\Models\Common\FieldDefinitionBuilder;
 final class RemoveFieldDefinitionChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|FieldDefinition|FieldDefinitionBuilder
      */
     private $previousValue;
@@ -35,6 +37,7 @@ final class RemoveFieldDefinitionChangeBuilder implements Builder
     /**
      * <p>Update action for <code>removeFieldDefinition</code> on payments</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -43,6 +46,7 @@ final class RemoveFieldDefinitionChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|FieldDefinition
      */
     public function getPreviousValue()

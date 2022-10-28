@@ -19,6 +19,7 @@ interface ZoneReference extends Reference
     /**
      * <p>Contains the representation of the expanded Zone. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Zones.</p>
      *
+
      * @return null|Zone
      */
     public function getObj();
@@ -26,6 +27,7 @@ interface ZoneReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Zone">Zone</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

@@ -21,18 +21,21 @@ use stdClass;
 final class StagedQuoteStateChangedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $stagedQuoteState;
 
     /**
+
      * @var ?string
      */
     private $oldStagedQuoteState;
 
     /**
-     * <p>Predefined states tracking the status of the Staged Quote.</p>
+     * <p>State of the Staged Quote after the <a href="ctp:api:type:StagedQuoteChangeStagedQuoteStateAction">Change Staged Quote State</a> update action.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -41,8 +44,9 @@ final class StagedQuoteStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * <p>Predefined states tracking the status of the Staged Quote.</p>
+     * <p>State of the Staged Quote before the <a href="ctp:api:type:StagedQuoteChangeStagedQuoteStateAction">Change Staged Quote State</a> update action.</p>
      *
+
      * @return null|string
      */
     public function getOldStagedQuoteState()

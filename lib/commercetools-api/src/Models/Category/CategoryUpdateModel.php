@@ -20,11 +20,13 @@ use stdClass;
 final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdate
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?CategoryUpdateActionCollection
      */
     protected $actions;
@@ -45,6 +47,7 @@ final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdat
      * <p>Expected version of the Category on which the changes should be applied.
      * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -63,6 +66,7 @@ final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdat
 
     /**
      * <p>Update actions to be performed on the Category.</p>
+     *
      *
      * @return null|CategoryUpdateActionCollection
      */

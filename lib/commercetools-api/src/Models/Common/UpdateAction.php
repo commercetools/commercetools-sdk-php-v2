@@ -16,6 +16,7 @@ interface UpdateAction extends JsonObject
     public const FIELD_ACTION = 'action';
 
     /**
+
      * @return null|string
      */
     public function getAction();

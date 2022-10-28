@@ -23,6 +23,7 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetId();
@@ -30,6 +31,7 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     /**
      * <p>New value to set. Either <code>assetId</code> or <code>assetKey</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getAssetKey();
@@ -38,6 +40,7 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -45,6 +48,7 @@ interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

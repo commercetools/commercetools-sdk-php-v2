@@ -28,41 +28,51 @@ use stdClass;
 final class InventoryImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?int
      */
     private $quantityOnStock;
 
     /**
+
      * @var ?int
      */
     private $restockableInDays;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $expectedDelivery;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|Custom|CustomBuilder
      */
     private $custom;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+
      * @return null|string
      */
     public function getKey()
@@ -73,6 +83,7 @@ final class InventoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Inventory.sku</code></p>
      *
+
      * @return null|string
      */
     public function getSku()
@@ -83,6 +94,7 @@ final class InventoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Inventory.quantityOnStock</code></p>
      *
+
      * @return null|int
      */
     public function getQuantityOnStock()
@@ -93,6 +105,7 @@ final class InventoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Inventory.restockableInDays</code></p>
      *
+
      * @return null|int
      */
     public function getRestockableInDays()
@@ -103,6 +116,7 @@ final class InventoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Inventory.expectedDelivery</code></p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -113,6 +127,7 @@ final class InventoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Inventory.supplyChannel</code></p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel()
@@ -123,6 +138,7 @@ final class InventoryImportBuilder implements Builder
     /**
      * <p>Maps to <code>Inventory.custom</code>.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom()

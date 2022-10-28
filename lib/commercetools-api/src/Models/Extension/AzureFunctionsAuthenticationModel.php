@@ -21,11 +21,13 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'AzureFunctions';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -35,13 +37,15 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $type = null
     ) {
         $this->key = $key;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,7 @@ final class AzureFunctionsAuthenticationModel extends JsonObjectModel implements
 
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
+     *
      *
      * @return null|string
      */

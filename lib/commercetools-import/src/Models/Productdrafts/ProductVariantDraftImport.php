@@ -24,31 +24,37 @@ interface ProductVariantDraftImport extends JsonObject
     public const FIELD_ASSETS = 'assets';
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|PriceDraftImportCollection
      */
     public function getPrices();
 
     /**
+
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+
      * @return null|AssetCollection
      */
     public function getAssets();

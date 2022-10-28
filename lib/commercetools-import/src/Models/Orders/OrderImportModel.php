@@ -19,6 +19,8 @@ use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
 use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceModel;
 use Commercetools\Import\Models\Common\CustomerKeyReference;
 use Commercetools\Import\Models\Common\CustomerKeyReferenceModel;
+use Commercetools\Import\Models\Common\StoreKeyReference;
+use Commercetools\Import\Models\Common\StoreKeyReferenceModel;
 use Commercetools\Import\Models\Common\TypedMoney;
 use Commercetools\Import\Models\Common\TypedMoneyModel;
 use Commercetools\Import\Models\Customfields\Custom;
@@ -32,114 +34,142 @@ use stdClass;
 final class OrderImportModel extends JsonObjectModel implements OrderImport
 {
     /**
+     *
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+     *
      * @var ?CustomerKeyReference
      */
     protected $customer;
 
     /**
+     *
      * @var ?string
      */
     protected $customerEmail;
 
     /**
+     *
      * @var ?LineItemImportDraftCollection
      */
     protected $lineItems;
 
     /**
+     *
      * @var ?CustomLineItemDraftCollection
      */
     protected $customLineItems;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
+     *
      * @var ?TaxedPrice
      */
     protected $taxedPrice;
 
     /**
+     *
      * @var ?Address
      */
     protected $shippingAddress;
 
     /**
+     *
      * @var ?Address
      */
     protected $billingAddress;
 
     /**
+     *
      * @var ?CustomerGroupKeyReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?string
      */
     protected $orderState;
 
     /**
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+     *
      * @var ?string
      */
     protected $paymentState;
 
     /**
+     *
      * @var ?ShippingInfoImportDraft
      */
     protected $shippingInfo;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $completedAt;
 
     /**
+     *
      * @var ?Custom
      */
     protected $custom;
 
     /**
+     *
      * @var ?string
      */
     protected $inventoryMode;
 
     /**
+     *
      * @var ?string
      */
     protected $taxRoundingMode;
 
     /**
+     *
      * @var ?string
      */
     protected $taxCalculationMode;
 
     /**
+     *
      * @var ?string
      */
     protected $origin;
 
     /**
+     *
      * @var ?AddressCollection
      */
     protected $itemShippingAddresses;
+
+    /**
+     *
+     * @var ?StoreKeyReference
+     */
+    protected $store;
 
 
     /**
@@ -167,7 +197,8 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         ?string $taxRoundingMode = null,
         ?string $taxCalculationMode = null,
         ?string $origin = null,
-        ?AddressCollection $itemShippingAddresses = null
+        ?AddressCollection $itemShippingAddresses = null,
+        ?StoreKeyReference $store = null
     ) {
         $this->orderNumber = $orderNumber;
         $this->customer = $customer;
@@ -191,10 +222,12 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         $this->taxCalculationMode = $taxCalculationMode;
         $this->origin = $origin;
         $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->store = $store;
     }
 
     /**
      * <p>Maps to <code>Order.orderNumber</code>, String that uniquely identifies an order. It should be unique across a project. Once it's set it cannot be changed.</p>
+     *
      *
      * @return null|string
      */
@@ -213,6 +246,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+     *
      * @return null|CustomerKeyReference
      */
     public function getCustomer()
@@ -233,6 +267,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.customerEmail</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getCustomerEmail()
@@ -251,6 +286,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.lineItems</code>.</p>
+     *
      *
      * @return null|LineItemImportDraftCollection
      */
@@ -271,6 +307,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.customLineItems</code></p>
      *
+     *
      * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems()
@@ -289,6 +326,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.totalPrice</code>.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -310,6 +348,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.taxedPrice</code>.</p>
      *
+     *
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -329,6 +368,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.shippingAddress</code>.</p>
+     *
      *
      * @return null|Address
      */
@@ -350,6 +390,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.billingAddress</code>.</p>
      *
+     *
      * @return null|Address
      */
     public function getBillingAddress()
@@ -369,6 +410,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.customerGroup</code>.</p>
+     *
      *
      * @return null|CustomerGroupKeyReference
      */
@@ -390,6 +432,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.country</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -408,6 +451,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.orderState</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -428,6 +472,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.shipmentState</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -446,6 +491,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.paymentState</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -466,6 +512,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.shippingInfo</code>.</p>
      *
+     *
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo()
@@ -485,6 +532,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.completedAt</code>.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -509,6 +557,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.custom</code>.</p>
      *
+     *
      * @return null|Custom
      */
     public function getCustom()
@@ -529,6 +578,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.inventoryMode</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getInventoryMode()
@@ -547,6 +597,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.taxRoundingMode</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -567,6 +618,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.taxCalculationMode</code>.</p>
      *
+     *
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -585,6 +637,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
 
     /**
      * <p>Maps to <code>Order.origin</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -605,6 +658,7 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     /**
      * <p>Maps to <code>Order.itemShippingAddresses</code>.</p>
      *
+     *
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()
@@ -619,6 +673,27 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
         }
 
         return $this->itemShippingAddresses;
+    }
+
+    /**
+     * <p>Reference to the Store in which the Order is associated. If referenced Store does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Store exists.</p>
+     *
+     *
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
     }
 
 
@@ -796,6 +871,14 @@ final class OrderImportModel extends JsonObjectModel implements OrderImport
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    /**
+     * @param ?StoreKeyReference $store
+     */
+    public function setStore(?StoreKeyReference $store): void
+    {
+        $this->store = $store;
     }
 
 

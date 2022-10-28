@@ -19,21 +19,25 @@ interface ChangeTextLineItemsOrderChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|TextLineItemValueCollection
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|TextLineItemValueCollection
      */
     public function getNextValue();

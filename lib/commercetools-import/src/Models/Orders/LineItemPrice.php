@@ -33,6 +33,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>Maps to <code>Price.value</code>.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getValue();
@@ -40,6 +41,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>Maps to <code>Price.county</code>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -47,6 +49,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>Maps to <code>Price.validFrom</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
@@ -54,6 +57,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>Maps to <code>Price.validUntil</code>.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
@@ -61,6 +65,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>References a customer group by key.</p>
      *
+
      * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup();
@@ -68,6 +73,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>References a channel by key.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getChannel();
@@ -75,6 +81,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>Sets a discounted price from an external service.</p>
      *
+
      * @return null|DiscountedPrice
      */
     public function getDiscounted();
@@ -82,6 +89,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>The tiered prices for this price.</p>
      *
+
      * @return null|PriceTierCollection
      */
     public function getTiers();
@@ -89,6 +97,7 @@ interface LineItemPrice extends JsonObject
     /**
      * <p>Maps to <code>Price.custom</code>.</p>
      *
+
      * @return null|Custom
      */
     public function getCustom();

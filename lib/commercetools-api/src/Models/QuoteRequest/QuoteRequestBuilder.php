@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\QuoteRequest;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Cart\CustomLineItemCollection;
 use Commercetools\Api\Models\Cart\DirectDiscountCollection;
 use Commercetools\Api\Models\Cart\LineItemCollection;
@@ -34,6 +36,8 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Order\PaymentInfoBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -52,153 +56,195 @@ use stdClass;
 final class QuoteRequestBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $quoteRequestState;
 
     /**
+
      * @var ?string
      */
     private $comment;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var null|CustomerGroupReference|CustomerGroupReferenceBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
 
     /**
+
      * @var ?LineItemCollection
      */
     private $lineItems;
 
     /**
+
      * @var ?CustomLineItemCollection
      */
     private $customLineItems;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedPrice|TaxedPriceBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $shippingAddress;
 
     /**
+
      * @var null|Address|AddressBuilder
      */
     private $billingAddress;
 
     /**
+
      * @var ?string
      */
     private $inventoryMode;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var ?string
      */
     private $taxRoundingMode;
 
     /**
+
      * @var ?string
      */
     private $taxCalculationMode;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var null|ShippingInfo|ShippingInfoBuilder
      */
     private $shippingInfo;
 
     /**
+
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $paymentInfo;
 
     /**
+
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
     /**
+
      * @var ?AddressCollection
      */
     private $itemShippingAddresses;
 
     /**
+
      * @var ?DirectDiscountCollection
      */
     private $directDiscounts;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
+
+    /**
+
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
+     */
+    private $businessUnit;
+
+    /**
      * <p>Unique identifier of the QuoteRequest.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -209,6 +255,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Current version of the QuoteRequest.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -219,6 +266,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Date and time (UTC) the QuoteRequest was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -229,6 +277,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Date and time (UTC) the QuoteRequest was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -239,6 +288,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the QuoteRequest.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -249,6 +299,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -259,6 +310,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -269,6 +321,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Indicates the current state of the Quote Request in the negotiation process.</p>
      *
+
      * @return null|string
      */
     public function getQuoteRequestState()
@@ -277,8 +330,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
      *
+
      * @return null|string
      */
     public function getComment()
@@ -289,6 +343,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who raised the request.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -300,6 +355,7 @@ final class QuoteRequestBuilder implements Builder
      * <p>Set automatically when <code>customer</code> is set and the Customer is a member of a Customer Group.
      * Used for Product Variant price selection.</p>
      *
+
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -310,6 +366,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>The Store to which the <a href="/../api/quotes-overview#buyer">Buyer</a> belongs.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -318,8 +375,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The Line Items for which a quote is requested.</p>
+     * <p>The Line Items for which a Quote is requested.</p>
      *
+
      * @return null|LineItemCollection
      */
     public function getLineItems()
@@ -328,8 +386,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The Custom Line Items for which a quote is requested.</p>
+     * <p>The Custom Line Items for which a Quote is requested.</p>
      *
+
      * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems()
@@ -338,9 +397,10 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
+     * <p>Sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>
      *
+
      * @return null|TypedMoney
      */
     public function getTotalPrice()
@@ -353,6 +413,7 @@ final class QuoteRequestBuilder implements Builder
      * Will be set automatically in the <code>Platform</code> TaxMode.
      * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>
      *
+
      * @return null|TaxedPrice
      */
     public function getTaxedPrice()
@@ -364,6 +425,7 @@ final class QuoteRequestBuilder implements Builder
      * <p>Used to determine the eligible <a href="ctp:api:type:ShippingMethod">ShippingMethods</a>
      * and rates as well as the tax rate of the Line Items.</p>
      *
+
      * @return null|Address
      */
     public function getShippingAddress()
@@ -372,8 +434,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The address used for invoicing.</p>
+     * <p>Address used for invoicing.</p>
      *
+
      * @return null|Address
      */
     public function getBillingAddress()
@@ -382,8 +445,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Inventory mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -392,8 +456,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>The tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
+     * <p>Tax mode of the Cart referenced in the <a href="ctp:api:type:QuoteRequestDraft">QuoteRequestDraft</a>.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode()
@@ -404,6 +469,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -414,6 +480,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode()
@@ -424,6 +491,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Used for Product Variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -434,6 +502,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Set automatically once the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> is set.</p>
      *
+
      * @return null|ShippingInfo
      */
     public function getShippingInfo()
@@ -442,8 +511,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>Log of payment transactions related to this quote.</p>
+     * <p>Log of payment transactions related to the Quote.</p>
      *
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -454,6 +524,7 @@ final class QuoteRequestBuilder implements Builder
     /**
      * <p>Used to select a <a href="ctp:api:type:ShippingRatePriceTier">ShippingRatePriceTier</a>.</p>
      *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -467,6 +538,7 @@ final class QuoteRequestBuilder implements Builder
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses()
@@ -475,8 +547,9 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>Discounts only valid for this Quote, those cannot be associated to any other Cart or Order.</p>
+     * <p>Discounts that are only valid for the Quote and cannot be associated to any other Cart or Order.</p>
      *
+
      * @return null|DirectDiscountCollection
      */
     public function getDirectDiscounts()
@@ -485,13 +558,37 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this Quote Request.</p>
+     * <p>Custom Fields of the Quote Request.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote Request.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Quote Request.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
     }
 
     /**
@@ -814,6 +911,28 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitKeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -956,6 +1075,28 @@ final class QuoteRequestBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
     public function build(): QuoteRequest
     {
         return new QuoteRequestModel(
@@ -987,7 +1128,9 @@ final class QuoteRequestBuilder implements Builder
             $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->directDiscounts,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
     }
 

@@ -22,31 +22,37 @@ use stdClass;
 final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel implements ProductPriceDiscountsSetUpdatedPrice
 {
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $variantKey;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?string
      */
     protected $priceId;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -72,6 +78,9 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which the Discount was set.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -89,6 +98,9 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Key of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
+     *
      * @return null|string
      */
     public function getVariantKey()
@@ -106,6 +118,9 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -123,6 +138,9 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Price">Embedded Price</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -140,6 +158,9 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Discounted Price for the <a href="ctp:api:type:ProductVariant">ProductVariant</a> for which Discount was set.</p>
+     *
+     *
      * @return null|DiscountedPrice
      */
     public function getDiscounted()
@@ -158,6 +179,9 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     }
 
     /**
+     * <p>Whether the update was only applied to the staged <a href="ctp:api:type:ProductProjection">ProductProjection</a>.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

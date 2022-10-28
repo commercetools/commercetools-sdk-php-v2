@@ -17,6 +17,7 @@ interface DateField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getValue();

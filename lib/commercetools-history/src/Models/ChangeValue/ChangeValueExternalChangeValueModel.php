@@ -22,6 +22,7 @@ final class ChangeValueExternalChangeValueModel extends JsonObjectModel implemen
 
     public const DISCRIMINATOR_VALUE = 'external';
     /**
+     *
      * @var ?string
      */
     protected $type;
@@ -31,11 +32,13 @@ final class ChangeValueExternalChangeValueModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()

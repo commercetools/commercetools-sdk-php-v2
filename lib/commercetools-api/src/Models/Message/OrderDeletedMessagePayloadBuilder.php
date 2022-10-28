@@ -23,11 +23,15 @@ use stdClass;
 final class OrderDeletedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Order|OrderBuilder
      */
     private $order;
 
     /**
+     * <p><a href="ctp:api:type:Order">Order</a> that has been deleted.</p>
+     *
+
      * @return null|Order
      */
     public function getOrder()

@@ -21,11 +21,15 @@ use stdClass;
 final class CustomerFirstNameSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $firstName;
 
     /**
+     * <p>The <code>firstName</code> that was set during the <a href="ctp:api:type:CustomerSetFirstNameAction">Set First Name</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getFirstName()

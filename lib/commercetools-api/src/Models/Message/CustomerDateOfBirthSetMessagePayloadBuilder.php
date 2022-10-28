@@ -22,11 +22,15 @@ use stdClass;
 final class CustomerDateOfBirthSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
 
     /**
+     * <p>The <code>dateOfBirth</code> that was set during the <a href="ctp:api:type:CustomerSetDateOfBirthAction">Set Date of Birth</a> update action.</p>
+     *
+
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()

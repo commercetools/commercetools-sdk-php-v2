@@ -27,51 +27,61 @@ use stdClass;
 final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $description;
 
     /**
+     *
      * @var ?TaxRateCollection
      */
     protected $rates;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -107,6 +117,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Unique identifier of the TaxCategory.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -126,6 +137,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Current version of the TaxCategory.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -144,6 +156,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 
     /**
      * <p>Date and time (UTC) the TaxCategory was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -168,6 +181,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Date and time (UTC) the TaxCategory was last updated.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -191,6 +205,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -210,6 +225,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -231,6 +247,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Name of the TaxCategory.</p>
      *
+     *
      * @return null|string
      */
     public function getName()
@@ -249,6 +266,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 
     /**
      * <p>Description of the TaxCategory.</p>
+     *
      *
      * @return null|string
      */
@@ -269,6 +287,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     /**
      * <p>Tax rates and subrates of states and countries. Each TaxRate in the array has a unique ID.</p>
      *
+     *
      * @return null|TaxRateCollection
      */
     public function getRates()
@@ -287,6 +306,7 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 
     /**
      * <p>User-defined unique identifier of the TaxCategory.</p>
+     *
      *
      * @return null|string
      */

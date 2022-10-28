@@ -21,16 +21,19 @@ use stdClass;
 final class ChangeStackingModeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
@@ -38,6 +41,7 @@ final class ChangeStackingModeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeStackingMode</code> on cart discounts</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class ChangeStackingModeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()
@@ -54,6 +59,7 @@ final class ChangeStackingModeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()

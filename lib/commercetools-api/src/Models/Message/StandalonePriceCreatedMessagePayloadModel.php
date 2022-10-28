@@ -23,11 +23,13 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'StandalonePriceCreated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?StandalonePrice
      */
     protected $standalonePrice;
@@ -37,13 +39,15 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StandalonePrice $standalonePrice = null
+        ?StandalonePrice $standalonePrice = null,
+        ?string $type = null
     ) {
         $this->standalonePrice = $standalonePrice;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,7 +65,8 @@ final class StandalonePriceCreatedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
-     * <p>The Standalone Price as it was created.</p>
+     * <p><a href="ctp:api:type:StandalonePrice">Standalone Price</a> that was created.</p>
+     *
      *
      * @return null|StandalonePrice
      */

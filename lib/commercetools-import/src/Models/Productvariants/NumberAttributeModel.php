@@ -21,16 +21,19 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
 {
     public const DISCRIMINATOR_VALUE = 'number';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?float
      */
     protected $value;
@@ -41,17 +44,19 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
      */
     public function __construct(
         ?string $name = null,
-        ?float $value = null
+        ?float $value = null,
+        ?string $type = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>
+     *
      *
      * @return null|string
      */
@@ -70,6 +75,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -87,6 +93,7 @@ final class NumberAttributeModel extends JsonObjectModel implements NumberAttrib
     }
 
     /**
+     *
      * @return null|float
      */
     public function getValue()

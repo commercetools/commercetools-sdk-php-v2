@@ -18,11 +18,13 @@ interface StagedOrderSetReturnPaymentStateAction extends StagedOrderUpdateAction
     public const FIELD_PAYMENT_STATE = 'paymentState';
 
     /**
+
      * @return null|string
      */
     public function getReturnItemId();
 
     /**
+
      * @return null|string
      */
     public function getPaymentState();

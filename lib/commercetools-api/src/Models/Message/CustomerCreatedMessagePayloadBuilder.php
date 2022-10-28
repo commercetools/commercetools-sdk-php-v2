@@ -23,11 +23,15 @@ use stdClass;
 final class CustomerCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Customer|CustomerBuilder
      */
     private $customer;
 
     /**
+     * <p><a href="ctp:api:type:Customer">Customer</a> that was created.</p>
+     *
+
      * @return null|Customer
      */
     public function getCustomer()

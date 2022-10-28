@@ -23,26 +23,31 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'addExternalImage';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?Image
      */
     protected $image;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -55,16 +60,18 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
         ?int $variantId = null,
         ?string $sku = null,
         ?Image $image = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->image = $image;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -82,6 +89,9 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -99,6 +109,9 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -116,6 +129,9 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Value to add to <code>images</code>.</p>
+     *
+     *
      * @return null|Image
      */
     public function getImage()
@@ -134,6 +150,9 @@ final class ProductAddExternalImageActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>images</code> is updated. If <code>false</code>, both the current and staged <code>images</code> is updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

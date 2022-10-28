@@ -21,16 +21,19 @@ use stdClass;
 final class SetCartScoreShippingRateInputValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $type;
 
     /**
+
      * @var ?int
      */
     private $score;
 
     /**
+
      * @return null|string
      */
     public function getType()
@@ -39,6 +42,7 @@ final class SetCartScoreShippingRateInputValueBuilder implements Builder
     }
 
     /**
+
      * @return null|int
      */
     public function getScore()

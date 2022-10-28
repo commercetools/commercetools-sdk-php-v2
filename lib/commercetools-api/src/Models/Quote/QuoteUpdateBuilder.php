@@ -21,16 +21,22 @@ use stdClass;
 final class QuoteUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?QuoteUpdateActionCollection
      */
     private $actions;
 
     /**
+     * <p>Expected version of the <a href="ctp:api:type:Quote">Quote</a> to which the changes should be applied.
+     * If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +45,9 @@ final class QuoteUpdateBuilder implements Builder
     }
 
     /**
+     * <p>Update actions to be performed on the <a href="ctp:api:type:Quote">Quote</a>.</p>
+     *
+
      * @return null|QuoteUpdateActionCollection
      */
     public function getActions()

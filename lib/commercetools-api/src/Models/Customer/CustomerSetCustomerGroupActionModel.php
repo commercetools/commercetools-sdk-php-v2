@@ -23,11 +23,13 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'setCustomerGroup';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?CustomerGroupResourceIdentifier
      */
     protected $customerGroup;
@@ -37,13 +39,15 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomerGroupResourceIdentifier $customerGroup = null
+        ?CustomerGroupResourceIdentifier $customerGroup = null,
+        ?string $action = null
     ) {
         $this->customerGroup = $customerGroup;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,7 +65,9 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>If not defined, the customer group is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
      *
      * @return null|CustomerGroupResourceIdentifier
      */

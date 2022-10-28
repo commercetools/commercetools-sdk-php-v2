@@ -22,11 +22,13 @@ use stdClass;
 final class AssignedProductReferenceModel extends JsonObjectModel implements AssignedProductReference
 {
     /**
+     *
      * @var ?ProductReference
      */
     protected $product;
 
     /**
+     *
      * @var ?ProductVariantSelection
      */
     protected $variantSelection;
@@ -45,6 +47,7 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
 
     /**
      * <p>Reference to a Product that is assigned to the Product Selection.</p>
+     *
      *
      * @return null|ProductReference
      */
@@ -66,6 +69,7 @@ final class AssignedProductReferenceModel extends JsonObjectModel implements Ass
     /**
      * <p>The Variants of the Product that are included, or excluded, from the Product Selection.
      * In absence of this field, all Variants are deemed to be included.</p>
+     *
      *
      * @return null|ProductVariantSelection
      */

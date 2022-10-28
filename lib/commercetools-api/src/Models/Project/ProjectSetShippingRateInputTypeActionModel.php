@@ -21,11 +21,13 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'setShippingRateInputType';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ShippingRateInputType
      */
     protected $shippingRateInputType;
@@ -35,13 +37,15 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ShippingRateInputType $shippingRateInputType = null
+        ?ShippingRateInputType $shippingRateInputType = null,
+        ?string $action = null
     ) {
         $this->shippingRateInputType = $shippingRateInputType;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|ShippingRateInputType
      */

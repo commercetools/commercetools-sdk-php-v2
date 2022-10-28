@@ -23,11 +23,15 @@ use stdClass;
 final class CategoryCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Category|CategoryBuilder
      */
     private $category;
 
     /**
+     * <p><a href="ctp:api:type:Category">Category</a> that was created.</p>
+     *
+
      * @return null|Category
      */
     public function getCategory()

@@ -16,6 +16,7 @@ interface MissingPricesProductLevel extends MissingPricesProductCount
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal();
@@ -23,6 +24,7 @@ interface MissingPricesProductLevel extends MissingPricesProductCount
     /**
      * <p>Number of products missing prices.</p>
      *
+
      * @return null|int
      */
     public function getMissingPrices();

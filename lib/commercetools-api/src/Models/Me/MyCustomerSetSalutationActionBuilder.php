@@ -21,11 +21,16 @@ use stdClass;
 final class MyCustomerSetSalutationActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $salutation;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
+
      * @return null|string
      */
     public function getSalutation()

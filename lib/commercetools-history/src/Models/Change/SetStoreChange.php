@@ -19,6 +19,7 @@ interface SetStoreChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -26,16 +27,19 @@ interface SetStoreChange extends Change
     /**
      * <p>Shape of the action for <code>setStore</code></p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|Reference
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Reference
      */
     public function getNextValue();

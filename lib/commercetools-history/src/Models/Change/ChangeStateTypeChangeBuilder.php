@@ -21,16 +21,19 @@ use stdClass;
 final class ChangeStateTypeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $previousValue;
 
     /**
+
      * @var ?string
      */
     private $nextValue;
@@ -38,6 +41,7 @@ final class ChangeStateTypeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>changeType</code> on state</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class ChangeStateTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue()
@@ -54,6 +59,7 @@ final class ChangeStateTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getNextValue()

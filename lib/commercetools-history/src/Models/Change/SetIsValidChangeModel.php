@@ -22,21 +22,25 @@ final class SetIsValidChangeModel extends JsonObjectModel implements SetIsValidC
 
     public const DISCRIMINATOR_VALUE = 'SetIsValidChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?bool
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?bool
      */
     protected $nextValue;
@@ -48,15 +52,17 @@ final class SetIsValidChangeModel extends JsonObjectModel implements SetIsValidC
     public function __construct(
         ?string $change = null,
         ?bool $previousValue = null,
-        ?bool $nextValue = null
+        ?bool $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -76,6 +82,7 @@ final class SetIsValidChangeModel extends JsonObjectModel implements SetIsValidC
     /**
      * <p>Shape of the action for <code>setIsValid</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,6 +100,7 @@ final class SetIsValidChangeModel extends JsonObjectModel implements SetIsValidC
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getPreviousValue()
@@ -110,6 +118,7 @@ final class SetIsValidChangeModel extends JsonObjectModel implements SetIsValidC
     }
 
     /**
+     *
      * @return null|bool
      */
     public function getNextValue()

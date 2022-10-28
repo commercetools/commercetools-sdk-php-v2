@@ -22,11 +22,13 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
 {
     public const DISCRIMINATOR_VALUE = 'LocalizedStringSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?LocalizedStringCollection
      */
     protected $value;
@@ -36,14 +38,16 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedStringCollection $value = null
+        ?LocalizedStringCollection $value = null,
+        ?string $type = null
     ) {
         $this->value = $value;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The type of this field.</p>
+     *
      *
      * @return null|string
      */
@@ -62,6 +66,7 @@ final class LocalizedStringSetFieldModel extends JsonObjectModel implements Loca
     }
 
     /**
+     *
      * @return null|LocalizedStringCollection
      */
     public function getValue()

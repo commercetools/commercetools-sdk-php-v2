@@ -21,11 +21,13 @@ final class OrderEditSetKeyActionModel extends JsonObjectModel implements OrderE
 {
     public const DISCRIMINATOR_VALUE = 'setKey';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -35,13 +37,15 @@ final class OrderEditSetKeyActionModel extends JsonObjectModel implements OrderE
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $action = null
     ) {
         $this->key = $key;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class OrderEditSetKeyActionModel extends JsonObjectModel implements OrderE
 
     /**
      * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>
+     *
      *
      * @return null|string
      */

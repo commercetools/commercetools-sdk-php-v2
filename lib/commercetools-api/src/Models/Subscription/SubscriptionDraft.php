@@ -20,11 +20,17 @@ interface SubscriptionDraft extends JsonObject
     public const FIELD_FORMAT = 'format';
 
     /**
+     * <p>Change notifications to be subscribed to.</p>
+     *
+
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();
 
     /**
+     * <p>Messaging service to which the messages are sent.</p>
+     *
+
      * @return null|Destination
      */
     public function getDestination();
@@ -32,16 +38,23 @@ interface SubscriptionDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Subscription.</p>
      *
+
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>Messages to be subscribed to.</p>
+     *
+
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages();
 
     /**
+     * <p>Format in which the payload is delivered. When not provided, the <a href="ctp:api:type:PlatformFormat">PlatformFormat</a> is selected by default.</p>
+     *
+
      * @return null|DeliveryFormat
      */
     public function getFormat();

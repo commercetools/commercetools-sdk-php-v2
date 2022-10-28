@@ -25,6 +25,7 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -32,16 +33,19 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
     /**
      * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getAddedAt();
@@ -49,6 +53,7 @@ interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
     /**
      * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

@@ -22,21 +22,25 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
 
     public const DISCRIMINATOR_VALUE = 'ChangeStateTypeChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?string
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?string
      */
     protected $nextValue;
@@ -48,15 +52,17 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     public function __construct(
         ?string $change = null,
         ?string $previousValue = null,
-        ?string $nextValue = null
+        ?string $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -76,6 +82,7 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     /**
      * <p>Update action for <code>changeType</code> on state</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -93,6 +100,7 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPreviousValue()
@@ -110,6 +118,7 @@ final class ChangeStateTypeChangeModel extends JsonObjectModel implements Change
     }
 
     /**
+     *
      * @return null|string
      */
     public function getNextValue()

@@ -16,6 +16,7 @@ interface BooleanSetAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|array
      */
     public function getValue();

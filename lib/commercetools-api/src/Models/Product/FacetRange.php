@@ -25,51 +25,61 @@ interface FacetRange extends JsonObject
     public const FIELD_MEAN = 'mean';
 
     /**
+
      * @return null|float
      */
     public function getFrom();
 
     /**
+
      * @return null|string
      */
     public function getFromStr();
 
     /**
+
      * @return null|float
      */
     public function getTo();
 
     /**
+
      * @return null|string
      */
     public function getToStr();
 
     /**
+
      * @return null|int
      */
     public function getCount();
 
     /**
+
      * @return null|int
      */
     public function getProductCount();
 
     /**
+
      * @return null|float
      */
     public function getTotal();
 
     /**
+
      * @return null|float
      */
     public function getMin();
 
     /**
+
      * @return null|float
      */
     public function getMax();
 
     /**
+
      * @return null|float
      */
     public function getMean();

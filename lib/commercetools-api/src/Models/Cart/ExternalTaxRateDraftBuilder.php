@@ -22,36 +22,43 @@ use stdClass;
 final class ExternalTaxRateDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?float
      */
     private $amount;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $state;
 
     /**
+
      * @var ?SubRateCollection
      */
     private $subRates;
 
     /**
+
      * @var ?bool
      */
     private $includedInPrice;
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -65,6 +72,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
      * If <code>subRates</code> are specified
      * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>
      *
+
      * @return null|float
      */
     public function getAmount()
@@ -75,6 +83,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -85,6 +94,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     /**
      * <p>The state in the country</p>
      *
+
      * @return null|string
      */
     public function getState()
@@ -97,6 +107,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
      * the US) where the total tax is a combination of multiple taxes (e.g.
      * state and local taxes).</p>
      *
+
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -107,6 +118,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     /**
      * <p>The default value for <code>includedInPrice</code> is FALSE.</p>
      *
+
      * @return null|bool
      */
     public function getIncludedInPrice()

@@ -21,6 +21,7 @@ final class AttributeTextTypeModel extends JsonObjectModel implements AttributeT
 {
     public const DISCRIMINATOR_VALUE = 'text';
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -30,11 +31,13 @@ final class AttributeTextTypeModel extends JsonObjectModel implements AttributeT
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $name = null
     ) {
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()

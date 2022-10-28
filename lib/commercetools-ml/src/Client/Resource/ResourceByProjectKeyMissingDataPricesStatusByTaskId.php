@@ -14,6 +14,7 @@ use Psr\Http\Message\UploadedFileInterface;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ * @deprecated
  */
 class ResourceByProjectKeyMissingDataPricesStatusByTaskId extends ApiResource
 {
@@ -28,6 +29,7 @@ class ResourceByProjectKeyMissingDataPricesStatusByTaskId extends ApiResource
     /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
+     * @deprecated
      */
     public function get($body = null, array $headers = []): ByProjectKeyMissingDataPricesStatusByTaskIdGet
     {

@@ -18,11 +18,13 @@ interface PaymentChangeTransactionTimestampAction extends PaymentUpdateAction
     public const FIELD_TIMESTAMP = 'timestamp';
 
     /**
+
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getTimestamp();

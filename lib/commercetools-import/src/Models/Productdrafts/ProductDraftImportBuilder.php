@@ -34,81 +34,105 @@ use stdClass;
 final class ProductDraftImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|ProductTypeKeyReference|ProductTypeKeyReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $slug;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?CategoryKeyReferenceCollection
      */
     private $categories;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaTitle;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaDescription;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $metaKeywords;
 
     /**
+
      * @var null|ProductVariantDraftImport|ProductVariantDraftImportBuilder
      */
     private $masterVariant;
 
     /**
+
      * @var ?ProductVariantDraftImportCollection
      */
     private $variants;
 
     /**
+
      * @var null|TaxCategoryKeyReference|TaxCategoryKeyReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|SearchKeywords|SearchKeywordsBuilder
      */
     private $searchKeywords;
 
     /**
+
      * @var null|StateKeyReference|StateKeyReferenceBuilder
      */
     private $state;
 
     /**
+
      * @var ?bool
      */
     private $publish;
 
     /**
+
+     * @var ?string
+     */
+    private $priceMode;
+
+    /**
+     * <p>User-defined unique identifier.</p>
+     *
+
      * @return null|string
      */
     public function getKey()
@@ -122,6 +146,7 @@ final class ProductDraftImportBuilder implements Builder
      * The Reference to the <a href="/../api/projects/productTypes#producttype">ProductType</a> with which the ProductDraft is associated.
      * If referenced ProductType does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary ProductType is created.</p>
      *
+
      * @return null|ProductTypeKeyReference
      */
     public function getProductType()
@@ -130,6 +155,7 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -141,6 +167,7 @@ final class ProductDraftImportBuilder implements Builder
      * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
      * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -151,6 +178,7 @@ final class ProductDraftImportBuilder implements Builder
     /**
      * <p>Maps to <code>Product.description</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -162,6 +190,7 @@ final class ProductDraftImportBuilder implements Builder
      * <p>The Reference to the <a href="/../api/projects/categories#category">Categories</a> with which the ProductDraft is associated.
      * If referenced Categories do not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Categories are created.</p>
      *
+
      * @return null|CategoryKeyReferenceCollection
      */
     public function getCategories()
@@ -177,6 +206,7 @@ final class ProductDraftImportBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -192,6 +222,7 @@ final class ProductDraftImportBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -207,6 +238,7 @@ final class ProductDraftImportBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -218,6 +250,7 @@ final class ProductDraftImportBuilder implements Builder
      * <p>The master Product variant.
      * Required if the <code>variants</code> array contains a Product Variant.</p>
      *
+
      * @return null|ProductVariantDraftImport
      */
     public function getMasterVariant()
@@ -228,6 +261,7 @@ final class ProductDraftImportBuilder implements Builder
     /**
      * <p>An array of related Product Variants.</p>
      *
+
      * @return null|ProductVariantDraftImportCollection
      */
     public function getVariants()
@@ -239,6 +273,7 @@ final class ProductDraftImportBuilder implements Builder
      * <p>The Reference to the <a href="/../api/projects/taxCategories#taxcategory">TaxCategory</a> with which the ProductDraft is associated.
      * If referenced TaxCategory does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary TaxCategory is created.</p>
      *
+
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -265,6 +300,7 @@ final class ProductDraftImportBuilder implements Builder
      * }
      * </code></pre>
      *
+
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -276,6 +312,7 @@ final class ProductDraftImportBuilder implements Builder
      * <p>The Reference to the <a href="/../api/projects/states#state">State</a> with which the ProductDraft is associated.
      * If referenced State does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary State is created.</p>
      *
+
      * @return null|StateKeyReference
      */
     public function getState()
@@ -288,11 +325,23 @@ final class ProductDraftImportBuilder implements Builder
      * If <code>publish</code> is not set, the staged projection is set to the provided import data, but the current projection stays unchanged.
      * However, if the import data contains no update, that is, if it matches the staged projection of the existing Product, the import induces no change in the existing Product whether <code>publish</code> is set or not.</p>
      *
+
      * @return null|bool
      */
     public function getPublish()
     {
         return $this->publish;
+    }
+
+    /**
+     * <p>Determines the type of Prices the API uses. See <a href="/../api/projects/products#productpricemode">ProductPriceMode</a> for more details. If not provided, the existing <code>Product.priceMode</code> is not changed.</p>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode()
+    {
+        return $this->priceMode;
     }
 
     /**
@@ -461,6 +510,17 @@ final class ProductDraftImportBuilder implements Builder
     }
 
     /**
+     * @param ?string $priceMode
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withProductType() instead
      * @return $this
      */
@@ -598,7 +658,8 @@ final class ProductDraftImportBuilder implements Builder
             $this->taxCategory instanceof TaxCategoryKeyReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory,
             $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords,
             $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state,
-            $this->publish
+            $this->publish,
+            $this->priceMode
         );
     }
 

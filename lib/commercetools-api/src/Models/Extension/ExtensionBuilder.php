@@ -28,51 +28,61 @@ use stdClass;
 final class ExtensionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|ExtensionDestination|ExtensionDestinationBuilder
      */
     private $destination;
 
     /**
+
      * @var ?ExtensionTriggerCollection
      */
     private $triggers;
 
     /**
+
      * @var ?int
      */
     private $timeoutInMs;
@@ -80,6 +90,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -90,6 +101,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Current version of the Extension.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -100,6 +112,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Extension was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -110,6 +123,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Date and time (UTC) the Extension was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -120,6 +134,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -130,6 +145,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -140,6 +156,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -150,6 +167,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>The configuration for the Extension, including its type, location and authentication details.</p>
      *
+
      * @return null|ExtensionDestination
      */
     public function getDestination()
@@ -160,6 +178,7 @@ final class ExtensionBuilder implements Builder
     /**
      * <p>Describes what triggers the Extension.</p>
      *
+
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()
@@ -172,6 +191,7 @@ final class ExtensionBuilder implements Builder
      * If no timeout is provided, the default value is used for all types of Extensions.
      * The maximum value is 10000 ms (10 seconds) for <code>payment</code> Extensions and 2000 ms (2 seconds) for all other Extensions.</p>
      *
+
      * @return null|int
      */
     public function getTimeoutInMs()

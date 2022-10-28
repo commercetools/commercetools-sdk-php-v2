@@ -25,26 +25,31 @@ use Commercetools\History\Models\Common\LocalizedStringBuilder;
 final class SetOrderLineItemCustomTypeChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $lineItem;
 
     /**
+
      * @var ?string
      */
     private $variant;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $previousValue;
@@ -52,6 +57,7 @@ final class SetOrderLineItemCustomTypeChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setLineItemCustomType</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -60,6 +66,7 @@ final class SetOrderLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -68,6 +75,7 @@ final class SetOrderLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getVariant()
@@ -76,6 +84,7 @@ final class SetOrderLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getNextValue()
@@ -84,6 +93,7 @@ final class SetOrderLineItemCustomTypeChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomFields
      */
     public function getPreviousValue()

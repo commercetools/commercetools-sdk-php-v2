@@ -19,6 +19,8 @@ use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
 use Commercetools\Import\Models\Common\ProductKeyReference;
 use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
+use Commercetools\Import\Models\Customfields\Custom;
+use Commercetools\Import\Models\Customfields\CustomBuilder;
 use Commercetools\Import\Models\Prices\TaxRate;
 use Commercetools\Import\Models\Prices\TaxRateBuilder;
 use stdClass;
@@ -29,58 +31,75 @@ use stdClass;
 final class LineItemImportDraftBuilder implements Builder
 {
     /**
+
      * @var null|ProductKeyReference|ProductKeyReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LineItemProductVariantImportDraft|LineItemProductVariantImportDraftBuilder
      */
     private $variant;
 
     /**
+
      * @var null|LineItemPrice|LineItemPriceBuilder
      */
     private $price;
 
     /**
+
      * @var ?float
      */
     private $quantity;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $supplyChannel;
 
     /**
+
      * @var null|ChannelKeyReference|ChannelKeyReferenceBuilder
      */
     private $distributionChannel;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|ItemShippingDetailsDraft|ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
 
     /**
+
+     * @var null|Custom|CustomBuilder
+     */
+    private $custom;
+
+    /**
      * <p>Maps to <code>LineItem.productId</code>.</p>
      *
+
      * @return null|ProductKeyReference
      */
     public function getProduct()
@@ -91,6 +110,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.name</code>.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -101,6 +121,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>ProductVariantImportDraft</code>.</p>
      *
+
      * @return null|LineItemProductVariantImportDraft
      */
     public function getVariant()
@@ -111,6 +132,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.price</code>.</p>
      *
+
      * @return null|LineItemPrice
      */
     public function getPrice()
@@ -121,6 +143,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.quantity</code>.</p>
      *
+
      * @return null|float
      */
     public function getQuantity()
@@ -129,6 +152,7 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -141,6 +165,7 @@ final class LineItemImportDraftBuilder implements Builder
      * The Reference to the Supply <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced Supply Channel does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Supply Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getSupplyChannel()
@@ -153,6 +178,7 @@ final class LineItemImportDraftBuilder implements Builder
      * The Reference to the Distribution <a href="/../api/projects/channels#channel">Channel</a> with which the LineItem is associated.
      * If referenced CustomerGroup does not exist, the <code>state</code> of the <a href="/import-operation#importoperation">ImportOperation</a> will be set to <code>unresolved</code> until the necessary Distribution Channel is created.</p>
      *
+
      * @return null|ChannelKeyReference
      */
     public function getDistributionChannel()
@@ -163,6 +189,7 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to <code>LineItem.taxRate</code>.</p>
      *
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -173,11 +200,23 @@ final class LineItemImportDraftBuilder implements Builder
     /**
      * <p>Maps to LineItem.shippingDetails.</p>
      *
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
+     * <p>Custom Fields for this Line Item.</p>
+     *
+
+     * @return null|Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -291,6 +330,17 @@ final class LineItemImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?Custom $custom
+     * @return $this
+     */
+    public function withCustom(?Custom $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withProduct() instead
      * @return $this
      */
@@ -378,6 +428,17 @@ final class LineItemImportDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): LineItemImportDraft
     {
         return new LineItemImportDraftModel(
@@ -390,7 +451,8 @@ final class LineItemImportDraftBuilder implements Builder
             $this->supplyChannel instanceof ChannelKeyReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel,
             $this->distributionChannel instanceof ChannelKeyReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel,
             $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate,
-            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails
+            $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails,
+            $this->custom instanceof CustomBuilder ? $this->custom->build() : $this->custom
         );
     }
 

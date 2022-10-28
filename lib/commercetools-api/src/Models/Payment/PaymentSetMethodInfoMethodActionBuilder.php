@@ -21,6 +21,7 @@ use stdClass;
 final class PaymentSetMethodInfoMethodActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $method;
@@ -28,6 +29,7 @@ final class PaymentSetMethodInfoMethodActionBuilder implements Builder
     /**
      * <p>If not provided, the method is unset.</p>
      *
+
      * @return null|string
      */
     public function getMethod()

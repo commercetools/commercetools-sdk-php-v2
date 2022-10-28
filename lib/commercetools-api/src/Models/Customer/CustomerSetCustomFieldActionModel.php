@@ -21,16 +21,19 @@ final class CustomerSetCustomFieldActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setCustomField';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?mixed
      */
     protected $value;
@@ -41,14 +44,16 @@ final class CustomerSetCustomFieldActionModel extends JsonObjectModel implements
      */
     public function __construct(
         ?string $name = null,
-        $value = null
+        $value = null,
+        ?string $action = null
     ) {
         $this->name = $name;
         $this->value = $value;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,7 @@ final class CustomerSetCustomFieldActionModel extends JsonObjectModel implements
     /**
      * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getName()
@@ -86,8 +92,9 @@ final class CustomerSetCustomFieldActionModel extends JsonObjectModel implements
 
     /**
      * <p>If <code>value</code> is absent or <code>null</code>, this field will be removed if it exists.
-     * Trying to remove a field that does not exist will fail with an <a href="/../api/errors#general-400-invalid-operation">InvalidOperation</a> error.
+     * Trying to remove a field that does not exist will fail with an <a href="ctp:api:type:InvalidOperationError">InvalidOperation</a> error.
      * If <code>value</code> is provided, it is set for the field defined by <code>name</code>.</p>
+     *
      *
      * @return null|mixed
      */

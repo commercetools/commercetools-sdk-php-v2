@@ -23,16 +23,19 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
 {
     public const DISCRIMINATOR_VALUE = 'payment';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?Payment
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
      */
     public function __construct(
         ?string $id = null,
-        ?Payment $obj = null
+        ?Payment $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -90,6 +96,7 @@ final class PaymentReferenceModel extends JsonObjectModel implements PaymentRefe
 
     /**
      * <p>Contains the representation of the expanded Payment. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Payments.</p>
+     *
      *
      * @return null|Payment
      */

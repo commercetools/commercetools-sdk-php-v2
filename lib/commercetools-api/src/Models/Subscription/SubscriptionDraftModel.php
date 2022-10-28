@@ -20,26 +20,31 @@ use stdClass;
 final class SubscriptionDraftModel extends JsonObjectModel implements SubscriptionDraft
 {
     /**
+     *
      * @var ?ChangeSubscriptionCollection
      */
     protected $changes;
 
     /**
+     *
      * @var ?Destination
      */
     protected $destination;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?MessageSubscriptionCollection
      */
     protected $messages;
 
     /**
+     *
      * @var ?DeliveryFormat
      */
     protected $format;
@@ -63,6 +68,9 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Change notifications to be subscribed to.</p>
+     *
+     *
      * @return null|ChangeSubscriptionCollection
      */
     public function getChanges()
@@ -80,6 +88,9 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Messaging service to which the messages are sent.</p>
+     *
+     *
      * @return null|Destination
      */
     public function getDestination()
@@ -100,6 +111,7 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     /**
      * <p>User-defined unique identifier for the Subscription.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -117,6 +129,9 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Messages to be subscribed to.</p>
+     *
+     *
      * @return null|MessageSubscriptionCollection
      */
     public function getMessages()
@@ -134,6 +149,9 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
+     * <p>Format in which the payload is delivered. When not provided, the <a href="ctp:api:type:PlatformFormat">PlatformFormat</a> is selected by default.</p>
+     *
+     *
      * @return null|DeliveryFormat
      */
     public function getFormat()

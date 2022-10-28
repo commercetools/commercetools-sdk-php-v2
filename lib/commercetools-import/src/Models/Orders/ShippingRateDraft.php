@@ -19,16 +19,19 @@ interface ShippingRateDraft extends JsonObject
     public const FIELD_TIERS = 'tiers';
 
     /**
+
      * @return null|Money
      */
     public function getPrice();
 
     /**
+
      * @return null|Money
      */
     public function getFreeAbove();
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers();

@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressBuilder;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
@@ -31,83 +32,105 @@ use stdClass;
 final class MyCartDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $currency;
 
     /**
+
      * @var ?string
      */
     private $customerEmail;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $inventoryMode;
 
     /**
+
      * @var ?MyLineItemDraftCollection
      */
     private $lineItems;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $shippingAddress;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $billingAddress;
 
     /**
+
      * @var null|ShippingMethodResourceIdentifier|ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $locale;
 
     /**
+
      * @var ?string
      */
     private $taxMode;
 
     /**
+
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     private $itemShippingAddresses;
 
     /**
+
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
+     */
+    private $businessUnit;
+
+    /**
+
      * @var null|StoreKeyReference|StoreKeyReferenceBuilder
      */
     private $store;
 
     /**
-     * @var ?DiscountCodeInfoCollection
+
+     * @var ?array
      */
     private $discountCodes;
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency()
@@ -116,6 +139,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -126,6 +150,7 @@ final class MyCartDraftBuilder implements Builder
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -136,6 +161,7 @@ final class MyCartDraftBuilder implements Builder
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -144,6 +170,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|MyLineItemDraftCollection
      */
     public function getLineItems()
@@ -152,6 +179,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -160,6 +188,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -168,6 +197,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod()
@@ -178,6 +208,7 @@ final class MyCartDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -186,6 +217,7 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getLocale()
@@ -196,6 +228,7 @@ final class MyCartDraftBuilder implements Builder
     /**
      * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode()
@@ -207,6 +240,7 @@ final class MyCartDraftBuilder implements Builder
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification()
@@ -218,6 +252,7 @@ final class MyCartDraftBuilder implements Builder
      * <p>Contains addresses for orders with multiple shipping addresses.
      * Each address must contain a key which is unique in this cart.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -226,8 +261,20 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>The BusinessUnit the cart will belong to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
+    }
+
+    /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore()
@@ -236,7 +283,10 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DiscountCodeInfoCollection
+     * <p>The code of existing DiscountCodes.</p>
+     *
+
+     * @return null|array
      */
     public function getDiscountCodes()
     {
@@ -387,6 +437,17 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitKeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?StoreKeyReference $store
      * @return $this
      */
@@ -398,10 +459,10 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
-     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @param ?array $discountCodes
      * @return $this
      */
-    public function withDiscountCodes(?DiscountCodeInfoCollection $discountCodes)
+    public function withDiscountCodes(?array $discountCodes)
     {
         $this->discountCodes = $discountCodes;
 
@@ -453,6 +514,17 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -479,6 +551,7 @@ final class MyCartDraftBuilder implements Builder
             $this->taxMode,
             $this->deleteDaysAfterLastModification,
             $this->itemShippingAddresses,
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
             $this->discountCodes
         );

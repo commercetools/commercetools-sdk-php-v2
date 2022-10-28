@@ -24,46 +24,55 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $comment;
 
     /**
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+     *
      * @var ?string
      */
     protected $paymentState;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -88,7 +97,8 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         ?string $paymentState = null,
         ?CustomFields $custom = null,
         ?DateTimeImmutable $lastModifiedAt = null,
-        ?DateTimeImmutable $createdAt = null
+        ?DateTimeImmutable $createdAt = null,
+        ?string $type = null
     ) {
         $this->id = $id;
         $this->quantity = $quantity;
@@ -98,11 +108,12 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         $this->custom = $custom;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->createdAt = $createdAt;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type;
     }
 
     /**
      * <p>Unique identifier of the ReturnItem.</p>
+     *
      *
      * @return null|string
      */
@@ -121,6 +132,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -138,6 +150,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -155,6 +168,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getComment()
@@ -172,6 +186,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -189,6 +204,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPaymentState()
@@ -208,6 +224,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     /**
      * <p>Custom Fields of this return item.</p>
      *
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -226,6 +243,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -247,6 +265,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()

@@ -33,151 +33,181 @@ use stdClass;
 final class CustomerModel extends JsonObjectModel implements Customer
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-
-    /**
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-
-    /**
-     * @var ?string
-     */
-    protected $customerNumber;
-
-    /**
-     * @var ?string
-     */
-    protected $email;
-
-    /**
-     * @var ?string
-     */
-    protected $password;
-
-    /**
-     * @var ?string
-     */
-    protected $firstName;
-
-    /**
-     * @var ?string
-     */
-    protected $lastName;
-
-    /**
-     * @var ?string
-     */
-    protected $middleName;
-
-    /**
-     * @var ?string
-     */
-    protected $title;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $dateOfBirth;
-
-    /**
-     * @var ?string
-     */
-    protected $companyName;
-
-    /**
-     * @var ?string
-     */
-    protected $vatId;
-
-    /**
-     * @var ?AddressCollection
-     */
-    protected $addresses;
-
-    /**
-     * @var ?string
-     */
-    protected $defaultShippingAddressId;
-
-    /**
-     * @var ?array
-     */
-    protected $shippingAddressIds;
-
-    /**
-     * @var ?string
-     */
-    protected $defaultBillingAddressId;
-
-    /**
-     * @var ?array
-     */
-    protected $billingAddressIds;
-
-    /**
-     * @var ?bool
-     */
-    protected $isEmailVerified;
-
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-
-    /**
-     * @var ?CustomerGroupReference
-     */
-    protected $customerGroup;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
-     * @var ?string
-     */
-    protected $locale;
-
-    /**
-     * @var ?string
-     */
-    protected $salutation;
-
-    /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $customerNumber;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $externalId;
+
+    /**
+     *
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     *
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $email;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $password;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $firstName;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $lastName;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $middleName;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $title;
+
+    /**
+     *
+     * @var ?DateTimeImmutable
+     */
+    protected $dateOfBirth;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $companyName;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $vatId;
+
+    /**
+     *
+     * @var ?AddressCollection
+     */
+    protected $addresses;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $defaultShippingAddressId;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $shippingAddressIds;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $defaultBillingAddressId;
+
+    /**
+     *
+     * @var ?array
+     */
+    protected $billingAddressIds;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $isEmailVerified;
+
+    /**
+     *
+     * @var ?CustomerGroupReference
+     */
+    protected $customerGroup;
+
+    /**
+     *
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $locale;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $salutation;
+
+    /**
+     *
      * @var ?StoreKeyReferenceCollection
      */
     protected $stores;
 
     /**
+     *
      * @var ?string
      */
     protected $authenticationMode;
@@ -191,9 +221,11 @@ final class CustomerModel extends JsonObjectModel implements Customer
         ?int $version = null,
         ?DateTimeImmutable $createdAt = null,
         ?DateTimeImmutable $lastModifiedAt = null,
+        ?string $key = null,
+        ?string $customerNumber = null,
+        ?string $externalId = null,
         ?LastModifiedBy $lastModifiedBy = null,
         ?CreatedBy $createdBy = null,
-        ?string $customerNumber = null,
         ?string $email = null,
         ?string $password = null,
         ?string $firstName = null,
@@ -209,12 +241,10 @@ final class CustomerModel extends JsonObjectModel implements Customer
         ?string $defaultBillingAddressId = null,
         ?array $billingAddressIds = null,
         ?bool $isEmailVerified = null,
-        ?string $externalId = null,
         ?CustomerGroupReference $customerGroup = null,
         ?CustomFields $custom = null,
         ?string $locale = null,
         ?string $salutation = null,
-        ?string $key = null,
         ?StoreKeyReferenceCollection $stores = null,
         ?string $authenticationMode = null
     ) {
@@ -222,9 +252,11 @@ final class CustomerModel extends JsonObjectModel implements Customer
         $this->version = $version;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
+        $this->key = $key;
+        $this->customerNumber = $customerNumber;
+        $this->externalId = $externalId;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->createdBy = $createdBy;
-        $this->customerNumber = $customerNumber;
         $this->email = $email;
         $this->password = $password;
         $this->firstName = $firstName;
@@ -240,18 +272,17 @@ final class CustomerModel extends JsonObjectModel implements Customer
         $this->defaultBillingAddressId = $defaultBillingAddressId;
         $this->billingAddressIds = $billingAddressIds;
         $this->isEmailVerified = $isEmailVerified;
-        $this->externalId = $externalId;
         $this->customerGroup = $customerGroup;
         $this->custom = $custom;
         $this->locale = $locale;
         $this->salutation = $salutation;
-        $this->key = $key;
         $this->stores = $stores;
         $this->authenticationMode = $authenticationMode;
     }
 
     /**
      * <p>Unique identifier of the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -270,7 +301,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The current version of the customer.</p>
+     * <p>Current version of the Customer.</p>
+     *
      *
      * @return null|int
      */
@@ -289,6 +321,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Date and time (UTC) the Customer was initially created.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -310,6 +345,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Date and time (UTC) the Customer was last updated.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -331,7 +369,69 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>User-defined unique identifier of the Customer.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Customer.</p>
+     * <p>Can be used to refer to a Customer in a human-readable way (in emails, invoices, and other correspondence).</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getCustomerNumber()
+    {
+        if (is_null($this->customerNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_CUSTOMER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerNumber = (string) $data;
+        }
+
+        return $this->customerNumber;
+    }
+
+    /**
+     * <p>Optional identifier for use in external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
+    }
+
+    /**
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|LastModifiedBy
      */
@@ -351,7 +451,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     * <p>Present on resources created after 1 February 2019 except for <a href="/../api/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -371,30 +472,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The customer number can be used to create a more human-readable (in contrast to ID) identifier for the customer.
-     * It should be unique across a project.
-     * Once the field was set it cannot be changed anymore.</p>
+     * <p>Email address of the Customer that is <a href="/../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to.
+     * It is the mandatory unique identifier of a Customer.</p>
      *
-     * @return null|string
-     */
-    public function getCustomerNumber()
-    {
-        if (is_null($this->customerNumber)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_CUSTOMER_NUMBER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customerNumber = (string) $data;
-        }
-
-        return $this->customerNumber;
-    }
-
-    /**
-     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
-     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
-     * For more information, see Email uniquenes.</p>
      *
      * @return null|string
      */
@@ -413,7 +493,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>Only present with the default <code>authenticationMode</code>, <code>Password</code>.</p>
+     * <p>Present only when <code>authenticationMode</code> is set to <code>Password</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -432,6 +513,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Given name (first name) of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getFirstName()
@@ -449,6 +533,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Family name (last name) of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getLastName()
@@ -466,6 +553,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Middle name of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getMiddleName()
@@ -483,6 +573,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Title of the Customer, for example, 'Dr.'.</p>
+     *
+     *
      * @return null|string
      */
     public function getTitle()
@@ -500,6 +593,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Date of birth of the Customer.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()
@@ -521,6 +617,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Company name of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getCompanyName()
@@ -538,6 +637,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Unique VAT ID of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getVatId()
@@ -555,7 +657,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The addresses have unique IDs in the addresses list</p>
+     * <p>Addresses used by the Customer.</p>
+     *
      *
      * @return null|AddressCollection
      */
@@ -574,7 +677,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The address ID in the addresses list</p>
+     * <p>ID of the address in <code>addresses</code> used as the default shipping address.</p>
+     *
      *
      * @return null|string
      */
@@ -593,7 +697,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The IDs from the addresses list which are used as shipping addresses</p>
+     * <p>IDs of addresses in <code>addresses</code> used as shipping addresses.</p>
+     *
      *
      * @return null|array
      */
@@ -612,7 +717,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The address ID in the addresses list</p>
+     * <p>ID of the address in <code>addresses</code> used as the default billing address.</p>
+     *
      *
      * @return null|string
      */
@@ -631,7 +737,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>The IDs from the addresses list which are used as billing addresses</p>
+     * <p>IDs of addresses in <code>addresses</code> used as billing addresses.</p>
+     *
      *
      * @return null|array
      */
@@ -650,6 +757,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Indicates whether the email address of the Customer is <a href="#email-verification-of-customer">verified</a>.</p>
+     *
+     *
      * @return null|bool
      */
     public function getIsEmailVerified()
@@ -667,23 +777,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
+     * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> to which the Customer belongs.</p>
+     *
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -702,6 +798,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Custom Fields for the Customer.</p>
+     *
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -720,6 +819,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Preferred language of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getLocale()
@@ -737,6 +839,9 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * <p>Salutation of the Customer, for example, 'Mr.' or 'Mrs.'.</p>
+     *
+     *
      * @return null|string
      */
     public function getSalutation()
@@ -754,28 +859,12 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>User-defined unique identifier of the Customer.</p>
+     * <p><a href="ctp:api:type:Store">Stores</a> to which the Customer is assigned to.</p>
+     * <ul>
+     * <li>If no Stores are specified, the Customer is a global customer, and can log in using the <a href="/../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>.</li>
+     * <li>If any Stores are specified, the Customer can only log in using the <a href="/../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores.</li>
+     * </ul>
      *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
-     * <p>References to the stores the customer account is associated with.
-     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
-     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>
      *
      * @return null|StoreKeyReferenceCollection
      */
@@ -794,7 +883,8 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * <p>Defines whether a Customer has a password.</p>
+     * <p>Indicates whether the <code>password</code> is required for the Customer.</p>
+     *
      *
      * @return null|string
      */
@@ -846,6 +936,30 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
+     * @param ?string $customerNumber
+     */
+    public function setCustomerNumber(?string $customerNumber): void
+    {
+        $this->customerNumber = $customerNumber;
+    }
+
+    /**
+     * @param ?string $externalId
+     */
+    public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+
+    /**
      * @param ?LastModifiedBy $lastModifiedBy
      */
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -859,14 +973,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
-    }
-
-    /**
-     * @param ?string $customerNumber
-     */
-    public function setCustomerNumber(?string $customerNumber): void
-    {
-        $this->customerNumber = $customerNumber;
     }
 
     /**
@@ -990,14 +1096,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
     }
 
     /**
-     * @param ?string $externalId
-     */
-    public function setExternalId(?string $externalId): void
-    {
-        $this->externalId = $externalId;
-    }
-
-    /**
      * @param ?CustomerGroupReference $customerGroup
      */
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
@@ -1027,14 +1125,6 @@ final class CustomerModel extends JsonObjectModel implements Customer
     public function setSalutation(?string $salutation): void
     {
         $this->salutation = $salutation;
-    }
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 
     /**

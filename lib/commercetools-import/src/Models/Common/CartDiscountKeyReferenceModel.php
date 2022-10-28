@@ -21,11 +21,13 @@ final class CartDiscountKeyReferenceModel extends JsonObjectModel implements Car
 {
     public const DISCRIMINATOR_VALUE = 'cart-discount';
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $typeId;
@@ -35,13 +37,15 @@ final class CartDiscountKeyReferenceModel extends JsonObjectModel implements Car
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $key = null
+        ?string $key = null,
+        ?string $typeId = null
     ) {
         $this->key = $key;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getKey()
@@ -60,6 +64,7 @@ final class CartDiscountKeyReferenceModel extends JsonObjectModel implements Car
 
     /**
      * <p>The type of the referenced resource.</p>
+     *
      *
      * @return null|string
      */

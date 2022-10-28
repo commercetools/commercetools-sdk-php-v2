@@ -20,6 +20,7 @@ interface AWSLambdaDestination extends ExtensionDestination
     /**
      * <p>Amazon Resource Name (ARN) of the Lambda function in the format <code>arn:aws:lambda:&lt;region&gt;:&lt;accountid&gt;:function:&lt;functionName&gt;</code>.</p>
      *
+
      * @return null|string
      */
     public function getArn();
@@ -27,6 +28,7 @@ interface AWSLambdaDestination extends ExtensionDestination
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
+
      * @return null|string
      */
     public function getAccessKey();
@@ -34,6 +36,7 @@ interface AWSLambdaDestination extends ExtensionDestination
     /**
      * <p>Partially hidden on retrieval for security reasons.</p>
      *
+
      * @return null|string
      */
     public function getAccessSecret();

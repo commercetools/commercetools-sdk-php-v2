@@ -20,6 +20,7 @@ use stdClass;
 final class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSubscription
 {
     /**
+     *
      * @var ?string
      */
     protected $resourceTypeId;
@@ -35,6 +36,9 @@ final class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSub
     }
 
     /**
+     * <p>Unique identifier for the type of resource, for example, <code>cart</code>.</p>
+     *
+     *
      * @return null|string
      */
     public function getResourceTypeId()

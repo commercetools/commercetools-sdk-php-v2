@@ -17,6 +17,7 @@ interface ReviewResourceIdentifier extends ResourceIdentifier
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Review">Review</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getId();
@@ -24,6 +25,7 @@ interface ReviewResourceIdentifier extends ResourceIdentifier
     /**
      * <p>User-defined unique identifier of the referenced <a href="ctp:api:type:Review">Review</a>. Either <code>id</code> or <code>key</code> is required.</p>
      *
+
      * @return null|string
      */
     public function getKey();

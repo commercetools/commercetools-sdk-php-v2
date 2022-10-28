@@ -21,11 +21,13 @@ use stdClass;
 final class ReplicaMyCartDraftBuilder implements Builder
 {
     /**
+
      * @var ?JsonObject
      */
     private $reference;
 
     /**
+
      * @return null|JsonObject
      */
     public function getReference()

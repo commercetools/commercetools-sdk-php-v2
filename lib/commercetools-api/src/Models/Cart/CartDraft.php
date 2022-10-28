@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
@@ -25,6 +26,7 @@ interface CartDraft extends JsonObject
     public const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     public const FIELD_CUSTOMER_GROUP = 'customerGroup';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_COUNTRY = 'country';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
@@ -41,6 +43,9 @@ interface CartDraft extends JsonObject
     public const FIELD_LOCALE = 'locale';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ORIGIN = 'origin';
+    public const FIELD_SHIPPING_MODE = 'shippingMode';
+    public const FIELD_CUSTOM_SHIPPING = 'customShipping';
+    public const FIELD_SHIPPING = 'shipping';
     public const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
@@ -48,6 +53,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency();
@@ -55,6 +61,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>User-defined unique identifier for the Cart.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -62,11 +69,13 @@ interface CartDraft extends JsonObject
     /**
      * <p>Id of an existing Customer.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId();
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -75,6 +84,7 @@ interface CartDraft extends JsonObject
      * <p>Will be set automatically when the <code>customerId</code> is set and the customer is a member of a customer group.
      * Can be set explicitly when no <code>customerId</code> is present.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
@@ -82,14 +92,24 @@ interface CartDraft extends JsonObject
     /**
      * <p>Assigns the new cart to an anonymous session (the customer has not signed up/in yet).</p>
      *
+
      * @return null|string
      */
     public function getAnonymousId();
 
     /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit();
+
+    /**
      * <p>Assigns the new cart to the store.
      * The store assignment can not be modified.</p>
      *
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore();
@@ -97,6 +117,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -104,6 +125,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode();
@@ -111,6 +133,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>The default tax mode is <code>Platform</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode();
@@ -118,6 +141,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>The default tax rounding mode is <code>HalfEven</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode();
@@ -125,16 +149,19 @@ interface CartDraft extends JsonObject
     /**
      * <p>The default tax calculation mode is <code>LineItemLevel</code>.</p>
      *
+
      * @return null|string
      */
     public function getTaxCalculationMode();
 
     /**
+
      * @return null|LineItemDraftCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems();
@@ -142,16 +169,19 @@ interface CartDraft extends JsonObject
     /**
      * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>
      *
+
      * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress();
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
@@ -159,6 +189,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>An external tax rate can be set for the <code>shippingMethod</code> if the cart has the <code>External</code> TaxMode.</p>
      *
+
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRateForShippingMethod();
@@ -166,6 +197,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
@@ -173,6 +205,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>Must be one of the languages supported for this project</p>
      *
+
      * @return null|string
      */
     public function getLocale();
@@ -181,6 +214,7 @@ interface CartDraft extends JsonObject
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
@@ -188,9 +222,37 @@ interface CartDraft extends JsonObject
     /**
      * <p>The default origin is <code>Customer</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin();
+
+    /**
+     * <ul>
+     * <li>If <code>Single</code>, only a single Shipping Method can be added to the Cart.</li>
+     * <li>If <code>Multiple</code>, multiple Shipping Methods can be added to the Cart.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getShippingMode();
+
+    /**
+     * <p>Custom Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|CustomShippingDraftCollection
+     */
+    public function getCustomShipping();
+
+    /**
+     * <p>Shipping Methods for a Cart with <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|ShippingDraftCollection
+     */
+    public function getShipping();
 
     /**
      * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.
@@ -199,6 +261,7 @@ interface CartDraft extends JsonObject
      * If CartScore is defined, it must be ScoreShippingRateInput.
      * Otherwise it can not bet set.</p>
      *
+
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput();
@@ -210,6 +273,7 @@ interface CartDraft extends JsonObject
      * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
      * Only the cart's <code>shippingAddress</code> is used for this.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
@@ -217,6 +281,7 @@ interface CartDraft extends JsonObject
     /**
      * <p>The code of existing DiscountCodes.</p>
      *
+
      * @return null|array
      */
     public function getDiscountCodes();
@@ -250,6 +315,11 @@ interface CartDraft extends JsonObject
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
+
+    /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit): void;
 
     /**
      * @param ?StoreResourceIdentifier $store
@@ -330,6 +400,21 @@ interface CartDraft extends JsonObject
      * @param ?string $origin
      */
     public function setOrigin(?string $origin): void;
+
+    /**
+     * @param ?string $shippingMode
+     */
+    public function setShippingMode(?string $shippingMode): void;
+
+    /**
+     * @param ?CustomShippingDraftCollection $customShipping
+     */
+    public function setCustomShipping(?CustomShippingDraftCollection $customShipping): void;
+
+    /**
+     * @param ?ShippingDraftCollection $shipping
+     */
+    public function setShipping(?ShippingDraftCollection $shipping): void;
 
     /**
      * @param ?ShippingRateInputDraft $shippingRateInput

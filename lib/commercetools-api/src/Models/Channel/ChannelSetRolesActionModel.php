@@ -21,11 +21,13 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
 {
     public const DISCRIMINATOR_VALUE = 'setRoles';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?array
      */
     protected $roles;
@@ -35,13 +37,15 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?array $roles = null
+        ?array $roles = null,
+        ?string $action = null
     ) {
         $this->roles = $roles;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ChannelSetRolesActionModel extends JsonObjectModel implements Channe
 
     /**
      * <p>Value to set. If not specified, then <code>InventorySupply</code> is assigned by default.</p>
+     *
      *
      * @return null|array
      */

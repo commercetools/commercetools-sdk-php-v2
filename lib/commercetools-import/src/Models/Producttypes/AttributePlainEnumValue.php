@@ -17,11 +17,13 @@ interface AttributePlainEnumValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getKey();
 
     /**
+
      * @return null|string
      */
     public function getLabel();

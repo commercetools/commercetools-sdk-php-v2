@@ -21,21 +21,25 @@ use stdClass;
 final class RemoveStateRolesChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?array
      */
     private $previousValue;
 
     /**
+
      * @var ?array
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -44,6 +48,7 @@ final class RemoveStateRolesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getPreviousValue()
@@ -52,6 +57,7 @@ final class RemoveStateRolesChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|array
      */
     public function getNextValue()

@@ -22,16 +22,19 @@ use stdClass;
 final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteRequestDraft
 {
     /**
+     *
      * @var ?CartResourceIdentifier
      */
     protected $cart;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?string
      */
     protected $comment;
@@ -51,7 +54,8 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
     }
 
     /**
-     * <p>ResourceIdentifier to the Cart from which this quote request is created.</p>
+     * <p>ResourceIdentifier of the Cart from which the Quote Request is created.</p>
+     *
      *
      * @return null|CartResourceIdentifier
      */
@@ -73,6 +77,7 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
     /**
      * <p>Current version of the Cart.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -90,7 +95,8 @@ final class MyQuoteRequestDraftModel extends JsonObjectModel implements MyQuoteR
     }
 
     /**
-     * <p>Text message included in the request.</p>
+     * <p>Message from the Buyer included in the Quote Request.</p>
+     *
      *
      * @return null|string
      */

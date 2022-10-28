@@ -21,16 +21,19 @@ use stdClass;
 final class SetValueChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
@@ -38,6 +41,7 @@ final class SetValueChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setValue</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -46,6 +50,7 @@ final class SetValueChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -54,6 +59,7 @@ final class SetValueChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

@@ -21,6 +21,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
 {
     public const DISCRIMINATOR_VALUE = '';
     /**
+     *
      * @var ?string
      */
     protected $action;
@@ -31,14 +32,17 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
      */
     private static $discriminatorClasses = [
        'addCustomLineItem' => CartAddCustomLineItemActionModel::class,
+       'addCustomShippingMethod' => CartAddCustomShippingMethodActionModel::class,
        'addDiscountCode' => CartAddDiscountCodeActionModel::class,
        'addItemShippingAddress' => CartAddItemShippingAddressActionModel::class,
        'addLineItem' => CartAddLineItemActionModel::class,
        'addPayment' => CartAddPaymentActionModel::class,
+       'addShippingMethod' => CartAddShippingMethodActionModel::class,
        'addShoppingList' => CartAddShoppingListActionModel::class,
        'applyDeltaToCustomLineItemShippingDetailsTargets' => CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel::class,
        'applyDeltaToLineItemShippingDetailsTargets' => CartApplyDeltaToLineItemShippingDetailsTargetsActionModel::class,
        'changeCustomLineItemMoney' => CartChangeCustomLineItemMoneyActionModel::class,
+       'changeCustomLineItemPriceMode' => CartChangeCustomLineItemPriceModeActionModel::class,
        'changeCustomLineItemQuantity' => CartChangeCustomLineItemQuantityActionModel::class,
        'changeLineItemQuantity' => CartChangeLineItemQuantityActionModel::class,
        'changeTaxCalculationMode' => CartChangeTaxCalculationModeActionModel::class,
@@ -50,6 +54,7 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'removeItemShippingAddress' => CartRemoveItemShippingAddressActionModel::class,
        'removeLineItem' => CartRemoveLineItemActionModel::class,
        'removePayment' => CartRemovePaymentActionModel::class,
+       'removeShippingMethod' => CartRemoveShippingMethodActionModel::class,
        'setAnonymousId' => CartSetAnonymousIdActionModel::class,
        'setBillingAddress' => CartSetBillingAddressActionModel::class,
        'setBillingAddressCustomField' => CartSetBillingAddressCustomFieldActionModel::class,
@@ -87,6 +92,8 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
        'setShippingAddress' => CartSetShippingAddressActionModel::class,
        'setShippingAddressCustomField' => CartSetShippingAddressCustomFieldActionModel::class,
        'setShippingAddressCustomType' => CartSetShippingAddressCustomTypeActionModel::class,
+       'setShippingCustomField' => CartSetShippingCustomFieldActionModel::class,
+       'setShippingCustomType' => CartSetShippingCustomTypeActionModel::class,
        'setShippingMethod' => CartSetShippingMethodActionModel::class,
        'setShippingMethodTaxAmount' => CartSetShippingMethodTaxAmountActionModel::class,
        'setShippingMethodTaxRate' => CartSetShippingMethodTaxRateActionModel::class,
@@ -98,11 +105,13 @@ final class CartUpdateActionModel extends JsonObjectModel implements CartUpdateA
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $action = null
     ) {
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()

@@ -21,11 +21,13 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'setStatusInterfaceCode';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $interfaceCode;
@@ -35,13 +37,15 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $interfaceCode = null
+        ?string $interfaceCode = null,
+        ?string $action = null
     ) {
         $this->interfaceCode = $interfaceCode;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class PaymentSetStatusInterfaceCodeActionModel extends JsonObjectModel imp
     }
 
     /**
+     *
      * @return null|string
      */
     public function getInterfaceCode()

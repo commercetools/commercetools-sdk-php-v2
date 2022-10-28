@@ -23,11 +23,15 @@ use stdClass;
 final class InventoryEntryCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|InventoryEntry|InventoryEntryBuilder
      */
     private $inventoryEntry;
 
     /**
+     * <p><a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that was created.</p>
+     *
+
      * @return null|InventoryEntry
      */
     public function getInventoryEntry()

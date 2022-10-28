@@ -21,26 +21,31 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
 {
     public const DISCRIMINATOR_VALUE = 'highPrecision';
     /**
+     *
      * @var ?int
      */
     protected $centAmount;
 
     /**
+     *
      * @var ?string
      */
     protected $currencyCode;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?int
      */
     protected $fractionDigits;
 
     /**
+     *
      * @var ?int
      */
     protected $preciseAmount;
@@ -53,19 +58,21 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
         ?int $centAmount = null,
         ?string $currencyCode = null,
         ?int $fractionDigits = null,
-        ?int $preciseAmount = null
+        ?int $preciseAmount = null,
+        ?string $type = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
         $this->fractionDigits = $fractionDigits;
         $this->preciseAmount = $preciseAmount;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Amount in the smallest indivisible unit of a currency. This field is optional for high precision. If provided, it is checked for validity. Example:</p>
      * <p>A Price of 1.015 USD can be rounded either to 1.01 USD or 1.02 USD. If it lies outside of this range, an error message stating that centAmount must be rounded correctly will be returned.</p>
      * <p>If <code>centAmount</code> is not provided, the API calculates the value automatically using the default rounding mode half even.</p>
+     *
      *
      * @return null|int
      */
@@ -86,6 +93,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     /**
      * <p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getCurrencyCode()
@@ -103,6 +111,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -122,6 +131,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     /**
      * <p>Number of fraction digits for a specified high precision money. It must be greater than the default number of fraction digits for the specified currency.</p>
      *
+     *
      * @return null|int
      */
     public function getFractionDigits()
@@ -140,6 +150,7 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
 
     /**
      * <p>Amount in 1 / (10 ^ <code>fractionDigits</code>) of a currency.</p>
+     *
      *
      * @return null|int
      */

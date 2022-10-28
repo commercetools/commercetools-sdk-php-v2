@@ -21,11 +21,13 @@ final class CartSetDirectDiscountsActionModel extends JsonObjectModel implements
 {
     public const DISCRIMINATOR_VALUE = 'setDirectDiscounts';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?DirectDiscountDraftCollection
      */
     protected $discounts;
@@ -35,13 +37,15 @@ final class CartSetDirectDiscountsActionModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DirectDiscountDraftCollection $discounts = null
+        ?DirectDiscountDraftCollection $discounts = null,
+        ?string $action = null
     ) {
         $this->discounts = $discounts;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class CartSetDirectDiscountsActionModel extends JsonObjectModel implements
     }
 
     /**
+     *
      * @return null|DirectDiscountDraftCollection
      */
     public function getDiscounts()

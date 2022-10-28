@@ -23,21 +23,25 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
 
     public const DISCRIMINATOR_VALUE = 'ChangeAssetOrderChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedStringCollection
      */
     protected $previousValue;
 
     /**
+     *
      * @var ?LocalizedStringCollection
      */
     protected $nextValue;
@@ -49,15 +53,17 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
     public function __construct(
         ?string $change = null,
         ?LocalizedStringCollection $previousValue = null,
-        ?LocalizedStringCollection $nextValue = null
+        ?LocalizedStringCollection $nextValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,6 +81,7 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
+     *
      * @return null|string
      */
     public function getChange()
@@ -92,6 +99,7 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
+     *
      * @return null|LocalizedStringCollection
      */
     public function getPreviousValue()
@@ -109,6 +117,7 @@ final class ChangeAssetOrderChangeModel extends JsonObjectModel implements Chang
     }
 
     /**
+     *
      * @return null|LocalizedStringCollection
      */
     public function getNextValue()

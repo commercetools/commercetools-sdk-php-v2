@@ -22,26 +22,33 @@ use stdClass;
 final class ProductSetPricesActionBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?string
      */
     private $sku;
 
     /**
+
      * @var ?PriceDraftCollection
      */
     private $prices;
 
     /**
+
      * @var ?bool
      */
     private $staged;
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId()
@@ -50,6 +57,9 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku()
@@ -58,6 +68,10 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * <p>The Embedded Prices to set.
+     * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     *
+
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -66,6 +80,9 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
+     * <p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged()

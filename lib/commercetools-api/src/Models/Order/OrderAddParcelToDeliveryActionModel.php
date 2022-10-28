@@ -21,26 +21,31 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'addParcelToDelivery';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+     *
      * @var ?ParcelMeasurements
      */
     protected $measurements;
 
     /**
+     *
      * @var ?TrackingData
      */
     protected $trackingData;
 
     /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
@@ -53,16 +58,18 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
         ?string $deliveryId = null,
         ?ParcelMeasurements $measurements = null,
         ?TrackingData $trackingData = null,
-        ?DeliveryItemCollection $items = null
+        ?DeliveryItemCollection $items = null,
+        ?string $action = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->measurements = $measurements;
         $this->trackingData = $trackingData;
         $this->items = $items;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -80,6 +87,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -97,6 +105,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -115,6 +124,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -133,6 +143,7 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()

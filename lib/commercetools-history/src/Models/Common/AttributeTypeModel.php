@@ -22,6 +22,7 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
 
 
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -38,6 +39,7 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()

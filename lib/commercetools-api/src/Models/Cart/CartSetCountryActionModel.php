@@ -21,11 +21,13 @@ final class CartSetCountryActionModel extends JsonObjectModel implements CartSet
 {
     public const DISCRIMINATOR_VALUE = 'setCountry';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
@@ -35,13 +37,15 @@ final class CartSetCountryActionModel extends JsonObjectModel implements CartSet
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $country = null
+        ?string $country = null,
+        ?string $action = null
     ) {
         $this->country = $country;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class CartSetCountryActionModel extends JsonObjectModel implements CartSet
 
     /**
      * <p>Two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
+     *
      *
      * @return null|string
      */

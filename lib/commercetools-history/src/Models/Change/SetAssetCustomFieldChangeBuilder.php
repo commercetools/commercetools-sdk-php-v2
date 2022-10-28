@@ -23,31 +23,37 @@ use Commercetools\History\Models\ChangeValue\AssetChangeValueBuilder;
 final class SetAssetCustomFieldChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $customTypeId;
 
     /**
+
      * @var null|AssetChangeValue|AssetChangeValueBuilder
      */
     private $asset;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
@@ -55,6 +61,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setAssetCustomField</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -63,6 +70,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getName()
@@ -71,6 +79,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCustomTypeId()
@@ -79,6 +88,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|AssetChangeValue
      */
     public function getAsset()
@@ -87,6 +97,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -95,6 +106,7 @@ final class SetAssetCustomFieldChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

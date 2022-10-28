@@ -19,11 +19,13 @@ interface MyOrderFromCartDraft extends JsonObject
     /**
      * <p>Unique identifier of the Cart that initiates an Order creation.</p>
      *
+
      * @return null|string
      */
     public function getId();
 
     /**
+
      * @return null|int
      */
     public function getVersion();

@@ -23,16 +23,19 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
 {
     public const DISCRIMINATOR_VALUE = 'CategorySlugChanged';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $slug;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $oldSlug;
@@ -43,14 +46,16 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
      */
     public function __construct(
         ?LocalizedString $slug = null,
-        ?LocalizedString $oldSlug = null
+        ?LocalizedString $oldSlug = null,
+        ?string $type = null
     ) {
         $this->slug = $slug;
         $this->oldSlug = $oldSlug;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -68,7 +73,8 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The slug of the <a href="ctp:api:type:Category">Category</a> after the <a href="ctp:api:type:CategoryChangeSlugAction">Change Slug</a> update action.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -88,7 +94,8 @@ final class CategorySlugChangedMessagePayloadModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>The slug of the <a href="ctp:api:type:Category">Category</a> before the <a href="ctp:api:type:CategoryChangeSlugAction">Change Slug</a> update action.</p>
+     *
      *
      * @return null|LocalizedString
      */

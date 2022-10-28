@@ -19,16 +19,19 @@ interface ProductLabel extends Label
     public const FIELD_NAME = 'name';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();

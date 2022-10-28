@@ -23,11 +23,13 @@ use stdClass;
 final class ZoneRateBuilder implements Builder
 {
     /**
+
      * @var null|ZoneReference|ZoneReferenceBuilder
      */
     private $zone;
 
     /**
+
      * @var ?ShippingRateCollection
      */
     private $shippingRates;
@@ -35,6 +37,7 @@ final class ZoneRateBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> for which the shipping rates are valid.</p>
      *
+
      * @return null|ZoneReference
      */
     public function getZone()
@@ -45,6 +48,7 @@ final class ZoneRateBuilder implements Builder
     /**
      * <p>Shipping rates defined per currency.</p>
      *
+
      * @return null|ShippingRateCollection
      */
     public function getShippingRates()

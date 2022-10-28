@@ -21,16 +21,19 @@ use stdClass;
 final class CartUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?CartUpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class CartUpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|CartUpdateActionCollection
      */
     public function getActions()

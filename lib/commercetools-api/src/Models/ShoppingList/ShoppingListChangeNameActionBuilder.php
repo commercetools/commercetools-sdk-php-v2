@@ -23,11 +23,13 @@ use stdClass;
 final class ShoppingListChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName()

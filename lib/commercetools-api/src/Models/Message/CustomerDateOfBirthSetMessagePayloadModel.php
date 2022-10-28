@@ -22,11 +22,13 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'CustomerDateOfBirthSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $dateOfBirth;
@@ -36,13 +38,15 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DateTimeImmutable $dateOfBirth = null
+        ?DateTimeImmutable $dateOfBirth = null,
+        ?string $type = null
     ) {
         $this->dateOfBirth = $dateOfBirth;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -60,6 +64,9 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
+     * <p>The <code>dateOfBirth</code> that was set during the <a href="ctp:api:type:CustomerSetDateOfBirthAction">Set Date of Birth</a> update action.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getDateOfBirth()

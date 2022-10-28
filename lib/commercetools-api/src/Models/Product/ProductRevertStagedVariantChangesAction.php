@@ -16,6 +16,9 @@ interface ProductRevertStagedVariantChangesAction extends ProductUpdateAction
     public const FIELD_VARIANT_ID = 'variantId';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to revert.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId();

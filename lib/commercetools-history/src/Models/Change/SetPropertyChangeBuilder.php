@@ -21,21 +21,25 @@ use stdClass;
 final class SetPropertyChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var ?string
      */
     private $path;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
@@ -43,6 +47,7 @@ final class SetPropertyChangeBuilder implements Builder
     /**
      * <p>Update action for <code>setProperty</code> on custom objects</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -53,6 +58,7 @@ final class SetPropertyChangeBuilder implements Builder
     /**
      * <p>Value path to the property that was changed</p>
      *
+
      * @return null|string
      */
     public function getPath()
@@ -61,6 +67,7 @@ final class SetPropertyChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()
@@ -69,6 +76,7 @@ final class SetPropertyChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()

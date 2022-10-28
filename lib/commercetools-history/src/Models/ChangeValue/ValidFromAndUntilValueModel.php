@@ -22,11 +22,13 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
 
 
     /**
+     *
      * @var ?string
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?string
      */
     protected $validUntil;
@@ -45,6 +47,7 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
     }
 
     /**
+     *
      * @return null|string
      */
     public function getValidFrom()
@@ -62,6 +65,7 @@ final class ValidFromAndUntilValueModel extends JsonObjectModel implements Valid
     }
 
     /**
+     *
      * @return null|string
      */
     public function getValidUntil()

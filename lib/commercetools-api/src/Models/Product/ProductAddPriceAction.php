@@ -20,21 +20,33 @@ interface ProductAddPriceAction extends ProductUpdateAction
     public const FIELD_STAGED = 'staged';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Embedded Price to add to the Product Variant.</p>
+     *
+
      * @return null|PriceDraft
      */
     public function getPrice();
 
     /**
+     * <p>If <code>true</code>, only the staged <code>prices</code> is updated. If <code>false</code>, both the current and staged <code>prices</code> are updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();

@@ -17,13 +17,17 @@ interface CustomerSetDefaultShippingAddressAction extends CustomerUpdateAction
     public const FIELD_ADDRESS_KEY = 'addressKey';
 
     /**
-     * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
      *
+
      * @return null|string
      */
     public function getAddressId();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
+
      * @return null|string
      */
     public function getAddressKey();

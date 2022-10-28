@@ -23,21 +23,25 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
 
     public const DISCRIMINATOR_VALUE = 'SetReservationsChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?ReservationCollection
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?ReservationCollection
      */
     protected $previousValue;
@@ -49,15 +53,17 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     public function __construct(
         ?string $change = null,
         ?ReservationCollection $nextValue = null,
-        ?ReservationCollection $previousValue = null
+        ?ReservationCollection $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -77,6 +83,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     /**
      * <p>Update action for <code>setReservations</code> on inventories</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -94,6 +101,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     }
 
     /**
+     *
      * @return null|ReservationCollection
      */
     public function getNextValue()
@@ -111,6 +119,7 @@ final class SetReservationsChangeModel extends JsonObjectModel implements SetRes
     }
 
     /**
+     *
      * @return null|ReservationCollection
      */
     public function getPreviousValue()

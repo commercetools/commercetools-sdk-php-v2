@@ -24,21 +24,25 @@ use Commercetools\History\Models\Common\ReferenceCollection;
 final class RemoveFromCategoryChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Reference|ReferenceBuilder
      */
     private $category;
 
     /**
+
      * @var ?ReferenceCollection
      */
     private $previousValue;
 
     /**
+
      * @var ?ReferenceCollection
      */
     private $nextValue;
@@ -46,6 +50,7 @@ final class RemoveFromCategoryChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addToCategory</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -54,6 +59,7 @@ final class RemoveFromCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Reference
      */
     public function getCategory()
@@ -62,6 +68,7 @@ final class RemoveFromCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getPreviousValue()
@@ -70,6 +77,7 @@ final class RemoveFromCategoryChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|ReferenceCollection
      */
     public function getNextValue()

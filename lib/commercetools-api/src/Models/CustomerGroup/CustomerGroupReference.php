@@ -19,6 +19,7 @@ interface CustomerGroupReference extends Reference
     /**
      * <p>Contains the representation of the expanded CustomerGroup. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for CustomerGroups.</p>
      *
+
      * @return null|CustomerGroup
      */
     public function getObj();
@@ -26,6 +27,7 @@ interface CustomerGroupReference extends Reference
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
      *
+
      * @return null|string
      */
     public function getId();

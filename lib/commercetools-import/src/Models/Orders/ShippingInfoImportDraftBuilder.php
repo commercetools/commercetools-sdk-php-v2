@@ -29,51 +29,61 @@ use stdClass;
 final class ShippingInfoImportDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $shippingMethodName;
 
     /**
+
      * @var null|TypedMoney|TypedMoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|ShippingRateDraft|ShippingRateDraftBuilder
      */
     private $shippingRate;
 
     /**
+
      * @var null|TaxRate|TaxRateBuilder
      */
     private $taxRate;
 
     /**
+
      * @var null|TaxCategoryKeyReference|TaxCategoryKeyReferenceBuilder
      */
     private $taxCategory;
 
     /**
+
      * @var null|ShippingMethodKeyReference|ShippingMethodKeyReferenceBuilder
      */
     private $shippingMethod;
 
     /**
+
      * @var ?DeliveryCollection
      */
     private $deliveries;
 
     /**
+
      * @var null|DiscountedLineItemPriceDraft|DiscountedLineItemPriceDraftBuilder
      */
     private $discountedPrice;
 
     /**
+
      * @var ?string
      */
     private $shippingMethodState;
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodName()
@@ -82,6 +92,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TypedMoney
      */
     public function getPrice()
@@ -90,6 +101,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -98,6 +110,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -108,6 +121,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>References a tax category by key.</p>
      *
+
      * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
@@ -118,6 +132,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>References a shipping method by key.</p>
      *
+
      * @return null|ShippingMethodKeyReference
      */
     public function getShippingMethod()
@@ -128,6 +143,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     /**
      * <p>Note that you can not add a <code>DeliveryItem</code> on import, as <code>LineItems</code> and <code>CustomLineItems</code> are not yet referencable by an <code>id</code>.</p>
      *
+
      * @return null|DeliveryCollection
      */
     public function getDeliveries()
@@ -136,6 +152,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice()
@@ -144,6 +161,7 @@ final class ShippingInfoImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShippingMethodState()

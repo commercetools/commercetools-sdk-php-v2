@@ -29,10 +29,12 @@ interface Project extends JsonObject
     public const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
     public const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
     public const FIELD_SEARCH_INDEXING = 'searchIndexing';
+    public const FIELD_BUSINESS_UNITS = 'businessUnits';
 
     /**
      * <p>Current version of the Project.</p>
      *
+
      * @return null|int
      */
     public function getVersion();
@@ -40,6 +42,7 @@ interface Project extends JsonObject
     /**
      * <p>User-defined unique identifier of the Project.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -47,6 +50,7 @@ interface Project extends JsonObject
     /**
      * <p>Name of the Project.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -54,6 +58,7 @@ interface Project extends JsonObject
     /**
      * <p>Country code of the geographic location.</p>
      *
+
      * @return null|array
      */
     public function getCountries();
@@ -61,6 +66,7 @@ interface Project extends JsonObject
     /**
      * <p>Currency code of the country. A Project must have at least one currency.</p>
      *
+
      * @return null|array
      */
     public function getCurrencies();
@@ -68,6 +74,7 @@ interface Project extends JsonObject
     /**
      * <p>Language of the country. A Project must have at least one language.</p>
      *
+
      * @return null|array
      */
     public function getLanguages();
@@ -75,6 +82,7 @@ interface Project extends JsonObject
     /**
      * <p>Date and time (UTC) the Project was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -82,6 +90,7 @@ interface Project extends JsonObject
     /**
      * <p>Date in YYYY-MM format specifying when the trial period for the Project ends. Only present on Projects in trial period.</p>
      *
+
      * @return null|string
      */
     public function getTrialUntil();
@@ -89,6 +98,7 @@ interface Project extends JsonObject
     /**
      * <p>Holds the configuration for the <a href="/../api/projects/messages">Messages Query</a> feature.</p>
      *
+
      * @return null|MessagesConfiguration
      */
     public function getMessages();
@@ -96,6 +106,7 @@ interface Project extends JsonObject
     /**
      * <p>Holds the configuration for the <a href="/../api/projects/carts">Carts</a> feature.</p>
      *
+
      * @return null|CartsConfiguration
      */
     public function getCarts();
@@ -103,6 +114,7 @@ interface Project extends JsonObject
     /**
      * <p>Holds the configuration for the <a href="/../api/projects/shoppingLists">Shopping Lists</a> feature. This field may not be present on Projects created before January 2020.</p>
      *
+
      * @return null|ShoppingListsConfiguration
      */
     public function getShoppingLists();
@@ -110,6 +122,7 @@ interface Project extends JsonObject
     /**
      * <p>Holds the configuration for the <a href="ctp:api:type:ShippingRatePriceTier">tiered shipping rates</a> feature.</p>
      *
+
      * @return null|ShippingRateInputType
      */
     public function getShippingRateInputType();
@@ -117,6 +130,7 @@ interface Project extends JsonObject
     /**
      * <p>Represents a RFC 7662 compliant <a href="https://datatracker.ietf.org/doc/html/rfc7662">OAuth 2.0 Token Introspection</a> endpoint.</p>
      *
+
      * @return null|ExternalOAuth
      */
     public function getExternalOAuth();
@@ -124,9 +138,18 @@ interface Project extends JsonObject
     /**
      * <p>Controls indexing of resources to be provided on high performance read-only search endpoints.</p>
      *
+
      * @return null|SearchIndexingConfiguration
      */
     public function getSearchIndexing();
+
+    /**
+     * <p>Holds configuration specific to <a href="ctp:api:type:BusinessUnit">Business Units</a>.</p>
+     *
+
+     * @return null|BusinessUnitConfiguration
+     */
+    public function getBusinessUnits();
 
     /**
      * @param ?int $version
@@ -197,4 +220,9 @@ interface Project extends JsonObject
      * @param ?SearchIndexingConfiguration $searchIndexing
      */
     public function setSearchIndexing(?SearchIndexingConfiguration $searchIndexing): void;
+
+    /**
+     * @param ?BusinessUnitConfiguration $businessUnits
+     */
+    public function setBusinessUnits(?BusinessUnitConfiguration $businessUnits): void;
 }

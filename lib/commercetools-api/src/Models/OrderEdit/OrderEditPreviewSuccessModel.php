@@ -22,16 +22,19 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
 {
     public const DISCRIMINATOR_VALUE = 'PreviewSuccess';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?StagedOrder
      */
     protected $preview;
 
     /**
+     *
      * @var ?MessagePayloadCollection
      */
     protected $messagePayloads;
@@ -42,14 +45,16 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
      */
     public function __construct(
         ?StagedOrder $preview = null,
-        ?MessagePayloadCollection $messagePayloads = null
+        ?MessagePayloadCollection $messagePayloads = null,
+        ?string $type = null
     ) {
         $this->preview = $preview;
         $this->messagePayloads = $messagePayloads;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -67,6 +72,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     }
 
     /**
+     *
      * @return null|StagedOrder
      */
     public function getPreview()
@@ -85,6 +91,7 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     }
 
     /**
+     *
      * @return null|MessagePayloadCollection
      */
     public function getMessagePayloads()

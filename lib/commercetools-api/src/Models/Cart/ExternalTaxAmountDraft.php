@@ -20,11 +20,13 @@ interface ExternalTaxAmountDraft extends JsonObject
     /**
      * <p>The total gross amount of the item (totalNet + taxes).</p>
      *
+
      * @return null|Money
      */
     public function getTotalGross();
 
     /**
+
      * @return null|ExternalTaxRateDraft
      */
     public function getTaxRate();

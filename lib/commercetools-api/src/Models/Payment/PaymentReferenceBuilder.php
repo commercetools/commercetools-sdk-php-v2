@@ -23,11 +23,13 @@ use stdClass;
 final class PaymentReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var null|Payment|PaymentBuilder
      */
     private $obj;
@@ -35,6 +37,7 @@ final class PaymentReferenceBuilder implements Builder
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -45,6 +48,7 @@ final class PaymentReferenceBuilder implements Builder
     /**
      * <p>Contains the representation of the expanded Payment. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Payments.</p>
      *
+
      * @return null|Payment
      */
     public function getObj()

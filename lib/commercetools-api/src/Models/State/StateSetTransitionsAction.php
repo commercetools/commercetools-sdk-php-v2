@@ -24,6 +24,7 @@ interface StateSetTransitionsAction extends StateUpdateAction
      * If <code>transitions</code> is not set, the validation is turned off.</p>
      * <p>When performing a <code>transitionState</code> update action, any other State of the same <code>type</code> can be transitioned to.</p>
      *
+
      * @return null|StateResourceIdentifierCollection
      */
     public function getTransitions();

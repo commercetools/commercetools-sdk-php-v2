@@ -23,11 +23,13 @@ use stdClass;
 final class CartAddPaymentActionBuilder implements Builder
 {
     /**
+
      * @var null|PaymentResourceIdentifier|PaymentResourceIdentifierBuilder
      */
     private $payment;
 
     /**
+
      * @return null|PaymentResourceIdentifier
      */
     public function getPayment()

@@ -22,26 +22,31 @@ interface ReturnItemDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
 
     /**
+
      * @return null|string
      */
     public function getLineItemId();
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|string
      */
     public function getComment();
 
     /**
+
      * @return null|string
      */
     public function getShipmentState();
@@ -49,6 +54,7 @@ interface ReturnItemDraft extends JsonObject
     /**
      * <p>Custom Fields of this return item.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

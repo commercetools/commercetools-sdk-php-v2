@@ -19,11 +19,13 @@ interface FieldDefinitionOrderValue extends JsonObject
     public const FIELD_LABEL = 'label';
 
     /**
+
      * @return null|string
      */
     public function getName();
 
     /**
+
      * @return null|LocalizedString
      */
     public function getLabel();

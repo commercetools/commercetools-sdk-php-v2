@@ -16,6 +16,9 @@ interface CustomerSetLastNameAction extends CustomerUpdateAction
     public const FIELD_LAST_NAME = 'lastName';
 
     /**
+     * <p>Value to set. If empty, any existing value is removed.</p>
+     *
+
      * @return null|string
      */
     public function getLastName();

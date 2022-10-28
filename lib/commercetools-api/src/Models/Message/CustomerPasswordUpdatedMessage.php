@@ -16,8 +16,9 @@ interface CustomerPasswordUpdatedMessage extends Message
     public const FIELD_RESET = 'reset';
 
     /**
-     * <p>true, if password has been updated during Customer's Password Reset workflow.</p>
+     * <p>Whether the Customer's password was updated during the <a href="/../api/projects/customers#password-reset-of-customer">Reset password</a> or <a href="/../api/projects/customers#change-password-of-customer">Change password</a> flow.</p>
      *
+
      * @return null|bool
      */
     public function getReset();

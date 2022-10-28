@@ -21,21 +21,25 @@ use stdClass;
 final class DuplicateFieldErrorBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $message;
 
     /**
+
      * @var ?string
      */
     private $field;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $duplicateValue;
 
     /**
+
      * @return null|string
      */
     public function getMessage()
@@ -46,6 +50,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * <p>The name of the field.</p>
      *
+
      * @return null|string
      */
     public function getField()
@@ -56,6 +61,7 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * <p>The offending duplicate value.</p>
      *
+
      * @return null|mixed
      */
     public function getDuplicateValue()

@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\CustomLineItemBuilder;
 final class RemoveCustomLineItemChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|CustomLineItem|CustomLineItemBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
     /**
      * <p>Update action for adding and removing custom line items</p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class RemoveCustomLineItemChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|CustomLineItem
      */
     public function getPreviousValue()

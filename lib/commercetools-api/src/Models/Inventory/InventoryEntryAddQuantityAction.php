@@ -18,6 +18,7 @@ interface InventoryEntryAddQuantityAction extends InventoryEntryUpdateAction
     /**
      * <p>Value to add to <code>quantityOnStock</code>.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();

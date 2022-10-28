@@ -23,16 +23,19 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'removeFromCategory';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?CategoryResourceIdentifier
      */
     protected $category;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -43,14 +46,16 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
      */
     public function __construct(
         ?CategoryResourceIdentifier $category = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->category = $category;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -68,6 +73,9 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The Category to remove.</p>
+     *
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -86,6 +94,9 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>categories</code> and <code>categoryOrderHints</code> are removed. If <code>false</code>, both the current and staged <code>categories</code> and <code>categoryOrderHints</code> are removed.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

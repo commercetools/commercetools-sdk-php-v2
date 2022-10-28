@@ -16,6 +16,7 @@ interface IronMqDestination extends Destination
     public const FIELD_URI = 'uri';
 
     /**
+
      * @return null|string
      */
     public function getUri();

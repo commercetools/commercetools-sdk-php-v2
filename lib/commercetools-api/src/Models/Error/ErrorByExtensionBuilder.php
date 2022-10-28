@@ -21,11 +21,13 @@ use stdClass;
 final class ErrorByExtensionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $key;
@@ -33,6 +35,7 @@ final class ErrorByExtensionBuilder implements Builder
     /**
      * <p>Unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -43,6 +46,7 @@ final class ErrorByExtensionBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the Extension.</p>
      *
+
      * @return null|string
      */
     public function getKey()

@@ -38,89 +38,118 @@ use stdClass;
 final class StandalonePriceModel extends JsonObjectModel implements StandalonePrice
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
 
     /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
 
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?TypedMoney
      */
     protected $value;
 
     /**
+     *
      * @var ?string
      */
     protected $country;
 
     /**
+     *
      * @var ?CustomerGroupReference
      */
     protected $customerGroup;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $channel;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
     /**
+     *
      * @var ?PriceTierCollection
      */
     protected $tiers;
 
     /**
+     *
      * @var ?DiscountedPrice
      */
     protected $discounted;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
+
+    /**
+     *
+     * @var ?StagedStandalonePrice
+     */
+    protected $staged;
+
+    /**
+     *
+     * @var ?bool
+     */
+    protected $active;
 
 
     /**
@@ -143,7 +172,9 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         ?DateTimeImmutable $validUntil = null,
         ?PriceTierCollection $tiers = null,
         ?DiscountedPrice $discounted = null,
-        ?CustomFields $custom = null
+        ?CustomFields $custom = null,
+        ?StagedStandalonePrice $staged = null,
+        ?bool $active = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -162,10 +193,13 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         $this->tiers = $tiers;
         $this->discounted = $discounted;
         $this->custom = $custom;
+        $this->staged = $staged;
+        $this->active = $active;
     }
 
     /**
      * <p>Unique identifier of the StandalonePrice.</p>
+     *
      *
      * @return null|string
      */
@@ -186,6 +220,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Current version of the StandalonePrice.</p>
      *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -204,6 +239,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
 
     /**
      * <p>Date and time (UTC) the StandalonePrice was initially created.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -228,6 +264,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Date and time (UTC) the StandalonePrice was last updated.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -251,6 +288,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -270,6 +308,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
 
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
+     *
      *
      * @return null|CreatedBy
      */
@@ -291,6 +330,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>User-defined unique identifier of the StandalonePrice.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -310,6 +350,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> to which this Price is associated.</p>
      *
+     *
      * @return null|string
      */
     public function getSku()
@@ -328,6 +369,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
 
     /**
      * <p>Money value of this Price.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -349,6 +391,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Country for which this Price is valid.</p>
      *
+     *
      * @return null|string
      */
     public function getCountry()
@@ -367,6 +410,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
 
     /**
      * <p><a href="ctp:api:type:CustomerGroup">CustomerGroup</a> for which this Price is valid.</p>
+     *
      *
      * @return null|CustomerGroupReference
      */
@@ -388,6 +432,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Product distribution <a href="ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
      *
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -407,6 +452,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
 
     /**
      * <p>Date from which the Price is valid.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -431,6 +477,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Date until the Price is valid.</p>
      *
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -454,6 +501,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Price tiers if any are defined.</p>
      *
+     *
      * @return null|PriceTierCollection
      */
     public function getTiers()
@@ -473,6 +521,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/../api/projects/carts#lineitem-price-selection">LineItem Price selection</a>.
      * When a <a href="/../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Round_half_down">half down rounding</a>.</p>
+     *
      *
      * @return null|DiscountedPrice
      */
@@ -494,6 +543,7 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     /**
      * <p>Custom Fields for the StandalonePrice.</p>
      *
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -509,6 +559,48 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
         }
 
         return $this->custom;
+    }
+
+    /**
+     * <p>Staged changes of the StandalonePrice. Only present if the StandalonePrice has staged changes.</p>
+     *
+     *
+     * @return null|StagedStandalonePrice
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->staged = StagedStandalonePriceModel::of($data);
+        }
+
+        return $this->staged;
+    }
+
+    /**
+     * <p>If set to <code>true</code>, the StandalonePrice is considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="ctp:api:type:ProductPriceSelection">price selection</a>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getActive()
+    {
+        if (is_null($this->active)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->active = (bool) $data;
+        }
+
+        return $this->active;
     }
 
 
@@ -646,6 +738,22 @@ final class StandalonePriceModel extends JsonObjectModel implements StandalonePr
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?StagedStandalonePrice $staged
+     */
+    public function setStaged(?StagedStandalonePrice $staged): void
+    {
+        $this->staged = $staged;
+    }
+
+    /**
+     * @param ?bool $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
     }
 
 

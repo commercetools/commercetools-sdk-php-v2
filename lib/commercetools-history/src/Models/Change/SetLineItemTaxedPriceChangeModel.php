@@ -26,31 +26,37 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'SetLineItemTaxedPriceChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $lineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemId;
 
     /**
+     *
      * @var ?TaxedItemPrice
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?TaxedItemPrice
      */
     protected $previousValue;
@@ -64,17 +70,19 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
         ?LocalizedString $lineItem = null,
         ?string $lineItemId = null,
         ?TaxedItemPrice $nextValue = null,
-        ?TaxedItemPrice $previousValue = null
+        ?TaxedItemPrice $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->lineItem = $lineItem;
         $this->lineItemId = $lineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -94,6 +102,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>setLineItemTaxedPrice</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -111,6 +120,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getLineItem()
@@ -129,6 +139,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLineItemId()
@@ -146,6 +157,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|TaxedItemPrice
      */
     public function getNextValue()
@@ -164,6 +176,7 @@ final class SetLineItemTaxedPriceChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|TaxedItemPrice
      */
     public function getPreviousValue()

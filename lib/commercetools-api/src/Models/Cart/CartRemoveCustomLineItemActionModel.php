@@ -21,11 +21,13 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
@@ -35,13 +37,15 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $customLineItemId = null
+        ?string $customLineItemId = null,
+        ?string $action = null
     ) {
         $this->customLineItemId = $customLineItemId;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -59,6 +63,7 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()

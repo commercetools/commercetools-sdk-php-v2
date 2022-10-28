@@ -16,6 +16,7 @@ interface BooleanField extends CustomField
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|bool
      */
     public function getValue();

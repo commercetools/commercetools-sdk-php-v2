@@ -23,16 +23,19 @@ final class ProductSelectionReferenceModel extends JsonObjectModel implements Pr
 {
     public const DISCRIMINATOR_VALUE = 'product-selection';
     /**
+     *
      * @var ?string
      */
     protected $typeId;
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?ProductSelection
      */
     protected $obj;
@@ -43,15 +46,17 @@ final class ProductSelectionReferenceModel extends JsonObjectModel implements Pr
      */
     public function __construct(
         ?string $id = null,
-        ?ProductSelection $obj = null
+        ?ProductSelection $obj = null,
+        ?string $typeId = null
     ) {
         $this->id = $id;
         $this->obj = $obj;
-        $this->typeId = static::DISCRIMINATOR_VALUE;
+        $this->typeId = $typeId ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>Type of referenced resource.</p>
+     *
      *
      * @return null|string
      */
@@ -72,6 +77,7 @@ final class ProductSelectionReferenceModel extends JsonObjectModel implements Pr
     /**
      * <p>Unique identifier of the referenced <a href="ctp:api:type:ProductSelection">ProductSelection</a>.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -90,6 +96,7 @@ final class ProductSelectionReferenceModel extends JsonObjectModel implements Pr
 
     /**
      * <p>Contains the representation of the expanded ProductSelection. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for ProductSelections.</p>
+     *
      *
      * @return null|ProductSelection
      */

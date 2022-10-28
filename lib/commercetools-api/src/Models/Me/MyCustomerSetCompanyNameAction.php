@@ -16,6 +16,10 @@ interface MyCustomerSetCompanyNameAction extends MyCustomerUpdateAction
     public const FIELD_COMPANY_NAME = 'companyName';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
+
      * @return null|string
      */
     public function getCompanyName();

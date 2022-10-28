@@ -21,11 +21,13 @@ use stdClass;
 final class InventoryEntryUpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?InventoryEntryUpdateActionCollection
      */
     private $actions;
@@ -33,6 +35,7 @@ final class InventoryEntryUpdateBuilder implements Builder
     /**
      * <p>Expected version of the InventoryEntry on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -43,6 +46,7 @@ final class InventoryEntryUpdateBuilder implements Builder
     /**
      * <p>Update actions to be performed on the InventoryEntry.</p>
      *
+
      * @return null|InventoryEntryUpdateActionCollection
      */
     public function getActions()

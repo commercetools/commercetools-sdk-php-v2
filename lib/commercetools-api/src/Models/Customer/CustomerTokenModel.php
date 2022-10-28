@@ -21,31 +21,37 @@ use stdClass;
 final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
 
     /**
+     *
      * @var ?string
      */
     protected $customerId;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $expiresAt;
 
     /**
+     *
      * @var ?string
      */
     protected $value;
@@ -71,7 +77,8 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
-     * <p>Unique identifier of the CustomerToken.</p>
+     * <p>Unique identifier of the token.</p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +97,9 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>Date and time (UTC) the token was initially created.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -111,6 +121,9 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>When the token is created, <code>lastModifiedAt</code> is set to <code>createdAt</code>.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -132,6 +145,9 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>The <code>id</code> of the Customer.</p>
+     *
+     *
      * @return null|string
      */
     public function getCustomerId()
@@ -149,6 +165,9 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>Date and time (UTC) the token expires.</p>
+     *
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt()
@@ -170,6 +189,9 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
+     * <p>Value of the token.</p>
+     *
+     *
      * @return null|string
      */
     public function getValue()

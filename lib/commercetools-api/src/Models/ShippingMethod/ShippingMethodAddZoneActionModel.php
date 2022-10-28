@@ -23,11 +23,13 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
 {
     public const DISCRIMINATOR_VALUE = 'addZone';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ZoneResourceIdentifier
      */
     protected $zone;
@@ -37,13 +39,15 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ZoneResourceIdentifier $zone = null
+        ?ZoneResourceIdentifier $zone = null,
+        ?string $action = null
     ) {
         $this->zone = $zone;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -62,6 +66,7 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
 
     /**
      * <p>Value to add to <code>zoneRates</code>.</p>
+     *
      *
      * @return null|ZoneResourceIdentifier
      */

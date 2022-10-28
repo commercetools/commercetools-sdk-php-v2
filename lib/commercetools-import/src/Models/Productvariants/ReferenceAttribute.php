@@ -19,6 +19,7 @@ interface ReferenceAttribute extends Attribute
     /**
      * <p>References a resource by key.</p>
      *
+
      * @return null|KeyReference
      */
     public function getValue();

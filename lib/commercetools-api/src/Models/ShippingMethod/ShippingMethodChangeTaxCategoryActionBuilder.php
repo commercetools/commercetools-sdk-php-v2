@@ -23,6 +23,7 @@ use stdClass;
 final class ShippingMethodChangeTaxCategoryActionBuilder implements Builder
 {
     /**
+
      * @var null|TaxCategoryResourceIdentifier|TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
@@ -30,6 +31,7 @@ final class ShippingMethodChangeTaxCategoryActionBuilder implements Builder
     /**
      * <p>Value to set.</p>
      *
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()

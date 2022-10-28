@@ -21,16 +21,19 @@ use stdClass;
 final class ParcelChangeValueBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?string
      */
     private $createdAt;
 
     /**
+
      * @return null|string
      */
     public function getId()
@@ -39,6 +42,7 @@ final class ParcelChangeValueBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getCreatedAt()

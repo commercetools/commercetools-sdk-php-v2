@@ -22,24 +22,34 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
 {
     public const DISCRIMINATOR_VALUE = 'DeliveryItemsUpdated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $items;
 
     /**
+     *
      * @var ?DeliveryItemCollection
      */
     protected $oldItems;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -48,15 +58,19 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     public function __construct(
         ?string $deliveryId = null,
         ?DeliveryItemCollection $items = null,
-        ?DeliveryItemCollection $oldItems = null
+        ?DeliveryItemCollection $oldItems = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->items = $items;
         $this->oldItems = $oldItems;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -74,6 +88,9 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -91,6 +108,9 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> after the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -108,6 +128,9 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
+     * <p><a href="ctp:api:type:DeliveryItem">Delivery Items</a> before the <a href="ctp:api:type:OrderSetDeliveryItemsAction">Set Delivery Items</a> update action.</p>
+     *
+     *
      * @return null|DeliveryItemCollection
      */
     public function getOldItems()
@@ -122,6 +145,26 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
         }
 
         return $this->oldItems;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
 
@@ -147,5 +190,13 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     public function setOldItems(?DeliveryItemCollection $oldItems): void
     {
         $this->oldItems = $oldItems;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }

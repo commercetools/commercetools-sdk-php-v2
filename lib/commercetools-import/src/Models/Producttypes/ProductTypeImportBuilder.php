@@ -23,26 +23,33 @@ use stdClass;
 final class ProductTypeImportBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $name;
 
     /**
+
      * @var ?string
      */
     private $description;
 
     /**
+
      * @var ?AttributeDefinitionCollection
      */
     private $attributes;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+
      * @return null|string
      */
     public function getKey()
@@ -53,6 +60,7 @@ final class ProductTypeImportBuilder implements Builder
     /**
      * <p>Maps to <code>ProductType.name</code>.</p>
      *
+
      * @return null|string
      */
     public function getName()
@@ -63,6 +71,7 @@ final class ProductTypeImportBuilder implements Builder
     /**
      * <p>Maps to <code>ProductType.description</code>.</p>
      *
+
      * @return null|string
      */
     public function getDescription()
@@ -73,6 +82,7 @@ final class ProductTypeImportBuilder implements Builder
     /**
      * <p>The <code>attributes</code> of <a href="/../api/projects/productTypes#producttype">ProductType</a>.</p>
      *
+
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

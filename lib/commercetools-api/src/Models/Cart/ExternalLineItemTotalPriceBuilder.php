@@ -23,16 +23,19 @@ use stdClass;
 final class ExternalLineItemTotalPriceBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -41,6 +44,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice()

@@ -28,6 +28,14 @@ class ResourceByProjectKey extends ApiResource
 
     /**
      */
+    public function businessUnits(): ResourceByProjectKeyBusinessUnits
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyBusinessUnits($args, $this->getClient());
+    }
+    /**
+     */
     public function categories(): ResourceByProjectKeyCategories
     {
         $args = $this->getArgs();
@@ -316,6 +324,17 @@ class ResourceByProjectKey extends ApiResource
         $args = $this->getArgs();
 
         return new ResourceByProjectKeyStandalonePrices($args, $this->getClient());
+    }
+    /**
+     */
+    public function inBusinessUnitKeyWithBusinessUnitKeyValue(string $businessUnitKey = null): ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($businessUnitKey)) {
+            $args['businessUnitKey'] = $businessUnitKey;
+        }
+
+        return new ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey($args, $this->getClient());
     }
 
     /**

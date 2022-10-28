@@ -21,11 +21,13 @@ use stdClass;
 final class LocalizedEnumFieldBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $value;
 
     /**
+
      * @return null|string
      */
     public function getValue()

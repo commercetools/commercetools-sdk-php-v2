@@ -21,16 +21,19 @@ use stdClass;
 final class OrderImportCustomLineItemStateActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?ItemStateCollection
      */
     private $state;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -39,6 +42,7 @@ final class OrderImportCustomLineItemStateActionBuilder implements Builder
     }
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState()

@@ -21,11 +21,13 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'changeSortOrder';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $sortOrder;
@@ -35,13 +37,15 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $sortOrder = null
+        ?string $sortOrder = null,
+        ?string $action = null
     ) {
         $this->sortOrder = $sortOrder;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -63,6 +67,7 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
      * Must not be empty.
      * The string value must be a number between <code>0</code> and <code>1</code>.
      * A Discount with a higher sortOrder is prioritized.</p>
+     *
      *
      * @return null|string
      */

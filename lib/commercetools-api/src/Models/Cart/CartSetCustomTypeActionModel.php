@@ -25,16 +25,19 @@ final class CartSetCustomTypeActionModel extends JsonObjectModel implements Cart
 {
     public const DISCRIMINATOR_VALUE = 'setCustomType';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
     /**
+     *
      * @var ?FieldContainer
      */
     protected $fields;
@@ -45,14 +48,16 @@ final class CartSetCustomTypeActionModel extends JsonObjectModel implements Cart
      */
     public function __construct(
         ?TypeResourceIdentifier $type = null,
-        ?FieldContainer $fields = null
+        ?FieldContainer $fields = null,
+        ?string $action = null
     ) {
         $this->type = $type;
         $this->fields = $fields;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -73,6 +78,7 @@ final class CartSetCustomTypeActionModel extends JsonObjectModel implements Cart
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Cart with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Cart.</p>
      *
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -92,6 +98,7 @@ final class CartSetCustomTypeActionModel extends JsonObjectModel implements Cart
 
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Cart.</p>
+     *
      *
      * @return null|FieldContainer
      */

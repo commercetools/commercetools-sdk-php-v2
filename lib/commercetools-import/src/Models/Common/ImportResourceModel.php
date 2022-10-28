@@ -28,6 +28,8 @@ use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImportModel;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportModel;
+use Commercetools\Import\Models\StandalonePrices\StandalonePriceImport;
+use Commercetools\Import\Models\StandalonePrices\StandalonePriceImportModel;
 use stdClass;
 
 /**
@@ -36,6 +38,7 @@ use stdClass;
 final class ImportResourceModel extends JsonObjectModel implements ImportResource
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
@@ -51,6 +54,9 @@ final class ImportResourceModel extends JsonObjectModel implements ImportResourc
     }
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+     *
      * @return null|string
      */
     public function getKey()

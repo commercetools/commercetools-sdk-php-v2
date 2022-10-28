@@ -17,11 +17,13 @@ interface MissingPricesProductCount extends JsonObject
     public const FIELD_MISSING_PRICES = 'missingPrices';
 
     /**
+
      * @return null|int
      */
     public function getTotal();
 
     /**
+
      * @return null|int
      */
     public function getMissingPrices();

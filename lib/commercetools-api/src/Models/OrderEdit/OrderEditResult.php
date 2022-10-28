@@ -17,6 +17,7 @@ interface OrderEditResult extends JsonObject
     public const FIELD_TYPE = 'type';
 
     /**
+
      * @return null|string
      */
     public function getType();

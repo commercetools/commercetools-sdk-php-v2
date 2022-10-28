@@ -21,11 +21,13 @@ use stdClass;
 final class ImageSearchConfigResponseModel extends JsonObjectModel implements ImageSearchConfigResponse
 {
     /**
+     *
      * @var ?string
      */
     protected $status;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -45,6 +47,7 @@ final class ImageSearchConfigResponseModel extends JsonObjectModel implements Im
     /**
      * <p>The image search activation status.</p>
      *
+     *
      * @return null|string
      */
     public function getStatus()
@@ -62,6 +65,7 @@ final class ImageSearchConfigResponseModel extends JsonObjectModel implements Im
     }
 
     /**
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()

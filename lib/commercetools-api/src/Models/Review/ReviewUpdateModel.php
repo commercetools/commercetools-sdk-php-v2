@@ -20,11 +20,13 @@ use stdClass;
 final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?ReviewUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,9 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     }
 
     /**
+     * <p>The expected version of the review on which the changes should be applied. If the expected version does not match the actual version, a 409 Conflict will be returned.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +64,9 @@ final class ReviewUpdateModel extends JsonObjectModel implements ReviewUpdate
     }
 
     /**
+     * <p>The list of update actions to be performed on the review.</p>
+     *
+     *
      * @return null|ReviewUpdateActionCollection
      */
     public function getActions()

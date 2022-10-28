@@ -23,11 +23,15 @@ use stdClass;
 final class ReviewCreatedMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|Review|ReviewBuilder
      */
     private $review;
 
     /**
+     * <p><a href="ctp:api:type:Review">Review</a> that was created.</p>
+     *
+
      * @return null|Review
      */
     public function getReview()

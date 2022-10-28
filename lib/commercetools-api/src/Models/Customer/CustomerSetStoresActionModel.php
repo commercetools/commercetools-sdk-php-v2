@@ -22,11 +22,13 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
 {
     public const DISCRIMINATOR_VALUE = 'setStores';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
@@ -36,13 +38,15 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?StoreResourceIdentifierCollection $stores = null
+        ?StoreResourceIdentifierCollection $stores = null,
+        ?string $action = null
     ) {
         $this->stores = $stores;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,9 @@ final class CustomerSetStoresActionModel extends JsonObjectModel implements Cust
     }
 
     /**
+     * <p>ResourceIdentifier of the Stores to set.</p>
+     *
+     *
      * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()

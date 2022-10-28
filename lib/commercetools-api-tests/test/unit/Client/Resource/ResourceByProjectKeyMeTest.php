@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeActiveCart;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeBusinessUnits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeCarts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeEmailConfirm;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeLogin;
@@ -17,6 +18,7 @@ use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeOrders;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePassword;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMePayments;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeQuoteRequests;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeQuotes;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeShoppingLists;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyMeSignup;
 use Commercetools\Base\JsonObject;
@@ -290,6 +292,17 @@ class ResourceByProjectKeyMeTest extends TestCase
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/active-cart'
             ],
+            'ResourceByProjectKeyMeBusinessUnits' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeBusinessUnits {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->businessUnits();
+                },
+                ResourceByProjectKeyMeBusinessUnits::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/me/business-units'
+            ],
             'ResourceByProjectKeyMeCarts' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeCarts {
                     return $builder
@@ -333,6 +346,17 @@ class ResourceByProjectKeyMeTest extends TestCase
                 ResourceByProjectKeyMeQuoteRequests::class,
                 ['projectKey' => 'test_projectKey'],
                 '/{projectKey}/me/quote-requests'
+            ],
+            'ResourceByProjectKeyMeQuotes' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyMeQuotes {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->me()
+                        ->quotes();
+                },
+                ResourceByProjectKeyMeQuotes::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/me/quotes'
             ],
             'ResourceByProjectKeyMeShoppingLists' => [
                 function (ApiRequestBuilder $builder): ResourceByProjectKeyMeShoppingLists {

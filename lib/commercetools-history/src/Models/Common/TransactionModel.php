@@ -22,31 +22,37 @@ final class TransactionModel extends JsonObjectModel implements Transaction
 
 
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?string
      */
     protected $timestamp;
 
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?Money
      */
     protected $amount;
 
     /**
+     *
      * @var ?string
      */
     protected $interactionId;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
@@ -75,6 +81,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * <p>The unique ID of this object.</p>
      *
+     *
      * @return null|string
      */
     public function getId()
@@ -94,6 +101,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * <p>The time at which the transaction took place.</p>
      *
+     *
      * @return null|string
      */
     public function getTimestamp()
@@ -111,6 +119,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -128,6 +137,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     *
      * @return null|Money
      */
     public function getAmount()
@@ -148,6 +158,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * <p>The identifier that is used by the interface that managed the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
+     *
      * @return null|string
      */
     public function getInteractionId()
@@ -165,6 +176,7 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     *
      * @return null|string
      */
     public function getState()

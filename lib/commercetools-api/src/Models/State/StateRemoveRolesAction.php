@@ -18,6 +18,7 @@ interface StateRemoveRolesAction extends StateUpdateAction
     /**
      * <p>Roles to remove from the State.</p>
      *
+
      * @return null|array
      */
     public function getRoles();

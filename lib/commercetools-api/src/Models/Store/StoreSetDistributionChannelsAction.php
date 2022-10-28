@@ -21,6 +21,7 @@ interface StoreSetDistributionChannelsAction extends StoreUpdateAction
      * If not defined, the Store's <code>distributionChannels</code> are unset.
      * Any attempt to use <a href="ctp:api:type:Channel">Channel</a> without the <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a> will fail with a <a href="ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error.</p>
      *
+
      * @return null|ChannelResourceIdentifierCollection
      */
     public function getDistributionChannels();

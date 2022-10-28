@@ -23,11 +23,13 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
 {
     public const DISCRIMINATOR_VALUE = 'nested';
     /**
+     *
      * @var ?string
      */
     protected $name;
 
     /**
+     *
      * @var ?ProductTypeKeyReference
      */
     protected $typeReference;
@@ -37,13 +39,15 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductTypeKeyReference $typeReference = null
+        ?ProductTypeKeyReference $typeReference = null,
+        ?string $name = null
     ) {
         $this->typeReference = $typeReference;
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()
@@ -62,6 +66,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
 
     /**
      * <p>References a product type by key.</p>
+     *
      *
      * @return null|ProductTypeKeyReference
      */

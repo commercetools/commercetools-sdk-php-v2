@@ -21,6 +21,7 @@ use stdClass;
 final class AttributeNestedTypeBuilder implements Builder
 {
     /**
+
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $typeReference;
@@ -28,6 +29,7 @@ final class AttributeNestedTypeBuilder implements Builder
     /**
      * <p>Attributes that can be stored as nested Attributes of the current Attribute.</p>
      *
+
      * @return null|ProductTypeReference
      */
     public function getTypeReference()

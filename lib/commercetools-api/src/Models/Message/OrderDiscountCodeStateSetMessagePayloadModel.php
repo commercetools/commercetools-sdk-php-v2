@@ -23,21 +23,25 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'OrderDiscountCodeStateSet';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
 
     /**
+     *
      * @var ?string
      */
     protected $state;
 
     /**
+     *
      * @var ?string
      */
     protected $oldState;
@@ -49,15 +53,17 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     public function __construct(
         ?DiscountCodeReference $discountCode = null,
         ?string $state = null,
-        ?string $oldState = null
+        ?string $oldState = null,
+        ?string $type = null
     ) {
         $this->discountCode = $discountCode;
         $this->state = $state;
         $this->oldState = $oldState;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,7 +81,8 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p><a href="ctp:api:type:DiscountCode">DiscountCode</a> that changed due to the recalculation.</p>
+     *
      *
      * @return null|DiscountCodeReference
      */
@@ -95,6 +102,9 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p><a href="ctp:api:type:DiscountCodeState">DiscountCodeState</a> after the recalculation.</p>
+     *
+     *
      * @return null|string
      */
     public function getState()
@@ -112,6 +122,9 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p><a href="ctp:api:type:DiscountCodeState">DiscountCodeState</a> before the recalculation.</p>
+     *
+     *
      * @return null|string
      */
     public function getOldState()

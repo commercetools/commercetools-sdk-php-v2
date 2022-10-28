@@ -23,21 +23,25 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
 {
     public const DISCRIMINATOR_VALUE = 'addToCategory';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?CategoryResourceIdentifier
      */
     protected $category;
 
     /**
+     *
      * @var ?string
      */
     protected $orderHint;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -49,15 +53,17 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     public function __construct(
         ?CategoryResourceIdentifier $category = null,
         ?string $orderHint = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->category = $category;
         $this->orderHint = $orderHint;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -75,6 +81,9 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+     * <p>The Category to add.</p>
+     *
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -93,6 +102,9 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+     * <p>A string representing a number between 0 and 1. Must start with <code>0.</code> and cannot end with <code>0</code>. If empty, any existing value will be removed.</p>
+     *
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -110,6 +122,9 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>categories</code> and <code>categoryOrderHints</code> are updated. If <code>false</code>, both the current and staged <code>categories</code> and <code>categoryOrderHints</code> are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

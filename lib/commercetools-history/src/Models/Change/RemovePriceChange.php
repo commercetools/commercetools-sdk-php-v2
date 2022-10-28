@@ -21,6 +21,7 @@ interface RemovePriceChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
@@ -28,26 +29,31 @@ interface RemovePriceChange extends Change
     /**
      * <p>Update action for removing prices</p>
      *
+
      * @return null|string
      */
     public function getChange();
 
     /**
+
      * @return null|string
      */
     public function getCatalogData();
 
     /**
+
      * @return null|string
      */
     public function getPriceId();
 
     /**
+
      * @return null|Price
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|Price
      */
     public function getNextValue();

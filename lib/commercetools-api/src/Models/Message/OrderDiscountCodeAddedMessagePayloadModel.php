@@ -23,11 +23,13 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
 {
     public const DISCRIMINATOR_VALUE = 'OrderDiscountCodeAdded';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
@@ -37,13 +39,15 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DiscountCodeReference $discountCode = null
+        ?DiscountCodeReference $discountCode = null,
+        ?string $type = null
     ) {
         $this->discountCode = $discountCode;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,7 +65,8 @@ final class OrderDiscountCodeAddedMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:DiscountCode">DiscountCode</a>.</p>
+     * <p><a href="ctp:api:type:DiscountCode">DiscountCode</a> that was added.</p>
+     *
      *
      * @return null|DiscountCodeReference
      */

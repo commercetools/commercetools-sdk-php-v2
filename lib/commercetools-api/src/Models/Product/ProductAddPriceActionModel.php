@@ -23,26 +23,31 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
 {
     public const DISCRIMINATOR_VALUE = 'addPrice';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?int
      */
     protected $variantId;
 
     /**
+     *
      * @var ?string
      */
     protected $sku;
 
     /**
+     *
      * @var ?PriceDraft
      */
     protected $price;
 
     /**
+     *
      * @var ?bool
      */
     protected $staged;
@@ -55,16 +60,18 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
         ?int $variantId = null,
         ?string $sku = null,
         ?PriceDraft $price = null,
-        ?bool $staged = null
+        ?bool $staged = null,
+        ?string $action = null
     ) {
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->price = $price;
         $this->staged = $staged;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -82,6 +89,9 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|int
      */
     public function getVariantId()
@@ -99,6 +109,9 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+     *
      * @return null|string
      */
     public function getSku()
@@ -116,6 +129,9 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>Embedded Price to add to the Product Variant.</p>
+     *
+     *
      * @return null|PriceDraft
      */
     public function getPrice()
@@ -134,6 +150,9 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     }
 
     /**
+     * <p>If <code>true</code>, only the staged <code>prices</code> is updated. If <code>false</code>, both the current and staged <code>prices</code> are updated.</p>
+     *
+     *
      * @return null|bool
      */
     public function getStaged()

@@ -21,6 +21,7 @@ use stdClass;
 final class ZoneSetDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $description;
@@ -28,6 +29,7 @@ final class ZoneSetDescriptionActionBuilder implements Builder
     /**
      * <p>Description of the Zone.</p>
      *
+
      * @return null|string
      */
     public function getDescription()

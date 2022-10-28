@@ -26,6 +26,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>Describes the Type of the Attribute.</p>
      *
+
      * @return null|AttributeType
      */
     public function getType();
@@ -33,6 +34,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>User-defined name of the Attribute that is unique within the <a href="ctp:api:type:Project">Project</a>.</p>
      *
+
      * @return null|string
      */
     public function getName();
@@ -40,6 +42,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>Human-readable label for the Attribute.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();
@@ -47,6 +50,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>If <code>true</code>, the Attribute must have a value on a <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
      *
+
      * @return null|bool
      */
     public function getIsRequired();
@@ -54,6 +58,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>Specifies how Attributes are validated across all variants of a Product.</p>
      *
+
      * @return null|string
      */
     public function getAttributeConstraint();
@@ -61,6 +66,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>Provides additional Attribute information to aid content managers configure Product details.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip();
@@ -68,6 +74,7 @@ interface AttributeDefinition extends JsonObject
     /**
      * <p>Provides a visual representation directive for values of this Attribute (only relevant for <a href="ctp:api:type:AttributeTextType">AttributeTextType</a> and <a href="ctp:api:type:AttributeLocalizableTextType">AttributeLocalizableTextType</a>).</p>
      *
+
      * @return null|string
      */
     public function getInputHint();
@@ -76,9 +83,10 @@ interface AttributeDefinition extends JsonObject
      * <p>If <code>true</code>, the Attribute's values are available for the <a href="/../api/projects/products-search">Product Projections Search API</a> for use in full-text search queries, filters, and facets.</p>
      * <p>Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
      * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
-     * This constraint is enforced at both <a href="/../api/projects/products#create-a-product">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
+     * This constraint is enforced at both <a href="/../api/projects/products#create-product">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
      * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidFieldError</a> is returned.</p>
      *
+
      * @return null|bool
      */
     public function getIsSearchable();

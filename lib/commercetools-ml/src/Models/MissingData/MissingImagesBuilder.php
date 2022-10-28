@@ -23,21 +23,25 @@ use stdClass;
 final class MissingImagesBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?int
      */
     private $imageCount;
 
     /**
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -48,6 +52,7 @@ final class MissingImagesBuilder implements Builder
     /**
      * <p>ID of the variant</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -58,6 +63,7 @@ final class MissingImagesBuilder implements Builder
     /**
      * <p>Number of images the variant contains.</p>
      *
+
      * @return null|int
      */
     public function getImageCount()

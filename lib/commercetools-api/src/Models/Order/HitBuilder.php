@@ -21,16 +21,19 @@ use stdClass;
 final class HitBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?float
      */
     private $relevance;
@@ -38,6 +41,7 @@ final class HitBuilder implements Builder
     /**
      * <p>Unique identifier of the Order.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -48,6 +52,7 @@ final class HitBuilder implements Builder
     /**
      * <p>Current version of the Order.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -58,6 +63,7 @@ final class HitBuilder implements Builder
     /**
      * <p>The higher the value is, the more relevant the hit is for the search request.</p>
      *
+
      * @return null|float
      */
     public function getRelevance()

@@ -21,16 +21,19 @@ use stdClass;
 final class UpdateBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?UpdateActionCollection
      */
     private $actions;
 
     /**
+
      * @return null|int
      */
     public function getVersion()
@@ -39,6 +42,7 @@ final class UpdateBuilder implements Builder
     }
 
     /**
+
      * @return null|UpdateActionCollection
      */
     public function getActions()

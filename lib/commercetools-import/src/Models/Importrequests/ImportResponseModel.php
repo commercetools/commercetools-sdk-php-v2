@@ -21,6 +21,7 @@ use stdClass;
 final class ImportResponseModel extends JsonObjectModel implements ImportResponse
 {
     /**
+     *
      * @var ?ImportOperationStatusCollection
      */
     protected $operationStatus;
@@ -36,6 +37,7 @@ final class ImportResponseModel extends JsonObjectModel implements ImportRespons
     }
 
     /**
+     *
      * @return null|ImportOperationStatusCollection
      */
     public function getOperationStatus()

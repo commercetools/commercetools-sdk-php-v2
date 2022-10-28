@@ -21,6 +21,7 @@ use stdClass;
 final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
 {
     /**
+
      * @var null|ShippingRateInputType|ShippingRateInputTypeBuilder
      */
     private $shippingRateInputType;
@@ -28,6 +29,7 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|ShippingRateInputType
      */
     public function getShippingRateInputType()

@@ -21,11 +21,13 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
 {
     public const DISCRIMINATOR_VALUE = 'removeAttributeDefinition';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -35,13 +37,15 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?string $name = null
+        ?string $name = null,
+        ?string $action = null
     ) {
         $this->name = $name;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProductTypeRemoveAttributeDefinitionActionModel extends JsonObjectMo
 
     /**
      * <p>Name of the Attribute to remove.</p>
+     *
      *
      * @return null|string
      */

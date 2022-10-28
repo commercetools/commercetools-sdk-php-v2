@@ -23,11 +23,13 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'InventoryEntryCreated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?InventoryEntry
      */
     protected $inventoryEntry;
@@ -37,13 +39,15 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?InventoryEntry $inventoryEntry = null
+        ?InventoryEntry $inventoryEntry = null,
+        ?string $type = null
     ) {
         $this->inventoryEntry = $inventoryEntry;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -61,6 +65,9 @@ final class InventoryEntryCreatedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * <p><a href="ctp:api:type:InventoryEntry">InventoryEntry</a> that was created.</p>
+     *
+     *
      * @return null|InventoryEntry
      */
     public function getInventoryEntry()

@@ -18,11 +18,17 @@ interface ProductDeletedMessagePayload extends MessagePayload
     public const FIELD_CURRENT_PROJECTION = 'currentProjection';
 
     /**
+     * <p>List of image URLs that were removed during the <a href="ctp:api:type:Product">Delete Product</a> request.</p>
+     *
+
      * @return null|array
      */
     public function getRemovedImageUrls();
 
     /**
+     * <p>Current <a href="ctp:api:type:ProductProjection">Product Projection</a> of the deleted <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+
      * @return null|ProductProjection
      */
     public function getCurrentProjection();

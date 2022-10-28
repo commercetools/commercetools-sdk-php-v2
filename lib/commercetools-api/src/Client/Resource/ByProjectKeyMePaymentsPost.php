@@ -28,6 +28,7 @@ use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Expandable<ByProjectKeyMePaymentsPost>
  * @template-implements Deprecatable201<ByProjectKeyMePaymentsPost>

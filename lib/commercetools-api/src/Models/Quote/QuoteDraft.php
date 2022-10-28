@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Quote;
 
 use Commercetools\Api\Models\StagedQuote\StagedQuoteResourceIdentifier;
+use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -17,12 +18,15 @@ interface QuoteDraft extends JsonObject
 {
     public const FIELD_STAGED_QUOTE = 'stagedQuote';
     public const FIELD_STAGED_QUOTE_VERSION = 'stagedQuoteVersion';
+    public const FIELD_STAGED_QUOTE_STATE_TO_SENT = 'stagedQuoteStateToSent';
     public const FIELD_KEY = 'key';
     public const FIELD_CUSTOM = 'custom';
+    public const FIELD_STATE = 'state';
 
     /**
-     * <p>The StagedQuote from which this Quote is created.</p>
+     * <p>StagedQuote from which the Quote is created.</p>
      *
+
      * @return null|StagedQuoteResourceIdentifier
      */
     public function getStagedQuote();
@@ -30,13 +34,23 @@ interface QuoteDraft extends JsonObject
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getStagedQuoteVersion();
 
     /**
+     * <p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getStagedQuoteStateToSent();
+
+    /**
      * <p>User-defined unique identifier for the Quote.</p>
      *
+
      * @return null|string
      */
     public function getKey();
@@ -48,9 +62,19 @@ interface QuoteDraft extends JsonObject
      * <li>If empty, the Custom Fields on the referenced <a href="/../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically.</li>
      * </ul>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState();
 
     /**
      * @param ?StagedQuoteResourceIdentifier $stagedQuote
@@ -63,6 +87,11 @@ interface QuoteDraft extends JsonObject
     public function setStagedQuoteVersion(?int $stagedQuoteVersion): void;
 
     /**
+     * @param ?bool $stagedQuoteStateToSent
+     */
+    public function setStagedQuoteStateToSent(?bool $stagedQuoteStateToSent): void;
+
+    /**
      * @param ?string $key
      */
     public function setKey(?string $key): void;
@@ -71,4 +100,9 @@ interface QuoteDraft extends JsonObject
      * @param ?CustomFieldsDraft $custom
      */
     public function setCustom(?CustomFieldsDraft $custom): void;
+
+    /**
+     * @param ?StateReference $state
+     */
+    public function setState(?StateReference $state): void;
 }

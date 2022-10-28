@@ -21,6 +21,7 @@ interface PaymentStatus extends JsonObject
     /**
      * <p>A code describing the current status returned by the interface that processes the payment.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceCode();
@@ -28,11 +29,13 @@ interface PaymentStatus extends JsonObject
     /**
      * <p>A text describing the current status returned by the interface that processes the payment.</p>
      *
+
      * @return null|string
      */
     public function getInterfaceText();
 
     /**
+
      * @return null|StateReference
      */
     public function getState();

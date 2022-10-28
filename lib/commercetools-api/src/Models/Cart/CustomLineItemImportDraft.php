@@ -28,8 +28,10 @@ interface CustomLineItemImportDraft extends JsonObject
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    public const FIELD_PRICE_MODE = 'priceMode';
 
     /**
+
      * @return null|LocalizedString
      */
     public function getName();
@@ -38,6 +40,7 @@ interface CustomLineItemImportDraft extends JsonObject
      * <p>The amount of a CustomLineItem in the cart.
      * Must be a positive integer.</p>
      *
+
      * @return null|int
      */
     public function getQuantity();
@@ -45,26 +48,31 @@ interface CustomLineItemImportDraft extends JsonObject
     /**
      * <p>The cost to add to the cart. The amount can be negative.</p>
      *
+
      * @return null|Money
      */
     public function getMoney();
 
     /**
+
      * @return null|string
      */
     public function getSlug();
 
     /**
+
      * @return null|ItemStateCollection
      */
     public function getState();
 
     /**
+
      * @return null|TaxRate
      */
     public function getTaxRate();
 
     /**
+
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
@@ -72,14 +80,28 @@ interface CustomLineItemImportDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
+    /**
+     * <ul>
+     * <li>If <code>Standard</code>, Cart Discounts with a matching <a href="ctp:api:type:CartDiscountCustomLineItemsTarget">CartDiscountCustomLineItemsTarget</a>
+     * are applied to the Custom Line Item.</li>
+     * <li>If <code>External</code>, Cart Discounts are not considered on the Custom Line Item.</li>
+     * </ul>
+     *
+
+     * @return null|string
+     */
+    public function getPriceMode();
 
     /**
      * @param ?LocalizedString $name
@@ -125,4 +147,9 @@ interface CustomLineItemImportDraft extends JsonObject
      * @param ?ItemShippingDetailsDraft $shippingDetails
      */
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    /**
+     * @param ?string $priceMode
+     */
+    public function setPriceMode(?string $priceMode): void;
 }

@@ -21,11 +21,16 @@ use stdClass;
 final class MyCustomerSetLastNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $lastName;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
+     *
+
      * @return null|string
      */
     public function getLastName()

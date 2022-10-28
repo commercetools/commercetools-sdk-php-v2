@@ -18,16 +18,19 @@ interface InvalidFieldError extends ErrorObject
     public const FIELD_ALLOWED_VALUES = 'allowedValues';
 
     /**
+
      * @return null|string
      */
     public function getField();
 
     /**
+
      * @return null|mixed
      */
     public function getInvalidValue();
 
     /**
+
      * @return null|array
      */
     public function getAllowedValues();

@@ -25,36 +25,43 @@ use stdClass;
 final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 {
     /**
+     *
      * @var ?string
      */
     protected $key;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?array
      */
     protected $languages;
 
     /**
+     *
      * @var ?ChannelResourceIdentifierCollection
      */
     protected $distributionChannels;
 
     /**
+     *
      * @var ?ChannelResourceIdentifierCollection
      */
     protected $supplyChannels;
 
     /**
+     *
      * @var ?ProductSelectionSettingDraftCollection
      */
     protected $productSelections;
 
     /**
+     *
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -85,6 +92,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      * <p>User-defined unique and immutable identifier for the Store.
      * Keys can only contain alphanumeric characters, underscores, and hyphens.</p>
      *
+     *
      * @return null|string
      */
     public function getKey()
@@ -103,6 +111,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>Name of the Store.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -124,6 +133,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     /**
      * <p>Languages defined in <a href="ctp:api:type:Project">Project</a>. Only languages defined in the Project can be used.</p>
      *
+     *
      * @return null|array
      */
     public function getLanguages()
@@ -141,7 +151,8 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>ResourceIdentifier to a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>ResourceIdentifier of a Channel with <code>ProductDistribution</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
      *
      * @return null|ChannelResourceIdentifierCollection
      */
@@ -160,7 +171,8 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     }
 
     /**
-     * <p>ResourceIdentifier to a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     * <p>ResourceIdentifier of a Channel with <code>InventorySupply</code> <a href="ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+     *
      *
      * @return null|ChannelResourceIdentifierCollection
      */
@@ -185,6 +197,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
      * <li>If provided, Products from <code>active</code> Product Selections are available in this Store.</li>
      * </ul>
      *
+     *
      * @return null|ProductSelectionSettingDraftCollection
      */
     public function getProductSelections()
@@ -203,6 +216,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      * <p>Custom fields for the Store.</p>
+     *
      *
      * @return null|CustomFieldsDraft
      */

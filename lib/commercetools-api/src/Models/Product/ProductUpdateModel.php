@@ -20,11 +20,13 @@ use stdClass;
 final class ProductUpdateModel extends JsonObjectModel implements ProductUpdate
 {
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
      * @var ?ProductUpdateActionCollection
      */
     protected $actions;
@@ -42,6 +44,9 @@ final class ProductUpdateModel extends JsonObjectModel implements ProductUpdate
     }
 
     /**
+     * <p>Expected version of the Product on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -59,6 +64,9 @@ final class ProductUpdateModel extends JsonObjectModel implements ProductUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Product.</p>
+     *
+     *
      * @return null|ProductUpdateActionCollection
      */
     public function getActions()

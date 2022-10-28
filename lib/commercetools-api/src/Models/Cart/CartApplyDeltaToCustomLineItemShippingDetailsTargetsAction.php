@@ -17,11 +17,13 @@ interface CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction extends Car
     public const FIELD_TARGETS_DELTA = 'targetsDelta';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargetsDelta();

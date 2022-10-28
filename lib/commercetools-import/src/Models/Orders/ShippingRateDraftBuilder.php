@@ -23,21 +23,25 @@ use stdClass;
 final class ShippingRateDraftBuilder implements Builder
 {
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $price;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $freeAbove;
 
     /**
+
      * @var ?ShippingRatePriceTierCollection
      */
     private $tiers;
 
     /**
+
      * @return null|Money
      */
     public function getPrice()
@@ -46,6 +50,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getFreeAbove()
@@ -54,6 +59,7 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|ShippingRatePriceTierCollection
      */
     public function getTiers()

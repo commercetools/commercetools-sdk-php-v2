@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\Category\CategoryReference;
@@ -48,6 +49,7 @@ interface Reference extends JsonObject
     /**
      * <p>Type of referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getTypeId();
@@ -55,6 +57,7 @@ interface Reference extends JsonObject
     /**
      * <p>Unique ID of the referenced resource.</p>
      *
+
      * @return null|string
      */
     public function getId();

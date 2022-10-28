@@ -24,16 +24,19 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
 
     public const DISCRIMINATOR_VALUE = 'RemoveFieldDefinitionChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?FieldDefinition
      */
     protected $previousValue;
@@ -44,14 +47,16 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
      */
     public function __construct(
         ?string $change = null,
-        ?FieldDefinition $previousValue = null
+        ?FieldDefinition $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -71,6 +76,7 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
     /**
      * <p>Update action for <code>removeFieldDefinition</code> on payments</p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -88,6 +94,7 @@ final class RemoveFieldDefinitionChangeModel extends JsonObjectModel implements 
     }
 
     /**
+     *
      * @return null|FieldDefinition
      */
     public function getPreviousValue()

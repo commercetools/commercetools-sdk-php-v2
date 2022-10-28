@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\StagedQuote;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReferenceBuilder;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\Cart\CartReferenceBuilder;
 use Commercetools\Api\Models\Common\BaseResource;
@@ -20,6 +22,8 @@ use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReference;
 use Commercetools\Api\Models\QuoteRequest\QuoteRequestReferenceBuilder;
+use Commercetools\Api\Models\State\StateReference;
+use Commercetools\Api\Models\State\StateReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -36,78 +40,105 @@ use stdClass;
 final class StagedQuoteBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $id;
 
     /**
+
      * @var ?int
      */
     private $version;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $createdAt;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $lastModifiedAt;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LastModifiedBy|LastModifiedByBuilder
      */
     private $lastModifiedBy;
 
     /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
 
     /**
+
      * @var ?string
      */
     private $stagedQuoteState;
 
     /**
+
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $customer;
 
     /**
+
      * @var null|QuoteRequestReference|QuoteRequestReferenceBuilder
      */
     private $quoteRequest;
 
     /**
+
      * @var null|CartReference|CartReferenceBuilder
      */
     private $quotationCart;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $validTo;
 
     /**
+
      * @var ?string
      */
     private $sellerComment;
 
     /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
 
     /**
+
+     * @var null|StateReference|StateReferenceBuilder
+     */
+    private $state;
+
+    /**
+
+     * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
+     */
+    private $businessUnit;
+
+    /**
      * <p>The unique ID of the StagedQuote.</p>
      *
+
      * @return null|string
      */
     public function getId()
@@ -118,6 +149,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Current version of the StagedQuote.</p>
      *
+
      * @return null|int
      */
     public function getVersion()
@@ -128,6 +160,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Date and time (UTC) the StagedQuote was initially created.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -138,6 +171,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Date and time (UTC) the StagedQuote was last updated.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
@@ -148,6 +182,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>User-specific unique identifier of the staged quote.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -158,6 +193,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -168,6 +204,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Present on resources created after 1 February 2019 except for <a href="/client-logging#events-tracked">events not tracked</a>.</p>
      *
+
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -178,6 +215,7 @@ final class StagedQuoteBuilder implements Builder
     /**
      * <p>Predefined states tracking the status of the Staged Quote.</p>
      *
+
      * @return null|string
      */
     public function getStagedQuoteState()
@@ -186,8 +224,9 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the quote.</p>
+     * <p>The <a href="/../api/quotes-overview#buyer">Buyer</a> who requested the Quote.</p>
      *
+
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -196,8 +235,9 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>The Quote Request related to this Staged Quote.</p>
+     * <p>Quote Request related to the Staged Quote.</p>
      *
+
      * @return null|QuoteRequestReference
      */
     public function getQuoteRequest()
@@ -206,8 +246,9 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Cart">Cart</a> containing the offered items.</p>
+     * <p><a href="ctp:api:type:Cart">Cart</a> containing the offered items. May contain either <a href="ctp:api:type:DirectDiscount">DirectDiscounts</a> or <a href="ctp:api:type:CartDiscount">CartDiscounts</a>.</p>
      *
+
      * @return null|CartReference
      */
     public function getQuotationCart()
@@ -216,8 +257,9 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>Expiration date for the quote.</p>
+     * <p>Expiration date for the Quote.</p>
      *
+
      * @return null|DateTimeImmutable
      */
     public function getValidTo()
@@ -226,8 +268,9 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>The text message included in the offer from the <a href="/../api/quotes-overview#seller">Seller</a>.</p>
+     * <p>Message from the <a href="/../api/quotes-overview#seller">Seller</a> included in the offer.</p>
      *
+
      * @return null|string
      */
     public function getSellerComment()
@@ -236,13 +279,37 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
-     * <p>Custom Fields of this Staged Quote.</p>
+     * <p>Custom Fields of the Staged Quote.</p>
      *
+
      * @return null|CustomFields
      */
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:State">State</a> of the Staged Quote.
+     * This reference can point to a State in a custom workflow.</p>
+     *
+
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:BusinessUnit">BusinessUnit</a> for the Staged Quote.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit;
     }
 
     /**
@@ -400,6 +467,28 @@ final class StagedQuoteBuilder implements Builder
     }
 
     /**
+     * @param ?StateReference $state
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitKeyReference $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -465,6 +554,28 @@ final class StagedQuoteBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withState() instead
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
     public function build(): StagedQuote
     {
         return new StagedQuoteModel(
@@ -481,7 +592,9 @@ final class StagedQuoteBuilder implements Builder
             $this->quotationCart instanceof CartReferenceBuilder ? $this->quotationCart->build() : $this->quotationCart,
             $this->validTo,
             $this->sellerComment,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
+            $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit
         );
     }
 

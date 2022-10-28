@@ -25,41 +25,49 @@ use stdClass;
 final class MissingAttributesBuilder implements Builder
 {
     /**
+
      * @var null|ProductReference|ProductReferenceBuilder
      */
     private $product;
 
     /**
+
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
 
     /**
+
      * @var ?int
      */
     private $variantId;
 
     /**
+
      * @var ?array
      */
     private $missingAttributeValues;
 
     /**
+
      * @var ?array
      */
     private $missingAttributeNames;
 
     /**
+     * @deprecated
      * @var null|AttributeCount|AttributeCountBuilder
      */
     private $attributeCount;
 
     /**
+     * @deprecated
      * @var null|AttributeCoverage|AttributeCoverageBuilder
      */
     private $attributeCoverage;
 
     /**
+
      * @return null|ProductReference
      */
     public function getProduct()
@@ -68,6 +76,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -78,6 +87,7 @@ final class MissingAttributesBuilder implements Builder
     /**
      * <p>ID of a ProductVariant.</p>
      *
+
      * @return null|int
      */
     public function getVariantId()
@@ -88,6 +98,7 @@ final class MissingAttributesBuilder implements Builder
     /**
      * <p>The names of the attributes of the product type that the variant is missing, sorted by attribute importance in descending order.</p>
      *
+
      * @return null|array
      */
     public function getMissingAttributeValues()
@@ -98,6 +109,7 @@ final class MissingAttributesBuilder implements Builder
     /**
      * <p>The names of the attributes of the product type that the variant is missing, sorted by attribute importance in descending order.</p>
      *
+
      * @return null|array
      */
     public function getMissingAttributeNames()
@@ -106,6 +118,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @deprecated
      * @return null|AttributeCount
      */
     public function getAttributeCount()
@@ -114,6 +127,7 @@ final class MissingAttributesBuilder implements Builder
     }
 
     /**
+     * @deprecated
      * @return null|AttributeCoverage
      */
     public function getAttributeCoverage()

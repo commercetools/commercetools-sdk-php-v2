@@ -24,26 +24,41 @@ interface ProductSetAssetCustomTypeAction extends ProductUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p>The <code>id</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|int
      */
     public function getVariantId();
 
     /**
+     * <p>The <code>sku</code> of the ProductVariant to update.</p>
+     *
+
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+     *
+
      * @return null|bool
      */
     public function getStaged();
 
     /**
+     * <p>The <code>id</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetId();
 
     /**
+     * <p>The <code>key</code> of the Asset to update.</p>
+     *
+
      * @return null|string
      */
     public function getAssetKey();
@@ -52,6 +67,7 @@ interface ProductSetAssetCustomTypeAction extends ProductUpdateAction
      * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the Asset with <a href="/../api/projects/custom-fields">Custom Fields</a>.
      * If absent, any existing Type and Custom Fields are removed from the Asset.</p>
      *
+
      * @return null|TypeResourceIdentifier
      */
     public function getType();
@@ -59,6 +75,7 @@ interface ProductSetAssetCustomTypeAction extends ProductUpdateAction
     /**
      * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
      *
+
      * @return null|FieldContainer
      */
     public function getFields();

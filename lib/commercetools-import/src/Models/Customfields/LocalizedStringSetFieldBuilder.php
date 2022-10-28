@@ -22,11 +22,13 @@ use stdClass;
 final class LocalizedStringSetFieldBuilder implements Builder
 {
     /**
+
      * @var ?LocalizedStringCollection
      */
     private $value;
 
     /**
+
      * @return null|LocalizedStringCollection
      */
     public function getValue()

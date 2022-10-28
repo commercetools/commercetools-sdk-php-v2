@@ -21,6 +21,7 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
 {
     public const DISCRIMINATOR_VALUE = 'whitespace';
     /**
+     *
      * @var ?string
      */
     protected $type;
@@ -30,11 +31,13 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $type = null
     ) {
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()

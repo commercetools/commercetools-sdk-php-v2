@@ -21,11 +21,13 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
 {
     public const DISCRIMINATOR_VALUE = 'changeIsDefault';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?bool
      */
     protected $isDefault;
@@ -35,13 +37,15 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $isDefault = null
+        ?bool $isDefault = null,
+        ?string $action = null
     ) {
         $this->isDefault = $isDefault;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
 
     /**
      * <p>Value to set. Only one ShippingMethod can be default in a <a href="ctp:api:type:Project">Project</a>.</p>
+     *
      *
      * @return null|bool
      */

@@ -23,13 +23,16 @@ use stdClass;
 final class CustomerSetCustomerGroupActionBuilder implements Builder
 {
     /**
+
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
-     * <p>If not defined, the customer group is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value is removed.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

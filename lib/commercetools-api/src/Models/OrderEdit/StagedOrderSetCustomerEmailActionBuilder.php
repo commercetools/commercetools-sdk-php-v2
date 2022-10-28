@@ -23,11 +23,13 @@ use stdClass;
 final class StagedOrderSetCustomerEmailActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $email;
 
     /**
+
      * @return null|string
      */
     public function getEmail()

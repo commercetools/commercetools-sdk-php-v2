@@ -20,16 +20,19 @@ interface TypedMoney extends JsonObject
     public const FIELD_CURRENCY_CODE = 'currencyCode';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|int
      */
     public function getFractionDigits();
 
     /**
+
      * @return null|int
      */
     public function getCentAmount();
@@ -37,6 +40,7 @@ interface TypedMoney extends JsonObject
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrencyCode();

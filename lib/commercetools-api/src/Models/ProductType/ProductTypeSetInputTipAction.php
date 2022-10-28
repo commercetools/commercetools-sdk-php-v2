@@ -20,6 +20,7 @@ interface ProductTypeSetInputTipAction extends ProductTypeUpdateAction
     /**
      * <p>Name of the AttributeDefinition to update.</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
@@ -27,6 +28,7 @@ interface ProductTypeSetInputTipAction extends ProductTypeUpdateAction
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip();

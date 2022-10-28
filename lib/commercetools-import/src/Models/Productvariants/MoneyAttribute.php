@@ -17,6 +17,7 @@ interface MoneyAttribute extends Attribute
     public const FIELD_VALUE = 'value';
 
     /**
+
      * @return null|TypedMoney
      */
     public function getValue();

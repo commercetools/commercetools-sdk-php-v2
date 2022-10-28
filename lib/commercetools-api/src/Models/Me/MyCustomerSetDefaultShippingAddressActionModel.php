@@ -21,16 +21,19 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
 {
     public const DISCRIMINATOR_VALUE = 'setDefaultShippingAddress';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?string
      */
     protected $addressId;
 
     /**
+     *
      * @var ?string
      */
     protected $addressKey;
@@ -41,14 +44,16 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
      */
     public function __construct(
         ?string $addressId = null,
-        ?string $addressKey = null
+        ?string $addressKey = null,
+        ?string $action = null
     ) {
         $this->addressId = $addressId;
         $this->addressKey = $addressKey;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -66,6 +71,9 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
+     *
      * @return null|string
      */
     public function getAddressId()
@@ -83,6 +91,9 @@ final class MyCustomerSetDefaultShippingAddressActionModel extends JsonObjectMod
     }
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:Address">Address</a> to become the default shipping address.</p>
+     *
+     *
      * @return null|string
      */
     public function getAddressKey()

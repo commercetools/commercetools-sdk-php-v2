@@ -21,11 +21,13 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionModel extends JsonOb
 {
     public const DISCRIMINATOR_VALUE = 'changeCountryTaxRateFallbackEnabled';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?bool
      */
     protected $countryTaxRateFallbackEnabled;
@@ -35,13 +37,15 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionModel extends JsonOb
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?bool $countryTaxRateFallbackEnabled = null
+        ?bool $countryTaxRateFallbackEnabled = null,
+        ?string $action = null
     ) {
         $this->countryTaxRateFallbackEnabled = $countryTaxRateFallbackEnabled;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProjectChangeCountryTaxRateFallbackEnabledActionModel extends JsonOb
 
     /**
      * <p>When <code>true</code>, country <em>- no state</em> Tax Rate is used as fallback. See <a href="ctp:api:type:CartsConfiguration">CartsConfiguration</a>.</p>
+     *
      *
      * @return null|bool
      */

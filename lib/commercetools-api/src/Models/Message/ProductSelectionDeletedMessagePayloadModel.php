@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -23,27 +21,23 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
 {
     public const DISCRIMINATOR_VALUE = 'ProductSelectionDeleted';
     /**
+     *
      * @var ?string
      */
     protected $type;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $name = null
+        ?string $type = null
     ) {
-        $this->name = $name;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -58,34 +52,5 @@ final class ProductSelectionDeletedMessagePayloadModel extends JsonObjectModel i
         }
 
         return $this->type;
-    }
-
-    /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
-     *
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-
-    /**
-     * @param ?LocalizedString $name
-     */
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
     }
 }

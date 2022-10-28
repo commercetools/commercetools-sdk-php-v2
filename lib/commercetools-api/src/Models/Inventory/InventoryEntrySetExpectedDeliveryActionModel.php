@@ -22,11 +22,13 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'setExpectedDelivery';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $expectedDelivery;
@@ -36,13 +38,15 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?DateTimeImmutable $expectedDelivery = null
+        ?DateTimeImmutable $expectedDelivery = null,
+        ?string $action = null
     ) {
         $this->expectedDelivery = $expectedDelivery;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */

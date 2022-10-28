@@ -23,16 +23,19 @@ use Commercetools\History\Models\Common\AssetBuilder;
 final class AddAssetChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|Asset|AssetBuilder
      */
     private $nextValue;
 
     /**
+
      * @var null|Asset|AssetBuilder
      */
     private $previousValue;
@@ -40,6 +43,7 @@ final class AddAssetChangeBuilder implements Builder
     /**
      * <p>Update action for <code>addAsset</code></p>
      *
+
      * @return null|string
      */
     public function getChange()
@@ -48,6 +52,7 @@ final class AddAssetChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Asset
      */
     public function getNextValue()
@@ -56,6 +61,7 @@ final class AddAssetChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|Asset
      */
     public function getPreviousValue()

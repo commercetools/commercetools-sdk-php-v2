@@ -21,21 +21,25 @@ use stdClass;
 final class UnknownChangeBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $change;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $previousValue;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $nextValue;
 
     /**
+
      * @return null|string
      */
     public function getChange()
@@ -44,6 +48,7 @@ final class UnknownChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getPreviousValue()
@@ -52,6 +57,7 @@ final class UnknownChangeBuilder implements Builder
     }
 
     /**
+
      * @return null|mixed
      */
     public function getNextValue()

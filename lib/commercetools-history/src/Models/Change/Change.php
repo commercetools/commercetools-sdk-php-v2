@@ -18,11 +18,13 @@ interface Change extends JsonObject
     public const FIELD_CHANGE = 'change';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();

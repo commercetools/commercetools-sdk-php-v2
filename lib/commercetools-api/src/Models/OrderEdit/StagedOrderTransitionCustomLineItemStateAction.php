@@ -23,11 +23,13 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
     public const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId();
 
     /**
+
      * @return null|int
      */
     public function getQuantity();
@@ -35,6 +37,7 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getFromState();
@@ -42,11 +45,13 @@ interface StagedOrderTransitionCustomLineItemStateAction extends StagedOrderUpda
     /**
      * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
+
      * @return null|StateResourceIdentifier
      */
     public function getToState();
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate();

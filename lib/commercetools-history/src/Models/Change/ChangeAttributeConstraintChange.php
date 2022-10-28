@@ -19,11 +19,13 @@ interface ChangeAttributeConstraintChange extends Change
     public const FIELD_NEXT_VALUE = 'nextValue';
 
     /**
+
      * @return null|string
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getChange();
@@ -31,16 +33,19 @@ interface ChangeAttributeConstraintChange extends Change
     /**
      * <p>name of the updated attribute</p>
      *
+
      * @return null|string
      */
     public function getAttributeName();
 
     /**
+
      * @return null|string
      */
     public function getPreviousValue();
 
     /**
+
      * @return null|string
      */
     public function getNextValue();

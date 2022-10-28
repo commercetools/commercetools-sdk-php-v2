@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Cart\DiscountCodeInfoCollection;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitKeyReference;
 use Commercetools\Api\Models\Common\BaseAddress;
 use Commercetools\Api\Models\Common\BaseAddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -32,17 +32,20 @@ interface MyCartDraft extends JsonObject
     public const FIELD_TAX_MODE = 'taxMode';
     public const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
     public const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    public const FIELD_BUSINESS_UNIT = 'businessUnit';
     public const FIELD_STORE = 'store';
     public const FIELD_DISCOUNT_CODES = 'discountCodes';
 
     /**
      * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCurrency();
 
     /**
+
      * @return null|string
      */
     public function getCustomerEmail();
@@ -50,6 +53,7 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
      *
+
      * @return null|string
      */
     public function getCountry();
@@ -57,26 +61,31 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>Default inventory mode is <code>None</code>.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode();
 
     /**
+
      * @return null|MyLineItemDraftCollection
      */
     public function getLineItems();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress();
 
     /**
+
      * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
@@ -84,11 +93,13 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+
      * @return null|string
      */
     public function getLocale();
@@ -96,6 +107,7 @@ interface MyCartDraft extends JsonObject
     /**
      * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>
      *
+
      * @return null|string
      */
     public function getTaxMode();
@@ -104,6 +116,7 @@ interface MyCartDraft extends JsonObject
      * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
      * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>
      *
+
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
@@ -112,19 +125,32 @@ interface MyCartDraft extends JsonObject
      * <p>Contains addresses for orders with multiple shipping addresses.
      * Each address must contain a key which is unique in this cart.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses();
 
     /**
+     * <p>The BusinessUnit the cart will belong to.</p>
+     *
+
+     * @return null|BusinessUnitKeyReference
+     */
+    public function getBusinessUnit();
+
+    /**
      * <p><a href="/../api/types#reference">Reference</a> to a <a href="ctp:api:type:Store">Store</a> by its key.</p>
      *
+
      * @return null|StoreKeyReference
      */
     public function getStore();
 
     /**
-     * @return null|DiscountCodeInfoCollection
+     * <p>The code of existing DiscountCodes.</p>
+     *
+
+     * @return null|array
      */
     public function getDiscountCodes();
 
@@ -194,12 +220,17 @@ interface MyCartDraft extends JsonObject
     public function setItemShippingAddresses(?BaseAddressCollection $itemShippingAddresses): void;
 
     /**
+     * @param ?BusinessUnitKeyReference $businessUnit
+     */
+    public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
+
+    /**
      * @param ?StoreKeyReference $store
      */
     public function setStore(?StoreKeyReference $store): void;
 
     /**
-     * @param ?DiscountCodeInfoCollection $discountCodes
+     * @param ?array $discountCodes
      */
-    public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
+    public function setDiscountCodes(?array $discountCodes): void;
 }

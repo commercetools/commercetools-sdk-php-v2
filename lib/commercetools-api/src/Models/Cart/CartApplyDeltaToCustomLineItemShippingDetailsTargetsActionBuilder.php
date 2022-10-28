@@ -21,16 +21,19 @@ use stdClass;
 final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $customLineItemId;
 
     /**
+
      * @var ?ItemShippingTargetCollection
      */
     private $targetsDelta;
 
     /**
+
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -39,6 +42,7 @@ final class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionBuilder im
     }
 
     /**
+
      * @return null|ItemShippingTargetCollection
      */
     public function getTargetsDelta()

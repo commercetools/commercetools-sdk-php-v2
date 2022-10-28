@@ -17,11 +17,17 @@ interface AzureEventGridDestination extends Destination
     public const FIELD_ACCESS_KEY = 'accessKey';
 
     /**
+     * <p>URI of the topic.</p>
+     *
+
      * @return null|string
      */
     public function getUri();
 
     /**
+     * <p>Partially hidden on retrieval for security reasons.</p>
+     *
+
      * @return null|string
      */
     public function getAccessKey();

@@ -24,11 +24,13 @@ interface AttributeDefinition extends JsonObject
     public const FIELD_IS_SEARCHABLE = 'isSearchable';
 
     /**
+
      * @return null|AttributeType
      */
     public function getType();
 
     /**
+
      * @return null|string
      */
     public function getName();
@@ -41,16 +43,19 @@ interface AttributeDefinition extends JsonObject
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getLabel();
 
     /**
+
      * @return null|bool
      */
     public function getIsRequired();
 
     /**
+
      * @return null|string
      */
     public function getAttributeConstraint();
@@ -63,16 +68,19 @@ interface AttributeDefinition extends JsonObject
      * }
      * </code></pre>
      *
+
      * @return null|LocalizedString
      */
     public function getInputTip();
 
     /**
+
      * @return null|string
      */
     public function getInputHint();
 
     /**
+
      * @return null|bool
      */
     public function getIsSearchable();

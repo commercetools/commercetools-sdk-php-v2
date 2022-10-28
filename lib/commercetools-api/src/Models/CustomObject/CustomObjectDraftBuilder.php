@@ -21,21 +21,25 @@ use stdClass;
 final class CustomObjectDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $container;
 
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|mixed|mixed
      */
     private $value;
 
     /**
+
      * @var ?int
      */
     private $version;
@@ -43,6 +47,7 @@ final class CustomObjectDraftBuilder implements Builder
     /**
      * <p>Namespace to group CustomObjects.</p>
      *
+
      * @return null|string
      */
     public function getContainer()
@@ -53,6 +58,7 @@ final class CustomObjectDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier of the CustomObject within the defined <code>container</code>.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -65,6 +71,7 @@ final class CustomObjectDraftBuilder implements Builder
      * For values of type <a href="ctp:api:type:Reference">Reference</a> the integrity of the data is not guaranteed.
      * If the referenced object is deleted, the API does not delete the corresponding reference to it and the <code>value</code> points to a non-existing object in such case.</p>
      *
+
      * @return null|mixed
      */
     public function getValue()
@@ -75,6 +82,7 @@ final class CustomObjectDraftBuilder implements Builder
     /**
      * <p>Current version of the CustomObject.</p>
      *
+
      * @return null|int
      */
     public function getVersion()

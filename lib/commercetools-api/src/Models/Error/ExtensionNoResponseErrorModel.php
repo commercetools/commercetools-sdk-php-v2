@@ -21,21 +21,25 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
 {
     public const DISCRIMINATOR_VALUE = 'ExtensionNoResponse';
     /**
+     *
      * @var ?string
      */
     protected $code;
 
     /**
+     *
      * @var ?string
      */
     protected $message;
 
     /**
+     *
      * @var ?string
      */
     protected $extensionId;
 
     /**
+     *
      * @var ?string
      */
     protected $extensionKey;
@@ -47,15 +51,17 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     public function __construct(
         ?string $message = null,
         ?string $extensionId = null,
-        ?string $extensionKey = null
+        ?string $extensionKey = null,
+        ?string $code = null
     ) {
         $this->message = $message;
         $this->extensionId = $extensionId;
         $this->extensionKey = $extensionKey;
-        $this->code = static::DISCRIMINATOR_VALUE;
+        $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCode()
@@ -73,6 +79,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+     *
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +97,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+     *
      * @return null|string
      */
     public function getExtensionId()
@@ -107,6 +115,7 @@ final class ExtensionNoResponseErrorModel extends JsonObjectModel implements Ext
     }
 
     /**
+     *
      * @return null|string
      */
     public function getExtensionKey()

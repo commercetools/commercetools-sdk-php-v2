@@ -24,31 +24,37 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
 
     public const DISCRIMINATOR_VALUE = 'ChangeCustomLineItemQuantityChange';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $change;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $customLineItem;
 
     /**
+     *
      * @var ?string
      */
     protected $customLineItemId;
 
     /**
+     *
      * @var ?int
      */
     protected $nextValue;
 
     /**
+     *
      * @var ?int
      */
     protected $previousValue;
@@ -62,17 +68,19 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
         ?LocalizedString $customLineItem = null,
         ?string $customLineItemId = null,
         ?int $nextValue = null,
-        ?int $previousValue = null
+        ?int $previousValue = null,
+        ?string $type = null
     ) {
         $this->change = $change;
         $this->customLineItem = $customLineItem;
         $this->customLineItemId = $customLineItemId;
         $this->nextValue = $nextValue;
         $this->previousValue = $previousValue;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -92,6 +100,7 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     /**
      * <p>Update action for <code>changeCustomLineItemQuantity</code></p>
      *
+     *
      * @return null|string
      */
     public function getChange()
@@ -109,6 +118,7 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|LocalizedString
      */
     public function getCustomLineItem()
@@ -127,6 +137,7 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -144,6 +155,7 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|int
      */
     public function getNextValue()
@@ -161,6 +173,7 @@ final class ChangeCustomLineItemQuantityChangeModel extends JsonObjectModel impl
     }
 
     /**
+     *
      * @return null|int
      */
     public function getPreviousValue()

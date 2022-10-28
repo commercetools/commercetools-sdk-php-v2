@@ -23,24 +23,34 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
 {
     public const DISCRIMINATOR_VALUE = 'ParcelMeasurementsUpdated';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?string
      */
     protected $deliveryId;
 
     /**
+     *
      * @var ?string
      */
     protected $parcelId;
 
     /**
+     *
      * @var ?ParcelMeasurements
      */
     protected $measurements;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
 
 
     /**
@@ -49,15 +59,19 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     public function __construct(
         ?string $deliveryId = null,
         ?string $parcelId = null,
-        ?ParcelMeasurements $measurements = null
+        ?ParcelMeasurements $measurements = null,
+        ?string $shippingKey = null,
+        ?string $type = null
     ) {
         $this->deliveryId = $deliveryId;
         $this->parcelId = $parcelId;
         $this->measurements = $measurements;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->shippingKey = $shippingKey;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getType()
@@ -75,6 +89,9 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Delivery">Delivery</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getDeliveryId()
@@ -92,6 +109,9 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getParcelId()
@@ -109,6 +129,9 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * <p>The <a href="ctp:api:type:ParcelMeasurements">Parcel Measurements</a> that were set on the <a href="ctp:api:type:Parcel">Parcel</a>.</p>
+     *
+     *
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -124,6 +147,26 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->measurements;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the Shipping Method in a Cart with <code>Multi</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
     }
 
 
@@ -149,5 +192,13 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 }

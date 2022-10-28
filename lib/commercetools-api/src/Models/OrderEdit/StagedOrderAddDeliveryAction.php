@@ -24,16 +24,19 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     public const FIELD_CUSTOM = 'custom';
 
     /**
+
      * @return null|DeliveryItemCollection
      */
     public function getItems();
 
     /**
+
      * @return null|BaseAddress
      */
     public function getAddress();
 
     /**
+
      * @return null|ParcelDraftCollection
      */
     public function getParcels();
@@ -41,6 +44,7 @@ interface StagedOrderAddDeliveryAction extends StagedOrderUpdateAction
     /**
      * <p>Custom Fields for the Transaction.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

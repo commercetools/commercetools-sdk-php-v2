@@ -23,11 +23,13 @@ use stdClass;
 final class StagedOrderSetCountryActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @return null|string
      */
     public function getCountry()

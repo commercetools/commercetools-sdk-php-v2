@@ -19,6 +19,7 @@ interface ImportRequest extends JsonObject
     /**
      * <p>The type of the import resource.</p>
      *
+
      * @return null|string
      */
     public function getType();

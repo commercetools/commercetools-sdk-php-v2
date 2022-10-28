@@ -21,26 +21,31 @@ use stdClass;
 final class SimilarityMeasuresBuilder implements Builder
 {
     /**
+
      * @var ?int
      */
     private $name;
 
     /**
+
      * @var ?int
      */
     private $description;
 
     /**
+
      * @var ?int
      */
     private $attribute;
 
     /**
+
      * @var ?int
      */
     private $variantCount;
 
     /**
+
      * @var ?int
      */
     private $price;
@@ -48,6 +53,7 @@ final class SimilarityMeasuresBuilder implements Builder
     /**
      * <p>Importance of the <code>name</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getName()
@@ -58,6 +64,7 @@ final class SimilarityMeasuresBuilder implements Builder
     /**
      * <p>Importance of the <code>description</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getDescription()
@@ -68,6 +75,7 @@ final class SimilarityMeasuresBuilder implements Builder
     /**
      * <p>Importance of the <code>description</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getAttribute()
@@ -78,6 +86,7 @@ final class SimilarityMeasuresBuilder implements Builder
     /**
      * <p>Importance of the number of product variants in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getVariantCount()
@@ -88,6 +97,7 @@ final class SimilarityMeasuresBuilder implements Builder
     /**
      * <p>Importance of the <code>price</code> attribute in overall similarity.</p>
      *
+
      * @return null|int
      */
     public function getPrice()

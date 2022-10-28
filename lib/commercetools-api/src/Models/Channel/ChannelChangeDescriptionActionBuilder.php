@@ -23,6 +23,7 @@ use stdClass;
 final class ChannelChangeDescriptionActionBuilder implements Builder
 {
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
@@ -30,6 +31,7 @@ final class ChannelChangeDescriptionActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()

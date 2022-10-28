@@ -21,16 +21,19 @@ use stdClass;
 final class KeyReferenceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var ?string
      */
     private $typeId;
 
     /**
+
      * @return null|string
      */
     public function getKey()
@@ -39,6 +42,7 @@ final class KeyReferenceBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getTypeId()

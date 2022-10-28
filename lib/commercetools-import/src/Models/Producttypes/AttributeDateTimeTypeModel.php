@@ -21,6 +21,7 @@ final class AttributeDateTimeTypeModel extends JsonObjectModel implements Attrib
 {
     public const DISCRIMINATOR_VALUE = 'datetime';
     /**
+     *
      * @var ?string
      */
     protected $name;
@@ -30,11 +31,13 @@ final class AttributeDateTimeTypeModel extends JsonObjectModel implements Attrib
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $name = null
     ) {
-        $this->name = static::DISCRIMINATOR_VALUE;
+        $this->name = $name ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getName()

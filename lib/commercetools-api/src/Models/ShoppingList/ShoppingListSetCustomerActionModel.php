@@ -23,11 +23,13 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setCustomer';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?CustomerResourceIdentifier
      */
     protected $customer;
@@ -37,13 +39,15 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomerResourceIdentifier $customer = null
+        ?CustomerResourceIdentifier $customer = null,
+        ?string $action = null
     ) {
         $this->customer = $customer;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -61,6 +65,7 @@ final class ShoppingListSetCustomerActionModel extends JsonObjectModel implement
     }
 
     /**
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

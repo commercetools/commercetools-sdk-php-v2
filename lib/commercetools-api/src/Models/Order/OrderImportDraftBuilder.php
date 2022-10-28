@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
+use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Cart\CustomLineItemImportDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Cart\TaxedPriceDraftBuilder;
@@ -38,121 +40,151 @@ use stdClass;
 final class OrderImportDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $orderNumber;
 
     /**
+
      * @var ?string
      */
     private $customerId;
 
     /**
+
      * @var ?string
      */
     private $customerEmail;
 
     /**
+
      * @var ?LineItemImportDraftCollection
      */
     private $lineItems;
 
     /**
+
      * @var ?CustomLineItemImportDraftCollection
      */
     private $customLineItems;
 
     /**
+
      * @var null|Money|MoneyBuilder
      */
     private $totalPrice;
 
     /**
+
      * @var null|TaxedPriceDraft|TaxedPriceDraftBuilder
      */
     private $taxedPrice;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $shippingAddress;
 
     /**
+
      * @var null|BaseAddress|BaseAddressBuilder
      */
     private $billingAddress;
 
     /**
+
      * @var null|CustomerGroupResourceIdentifier|CustomerGroupResourceIdentifierBuilder
      */
     private $customerGroup;
 
     /**
+
      * @var ?string
      */
     private $country;
 
     /**
+
      * @var ?string
      */
     private $orderState;
 
     /**
+
      * @var null|StateReference|StateReferenceBuilder
      */
     private $state;
 
     /**
+
      * @var ?string
      */
     private $shipmentState;
 
     /**
+
      * @var ?string
      */
     private $paymentState;
 
     /**
+
      * @var null|ShippingInfoImportDraft|ShippingInfoImportDraftBuilder
      */
     private $shippingInfo;
 
     /**
+
      * @var null|PaymentInfo|PaymentInfoBuilder
      */
     private $paymentInfo;
 
     /**
+
      * @var ?DateTimeImmutable
      */
     private $completedAt;
 
     /**
+
      * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
      */
     private $custom;
 
     /**
+
      * @var ?string
      */
     private $inventoryMode;
 
     /**
+
      * @var ?string
      */
     private $taxRoundingMode;
 
     /**
+
      * @var ?BaseAddressCollection
      */
     private $itemShippingAddresses;
 
     /**
+
+     * @var null|BusinessUnitResourceIdentifier|BusinessUnitResourceIdentifierBuilder
+     */
+    private $businessUnit;
+
+    /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
 
     /**
+
      * @var ?string
      */
     private $origin;
@@ -162,6 +194,7 @@ final class OrderImportDraftBuilder implements Builder
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique within a project.</p>
      *
+
      * @return null|string
      */
     public function getOrderNumber()
@@ -172,6 +205,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If given the customer with that ID must exist in the project.</p>
      *
+
      * @return null|string
      */
     public function getCustomerId()
@@ -182,6 +216,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>
      *
+
      * @return null|string
      */
     public function getCustomerEmail()
@@ -192,6 +227,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If not given <code>customLineItems</code> must not be empty.</p>
      *
+
      * @return null|LineItemImportDraftCollection
      */
     public function getLineItems()
@@ -202,6 +238,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If not given <code>lineItems</code> must not be empty.</p>
      *
+
      * @return null|CustomLineItemImportDraftCollection
      */
     public function getCustomLineItems()
@@ -210,6 +247,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|Money
      */
     public function getTotalPrice()
@@ -221,6 +259,7 @@ final class OrderImportDraftBuilder implements Builder
      * <p>Order Import does not support calculation of taxes.
      * When setting the draft the taxedPrice is to be provided.</p>
      *
+
      * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice()
@@ -229,6 +268,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getShippingAddress()
@@ -237,6 +277,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|BaseAddress
      */
     public function getBillingAddress()
@@ -248,6 +289,7 @@ final class OrderImportDraftBuilder implements Builder
      * <p>Set when the customer is set and the customer is a member of a customer group.
      * Used for product variant price selection.</p>
      *
+
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()
@@ -259,6 +301,7 @@ final class OrderImportDraftBuilder implements Builder
      * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
      * Used for product variant price selection.</p>
      *
+
      * @return null|string
      */
     public function getCountry()
@@ -269,6 +312,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If not given the <code>Open</code> state will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getOrderState()
@@ -279,6 +323,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>This reference can point to a state in a custom workflow.</p>
      *
+
      * @return null|StateReference
      */
     public function getState()
@@ -287,6 +332,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getShipmentState()
@@ -295,6 +341,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|string
      */
     public function getPaymentState()
@@ -305,6 +352,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>Set if the ShippingMethod is set.</p>
      *
+
      * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo()
@@ -313,6 +361,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|PaymentInfo
      */
     public function getPaymentInfo()
@@ -321,6 +370,7 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt()
@@ -331,6 +381,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>The custom fields.</p>
      *
+
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -341,6 +392,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If not given the mode <code>None</code> will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getInventoryMode()
@@ -351,6 +403,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>
      *
+
      * @return null|string
      */
     public function getTaxRoundingMode()
@@ -361,6 +414,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>Contains addresses for orders with multiple shipping addresses.</p>
      *
+
      * @return null|BaseAddressCollection
      */
     public function getItemShippingAddresses()
@@ -369,6 +423,18 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * <p>The Business Unit the Cart belongs to.</p>
+     *
+
+     * @return null|BusinessUnitResourceIdentifier
+     */
+    public function getBusinessUnit()
+    {
+        return $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit;
+    }
+
+    /**
+
      * @return null|StoreResourceIdentifier
      */
     public function getStore()
@@ -379,6 +445,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * <p>The default origin is <code>Customer</code>.</p>
      *
+
      * @return null|string
      */
     public function getOrigin()
@@ -629,6 +696,17 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @param ?BusinessUnitResourceIdentifier $businessUnit
+     * @return $this
+     */
+    public function withBusinessUnit(?BusinessUnitResourceIdentifier $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @param ?StoreResourceIdentifier $store
      * @return $this
      */
@@ -750,6 +828,17 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withBusinessUnit() instead
+     * @return $this
+     */
+    public function withBusinessUnitBuilder(?BusinessUnitResourceIdentifierBuilder $businessUnit)
+    {
+        $this->businessUnit = $businessUnit;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -785,6 +874,7 @@ final class OrderImportDraftBuilder implements Builder
             $this->inventoryMode,
             $this->taxRoundingMode,
             $this->itemShippingAddresses,
+            $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
             $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
             $this->origin
         );

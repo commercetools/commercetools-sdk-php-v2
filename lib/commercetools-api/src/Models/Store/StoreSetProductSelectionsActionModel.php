@@ -21,11 +21,13 @@ final class StoreSetProductSelectionsActionModel extends JsonObjectModel impleme
 {
     public const DISCRIMINATOR_VALUE = 'setProductSelections';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ProductSelectionSettingDraftCollection
      */
     protected $productSelections;
@@ -35,13 +37,15 @@ final class StoreSetProductSelectionsActionModel extends JsonObjectModel impleme
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ProductSelectionSettingDraftCollection $productSelections = null
+        ?ProductSelectionSettingDraftCollection $productSelections = null,
+        ?string $action = null
     ) {
         $this->productSelections = $productSelections;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -64,6 +68,7 @@ final class StoreSetProductSelectionsActionModel extends JsonObjectModel impleme
      * <li>If provided, Product Selections for which <code>active</code> is set to <code>true</code> are available in the Store.</li>
      * <li>If not provided or provided as empty array, the action removes all Product Selections from this Store, meaning all Products in the <a href="ctp:api:type:Project">Project</a> are available in this Store.</li>
      * </ul>
+     *
      *
      * @return null|ProductSelectionSettingDraftCollection
      */

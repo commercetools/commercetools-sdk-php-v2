@@ -19,16 +19,19 @@ interface Variant extends JsonObject
     public const FIELD_KEY = 'key';
 
     /**
+
      * @return null|int
      */
     public function getId();
 
     /**
+
      * @return null|string
      */
     public function getSku();
 
     /**
+
      * @return null|string
      */
     public function getKey();

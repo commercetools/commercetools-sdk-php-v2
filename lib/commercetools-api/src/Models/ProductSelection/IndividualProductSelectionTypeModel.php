@@ -23,11 +23,13 @@ final class IndividualProductSelectionTypeModel extends JsonObjectModel implemen
 {
     public const DISCRIMINATOR_VALUE = 'individual';
     /**
+     *
      * @var ?string
      */
     protected $type;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -37,14 +39,16 @@ final class IndividualProductSelectionTypeModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?LocalizedString $name = null
+        ?LocalizedString $name = null,
+        ?string $type = null
     ) {
         $this->name = $name;
-        $this->type = static::DISCRIMINATOR_VALUE;
+        $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
      * <p>The following type of Product Selections is supported:</p>
+     *
      *
      * @return null|string
      */
@@ -64,6 +68,7 @@ final class IndividualProductSelectionTypeModel extends JsonObjectModel implemen
 
     /**
      * <p>The name of the ProductSelection which is recommended to be unique.</p>
+     *
      *
      * @return null|LocalizedString
      */

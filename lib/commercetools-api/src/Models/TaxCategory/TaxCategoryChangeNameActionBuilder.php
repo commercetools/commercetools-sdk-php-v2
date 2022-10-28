@@ -21,6 +21,7 @@ use stdClass;
 final class TaxCategoryChangeNameActionBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $name;
@@ -28,6 +29,7 @@ final class TaxCategoryChangeNameActionBuilder implements Builder
     /**
      * <p>New value to set. Must not be empty.</p>
      *
+
      * @return null|string
      */
     public function getName()

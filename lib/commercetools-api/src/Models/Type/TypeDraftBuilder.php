@@ -23,26 +23,31 @@ use stdClass;
 final class TypeDraftBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
 
     /**
+
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $description;
 
     /**
+
      * @var ?array
      */
     private $resourceTypeIds;
 
     /**
+
      * @var ?FieldDefinitionCollection
      */
     private $fieldDefinitions;
@@ -50,6 +55,7 @@ final class TypeDraftBuilder implements Builder
     /**
      * <p>User-defined unique identifier for the Type.</p>
      *
+
      * @return null|string
      */
     public function getKey()
@@ -60,6 +66,7 @@ final class TypeDraftBuilder implements Builder
     /**
      * <p>Name of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getName()
@@ -70,6 +77,7 @@ final class TypeDraftBuilder implements Builder
     /**
      * <p>Description of the Type.</p>
      *
+
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -80,6 +88,7 @@ final class TypeDraftBuilder implements Builder
     /**
      * <p>Resources and/or data types for which the Type is defined.</p>
      *
+
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -90,6 +99,7 @@ final class TypeDraftBuilder implements Builder
     /**
      * <p>Defines Custom Fields.</p>
      *
+
      * @return null|FieldDefinitionCollection
      */
     public function getFieldDefinitions()

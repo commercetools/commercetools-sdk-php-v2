@@ -29,6 +29,8 @@ use Commercetools\Import\Models\Producttypes\ProductTypeImport;
 use Commercetools\Import\Models\Producttypes\ProductTypeImportBuilder;
 use Commercetools\Import\Models\Productvariants\ProductVariantImport;
 use Commercetools\Import\Models\Productvariants\ProductVariantImportBuilder;
+use Commercetools\Import\Models\StandalonePrices\StandalonePriceImport;
+use Commercetools\Import\Models\StandalonePrices\StandalonePriceImportBuilder;
 use stdClass;
 
 /**
@@ -37,11 +39,15 @@ use stdClass;
 final class ImportResourceBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $key;
 
     /**
+     * <p>User-defined unique identifier.</p>
+     *
+
      * @return null|string
      */
     public function getKey()

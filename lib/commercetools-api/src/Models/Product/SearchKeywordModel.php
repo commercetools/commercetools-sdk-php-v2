@@ -20,11 +20,13 @@ use stdClass;
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
     /**
+     *
      * @var ?string
      */
     protected $text;
 
     /**
+     *
      * @var ?SuggestTokenizer
      */
     protected $suggestTokenizer;
@@ -42,6 +44,9 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
+     * <p>Text to return in the result of a <a href="ctp:api:type:ProductSuggestionsSuggestQuery">suggest query</a>.</p>
+     *
+     *
      * @return null|string
      */
     public function getText()
@@ -59,6 +64,9 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
     }
 
     /**
+     * <p>If no tokenizer is defined, the <code>text</code> is used as a single token.</p>
+     *
+     *
      * @return null|SuggestTokenizer
      */
     public function getSuggestTokenizer()
@@ -69,8 +77,8 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
             if (is_null($data)) {
                 return null;
             }
-            $className = SuggestTokenizerModel::resolveDiscriminatorClass($data);
-            $this->suggestTokenizer = $className::of($data);
+
+            $this->suggestTokenizer = SuggestTokenizerModel::of($data);
         }
 
         return $this->suggestTokenizer;

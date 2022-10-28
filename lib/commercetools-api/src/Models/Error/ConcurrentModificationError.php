@@ -16,6 +16,7 @@ interface ConcurrentModificationError extends ErrorObject
     public const FIELD_CURRENT_VERSION = 'currentVersion';
 
     /**
+
      * @return null|int
      */
     public function getCurrentVersion();

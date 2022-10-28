@@ -21,6 +21,7 @@ use stdClass;
 final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
 {
     /**
+     *
      * @var ?PaymentReferenceCollection
      */
     protected $payments;
@@ -36,6 +37,7 @@ final class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
     }
 
     /**
+     *
      * @return null|PaymentReferenceCollection
      */
     public function getPayments()

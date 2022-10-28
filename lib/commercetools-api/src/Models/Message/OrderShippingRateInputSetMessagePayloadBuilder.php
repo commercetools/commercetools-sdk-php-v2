@@ -23,16 +23,21 @@ use stdClass;
 final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $shippingRateInput;
 
     /**
+
      * @var null|ShippingRateInput|ShippingRateInputBuilder
      */
     private $oldShippingRateInput;
 
     /**
+     * <p><a href="ctp:api:type:ShippingRateInput">ShippingRateInput</a> after the <a href="ctp:api:type:StagedOrderSetShippingRateInputAction">Set ShippingRateInput</a> update action.</p>
+     *
+
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput()
@@ -41,6 +46,9 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ShippingRateInput">ShippingRateInput</a> before the <a href="ctp:api:type:StagedOrderSetShippingRateInputAction">Set ShippingRateInput</a> update action.</p>
+     *
+
      * @return null|ShippingRateInput
      */
     public function getOldShippingRateInput()

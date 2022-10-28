@@ -24,36 +24,49 @@ use stdClass;
 final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFromQuoteDraft
 {
     /**
+     *
      * @var ?QuoteResourceIdentifier
      */
     protected $quote;
 
     /**
+     *
      * @var ?int
      */
     protected $version;
 
     /**
+     *
+     * @var ?bool
+     */
+    protected $quoteStateToAccepted;
+
+    /**
+     *
      * @var ?string
      */
     protected $orderNumber;
 
     /**
+     *
      * @var ?string
      */
     protected $paymentState;
 
     /**
+     *
      * @var ?string
      */
     protected $shipmentState;
 
     /**
+     *
      * @var ?string
      */
     protected $orderState;
 
     /**
+     *
      * @var ?StateResourceIdentifier
      */
     protected $state;
@@ -65,6 +78,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     public function __construct(
         ?QuoteResourceIdentifier $quote = null,
         ?int $version = null,
+        ?bool $quoteStateToAccepted = null,
         ?string $orderNumber = null,
         ?string $paymentState = null,
         ?string $shipmentState = null,
@@ -73,6 +87,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     ) {
         $this->quote = $quote;
         $this->version = $version;
+        $this->quoteStateToAccepted = $quoteStateToAccepted;
         $this->orderNumber = $orderNumber;
         $this->paymentState = $paymentState;
         $this->shipmentState = $shipmentState;
@@ -81,7 +96,8 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
-     * <p>ResourceIdentifier to the Quote from which this order is created. If the quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     * <p>ResourceIdentifier of the Quote from which this Order is created. If the Quote has <code>QuoteState</code> in <code>Accepted</code>, <code>Declined</code> or <code>Withdrawn</code> then the order creation will fail. The creation will also fail if the <code>Quote</code> has expired (<code>validTo</code> check).</p>
+     *
      *
      * @return null|QuoteResourceIdentifier
      */
@@ -101,6 +117,9 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     * <p><code>version</code> of the <a href="ctp:api:type:quote">Quote</a> from which an Order is created.</p>
+     *
+     *
      * @return null|int
      */
     public function getVersion()
@@ -118,11 +137,32 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     * <p>If <code>true</code>, the <code>quoteState</code> of the referenced <a href="ctp:api:type:quote">Quote</a> will be set to <code>Accepted</code>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getQuoteStateToAccepted()
+    {
+        if (is_null($this->quoteStateToAccepted)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_QUOTE_STATE_TO_ACCEPTED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quoteStateToAccepted = (bool) $data;
+        }
+
+        return $this->quoteStateToAccepted;
+    }
+
+    /**
      * <p>String that uniquely identifies an order.
      * It can be used to create more human-readable (in contrast to ID) identifier for the order.
      * It should be unique across a project.
      * Once it's set it cannot be changed.
      * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>
+     *
      *
      * @return null|string
      */
@@ -141,6 +181,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPaymentState()
@@ -158,6 +199,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     *
      * @return null|string
      */
     public function getShipmentState()
@@ -177,6 +219,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     /**
      * <p>Order will be created with <code>Open</code> status by default.</p>
      *
+     *
      * @return null|string
      */
     public function getOrderState()
@@ -194,6 +237,7 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     }
 
     /**
+     *
      * @return null|StateResourceIdentifier
      */
     public function getState()
@@ -226,6 +270,14 @@ final class OrderFromQuoteDraftModel extends JsonObjectModel implements OrderFro
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    /**
+     * @param ?bool $quoteStateToAccepted
+     */
+    public function setQuoteStateToAccepted(?bool $quoteStateToAccepted): void
+    {
+        $this->quoteStateToAccepted = $quoteStateToAccepted;
     }
 
     /**

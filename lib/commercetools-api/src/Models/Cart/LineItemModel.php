@@ -38,111 +38,151 @@ use stdClass;
 final class LineItemModel extends JsonObjectModel implements LineItem
 {
     /**
+     *
      * @var ?string
      */
     protected $id;
 
     /**
+     *
      * @var ?string
      */
     protected $productId;
 
     /**
+     *
      * @var ?string
      */
     protected $productKey;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
+     *
      * @var ?LocalizedString
      */
     protected $productSlug;
 
     /**
+     *
      * @var ?ProductTypeReference
      */
     protected $productType;
 
     /**
+     *
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
+     *
      * @var ?Price
      */
     protected $price;
 
     /**
+     *
      * @var ?TaxedItemPrice
      */
     protected $taxedPrice;
 
     /**
+     *
+     * @var ?MethodTaxedPriceCollection
+     */
+    protected $taxedPricePortions;
+
+    /**
+     *
      * @var ?TypedMoney
      */
     protected $totalPrice;
 
     /**
+     *
      * @var ?int
      */
     protected $quantity;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
 
     /**
+     *
      * @var ?ItemStateCollection
      */
     protected $state;
 
     /**
+     *
      * @var ?TaxRate
      */
     protected $taxRate;
 
     /**
+     *
+     * @var ?MethodTaxRateCollection
+     */
+    protected $perMethodTaxRate;
+
+    /**
+     *
      * @var ?ChannelReference
      */
     protected $supplyChannel;
 
     /**
+     *
      * @var ?ChannelReference
      */
     protected $distributionChannel;
 
     /**
+     *
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
     /**
+     *
      * @var ?string
      */
     protected $priceMode;
 
     /**
+     *
      * @var ?string
      */
     protected $lineItemMode;
 
     /**
+     *
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
+     *
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+     *
      * @var ?ItemShippingDetails
      */
     protected $shippingDetails;
 
     /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
@@ -161,17 +201,20 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         ?ProductVariant $variant = null,
         ?Price $price = null,
         ?TaxedItemPrice $taxedPrice = null,
+        ?MethodTaxedPriceCollection $taxedPricePortions = null,
         ?TypedMoney $totalPrice = null,
         ?int $quantity = null,
         ?DateTimeImmutable $addedAt = null,
         ?ItemStateCollection $state = null,
         ?TaxRate $taxRate = null,
+        ?MethodTaxRateCollection $perMethodTaxRate = null,
         ?ChannelReference $supplyChannel = null,
         ?ChannelReference $distributionChannel = null,
         ?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
         ?string $priceMode = null,
         ?string $lineItemMode = null,
         ?CustomFields $custom = null,
+        ?string $inventoryMode = null,
         ?ItemShippingDetails $shippingDetails = null,
         ?DateTimeImmutable $lastModifiedAt = null
     ) {
@@ -184,23 +227,27 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->variant = $variant;
         $this->price = $price;
         $this->taxedPrice = $taxedPrice;
+        $this->taxedPricePortions = $taxedPricePortions;
         $this->totalPrice = $totalPrice;
         $this->quantity = $quantity;
         $this->addedAt = $addedAt;
         $this->state = $state;
         $this->taxRate = $taxRate;
+        $this->perMethodTaxRate = $perMethodTaxRate;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->priceMode = $priceMode;
         $this->lineItemMode = $lineItemMode;
         $this->custom = $custom;
+        $this->inventoryMode = $inventoryMode;
         $this->shippingDetails = $shippingDetails;
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
     /**
      * <p>Unique identifier of the LineItem.</p>
+     *
      *
      * @return null|string
      */
@@ -219,6 +266,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getProductId()
@@ -239,6 +287,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>User-defined unique identifier of the <a href="ctp:api:type:Product">Product</a>.
      * Only present on Line Items in a <a href="ctp:api:type:Cart">Cart</a> when the <code>key</code> is available on that specific Product at the time the Line Item is created or updated on the Cart. On <a href="/ctp:api:type:Order">Order</a> resources this field is only present when the <code>key</code> is available on the specific Product at the time the Order is created from the Cart. This field is in general not present on Carts that had no updates until 3 December 2021 and on Orders created before this date.</p>
      *
+     *
      * @return null|string
      */
     public function getProductKey()
@@ -257,6 +306,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
 
     /**
      * <p>The product name.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -281,6 +331,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * It is empty if the product has been deleted.
      * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>
      *
+     *
      * @return null|LocalizedString
      */
     public function getProductSlug()
@@ -299,6 +350,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|ProductTypeReference
      */
     public function getProductType()
@@ -319,6 +371,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
      * It can manually be updated with the Recalculate update action.</p>
+     *
      *
      * @return null|ProductVariant
      */
@@ -341,6 +394,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The price of a line item is selected from the product variant according to the Product's <a href="ctp:api:type:Product">priceMode</a> value.
      * If the <code>priceMode</code> is <code>Embedded</code> <a href="ctp:api:type:ProductPriceModeEnum">ProductPriceMode</a> and the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>
      *
+     *
      * @return null|Price
      */
     public function getPrice()
@@ -361,6 +415,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>Set once the <code>taxRate</code> is set.</p>
      *
+     *
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -379,10 +434,31 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Taxed price of the Shipping Method that is set automatically after <code>perMethodTaxRate</code> is set.</p>
+     *
+     *
+     * @return null|MethodTaxedPriceCollection
+     */
+    public function getTaxedPricePortions()
+    {
+        if (is_null($this->taxedPricePortions)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxedPricePortions = MethodTaxedPriceCollection::fromArray($data);
+        }
+
+        return $this->taxedPricePortions;
+    }
+
+    /**
      * <p>The total price of this line item.
      * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
      * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
      * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>
+     *
      *
      * @return null|TypedMoney
      */
@@ -405,6 +481,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The amount of a LineItem in the cart.
      * Must be a positive integer.</p>
      *
+     *
      * @return null|int
      */
     public function getQuantity()
@@ -424,6 +501,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     /**
      * <p>When the line item was added to the cart. Optional for backwards
      * compatibility reasons only.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -446,6 +524,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|ItemStateCollection
      */
     public function getState()
@@ -466,6 +545,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
      * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>
      *
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -484,9 +564,31 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Tax Rate per Shipping Method that is automatically set after the <a href="ctp:api:type:CartAddShippingMethodAction">Shipping Method is added</a> to a Cart with the <code>Platform</code> <a href="ctp:api:type:TaxMode">TaxMode</a> and <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     * <p>For the <code>External</code> <a href="ctp:api:type:TaxMode">TaxMode</a>, the Tax Rate must be set with <a href="ctp:api:type:ExternalTaxRateDraft">ExternalTaxRateDraft</a>.</p>
+     *
+     *
+     * @return null|MethodTaxRateCollection
+     */
+    public function getPerMethodTaxRate()
+    {
+        if (is_null($this->perMethodTaxRate)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_PER_METHOD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->perMethodTaxRate = MethodTaxRateCollection::fromArray($data);
+        }
+
+        return $this->perMethodTaxRate;
+    }
+
+    /**
      * <p>The supply channel identifies the inventory entries that should be reserved.
      * The channel has
      * the role InventorySupply.</p>
+     *
      *
      * @return null|ChannelReference
      */
@@ -509,6 +611,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The distribution channel is used to select a ProductPrice.
      * The channel has the role ProductDistribution.</p>
      *
+     *
      * @return null|ChannelReference
      */
     public function getDistributionChannel()
@@ -527,6 +630,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -544,6 +648,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getPriceMode()
@@ -561,6 +666,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|string
      */
     public function getLineItemMode()
@@ -578,6 +684,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     *
      * @return null|CustomFields
      */
     public function getCustom()
@@ -596,7 +703,29 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Inventory mode specific to the line item only, valid for the entire <code>quantity</code> of the line item.
+     * Only present if inventory mode is different from the <code>inventoryMode</code> specified on the <a href="ctp:api:type:Cart">Cart</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
      * <p>Container for line item specific address(es).</p>
+     *
      *
      * @return null|ItemShippingDetails
      */
@@ -619,6 +748,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
      * <p>The date when the LineItem was last modified by one of the following actions
      * setLineItemShippingDetails, addLineItem, removeLineItem, or changeLineItemQuantity.
      * Optional only for backwards compatible reasons. When the LineItem is created lastModifiedAt is set to addedAt.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -714,6 +844,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * @param ?MethodTaxedPriceCollection $taxedPricePortions
+     */
+    public function setTaxedPricePortions(?MethodTaxedPriceCollection $taxedPricePortions): void
+    {
+        $this->taxedPricePortions = $taxedPricePortions;
+    }
+
+    /**
      * @param ?TypedMoney $totalPrice
      */
     public function setTotalPrice(?TypedMoney $totalPrice): void
@@ -751,6 +889,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
+    }
+
+    /**
+     * @param ?MethodTaxRateCollection $perMethodTaxRate
+     */
+    public function setPerMethodTaxRate(?MethodTaxRateCollection $perMethodTaxRate): void
+    {
+        $this->perMethodTaxRate = $perMethodTaxRate;
     }
 
     /**
@@ -799,6 +945,14 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
+    }
+
+    /**
+     * @param ?string $inventoryMode
+     */
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
     }
 
     /**

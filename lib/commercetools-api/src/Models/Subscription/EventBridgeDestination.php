@@ -17,15 +17,17 @@ interface EventBridgeDestination extends Destination
     public const FIELD_ACCOUNT_ID = 'accountId';
 
     /**
-     * <p>AWS region of the Subscriptions that receives the events.</p>
+     * <p>AWS region that receives the events.</p>
      *
+
      * @return null|string
      */
     public function getRegion();
 
     /**
-     * <p>ID of the AWS account that receives events.</p>
+     * <p>ID of the AWS account that receives the events.</p>
      *
+
      * @return null|string
      */
     public function getAccountId();

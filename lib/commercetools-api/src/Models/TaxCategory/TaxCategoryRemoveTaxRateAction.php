@@ -18,6 +18,7 @@ interface TaxCategoryRemoveTaxRateAction extends TaxCategoryUpdateAction
     /**
      * <p>ID of the TaxRate to remove.</p>
      *
+
      * @return null|string
      */
     public function getTaxRateId();

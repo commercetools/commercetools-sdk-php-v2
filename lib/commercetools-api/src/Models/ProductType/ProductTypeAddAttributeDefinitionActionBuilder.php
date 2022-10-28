@@ -21,6 +21,7 @@ use stdClass;
 final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
 {
     /**
+
      * @var null|AttributeDefinitionDraft|AttributeDefinitionDraftBuilder
      */
     private $attribute;
@@ -28,6 +29,7 @@ final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
     /**
      * <p>Value to append to <code>attributes</code>.</p>
      *
+
      * @return null|AttributeDefinitionDraft
      */
     public function getAttribute()

@@ -23,11 +23,13 @@ use stdClass;
 final class ShippingMethodAddShippingRateActionBuilder implements Builder
 {
     /**
+
      * @var null|ZoneResourceIdentifier|ZoneResourceIdentifierBuilder
      */
     private $zone;
 
     /**
+
      * @var null|ShippingRateDraft|ShippingRateDraftBuilder
      */
     private $shippingRate;
@@ -35,6 +37,7 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Zone">Zone</a> to which the ShippingRate should be added.</p>
      *
+
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()
@@ -45,6 +48,7 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
     /**
      * <p>Value to add to <code>shippingRates</code>.</p>
      *
+
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()

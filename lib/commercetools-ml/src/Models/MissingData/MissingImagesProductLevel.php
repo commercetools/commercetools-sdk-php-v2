@@ -16,6 +16,7 @@ interface MissingImagesProductLevel extends MissingImagesCount
     /**
      * <p>Number of products missing images.</p>
      *
+
      * @return null|int
      */
     public function getMissingImages();
@@ -23,6 +24,7 @@ interface MissingImagesProductLevel extends MissingImagesCount
     /**
      * <p>Number of products scanned.</p>
      *
+
      * @return null|int
      */
     public function getTotal();

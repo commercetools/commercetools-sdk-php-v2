@@ -21,11 +21,13 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
 {
     public const DISCRIMINATOR_VALUE = 'setExternalOAuth';
     /**
+     *
      * @var ?string
      */
     protected $action;
 
     /**
+     *
      * @var ?ExternalOAuth
      */
     protected $externalOAuth;
@@ -35,13 +37,15 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?ExternalOAuth $externalOAuth = null
+        ?ExternalOAuth $externalOAuth = null,
+        ?string $action = null
     ) {
         $this->externalOAuth = $externalOAuth;
-        $this->action = static::DISCRIMINATOR_VALUE;
+        $this->action = $action ?? self::DISCRIMINATOR_VALUE;
     }
 
     /**
+     *
      * @return null|string
      */
     public function getAction()
@@ -60,6 +64,7 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
 
     /**
      * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|ExternalOAuth
      */

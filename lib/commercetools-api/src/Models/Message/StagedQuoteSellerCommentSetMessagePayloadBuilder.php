@@ -21,11 +21,15 @@ use stdClass;
 final class StagedQuoteSellerCommentSetMessagePayloadBuilder implements Builder
 {
     /**
+
      * @var ?string
      */
     private $sellerComment;
 
     /**
+     * <p><code>sellerComment</code> on the <a href="ctp:api:type:StagedQuote">StagedQuote</a> after a successful <a href="ctp:api:type:StagedQuoteSetSellerCommentAction">Set Seller Comment</a> update action.</p>
+     *
+
      * @return null|string
      */
     public function getSellerComment()
