@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -243,7 +243,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>@psalm-suppress MissingParamType </p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00063">63</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00070">70</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -262,13 +262,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="../../ctp:api:type:Cart">Cart</a>.</p>
+<p>Identifies a <a href="../../ctp:api:type:Cart">Cart</a> that will be assigned to the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a844e0569612fbd1985663662c03c3070">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00137">137</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00154">154</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -286,12 +286,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deprecated since it is now possible to identify an anonymous cart by using its <code>id</code> or external <code>key</code>.</p>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000515">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#add99102c2bc41434115f32e74ba64762">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00118">118</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00134">134</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -309,12 +311,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+Set to <code>MergeWithExistingCustomerCart</code> if <a href="../../ctp:api:type:LineItem">LineItems</a> of the anonymous <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> should be merged with the active <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> that has been modified most recently. </li>
+<li>
+Set to <code>UseAsNewActiveCustomerCart</code> if the anonymous <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> should be used as the new active <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> and no <a href="../../ctp:api:type:LineItem">LineItems</a> are to be merged. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a6e64de2046c02fcdec94b476138f6c4a">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00155">155</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00178">178</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -332,12 +340,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If both <code>anonymousCart</code> and <code>anonymousId</code> are provided, the <code>anonymousId</code> on the <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html">CustomerSignin</a> must match that of the anonymous [<a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>](ctp:api:type:<a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>]. Otherwise a <a href="../../ctp:api:type:InvalidOperationError">400 Bad Request</a> <code>Invalid Operation</code> error is returned with the message: &quot;<a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> with the ID cart-id does not have the expected anonymousId.&quot;.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#ac512a4263193c300bcb8210b9490d336">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00172">172</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00200">200</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -355,12 +364,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Email address of the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> treated as <a href="../..//../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#afa276e6475eec573e986d20e515ef448">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00084">84</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00094">94</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -378,12 +388,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Password of the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#afc5da7c89fd8f3998b213677d5fc62fa">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00101">101</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00114">114</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -401,12 +412,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+If <code>true</code>, the <a href="../../ctp:api:type:LineItem">LineItem</a> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> will be updated. </li>
+<li>
+If <code>false</code>, only the prices, discounts, and tax rates will be updated. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#aeacd7e70e527607890d700bcb92eda0c">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00189">189</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00223">223</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -434,7 +451,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#af29296eb053504b54ef58f7552ce3bb5">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00231">231</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00265">265</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -462,7 +479,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#ab0bc4c12e1d30c3cd8375b120fcd3f0a">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00223">223</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00257">257</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -490,7 +507,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a5555515a5a8833a77a773be3a6a0f247">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00239">239</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00273">273</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -518,7 +535,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a3db665bcc13792a95772898ca874b2b3">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00247">247</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00281">281</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -546,7 +563,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a1b0a1d5a07a4f23b1023bf4691bb0b10">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00207">207</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00241">241</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -574,7 +591,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#a0e2b3b37bb2b3ee50c4ae5d6080aa77f">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00215">215</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00249">249</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -602,7 +619,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html#afd37424eaca6ad438b978d4615d700c8">Commercetools\Api\Models\Customer\CustomerSignin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00255">255</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00289">289</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -627,7 +644,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00042">42</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00046">46</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -651,7 +668,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00037">37</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00040">40</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -675,7 +692,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00047">47</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00052">52</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -699,7 +716,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00052">52</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00058">58</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -723,7 +740,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00027">27</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00028">28</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -747,7 +764,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00032">32</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00034">34</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>
@@ -771,7 +788,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00057">57</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html#l00064">64</a> of file <a class="el" href="../../df/dad/_customer_signin_model_8php_source.html">CustomerSigninModel.php</a>.</p>
 
 </div>
 </div>

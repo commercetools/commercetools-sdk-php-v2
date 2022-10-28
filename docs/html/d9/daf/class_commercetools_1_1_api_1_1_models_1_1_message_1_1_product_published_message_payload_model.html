@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -95,8 +95,8 @@ Inheritance diagram for Commercetools\Api\Models\Message\ProductPublishedMessage
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a67851062b368e991b5406dddac871848"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload_model.html#a67851062b368e991b5406dddac871848">__construct</a> (?array $removedImageUrls=null, ?<a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html">ProductProjection</a> $productProjection=null, ?string $scope=null)</td></tr>
-<tr class="separator:a67851062b368e991b5406dddac871848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a6ef834e216d75be2a76979645ab193"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload_model.html#a4a6ef834e216d75be2a76979645ab193">__construct</a> (?array $removedImageUrls=null, ?<a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html">ProductProjection</a> $productProjection=null, ?string $scope=null, ?string $type=null)</td></tr>
+<tr class="separator:a4a6ef834e216d75be2a76979645ab193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ed022ce023485c6294b7026f4772dde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload_model.html#a1ed022ce023485c6294b7026f4772dde">getType</a> ()</td></tr>
 <tr class="separator:a1ed022ce023485c6294b7026f4772dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a316263ea49862ea03648360b73210da4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/daf/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload_model.html#a316263ea49862ea03648360b73210da4">getRemovedImageUrls</a> ()</td></tr>
@@ -170,8 +170,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00022">22</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a67851062b368e991b5406dddac871848"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67851062b368e991b5406dddac871848">&#9670;&nbsp;</a></span>__construct()</h2>
+<a id="a4a6ef834e216d75be2a76979645ab193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a6ef834e216d75be2a76979645ab193">&#9670;&nbsp;</a></span>__construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +192,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">?string&#160;</td>
-          <td class="paramname"><em>$scope</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>$scope</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?string&#160;</td>
+          <td class="paramname"><em>$type</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -203,7 +209,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>@psalm-suppress MissingParamType </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00049">49</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00053">53</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -222,12 +228,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Current <a href="../../ctp:api:type:ProductProjection">Product Projection</a> of the <a href="../../ctp:api:type:Product">Product</a> at the time of creation.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductProjection </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d8/d6f/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload.html#a8b4b563144b05c1969620447fd562024">Commercetools\Api\Models\Message\ProductPublishedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00097">97</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00109">109</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -245,12 +252,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>List of image URLs which were removed during the <a href="../../ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|array </dd></dl>
 <p>@psalm-var ?list&lt;mixed&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d8/d6f/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload.html#a5dc49d4b081aec14540585b6faf5d407">Commercetools\Api\Models\Message\ProductPublishedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00080">80</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00089">89</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -268,12 +276,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a href="../../ctp:api:type:ProductPublishScope">Publishing Scope</a> that was used during the <a href="../../ctp:api:type:ProductPublishAction">Publish</a> update action.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d8/d6f/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload.html#add3f2a747bc03445e7155b3259d16cf8">Commercetools\Api\Models\Message\ProductPublishedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00115">115</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00130">130</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -296,7 +305,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d9c/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_message_payload.html#aad87fdc823ecd346572bffaef616ede0">Commercetools\Api\Models\Message\MessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00063">63</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00069">69</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -324,7 +333,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/d6f/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload.html#ad0be69d653860b02ad14d9cfa82d63c8">Commercetools\Api\Models\Message\ProductPublishedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00141">141</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00156">156</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -352,7 +361,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/d6f/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload.html#a72e7b33e0d3437b49a5e401984a0ca91">Commercetools\Api\Models\Message\ProductPublishedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00133">133</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00148">148</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -380,7 +389,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d8/d6f/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_product_published_message_payload.html#a4bb1ce872fa32c19b7808637f97917e2">Commercetools\Api\Models\Message\ProductPublishedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00149">149</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00164">164</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -405,7 +414,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00038">38</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00041">41</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -429,7 +438,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00033">33</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00035">35</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -453,7 +462,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00043">43</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00047">47</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -477,7 +486,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00028">28</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html#l00029">29</a> of file <a class="el" href="../../d3/d46/_product_published_message_payload_model_8php_source.html">ProductPublishedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>

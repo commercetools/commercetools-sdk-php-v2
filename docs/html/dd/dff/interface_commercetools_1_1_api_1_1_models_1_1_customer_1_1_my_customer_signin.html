@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -150,6 +150,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+If <code>MergeWithExistingCustomerCart</code>, <a href="../../ctp:api:type:LineItem">LineItems</a> of the anonymous <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> are merged with the recently modified active <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>. </li>
+<li>
+If <code>UseAsNewActiveCustomerCart</code>, the anonymous <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> is used as the new active <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>, and no <a href="../../ctp:api:type:LineItem">LineItems</a> are merged. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d03/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_my_customer_signin_model.html#a7d1b9129034f7a59122fdd9e8a99c0a1">Commercetools\Api\Models\Customer\MyCustomerSigninModel</a>.</p>
@@ -170,6 +176,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Email address of the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> treated as <a href="../..//../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d03/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_my_customer_signin_model.html#a83547538f42d845e21849bbec663966d">Commercetools\Api\Models\Customer\MyCustomerSigninModel</a>.</p>
@@ -190,6 +197,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Password of the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d03/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_my_customer_signin_model.html#a0ea81546d7581f17119fea0f3d7bf999">Commercetools\Api\Models\Customer\MyCustomerSigninModel</a>.</p>
@@ -210,6 +218,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+If <code>true</code>, the <a href="../../ctp:api:type:LineItem">LineItem</a> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> is updated. </li>
+<li>
+If <code>false</code>, only the prices, discounts, and tax rates are updated. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d03/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_my_customer_signin_model.html#aedafb1c436bef359bb31c31f7a941eda">Commercetools\Api\Models\Customer\MyCustomerSigninModel</a>.</p>

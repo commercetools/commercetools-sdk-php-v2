@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -95,8 +95,8 @@ Inheritance diagram for Commercetools\Api\Models\Subscription\AzureServiceBusDes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab5ff35a6effe0476dc7ea16267a89eaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7e/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination_model.html#ab5ff35a6effe0476dc7ea16267a89eaf">__construct</a> (?string $connectionString=null)</td></tr>
-<tr class="separator:ab5ff35a6effe0476dc7ea16267a89eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b44e9b8327ee0f56d809a91042b4c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7e/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination_model.html#ac7b44e9b8327ee0f56d809a91042b4c7">__construct</a> (?string $connectionString=null, ?string $type=null)</td></tr>
+<tr class="separator:ac7b44e9b8327ee0f56d809a91042b4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c805bd99b0aac8851835f8481c008eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7e/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination_model.html#a3c805bd99b0aac8851835f8481c008eb">getType</a> ()</td></tr>
 <tr class="separator:a3c805bd99b0aac8851835f8481c008eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13f6920e3d5ba278118f34372aa80d26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d7e/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination_model.html#a13f6920e3d5ba278118f34372aa80d26">getConnectionString</a> ()</td></tr>
@@ -154,8 +154,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00020">20</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab5ff35a6effe0476dc7ea16267a89eaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5ff35a6effe0476dc7ea16267a89eaf">&#9670;&nbsp;</a></span>__construct()</h2>
+<a id="ac7b44e9b8327ee0f56d809a91042b4c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b44e9b8327ee0f56d809a91042b4c7">&#9670;&nbsp;</a></span>__construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,14 +164,24 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">Commercetools\Api\Models\Subscription\AzureServiceBusDestinationModel::__construct </td>
           <td>(</td>
           <td class="paramtype">?string&#160;</td>
-          <td class="paramname"><em>$connectionString</em> = <code>null</code></td><td>)</td>
+          <td class="paramname"><em>$connectionString</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">?string&#160;</td>
+          <td class="paramname"><em>$type</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>@psalm-suppress MissingParamType </p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00037">37</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00039">39</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -190,12 +200,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>SharedAccessKey is partially hidden on retrieval for security reasons.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d1/d4f/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination.html#a33bf118106f8d26fc69fbf9fdb576add">Commercetools\Api\Models\Subscription\AzureServiceBusDestination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00064">64</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00071">71</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -218,7 +229,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d00/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_destination.html#a73308d82974854e8e7d2cbbc6be2a485">Commercetools\Api\Models\Subscription\Destination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00047">47</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00051">51</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -246,7 +257,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d1/d4f/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_azure_service_bus_destination.html#a157ceac5005e722c3e490c8942c72cdf">Commercetools\Api\Models\Subscription\AzureServiceBusDestination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00082">82</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00089">89</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -271,7 +282,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00031">31</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00033">33</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -295,7 +306,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00026">26</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html#l00027">27</a> of file <a class="el" href="../../dd/db5/_azure_service_bus_destination_model_8php_source.html">AzureServiceBusDestinationModel.php</a>.</p>
 
 </div>
 </div>

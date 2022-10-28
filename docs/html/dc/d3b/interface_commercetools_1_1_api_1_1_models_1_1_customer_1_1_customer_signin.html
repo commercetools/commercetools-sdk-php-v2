@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -168,7 +168,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="../../ctp:api:type:Cart">Cart</a>.</p>
+<p>Identifies a <a href="../../ctp:api:type:Cart">Cart</a> that will be assigned to the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CartResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#a492419c44bae6706a80f77dcdb72c67e">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>
@@ -189,6 +189,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deprecated since it is now possible to identify an anonymous cart by using its <code>id</code> or external <code>key</code>.</p>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000510">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#a4ff25d26386efa2053d9df7aa09c9f3a">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>
@@ -209,6 +211,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+Set to <code>MergeWithExistingCustomerCart</code> if <a href="../../ctp:api:type:LineItem">LineItems</a> of the anonymous <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> should be merged with the active <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> that has been modified most recently. </li>
+<li>
+Set to <code>UseAsNewActiveCustomerCart</code> if the anonymous <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> should be used as the new active <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> and no <a href="../../ctp:api:type:LineItem">LineItems</a> are to be merged. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#af70cb74ed30971d114e7ec9b961fbbb7">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>
@@ -229,6 +237,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If both <code>anonymousCart</code> and <code>anonymousId</code> are provided, the <code>anonymousId</code> on the <a class="el" href="../../dc/d3b/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin.html">CustomerSignin</a> must match that of the anonymous [<a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>](ctp:api:type:<a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a>]. Otherwise a <a href="../../ctp:api:type:InvalidOperationError">400 Bad Request</a> <code>Invalid Operation</code> error is returned with the message: &quot;<a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> with the ID cart-id does not have the expected anonymousId.&quot;.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#aa64c100e09850a646083fce9e4fd5a5a">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>
@@ -249,6 +258,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Email address of the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a> treated as <a href="../..//../api/customers-overview#email-case-insensitivity">case-insensitive</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#a41244c63b5c4d6735515a6694f1f9d40">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>
@@ -269,6 +279,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Password of the <a class="el" href="../../d4/dfe/interface_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer.html">Customer</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#a05c68124bb045245bbc9b06df4f98055">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>
@@ -289,6 +300,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<ul>
+<li>
+If <code>true</code>, the <a href="../../ctp:api:type:LineItem">LineItem</a> <a class="el" href="../../db/d30/namespace_commercetools_1_1_api_1_1_models_1_1_product.html">Product</a> data (<code>name</code>, <code>variant</code>, and <code>productType</code>) of the returned <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> will be updated. </li>
+<li>
+If <code>false</code>, only the prices, discounts, and tax rates will be updated. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d2c/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_signin_model.html#abc41197b65186dea444023916fcd09b5">Commercetools\Api\Models\Customer\CustomerSigninModel</a>.</p>

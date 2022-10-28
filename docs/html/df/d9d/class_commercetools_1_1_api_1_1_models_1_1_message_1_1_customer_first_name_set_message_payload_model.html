@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -95,8 +95,8 @@ Inheritance diagram for Commercetools\Api\Models\Message\CustomerFirstNameSetMes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0424e3df8b19e317e291d3b81d388687"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_customer_first_name_set_message_payload_model.html#a0424e3df8b19e317e291d3b81d388687">__construct</a> (?string $firstName=null)</td></tr>
-<tr class="separator:a0424e3df8b19e317e291d3b81d388687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39653a3c21294da2d08cdcbd036f2dc4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_customer_first_name_set_message_payload_model.html#a39653a3c21294da2d08cdcbd036f2dc4">__construct</a> (?string $firstName=null, ?string $type=null)</td></tr>
+<tr class="separator:a39653a3c21294da2d08cdcbd036f2dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d3d178f6fa2df2d2afdc68c8000ca89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_customer_first_name_set_message_payload_model.html#a8d3d178f6fa2df2d2afdc68c8000ca89">getType</a> ()</td></tr>
 <tr class="separator:a8d3d178f6fa2df2d2afdc68c8000ca89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa710386ed5be0af5e2267851a63af784"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d9d/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_customer_first_name_set_message_payload_model.html#aa710386ed5be0af5e2267851a63af784">getFirstName</a> ()</td></tr>
@@ -154,8 +154,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00020">20</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0424e3df8b19e317e291d3b81d388687"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0424e3df8b19e317e291d3b81d388687">&#9670;&nbsp;</a></span>__construct()</h2>
+<a id="a39653a3c21294da2d08cdcbd036f2dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39653a3c21294da2d08cdcbd036f2dc4">&#9670;&nbsp;</a></span>__construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,14 +164,24 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">Commercetools\Api\Models\Message\CustomerFirstNameSetMessagePayloadModel::__construct </td>
           <td>(</td>
           <td class="paramtype">?string&#160;</td>
-          <td class="paramname"><em>$firstName</em> = <code>null</code></td><td>)</td>
+          <td class="paramname"><em>$firstName</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">?string&#160;</td>
+          <td class="paramname"><em>$type</em> = <code>null</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>@psalm-suppress MissingParamType </p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00037">37</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00039">39</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -190,12 +200,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The <code>firstName</code> that was set during the <a href="../../ctp:api:type:CustomerSetFirstNameAction">Set First Name</a> update action.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../de/d2a/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_customer_first_name_set_message_payload.html#aa83cca1cb939ca11d5d74c1ef22c2f98">Commercetools\Api\Models\Message\CustomerFirstNameSetMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00064">64</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00071">71</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -218,7 +229,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d9c/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_message_payload.html#aad87fdc823ecd346572bffaef616ede0">Commercetools\Api\Models\Message\MessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00047">47</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00051">51</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -246,7 +257,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../de/d2a/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_customer_first_name_set_message_payload.html#adb710c591ac1e60e73f0b27980d50da0">Commercetools\Api\Models\Message\CustomerFirstNameSetMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00082">82</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00089">89</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -271,7 +282,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00031">31</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00033">33</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -295,7 +306,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00026">26</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html#l00027">27</a> of file <a class="el" href="../../de/d95/_customer_first_name_set_message_payload_model_8php_source.html">CustomerFirstNameSetMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>

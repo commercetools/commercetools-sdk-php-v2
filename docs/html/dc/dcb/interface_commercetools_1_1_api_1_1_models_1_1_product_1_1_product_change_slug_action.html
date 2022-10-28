@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -147,7 +147,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Every slug must be unique across a project, but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters. Maximum size is <code>256</code>.</p>
+<p>Value to set. Must not be empty. A <a class="el" href="../../d0/d2c/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product.html">Product</a> can have the same slug for different <a href="../../ctp:api:type:Locale">Locales</a>, but it must be unique across the <a href="../../ctp:api:type:Project">Project</a>. Must match the pattern <code>^[A-Za-z0-9_-]{2,256}+$</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/d35/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_change_slug_action_model.html#abcce2b99aea6e51ec342bbc9c2497f78">Commercetools\Api\Models\Product\ProductChangeSlugActionModel</a>.</p>
@@ -168,6 +168,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If <code>true</code>, only the staged <code>slug</code> is updated. If <code>false</code>, both the current and staged <code>slug</code> are updated.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/d35/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_change_slug_action_model.html#a27bb60397071de1b9826b070a287722d">Commercetools\Api\Models\Product\ProductChangeSlugActionModel</a>.</p>

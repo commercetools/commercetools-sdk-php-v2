@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -91,8 +91,12 @@ Inheritance diagram for Commercetools\Api\Models\Message\DeliveryAddedMessagePay
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6efe4094fabfe97658577b6c3db3db72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#a6efe4094fabfe97658577b6c3db3db72">getDelivery</a> ()</td></tr>
 <tr class="separator:a6efe4094fabfe97658577b6c3db3db72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fa471b461efbbd3cdb7434c0f8022ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#a7fa471b461efbbd3cdb7434c0f8022ee">getShippingKey</a> ()</td></tr>
+<tr class="separator:a7fa471b461efbbd3cdb7434c0f8022ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f236249a03fa743b504f4c637a553d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#a88f236249a03fa743b504f4c637a553d">withDelivery</a> (?<a class="el" href="../../d9/d53/interface_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery.html">Delivery</a> $delivery)</td></tr>
 <tr class="separator:a88f236249a03fa743b504f4c637a553d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f6b1e06ad292cdca51074989f3cab1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#ae7f6b1e06ad292cdca51074989f3cab1">withShippingKey</a> (?string $shippingKey)</td></tr>
+<tr class="separator:ae7f6b1e06ad292cdca51074989f3cab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba0bb79e389ad12dfc171fb8b3e65511"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#aba0bb79e389ad12dfc171fb8b3e65511">withDeliveryBuilder</a> (?<a class="el" href="../../d0/da1/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_delivery_builder.html">DeliveryBuilder</a> $delivery)</td></tr>
 <tr class="separator:aba0bb79e389ad12dfc171fb8b3e65511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad6e6b424fe3437217ceefa907e111c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#aad6e6b424fe3437217ceefa907e111c2">build</a> ()</td></tr>
@@ -126,7 +130,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00060">60</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00092">92</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -144,9 +148,31 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a href="../../ctp:api:type:Delivery">Delivery</a> that was added to the <a href="../../ctp:api:type:Order">Order</a>. The <a href="../../ctp:api:type:Delivery">Delivery</a> in the <a class="el" href="../../d5/d27/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_message.html">Message</a> body does not contain <a href="../../ctp:api:type:Parcel">Parcels</a> if those were part of the initial <a href="../../ctp:api:type:OrderAddDeliveryAction">Add Delivery</a> update action. In that case, the update action produces an additional <a href="../../ctp:api:type:ParcelAddedToDeliveryMessage">ParcelAddedToDelivery</a> <a class="el" href="../../d5/d27/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_message.html">Message</a> containing information about the <a href="../../ctp:api:type:Parcel">Parcels</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Delivery </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00033">33</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00043">43</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+
+</div>
+</div>
+<a id="a7fa471b461efbbd3cdb7434c0f8022ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa471b461efbbd3cdb7434c0f8022ee">&#9670;&nbsp;</a></span>getShippingKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Commercetools\Api\Models\Message\DeliveryAddedMessagePayloadBuilder::getShippingKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>User-defined unique identifier of the Shipping Method in a <a class="el" href="../../d2/d12/namespace_commercetools_1_1_api_1_1_models_1_1_cart.html">Cart</a> with <code>Multi</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00054">54</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -173,7 +199,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00067">67</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00100">100</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -200,7 +226,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00042">42</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00063">63</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -219,10 +245,37 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000666">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#a88f236249a03fa743b504f4c637a553d">withDelivery()</a> instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000885">Deprecated:</a></b></dt><dd>use <a class="el" href="../../d4/d83/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_delivery_added_message_payload_builder.html#a88f236249a03fa743b504f4c637a553d">withDelivery()</a> instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00053">53</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00085">85</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
+
+</div>
+</div>
+<a id="ae7f6b1e06ad292cdca51074989f3cab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7f6b1e06ad292cdca51074989f3cab1">&#9670;&nbsp;</a></span>withShippingKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Commercetools\Api\Models\Message\DeliveryAddedMessagePayloadBuilder::withShippingKey </td>
+          <td>(</td>
+          <td class="paramtype">?string&#160;</td>
+          <td class="paramname"><em>$shippingKey</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">?string</td><td>$shippingKey </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html#l00074">74</a> of file <a class="el" href="../../d5/d68/_delivery_added_message_payload_builder_8php_source.html">DeliveryAddedMessagePayloadBuilder.php</a>.</p>
 
 </div>
 </div>

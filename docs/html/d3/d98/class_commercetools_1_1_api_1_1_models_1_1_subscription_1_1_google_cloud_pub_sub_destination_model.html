@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -95,8 +95,8 @@ Inheritance diagram for Commercetools\Api\Models\Subscription\GoogleCloudPubSubD
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abf8a01cc98a3760476e09af9386d8da2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d98/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination_model.html#abf8a01cc98a3760476e09af9386d8da2">__construct</a> (?string $projectId=null, ?string $topic=null)</td></tr>
-<tr class="separator:abf8a01cc98a3760476e09af9386d8da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a71f5916a1c33a55f071e9c1b91296f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d98/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination_model.html#a1a71f5916a1c33a55f071e9c1b91296f">__construct</a> (?string $projectId=null, ?string $topic=null, ?string $type=null)</td></tr>
+<tr class="separator:a1a71f5916a1c33a55f071e9c1b91296f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e5185622e79e0a0cfdd8667063f1ab2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d98/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination_model.html#a6e5185622e79e0a0cfdd8667063f1ab2">getType</a> ()</td></tr>
 <tr class="separator:a6e5185622e79e0a0cfdd8667063f1ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1345ce6e86b56866b17ed633e4a766cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d98/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination_model.html#a1345ce6e86b56866b17ed633e4a766cd">getProjectId</a> ()</td></tr>
@@ -162,8 +162,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00020">20</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abf8a01cc98a3760476e09af9386d8da2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf8a01cc98a3760476e09af9386d8da2">&#9670;&nbsp;</a></span>__construct()</h2>
+<a id="a1a71f5916a1c33a55f071e9c1b91296f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a71f5916a1c33a55f071e9c1b91296f">&#9670;&nbsp;</a></span>__construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +178,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">?string&#160;</td>
-          <td class="paramname"><em>$topic</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>$topic</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?string&#160;</td>
+          <td class="paramname"><em>$type</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -189,7 +195,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>@psalm-suppress MissingParamType </p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00042">42</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00045">45</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -208,12 +214,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ID of the Google Cloud project that contains the Pub/Sub topic.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../df/da8/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination.html#ac46c162a3ad21668beda298978538390">Commercetools\Api\Models\Subscription\GoogleCloudPubSubDestination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00071">71</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00079">79</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -231,12 +238,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Name of the topic.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../df/da8/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination.html#a5b3cef868eba5e3cad347ce55dafec85">Commercetools\Api\Models\Subscription\GoogleCloudPubSubDestination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00088">88</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00099">99</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -259,7 +267,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/d00/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_destination.html#a73308d82974854e8e7d2cbbc6be2a485">Commercetools\Api\Models\Subscription\Destination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00054">54</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00059">59</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -287,7 +295,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/da8/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination.html#a1396a211b2b332d33cec602024bb4a64">Commercetools\Api\Models\Subscription\GoogleCloudPubSubDestination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00106">106</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00117">117</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -315,7 +323,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../df/da8/interface_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_google_cloud_pub_sub_destination.html#af5b3671702cfe5ecdc87eaba729ac05d">Commercetools\Api\Models\Subscription\GoogleCloudPubSubDestination</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00114">114</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00125">125</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -340,7 +348,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00031">31</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00033">33</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -364,7 +372,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00036">36</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00039">39</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>
@@ -388,7 +396,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00026">26</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html#l00027">27</a> of file <a class="el" href="../../db/d9b/_google_cloud_pub_sub_destination_model_8php_source.html">GoogleCloudPubSubDestinationModel.php</a>.</p>
 
 </div>
 </div>

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../ct-logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">commercetools-sdk-php-v2
-   &#160;<span id="projectnumber">6.0.2</span>
+   &#160;<span id="projectnumber">7.0.0</span>
    </div>
    <div id="projectbrief">The platform, import-api and ml-api PHP sdks generated from our api reference.</div>
   </td>
@@ -96,8 +96,8 @@ Inheritance diagram for Commercetools\Api\Models\Message\OrderStateChangedMessag
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab947f2d0720fa4d5cd2c7b6b85be11ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload_model.html#ab947f2d0720fa4d5cd2c7b6b85be11ca">__construct</a> (?string $orderState=null, ?string $oldOrderState=null)</td></tr>
-<tr class="separator:ab947f2d0720fa4d5cd2c7b6b85be11ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c758b73bf4e22fc655cbd9078d6e912"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload_model.html#a8c758b73bf4e22fc655cbd9078d6e912">__construct</a> (?string $orderState=null, ?string $oldOrderState=null, ?string $type=null)</td></tr>
+<tr class="separator:a8c758b73bf4e22fc655cbd9078d6e912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d4c995da698cdea84e944811a70be6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload_model.html#a8d4c995da698cdea84e944811a70be6f">getType</a> ()</td></tr>
 <tr class="separator:a8d4c995da698cdea84e944811a70be6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae014de3a71e572065b5725d5f2938f68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/class_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload_model.html#ae014de3a71e572065b5725d5f2938f68">getOrderState</a> ()</td></tr>
@@ -163,8 +163,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00020">20</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab947f2d0720fa4d5cd2c7b6b85be11ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab947f2d0720fa4d5cd2c7b6b85be11ca">&#9670;&nbsp;</a></span>__construct()</h2>
+<a id="a8c758b73bf4e22fc655cbd9078d6e912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c758b73bf4e22fc655cbd9078d6e912">&#9670;&nbsp;</a></span>__construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +179,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">?string&#160;</td>
-          <td class="paramname"><em>$oldOrderState</em> = <code>null</code>&#160;</td>
+          <td class="paramname"><em>$oldOrderState</em> = <code>null</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?string&#160;</td>
+          <td class="paramname"><em>$type</em> = <code>null</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -190,7 +196,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>@psalm-suppress MissingParamType </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00042">42</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00045">45</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -209,12 +215,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a href="../../ctp:api:type:OrderState">OrderState</a> before the <a href="../../ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d3/dfc/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload.html#aba5367667f85640b293ca8583779f5e4">Commercetools\Api\Models\Message\OrderStateChangedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00088">88</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00099">99</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -232,12 +239,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a href="../../ctp:api:type:OrderState">OrderState</a> after the <a href="../../ctp:api:type:OrderChangeOrderStateAction">Change Order State</a> update action.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../d3/dfc/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload.html#ab01dcc9106c1f07306ecb9077bbb5949">Commercetools\Api\Models\Message\OrderStateChangedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00071">71</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00079">79</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -260,7 +268,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d9c/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_message_payload.html#aad87fdc823ecd346572bffaef616ede0">Commercetools\Api\Models\Message\MessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00054">54</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00059">59</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -288,7 +296,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dfc/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload.html#afde4750ce43e55e686bfc843f8f98792">Commercetools\Api\Models\Message\OrderStateChangedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00114">114</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00125">125</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -316,7 +324,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dfc/interface_commercetools_1_1_api_1_1_models_1_1_message_1_1_order_state_changed_message_payload.html#a19e92169b53745e993b6f74cc4024e60">Commercetools\Api\Models\Message\OrderStateChangedMessagePayload</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00106">106</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00117">117</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -341,7 +349,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00036">36</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00039">39</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -365,7 +373,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00031">31</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00033">33</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
@@ -389,7 +397,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00026">26</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html#l00027">27</a> of file <a class="el" href="../../d5/db5/_order_state_changed_message_payload_model_8php_source.html">OrderStateChangedMessagePayloadModel.php</a>.</p>
 
 </div>
 </div>
