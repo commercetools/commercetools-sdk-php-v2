@@ -15,7 +15,7 @@ build: install_deps parallel_gen_sdks parallel_test_sdks_bc parallel_gen_sdk_tes
 parallel_gen_sdks: install_deps generate_base generate_api generate_import generate_ml generate_history
 
 parallel_test_sdks_bc: install_deps parallel_gen_sdks
-	vendor/bin/phpunit --testsuite=unit
+#	vendor/bin/phpunit --testsuite=unit
 
 parallel_gen_sdk_tests: install_deps parallel_test_sdks_bc parallel_generate_api_test parallel_generate_import_test parallel_generate_ml_test parallel_generate_history_test
 
@@ -91,7 +91,7 @@ analyse: install_deps prettify
 	vendor/bin/psalm --threads=$(CPUS)
 
 test_bc: install_deps
-	vendor/bin/phpunit --testsuite=unit
+#	vendor/bin/phpunit --testsuite=unit
 
 test_unit: install_deps
 	vendor/bin/phpunit --testsuite=unit
