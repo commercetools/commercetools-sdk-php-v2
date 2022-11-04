@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AttributeGroup\AttributeGroup;
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupModel;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnit;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitModel;
 use Commercetools\Api\Models\BusinessUnit\Company;

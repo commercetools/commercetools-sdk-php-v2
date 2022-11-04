@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupReference;
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupReferenceModel;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReferenceModel;
 use Commercetools\Api\Models\Cart\CartReference;
@@ -95,6 +97,7 @@ final class ReferenceModel extends JsonObjectModel implements Reference
      *
      */
     private static $discriminatorClasses = [
+       'attribute-group' => AttributeGroupReferenceModel::class,
        'business-unit' => BusinessUnitReferenceModel::class,
        'cart' => CartReferenceModel::class,
        'cart-discount' => CartDiscountReferenceModel::class,

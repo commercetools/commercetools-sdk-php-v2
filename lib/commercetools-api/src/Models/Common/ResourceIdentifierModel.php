@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupResourceIdentifier;
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupResourceIdentifierModel;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierModel;
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;
@@ -99,6 +101,7 @@ final class ResourceIdentifierModel extends JsonObjectModel implements ResourceI
      *
      */
     private static $discriminatorClasses = [
+       'attribute-group' => AttributeGroupResourceIdentifierModel::class,
        'business-unit' => BusinessUnitResourceIdentifierModel::class,
        'cart' => CartResourceIdentifierModel::class,
        'cart-discount' => CartDiscountResourceIdentifierModel::class,
