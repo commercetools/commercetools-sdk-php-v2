@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupResourceIdentifier;
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
 use Commercetools\Api\Models\Cart\CartResourceIdentifier;

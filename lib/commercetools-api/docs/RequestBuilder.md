@@ -92,6 +92,124 @@ $request = $builder
                 ->withId("ID")
                 ->delete();
 ```
+## `withProjectKey("projectKey")->attributeGroups()->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->get();
+```
+## `withProjectKey("projectKey")->attributeGroups()->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->attributeGroups()->withId("ID")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->attributeGroups()->withId("ID")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->attributeGroups()->withId("ID")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->attributeGroups()->withKey("key")->get()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->attributeGroups()->withKey("key")->post(null)`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->attributeGroups()->withKey("key")->delete()`
+
+null
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->attributeGroups()
+                ->withKey("key")
+                ->delete();
+```
 ## `withProjectKey("projectKey")->businessUnits()->get()`
 
 null

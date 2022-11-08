@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Common;
 
+use Commercetools\Api\Models\AttributeGroup\AttributeGroupReference;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitReference;
 use Commercetools\Api\Models\Cart\CartReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;

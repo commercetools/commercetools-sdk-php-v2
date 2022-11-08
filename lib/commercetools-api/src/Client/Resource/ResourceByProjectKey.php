@@ -336,6 +336,14 @@ class ResourceByProjectKey extends ApiResource
 
         return new ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey($args, $this->getClient());
     }
+    /**
+     */
+    public function attributeGroups(): ResourceByProjectKeyAttributeGroups
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyAttributeGroups($args, $this->getClient());
+    }
 
     /**
      * @psalm-param ?object|array|string $body

@@ -10,6 +10,7 @@ namespace Commercetools\Api\Test\Client\Resource;
 
 use Commercetools\Api\Client\ApiRequestBuilder;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyApiClients;
+use Commercetools\Api\Client\Resource\ResourceByProjectKeyAttributeGroups;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyBusinessUnits;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCartDiscounts;
 use Commercetools\Api\Client\Resource\ResourceByProjectKeyCarts;
@@ -541,6 +542,16 @@ class ResourceByProjectKeyTest extends TestCase
                 ResourceByProjectKeyInBusinessUnitKeyByBusinessUnitKey::class,
                 ['projectKey' => 'test_projectKey', 'businessUnitKey' => 'test_businessUnitKey'],
                 '/{projectKey}/in-business-unit/key={businessUnitKey}'
+            ],
+            'ResourceByProjectKeyAttributeGroups' => [
+                function (ApiRequestBuilder $builder): ResourceByProjectKeyAttributeGroups {
+                    return $builder
+                        ->withProjectKey("test_projectKey")
+                        ->attributeGroups();
+                },
+                ResourceByProjectKeyAttributeGroups::class,
+                ['projectKey' => 'test_projectKey'],
+                '/{projectKey}/attribute-groups'
             ]
         ];
     }
