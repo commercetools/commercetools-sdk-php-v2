@@ -28,7 +28,7 @@ final class CacheValidator
         if (class_exists('Symfony\Component\Cache\Simple\FilesystemCache')) {
             /** @psalm-suppress all */
             /** @var CacheItemPoolInterface $cache */
-            $cache = new FilesystemCache('', 0, getcwd() . "/cache");
+            $cache = new \Symfony\Component\Cache\Simple\FilesystemCache('', 0, getcwd() . "/cache");
         } else {
             /** @psalm-suppress all */
             /** @var CacheItemPoolInterface $cache */

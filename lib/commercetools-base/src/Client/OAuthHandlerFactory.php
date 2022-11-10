@@ -9,11 +9,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Client;
 
-use Cache\Adapter\Filesystem\FilesystemCachePool;
 use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client;
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\Filesystem;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\SimpleCache\CacheInterface;
 
