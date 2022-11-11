@@ -33,18 +33,6 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
 
     /**
      *
-     * @var ?string
-     */
-    protected $error;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $error_description;
-
-    /**
-     *
      * @var ?ErrorObjectCollection
      */
     protected $errors;
@@ -56,18 +44,16 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     public function __construct(
         ?int $statusCode = null,
         ?string $message = null,
-        ?string $error = null,
-        ?string $error_description = null,
         ?ErrorObjectCollection $errors = null
     ) {
         $this->statusCode = $statusCode;
         $this->message = $message;
-        $this->error = $error;
-        $this->error_description = $error_description;
         $this->errors = $errors;
     }
 
     /**
+     * <p>HTTP status code corresponding to the error.</p>
+     *
      *
      * @return null|int
      */
@@ -86,6 +72,8 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     }
 
     /**
+     * <p>First error message in the <code>errors</code> array.</p>
+     *
      *
      * @return null|string
      */
@@ -104,42 +92,9 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     }
 
     /**
+     * <p>Errors returned for a request.</p>
+     * <p>A single error response can contain multiple errors if the errors are related to the same HTTP status code such as <code>400</code>.</p>
      *
-     * @return null|string
-     */
-    public function getError()
-    {
-        if (is_null($this->error)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ERROR);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->error = (string) $data;
-        }
-
-        return $this->error;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getError_description()
-    {
-        if (is_null($this->error_description)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_ERROR_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->error_description = (string) $data;
-        }
-
-        return $this->error_description;
-    }
-
-    /**
      *
      * @return null|ErrorObjectCollection
      */
@@ -172,22 +127,6 @@ final class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
     public function setMessage(?string $message): void
     {
         $this->message = $message;
-    }
-
-    /**
-     * @param ?string $error
-     */
-    public function setError(?string $error): void
-    {
-        $this->error = $error;
-    }
-
-    /**
-     * @param ?string $error_description
-     */
-    public function setError_description(?string $error_description): void
-    {
-        $this->error_description = $error_description;
     }
 
     /**

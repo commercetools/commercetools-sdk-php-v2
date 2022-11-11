@@ -63,6 +63,8 @@ final class AnonymousIdAlreadyInUseErrorModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><code>&quot;The given anonymous ID is already in use.&quot;</code></p>
+     *
      *
      * @return null|string
      */

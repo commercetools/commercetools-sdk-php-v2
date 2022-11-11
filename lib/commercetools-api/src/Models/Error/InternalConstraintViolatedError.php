@@ -13,4 +13,22 @@ use Commercetools\Base\JsonObject;
 
 interface InternalConstraintViolatedError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p>Plain text description of the constraints that were violated.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

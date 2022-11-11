@@ -63,6 +63,8 @@ final class SearchFacetPathNotFoundErrorModel extends JsonObjectModel implements
     }
 
     /**
+     * <p><code>&quot;Facet path $path not found.&quot;</code></p>
+     *
      *
      * @return null|string
      */

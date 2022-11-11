@@ -18,7 +18,21 @@ interface ReferencedResourceNotFoundError extends ErrorObject
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The referenced object of type $typeId $predicate was not found. It either doesn't exist, or it can't be accessed from this endpoint (e.g., if the endpoint filters by store or customer account).&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Type of referenced resource.</p>
      *
 
      * @return null|string
@@ -26,16 +40,25 @@ interface ReferencedResourceNotFoundError extends ErrorObject
     public function getTypeId();
 
     /**
+     * <p>Unique identifier of the referenced resource, if known.</p>
+     *
 
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>User-defined unique identifier of the referenced resource, if known.</p>
+     *
 
      * @return null|string
      */
     public function getKey();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $typeId

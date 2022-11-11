@@ -44,7 +44,7 @@ final class ProjectUpdateModel extends JsonObjectModel implements ProjectUpdate
     }
 
     /**
-     * <p>Expected version of the Project on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> will be returned.</p>
+     * <p>Expected version of the Project on which the changes should be applied. If the expected version does not match the actual version, a <a href="ctp:api:type:ConcurrentModificationError">ConcurrentModification</a> error is returned.</p>
      *
      *
      * @return null|int

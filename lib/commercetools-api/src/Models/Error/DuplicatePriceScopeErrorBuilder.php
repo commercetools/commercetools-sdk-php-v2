@@ -34,6 +34,8 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     private $conflictingPrices;
 
     /**
+     * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -43,6 +45,8 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     }
 
     /**
+     * <p>Conflicting Embedded Prices.</p>
+     *
 
      * @return null|PriceCollection
      */

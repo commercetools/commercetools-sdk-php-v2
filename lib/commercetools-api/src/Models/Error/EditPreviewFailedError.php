@@ -18,9 +18,30 @@ interface EditPreviewFailedError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Error while applying staged actions. ShippingMethods could not be determined.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>State of the OrderEdit where the <code>stagedActions</code> cannot be applied to the Order.</p>
+     *
+
      * @return null|OrderEditPreviewFailure
      */
     public function getResult();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?OrderEditPreviewFailure $result

@@ -63,6 +63,8 @@ final class InvalidOperationErrorModel extends JsonObjectModel implements Invali
     }
 
     /**
+     * <p>Plain text description of the error.</p>
+     *
      *
      * @return null|string
      */

@@ -27,6 +27,8 @@ final class AnonymousIdAlreadyInUseErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The given anonymous ID is already in use.&quot;</code></p>
+     *
 
      * @return null|string
      */

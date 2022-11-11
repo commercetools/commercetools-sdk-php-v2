@@ -13,4 +13,20 @@ use Commercetools\Base\JsonObject;
 
 interface QueryComplexityLimitExceededError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

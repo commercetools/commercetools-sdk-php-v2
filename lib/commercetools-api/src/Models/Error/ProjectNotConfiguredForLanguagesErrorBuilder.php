@@ -33,6 +33,8 @@ final class ProjectNotConfiguredForLanguagesErrorBuilder implements Builder
     private $languages;
 
     /**
+     * <p><code>&quot;The project is not configured for given languages.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class ProjectNotConfiguredForLanguagesErrorBuilder implements Builder
     }
 
     /**
+     * <p>Languages configured for the Store.</p>
+     *
 
      * @return null|array
      */

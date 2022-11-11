@@ -19,7 +19,28 @@ interface RequiredFieldError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;A value is required for field $field.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Name of the field missing the value.</p>
+     *
+
+     * @return null|string
+     */
     public function getField();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $field

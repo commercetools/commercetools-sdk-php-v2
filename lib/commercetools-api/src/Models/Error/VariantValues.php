@@ -20,18 +20,24 @@ interface VariantValues extends JsonObject
     public const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+     * <p>SKU of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Embedded Prices of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|PriceDraftCollection
      */
     public function getPrices();
 
     /**
+     * <p>Attributes of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
 
      * @return null|AttributeCollection
      */

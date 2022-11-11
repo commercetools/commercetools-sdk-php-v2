@@ -39,6 +39,8 @@ final class EnumKeyDoesNotExistErrorBuilder implements Builder
     private $conflictingAttributeName;
 
     /**
+     * <p><code>&quot;The $fieldName field definition does not contain an enum value with the key $enumKey.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class EnumKeyDoesNotExistErrorBuilder implements Builder
     }
 
     /**
+     * <p>Conflicting enum key.</p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class EnumKeyDoesNotExistErrorBuilder implements Builder
     }
 
     /**
+     * <p>Name of the conflicting Attribute.</p>
+     *
 
      * @return null|string
      */

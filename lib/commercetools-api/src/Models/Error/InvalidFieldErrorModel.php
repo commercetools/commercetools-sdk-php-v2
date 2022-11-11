@@ -87,6 +87,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p><code>&quot;The value $invalidValue is not valid for field $field.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -105,6 +107,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p>Name of the field with the invalid value.</p>
+     *
      *
      * @return null|string
      */
@@ -123,6 +127,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p>Value invalid for the field.</p>
+     *
      *
      * @return null|mixed
      */
@@ -141,6 +147,8 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
+     * <p>Fixed set of allowed values for the field, if any.</p>
+     *
      *
      * @return null|array
      */

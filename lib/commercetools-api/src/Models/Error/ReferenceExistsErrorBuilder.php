@@ -33,6 +33,8 @@ final class ReferenceExistsErrorBuilder implements Builder
     private $referencedBy;
 
     /**
+     * <p><code>&quot;Can not delete a $resource while it is referenced by at least one $referencedBy.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,7 +44,7 @@ final class ReferenceExistsErrorBuilder implements Builder
     }
 
     /**
-     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+     * <p>Type of referenced resource.</p>
      *
 
      * @return null|string

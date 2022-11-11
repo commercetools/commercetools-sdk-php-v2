@@ -43,7 +43,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
 
      * @var ?string
      */
-    private $dicountCodeId;
+    private $discountCodeId;
 
     /**
 
@@ -64,6 +64,8 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     private $validityCheckTime;
 
     /**
+     * <p><code>&quot;The discountCode $discountCodeId cannot be applied to the cart.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -73,6 +75,8 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * <p>Discount Code passed to the Cart.</p>
+     *
 
      * @return null|string
      */
@@ -82,6 +86,8 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * <p><code>&quot;DoesNotExist&quot;</code> or <code>&quot;TimeRangeNonApplicable&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -91,15 +97,19 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the Discount Code.</p>
+     *
 
      * @return null|string
      */
-    public function getDicountCodeId()
+    public function getDiscountCodeId()
     {
-        return $this->dicountCodeId;
+        return $this->discountCodeId;
     }
 
     /**
+     * <p>Date and time (UTC) from which the Discount Code is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -109,6 +119,8 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) until which the Discount Code is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -118,6 +130,8 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the Discount Code validity check was last performed.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -160,12 +174,12 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     }
 
     /**
-     * @param ?string $dicountCodeId
+     * @param ?string $discountCodeId
      * @return $this
      */
-    public function withDicountCodeId(?string $dicountCodeId)
+    public function withDiscountCodeId(?string $discountCodeId)
     {
-        $this->dicountCodeId = $dicountCodeId;
+        $this->discountCodeId = $discountCodeId;
 
         return $this;
     }
@@ -210,7 +224,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
             $this->message,
             $this->discountCode,
             $this->reason,
-            $this->dicountCodeId,
+            $this->discountCodeId,
             $this->validFrom,
             $this->validUntil,
             $this->validityCheckTime

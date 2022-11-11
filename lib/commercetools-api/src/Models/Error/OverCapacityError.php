@@ -13,4 +13,22 @@ use Commercetools\Base\JsonObject;
 
 interface OverCapacityError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p>Plain text description of the error.</p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

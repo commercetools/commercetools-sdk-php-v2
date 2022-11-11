@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Store;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -42,6 +43,12 @@ final class StoreDraftBuilder implements Builder
      * @var ?array
      */
     private $languages;
+
+    /**
+
+     * @var ?StoreCountryCollection
+     */
+    private $countries;
 
     /**
 
@@ -99,6 +106,17 @@ final class StoreDraftBuilder implements Builder
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * <p>Countries defined for the Store.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries()
+    {
+        return $this->countries;
     }
 
     /**
@@ -183,6 +201,17 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
+     * @param ?StoreCountryCollection $countries
+     * @return $this
+     */
+    public function withCountries(?StoreCountryCollection $countries)
+    {
+        $this->countries = $countries;
+
+        return $this;
+    }
+
+    /**
      * @param ?ChannelResourceIdentifierCollection $distributionChannels
      * @return $this
      */
@@ -254,6 +283,7 @@ final class StoreDraftBuilder implements Builder
             $this->key,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->languages,
+            $this->countries,
             $this->distributionChannels,
             $this->supplyChannels,
             $this->productSelections,

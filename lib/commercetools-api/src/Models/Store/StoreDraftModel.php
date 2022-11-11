@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Store;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -44,6 +45,12 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 
     /**
      *
+     * @var ?StoreCountryCollection
+     */
+    protected $countries;
+
+    /**
+     *
      * @var ?ChannelResourceIdentifierCollection
      */
     protected $distributionChannels;
@@ -74,6 +81,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         ?string $key = null,
         ?LocalizedString $name = null,
         ?array $languages = null,
+        ?StoreCountryCollection $countries = null,
         ?ChannelResourceIdentifierCollection $distributionChannels = null,
         ?ChannelResourceIdentifierCollection $supplyChannels = null,
         ?ProductSelectionSettingDraftCollection $productSelections = null,
@@ -82,6 +90,7 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         $this->key = $key;
         $this->name = $name;
         $this->languages = $languages;
+        $this->countries = $countries;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
@@ -148,6 +157,26 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         }
 
         return $this->languages;
+    }
+
+    /**
+     * <p>Countries defined for the Store.</p>
+     *
+     *
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries()
+    {
+        if (is_null($this->countries)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_COUNTRIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->countries = StoreCountryCollection::fromArray($data);
+        }
+
+        return $this->countries;
     }
 
     /**
@@ -258,6 +287,14 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     */
+    public function setCountries(?StoreCountryCollection $countries): void
+    {
+        $this->countries = $countries;
     }
 
     /**

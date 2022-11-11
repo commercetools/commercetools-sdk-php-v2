@@ -27,6 +27,8 @@ final class SemanticErrorErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Plain text description of the error concerning the predicate. For example, <code>&quot;Invalid country code $countryCode provided for the field $fieldDefinition.&quot;</code>.</p>
+     *
 
      * @return null|string
      */

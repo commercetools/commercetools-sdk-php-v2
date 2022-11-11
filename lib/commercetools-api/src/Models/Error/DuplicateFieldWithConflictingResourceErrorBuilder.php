@@ -47,6 +47,8 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     private $conflictingResource;
 
     /**
+     * <p><code>&quot;A duplicate value $duplicateValue exists for field $field on $conflictingResource.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -56,6 +58,8 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * <p>Name of the conflicting field.</p>
+     *
 
      * @return null|string
      */
@@ -65,6 +69,8 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
+     * <p>Conflicting duplicate value.</p>
+     *
 
      * @return null|mixed
      */
@@ -74,7 +80,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     }
 
     /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
+     * <p>Reference to the resource that has the conflicting value.</p>
      *
 
      * @return null|Reference

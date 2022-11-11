@@ -224,6 +224,8 @@ use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessageBuilder;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessageBuilder;
+use Commercetools\Api\Models\Message\StoreCountriesChangedMessage;
+use Commercetools\Api\Models\Message\StoreCountriesChangedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreCreatedMessageBuilder;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;

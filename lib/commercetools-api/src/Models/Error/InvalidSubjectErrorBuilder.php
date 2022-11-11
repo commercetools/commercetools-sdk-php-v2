@@ -27,6 +27,8 @@ final class InvalidSubjectErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Plain text description of the cause of the error.</p>
+     *
 
      * @return null|string
      */

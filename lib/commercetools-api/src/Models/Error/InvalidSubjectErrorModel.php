@@ -45,6 +45,8 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     }
 
     /**
+     * <p>Error identifier.</p>
+     *
      *
      * @return null|string
      */
@@ -63,6 +65,8 @@ final class InvalidSubjectErrorModel extends JsonObjectModel implements InvalidS
     }
 
     /**
+     * <p>Plain text description of the cause of the error.</p>
+     *
      *
      * @return null|string
      */

@@ -84,7 +84,7 @@ interface AttributeDefinition extends JsonObject
      * <p>Which exact features are available with this flag depends on the specific <a href="ctp:api:type:AttributeType">AttributeType</a>.
      * The maximum size of a searchable field is <strong>restricted</strong> by the <a href="/../api/limits#field-content-size">Field content size limit</a>.
      * This constraint is enforced at both <a href="/../api/projects/products#create-product">Product creation</a> and <a href="/../api/projects/products#update-product">Product update</a>.
-     * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidFieldError</a> is returned.</p>
+     * If the length of the input exceeds the maximum size, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
      *
 
      * @return null|bool

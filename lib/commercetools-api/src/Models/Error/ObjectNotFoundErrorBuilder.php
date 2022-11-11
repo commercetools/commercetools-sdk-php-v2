@@ -27,6 +27,8 @@ final class ObjectNotFoundErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;A $resourceType with identifier $id was unexpectedly not found.&quot;</code></p>
+     *
 
      * @return null|string
      */

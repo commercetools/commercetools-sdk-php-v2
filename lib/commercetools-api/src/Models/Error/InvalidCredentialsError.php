@@ -13,4 +13,22 @@ use Commercetools\Base\JsonObject;
 
 interface InvalidCredentialsError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Account with the given credentials not found.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

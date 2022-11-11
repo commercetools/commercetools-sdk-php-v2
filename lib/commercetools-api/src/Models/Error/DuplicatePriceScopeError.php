@@ -18,9 +18,30 @@ interface DuplicatePriceScopeError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Conflicting Embedded Prices.</p>
+     *
+
      * @return null|PriceCollection
      */
     public function getConflictingPrices();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?PriceCollection $conflictingPrices

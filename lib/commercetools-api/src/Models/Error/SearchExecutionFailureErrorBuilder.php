@@ -27,6 +27,8 @@ final class SearchExecutionFailureErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;Something went wrong during the search query execution. In most case this happens due to usage of non-existing fields and custom product attributes. Please verify all filters and facets in your search query and make sure that all paths are correct.&quot;</code></p>
+     *
 
      * @return null|string
      */

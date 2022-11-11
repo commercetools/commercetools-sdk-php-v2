@@ -72,6 +72,8 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>&quot;The set of attributes must be unique across all variants.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +92,8 @@ final class DuplicateAttributeValuesErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>Conflicting Attributes.</p>
+     *
      *
      * @return null|AttributeCollection
      */

@@ -27,6 +27,8 @@ final class InvalidInputErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p>Description of the constraints that are not met by the request. For example, <code>&quot;Invalid $propertyName. It may be a non-empty string up to $maxLength&quot;</code>.</p>
+     *
 
      * @return null|string
      */

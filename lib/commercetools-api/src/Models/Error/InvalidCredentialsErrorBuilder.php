@@ -27,6 +27,8 @@ final class InvalidCredentialsErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;Account with the given credentials not found.&quot;</code></p>
+     *
 
      * @return null|string
      */

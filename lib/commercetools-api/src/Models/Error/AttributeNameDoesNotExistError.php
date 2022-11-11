@@ -19,7 +19,28 @@ interface AttributeNameDoesNotExistError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Attribute definition for $attributeName does not exist on type $typeName.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Non-existent Attribute name.</p>
+     *
+
+     * @return null|string
+     */
     public function getInvalidAttributeName();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $invalidAttributeName

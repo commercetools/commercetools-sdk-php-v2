@@ -27,6 +27,8 @@ final class NotEnabledErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The category recommendations API is not yet enabled for your project.&quot;</code></p>
+     *
 
      * @return null|string
      */

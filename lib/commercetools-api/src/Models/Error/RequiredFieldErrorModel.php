@@ -71,6 +71,8 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     }
 
     /**
+     * <p><code>&quot;A value is required for field $field.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class RequiredFieldErrorModel extends JsonObjectModel implements RequiredF
     }
 
     /**
+     * <p>Name of the field missing the value.</p>
+     *
      *
      * @return null|string
      */

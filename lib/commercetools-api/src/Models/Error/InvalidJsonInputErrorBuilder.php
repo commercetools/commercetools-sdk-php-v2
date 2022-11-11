@@ -28,11 +28,30 @@ final class InvalidJsonInputErrorBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $detailedErrorMessage;
+
+    /**
+     * <p><code>&quot;Request body does not contain valid JSON.&quot;</code></p>
+     *
+
      * @return null|string
      */
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * <p>Further explanation about why the JSON is invalid.</p>
+     *
+
+     * @return null|string
+     */
+    public function getDetailedErrorMessage()
+    {
+        return $this->detailedErrorMessage;
     }
 
     /**
@@ -46,11 +65,23 @@ final class InvalidJsonInputErrorBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $detailedErrorMessage
+     * @return $this
+     */
+    public function withDetailedErrorMessage(?string $detailedErrorMessage)
+    {
+        $this->detailedErrorMessage = $detailedErrorMessage;
+
+        return $this;
+    }
+
 
     public function build(): InvalidJsonInputError
     {
         return new InvalidJsonInputErrorModel(
-            $this->message
+            $this->message,
+            $this->detailedErrorMessage
         );
     }
 

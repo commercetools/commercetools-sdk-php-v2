@@ -13,4 +13,22 @@ use Commercetools\Base\JsonObject;
 
 interface ShippingMethodDoesNotMatchCartError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The predicate does not match the cart.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

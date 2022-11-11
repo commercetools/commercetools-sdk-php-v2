@@ -63,6 +63,8 @@ final class NoMatchingProductDiscountFoundErrorModel extends JsonObjectModel imp
     }
 
     /**
+     * <p><code>&quot;Couldn't find a matching product discount for: productId=$productId, variantId=$variantId, price=$price.&quot;</code></p>
+     *
      *
      * @return null|string
      */

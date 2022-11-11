@@ -71,6 +71,8 @@ final class MaxResourceLimitExceededErrorModel extends JsonObjectModel implement
     }
 
     /**
+     * <p><code>&quot;You have exceeded the limit of $limit resources of type $resourceTypeId.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -89,7 +91,7 @@ final class MaxResourceLimitExceededErrorModel extends JsonObjectModel implement
     }
 
     /**
-     * <p>Type of resource the value should reference. Supported resource type identifiers are:</p>
+     * <p>Resource type that reached its maximum limit of configured elements (for example, 100 Zones per Project).</p>
      *
      *
      * @return null|string

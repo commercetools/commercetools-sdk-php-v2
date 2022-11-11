@@ -21,19 +21,44 @@ interface InvalidFieldError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The value $invalidValue is not valid for field $field.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Name of the field with the invalid value.</p>
+     *
+
+     * @return null|string
+     */
     public function getField();
 
     /**
+     * <p>Value invalid for the field.</p>
+     *
 
      * @return null|mixed
      */
     public function getInvalidValue();
 
     /**
+     * <p>Fixed set of allowed values for the field, if any.</p>
+     *
 
      * @return null|array
      */
     public function getAllowedValues();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $field

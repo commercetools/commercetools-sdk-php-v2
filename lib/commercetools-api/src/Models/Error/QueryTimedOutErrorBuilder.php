@@ -27,6 +27,8 @@ final class QueryTimedOutErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;The query timed out. If your query constantly times out, please check that it follows the performance best practices (see https://docs.commercetools.com/api/predicates/query#performance-considerations).&quot;</code></p>
+     *
 
      * @return null|string
      */

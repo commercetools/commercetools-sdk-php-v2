@@ -824,7 +824,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->customObjects()->post(null)`
 
 If an object with the given container/key exists, the object will be replaced with the new value and the version is incremented.
-If the request contains a version and an object with the given container/key, then the version must match the version of the existing object. Concurrent updates for the same Custom Object can result in a [409 Conflict](/../api/errors#409-conflict) even if the version is not provided.
+If the request contains a version and an object with the given container/key, then the version must match the version of the existing object. Concurrent updates to the same Custom Object returns a [ConcurrentModification](ctp:api:type:ConcurrentModificationError) error even if the version is not provided.
 
 Fields with `null` values will **not be saved**.
 
@@ -1477,8 +1477,7 @@ $request = $builder
 
 Creates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
 When using this endpoint the Cart's `store` field is always set to the store specified in the path parameter.
-Creating a Cart can fail with an [InvalidOperationError](ctp:api:type:InvalidOperationError) if the referenced [ShippingMethod](ctp:api:type:ShippingMethod)
-in the [CartDraft](ctp:api:type:CartDraft) has a predicate which does not match the Cart.
+If the referenced [ShippingMethod](ctp:api:type:ShippingMethod) in the [CartDraft](ctp:api:type:CartDraft) has a predicate that does not match, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
 
 ### Example
@@ -1516,8 +1515,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
 Updates a [Cart](ctp:api:type:Cart) in the Store specified by `storeKey`.
-If the Cart exists in the Project but does not have the store field,
-or the `store` field references a different Store, this method returns a [ResourceNotFoundError](ctp:api:type:ResourceNotFoundError).
+If the Cart exists in the Project but does not have the `store` field, or the `store` field references a different Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
 
 ### Example
@@ -4353,6 +4351,8 @@ $request = $builder
 This endpoint can be used to simulate which Product Discounts would be applied if a specified Product Variant had a specified Price.
 Given Product and Product Variant IDs and a Price, this endpoint will return the [ProductDiscount](ctp:api:type:ProductDiscount) that would have been applied to that Price.
 
+If a Product Discount could not be found that could be applied to the Price of a Product Variant, a [NoMatchingProductDiscountFound](ctp:api:type:NoMatchingProductDiscountFoundError) error is returned.
+
 
 ### Example
 ```php
@@ -4854,6 +4854,8 @@ $request = $builder
 
 If [Price selection](ctp:api:type:ProductPriceSelection) query parameters are provided, the selected Prices are added to the response.
 
+A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
+
 ### Example
 ```php
 use Commercetools\Api\Client\ApiRequestBuilder;
@@ -4946,7 +4948,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->post(null)`
 
-null
+A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
 ### Example
 ```php
@@ -5502,8 +5504,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
-Retrieves all the ShippingMethods that can ship to the given [Location](/projects/zones#location) for an [OrderEdit](/projects/order-edits).
-In case the OrderEdit preview cannot be created an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is raised.
+Retrieves all the ShippingMethods that can ship to the given [Location](/../api/projects/zones#location) for an [OrderEdit](/../api/projects/order-edits).
+
+If the OrderEdit preview cannot be generated, an [EditPreviewFailed](ctp:api:type:EditPreviewFailedError) error is returned.
 
 
 ### Example

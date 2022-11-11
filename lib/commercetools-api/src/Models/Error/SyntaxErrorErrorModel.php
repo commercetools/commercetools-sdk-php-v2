@@ -63,6 +63,8 @@ final class SyntaxErrorErrorModel extends JsonObjectModel implements SyntaxError
     }
 
     /**
+     * <p><code>&quot;Syntax error while parsing $fieldDefinition.&quot;</code></p>
+     *
      *
      * @return null|string
      */

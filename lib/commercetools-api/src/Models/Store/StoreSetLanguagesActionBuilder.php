@@ -27,8 +27,7 @@ final class StoreSetLanguagesActionBuilder implements Builder
     private $languages;
 
     /**
-     * <p>Value to set.
-     * Any attempt to use languages other than the ones defined in the <a href="ctp:api:type:Project">Project</a> will fail with a <a href="ctp:api:type:ProjectNotConfiguredForLanguagesError">ProjectNotConfiguredForLanguages</a> error.</p>
+     * <p>Value to set.</p>
      *
 
      * @return null|array

@@ -13,4 +13,22 @@ use Commercetools\Base\JsonObject;
 
 interface NoMatchingProductDiscountFoundError extends ErrorObject
 {
+    /**
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Couldn't find a matching product discount for: productId=$productId, variantId=$variantId, price=$price.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 }

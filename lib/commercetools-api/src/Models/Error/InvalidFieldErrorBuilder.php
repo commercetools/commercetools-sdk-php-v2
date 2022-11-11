@@ -45,6 +45,8 @@ final class InvalidFieldErrorBuilder implements Builder
     private $allowedValues;
 
     /**
+     * <p><code>&quot;The value $invalidValue is not valid for field $field.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -54,6 +56,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>Name of the field with the invalid value.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +67,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>Value invalid for the field.</p>
+     *
 
      * @return null|mixed
      */
@@ -72,6 +78,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>Fixed set of allowed values for the field, if any.</p>
+     *
 
      * @return null|array
      */

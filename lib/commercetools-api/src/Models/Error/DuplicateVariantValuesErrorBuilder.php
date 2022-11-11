@@ -33,6 +33,8 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     private $variantValues;
 
     /**
+     * <p><code>&quot;A duplicate combination of the variant values (sku, key, images, prices, attributes) exists.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+     * <p>Every Product Variant must have a distinct combination of SKU, prices, and custom Attribute values.</p>
+     *
 
      * @return null|VariantValues
      */

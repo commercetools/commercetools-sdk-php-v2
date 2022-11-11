@@ -63,6 +63,8 @@ final class InvalidCurrentPasswordErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p><code>&quot;The given current password does not match.&quot;</code></p>
+     *
      *
      * @return null|string
      */

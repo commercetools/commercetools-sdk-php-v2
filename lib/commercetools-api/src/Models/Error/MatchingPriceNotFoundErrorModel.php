@@ -115,6 +115,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p><code>&quot;The variant $variantId of product $productId does not contain a price for currency $currencyCode, $country, $customerGroup, $channel.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -133,6 +135,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -151,6 +155,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:ProductVariant">ProductVariant</a> in the Product.</p>
+     *
      *
      * @return null|int
      */
@@ -169,6 +175,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Currency code of the country.</p>
+     *
      *
      * @return null|string
      */
@@ -187,6 +195,8 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
+     * <p>Country code of the geographic location.</p>
+     *
      *
      * @return null|string
      */
@@ -205,7 +215,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:CustomerGroup">CustomerGroup</a>.</p>
+     * <p>Customer Group associated with the Price.</p>
      *
      *
      * @return null|CustomerGroupReference
@@ -226,7 +236,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     }
 
     /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Channel associated with the Price.</p>
      *
      *
      * @return null|ChannelReference

@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -46,12 +44,6 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
      */
     protected $duplicateValue;
 
-    /**
-     *
-     * @var ?Reference
-     */
-    protected $conflictingResource;
-
 
     /**
      * @psalm-suppress MissingParamType
@@ -60,13 +52,11 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         ?string $message = null,
         ?string $field = null,
         $duplicateValue = null,
-        ?Reference $conflictingResource = null,
         ?string $code = null
     ) {
         $this->message = $message;
         $this->field = $field;
         $this->duplicateValue = $duplicateValue;
-        $this->conflictingResource = $conflictingResource;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -89,6 +79,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     * <p><code>&quot;A duplicate value $duplicateValue exists for field $field.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -107,6 +99,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     * <p>Name of the conflicting field.</p>
+     *
      *
      * @return null|string
      */
@@ -125,6 +119,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     * <p>Conflicting duplicate value.</p>
+     *
      *
      * @return null|mixed
      */
@@ -140,27 +136,6 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         }
 
         return $this->duplicateValue;
-    }
-
-    /**
-     * <p>A Reference represents a loose reference to another resource in the same Project identified by its <code>id</code>. The <code>typeId</code> indicates the type of the referenced resource. Each resource type has its corresponding Reference type, like <a href="ctp:api:type:ChannelReference">ChannelReference</a>.  A referenced resource can be embedded through <a href="/general-concepts#reference-expansion">Reference Expansion</a>. The expanded reference is the value of an additional <code>obj</code> field then.</p>
-     *
-     *
-     * @return null|Reference
-     */
-    public function getConflictingResource()
-    {
-        if (is_null($this->conflictingResource)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CONFLICTING_RESOURCE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = ReferenceModel::resolveDiscriminatorClass($data);
-            $this->conflictingResource = $className::of($data);
-        }
-
-        return $this->conflictingResource;
     }
 
 
@@ -186,14 +161,6 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     public function setDuplicateValue($duplicateValue): void
     {
         $this->duplicateValue = $duplicateValue;
-    }
-
-    /**
-     * @param ?Reference $conflictingResource
-     */
-    public function setConflictingResource(?Reference $conflictingResource): void
-    {
-        $this->conflictingResource = $conflictingResource;
     }
 
     /**

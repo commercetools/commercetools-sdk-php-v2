@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -37,6 +38,12 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
      * @var ?array
      */
     private $languages;
+
+    /**
+
+     * @var ?StoreCountryCollection
+     */
+    private $countries;
 
     /**
 
@@ -82,6 +89,17 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:StoreCountry">Countries</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries()
+    {
+        return $this->countries;
     }
 
     /**
@@ -146,6 +164,17 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
     public function withLanguages(?array $languages)
     {
         $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     * @return $this
+     */
+    public function withCountries(?StoreCountryCollection $countries)
+    {
+        $this->countries = $countries;
 
         return $this;
     }
@@ -221,6 +250,7 @@ final class StoreCreatedMessagePayloadBuilder implements Builder
         return new StoreCreatedMessagePayloadModel(
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->languages,
+            $this->countries,
             $this->distributionChannels,
             $this->supplyChannels,
             $this->productSelections,

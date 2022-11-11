@@ -116,6 +116,7 @@ use Commercetools\Api\Models\Message\StandalonePriceDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceExternalDiscountSetMessage;
 use Commercetools\Api\Models\Message\StandalonePriceStagedChangesAppliedMessage;
 use Commercetools\Api\Models\Message\StandalonePriceValueChangedMessage;
+use Commercetools\Api\Models\Message\StoreCountriesChangedMessage;
 use Commercetools\Api\Models\Message\StoreCreatedMessage;
 use Commercetools\Api\Models\Message\StoreDeletedMessage;
 use Commercetools\Api\Models\Message\StoreDistributionChannelsChangedMessage;

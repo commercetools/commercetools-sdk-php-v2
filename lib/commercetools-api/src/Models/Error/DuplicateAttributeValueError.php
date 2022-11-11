@@ -18,9 +18,30 @@ interface DuplicateAttributeValueError extends ErrorObject
 
     /**
 
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Attribute can't have the same value in a different variant.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Conflicting Attributes.</p>
+     *
+
      * @return null|Attribute
      */
     public function getAttribute();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?Attribute $attribute

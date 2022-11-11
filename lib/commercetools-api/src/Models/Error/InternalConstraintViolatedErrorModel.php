@@ -63,6 +63,8 @@ final class InternalConstraintViolatedErrorModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Plain text description of the constraints that were violated.</p>
+     *
      *
      * @return null|string
      */

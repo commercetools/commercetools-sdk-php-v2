@@ -39,6 +39,8 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     private $itemId;
 
     /**
+     * <p><code>&quot;Inconsistent shipping details for $subject with ID $itemId. $subject quantity is $itemQuantity and shippingTargets quantity sum is $quantitySum.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -48,6 +50,8 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+     * <p><code>&quot;LineItem&quot;</code> or <code>&quot;CustomLineItem&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -57,6 +61,8 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the Line Item or Custom Line Item.</p>
+     *
 
      * @return null|string
      */

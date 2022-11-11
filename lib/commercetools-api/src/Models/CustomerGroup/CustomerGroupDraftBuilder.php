@@ -53,7 +53,7 @@ final class CustomerGroupDraftBuilder implements Builder
 
     /**
      * <p>Unique value which must be different from any value used for <code>name</code> in <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> in the Project.
-     * If not, a <code>DuplicateField</code> <a href="/../api/errors#400-bad-request-1">error</a> is thrown.</p>
+     * If not, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
 
      * @return null|string

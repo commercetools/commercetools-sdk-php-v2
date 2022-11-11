@@ -63,6 +63,8 @@ final class LanguageUsedInStoresErrorModel extends JsonObjectModel implements La
     }
 
     /**
+     * <p><code>&quot;Language(s) in use by a store cannot be deleted. Remove them in all the stores of this project first.&quot;</code></p>
+     *
      *
      * @return null|string
      */

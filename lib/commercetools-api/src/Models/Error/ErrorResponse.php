@@ -15,35 +15,28 @@ interface ErrorResponse extends JsonObject
 {
     public const FIELD_STATUS_CODE = 'statusCode';
     public const FIELD_MESSAGE = 'message';
-    public const FIELD_ERROR = 'error';
-    public const FIELD_ERROR_DESCRIPTION = 'error_description';
     public const FIELD_ERRORS = 'errors';
 
     /**
+     * <p>HTTP status code corresponding to the error.</p>
+     *
 
      * @return null|int
      */
     public function getStatusCode();
 
     /**
+     * <p>First error message in the <code>errors</code> array.</p>
+     *
 
      * @return null|string
      */
     public function getMessage();
 
     /**
-
-     * @return null|string
-     */
-    public function getError();
-
-    /**
-
-     * @return null|string
-     */
-    public function getError_description();
-
-    /**
+     * <p>Errors returned for a request.</p>
+     * <p>A single error response can contain multiple errors if the errors are related to the same HTTP status code such as <code>400</code>.</p>
+     *
 
      * @return null|ErrorObjectCollection
      */
@@ -58,16 +51,6 @@ interface ErrorResponse extends JsonObject
      * @param ?string $message
      */
     public function setMessage(?string $message): void;
-
-    /**
-     * @param ?string $error
-     */
-    public function setError(?string $error): void;
-
-    /**
-     * @param ?string $error_description
-     */
-    public function setError_description(?string $error_description): void;
 
     /**
      * @param ?ErrorObjectCollection $errors

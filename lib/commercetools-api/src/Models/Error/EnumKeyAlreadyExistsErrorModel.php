@@ -79,6 +79,8 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+     * <p><code>&quot;The $attributeName attribute definition already contains an enum value with the key $enumKey.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -97,6 +99,8 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+     * <p>Conflicting enum key.</p>
+     *
      *
      * @return null|string
      */
@@ -115,6 +119,8 @@ final class EnumKeyAlreadyExistsErrorModel extends JsonObjectModel implements En
     }
 
     /**
+     * <p>Name of the conflicting Attribute.</p>
+     *
      *
      * @return null|string
      */

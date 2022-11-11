@@ -16,7 +16,7 @@ interface DiscountCodeNonApplicableError extends ErrorObject
 {
     public const FIELD_DISCOUNT_CODE = 'discountCode';
     public const FIELD_REASON = 'reason';
-    public const FIELD_DICOUNT_CODE_ID = 'dicountCodeId';
+    public const FIELD_DISCOUNT_CODE_ID = 'discountCodeId';
     public const FIELD_VALID_FROM = 'validFrom';
     public const FIELD_VALID_UNTIL = 'validUntil';
     public const FIELD_VALIDITY_CHECK_TIME = 'validityCheckTime';
@@ -25,37 +25,68 @@ interface DiscountCodeNonApplicableError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;The discountCode $discountCodeId cannot be applied to the cart.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Discount Code passed to the Cart.</p>
+     *
+
+     * @return null|string
+     */
     public function getDiscountCode();
 
     /**
+     * <p><code>&quot;DoesNotExist&quot;</code> or <code>&quot;TimeRangeNonApplicable&quot;</code></p>
+     *
 
      * @return null|string
      */
     public function getReason();
 
     /**
+     * <p>Unique identifier of the Discount Code.</p>
+     *
 
      * @return null|string
      */
-    public function getDicountCodeId();
+    public function getDiscountCodeId();
 
     /**
+     * <p>Date and time (UTC) from which the Discount Code is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>Date and time (UTC) until which the Discount Code is valid.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
 
     /**
+     * <p>Date and time (UTC) the Discount Code validity check was last performed.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getValidityCheckTime();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $discountCode
@@ -68,9 +99,9 @@ interface DiscountCodeNonApplicableError extends ErrorObject
     public function setReason(?string $reason): void;
 
     /**
-     * @param ?string $dicountCodeId
+     * @param ?string $discountCodeId
      */
-    public function setDicountCodeId(?string $dicountCodeId): void;
+    public function setDiscountCodeId(?string $discountCodeId): void;
 
     /**
      * @param ?DateTimeImmutable $validFrom

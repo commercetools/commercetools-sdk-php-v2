@@ -63,6 +63,8 @@ final class ShippingMethodDoesNotMatchCartErrorModel extends JsonObjectModel imp
     }
 
     /**
+     * <p><code>&quot;The predicate does not match the cart.&quot;</code></p>
+     *
      *
      * @return null|string
      */

@@ -81,6 +81,8 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     }
 
     /**
+     * <p><code>&quot;Given channel with $idOrKeyOfChannel does not have the required role $role.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -99,7 +101,7 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a given <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      *
      * @return null|ChannelResourceIdentifier
@@ -120,7 +122,10 @@ final class MissingRoleOnChannelErrorModel extends JsonObjectModel implements Mi
     }
 
     /**
-     * <p>Describes the purpose and type of the Channel. A Channel can have one or more roles.</p>
+     * <ul>
+     * <li><code>ProductDistribution</code> for Product Distribution Channels allowed for the Store. Also required for <a href="ctp:api:type:StandalonePrice">Standalone Prices</a>.</li>
+     * <li><code>InventorySupply</code> for Inventory Supply Channels allowed for the Store.</li>
+     * </ul>
      *
      *
      * @return null|string

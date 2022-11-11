@@ -12,6 +12,7 @@ use Commercetools\Api\Models\Channel\ChannelReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Store\ProductSelectionSettingCollection;
+use Commercetools\Api\Models\StoreCountry\StoreCountryCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -46,6 +47,12 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
 
     /**
      *
+     * @var ?StoreCountryCollection
+     */
+    protected $countries;
+
+    /**
+     *
      * @var ?ChannelReferenceCollection
      */
     protected $distributionChannels;
@@ -75,6 +82,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     public function __construct(
         ?LocalizedString $name = null,
         ?array $languages = null,
+        ?StoreCountryCollection $countries = null,
         ?ChannelReferenceCollection $distributionChannels = null,
         ?ChannelReferenceCollection $supplyChannels = null,
         ?ProductSelectionSettingCollection $productSelections = null,
@@ -83,6 +91,7 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     ) {
         $this->name = $name;
         $this->languages = $languages;
+        $this->countries = $countries;
         $this->distributionChannels = $distributionChannels;
         $this->supplyChannels = $supplyChannels;
         $this->productSelections = $productSelections;
@@ -147,6 +156,26 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
         }
 
         return $this->languages;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:StoreCountry">Countries</a> of the <a href="ctp:api:type:Store">Store</a> that was created.</p>
+     *
+     *
+     * @return null|StoreCountryCollection
+     */
+    public function getCountries()
+    {
+        if (is_null($this->countries)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_COUNTRIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->countries = StoreCountryCollection::fromArray($data);
+        }
+
+        return $this->countries;
     }
 
     /**
@@ -245,6 +274,14 @@ final class StoreCreatedMessagePayloadModel extends JsonObjectModel implements S
     public function setLanguages(?array $languages): void
     {
         $this->languages = $languages;
+    }
+
+    /**
+     * @param ?StoreCountryCollection $countries
+     */
+    public function setCountries(?StoreCountryCollection $countries): void
+    {
+        $this->countries = $countries;
     }
 
     /**

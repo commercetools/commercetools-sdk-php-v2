@@ -27,6 +27,8 @@ final class EnumValueIsUsedErrorBuilder implements Builder
     private $message;
 
     /**
+     * <p><code>&quot;$enumKeysTranscript is used by some products and cannot be deleted because the $attributeName attribute is required.&quot;</code></p>
+     *
 
      * @return null|string
      */

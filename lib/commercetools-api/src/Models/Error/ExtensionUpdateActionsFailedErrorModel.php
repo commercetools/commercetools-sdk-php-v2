@@ -48,9 +48,9 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
 
     /**
      *
-     * @var ?ErrorByExtension
+     * @var ?ExtensionErrorCollection
      */
-    protected $errorByExtension;
+    protected $extensionErrors;
 
 
     /**
@@ -60,13 +60,13 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
         ?string $message = null,
         ?LocalizedString $localizedMessage = null,
         ?JsonObject $extensionExtraInfo = null,
-        ?ErrorByExtension $errorByExtension = null,
+        ?ExtensionErrorCollection $extensionErrors = null,
         ?string $code = null
     ) {
         $this->message = $message;
         $this->localizedMessage = $localizedMessage;
         $this->extensionExtraInfo = $extensionExtraInfo;
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionErrors = $extensionErrors;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -89,6 +89,8 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
+     * <p><code>&quot;The extension returned update actions that could not be executed.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -107,7 +109,7 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>User-defined localized description of the error.</p>
      *
      *
      * @return null|LocalizedString
@@ -128,6 +130,8 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Any information that should be returned to the API caller.</p>
+     *
      *
      * @return null|mixed
      */
@@ -146,22 +150,23 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>Additional errors related to the API Extension.</p>
      *
-     * @return null|ErrorByExtension
+     *
+     * @return null|ExtensionErrorCollection
      */
-    public function getErrorByExtension()
+    public function getExtensionErrors()
     {
-        if (is_null($this->errorByExtension)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_ERROR_BY_EXTENSION);
+        if (is_null($this->extensionErrors)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_EXTENSION_ERRORS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->errorByExtension = ErrorByExtensionModel::of($data);
+            $this->extensionErrors = ExtensionErrorCollection::fromArray($data);
         }
 
-        return $this->errorByExtension;
+        return $this->extensionErrors;
     }
 
 
@@ -190,11 +195,11 @@ final class ExtensionUpdateActionsFailedErrorModel extends JsonObjectModel imple
     }
 
     /**
-     * @param ?ErrorByExtension $errorByExtension
+     * @param ?ExtensionErrorCollection $extensionErrors
      */
-    public function setErrorByExtension(?ErrorByExtension $errorByExtension): void
+    public function setExtensionErrors(?ExtensionErrorCollection $extensionErrors): void
     {
-        $this->errorByExtension = $errorByExtension;
+        $this->extensionErrors = $extensionErrors;
     }
 
     /**

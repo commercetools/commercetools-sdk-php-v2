@@ -63,6 +63,8 @@ final class SearchDeactivatedErrorModel extends JsonObjectModel implements Searc
     }
 
     /**
+     * <p><code>&quot;The endpoint is deactivated for this project. Please enable it via the Project endpoint, via the Merchant Center in the Project settings, or reach out to Support to enable it.&quot;</code></p>
+     *
      *
      * @return null|string
      */

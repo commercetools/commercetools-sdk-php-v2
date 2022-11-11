@@ -71,6 +71,8 @@ final class DuplicateEnumValuesErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+     * <p><code>&quot;The enum values contain duplicate keys: $listOfDuplicateKeys.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class DuplicateEnumValuesErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+     * <p>Duplicate keys.</p>
+     *
      *
      * @return null|array
      */

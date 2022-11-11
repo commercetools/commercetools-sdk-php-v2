@@ -65,9 +65,8 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
     }
 
     /**
-     * <p><code>true</code> if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise.
-     * A cart cannot be ordered when the value is <code>false</code>.
-     * The error InvalidItemShippingDetails will be triggered.</p>
+     * <p><code>true</code> if the quantity of the Line Item or Custom Line Item is equal to the sum of the sub-quantities in <code>targets</code>, else it is <code>false</code>.
+     * Ordering a Cart with value as <code>false</code> returns an <a href="ctp:api:type:InvalidItemShippingDetailsError">InvalidItemShippingDetails</a> error.</p>
      *
      *
      * @return null|bool

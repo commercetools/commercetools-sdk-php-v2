@@ -35,6 +35,8 @@ final class EditPreviewFailedErrorBuilder implements Builder
     private $result;
 
     /**
+     * <p><code>&quot;Error while applying staged actions. ShippingMethods could not be determined.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -44,6 +46,8 @@ final class EditPreviewFailedErrorBuilder implements Builder
     }
 
     /**
+     * <p>State of the OrderEdit where the <code>stagedActions</code> cannot be applied to the Order.</p>
+     *
 
      * @return null|OrderEditPreviewFailure
      */

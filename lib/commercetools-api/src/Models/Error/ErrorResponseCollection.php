@@ -13,7 +13,11 @@ use Commercetools\Exception\InvalidArgumentException;
 use stdClass;
 
 /**
- * @extends MapperSequence<ErrorResponse>
+ * @template T of ErrorResponse
+ * @extends MapperSequence<T>
+ * @psalm-method T current()
+ * @psalm-method T end()
+ * @psalm-method T at($offset)
  * @method ErrorResponse current()
  * @method ErrorResponse end()
  * @method ErrorResponse at($offset)
@@ -21,8 +25,8 @@ use stdClass;
 class ErrorResponseCollection extends MapperSequence
 {
     /**
-     * @psalm-assert ErrorResponse $value
-     * @psalm-param ErrorResponse|stdClass $value
+     * @psalm-assert T $value
+     * @psalm-param T|stdClass $value
      * @throws InvalidArgumentException
      *
      * @return ErrorResponseCollection
@@ -38,14 +42,14 @@ class ErrorResponseCollection extends MapperSequence
     }
 
     /**
-     * @psalm-return callable(int):?ErrorResponse
+     * @psalm-return callable(int):?T
      */
     protected function mapper()
     {
         return function (?int $index): ?ErrorResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
-                /** @var ErrorResponse $data */
+                /** @var T $data */
                 $data = ErrorResponseModel::of($data);
                 $this->set($data, $index);
             }

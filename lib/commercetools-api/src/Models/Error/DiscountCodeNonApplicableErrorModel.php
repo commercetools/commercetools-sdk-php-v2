@@ -49,7 +49,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
      *
      * @var ?string
      */
-    protected $dicountCodeId;
+    protected $discountCodeId;
 
     /**
      *
@@ -77,7 +77,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         ?string $message = null,
         ?string $discountCode = null,
         ?string $reason = null,
-        ?string $dicountCodeId = null,
+        ?string $discountCodeId = null,
         ?DateTimeImmutable $validFrom = null,
         ?DateTimeImmutable $validUntil = null,
         ?DateTimeImmutable $validityCheckTime = null,
@@ -86,7 +86,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->message = $message;
         $this->discountCode = $discountCode;
         $this->reason = $reason;
-        $this->dicountCodeId = $dicountCodeId;
+        $this->discountCodeId = $discountCodeId;
         $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
         $this->validityCheckTime = $validityCheckTime;
@@ -112,6 +112,8 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>&quot;The discountCode $discountCodeId cannot be applied to the cart.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -130,6 +132,8 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Discount Code passed to the Cart.</p>
+     *
      *
      * @return null|string
      */
@@ -148,6 +152,8 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p><code>&quot;DoesNotExist&quot;</code> or <code>&quot;TimeRangeNonApplicable&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -166,24 +172,28 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Unique identifier of the Discount Code.</p>
+     *
      *
      * @return null|string
      */
-    public function getDicountCodeId()
+    public function getDiscountCodeId()
     {
-        if (is_null($this->dicountCodeId)) {
+        if (is_null($this->discountCodeId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_DICOUNT_CODE_ID);
+            $data = $this->raw(self::FIELD_DISCOUNT_CODE_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->dicountCodeId = (string) $data;
+            $this->discountCodeId = (string) $data;
         }
 
-        return $this->dicountCodeId;
+        return $this->discountCodeId;
     }
 
     /**
+     * <p>Date and time (UTC) from which the Discount Code is valid.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -206,6 +216,8 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Date and time (UTC) until which the Discount Code is valid.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -228,6 +240,8 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Date and time (UTC) the Discount Code validity check was last performed.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -275,11 +289,11 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
-     * @param ?string $dicountCodeId
+     * @param ?string $discountCodeId
      */
-    public function setDicountCodeId(?string $dicountCodeId): void
+    public function setDiscountCodeId(?string $discountCodeId): void
     {
-        $this->dicountCodeId = $dicountCodeId;
+        $this->discountCodeId = $discountCodeId;
     }
 
     /**

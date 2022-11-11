@@ -17,9 +17,9 @@ use stdClass;
 /**
  * @internal
  */
-final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeniedError
+final class ExtensionPredicateEvaluationFailedErrorModel extends JsonObjectModel implements ExtensionPredicateEvaluationFailedError
 {
-    public const DISCRIMINATOR_VALUE = 'access_denied';
+    public const DISCRIMINATOR_VALUE = 'ExtensionPredicateEvaluationFailed';
     /**
      *
      * @var ?string
@@ -32,15 +32,23 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
      */
     protected $message;
 
+    /**
+     *
+     * @var ?ErrorByExtension
+     */
+    protected $errorByExtension;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?string $message = null,
+        ?ErrorByExtension $errorByExtension = null,
         ?string $code = null
     ) {
         $this->message = $message;
+        $this->errorByExtension = $errorByExtension;
         $this->code = $code ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +71,8 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
     }
 
     /**
+     * <p><code>&quot;The compared field $fieldName is not present.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -80,6 +90,27 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
         return $this->message;
     }
 
+    /**
+     * <p>Details about the API Extension that was involved in the error.</p>
+     *
+     *
+     * @return null|ErrorByExtension
+     */
+    public function getErrorByExtension()
+    {
+        if (is_null($this->errorByExtension)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ERROR_BY_EXTENSION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->errorByExtension = ErrorByExtensionModel::of($data);
+        }
+
+        return $this->errorByExtension;
+    }
+
 
     /**
      * @param ?string $message
@@ -87,6 +118,14 @@ final class AccessDeniedErrorModel extends JsonObjectModel implements AccessDeni
     public function setMessage(?string $message): void
     {
         $this->message = $message;
+    }
+
+    /**
+     * @param ?ErrorByExtension $errorByExtension
+     */
+    public function setErrorByExtension(?ErrorByExtension $errorByExtension): void
+    {
+        $this->errorByExtension = $errorByExtension;
     }
 
     /**

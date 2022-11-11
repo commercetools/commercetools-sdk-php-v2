@@ -72,6 +72,8 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+     * <p><code>&quot;Duplicate price scope: $priceScope. The combination of currency, country, customerGroup and channel must be unique for each price of a product variant.&quot;</code></p>
+     *
      *
      * @return null|string
      */
@@ -90,6 +92,8 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     }
 
     /**
+     * <p>Conflicting Embedded Prices.</p>
+     *
      *
      * @return null|PriceCollection
      */

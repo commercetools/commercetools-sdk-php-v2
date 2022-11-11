@@ -20,13 +20,36 @@ interface ExtensionNoResponseError extends ErrorObject
 
      * @return null|string
      */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Extension did not respond in time.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p>Unique identifier of the API Extension.</p>
+     *
+
+     * @return null|string
+     */
     public function getExtensionId();
 
     /**
+     * <p>User-defined unique identifier of the API Extension, if available.</p>
+     *
 
      * @return null|string
      */
     public function getExtensionKey();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?string $extensionId

@@ -45,6 +45,8 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     private $state;
 
     /**
+     * <p><code>&quot;Tax category $taxCategoryId is missing a tax rate for country $countriesAndStates.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -54,6 +56,8 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:TaxCategory">TaxCategory</a>.</p>
+     *
 
      * @return null|string
      */
@@ -63,6 +67,8 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * <p>Country code of the geographic location.</p>
+     *
 
      * @return null|string
      */
@@ -72,6 +78,8 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
+     * <p>State within the country, such as Texas in the United States.</p>
+     *
 
      * @return null|string
      */

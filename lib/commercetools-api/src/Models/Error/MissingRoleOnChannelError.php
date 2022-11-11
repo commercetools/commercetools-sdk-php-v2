@@ -18,7 +18,21 @@ interface MissingRoleOnChannelError extends ErrorObject
     public const FIELD_MISSING_ROLE = 'missingRole';
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Channel">Channel</a>.</p>
+
+     * @return null|string
+     */
+    public function getCode();
+
+    /**
+     * <p><code>&quot;Given channel with $idOrKeyOfChannel does not have the required role $role.&quot;</code></p>
+     *
+
+     * @return null|string
+     */
+    public function getMessage();
+
+    /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a given <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
 
      * @return null|ChannelResourceIdentifier
@@ -26,12 +40,20 @@ interface MissingRoleOnChannelError extends ErrorObject
     public function getChannel();
 
     /**
-     * <p>Describes the purpose and type of the Channel. A Channel can have one or more roles.</p>
+     * <ul>
+     * <li><code>ProductDistribution</code> for Product Distribution Channels allowed for the Store. Also required for <a href="ctp:api:type:StandalonePrice">Standalone Prices</a>.</li>
+     * <li><code>InventorySupply</code> for Inventory Supply Channels allowed for the Store.</li>
+     * </ul>
      *
 
      * @return null|string
      */
     public function getMissingRole();
+
+    /**
+     * @param ?string $message
+     */
+    public function setMessage(?string $message): void;
 
     /**
      * @param ?ChannelResourceIdentifier $channel

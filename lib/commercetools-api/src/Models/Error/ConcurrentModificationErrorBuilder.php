@@ -33,6 +33,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $currentVersion;
 
     /**
+     * <p><code>&quot;Object $resourceId has a different version than expected. Expected: $expectedVersion - Actual: $currentVersion.&quot;</code></p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * <p>Current version of the resource.</p>
+     *
 
      * @return null|int
      */
