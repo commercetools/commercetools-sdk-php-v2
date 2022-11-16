@@ -71,6 +71,8 @@ final class MyShoppingListDraftBuilder implements Builder
     private $store;
 
     /**
+     * <p>Name of the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -80,6 +82,8 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * <p>Description of the ShoppingList.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -89,6 +93,8 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:ShoppingListLineItem">Line Items</a> (containing Products) to add to the ShoppingList.</p>
+     *
 
      * @return null|ShoppingListLineItemDraftCollection
      */
@@ -98,6 +104,8 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * <p><a href="ctp:api:type:TextLineItem">Line Items</a> (containing text values) to add to the ShoppingList.</p>
+     *
 
      * @return null|TextLineItemDraftCollection
      */
@@ -107,7 +115,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields defined for the ShoppingList.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -118,7 +126,7 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
+     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified. If not set, the <a href="ctp:api:type:ShoppingListsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
      *
 
      * @return null|int
@@ -129,6 +137,8 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * <p>Assigns the new ShoppingList to the <a href="ctp:api:type:Store">Store</a>. The Store assignment can not be modified.</p>
+     *
 
      * @return null|StoreResourceIdentifier
      */

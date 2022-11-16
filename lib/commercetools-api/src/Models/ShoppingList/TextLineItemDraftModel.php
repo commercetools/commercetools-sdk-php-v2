@@ -73,7 +73,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * <p>Defaults to the current date and time.</p>
+     * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
      *
      *
      * @return null|DateTimeImmutable
@@ -97,7 +97,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Custom Fields for the TextLineItem.</p>
      *
      *
      * @return null|CustomFieldsDraft
@@ -118,6 +118,8 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -137,6 +139,8 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
      *
      * @return null|LocalizedString
      */
@@ -156,7 +160,7 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * <p>Defaults to <code>1</code>.</p>
+     * <p>Number of entries in the TextLineItem.</p>
      *
      *
      * @return null|int

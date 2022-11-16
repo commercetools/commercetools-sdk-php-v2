@@ -142,6 +142,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyTest extends 
                 'post',
                 'test_projectKey/in-store/key=test_storeKey/shopping-lists/key=test_key',
             ],
+            'ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete_withExpand' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->shoppingLists()
+                        ->withKey('test_key')
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                'test_projectKey/in-store/key=test_storeKey/shopping-lists/key=test_key?expand=expand',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete_withDataErasure' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -167,19 +180,6 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyTest extends 
                 },
                 'delete',
                 'test_projectKey/in-store/key=test_storeKey/shopping-lists/key=test_key?version=version',
-            ],
-            'ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete_withExpand' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
-                        ->shoppingLists()
-                        ->withKey('test_key')
-                        ->delete()
-                        ->withExpand('expand');
-                },
-                'delete',
-                'test_projectKey/in-store/key=test_storeKey/shopping-lists/key=test_key?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

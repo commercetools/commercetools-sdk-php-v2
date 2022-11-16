@@ -2214,7 +2214,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
 
-null
+When using this endpoint, the `store` field of a ShoppingList is always set to the Store specified in the path parameter.
+
 
 ### Example
 ```php
@@ -2230,7 +2231,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->get()`
 
-Gets a shopping list by ID.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2247,7 +2250,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->post(null)`
 
-null
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2264,7 +2269,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withId("ID")->delete()`
 
-null
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2281,7 +2288,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->get()`
 
-Gets a shopping list by Key.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store, the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2298,7 +2306,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->post(null)`
 
-Update a shopping list found by its Key.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2315,7 +2325,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->withKey("key")->delete()`
 
-null
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2585,7 +2597,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->post(null)`
 
-null
+When using this endpoint, the `store` field of a ShoppingList is always set to the Store specified in the path parameter.
+
 
 ### Example
 ```php
@@ -2600,7 +2613,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->get()`
 
-Gets a shopping list by ID.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2616,7 +2631,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->post(null)`
 
-null
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2632,7 +2649,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withId("ID")->delete()`
 
-null
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2648,7 +2667,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->get()`
 
-Gets a shopping list by Key.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2664,7 +2685,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->post(null)`
 
-Update a shopping list found by its Key.
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -2680,7 +2703,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shoppingLists()->withKey("key")->delete()`
 
-null
+If a ShoppingList exists in a Project but does _not_ have the `store` field, or the `store` field references a different Store,
+the [ResourceNotFound](/errors#404-not-found-1) error is returned.
+
 
 ### Example
 ```php
@@ -5550,7 +5575,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->get()`
 
-Gets a shopping list by ID.
+null
 
 ### Example
 ```php
@@ -5595,7 +5620,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->get()`
 
-Gets a shopping list by Key.
+null
 
 ### Example
 ```php
@@ -5610,7 +5635,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->post(null)`
 
-Update a shopping list found by its Key.
+null
 
 ### Example
 ```php

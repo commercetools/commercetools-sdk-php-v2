@@ -24,7 +24,7 @@ interface TextLineItem extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
 
     /**
-     * <p>When the text line item was added to the shopping list.</p>
+     * <p>Date and time (UTC) the TextLineItem was added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -32,12 +32,16 @@ interface TextLineItem extends JsonObject
     public function getAddedAt();
 
     /**
+     * <p>Custom Fields of the TextLineItem.</p>
+     *
 
      * @return null|CustomFields
      */
     public function getCustom();
 
     /**
+     * <p>Description of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
@@ -52,12 +56,16 @@ interface TextLineItem extends JsonObject
     public function getId();
 
     /**
+     * <p>Name of the TextLineItem.</p>
+     *
 
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>Number of entries in the TextLineItem.</p>
+     *
 
      * @return null|int
      */

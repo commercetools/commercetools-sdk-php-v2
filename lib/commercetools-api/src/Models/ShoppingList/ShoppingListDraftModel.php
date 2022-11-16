@@ -29,42 +29,6 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
 {
     /**
      *
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     *
-     * @var ?CustomerResourceIdentifier
-     */
-    protected $customer;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $deleteDaysAfterLastModification;
-
-    /**
-     *
-     * @var ?LocalizedString
-     */
-    protected $description;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $key;
-
-    /**
-     *
-     * @var ?ShoppingListLineItemDraftCollection
-     */
-    protected $lineItems;
-
-    /**
-     *
      * @var ?LocalizedString
      */
     protected $name;
@@ -77,9 +41,21 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
 
     /**
      *
-     * @var ?TextLineItemDraftCollection
+     * @var ?CustomerResourceIdentifier
      */
-    protected $textLineItems;
+    protected $customer;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     *
+     * @var ?LocalizedString
+     */
+    protected $description;
 
     /**
      *
@@ -89,62 +65,111 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
 
     /**
      *
+     * @var ?int
+     */
+    protected $deleteDaysAfterLastModification;
+
+    /**
+     *
+     * @var ?ShoppingListLineItemDraftCollection
+     */
+    protected $lineItems;
+
+    /**
+     *
+     * @var ?TextLineItemDraftCollection
+     */
+    protected $textLineItems;
+
+    /**
+     *
      * @var ?StoreResourceIdentifier
      */
     protected $store;
+
+    /**
+     *
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
-        ?CustomFieldsDraft $custom = null,
-        ?CustomerResourceIdentifier $customer = null,
-        ?int $deleteDaysAfterLastModification = null,
-        ?LocalizedString $description = null,
-        ?string $key = null,
-        ?ShoppingListLineItemDraftCollection $lineItems = null,
         ?LocalizedString $name = null,
         ?LocalizedString $slug = null,
-        ?TextLineItemDraftCollection $textLineItems = null,
+        ?CustomerResourceIdentifier $customer = null,
+        ?string $key = null,
+        ?LocalizedString $description = null,
         ?string $anonymousId = null,
-        ?StoreResourceIdentifier $store = null
+        ?int $deleteDaysAfterLastModification = null,
+        ?ShoppingListLineItemDraftCollection $lineItems = null,
+        ?TextLineItemDraftCollection $textLineItems = null,
+        ?StoreResourceIdentifier $store = null,
+        ?CustomFieldsDraft $custom = null
     ) {
-        $this->custom = $custom;
-        $this->customer = $customer;
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        $this->description = $description;
-        $this->key = $key;
-        $this->lineItems = $lineItems;
         $this->name = $name;
         $this->slug = $slug;
-        $this->textLineItems = $textLineItems;
+        $this->customer = $customer;
+        $this->key = $key;
+        $this->description = $description;
         $this->anonymousId = $anonymousId;
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->lineItems = $lineItems;
+        $this->textLineItems = $textLineItems;
         $this->store = $store;
+        $this->custom = $custom;
     }
 
     /**
-     * <p>The custom fields.</p>
+     * <p>Name of the ShoppingList.</p>
      *
      *
-     * @return null|CustomFieldsDraft
+     * @return null|LocalizedString
      */
-    public function getCustom()
+    public function getName()
     {
-        if (is_null($this->custom)) {
+        if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_CUSTOM);
+            $data = $this->raw(self::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->custom = CustomFieldsDraftModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
-        return $this->custom;
+        return $this->name;
     }
 
     /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related ShoppingList.
+     * Each slug is unique across a Project, but a ShoppingList can have the same slug for different languages.
+     * The slug must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> the ShoppingList should be associated to.</p>
+     *
      *
      * @return null|CustomerResourceIdentifier
      */
@@ -161,45 +186,6 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         }
 
         return $this->customer;
-    }
-
-    /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
-     *
-     *
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        if (is_null($this->deleteDaysAfterLastModification)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deleteDaysAfterLastModification = (int) $data;
-        }
-
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-     *
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
     }
 
     /**
@@ -223,85 +209,28 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     *
-     * @return null|ShoppingListLineItemDraftCollection
-     */
-    public function getLineItems()
-    {
-        if (is_null($this->lineItems)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItems = ShoppingListLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->lineItems;
-    }
-
-    /**
-     *
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
-     * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
+     * <p>Description of the ShoppingList.</p>
      *
      *
      * @return null|LocalizedString
      */
-    public function getSlug()
+    public function getDescription()
     {
-        if (is_null($this->slug)) {
+        if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_SLUG);
+            $data = $this->raw(self::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->slug = LocalizedStringModel::of($data);
+            $this->description = LocalizedStringModel::of($data);
         }
 
-        return $this->slug;
+        return $this->description;
     }
 
     /**
-     *
-     * @return null|TextLineItemDraftCollection
-     */
-    public function getTextLineItems()
-    {
-        if (is_null($this->textLineItems)) {
-            /** @psalm-var ?list<stdClass> $data */
-            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->textLineItems = TextLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->textLineItems;
-    }
-
-    /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p>Identifies ShoppingLists belonging to an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
      *
      *
      * @return null|string
@@ -321,6 +250,68 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
+     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified. If not set, the <a href="ctp:api:type:ShoppingListsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        if (is_null($this->deleteDaysAfterLastModification)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterLastModification = (int) $data;
+        }
+
+        return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>Line Items (containing Products) to add to the ShoppingList.</p>
+     *
+     *
+     * @return null|ShoppingListLineItemDraftCollection
+     */
+    public function getLineItems()
+    {
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = ShoppingListLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
+    }
+
+    /**
+     * <p>Line Items (containing text values) to add to the ShoppingList.</p>
+     *
+     *
+     * @return null|TextLineItemDraftCollection
+     */
+    public function getTextLineItems()
+    {
+        if (is_null($this->textLineItems)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_TEXT_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItems = TextLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->textLineItems;
+    }
+
+    /**
+     * <p>Assigns the new ShoppingList to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
      *
      * @return null|StoreResourceIdentifier
      */
@@ -339,54 +330,27 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         return $this->store;
     }
 
-
     /**
-     * @param ?CustomFieldsDraft $custom
+     * <p>Custom Fields defined for the ShoppingList.</p>
+     *
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function setCustom(?CustomFieldsDraft $custom): void
+    public function getCustom()
     {
-        $this->custom = $custom;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
-    /**
-     * @param ?CustomerResourceIdentifier $customer
-     */
-    public function setCustomer(?CustomerResourceIdentifier $customer): void
-    {
-        $this->customer = $customer;
-    }
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     */
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
-    {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-    }
-
-    /**
-     * @param ?LocalizedString $description
-     */
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @param ?string $key
-     */
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
-    /**
-     * @param ?ShoppingListLineItemDraftCollection $lineItems
-     */
-    public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
-    {
-        $this->lineItems = $lineItems;
-    }
 
     /**
      * @param ?LocalizedString $name
@@ -405,11 +369,27 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * @param ?TextLineItemDraftCollection $textLineItems
+     * @param ?CustomerResourceIdentifier $customer
      */
-    public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
+    public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
-        $this->textLineItems = $textLineItems;
+        $this->customer = $customer;
+    }
+
+    /**
+     * @param ?string $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    /**
+     * @param ?LocalizedString $description
+     */
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
     }
 
     /**
@@ -421,10 +401,42 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
+     */
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+    }
+
+    /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
+     */
+    public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
+    {
+        $this->lineItems = $lineItems;
+    }
+
+    /**
+     * @param ?TextLineItemDraftCollection $textLineItems
+     */
+    public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
+    {
+        $this->textLineItems = $textLineItems;
+    }
+
+    /**
      * @param ?StoreResourceIdentifier $store
      */
     public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
+    }
+
+    /**
+     * @param ?CustomFieldsDraft $custom
+     */
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

@@ -71,6 +71,8 @@ final class MyShoppingListChangeLineItemQuantityActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class MyShoppingListChangeLineItemQuantityActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>New value to set. If <code>0</code>, the ShoppingListLineItem is removed from the ShoppingList.</p>
+     *
      *
      * @return null|int
      */

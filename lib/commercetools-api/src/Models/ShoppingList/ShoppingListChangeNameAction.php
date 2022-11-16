@@ -17,6 +17,8 @@ interface ShoppingListChangeNameAction extends ShoppingListUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
+     * <p>New value to set. Must not be empty.</p>
+     *
 
      * @return null|LocalizedString
      */

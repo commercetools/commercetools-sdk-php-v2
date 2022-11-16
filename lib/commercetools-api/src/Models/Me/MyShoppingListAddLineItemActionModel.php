@@ -106,6 +106,8 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -124,6 +126,8 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -142,6 +146,8 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
      *
      * @return null|int
      */
@@ -160,6 +166,8 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Number of Products in the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a>.</p>
+     *
      *
      * @return null|int
      */
@@ -178,6 +186,8 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>Date and time the TextLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -200,7 +210,7 @@ final class MyShoppingListAddLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Custom Fields defined for the ShoppingListLineItem.</p>
      *
      *
      * @return null|CustomFieldsDraft

@@ -65,6 +65,8 @@ final class ShoppingListSetStoreActionModel extends JsonObjectModel implements S
     }
 
     /**
+     * <p>The <a href="ctp:api:type:Store">Store</a> the ShoppingList should be assigned to. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|StoreResourceIdentifier
      */

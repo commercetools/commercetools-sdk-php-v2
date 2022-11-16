@@ -63,6 +63,8 @@ final class ShoppingListSetDeleteDaysAfterLastModificationActionModel extends Js
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|int
      */

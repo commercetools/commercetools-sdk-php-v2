@@ -27,6 +27,8 @@ final class ShoppingListSetDeleteDaysAfterLastModificationActionBuilder implemen
     private $deleteDaysAfterLastModification;
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|int
      */

@@ -30,42 +30,6 @@ final class ShoppingListDraftBuilder implements Builder
 {
     /**
 
-     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-
-     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
-     */
-    private $customer;
-
-    /**
-
-     * @var ?int
-     */
-    private $deleteDaysAfterLastModification;
-
-    /**
-
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $description;
-
-    /**
-
-     * @var ?string
-     */
-    private $key;
-
-    /**
-
-     * @var ?ShoppingListLineItemDraftCollection
-     */
-    private $lineItems;
-
-    /**
-
      * @var null|LocalizedString|LocalizedStringBuilder
      */
     private $name;
@@ -78,9 +42,21 @@ final class ShoppingListDraftBuilder implements Builder
 
     /**
 
-     * @var ?TextLineItemDraftCollection
+     * @var null|CustomerResourceIdentifier|CustomerResourceIdentifierBuilder
      */
-    private $textLineItems;
+    private $customer;
+
+    /**
+
+     * @var ?string
+     */
+    private $key;
+
+    /**
+
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $description;
 
     /**
 
@@ -90,48 +66,67 @@ final class ShoppingListDraftBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $deleteDaysAfterLastModification;
+
+    /**
+
+     * @var ?ShoppingListLineItemDraftCollection
+     */
+    private $lineItems;
+
+    /**
+
+     * @var ?TextLineItemDraftCollection
+     */
+    private $textLineItems;
+
+    /**
+
      * @var null|StoreResourceIdentifier|StoreResourceIdentifierBuilder
      */
     private $store;
 
     /**
-     * <p>The custom fields.</p>
+
+     * @var null|CustomFieldsDraft|CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>Name of the ShoppingList.</p>
      *
 
-     * @return null|CustomFieldsDraft
+     * @return null|LocalizedString
      */
-    public function getCustom()
+    public function getName()
     {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related ShoppingList.
+     * Each slug is unique across a Project, but a ShoppingList can have the same slug for different languages.
+     * The slug must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> the ShoppingList should be associated to.</p>
+     *
 
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
     {
         return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
-     *
-
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
@@ -146,47 +141,18 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-
-     * @return null|ShoppingListLineItemDraftCollection
-     */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
-     * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
+     * <p>Description of the ShoppingList.</p>
      *
 
      * @return null|LocalizedString
      */
-    public function getSlug()
+    public function getDescription()
     {
-        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
-
-     * @return null|TextLineItemDraftCollection
-     */
-    public function getTextLineItems()
-    {
-        return $this->textLineItems;
-    }
-
-    /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p>Identifies ShoppingLists belonging to an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
      *
 
      * @return null|string
@@ -197,6 +163,41 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified. If not set, the <a href="ctp:api:type:ShoppingListsConfiguration">default value</a> configured in the <a href="ctp:api:type:Project">Project</a> is used.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>Line Items (containing Products) to add to the ShoppingList.</p>
+     *
+
+     * @return null|ShoppingListLineItemDraftCollection
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
+
+    /**
+     * <p>Line Items (containing text values) to add to the ShoppingList.</p>
+     *
+
+     * @return null|TextLineItemDraftCollection
+     */
+    public function getTextLineItems()
+    {
+        return $this->textLineItems;
+    }
+
+    /**
+     * <p>Assigns the new ShoppingList to the <a href="ctp:api:type:Store">Store</a>.</p>
+     *
 
      * @return null|StoreResourceIdentifier
      */
@@ -206,69 +207,14 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * @param ?CustomFieldsDraft $custom
-     * @return $this
+     * <p>Custom Fields defined for the ShoppingList.</p>
+     *
+
+     * @return null|CustomFieldsDraft
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function getCustom()
     {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomerResourceIdentifier $customer
-     * @return $this
-     */
-    public function withCustomer(?CustomerResourceIdentifier $customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     * @return $this
-     */
-    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
-    {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $description
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $key
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @param ?ShoppingListLineItemDraftCollection $lineItems
-     * @return $this
-     */
-    public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
-    {
-        $this->lineItems = $lineItems;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -294,12 +240,34 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * @param ?TextLineItemDraftCollection $textLineItems
+     * @param ?CustomerResourceIdentifier $customer
      * @return $this
      */
-    public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
+    public function withCustomer(?CustomerResourceIdentifier $customer)
     {
-        $this->textLineItems = $textLineItems;
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $key
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LocalizedString $description
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
 
         return $this;
     }
@@ -316,6 +284,39 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @param ?int $deleteDaysAfterLastModification
+     * @return $this
+     */
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShoppingListLineItemDraftCollection $lineItems
+     * @return $this
+     */
+    public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
+    {
+        $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?TextLineItemDraftCollection $textLineItems
+     * @return $this
+     */
+    public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
+    {
+        $this->textLineItems = $textLineItems;
+
+        return $this;
+    }
+
+    /**
      * @param ?StoreResourceIdentifier $store
      * @return $this
      */
@@ -327,34 +328,12 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated use withCustom() instead
+     * @param ?CustomFieldsDraft $custom
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustomer() instead
-     * @return $this
-     */
-    public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withDescription() instead
-     * @return $this
-     */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
-    {
-        $this->description = $description;
 
         return $this;
     }
@@ -382,6 +361,28 @@ final class ShoppingListDraftBuilder implements Builder
     }
 
     /**
+     * @deprecated use withCustomer() instead
+     * @return $this
+     */
+    public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withDescription() instead
+     * @return $this
+     */
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withStore() instead
      * @return $this
      */
@@ -392,20 +393,31 @@ final class ShoppingListDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ShoppingListDraft
     {
         return new ShoppingListDraftModel(
-            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer,
-            $this->deleteDaysAfterLastModification,
-            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
-            $this->key,
-            $this->lineItems,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
-            $this->textLineItems,
+            $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer,
+            $this->key,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->anonymousId,
-            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store
+            $this->deleteDaysAfterLastModification,
+            $this->lineItems,
+            $this->textLineItems,
+            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
+            $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom
         );
     }
 

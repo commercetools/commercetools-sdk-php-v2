@@ -17,6 +17,8 @@ interface ShoppingListSetCustomerAction extends ShoppingListUpdateAction
     public const FIELD_CUSTOMER = 'customer';
 
     /**
+     * <p>The <a href="ctp:api:type:Customer">Customer</a> the ShoppingList should be associated to. If empty, any existing value will be removed.</p>
+     *
 
      * @return null|CustomerResourceIdentifier
      */

@@ -25,6 +25,24 @@ final class ShoppingListLineItemDraftBuilder implements Builder
 {
     /**
 
+     * @var ?string
+     */
+    private $productId;
+
+    /**
+
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
+
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+
      * @var ?DateTimeImmutable
      */
     private $addedAt;
@@ -37,29 +55,46 @@ final class ShoppingListLineItemDraftBuilder implements Builder
 
     /**
 
-     * @var ?string
-     */
-    private $sku;
-
-    /**
-
-     * @var ?string
-     */
-    private $productId;
-
-    /**
-
      * @var ?int
      */
     private $quantity;
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
-     * @var ?int
+     * @return null|string
      */
-    private $variantId;
+    public function getProductId()
+    {
+        return $this->productId;
+    }
 
     /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * <p>Date and time the ShoppingListLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -69,7 +104,7 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Custom Fields of the ShoppingListLineItem.</p>
      *
 
      * @return null|CustomFieldsDraft
@@ -80,24 +115,8 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
-
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        return $this->productId;
-    }
-
-    /**
+     * <p>Number of Products in the ShoppingListLineItem.</p>
+     *
 
      * @return null|int
      */
@@ -107,12 +126,36 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-
-     * @return null|int
+     * @param ?string $productId
+     * @return $this
      */
-    public function getVariantId()
+    public function withProductId(?string $productId)
     {
-        return $this->variantId;
+        $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $variantId
+     * @return $this
+     */
+    public function withVariantId(?int $variantId)
+    {
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @param ?string $sku
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
     }
 
     /**
@@ -138,45 +181,12 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @param ?string $sku
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $productId
-     * @return $this
-     */
-    public function withProductId(?string $productId)
-    {
-        $this->productId = $productId;
-
-        return $this;
-    }
-
-    /**
      * @param ?int $quantity
      * @return $this
      */
     public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $variantId
-     * @return $this
-     */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
 
         return $this;
     }
@@ -195,12 +205,12 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     public function build(): ShoppingListLineItemDraft
     {
         return new ShoppingListLineItemDraftModel(
+            $this->productId,
+            $this->variantId,
+            $this->sku,
             $this->addedAt,
             $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom,
-            $this->sku,
-            $this->productId,
-            $this->quantity,
-            $this->variantId
+            $this->quantity
         );
     }
 

@@ -33,6 +33,8 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     private $quantity;
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -42,6 +44,8 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     }
 
     /**
+     * <p>New value to set. If <code>0</code>, the TextLineItem is removed from the ShoppingList.</p>
+     *
 
      * @return null|int
      */

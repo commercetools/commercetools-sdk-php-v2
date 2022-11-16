@@ -153,6 +153,15 @@ class ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete extends ApiReq
 
     /**
      *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete
+    {
+        return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $dataErasure
      */
     public function withDataErasure($dataErasure): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete
@@ -167,14 +176,5 @@ class ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete extends ApiReq
     public function withVersion($version): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete
     {
         return $this->withQueryParam('version', $version);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeyInStoreKeyByStoreKeyShoppingListsKeyByKeyDelete
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 }

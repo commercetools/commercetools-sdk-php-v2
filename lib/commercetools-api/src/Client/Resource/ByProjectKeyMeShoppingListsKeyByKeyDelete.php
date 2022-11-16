@@ -152,19 +152,19 @@ class ByProjectKeyMeShoppingListsKeyByKeyDelete extends ApiRequest implements Ve
 
     /**
      *
-     * @psalm-param scalar|scalar[] $version
-     */
-    public function withVersion($version): ByProjectKeyMeShoppingListsKeyByKeyDelete
-    {
-        return $this->withQueryParam('version', $version);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $expand
      */
     public function withExpand($expand): ByProjectKeyMeShoppingListsKeyByKeyDelete
     {
         return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $version
+     */
+    public function withVersion($version): ByProjectKeyMeShoppingListsKeyByKeyDelete
+    {
+        return $this->withQueryParam('version', $version);
     }
 }

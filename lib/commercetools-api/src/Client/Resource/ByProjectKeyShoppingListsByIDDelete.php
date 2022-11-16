@@ -153,6 +153,15 @@ class ByProjectKeyShoppingListsByIDDelete extends ApiRequest implements DataEras
 
     /**
      *
+     * @psalm-param scalar|scalar[] $expand
+     */
+    public function withExpand($expand): ByProjectKeyShoppingListsByIDDelete
+    {
+        return $this->withQueryParam('expand', $expand);
+    }
+
+    /**
+     *
      * @psalm-param scalar|scalar[] $dataErasure
      */
     public function withDataErasure($dataErasure): ByProjectKeyShoppingListsByIDDelete
@@ -167,14 +176,5 @@ class ByProjectKeyShoppingListsByIDDelete extends ApiRequest implements DataEras
     public function withVersion($version): ByProjectKeyShoppingListsByIDDelete
     {
         return $this->withQueryParam('version', $version);
-    }
-
-    /**
-     *
-     * @psalm-param scalar|scalar[] $expand
-     */
-    public function withExpand($expand): ByProjectKeyShoppingListsByIDDelete
-    {
-        return $this->withQueryParam('expand', $expand);
     }
 }

@@ -66,12 +66,6 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
 
     /**
      *
-     * @var ?LocalizedString
-     */
-    protected $productSlug;
-
-    /**
-     *
      * @var ?ProductTypeReference
      */
     protected $productType;
@@ -84,15 +78,21 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
 
     /**
      *
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     *
      * @var ?ProductVariant
      */
     protected $variant;
 
     /**
      *
-     * @var ?int
+     * @var ?LocalizedString
      */
-    protected $variantId;
+    protected $productSlug;
 
 
     /**
@@ -105,11 +105,11 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         ?string $id = null,
         ?LocalizedString $name = null,
         ?string $productId = null,
-        ?LocalizedString $productSlug = null,
         ?ProductTypeReference $productType = null,
         ?int $quantity = null,
+        ?int $variantId = null,
         ?ProductVariant $variant = null,
-        ?int $variantId = null
+        ?LocalizedString $productSlug = null
     ) {
         $this->addedAt = $addedAt;
         $this->custom = $custom;
@@ -117,14 +117,16 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->id = $id;
         $this->name = $name;
         $this->productId = $productId;
-        $this->productSlug = $productSlug;
         $this->productType = $productType;
         $this->quantity = $quantity;
-        $this->variant = $variant;
         $this->variantId = $variantId;
+        $this->variant = $variant;
+        $this->productSlug = $productSlug;
     }
 
     /**
+     * <p>Date and time (UTC) the ShoppingListLineItem was added to the ShoppingList.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -147,7 +149,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields of the ShoppingListLineItem.</p>
      *
      *
      * @return null|CustomFields
@@ -168,6 +170,9 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -210,7 +215,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Product.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's name changes.</p>
      *
      *
      * @return null|LocalizedString
@@ -231,6 +237,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -249,28 +257,7 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
-     *
-     *
-     * @return null|LocalizedString
-     */
-    public function getProductSlug()
-    {
-        if (is_null($this->productSlug)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_PRODUCT_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->productSlug = LocalizedStringModel::of($data);
-        }
-
-        return $this->productSlug;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     * <p>The Product Type defining the Attributes of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
      *
      * @return null|ProductTypeReference
@@ -291,6 +278,8 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>Number of Products in the ShoppingListLineItem.</p>
+     *
      *
      * @return null|int
      */
@@ -309,7 +298,29 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
+     * Returned when expanded using <code>expand=lineItems[*].variant</code>.</p>
+     * <p><em>Limitation: <code>expand=lineItems[0].variant</code> is not supported.</em></p>
      *
      *
      * @return null|ProductVariant
@@ -330,21 +341,26 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * <p>Slug of the current <a href="ctp:api:type:ProductData">ProductData</a>.
+     * Only returned when expanded using <code>expand=lineItems[*].productSlug</code>.</p>
+     * <p><em>Limitation: <code>expand=lineItems[0].productSlug</code> is not supported.</em></p>
      *
-     * @return null|int
+     *
+     * @return null|LocalizedString
      */
-    public function getVariantId()
+    public function getProductSlug()
     {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VARIANT_ID);
+        if (is_null($this->productSlug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT_SLUG);
             if (is_null($data)) {
                 return null;
             }
-            $this->variantId = (int) $data;
+
+            $this->productSlug = LocalizedStringModel::of($data);
         }
 
-        return $this->variantId;
+        return $this->productSlug;
     }
 
 
@@ -397,14 +413,6 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * @param ?LocalizedString $productSlug
-     */
-    public function setProductSlug(?LocalizedString $productSlug): void
-    {
-        $this->productSlug = $productSlug;
-    }
-
-    /**
      * @param ?ProductTypeReference $productType
      */
     public function setProductType(?ProductTypeReference $productType): void
@@ -421,6 +429,14 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
+     * @param ?int $variantId
+     */
+    public function setVariantId(?int $variantId): void
+    {
+        $this->variantId = $variantId;
+    }
+
+    /**
      * @param ?ProductVariant $variant
      */
     public function setVariant(?ProductVariant $variant): void
@@ -429,11 +445,11 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * @param ?int $variantId
+     * @param ?LocalizedString $productSlug
      */
-    public function setVariantId(?int $variantId): void
+    public function setProductSlug(?LocalizedString $productSlug): void
     {
-        $this->variantId = $variantId;
+        $this->productSlug = $productSlug;
     }
 
 

@@ -67,12 +67,6 @@ final class ShoppingListLineItemBuilder implements Builder
 
     /**
 
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $productSlug;
-
-    /**
-
      * @var null|ProductTypeReference|ProductTypeReferenceBuilder
      */
     private $productType;
@@ -85,17 +79,25 @@ final class ShoppingListLineItemBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
+
      * @var null|ProductVariant|ProductVariantBuilder
      */
     private $variant;
 
     /**
 
-     * @var ?int
+     * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $variantId;
+    private $productSlug;
 
     /**
+     * <p>Date and time (UTC) the ShoppingListLineItem was added to the ShoppingList.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -105,7 +107,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>Serves as value of the <code>custom</code> field on a resource or data type customized with a <a href="ctp:api:type:Type">Type</a>.</p>
+     * <p>Custom Fields of the ShoppingListLineItem.</p>
      *
 
      * @return null|CustomFields
@@ -116,6 +118,9 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -136,7 +141,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Name of the Product.</p>
+     * <p>This data is updated in an <a href="/general-concepts#eventual-consistency">eventual consistent manner</a> when the Product's name changes.</p>
      *
 
      * @return null|LocalizedString
@@ -147,6 +153,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
 
      * @return null|string
      */
@@ -156,18 +164,7 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
-     *
-
-     * @return null|LocalizedString
-     */
-    public function getProductSlug()
-    {
-        return $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug;
-    }
-
-    /**
-     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     * <p>The Product Type defining the Attributes of the <a href="ctp:api:type:Product">Product</a>.</p>
      *
 
      * @return null|ProductTypeReference
@@ -178,6 +175,8 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Number of Products in the ShoppingListLineItem.</p>
+     *
 
      * @return null|int
      */
@@ -187,7 +186,20 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * <p>A concrete sellable good for which inventory can be tracked. Product Variants are generally mapped to specific SKUs.</p>
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
+
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
+     * <p>Data of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.
+     * Returned when expanded using <code>expand=lineItems[*].variant</code>.</p>
+     * <p><em>Limitation: <code>expand=lineItems[0].variant</code> is not supported.</em></p>
      *
 
      * @return null|ProductVariant
@@ -198,12 +210,16 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * <p>Slug of the current <a href="ctp:api:type:ProductData">ProductData</a>.
+     * Only returned when expanded using <code>expand=lineItems[*].productSlug</code>.</p>
+     * <p><em>Limitation: <code>expand=lineItems[0].productSlug</code> is not supported.</em></p>
+     *
 
-     * @return null|int
+     * @return null|LocalizedString
      */
-    public function getVariantId()
+    public function getProductSlug()
     {
-        return $this->variantId;
+        return $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug;
     }
 
     /**
@@ -273,17 +289,6 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?LocalizedString $productSlug
-     * @return $this
-     */
-    public function withProductSlug(?LocalizedString $productSlug)
-    {
-        $this->productSlug = $productSlug;
-
-        return $this;
-    }
-
-    /**
      * @param ?ProductTypeReference $productType
      * @return $this
      */
@@ -306,6 +311,17 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @param ?int $variantId
+     * @return $this
+     */
+    public function withVariantId(?int $variantId)
+    {
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
      * @param ?ProductVariant $variant
      * @return $this
      */
@@ -317,12 +333,12 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * @param ?int $variantId
+     * @param ?LocalizedString $productSlug
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withProductSlug(?LocalizedString $productSlug)
     {
-        $this->variantId = $variantId;
+        $this->productSlug = $productSlug;
 
         return $this;
     }
@@ -350,17 +366,6 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * @deprecated use withProductSlug() instead
-     * @return $this
-     */
-    public function withProductSlugBuilder(?LocalizedStringBuilder $productSlug)
-    {
-        $this->productSlug = $productSlug;
-
-        return $this;
-    }
-
-    /**
      * @deprecated use withProductType() instead
      * @return $this
      */
@@ -382,6 +387,17 @@ final class ShoppingListLineItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProductSlug() instead
+     * @return $this
+     */
+    public function withProductSlugBuilder(?LocalizedStringBuilder $productSlug)
+    {
+        $this->productSlug = $productSlug;
+
+        return $this;
+    }
+
     public function build(): ShoppingListLineItem
     {
         return new ShoppingListLineItemModel(
@@ -391,11 +407,11 @@ final class ShoppingListLineItemBuilder implements Builder
             $this->id,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->productId,
-            $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug,
             $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType,
             $this->quantity,
+            $this->variantId,
             $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant,
-            $this->variantId
+            $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug
         );
     }
 

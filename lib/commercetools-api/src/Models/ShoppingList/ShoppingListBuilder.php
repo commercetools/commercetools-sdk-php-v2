@@ -61,39 +61,9 @@ final class ShoppingListBuilder implements Builder
 
     /**
 
-     * @var null|LastModifiedBy|LastModifiedByBuilder
-     */
-    private $lastModifiedBy;
-
-    /**
-
-     * @var null|CreatedBy|CreatedByBuilder
-     */
-    private $createdBy;
-
-    /**
-
-     * @var null|CustomFields|CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
-
-     * @var null|CustomerReference|CustomerReferenceBuilder
-     */
-    private $customer;
-
-    /**
-
-     * @var ?int
-     */
-    private $deleteDaysAfterLastModification;
-
-    /**
-
      * @var null|LocalizedString|LocalizedStringBuilder
      */
-    private $description;
+    private $name;
 
     /**
 
@@ -103,15 +73,9 @@ final class ShoppingListBuilder implements Builder
 
     /**
 
-     * @var ?ShoppingListLineItemCollection
+     * @var null|CustomerReference|CustomerReferenceBuilder
      */
-    private $lineItems;
-
-    /**
-
-     * @var null|LocalizedString|LocalizedStringBuilder
-     */
-    private $name;
+    private $customer;
 
     /**
 
@@ -121,9 +85,27 @@ final class ShoppingListBuilder implements Builder
 
     /**
 
+     * @var null|LocalizedString|LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
+
+     * @var ?ShoppingListLineItemCollection
+     */
+    private $lineItems;
+
+    /**
+
      * @var ?TextLineItemCollection
      */
     private $textLineItems;
+
+    /**
+
+     * @var ?int
+     */
+    private $deleteDaysAfterLastModification;
 
     /**
 
@@ -138,6 +120,24 @@ final class ShoppingListBuilder implements Builder
     private $store;
 
     /**
+
+     * @var null|CustomFields|CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+
+     * @var null|LastModifiedBy|LastModifiedByBuilder
+     */
+    private $lastModifiedBy;
+
+    /**
+
+     * @var null|CreatedBy|CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
      * <p>Unique identifier of the ShoppingList.</p>
      *
 
@@ -149,7 +149,7 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * <p>The current version of the shopping list.</p>
+     * <p>Current version of the ShoppingList.</p>
      *
 
      * @return null|int
@@ -160,6 +160,8 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ShoppingList was initially created.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
@@ -169,12 +171,137 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * <p>Date and time (UTC) the ShoppingList was last updated.</p>
+     *
 
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
     {
         return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Name of the ShoppingList.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>User-defined unique identifier of the ShoppingList.</p>
+     *
+
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the ShoppingList.</p>
+     *
+
+     * @return null|CustomerReference
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related ShoppingList.
+     * Each slug is unique across a Project, but a ShoppingList can have the same slug for different languages.
+     * The slug must match the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set on the <a href="ctp:api:type:Project">Project</a>.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * <p>Description of the ShoppingList.</p>
+     *
+
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * <p>Line Items (containing Products) of the ShoppingList.</p>
+     *
+
+     * @return null|ShoppingListLineItemCollection
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
+
+    /**
+     * <p>Line Items (containing text values) of the ShoppingList.</p>
+     *
+
+     * @return null|TextLineItemCollection
+     */
+    public function getTextLineItems()
+    {
+        return $this->textLineItems;
+    }
+
+    /**
+     * <p>Number of days after which the ShoppingList will be automatically deleted if it has not been modified.</p>
+     *
+
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>Identifies ShoppingLists belonging to an <a href="/../api/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        return $this->anonymousId;
+    }
+
+    /**
+     * <p>Store to which the ShoppingList is assigned.</p>
+     *
+
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * <p>Custom Fields defined for the ShoppingList.</p>
+     *
+
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -197,115 +324,6 @@ final class ShoppingListBuilder implements Builder
     public function getCreatedBy()
     {
         return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
-
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-
-     * @return null|CustomerReference
-     */
-    public function getCustomer()
-    {
-        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>
-     *
-
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
-     * <p>User-defined unique identifier of the ShoppingList.</p>
-     *
-
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-
-     * @return null|ShoppingListLineItemCollection
-     */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
-
-    /**
-
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
-     * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
-     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>
-     *
-
-     * @return null|LocalizedString
-     */
-    public function getSlug()
-    {
-        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
-    }
-
-    /**
-
-     * @return null|TextLineItemCollection
-     */
-    public function getTextLineItems()
-    {
-        return $this->textLineItems;
-    }
-
-    /**
-     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>
-     *
-
-     * @return null|string
-     */
-    public function getAnonymousId()
-    {
-        return $this->anonymousId;
-    }
-
-    /**
-
-     * @return null|StoreKeyReference
-     */
-    public function getStore()
-    {
-        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -353,67 +371,12 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * @param ?LastModifiedBy $lastModifiedBy
+     * @param ?LocalizedString $name
      * @return $this
      */
-    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withName(?LocalizedString $name)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CreatedBy $createdBy
-     * @return $this
-     */
-    public function withCreatedBy(?CreatedBy $createdBy)
-    {
-        $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomFields $custom
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @param ?CustomerReference $customer
-     * @return $this
-     */
-    public function withCustomer(?CustomerReference $customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * @param ?int $deleteDaysAfterLastModification
-     * @return $this
-     */
-    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
-    {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $description
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }
@@ -430,23 +393,12 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * @param ?ShoppingListLineItemCollection $lineItems
+     * @param ?CustomerReference $customer
      * @return $this
      */
-    public function withLineItems(?ShoppingListLineItemCollection $lineItems)
+    public function withCustomer(?CustomerReference $customer)
     {
-        $this->lineItems = $lineItems;
-
-        return $this;
-    }
-
-    /**
-     * @param ?LocalizedString $name
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
+        $this->customer = $customer;
 
         return $this;
     }
@@ -463,12 +415,45 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?LocalizedString $description
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @param ?ShoppingListLineItemCollection $lineItems
+     * @return $this
+     */
+    public function withLineItems(?ShoppingListLineItemCollection $lineItems)
+    {
+        $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    /**
      * @param ?TextLineItemCollection $textLineItems
      * @return $this
      */
     public function withTextLineItems(?TextLineItemCollection $textLineItems)
     {
         $this->textLineItems = $textLineItems;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $deleteDaysAfterLastModification
+     * @return $this
+     */
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
 
         return $this;
     }
@@ -496,6 +481,105 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
+     * @param ?CustomFields $custom
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @param ?LastModifiedBy $lastModifiedBy
+     * @return $this
+     */
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @param ?CreatedBy $createdBy
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withName() instead
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustomer() instead
+     * @return $this
+     */
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withSlug() instead
+     * @return $this
+     */
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withDescription() instead
+     * @return $this
+     */
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withStore() instead
+     * @return $this
+     */
+    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
+     * @deprecated use withCustom() instead
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -517,72 +601,6 @@ final class ShoppingListBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @deprecated use withCustom() instead
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withCustomer() instead
-     * @return $this
-     */
-    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withDescription() instead
-     * @return $this
-     */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withName() instead
-     * @return $this
-     */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withSlug() instead
-     * @return $this
-     */
-    public function withSlugBuilder(?LocalizedStringBuilder $slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @deprecated use withStore() instead
-     * @return $this
-     */
-    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
-    {
-        $this->store = $store;
-
-        return $this;
-    }
-
     public function build(): ShoppingList
     {
         return new ShoppingListModel(
@@ -590,19 +608,19 @@ final class ShoppingListBuilder implements Builder
             $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
-            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
-            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
-            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
-            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
-            $this->deleteDaysAfterLastModification,
-            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
-            $this->key,
-            $this->lineItems,
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
+            $this->key,
+            $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
             $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug,
+            $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
+            $this->lineItems,
             $this->textLineItems,
+            $this->deleteDaysAfterLastModification,
             $this->anonymousId,
-            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store
+            $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store,
+            $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
+            $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy,
+            $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy
         );
     }
 

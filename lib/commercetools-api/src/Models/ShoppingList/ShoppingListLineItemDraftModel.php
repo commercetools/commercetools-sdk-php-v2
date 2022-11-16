@@ -24,6 +24,24 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
 {
     /**
      *
+     * @var ?string
+     */
+    protected $productId;
+
+    /**
+     *
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     *
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     *
      * @var ?DateTimeImmutable
      */
     protected $addedAt;
@@ -36,49 +54,93 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
 
     /**
      *
-     * @var ?string
-     */
-    protected $sku;
-
-    /**
-     *
-     * @var ?string
-     */
-    protected $productId;
-
-    /**
-     *
      * @var ?int
      */
     protected $quantity;
-
-    /**
-     *
-     * @var ?int
-     */
-    protected $variantId;
 
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?string $productId = null,
+        ?int $variantId = null,
+        ?string $sku = null,
         ?DateTimeImmutable $addedAt = null,
         ?CustomFieldsDraft $custom = null,
-        ?string $sku = null,
-        ?string $productId = null,
-        ?int $quantity = null,
-        ?int $variantId = null
+        ?int $quantity = null
     ) {
+        $this->productId = $productId;
+        $this->variantId = $variantId;
+        $this->sku = $sku;
         $this->addedAt = $addedAt;
         $this->custom = $custom;
-        $this->sku = $sku;
-        $this->productId = $productId;
         $this->quantity = $quantity;
-        $this->variantId = $variantId;
     }
 
     /**
+     * <p>Unique identifier of a <a href="ctp:api:type:Product">Product</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getProductId()
+    {
+        if (is_null($this->productId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_PRODUCT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productId = (string) $data;
+        }
+
+        return $this->productId;
+    }
+
+    /**
+     * <p><code>id</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * <p><code>sku</code> of the <a href="ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * <p>Date and time the ShoppingListLineItem is added to the <a href="ctp:api:type:ShoppingList">ShoppingList</a>. If not set, the current date and time (UTC) is used.</p>
+     *
      *
      * @return null|DateTimeImmutable
      */
@@ -101,7 +163,7 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
-     * <p>The representation used when creating or updating a <a href="/../api/projects/types#list-of-customizable-data-types">customizable data type</a> with Custom Fields.</p>
+     * <p>Custom Fields of the ShoppingListLineItem.</p>
      *
      *
      * @return null|CustomFieldsDraft
@@ -122,42 +184,8 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
+     * <p>Number of Products in the ShoppingListLineItem.</p>
      *
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
-    /**
-     *
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        if (is_null($this->productId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PRODUCT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->productId = (string) $data;
-        }
-
-        return $this->productId;
-    }
-
-    /**
      *
      * @return null|int
      */
@@ -175,24 +203,30 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         return $this->quantity;
     }
 
-    /**
-     *
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(self::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
 
-        return $this->variantId;
+    /**
+     * @param ?string $productId
+     */
+    public function setProductId(?string $productId): void
+    {
+        $this->productId = $productId;
     }
 
+    /**
+     * @param ?int $variantId
+     */
+    public function setVariantId(?int $variantId): void
+    {
+        $this->variantId = $variantId;
+    }
+
+    /**
+     * @param ?string $sku
+     */
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
+    }
 
     /**
      * @param ?DateTimeImmutable $addedAt
@@ -211,35 +245,11 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
-     * @param ?string $sku
-     */
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
-
-    /**
-     * @param ?string $productId
-     */
-    public function setProductId(?string $productId): void
-    {
-        $this->productId = $productId;
-    }
-
-    /**
      * @param ?int $quantity
      */
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
-    }
-
-    /**
-     * @param ?int $variantId
-     */
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
     }
 
 

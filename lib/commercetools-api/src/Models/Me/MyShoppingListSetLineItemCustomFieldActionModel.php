@@ -79,6 +79,8 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
     }
 
     /**
+     * <p>Unique identifier of an existing <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> in the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
      *
      * @return null|string
      */

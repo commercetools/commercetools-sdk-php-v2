@@ -20,6 +20,8 @@ interface ShoppingListSetTextLineItemCustomTypeAction extends ShoppingListUpdate
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */

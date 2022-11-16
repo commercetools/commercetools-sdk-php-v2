@@ -43,6 +43,8 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     private $fields;
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update.</p>
+     *
 
      * @return null|string
      */
@@ -52,8 +54,8 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the LineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
-     * If absent, any existing Type and Custom Fields are removed from the LineItem.</p>
+     * <p>Defines the <a href="ctp:api:type:Type">Type</a> that extends the ShoppingListLineItem with <a href="/../api/projects/custom-fields">Custom Fields</a>.
+     * If absent, any existing Type and Custom Fields are removed from the ShoppingListLineItem.</p>
      *
 
      * @return null|TypeResourceIdentifier
@@ -64,7 +66,7 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the LineItem.</p>
+     * <p>Sets the <a href="/../api/projects/custom-fields">Custom Fields</a> fields for the ShoppingListLineItem.</p>
      *
 
      * @return null|FieldContainer

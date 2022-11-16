@@ -71,6 +71,8 @@ final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Amount to remove from the <code>quantity</code> of the ShoppingListLineItem. If not set, the ShoppingListLineItem is removed from the ShoppingList. If this value matches or exceeds the current <code>quantity</code> of the ShoppingListLineItem, the ShoppingListLineItem is removed from the ShoppingList.</p>
+     *
      *
      * @return null|int
      */

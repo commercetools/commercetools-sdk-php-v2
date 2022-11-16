@@ -79,6 +79,8 @@ final class ShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMode
     }
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */

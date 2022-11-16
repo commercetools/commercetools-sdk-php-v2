@@ -79,6 +79,8 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
     }
 
     /**
+     * <p>The <code>id</code> of the <a href="ctp:api:type:TextLineItem">TextLineItem</a> to update.</p>
+     *
      *
      * @return null|string
      */

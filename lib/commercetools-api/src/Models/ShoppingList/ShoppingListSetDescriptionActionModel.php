@@ -65,6 +65,8 @@ final class ShoppingListSetDescriptionActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Value to set. If empty, any existing value will be removed.</p>
+     *
      *
      * @return null|LocalizedString
      */

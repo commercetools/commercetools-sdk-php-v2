@@ -63,6 +63,8 @@ final class ShoppingListChangeLineItemsOrderActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p>All existing ShoppingListLineItem <code>id</code>s in the desired new order.</p>
+     *
      *
      * @return null|array
      */

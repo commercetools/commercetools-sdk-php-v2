@@ -18,6 +18,8 @@ interface MyShoppingListSetLineItemCustomFieldAction extends MyShoppingListUpdat
     public const FIELD_VALUE = 'value';
 
     /**
+     * <p>Unique identifier of an existing <a href="ctp:api:type:ShoppingListLineItem">ShoppingListLineItem</a> in the <a href="ctp:api:type:ShoppingList">ShoppingList</a>.</p>
+     *
 
      * @return null|string
      */

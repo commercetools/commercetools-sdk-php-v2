@@ -16,6 +16,8 @@ interface ShoppingListChangeLineItemsOrderAction extends ShoppingListUpdateActio
     public const FIELD_LINE_ITEM_ORDER = 'lineItemOrder';
 
     /**
+     * <p>All existing ShoppingListLineItem <code>id</code>s in the desired new order.</p>
+     *
 
      * @return null|array
      */
