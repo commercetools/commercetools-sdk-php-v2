@@ -90,6 +90,19 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDTest extends
     public function getRequests()
     {
         return [
+            'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet_withStaged' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->inStoreKeyWithStoreKeyValue('test_storeKey')
+                        ->productProjections()
+                        ->withId('test_ID')
+                        ->get()
+                        ->withStaged('staged');
+                },
+                'get',
+                'test_projectKey/in-store/key=test_storeKey/product-projections/test_ID?staged=staged',
+            ],
             'ByProjectKeyInStoreKeyByStoreKeyProductProjectionsByIDGet_withPriceCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -32,6 +32,7 @@ use Psr\Http\Message\ResponseInterface;
  * @psalm-suppress PropertyNotSetInConstructor
  * @template-implements Sortable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Paging<ByProjectKeyProductProjectionsSearchGet>
+ * @template-implements ProjectionSelecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements PriceSelecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements LocaleProjecting<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements StoreProjecting<ByProjectKeyProductProjectionsSearchGet>
@@ -39,7 +40,7 @@ use Psr\Http\Message\ResponseInterface;
  * @template-implements Errorable<ByProjectKeyProductProjectionsSearchGet>
  * @template-implements Deprecatable200<ByProjectKeyProductProjectionsSearchGet>
  */
-class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sortable, Paging, PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Errorable, Deprecatable200
+class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sortable, Paging, ProjectionSelecting, PriceSelecting, LocaleProjecting, StoreProjecting, Expandable, Errorable, Deprecatable200
 {
     /**
      * @param ?object|array|string $body
@@ -178,15 +179,6 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
 
     /**
      *
-     * @psalm-param scalar|scalar[] $staged
-     */
-    public function withStaged($staged): ByProjectKeyProductProjectionsSearchGet
-    {
-        return $this->withQueryParam('staged', $staged);
-    }
-
-    /**
-     *
      * @psalm-param scalar|scalar[] $filter
      */
     public function withFilter($filter): ByProjectKeyProductProjectionsSearchGet
@@ -264,6 +256,15 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest implements Sort
     public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSearchGet
     {
         return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     *
+     * @psalm-param scalar|scalar[] $staged
+     */
+    public function withStaged($staged): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('staged', $staged);
     }
 
     /**

@@ -138,18 +138,6 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/search?markMatchingVariants=markMatchingVariants',
             ],
-            'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->search()
-                        ->get()
-                        ->withStaged('staged');
-                },
-                'get',
-                'test_projectKey/product-projections/search?staged=staged',
-            ],
             'ByProjectKeyProductProjectionsSearchGet_withFilter' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -257,6 +245,18 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-projections/search?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->search()
+                        ->get()
+                        ->withStaged('staged');
+                },
+                'get',
+                'test_projectKey/product-projections/search?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCurrency' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

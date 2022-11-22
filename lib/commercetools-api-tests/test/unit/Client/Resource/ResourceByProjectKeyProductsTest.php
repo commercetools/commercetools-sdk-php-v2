@@ -158,6 +158,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 'get',
                 'test_projectKey/products?priceChannel=priceChannel',
             ],
+            'ByProjectKeyProductsGet_withLocaleProjection' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->get()
+                        ->withLocaleProjection('localeProjection');
+                },
+                'get',
+                'test_projectKey/products?localeProjection=localeProjection',
+            ],
             'ByProjectKeyProductsGet_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -298,6 +309,17 @@ class ResourceByProjectKeyProductsTest extends TestCase
                 },
                 'post',
                 'test_projectKey/products?priceChannel=priceChannel',
+            ],
+            'ByProjectKeyProductsPost_withLocaleProjection' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->products()
+                        ->post(null)
+                        ->withLocaleProjection('localeProjection');
+                },
+                'post',
+                'test_projectKey/products?localeProjection=localeProjection',
             ],
             'ByProjectKeyProductsPost_withExpand' => [
                 function (ApiRequestBuilder $builder): RequestInterface {

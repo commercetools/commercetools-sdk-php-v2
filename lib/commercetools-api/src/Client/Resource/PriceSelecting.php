@@ -39,4 +39,10 @@ interface PriceSelecting extends ApiRequestInterface
      * @psalm-return T
      */
     public function withPriceChannel(string $priceChannel);
+
+    /**
+     * @return ApiRequestInterface
+     * @psalm-return T
+     */
+    public function withLocaleProjection(string $localeProjection);
 }

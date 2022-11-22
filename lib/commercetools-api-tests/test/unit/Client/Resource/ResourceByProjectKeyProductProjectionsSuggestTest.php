@@ -102,18 +102,6 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                 'get',
                 'test_projectKey/product-projections/suggest?fuzzy=fuzzy',
             ],
-            'ByProjectKeyProductProjectionsSuggestGet_withStaged' => [
-                function (ApiRequestBuilder $builder): RequestInterface {
-                    return $builder
-                        ->withProjectKey('test_projectKey')
-                        ->productProjections()
-                        ->suggest()
-                        ->get()
-                        ->withStaged('staged');
-                },
-                'get',
-                'test_projectKey/product-projections/suggest?staged=staged',
-            ],
             'ByProjectKeyProductProjectionsSuggestGet_withSearchKeywords' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder
@@ -173,6 +161,18 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                 },
                 'get',
                 'test_projectKey/product-projections/suggest?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductProjectionsSuggestGet_withStaged' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey('test_projectKey')
+                        ->productProjections()
+                        ->suggest()
+                        ->get()
+                        ->withStaged('staged');
+                },
+                'get',
+                'test_projectKey/product-projections/suggest?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSuggestGet' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
