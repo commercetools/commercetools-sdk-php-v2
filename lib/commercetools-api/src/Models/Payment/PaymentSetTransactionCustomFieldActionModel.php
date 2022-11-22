@@ -79,6 +79,8 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -97,8 +99,7 @@ final class PaymentSetTransactionCustomFieldActionModel extends JsonObjectModel 
     }
 
     /**
-     * <p>description: |
-     * Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
+     * <p>Name of the <a href="/../api/projects/custom-fields">Custom Field</a>.</p>
      *
      *
      * @return null|string

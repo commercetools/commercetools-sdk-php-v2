@@ -16,6 +16,9 @@ interface PaymentSetInterfaceIdAction extends PaymentUpdateAction
     public const FIELD_INTERFACE_ID = 'interfaceId';
 
     /**
+     * <p>Value to set.
+     * Once set, the <code>interfaceId</code> cannot be changed.</p>
+     *
 
      * @return null|string
      */

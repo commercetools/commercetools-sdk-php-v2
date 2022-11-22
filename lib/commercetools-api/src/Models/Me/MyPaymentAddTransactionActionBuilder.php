@@ -29,6 +29,8 @@ final class MyPaymentAddTransactionActionBuilder implements Builder
     private $transaction;
 
     /**
+     * <p>Transaction to add to the Payment.</p>
+     *
 
      * @return null|TransactionDraft
      */

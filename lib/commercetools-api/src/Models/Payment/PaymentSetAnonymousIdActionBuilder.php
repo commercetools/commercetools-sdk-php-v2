@@ -27,8 +27,8 @@ final class PaymentSetAnonymousIdActionBuilder implements Builder
     private $anonymousId;
 
     /**
-     * <p>Anonymous ID of the anonymous customer that this payment belongs to.
-     * If this field is not set any existing <code>anonymousId</code> is removed.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
      *
 
      * @return null|string

@@ -44,6 +44,8 @@ final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
     }
 
     /**
+     * <p>Expected version of the Payment on which the changes should be applied. If the expected version does not match the actual version, a <a href="/../api/errors#409-conflict">409 Conflict</a> error will be returned.</p>
+     *
      *
      * @return null|int
      */
@@ -62,6 +64,8 @@ final class PaymentUpdateModel extends JsonObjectModel implements PaymentUpdate
     }
 
     /**
+     * <p>Update actions to be performed on the Payment.</p>
+     *
      *
      * @return null|PaymentUpdateActionCollection
      */

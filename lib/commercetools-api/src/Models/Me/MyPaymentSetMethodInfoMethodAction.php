@@ -16,6 +16,9 @@ interface MyPaymentSetMethodInfoMethodAction extends MyPaymentUpdateAction
     public const FIELD_METHOD = 'method';
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */

@@ -18,12 +18,16 @@ interface PaymentChangeTransactionTimestampAction extends PaymentUpdateAction
     public const FIELD_TIMESTAMP = 'timestamp';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
 
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+     * <p>Timestamp of the Transaction as reported by the payment service.</p>
+     *
 
      * @return null|DateTimeImmutable
      */

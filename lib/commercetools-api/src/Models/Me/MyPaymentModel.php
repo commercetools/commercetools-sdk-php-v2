@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoneyModel;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
@@ -54,7 +54,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
 
     /**
      *
-     * @var ?TypedMoney
+     * @var ?CentPrecisionMoney
      */
     protected $amountPlanned;
 
@@ -85,7 +85,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
         ?int $version = null,
         ?CustomerReference $customer = null,
         ?string $anonymousId = null,
-        ?TypedMoney $amountPlanned = null,
+        ?CentPrecisionMoney $amountPlanned = null,
         ?PaymentMethodInfo $paymentMethodInfo = null,
         ?TransactionCollection $transactions = null,
         ?CustomFields $custom = null
@@ -101,7 +101,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>Unique identifier of the MyPayment.</p>
+     * <p>Unique identifier of the Payment.</p>
      *
      *
      * @return null|string
@@ -121,6 +121,8 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
+     * <p>Current version of the Payment.</p>
+     *
      *
      * @return null|int
      */
@@ -139,7 +141,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the Payment. Set automatically with a <a href="/../api/authorization#password-flow">password flow token</a>. Either <code>customer</code> or <code>anonymousId</code> is present.</p>
      *
      *
      * @return null|CustomerReference
@@ -160,7 +162,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment. Set automatically with a <a href="/../api/authorization#tokens-for-anonymous-sessions">token for an anonymous session</a>. Either <code>customer</code> or <code>anonymousId</code> is present.</p>
      *
      *
      * @return null|string
@@ -180,11 +182,11 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>
+     * <p>Money value the Payment intends to receive from the customer.
+     * The value typically matches the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> gross total.</p>
      *
      *
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmountPlanned()
     {
@@ -194,14 +196,16 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amountPlanned = $className::of($data);
+
+            $this->amountPlanned = CentPrecisionMoneyModel::of($data);
         }
 
         return $this->amountPlanned;
     }
 
     /**
+     * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
+     *
      *
      * @return null|PaymentMethodInfo
      */
@@ -221,8 +225,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes
-     * with different TransactionStates.</p>
+     * <p>Financial transactions of the Payment. Each Transaction has a <a href="ctp:api:type:TransactionType">TransactionType</a> and a <a href="ctp:api:type:TransactionState">TransactionState</a>.</p>
      *
      *
      * @return null|TransactionCollection
@@ -242,6 +245,8 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
+     * <p>Custom Fields defined for the Payment.</p>
+     *
      *
      * @return null|CustomFields
      */
@@ -294,9 +299,9 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * @param ?TypedMoney $amountPlanned
+     * @param ?CentPrecisionMoney $amountPlanned
      */
-    public function setAmountPlanned(?TypedMoney $amountPlanned): void
+    public function setAmountPlanned(?CentPrecisionMoney $amountPlanned): void
     {
         $this->amountPlanned = $amountPlanned;
     }

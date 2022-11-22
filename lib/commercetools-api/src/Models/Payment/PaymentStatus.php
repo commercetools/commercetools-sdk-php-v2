@@ -19,7 +19,7 @@ interface PaymentStatus extends JsonObject
     public const FIELD_STATE = 'state';
 
     /**
-     * <p>A code describing the current status returned by the interface that processes the payment.</p>
+     * <p>External reference that identifies the current status of the Payment.</p>
      *
 
      * @return null|string
@@ -27,7 +27,7 @@ interface PaymentStatus extends JsonObject
     public function getInterfaceCode();
 
     /**
-     * <p>A text describing the current status returned by the interface that processes the payment.</p>
+     * <p>Text describing the current status of the Payment.</p>
      *
 
      * @return null|string
@@ -35,6 +35,8 @@ interface PaymentStatus extends JsonObject
     public function getInterfaceText();
 
     /**
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     *
 
      * @return null|StateReference
      */

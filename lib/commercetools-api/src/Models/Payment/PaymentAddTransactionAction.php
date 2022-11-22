@@ -16,6 +16,8 @@ interface PaymentAddTransactionAction extends PaymentUpdateAction
     public const FIELD_TRANSACTION = 'transaction';
 
     /**
+     * <p>Value to append to the <code>transactions</code> array.</p>
+     *
 
      * @return null|TransactionDraft
      */

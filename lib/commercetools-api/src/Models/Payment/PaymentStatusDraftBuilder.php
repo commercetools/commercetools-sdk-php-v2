@@ -41,6 +41,8 @@ final class PaymentStatusDraftBuilder implements Builder
     private $state;
 
     /**
+     * <p>External reference that identifies the current status of the Payment.</p>
+     *
 
      * @return null|string
      */
@@ -50,6 +52,8 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
+     * <p>Text describing the current status of the Payment.</p>
+     *
 
      * @return null|string
      */
@@ -59,7 +63,7 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:State">State</a>.</p>
+     * <p><a href="ctp:api:type:Reference">Reference</a> to a <a href="ctp:api:type:State">State</a>.</p>
      *
 
      * @return null|StateResourceIdentifier

@@ -22,8 +22,8 @@ interface MyPaymentDraft extends JsonObject
     public const FIELD_TRANSACTION = 'transaction';
 
     /**
-     * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>
+     * <p>Money value the Payment intends to receive from the customer.
+     * The value usually matches the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> gross total.</p>
      *
 
      * @return null|Money
@@ -31,20 +31,23 @@ interface MyPaymentDraft extends JsonObject
     public function getAmountPlanned();
 
     /**
+     * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
+     *
 
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo();
 
     /**
+     * <p>Custom Fields for the Payment.</p>
+     *
 
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
-     * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
-     * TransactionTypes.</p>
+     * <p>Financial transactions of the <a href="ctp:api:type:TransactionType">TransactionTypes</a> <code>Authorization</code> or <code>Charge</code>.</p>
      *
 
      * @return null|MyTransactionDraft

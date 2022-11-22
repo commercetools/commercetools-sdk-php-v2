@@ -3334,7 +3334,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->post(null)`
 
-null
+Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
+
 
 ### Example
 ```php
@@ -3365,7 +3366,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->post(null)`
 
-null
+This endpoint can only update a Payment when it has no [Transactions](ctp:api:type:Transaction).
+
 
 ### Example
 ```php
@@ -3381,7 +3383,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withId("ID")->delete()`
 
-null
+This endpoint can only delete a Payment when it has no [Transactions](ctp:api:type:Transaction).
+
 
 ### Example
 ```php
@@ -3413,7 +3416,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withKey("key")->post(null)`
 
-null
+This endpoint can only update a Payment when it has no [Transactions](ctp:api:type:Transaction).
+
 
 ### Example
 ```php
@@ -3429,7 +3433,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->payments()->withKey("key")->delete()`
 
-null
+This endpoint can only delete a Payment when it has no [Transactions](ctp:api:type:Transaction).
+
 
 ### Example
 ```php
@@ -4163,7 +4168,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->post(null)`
 
-To create a payment object a payment draft object has to be given with the request.
+Creating a Payment produces the [PaymentCreated](ctp:api:type:PaymentCreatedMessage) Message.
+
 
 ### Example
 ```php

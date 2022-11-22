@@ -88,7 +88,7 @@ final class PaymentStatusInterfaceCodeSetMessageBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @deprecated
+
      * @var ?string
      */
     private $paymentId;
@@ -213,7 +213,7 @@ final class PaymentStatusInterfaceCodeSetMessageBuilder implements Builder
     /**
      * <p>Unique identifier for the <a href="ctp:api:type:Payment">Payment</a> for which the <a href="ctp:api:type:PaymentSetStatusInterfaceCodeAction">Set StatusInterfaceCode</a> update action was applied.</p>
      *
-     * @deprecated
+
      * @return null|string
      */
     public function getPaymentId()

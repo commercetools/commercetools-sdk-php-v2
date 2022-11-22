@@ -16,9 +16,8 @@ interface PaymentSetKeyAction extends PaymentUpdateAction
     public const FIELD_KEY = 'key';
 
     /**
-     * <p>User-specific unique identifier for the payment (max.
-     * 256 characters).
-     * If not provided an existing key will be removed.</p>
+     * <p>Value to set.
+     * If <code>key</code> is absent or <code>null</code>, the existing key, if any, will be removed.</p>
      *
 
      * @return null|string

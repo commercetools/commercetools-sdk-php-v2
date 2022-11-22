@@ -17,7 +17,7 @@ interface MyCartAddPaymentAction extends MyCartUpdateAction
     public const FIELD_PAYMENT = 'payment';
 
     /**
-     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> to a <a href="ctp:api:type:Payment">Payment</a>.</p>
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Payment">Payment</a>.</p>
      *
 
      * @return null|PaymentResourceIdentifier

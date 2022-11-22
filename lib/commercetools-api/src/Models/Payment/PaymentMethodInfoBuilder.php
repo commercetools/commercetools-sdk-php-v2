@@ -41,9 +41,9 @@ final class PaymentMethodInfoBuilder implements Builder
     private $name;
 
     /**
-     * <p>The interface that handles the payment (usually a PSP).
-     * Cannot be changed once it has been set.
-     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>
+     * <p>Payment service that processes the Payment (for example, a PSP).
+     * Once set, it cannot be changed.
+     * The combination of <code>paymentInterface</code> and the <code>interfaceId</code> of a <a href="ctp:api:type:Payment">Payment</a> must be unique.</p>
      *
 
      * @return null|string
@@ -54,9 +54,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
-     * <p>The payment method that is used, e.g.
-     * e.g.
-     * a conventional string representing Credit Card, Cash Advance etc.</p>
+     * <p>Payment method used, for example, credit card, or cash advance.</p>
      *
 
      * @return null|string
@@ -67,8 +65,7 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
-     * <p>A human-readable, localized name for the payment method, e.g.
-     * 'Credit Card'.</p>
+     * <p>Localizable name of the payment method.</p>
      *
 
      * @return null|LocalizedString

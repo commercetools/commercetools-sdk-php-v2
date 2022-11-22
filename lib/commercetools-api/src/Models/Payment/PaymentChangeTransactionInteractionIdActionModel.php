@@ -71,6 +71,8 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     }
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
      *
      * @return null|string
      */
@@ -89,6 +91,8 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     }
 
     /**
+     * <p>New value to set.</p>
+     *
      *
      * @return null|string
      */

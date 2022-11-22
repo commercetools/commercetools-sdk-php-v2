@@ -29,6 +29,8 @@ final class PaymentChangeAmountPlannedActionBuilder implements Builder
     private $amount;
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|Money
      */

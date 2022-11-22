@@ -40,7 +40,7 @@ final class PaymentDraftBuilder implements Builder
     private $anonymousId;
 
     /**
-     * @deprecated
+
      * @var ?string
      */
     private $externalId;
@@ -118,7 +118,7 @@ final class PaymentDraftBuilder implements Builder
     private $key;
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the Payment.</p>
      *
 
      * @return null|CustomerResourceIdentifier
@@ -129,7 +129,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment.</p>
      *
 
      * @return null|string
@@ -140,7 +140,9 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * @deprecated
+     * <p>Additional identifier for external systems like Customer Relationship Management (CRM) or Enterprise Resource Planning (ERP).</p>
+     *
+
      * @return null|string
      */
     public function getExternalId()
@@ -149,9 +151,9 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
-     * Cannot be changed once it has been set.
-     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>
+     * <p>Identifier used by the payment service that processes the Payment (for example, a PSP).
+     * The combination of <code>interfaceId</code> and the <code>paymentInterface</code> field on <a href="ctp:api:type:PaymentMethodInfo">PaymentMethodInfo</a> must be unique.
+     * Once set, it cannot be changed.</p>
      *
 
      * @return null|string
@@ -162,8 +164,8 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>
+     * <p>Money value the Payment intends to receive from the customer.
+     * The value typically matches the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> gross total.</p>
      *
 
      * @return null|Money
@@ -174,8 +176,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
      *
 
      * @return null|Money
@@ -186,6 +187,8 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * <p>Deprecated because this field is of little practical value, as it is either not reliably known, or the authorization time is fixed for a PSP.</p>
+     *
 
      * @return null|string
      */
@@ -195,8 +198,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
      *
 
      * @return null|Money
@@ -207,8 +209,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Draft type that stores amounts in cent precision for the specified currency.</p>
-     * <p>For storing money values in fractions of the minor unit in a currency, use <a href="ctp:api:type:HighPrecisionMoneyDraft">HighPrecisionMoneyDraft</a> instead.</p>
+     * <p>Deprecated because the value can be calculated from the total amounts saved in the <a href="ctp:api:type:Transaction">Transactions</a>.</p>
      *
 
      * @return null|Money
@@ -219,6 +220,8 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
+     *
 
      * @return null|PaymentMethodInfo
      */
@@ -228,6 +231,8 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * <p>Current status of the Payment.</p>
+     *
 
      * @return null|PaymentStatusDraft
      */
@@ -237,7 +242,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>
+     * <p>Financial transactions of the Payment. Each Transaction has a <a href="ctp:api:type:TransactionType">TransactionType</a> and a <a href="ctp:api:type:TransactionState">TransactionState</a>.</p>
      *
 
      * @return null|TransactionDraftCollection
@@ -248,10 +253,7 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
-     * <p>Interface interactions can be requests send to the PSP, responses received from the PSP or notifications received from the PSP.
-     * Some interactions may result in a transaction.
-     * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
-     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>
+     * <p>Represents information exchange with the payment service, for example, a PSP. An interaction may be a request sent, or a response or notification received from the payment service.</p>
      *
 
      * @return null|CustomFieldsDraftCollection
@@ -262,6 +264,8 @@ final class PaymentDraftBuilder implements Builder
     }
 
     /**
+     * <p>Custom Fields for the Payment.</p>
+     *
 
      * @return null|CustomFieldsDraft
      */

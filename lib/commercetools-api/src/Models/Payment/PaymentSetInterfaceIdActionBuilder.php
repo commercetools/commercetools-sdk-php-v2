@@ -27,6 +27,9 @@ final class PaymentSetInterfaceIdActionBuilder implements Builder
     private $interfaceId;
 
     /**
+     * <p>Value to set.
+     * Once set, the <code>interfaceId</code> cannot be changed.</p>
+     *
 
      * @return null|string
      */

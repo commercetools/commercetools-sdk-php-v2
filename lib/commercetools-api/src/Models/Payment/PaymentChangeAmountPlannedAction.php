@@ -17,6 +17,8 @@ interface PaymentChangeAmountPlannedAction extends PaymentUpdateAction
     public const FIELD_AMOUNT = 'amount';
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|Money
      */

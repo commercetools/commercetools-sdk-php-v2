@@ -57,7 +57,7 @@ final class TransactionBuilder implements Builder
     private $state;
 
     /**
-     * <p>The unique ID of this object.</p>
+     * <p>Unique identifier of the Transaction.</p>
      *
 
      * @return null|string
@@ -68,7 +68,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The time at which the transaction took place.</p>
+     * <p>Time at which the transaction took place.</p>
      *
 
      * @return null|string
@@ -97,7 +97,7 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
+     * <p>Identifier used by the interface that manages the transaction (usually the PSP). If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>
      *
 
      * @return null|string

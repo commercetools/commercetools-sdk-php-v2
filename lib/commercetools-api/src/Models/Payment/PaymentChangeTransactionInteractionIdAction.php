@@ -17,12 +17,16 @@ interface PaymentChangeTransactionInteractionIdAction extends PaymentUpdateActio
     public const FIELD_INTERACTION_ID = 'interactionId';
 
     /**
+     * <p>Unique identifier of the <a href="ctp:api:type:Transaction">Transaction</a>.</p>
+     *
 
      * @return null|string
      */
     public function getTransactionId();
 
     /**
+     * <p>New value to set.</p>
+     *
 
      * @return null|string
      */

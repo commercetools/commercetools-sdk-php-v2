@@ -63,6 +63,9 @@ final class MyPaymentSetMethodInfoInterfaceActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>Value to set.
+     * Once set, the <code>paymentInterface</code> of the <code>paymentMethodInfo</code> cannot be changed.</p>
+     *
      *
      * @return null|string
      */

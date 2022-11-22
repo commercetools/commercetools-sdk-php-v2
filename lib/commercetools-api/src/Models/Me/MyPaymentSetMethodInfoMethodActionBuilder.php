@@ -27,6 +27,9 @@ final class MyPaymentSetMethodInfoMethodActionBuilder implements Builder
     private $method;
 
     /**
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
+     *
 
      * @return null|string
      */

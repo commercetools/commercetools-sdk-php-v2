@@ -17,7 +17,8 @@ interface MyPaymentSetMethodInfoNameAction extends MyPaymentUpdateAction
     public const FIELD_NAME = 'name';
 
     /**
-     * <p>JSON object where the keys are of type <a href="ctp:api:type:Locale">Locale</a>, and the values are the strings used for the corresponding language.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
      *
 
      * @return null|LocalizedString

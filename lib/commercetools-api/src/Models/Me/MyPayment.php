@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\CentPrecisionMoney;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Payment\PaymentMethodInfo;
 use Commercetools\Api\Models\Payment\TransactionCollection;
@@ -28,7 +28,7 @@ interface MyPayment extends JsonObject
     public const FIELD_CUSTOM = 'custom';
 
     /**
-     * <p>Unique identifier of the MyPayment.</p>
+     * <p>Unique identifier of the Payment.</p>
      *
 
      * @return null|string
@@ -36,13 +36,15 @@ interface MyPayment extends JsonObject
     public function getId();
 
     /**
+     * <p>Current version of the Payment.</p>
+     *
 
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>
+     * <p>Reference to a <a href="ctp:api:type:Customer">Customer</a> associated with the Payment. Set automatically with a <a href="/../api/authorization#password-flow">password flow token</a>. Either <code>customer</code> or <code>anonymousId</code> is present.</p>
      *
 
      * @return null|CustomerReference
@@ -50,7 +52,7 @@ interface MyPayment extends JsonObject
     public function getCustomer();
 
     /**
-     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>
+     * <p><a href="/../api/authorization#tokens-for-anonymous-sessions">Anonymous session</a> associated with the Payment. Set automatically with a <a href="/../api/authorization#tokens-for-anonymous-sessions">token for an anonymous session</a>. Either <code>customer</code> or <code>anonymousId</code> is present.</p>
      *
 
      * @return null|string
@@ -58,23 +60,24 @@ interface MyPayment extends JsonObject
     public function getAnonymousId();
 
     /**
-     * <p>How much money this payment intends to receive from the customer.
-     * The value usually matches the cart or order gross total.</p>
+     * <p>Money value the Payment intends to receive from the customer.
+     * The value typically matches the <a href="ctp:api:type:Cart">Cart</a> or <a href="ctp:api:type:Order">Order</a> gross total.</p>
      *
 
-     * @return null|TypedMoney
+     * @return null|CentPrecisionMoney
      */
     public function getAmountPlanned();
 
     /**
+     * <p>Information regarding the payment interface (for example, a PSP), and the specific payment method used.</p>
+     *
 
      * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo();
 
     /**
-     * <p>A list of financial transactions of different TransactionTypes
-     * with different TransactionStates.</p>
+     * <p>Financial transactions of the Payment. Each Transaction has a <a href="ctp:api:type:TransactionType">TransactionType</a> and a <a href="ctp:api:type:TransactionState">TransactionState</a>.</p>
      *
 
      * @return null|TransactionCollection
@@ -82,6 +85,8 @@ interface MyPayment extends JsonObject
     public function getTransactions();
 
     /**
+     * <p>Custom Fields defined for the Payment.</p>
+     *
 
      * @return null|CustomFields
      */
@@ -108,9 +113,9 @@ interface MyPayment extends JsonObject
     public function setAnonymousId(?string $anonymousId): void;
 
     /**
-     * @param ?TypedMoney $amountPlanned
+     * @param ?CentPrecisionMoney $amountPlanned
      */
-    public function setAmountPlanned(?TypedMoney $amountPlanned): void;
+    public function setAmountPlanned(?CentPrecisionMoney $amountPlanned): void;
 
     /**
      * @param ?PaymentMethodInfo $paymentMethodInfo

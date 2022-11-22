@@ -29,7 +29,8 @@ final class PaymentSetCustomerActionBuilder implements Builder
     private $customer;
 
     /**
-     * <p>A reference to the customer this payment belongs to.</p>
+     * <p>Value to set.
+     * If empty, any existing reference is removed.</p>
      *
 
      * @return null|CustomerResourceIdentifier

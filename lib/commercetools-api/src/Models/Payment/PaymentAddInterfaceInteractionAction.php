@@ -19,12 +19,16 @@ interface PaymentAddInterfaceInteractionAction extends PaymentUpdateAction
     public const FIELD_FIELDS = 'fields';
 
     /**
+     * <p><a href="ctp:api:type:ResourceIdentifier">ResourceIdentifier</a> of a <a href="ctp:api:type:Type">Type</a>.</p>
+     *
 
      * @return null|TypeResourceIdentifier
      */
     public function getType();
 
     /**
+     * <p><a href="/../api/projects/custom-fields">Custom Fields</a> as per <a href="ctp:api:type:FieldDefinition">FieldDefinitions</a> of the <a href="ctp:api:type:Type">Type</a>.</p>
+     *
 
      * @return null|FieldContainer
      */

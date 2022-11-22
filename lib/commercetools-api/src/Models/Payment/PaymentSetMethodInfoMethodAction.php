@@ -16,7 +16,8 @@ interface PaymentSetMethodInfoMethodAction extends PaymentUpdateAction
     public const FIELD_METHOD = 'method';
 
     /**
-     * <p>If not provided, the method is unset.</p>
+     * <p>Value to set.
+     * If empty, any existing value will be removed.</p>
      *
 
      * @return null|string
